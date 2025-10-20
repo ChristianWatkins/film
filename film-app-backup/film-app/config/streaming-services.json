@@ -1,0 +1,31 @@
+{
+  "platforms": [
+    { "name": "NRK TV", "enabled": true },
+    { "name": "TV 2 Play", "enabled": true },
+    { "name": "Filmoteket", "enabled": true },
+    { "name": "Netflix", "enabled": true },
+    { "name": "Netflix Kids", "enabled": true },
+    { "name": "Disney Plus", "enabled": true },
+    { "name": "Viaplay", "enabled": true },
+    { "name": "HBO Max", "enabled": true },
+    { "name": "Apple TV", "enabled": true },
+    { "name": "Apple TV+", "enabled": true },
+    { "name": "SkyShowtime", "enabled": true },
+    { "name": "MUBI", "enabled": true },
+    { "name": "Amazon Prime Video", "enabled": true },
+    { "name": "Google Play Movies", "enabled": false },
+    { "name": "Strim", "enabled": false },
+    { "name": "Rakuten TV", "enabled": false },
+    { "name": "SF Anytime", "enabled": false },
+    { "name": "Cineasterna", "enabled": false },
+    { "name": "Blockbuster", "enabled": false },
+    { "name": "DocAlliance Films", "enabled": false },
+    { "name": "FilmBox+", "enabled": false }
+  ],
+  "hideRentBuyIfStreaming": true,
+  "hideBuyIfRent": true,
+  "showOnlyFirstMatch": true,
+  "showMoreIndicator": false,
+  "hideDisabledPlatforms": true
+}
+
