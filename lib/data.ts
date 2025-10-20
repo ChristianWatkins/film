@@ -3,7 +3,7 @@ import path from 'path';
 import type { Film, FestivalFilm, FestivalAppearance, StreamingData, StreamingAvailability } from './types';
 import { hasEnabledStreaming, hasEnabledRent } from './streaming-config';
 
-const DATA_DIR = path.join(process.cwd(), '..', 'data');
+const DATA_DIR = path.join(process.cwd(), 'data');
 
 // Create film key from title and year
 function createFilmKey(title: string, year: number): string {
