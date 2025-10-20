@@ -70,6 +70,20 @@ export default function FilmBrowser({
     [films]
   );
   
+  // Create festival display names for header
+  const festivalDisplayNames: Record<string, string> = {
+    'bergen': 'Bergen',
+    'berlin': 'Berlin',
+    'cannes': 'Cannes',
+    'venice': 'Venice'
+  };
+  
+  const festivalNamesText = availableFestivals
+    .map(festival => festivalDisplayNames[festival] || festival)
+    .sort()
+    .join(', ')
+    .replace(/, ([^,]*)$/, ' & $1'); // Replace last comma with &
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -80,7 +94,7 @@ export default function FilmBrowser({
             <span>Film Festival Browser</span>
           </h1>
           <p className="text-white/90 text-lg font-medium">
-            {films.length} films from Cannes, Bergen & Venice • {streamingCount} available for streaming in Norway
+            {films.length} films from {festivalNamesText} • {streamingCount} available for streaming in Norway
           </p>
         </div>
       </header>
