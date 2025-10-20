@@ -293,24 +293,31 @@ export default function Filters({
       {availableGenres.length > 0 && (
         <div className="mb-6">
           <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => toggleSection('genres')}
+                className="font-semibold text-sm text-gray-900 hover:text-blue-600 transition-colors"
+              >
+                Genre {filters.genres.length > 0 && `(${filters.genres.length})`}
+              </button>
+              {filters.genres.length > 0 && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    clearGenres();
+                  }}
+                  className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
             <button
               onClick={() => toggleSection('genres')}
-              className="flex items-center gap-2 font-semibold text-sm text-gray-900 hover:text-blue-600 transition-colors"
+              className="text-xs text-gray-900 hover:text-blue-600 transition-colors"
             >
-              <span>Genre {filters.genres.length > 0 && `(${filters.genres.length})`}</span>
-              <span className="text-xs">{expandedSections.genres ? '▲' : '▼'}</span>
+              {expandedSections.genres ? '▲' : '▼'}
             </button>
-            {filters.genres.length > 0 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  clearGenres();
-                }}
-                className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
-              >
-                Clear
-              </button>
-            )}
           </div>
           {expandedSections.genres && (
             <div className="space-y-2 max-h-48 overflow-y-auto">
