@@ -1,0 +1,32 @@
+{
+  "name": "mubi-cannes-scraper",
+  "version": "1.0.0",
+  "description": "Scraper for MUBI Cannes Film Festival data",
+  "type": "module",
+  "main": "scraper.js",
+  "scripts": {
+    "scrape": "node scraper.js",
+    "scrape-bergen": "node scraper-bergen.js",
+    "scrape-berlin": "node scraper-berlin.js",
+    "scrape-venice": "node scraper-venice.js",
+    "fetch-streaming": "node fetch-streaming.js",
+    "add-posters": "node add-posters.js",
+    "enhance-films": "node enhance-films.js",
+    "enhance-all": "node enhanced-extractor.js"
+  },
+  "keywords": [
+    "mubi",
+    "cannes",
+    "scraper"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
+    "justwatch-api-client": "^1.0.4",
+    "puppeteer": "^24.0.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}

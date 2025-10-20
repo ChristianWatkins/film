@@ -1,0 +1,342 @@
+[
+  {
+    "title": "AFTERSUN",
+    "year": 2022,
+    "country": "United Kingdom",
+    "director": "Charlotte Wells",
+    "link": "https://mubi.com/en/no/films/aftersun",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "CLOSE",
+    "year": 2022,
+    "country": "Belgium",
+    "director": "Lukas Dhont",
+    "link": "https://mubi.com/en/no/films/close-2022",
+    "awarded": true,
+    "awards": [
+      "Grand Prix"
+    ]
+  },
+  {
+    "title": "DECISION TO LEAVE",
+    "year": 2022,
+    "country": "South Korea",
+    "director": "Park Chan-wook",
+    "link": "https://mubi.com/en/no/films/decision-to-leave",
+    "awarded": true,
+    "awards": [
+      "Best Director"
+    ]
+  },
+  {
+    "title": "SICK OF MYSELF",
+    "year": 2022,
+    "country": "Norway",
+    "director": "Kristoffer Borgli",
+    "link": "https://mubi.com/en/no/films/sick-of-myself-2022",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "HOLY SPIDER",
+    "year": 2022,
+    "country": "Denmark",
+    "director": "Ali Abbasi",
+    "link": "https://mubi.com/en/no/films/holy-spider",
+    "awarded": true,
+    "awards": [
+      "Best Actress"
+    ]
+  },
+  {
+    "title": "THE FIVE DEVILS",
+    "year": 2022,
+    "country": "France",
+    "director": "Léa Mysius",
+    "link": "https://mubi.com/en/no/films/les-cinq-diables",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "LEILA'S BROTHERS",
+    "year": 2022,
+    "country": "Iran",
+    "director": "Saeed Roustayi",
+    "link": "https://mubi.com/en/no/films/leila-s-brothers",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "A SHORT STORY",
+    "year": 2022,
+    "country": "China",
+    "director": "Bi Gan",
+    "link": "https://mubi.com/en/no/films/a-short-story-2022",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "THE BEASTS",
+    "year": 2022,
+    "country": "Spain",
+    "director": "Rodrigo Sorogoyen",
+    "link": "https://mubi.com/en/no/films/the-beasts-2022",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "EVERYBODY LOVES JEANNE",
+    "year": 2022,
+    "country": "France",
+    "director": "Céline Devaux",
+    "link": "https://mubi.com/en/no/films/everybody-loves-jeanne",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "CRIMES OF THE FUTURE",
+    "year": 2022,
+    "country": "Canada",
+    "director": "David Cronenberg",
+    "link": "https://mubi.com/en/no/films/crimes-of-the-future-2022",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "ONE FINE MORNING",
+    "year": 2022,
+    "country": "France",
+    "director": "Mia Hansen-Løve",
+    "link": "https://mubi.com/en/no/films/one-fine-morning-2022",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "TRIANGLE OF SADNESS",
+    "year": 2022,
+    "country": "Sweden",
+    "director": "Ruben Östlund",
+    "link": "https://mubi.com/en/no/films/triangle-of-sadness",
+    "awarded": true,
+    "awards": [
+      "Palme d'Or & 1 other"
+    ]
+  },
+  {
+    "title": "RETURN TO SEOUL",
+    "year": 2022,
+    "country": "France",
+    "director": "Davy Chou",
+    "link": "https://mubi.com/en/no/films/return-to-seoul",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "HIDEOUS",
+    "year": 2022,
+    "country": "United Kingdom",
+    "director": "Yann Gonzalez",
+    "link": "https://mubi.com/en/no/films/hideous-2022",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "EO",
+    "year": 2022,
+    "country": "Poland",
+    "director": "Jerzy Skolimowski",
+    "link": "https://mubi.com/en/no/films/e-o",
+    "awarded": true,
+    "awards": [
+      "Jury Prize"
+    ]
+  },
+  {
+    "title": "THE EIGHT MOUNTAINS",
+    "year": 2022,
+    "country": "Italy",
+    "director": "Felix Van Groeningen, Charlotte Vandermeersch",
+    "link": "https://mubi.com/en/no/films/le-otto-montagne",
+    "awarded": true,
+    "awards": [
+      "Prix du Jury"
+    ]
+  },
+  {
+    "title": "JOYLAND",
+    "year": 2022,
+    "country": "Pakistan",
+    "director": "Saim Sadiq",
+    "link": "https://mubi.com/en/no/films/joyland",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "THE POTEMKINISTS",
+    "year": 2022,
+    "country": "Romania",
+    "director": "Radu Jude",
+    "link": "https://mubi.com/en/no/films/the-potemkinists",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "CORSAGE",
+    "year": 2022,
+    "country": "Austria",
+    "director": "Marie Kreutzer",
+    "link": "https://mubi.com/en/no/films/corsage",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "BROKER",
+    "year": 2022,
+    "country": "South Korea",
+    "director": "Hirokazu Koreeda",
+    "link": "https://mubi.com/en/no/films/broker-2022",
+    "awarded": true,
+    "awards": [
+      "Best Actor"
+    ]
+  },
+  {
+    "title": "PACIFICTION",
+    "year": 2022,
+    "country": "France",
+    "director": "Albert Serra",
+    "link": "https://mubi.com/en/no/films/pacifiction",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "BURNING DAYS",
+    "year": 2022,
+    "country": "Turkey",
+    "director": "Emin Alper",
+    "link": "https://mubi.com/en/no/films/burning-days",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "ARIBADA",
+    "year": 2022,
+    "country": "Germany",
+    "director": "Simon(e) Jaikiriuma Paetau, Natalia Escobar",
+    "link": "https://mubi.com/en/no/films/aribada",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "GODLAND",
+    "year": 2022,
+    "country": "Denmark",
+    "director": "Hlynur Pálmason",
+    "link": "https://mubi.com/en/no/films/godland-2022",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "DE HUMANI CORPORIS FABRICA",
+    "year": 2022,
+    "country": "France",
+    "director": "Verena Paravel, Lucien Castaing-Taylor",
+    "link": "https://mubi.com/en/no/films/de-humani-corporis-fabrica",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "THE INNOCENT",
+    "year": 2022,
+    "country": "France",
+    "director": "Louis Garrel",
+    "link": "https://mubi.com/en/no/films/the-innocent-2022",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "BUTTERFLY VISION",
+    "year": 2022,
+    "country": "Ukraine",
+    "director": "Maksym Nakonechnyi",
+    "link": "https://mubi.com/en/no/films/butterfly-vision",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "MORE THAN EVER",
+    "year": 2022,
+    "country": "France",
+    "director": "Emily Atef",
+    "link": "https://mubi.com/en/no/films/more-than-ever",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "TOP GUN: MAVERICK",
+    "year": 2022,
+    "country": "United States",
+    "director": "Joseph Kosinski",
+    "link": "https://mubi.com/en/no/films/top-gun-maverick",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "R.M.N.",
+    "year": 2022,
+    "country": "Romania",
+    "director": "Cristian Mungiu",
+    "link": "https://mubi.com/en/no/films/r-m-n",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "SMOKING CAUSES COUGHING",
+    "year": 2022,
+    "country": "France",
+    "director": "Quentin Dupieux",
+    "link": "https://mubi.com/en/no/films/smoking-causes-coughing",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "RODEO",
+    "year": 2022,
+    "country": "France",
+    "director": "Lola Quivoron",
+    "link": "https://mubi.com/en/no/films/rodeo-2022",
+    "awarded": true,
+    "awards": [
+      "Un Certain Regard: Jury Prize"
+    ]
+  },
+  {
+    "title": "THE GREEN PERFUME",
+    "year": 2022,
+    "country": "France",
+    "director": "Nicolas Pariser",
+    "link": "https://mubi.com/en/no/films/the-green-perfume",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "PARIS MEMORIES",
+    "year": 2022,
+    "country": "France",
+    "director": "Alice Winocour",
+    "link": "https://mubi.com/en/no/films/paris-memories",
+    "awarded": false,
+    "awards": []
+  },
+  {
+    "title": "SHOWING UP",
+    "year": 2022,
+    "country": "United States",
+    "director": "Kelly Reichardt",
+    "link": "https://mubi.com/en/no/films/showing-up-2021",
+    "awarded": false,
+    "awards": []
+  }
+]
