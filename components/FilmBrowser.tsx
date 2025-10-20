@@ -37,6 +37,7 @@ export default function FilmBrowser({
   
   const [sortBy, setSortBy] = useState<SortOption>('year-desc');
   const [searchQuery, setSearchQuery] = useState('');
+  const [watchlistVersion, setWatchlistVersion] = useState(0);
   
   // Handle genre click from cards
   const handleGenreClick = (genre: string) => {
@@ -61,7 +62,7 @@ export default function FilmBrowser({
     }
     
     return sortFilms(result, sortBy);
-  }, [films, filters, sortBy, searchQuery]);
+  }, [films, filters, sortBy, searchQuery, watchlistVersion]);
   
   // Count streaming films
   const streamingCount = useMemo(() => 
@@ -120,6 +121,7 @@ export default function FilmBrowser({
               sortBy={sortBy}
               onSortChange={(sort) => setSortBy(sort as SortOption)}
               onGenreClick={handleGenreClick}
+              onWatchlistChange={() => setWatchlistVersion(prev => prev + 1)}
             />
           </div>
         </div>

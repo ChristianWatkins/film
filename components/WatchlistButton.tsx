@@ -6,9 +6,10 @@ import { toggleWatchlist, getWatchlist } from '@/lib/watchlist';
 interface WatchlistButtonProps {
   filmKey: string;
   title: string;
+  onChange?: () => void;
 }
 
-export default function WatchlistButton({ filmKey, title }: WatchlistButtonProps) {
+export default function WatchlistButton({ filmKey, title, onChange }: WatchlistButtonProps) {
   const [isInWatchlist, setIsInWatchlist] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   
@@ -24,6 +25,9 @@ export default function WatchlistButton({ filmKey, title }: WatchlistButtonProps
     
     const newState = toggleWatchlist(filmKey, title);
     setIsInWatchlist(newState);
+    
+    // Notify parent component of watchlist change
+    onChange?.();
     
     // Animate
     setIsAnimating(true);

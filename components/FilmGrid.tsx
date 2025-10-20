@@ -9,9 +9,10 @@ interface FilmGridProps {
   sortBy: string;
   onSortChange: (sort: string) => void;
   onGenreClick?: (genre: string) => void;
+  onWatchlistChange?: () => void;
 }
 
-export default function FilmGrid({ films, sortBy, onSortChange, onGenreClick }: FilmGridProps) {
+export default function FilmGrid({ films, sortBy, onSortChange, onGenreClick, onWatchlistChange }: FilmGridProps) {
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
 
   const handleCardFlip = (filmKey: string) => {
@@ -61,6 +62,7 @@ export default function FilmGrid({ films, sortBy, onSortChange, onGenreClick }: 
             isFlipped={flippedCard === film.filmKey}
             onFlip={() => handleCardFlip(film.filmKey)}
             onGenreClick={onGenreClick}
+            onWatchlistChange={onWatchlistChange}
           />
         ))}
       </div>

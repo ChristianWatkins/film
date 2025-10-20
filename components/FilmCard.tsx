@@ -13,9 +13,10 @@ interface FilmCardProps {
   isFlipped: boolean;
   onFlip: () => void;
   onGenreClick?: (genre: string) => void;
+  onWatchlistChange?: () => void;
 }
 
-export default function FilmCard({ film, isFlipped, onFlip, onGenreClick }: FilmCardProps) {
+export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const synopsisRef = useRef<HTMLDivElement>(null);
@@ -100,7 +101,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick }: Film
                     />
                     {/* Watchlist button - top left to avoid flip indicator */}
                     <div className="absolute top-2 left-2 z-10">
-                      <WatchlistButton filmKey={film.filmKey} title={film.title} />
+                      <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
                     </div>
                     
                     {/* Award badges overlay on poster */}
@@ -118,7 +119,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick }: Film
                     </div>
                     {/* Watchlist button - top left to avoid flip indicator */}
                     <div className="absolute top-2 left-2 z-10">
-                      <WatchlistButton filmKey={film.filmKey} title={film.title} />
+                      <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
                     </div>
                     
                     {/* Award badges overlay on placeholder */}
