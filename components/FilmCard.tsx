@@ -12,9 +12,10 @@ interface FilmCardProps {
   film: Film;
   isFlipped: boolean;
   onFlip: () => void;
+  onGenreClick?: (genre: string) => void;
 }
 
-export default function FilmCard({ film, isFlipped, onFlip }: FilmCardProps) {
+export default function FilmCard({ film, isFlipped, onFlip, onGenreClick }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const synopsisRef = useRef<HTMLDivElement>(null);
@@ -264,12 +265,18 @@ export default function FilmCard({ film, isFlipped, onFlip }: FilmCardProps) {
                     >
                       <div className="flex flex-wrap gap-1 justify-center">
                         {film.genres.slice(0, 4).map((genre, idx) => (
-                          <span
+                          <button
                             key={idx}
-                            className="px-2 py-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-200 text-xs font-medium rounded-full border border-blue-400/30 backdrop-blur-sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onGenreClick?.(genre);
+                              onFlip(); // Flip card back to front side
+                            }}
+                            className="px-2 py-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-200 text-xs font-medium rounded-full border border-blue-400/30 backdrop-blur-sm hover:from-blue-500/30 hover:to-purple-500/30 hover:border-blue-300/50 transition-all duration-200 cursor-pointer"
+                            title={`Filter by ${genre}`}
                           >
                             {genre}
-                          </span>
+                          </button>
                         ))}
                       </div>
                     </motion.div>

@@ -12,6 +12,7 @@ interface FilmBrowserProps {
   availableFestivals: string[];
   availablePlatforms: string[];
   availableCountries: string[];
+  availableGenres: string[];
 }
 
 export default function FilmBrowser({
@@ -19,12 +20,14 @@ export default function FilmBrowser({
   availableYears,
   availableFestivals,
   availablePlatforms,
-  availableCountries
+  availableCountries,
+  availableGenres
 }: FilmBrowserProps) {
   const [filters, setFilters] = useState<FilterState>({
     festivals: [],
     years: [],
     countries: [],
+    genres: [],
     awardedOnly: false,
     watchlistOnly: false,
     showStreaming: true,  // Default: show streaming films
@@ -34,6 +37,15 @@ export default function FilmBrowser({
   
   const [sortBy, setSortBy] = useState<SortOption>('year-desc');
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Handle genre click from cards
+  const handleGenreClick = (genre: string) => {
+    const newGenres = filters.genres.includes(genre)
+      ? filters.genres.filter(g => g !== genre) // Remove if already selected
+      : [...filters.genres, genre]; // Add if not selected
+    
+    setFilters({ ...filters, genres: newGenres });
+  };
   
   // Apply filters and sorting
   const filteredAndSortedFilms = useMemo(() => {
@@ -97,6 +109,7 @@ export default function FilmBrowser({
               availableFestivals={availableFestivals}
               availablePlatforms={availablePlatforms}
               availableCountries={availableCountries}
+              availableGenres={availableGenres}
             />
           </div>
           
@@ -106,6 +119,7 @@ export default function FilmBrowser({
               films={filteredAndSortedFilms} 
               sortBy={sortBy}
               onSortChange={(sort) => setSortBy(sort as SortOption)}
+              onGenreClick={handleGenreClick}
             />
           </div>
         </div>

@@ -193,3 +193,14 @@ export function getUniqueCountries(films: Film[]): string[] {
   return Array.from(countries).sort();
 }
 
+// Get unique genres from films
+export function getUniqueGenres(films: Film[]): string[] {
+  const genres = new Set<string>();
+  films.forEach(film => {
+    if (film.genres) {
+      film.genres.forEach(genre => genres.add(genre));
+    }
+  });
+  return Array.from(genres).sort();
+}
+

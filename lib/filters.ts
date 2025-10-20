@@ -24,6 +24,11 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
       if (!film.country || !filters.countries.includes(film.country)) return false;
     }
     
+    // Genre filter
+    if (filters.genres.length > 0) {
+      if (!film.genres || !film.genres.some(genre => filters.genres.includes(genre))) return false;
+    }
+    
     // Watchlist filter
     if (filters.watchlistOnly) {
       if (!watchlist || !watchlist.has(film.filmKey)) return false;

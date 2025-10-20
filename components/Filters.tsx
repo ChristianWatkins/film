@@ -10,6 +10,7 @@ interface FiltersProps {
   availableFestivals: string[];
   availablePlatforms: string[];
   availableCountries: string[];
+  availableGenres: string[];
 }
 
 export default function Filters({
@@ -18,7 +19,8 @@ export default function Filters({
   availableYears,
   availableFestivals,
   availablePlatforms,
-  availableCountries
+  availableCountries,
+  availableGenres
 }: FiltersProps) {
   
   // Map internal festival names to display names
@@ -57,11 +59,23 @@ export default function Filters({
     onChange({ ...filters, selectedPlatforms: newPlatforms });
   };
   
+  const toggleGenre = (genre: string) => {
+    const newGenres = filters.genres.includes(genre)
+      ? filters.genres.filter(g => g !== genre)
+      : [...filters.genres, genre];
+    onChange({ ...filters, genres: newGenres });
+  };
+  
+  const clearGenres = () => {
+    onChange({ ...filters, genres: [] });
+  };
+  
   const clearAllFilters = () => {
     onChange({
       festivals: [],
       years: [],
       countries: [],
+      genres: [],
       awardedOnly: false,
       watchlistOnly: false,
       showStreaming: false,
@@ -74,6 +88,7 @@ export default function Filters({
     filters.festivals.length > 0 ||
     filters.years.length > 0 ||
     filters.countries.length > 0 ||
+    filters.genres.length > 0 ||
     filters.awardedOnly ||
     filters.watchlistOnly ||
     filters.showStreaming ||
@@ -83,10 +98,11 @@ export default function Filters({
   // Collapsible section state
   const [expandedSections, setExpandedSections] = useState({
     country: false,
-    platforms: false
+    platforms: false,
+    genres: false
   });
   
-  const toggleSection = (section: 'country' | 'platforms') => {
+  const toggleSection = (section: 'country' | 'platforms' | 'genres') => {
     setExpandedSections(prev => ({
       ...prev,
       [section]: !prev[section]
@@ -266,6 +282,47 @@ export default function Filters({
                     className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                   />
                   <span className="ml-2 text-sm text-gray-900">{country}</span>
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+      
+      {/* Genre Filter - Collapsible */}
+      {availableGenres.length > 0 && (
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-2">
+            <button
+              onClick={() => toggleSection('genres')}
+              className="flex items-center gap-2 font-semibold text-sm text-gray-900 hover:text-blue-600 transition-colors"
+            >
+              <span>Genre {filters.genres.length > 0 && `(${filters.genres.length})`}</span>
+              <span className="text-xs">{expandedSections.genres ? '▲' : '▼'}</span>
+            </button>
+            {filters.genres.length > 0 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  clearGenres();
+                }}
+                className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          {expandedSections.genres && (
+            <div className="space-y-2 max-h-48 overflow-y-auto">
+              {availableGenres.map(genre => (
+                <label key={genre} className="flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={filters.genres.includes(genre)}
+                    onChange={() => toggleGenre(genre)}
+                    className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                  />
+                  <span className="ml-2 text-sm text-gray-900">{genre}</span>
                 </label>
               ))}
             </div>

@@ -1,4 +1,4 @@
-import { getAllFilms, getUniqueYears, getUniqueFestivals, getUniqueProviders, getUniqueCountries } from '@/lib/data';
+import { getAllFilms, getUniqueYears, getUniqueFestivals, getUniqueProviders, getUniqueCountries, getUniqueGenres } from '@/lib/data';
 import FilmBrowser from '@/components/FilmBrowser';
 
 export default async function Home() {
@@ -10,6 +10,7 @@ export default async function Home() {
   const availableFestivals = getUniqueFestivals(films);
   const availablePlatforms = getUniqueProviders(films);
   const availableCountries = getUniqueCountries(films);
+  const availableGenres = getUniqueGenres(films);
   
   return (
     <FilmBrowser
@@ -18,6 +19,7 @@ export default async function Home() {
       availableFestivals={availableFestivals}
       availablePlatforms={availablePlatforms}
       availableCountries={availableCountries}
+      availableGenres={availableGenres}
     />
   );
 }
