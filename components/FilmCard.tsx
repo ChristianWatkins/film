@@ -21,6 +21,73 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
+
+  // Helper function to get country code
+  const getCountryCode = (country: string): string => {
+    const countryCodes: { [key: string]: string } = {
+      'Norway': 'NOR',
+      'United States': 'USA',
+      'USA': 'USA',
+      'United Kingdom': 'UK',
+      'UK': 'UK',
+      'France': 'FRA',
+      'Germany': 'GER',
+      'Italy': 'ITA',
+      'Spain': 'ESP',
+      'Canada': 'CAN',
+      'Australia': 'AUS',
+      'Japan': 'JPN',
+      'South Korea': 'KOR',
+      'China': 'CHN',
+      'Brazil': 'BRA',
+      'Mexico': 'MEX',
+      'Russia': 'RUS',
+      'India': 'IND',
+      'Sweden': 'SWE',
+      'Denmark': 'DEN',
+      'Finland': 'FIN',
+      'Netherlands': 'NED',
+      'Belgium': 'BEL',
+      'Switzerland': 'SUI',
+      'Austria': 'AUT',
+      'Poland': 'POL',
+      'Czech Republic': 'CZE',
+      'Hungary': 'HUN',
+      'Argentina': 'ARG',
+      'Chile': 'CHI',
+      'South Africa': 'RSA',
+      'Turkey': 'TUR',
+      'Greece': 'GRE',
+      'Portugal': 'POR',
+      'Ireland': 'IRE',
+      'Israel': 'ISR',
+      'Iran': 'IRN',
+      'Thailand': 'THA',
+      'Indonesia': 'IDN',
+      'Philippines': 'PHI',
+      'Malaysia': 'MAS',
+      'Singapore': 'SGP',
+      'New Zealand': 'NZL',
+      'Egypt': 'EGY',
+      'Morocco': 'MAR',
+      'Nigeria': 'NGA',
+      'Kenya': 'KEN',
+      'Colombia': 'COL',
+      'Peru': 'PER',
+      'Venezuela': 'VEN',
+      'Ukraine': 'UKR',
+      'Romania': 'ROU',
+      'Bulgaria': 'BUL',
+      'Serbia': 'SRB',
+      'Croatia': 'CRO',
+      'Slovenia': 'SVN',
+      'Slovakia': 'SVK',
+      'Lithuania': 'LTU',
+      'Latvia': 'LAT',
+      'Estonia': 'EST'
+    };
+    return countryCodes[country] || country.substring(0, 3).toUpperCase();
+  };
   
   useEffect(() => {
     if (isFlipped && synopsisRef.current && textRef.current && !isExpanded) {
@@ -258,9 +325,27 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <div className="font-medium text-slate-200 text-sm">{film.director}</div>
                 )}
                 <div className="flex items-center justify-center gap-1.5 text-xs">
-                  {film.year && <span className="bg-white/10 px-2 rounded text-xs h-8 inline-flex items-center justify-center">{film.year}</span>}
-                  {film.runtime && <span className="bg-white/10 px-2 rounded text-xs h-8 inline-flex items-center justify-center">{film.runtime} min</span>}
-                  {film.country && <span className="bg-white/10 px-2 rounded text-xs h-8 inline-flex items-center justify-center">{film.country}</span>}
+                  {film.year && (
+                    <span className="bg-white/10 px-2 rounded text-xs h-6 inline-flex items-center justify-center">
+                      {film.year}
+                    </span>
+                  )}
+                  {film.runtime && (
+                    <span className="bg-white/10 px-2 rounded text-xs h-6 inline-flex items-center justify-center gap-1">
+                      {film.runtime}<span className="text-[9px] opacity-60">min</span>
+                    </span>
+                  )}
+                  {film.country && (
+                    <span className="relative group">
+                      <span className="bg-white/10 px-2 rounded text-xs h-6 inline-flex items-center justify-center cursor-help">
+                        {getCountryCode(film.country)}
+                      </span>
+                      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-black/90 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                        {film.country}
+                        <span className="absolute top-full left-1/2 transform -translate-x-1/2 border-l-4 border-r-4 border-t-4 border-transparent border-t-black/90"></span>
+                      </span>
+                    </span>
+                  )}
                 </div>
               </div>
             </motion.div>
