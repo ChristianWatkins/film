@@ -84,7 +84,8 @@ export default function Filters({
       watchlistOnly: false,
       showStreaming: false,
       showRentBuy: false,
-      selectedPlatforms: []
+      selectedPlatforms: [],
+      searchQuery: ''
     });
   };
   
@@ -97,7 +98,8 @@ export default function Filters({
     filters.watchlistOnly ||
     filters.showStreaming ||
     filters.showRentBuy ||
-    filters.selectedPlatforms.length > 0;
+    filters.selectedPlatforms.length > 0 ||
+    filters.searchQuery.trim().length > 0;
   
   // Collapsible section state
   const [expandedSections, setExpandedSections] = useState({
@@ -105,10 +107,16 @@ export default function Filters({
     year: false,
     country: false,
     platforms: false,
-    genres: false
+    genres: false,
+    availability: false,
+    special: false
   });
   
-  const toggleSection = (section: 'festival' | 'year' | 'country' | 'platforms' | 'genres') => {
+  // Search states for filterable sections
+  const [countrySearch, setCountrySearch] = useState('');
+  const [platformSearch, setPlatformSearch] = useState('');
+  
+  const toggleSection = (section: 'festival' | 'year' | 'country' | 'platforms' | 'genres' | 'availability' | 'special') => {
     setExpandedSections(prev => ({
       ...prev,
       [section]: !prev[section]
@@ -118,8 +126,39 @@ export default function Filters({
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden sticky top-4 max-h-[calc(100vh-2rem)] flex flex-col border border-gray-200">
       {/* Enhanced Filters Header */}
-      <div className="bg-gradient-to-r from-gray-800 to-slate-800 px-6 py-4 flex items-center justify-between border-b border-gray-700">
-        <h2 className="text-xl font-bold text-white">Filters</h2>
+      <div className="bg-gradient-to-r from-gray-100 to-gray-200 px-6 py-4 flex items-center justify-between border-b border-gray-300">
+        <h2 className="text-xl font-bold text-gray-800">Filters</h2>
+      </div>
+      
+      {/* Search Field */}
+      <div className="p-6 border-b border-gray-200 bg-white">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search films, directors, genres, cast..."
+            value={filters.searchQuery}
+            onChange={(e) => onChange({ ...filters, searchQuery: e.target.value })}
+            className="w-full px-4 py-3 pl-10 pr-4 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          />
+          <svg 
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          {filters.searchQuery && (
+            <button
+              onClick={() => onChange({ ...filters, searchQuery: '' })}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
+        </div>
       </div>
       
       {/* Active Filters Summary */}
@@ -137,6 +176,17 @@ export default function Filters({
             </button>
           </div>
           <div className="flex flex-wrap gap-1">
+            {filters.searchQuery.trim() && (
+              <span className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
+                Search: "{filters.searchQuery}"
+                <button 
+                  onClick={() => onChange({ ...filters, searchQuery: '' })}
+                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  ×
+                </button>
+              </span>
+            )}
             {filters.genres.map(genre => (
               <span key={`active-genre-${genre}`} className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
                 {genre}
@@ -246,17 +296,23 @@ export default function Filters({
       {/* Availability Filter - Enhanced */}
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <div className="px-4 py-3 bg-gradient-to-r from-gray-800 to-slate-800 border-b border-gray-700">
-            <div className="flex items-center justify-between">
+          <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
+            <button
+              className="w-full flex items-center justify-between text-left"
+              onClick={() => toggleSection('availability')}
+            >
               <div className="flex items-center gap-2">
-                <span className="font-medium text-white">Availability</span>
+                <span className="font-medium text-gray-700">Availability</span>
                 {(filters.showStreaming || filters.showRentBuy) && (
                   <>
                     <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
                       {(filters.showStreaming ? 1 : 0) + (filters.showRentBuy ? 1 : 0)}
                     </span>
                     <button
-                      onClick={() => onChange({ ...filters, showStreaming: false, showRentBuy: false })}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onChange({ ...filters, showStreaming: false, showRentBuy: false });
+                      }}
                       className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors ml-1"
                     >
                       Clear
@@ -264,10 +320,13 @@ export default function Filters({
                   </>
                 )}
               </div>
-            </div>
+              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.availability ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
           </div>
           
-          <div className="px-4 py-3 bg-white">
+          {expandedSections.availability && (
             <div className="space-y-1">
               <label className="flex items-center py-1 px-2 rounded hover:bg-gray-50 cursor-pointer group">
                 <div className="relative">
@@ -342,24 +401,30 @@ export default function Filters({
                 <span className="ml-3 text-sm text-gray-900">Rent/Buy</span>
               </label>
             </div>
-          </div>
+          )}
         </div>
       </div>
       
       {/* Special Filter - Enhanced */}
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <div className="px-4 py-3 bg-gradient-to-r from-gray-800 to-slate-800 border-b border-gray-700">
-            <div className="flex items-center justify-between">
+          <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
+            <button
+              className="w-full flex items-center justify-between text-left"
+              onClick={() => toggleSection('special')}
+            >
               <div className="flex items-center gap-2">
-                <span className="font-medium text-white">Special</span>
+                <span className="font-medium text-gray-700">Special</span>
                 {(filters.watchlistOnly || filters.awardedOnly) && (
                   <>
                     <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
                       {(filters.watchlistOnly ? 1 : 0) + (filters.awardedOnly ? 1 : 0)}
                     </span>
                     <button
-                      onClick={() => onChange({ ...filters, watchlistOnly: false, awardedOnly: false })}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onChange({ ...filters, watchlistOnly: false, awardedOnly: false });
+                      }}
                       className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors ml-1"
                     >
                       Clear
@@ -367,87 +432,92 @@ export default function Filters({
                   </>
                 )}
               </div>
-            </div>
+              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.special ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
           </div>
           
-          <div className="px-4 py-3 bg-white">
-            <div className="space-y-1">
-              {/* Watchlist Toggle */}
-              <div className="flex items-center justify-between py-1 px-2 rounded hover:bg-gray-50 transition-colors">
-                <div className="flex items-center">
-                  <span className="text-sm font-medium text-gray-900">My Watchlist</span>
-                  <svg 
-                    className={`w-4 h-4 ml-3 transition-all duration-200 ${
-                      filters.watchlistOnly 
-                        ? 'text-red-500 fill-red-500' 
-                        : 'text-gray-600 fill-none'
-                    }`} 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <button
-                  onClick={() => onChange({ ...filters, watchlistOnly: !filters.watchlistOnly })}
-                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 ${
-                    filters.watchlistOnly ? 'bg-red-500' : 'bg-gray-200'
-                  }`}
-                >
-                  <span
-                    className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
-                      filters.watchlistOnly ? 'translate-x-5' : 'translate-x-1'
+          {expandedSections.special && (
+            <div className="px-4 py-3 bg-white">
+              <div className="space-y-1">
+                {/* Watchlist Toggle */}
+                <div className="flex items-center justify-between py-1 px-2 rounded hover:bg-gray-50 transition-colors">
+                  <div className="flex items-center">
+                    <span className="text-sm font-medium text-gray-900">My Watchlist</span>
+                    <svg 
+                      className={`w-4 h-4 ml-3 transition-all duration-200 ${
+                        filters.watchlistOnly 
+                          ? 'text-red-500 fill-red-500' 
+                          : 'text-gray-600 fill-none'
+                      }`} 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <button
+                    onClick={() => onChange({ ...filters, watchlistOnly: !filters.watchlistOnly })}
+                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 ${
+                      filters.watchlistOnly ? 'bg-red-500' : 'bg-gray-200'
                     }`}
-                  />
-                </button>
-              </div>
-              
-              {/* Awarded Films Toggle */}
-              <div className="flex items-center justify-between py-1 px-2 rounded hover:bg-gray-50 transition-colors">
-                <div className="flex items-center">
-                  <span className="text-sm font-medium text-gray-900">Awarded films</span>
-                  <svg 
-                    className={`w-4 h-4 ml-3 transition-all duration-200 ${
-                      filters.awardedOnly 
-                        ? 'text-yellow-500 fill-yellow-500' 
-                        : 'text-gray-600 fill-none'
-                    }`} 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                  </svg>
+                    <span
+                      className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
+                        filters.watchlistOnly ? 'translate-x-5' : 'translate-x-1'
+                      }`}
+                    />
+                  </button>
                 </div>
-                <button
-                  onClick={() => onChange({ ...filters, awardedOnly: !filters.awardedOnly })}
-                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-1 ${
-                    filters.awardedOnly ? 'bg-yellow-500' : 'bg-gray-200'
-                  }`}
-                >
-                  <span
-                    className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
-                      filters.awardedOnly ? 'translate-x-5' : 'translate-x-1'
+                
+                {/* Awarded Films Toggle */}
+                <div className="flex items-center justify-between py-1 px-2 rounded hover:bg-gray-50 transition-colors">
+                  <div className="flex items-center">
+                    <span className="text-sm font-medium text-gray-900">Awarded films</span>
+                    <svg 
+                      className={`w-4 h-4 ml-3 transition-all duration-200 ${
+                        filters.awardedOnly 
+                          ? 'text-yellow-500 fill-yellow-500' 
+                          : 'text-gray-600 fill-none'
+                      }`} 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                    </svg>
+                  </div>
+                  <button
+                    onClick={() => onChange({ ...filters, awardedOnly: !filters.awardedOnly })}
+                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-1 ${
+                      filters.awardedOnly ? 'bg-yellow-500' : 'bg-gray-200'
                     }`}
-                  />
-                </button>
+                  >
+                    <span
+                      className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
+                        filters.awardedOnly ? 'translate-x-5' : 'translate-x-1'
+                      }`}
+                    />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
       
       {/* Festival Filter - Enhanced */}
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <div className="px-4 py-3 bg-gradient-to-r from-gray-800 to-slate-800 border-b border-gray-700">
+          <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
             <button
               className="w-full flex items-center justify-between text-left"
               onClick={() => toggleSection('festival')}
             >
               <div className="flex items-center gap-2">
-                <span className="font-medium text-white">Festival</span>
+                <span className="font-medium text-gray-700">Festival</span>
                 {filters.festivals.length > 0 && (
                   <>
                     <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
@@ -465,7 +535,7 @@ export default function Filters({
                   </>
                 )}
               </div>
-              <svg className={`w-4 h-4 transition-transform duration-200 ${expandedSections.festival ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.festival ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -509,13 +579,13 @@ export default function Filters({
       {/* Year Filter - Enhanced */}
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <div className="px-4 py-3 bg-gradient-to-r from-gray-800 to-slate-800 border-b border-gray-700">
+          <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
             <button
               className="w-full flex items-center justify-between text-left"
               onClick={() => toggleSection('year')}
             >
               <div className="flex items-center gap-2">
-                <span className="font-medium text-white">Year</span>
+                <span className="font-medium text-gray-700">Year</span>
                 {filters.years.length > 0 && (
                   <>
                     <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
@@ -533,7 +603,7 @@ export default function Filters({
                   </>
                 )}
               </div>
-              <svg className={`w-4 h-4 transition-transform duration-200 ${expandedSections.year ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.year ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -578,48 +648,93 @@ export default function Filters({
           <div className="border border-gray-200 rounded-lg overflow-hidden">
             <button 
               onClick={() => toggleSection('country')}
-              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-800 to-slate-800 hover:from-gray-700 hover:to-slate-700 transition-all border-b border-gray-700 flex items-center justify-between"
+              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between"
             >
               <div className="flex items-center">
-                <span className="font-medium text-white">Country</span>
+                <span className="font-medium text-gray-700">Country</span>
                 {filters.countries.length > 0 && (
                   <span className="ml-2 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
                     {filters.countries.length}
                   </span>
                 )}
               </div>
-              <svg className={`w-4 h-4 transition-transform duration-200 ${expandedSections.country ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.country ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             
             {expandedSections.country && (
-              <div className="px-4 py-3 bg-white max-h-48 overflow-y-auto">
-                <div className="space-y-1">
-                  {availableCountries.map(country => (
-                    <label key={country} className="flex items-center py-1 px-2 rounded hover:bg-gray-50 cursor-pointer group">
-                      <div className="relative">
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={filters.countries.includes(country)}
-                          onChange={() => toggleCountry(country)}
-                        />
-                        <div className={`w-4 h-4 rounded border-2 transition-all ${
-                          filters.countries.includes(country)
-                            ? 'bg-blue-500 border-blue-500'
-                            : '  group-hover:border-blue-400'
-                        }`}>
-                          {filters.countries.includes(country) && (
-                            <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          )}
-                        </div>
+              <div className="bg-white">
+                {/* Country Search */}
+                <div className="px-4 pt-3 pb-2 border-b border-gray-100">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="Search countries..."
+                      value={countrySearch}
+                      onChange={(e) => setCountrySearch(e.target.value)}
+                      className="w-full px-3 py-2 pl-8 pr-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    />
+                    <svg 
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    {countrySearch && (
+                      <button
+                        onClick={() => setCountrySearch('')}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                </div>
+                
+                {/* Country List */}
+                <div className="px-4 py-3 max-h-48 overflow-y-auto">
+                  <div className="space-y-1">
+                    {availableCountries
+                      .filter(country => 
+                        country.toLowerCase().includes(countrySearch.toLowerCase())
+                      )
+                      .map(country => (
+                        <label key={country} className="flex items-center py-1 px-2 rounded hover:bg-gray-50 cursor-pointer group">
+                          <div className="relative">
+                            <input
+                              type="checkbox"
+                              className="sr-only"
+                              checked={filters.countries.includes(country)}
+                              onChange={() => toggleCountry(country)}
+                            />
+                            <div className={`w-4 h-4 rounded border-2 transition-all ${
+                              filters.countries.includes(country)
+                                ? 'bg-blue-500 border-blue-500'
+                                : 'border-gray-300 group-hover:border-blue-400'
+                            }`}>
+                              {filters.countries.includes(country) && (
+                                <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                              )}
+                            </div>
+                          </div>
+                          <span className="ml-3 text-sm text-gray-900">{country}</span>
+                        </label>
+                      ))}
+                    {countrySearch && availableCountries.filter(country => 
+                      country.toLowerCase().includes(countrySearch.toLowerCase())
+                    ).length === 0 && (
+                      <div className="text-center py-4 text-gray-500 text-sm">
+                        No countries found matching "{countrySearch}"
                       </div>
-                      <span className="ml-3 text-sm text-gray-900 ">{country}</span>
-                    </label>
-                  ))}
+                    )}
+                  </div>
                 </div>
               </div>
             )}
@@ -633,10 +748,10 @@ export default function Filters({
           <div className="border border-gray-200  rounded-lg overflow-hidden">
             <button 
               onClick={() => toggleSection('genres')}
-              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-800 to-slate-800 hover:from-gray-700 hover:to-slate-700 transition-all border-b border-gray-700 flex items-center justify-between"
+              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between"
             >
               <div className="flex items-center gap-2">
-                <span className="font-medium text-white">Genre</span>
+                <span className="font-medium text-gray-700">Genres</span>
                 {filters.genres.length > 0 && (
                   <>
                     <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
@@ -654,7 +769,7 @@ export default function Filters({
                   </>
                 )}
               </div>
-              <svg className={`w-4 h-4 transition-transform duration-200 ${expandedSections.genres ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.genres ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -699,10 +814,10 @@ export default function Filters({
           <div className="border border-gray-200  rounded-lg overflow-hidden">
             <button 
               onClick={() => toggleSection('platforms')}
-              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-800 to-slate-800 hover:from-gray-700 hover:to-slate-700 transition-all border-b border-gray-700 flex items-center justify-between"
+              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between"
             >
               <div className="flex items-center gap-2">
-                <span className="font-medium text-white">Platforms</span>
+                <span className="font-medium text-gray-700">Platforms</span>
                 {filters.selectedPlatforms.length > 0 && (
                   <>
                     <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
@@ -720,38 +835,83 @@ export default function Filters({
                   </>
                 )}
               </div>
-              <svg className={`w-4 h-4 transition-transform duration-200 ${expandedSections.platforms ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.platforms ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             
             {expandedSections.platforms && (
-              <div className="px-4 py-3 bg-white  max-h-48 overflow-y-auto">
-                <div className="space-y-1">
-                  {availablePlatforms.map(platform => (
-                    <label key={platform} className="flex items-center py-1.5 px-2 rounded hover:  cursor-pointer group">
-                      <div className="relative">
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={filters.selectedPlatforms.includes(platform)}
-                          onChange={() => togglePlatform(platform)}
-                        />
-                        <div className={`w-4 h-4 rounded border-2 transition-all ${
-                          filters.selectedPlatforms.includes(platform)
-                            ? 'bg-blue-500 border-blue-500'
-                            : '  group-hover:border-blue-400'
-                        }`}>
-                          {filters.selectedPlatforms.includes(platform) && (
-                            <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          )}
-                        </div>
+              <div className="bg-white">
+                {/* Platform Search */}
+                <div className="px-4 pt-3 pb-2 border-b border-gray-100">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="Search platforms..."
+                      value={platformSearch}
+                      onChange={(e) => setPlatformSearch(e.target.value)}
+                      className="w-full px-3 py-2 pl-8 pr-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    />
+                    <svg 
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    {platformSearch && (
+                      <button
+                        onClick={() => setPlatformSearch('')}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                </div>
+                
+                {/* Platform List */}
+                <div className="px-4 py-3 max-h-48 overflow-y-auto">
+                  <div className="space-y-1">
+                    {availablePlatforms
+                      .filter(platform => 
+                        platform.toLowerCase().includes(platformSearch.toLowerCase())
+                      )
+                      .map(platform => (
+                        <label key={platform} className="flex items-center py-1.5 px-2 rounded hover:bg-gray-50 cursor-pointer group">
+                          <div className="relative">
+                            <input
+                              type="checkbox"
+                              className="sr-only"
+                              checked={filters.selectedPlatforms.includes(platform)}
+                              onChange={() => togglePlatform(platform)}
+                            />
+                            <div className={`w-4 h-4 rounded border-2 transition-all ${
+                              filters.selectedPlatforms.includes(platform)
+                                ? 'bg-blue-500 border-blue-500'
+                                : 'border-gray-300 group-hover:border-blue-400'
+                            }`}>
+                              {filters.selectedPlatforms.includes(platform) && (
+                                <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                              )}
+                            </div>
+                          </div>
+                          <span className="ml-3 text-sm text-gray-900">{platform}</span>
+                        </label>
+                      ))}
+                    {platformSearch && availablePlatforms.filter(platform => 
+                      platform.toLowerCase().includes(platformSearch.toLowerCase())
+                    ).length === 0 && (
+                      <div className="text-center py-4 text-gray-500 text-sm">
+                        No platforms found matching "{platformSearch}"
                       </div>
-                      <span className="ml-3 text-sm text-gray-900 ">{platform}</span>
-                    </label>
-                  ))}
+                    )}
+                  </div>
                 </div>
               </div>
             )}

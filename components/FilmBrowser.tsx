@@ -32,11 +32,11 @@ export default function FilmBrowser({
     watchlistOnly: false,
     showStreaming: true,  // Default: show streaming films
     showRentBuy: true,    // Default: show rent/buy films
-    selectedPlatforms: []
+    selectedPlatforms: [],
+    searchQuery: ''
   });
   
   const [sortBy, setSortBy] = useState<SortOption>('year-desc');
-  const [searchQuery, setSearchQuery] = useState('');
   const [watchlistVersion, setWatchlistVersion] = useState(0);
   
   // Handle genre click from cards
@@ -53,16 +53,20 @@ export default function FilmBrowser({
     let result = applyFilters(films, filters);
     
     // Apply search
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
+    if (filters.searchQuery.trim()) {
+      const query = filters.searchQuery.toLowerCase();
       result = result.filter(film =>
         film.title.toLowerCase().includes(query) ||
-        film.director?.toLowerCase().includes(query)
+        film.director?.toLowerCase().includes(query) ||
+        film.synopsis?.toLowerCase().includes(query) ||
+        film.genres?.some(genre => genre.toLowerCase().includes(query)) ||
+        film.cast?.some(actor => actor.toLowerCase().includes(query)) ||
+        film.country?.toLowerCase().includes(query)
       );
     }
     
     return sortFilms(result, sortBy);
-  }, [films, filters, sortBy, searchQuery, watchlistVersion]);
+  }, [films, filters, sortBy, watchlistVersion]);
   
   // Count streaming films
   const streamingCount = useMemo(() => 

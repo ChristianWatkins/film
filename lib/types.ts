@@ -103,5 +103,6 @@ export interface FilterState {
   showStreaming: boolean;
   showRentBuy: boolean;
   selectedPlatforms: string[];
+  searchQuery: string;
 }
 
