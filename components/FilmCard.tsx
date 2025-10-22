@@ -391,43 +391,41 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   y: isFlipped ? 0 : 20
                 }}
                 transition={{ delay: isFlipped ? 0.2 : 0, duration: 0.3 }}
-                className="mb-3 flex-1 flex flex-col min-h-0"
+                className="mb-3"
               >
-                <h4 className="text-xs font-semibold text-slate-200 mb-1 flex items-center gap-1 flex-shrink-0">
+                <h4 className="text-xs font-semibold text-slate-200 mb-1 mt-1 flex items-center gap-1 flex-shrink-0">
                   <span className="w-0.5 h-3 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></span>
                   Synopsis
                 </h4>
-                <div className="bg-white/5 rounded p-2 border border-white/10 backdrop-blur-sm flex-1 flex flex-col min-h-0">
-                  <motion.div
-                    ref={synopsisRef}
-                    initial={false}
-                    animate={{ 
-                      maxHeight: isExpanded ? '20rem' : '12rem'
+                <motion.div
+                  ref={synopsisRef}
+                  initial={false}
+                  animate={{ 
+                    maxHeight: isExpanded ? '20rem' : '12rem'
+                  }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <p ref={textRef} className="text-xs text-slate-300 leading-relaxed">
+                    {film.synopsis}
+                  </p>
+                </motion.div>
+                {isTextTruncated && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsExpanded(!isExpanded);
                     }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="overflow-hidden flex-1"
+                    className="mt-2 text-xs text-blue-300 hover:text-blue-200 transition-colors focus:outline-none self-start flex-shrink-0"
                   >
-                    <p ref={textRef} className="text-xs text-slate-300 leading-relaxed">
-                      {film.synopsis}
-                    </p>
-                  </motion.div>
-                  {isTextTruncated && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setIsExpanded(!isExpanded);
-                      }}
-                      className="mt-2 text-xs text-blue-300 hover:text-blue-200 transition-colors focus:outline-none self-start flex-shrink-0"
-                    >
-                      {isExpanded ? 'Show less' : 'Show all'}
-                    </button>
-                  )}
-                </div>
+                    {isExpanded ? 'Show less' : 'Show all'}
+                  </button>
+                )}
               </motion.div>
             )}
 
             {/* Bottom section - Cast and Festivals */}
-            <div className="space-y-2 mt-auto">
+            <div className="space-y-2">
               {/* Cast - compact */}
               {film.cast && film.cast.length > 0 && (
                 <motion.div
@@ -438,16 +436,14 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   }}
                   transition={{ delay: isFlipped ? 0.25 : 0, duration: 0.3 }}
                 >
-                  <h4 className="text-xs font-semibold text-slate-200 mb-1 flex items-center gap-1">
+                  <h4 className="text-xs font-semibold text-slate-200 mb-1 mt-1 flex items-center gap-1">
                     <span className="w-0.5 h-3 bg-gradient-to-b from-green-400 to-teal-400 rounded-full"></span>
                     Cast
                   </h4>
-                  <div className="bg-white/5 rounded p-2 border border-white/10 backdrop-blur-sm">
-                    <p className="text-xs text-slate-300">
-                      {film.cast.slice(0, 3).join(', ')}
-                      {film.cast.length > 3 && <span className="text-slate-400"> & others</span>}
-                    </p>
-                  </div>
+                  <p className="text-xs text-slate-300">
+                    {film.cast.slice(0, 3).join(', ')}
+                    {film.cast.length > 3 && <span className="text-slate-400"> & others</span>}
+                  </p>
                 </motion.div>
               )}
               
@@ -460,7 +456,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 }}
                 transition={{ delay: isFlipped ? 0.3 : 0, duration: 0.3 }}
               >
-                <h4 className="text-xs font-semibold text-slate-200 mb-1 flex items-center gap-1">
+                <h4 className="text-xs font-semibold text-slate-200 mb-1 mt-3 flex items-center gap-1">
                   <span className="w-0.5 h-3 bg-gradient-to-b from-amber-400 to-orange-400 rounded-full"></span>
                   Festivals
                 </h4>
@@ -468,16 +464,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   {film.festivals.slice(0, 3).map((festival, idx) => (
                     <span
                       key={idx}
-                      className={`px-2 py-0.5 text-xs font-medium rounded border backdrop-blur-sm ${
-                        festival.awarded 
-                          ? 'bg-gradient-to-r from-yellow-500/20 to-amber-500/20 text-yellow-200 border-yellow-400/30' 
-                          : 'bg-white/10 text-slate-300 border-white/20'
-                      }`}
+                      className="px-2 py-0.5 text-xs font-medium rounded border backdrop-blur-sm bg-white/10 text-slate-300 border-white/20"
                     >
                       {festival.name.toUpperCase()} {festival.year}
-                      {festival.awarded && (
-                        <span className="ml-0.5 text-yellow-400">🏆</span>
-                      )}
                     </span>
                   ))}
                   {film.festivals.length > 3 && (
@@ -494,7 +483,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 opacity: isFlipped ? 1 : 0
               }}
               transition={{ delay: isFlipped ? 0.35 : 0, duration: 0.3 }}
-              className="pt-3 border-t border-white/10 mt-2"
+              className="pt-3 border-t border-white/10 mt-auto"
             >
               {/* Action buttons - same as front card */}
               <div className="flex gap-1">
