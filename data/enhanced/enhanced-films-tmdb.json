@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-10-19T21:51:49.464Z",
+  "last_updated": "2025-10-22T12:45:32.832Z",
   "total_films": 648,
   "tmdb_found": 642,
   "success_rate": "99.1%",
@@ -5230,80 +5230,84 @@
     {
       "title": "GUNDA",
       "year": 2020,
-      "country": "United Kingdom",
-      "director": "Victor Kossakovsky",
+      "country": "Norway",
+      "director": "Viktor Kossakovsky",
       "mubiLink": "https://mubi.com/en/no/films/gunda-2020",
       "awarded": false,
       "awards": [],
       "festival": "bergen",
       "festival_year": "2020",
-      "tmdb_id": 718201,
-      "imdb_id": "tt11541624",
-      "tmdb_title": "Naanu Matthu Gunda",
-      "original_title": "ನಾನು ಮತ್ತು ಗುಂಡ",
-      "synopsis": "Auto driver Shankar finds a dog in his vehicle and begins to form a strong emotional bond that becomes the talk of his town and makes his wife jealous.",
+      "tmdb_id": 718199,
+      "imdb_id": "tt11318602",
+      "tmdb_title": "Gunda",
+      "original_title": "Gunda",
+      "synopsis": "The intimate portrait of a pig named Gunda and her family living their humble, yet dignified life on a small family farm. Captivating and never intrusive, Gunda reveals the complex inner lives and emotions of the animals around us.",
       "tagline": null,
-      "tmdb_rating": null,
-      "tmdb_vote_count": null,
-      "tmdb_popularity": 0.1597,
-      "runtime": 139,
+      "tmdb_rating": 7.1,
+      "tmdb_vote_count": 89,
+      "tmdb_popularity": 3.2,
+      "runtime": 93,
       "genres": [
-        "Drama"
+        "Documentary"
       ],
-      "release_date": "2020-01-24",
-      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500/bA0vsPd84dUKgddulVBMM8to1UH.jpg",
-      "backdrop_url": null,
+      "release_date": "2020-04-17",
+      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500/ah5SJYm9mfZjnFPuyQplhi8iX7Y.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/ah5SJYm9mfZjnFPuyQplhi8iX7Y.jpg",
       "budget": null,
       "revenue": null,
-      "production_companies": [],
+      "production_companies": [
+        "Sant & Usant"
+      ],
       "production_countries": [
-        "India"
+        "Russia",
+        "Norway"
       ],
-      "spoken_languages": [
-        "Kannada"
+      "spoken_languages": [],
+      "keywords": [
+        "pig",
+        "farm",
+        "animals",
+        "nature",
+        "documentary",
+        "black and white"
       ],
-      "keywords": [],
-      "cast": [
-        {
-          "name": "Samyukta Hornad",
-          "character": "",
-          "order": 0,
-          "profile_path": "https://image.tmdb.org/t/p/w185/4ztyOJf0v3DRvo6KXqfwAb77OUF.jpg"
-        },
-        {
-          "name": "Govinde Gowda",
-          "character": "",
-          "order": 1,
-          "profile_path": null
-        },
-        {
-          "name": "Rockline Sudhakar",
-          "character": "",
-          "order": 2,
-          "profile_path": null
-        }
-      ],
+      "cast": [],
       "crew": {
         "directors": [
           {
-            "name": "Srinivas Thimmaiah",
+            "name": "Viktor Kossakovsky",
             "profile_path": null
           }
         ],
         "writers": [],
-        "producers": [],
-        "cinematographers": [],
+        "producers": [
+          "Anita Rehoff Larsen",
+          "Viktor Kossakovsky"
+        ],
+        "cinematographers": [
+          "Viktor Kossakovsky"
+        ],
         "composers": [],
-        "editors": []
+        "editors": [
+          "Viktor Kossakovsky",
+          "Ainara Vera"
+        ]
       },
-      "videos": [],
-      "extraction_sources": [
-        "tmdb_api"
+      "videos": [
+        {
+          "name": "Official Trailer",
+          "key": "O_uBElIqnuE",
+          "type": "Trailer",
+          "youtube_url": "https://www.youtube.com/watch?v=O_uBElIqnuE"
+        }
       ],
-      "extraction_timestamp": "2025-10-19T21:44:08.308Z",
+      "extraction_sources": [
+        "manual_correction"
+      ],
+      "extraction_timestamp": "2025-10-22T12:45:32.831Z",
       "extraction_success": {
         "tmdb": true,
-        "mubi_skipped": "avoiding_bot_detection"
+        "manual_correction": true
       }
     },
     {
