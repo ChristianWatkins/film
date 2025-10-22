@@ -410,7 +410,7 @@ export default function Filters({
         </div>
       </div>
       
-      {/* Special Filter - Enhanced */}
+      {/* Special Filter - Pill Layout */}
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
@@ -448,64 +448,50 @@ export default function Filters({
           </div>
           
           {expandedSections.special && (
-            <div className="px-4 py-3 bg-white">
-              <div className="space-y-1">
-                {/* Watchlist Toggle */}
-                <div className="flex items-center justify-between py-1 px-2 rounded hover:bg-gray-50 transition-colors">
-                  <div className="flex items-center">
-                    <span className="text-sm font-medium text-gray-900">My Watchlist</span>
-                    <svg 
-                      className={`w-4 h-4 ml-3 transition-all duration-200 ${
-                        filters.watchlistOnly 
-                          ? 'text-red-500 fill-red-500' 
-                          : 'text-gray-600 fill-none'
-                      }`} 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                  </div>
-                  <button
-                    onClick={() => onChange({ ...filters, watchlistOnly: !filters.watchlistOnly })}
-                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 ${
-                      filters.watchlistOnly ? 'bg-red-500' : 'bg-gray-200'
-                    }`}
+            <div className="px-4 py-4 bg-white">
+              <div className="flex flex-wrap gap-2">
+                {/* My Watchlist Pill */}
+                <button
+                  onClick={() => onChange({ ...filters, watchlistOnly: !filters.watchlistOnly })}
+                  className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2 ${
+                    filters.watchlistOnly
+                      ? 'bg-red-500 border-red-500 text-white shadow-md'
+                      : 'bg-white border-gray-300 text-gray-700 hover:border-red-400 hover:text-red-600'
+                  }`}
+                >
+                  <svg 
+                    className={`w-4 h-4 transition-all duration-200 ${
+                      filters.watchlistOnly 
+                        ? 'fill-white' 
+                        : 'fill-none stroke-current'
+                    }`} 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    viewBox="0 0 24 24"
                   >
-                    <span
-                      className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
-                        filters.watchlistOnly ? 'translate-x-5' : 'translate-x-1'
-                      }`}
-                    />
-                  </button>
-                </div>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  My Watchlist
+                </button>
                 
-                {/* Awarded Films Toggle */}
-                <div className="flex items-center justify-between py-1 px-2 rounded hover:bg-gray-50 transition-colors">
-                  <div className="flex items-center">
-                    <span className="text-sm font-medium text-gray-900">Awarded films</span>
-                    <FaTrophy 
-                      className={`w-4 h-4 ml-3 transition-all duration-200 ${
-                        filters.awardedOnly 
-                          ? 'text-yellow-500' 
-                          : 'text-gray-600'
-                      }`} 
-                    />
-                  </div>
-                  <button
-                    onClick={() => onChange({ ...filters, awardedOnly: !filters.awardedOnly })}
-                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-1 ${
-                      filters.awardedOnly ? 'bg-yellow-500' : 'bg-gray-200'
-                    }`}
-                  >
-                    <span
-                      className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
-                        filters.awardedOnly ? 'translate-x-5' : 'translate-x-1'
-                      }`}
-                    />
-                  </button>
-                </div>
+                {/* Awarded Films Pill */}
+                <button
+                  onClick={() => onChange({ ...filters, awardedOnly: !filters.awardedOnly })}
+                  className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2 ${
+                    filters.awardedOnly
+                      ? 'bg-yellow-500 border-yellow-500 text-white shadow-md'
+                      : 'bg-white border-gray-300 text-gray-700 hover:border-yellow-400 hover:text-yellow-600'
+                  }`}
+                >
+                  <FaTrophy 
+                    className={`w-4 h-4 transition-all duration-200 ${
+                      filters.awardedOnly 
+                        ? 'text-white' 
+                        : 'text-current'
+                    }`} 
+                  />
+                  Awarded Films
+                </button>
               </div>
             </div>
           )}
@@ -792,7 +778,7 @@ export default function Filters({
       {/* Platform Filter - Enhanced Collapsible */}
       {availablePlatforms.length > 0 && (
         <div className="mb-4">
-          <div className="border border-gray-200  rounded-lg overflow-hidden">
+          <div className="border border-gray-200 rounded-lg overflow-hidden">
             <div className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between">
               <button 
                 onClick={() => toggleSection('platforms')}
@@ -800,7 +786,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Platforms</span>
                 {filters.selectedPlatforms.length > 0 && (
-                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
                     {filters.selectedPlatforms.length}
                   </span>
                 )}
