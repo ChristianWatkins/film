@@ -294,9 +294,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               backfaceVisibility: 'hidden'
             }}
           >
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-slate-700 relative">
+        <div className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 relative">
           {/* Subtle pattern overlay */}
-          <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-transparent via-white/5 to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
           
           {/* Back indicator - top right corner */}
           <div className="absolute top-3 right-3 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20">
@@ -306,38 +306,40 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           </div>
 
           {/* Back content */}
-          <div className="p-4 flex flex-col h-full text-left relative z-10">
-            {/* Header */}
-            <motion.div
-              initial={false}
-              animate={{ 
-                opacity: isFlipped ? 1 : 0,
-                y: isFlipped ? 0 : -20
-              }}
-              transition={{ delay: isFlipped ? 0.1 : 0, duration: 0.3 }}
-              className="text-center mb-3"
-            >
-              <h3 className="text-lg font-bold text-white mb-1 leading-tight">
+          <div className="flex flex-col h-full text-left relative z-10">
+            {/* Colored Header Section */}
+            <div className="bg-gradient-to-r from-gray-800 to-slate-800 p-4 -m-4 mb-0 rounded-t-lg">
+              {/* Header */}
+              <motion.div
+                initial={false}
+                animate={{ 
+                  opacity: isFlipped ? 1 : 0,
+                  y: isFlipped ? 0 : -20
+                }}
+                transition={{ delay: isFlipped ? 0.1 : 0, duration: 0.3 }}
+                className="text-center mb-3 pt-3"
+              >
+                <h3 className="text-lg font-bold text-white mb-1 leading-tight">
                 {film.title}
               </h3>
-              <div className="text-sm text-slate-300 space-y-1">
+              <div className="text-sm text-white/90 space-y-1">
                 {film.director && (
-                  <div className="font-medium text-slate-200 text-sm">{film.director}</div>
+                  <div className="font-medium text-white text-sm">{film.director}</div>
                 )}
                 <div className="flex items-center justify-center gap-1.5 text-xs">
                   {film.year && (
-                    <span className="bg-white/10 px-2 rounded text-xs h-6 inline-flex items-center justify-center">
+                    <span className="bg-white/20 px-2 rounded text-xs h-6 inline-flex items-center justify-center text-white">
                       {film.year}
                     </span>
                   )}
                   {film.runtime && (
-                    <span className="bg-white/10 px-2 rounded text-xs h-6 inline-flex items-center justify-center gap-1">
+                    <span className="bg-white/20 px-2 rounded text-xs h-6 inline-flex items-center justify-center gap-1 text-white">
                       {film.runtime}<span className="text-[9px] opacity-60">min</span>
                     </span>
                   )}
                   {film.country && (
                     <span className="relative group">
-                      <span className="bg-white/10 px-2 rounded text-xs h-6 inline-flex items-center justify-center cursor-help">
+                      <span className="bg-white/20 px-2 rounded text-xs h-6 inline-flex items-center justify-center cursor-help text-white">
                         {getCountryCode(film.country)}
                       </span>
                       <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-black/90 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
@@ -350,37 +352,39 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               </div>
             </motion.div>
 
-            {/* Genres and Rating Row */}
-            <div className="flex flex-col gap-2 mb-3">
-              {/* Genres */}
-              {film.genres && film.genres.length > 0 && (
-                <motion.div
-                  initial={false}
-                  animate={{ 
-                    opacity: isFlipped ? 1 : 0,
-                    x: isFlipped ? 0 : -20
-                  }}
-                  transition={{ delay: isFlipped ? 0.15 : 0, duration: 0.3 }}
-                >
-                  <div className="flex flex-wrap gap-1 justify-center">
-                    {film.genres.slice(0, 4).map((genre, idx) => (
-                      <button
-                        key={idx}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onGenreClick?.(genre);
-                          onFlip(); // Flip card back to front side
-                        }}
-                        className="px-2 py-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-200 text-xs font-medium rounded-full border border-blue-400/30 backdrop-blur-sm hover:from-blue-500/30 hover:to-purple-500/30 hover:border-blue-300/50 transition-all duration-200 cursor-pointer"
-                        title={`Filter by ${genre}`}
-                      >
-                        {genre}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
+            {/* Genres section in header */}
+            {film.genres && film.genres.length > 0 && (
+              <motion.div
+                initial={false}
+                animate={{ 
+                  opacity: isFlipped ? 1 : 0,
+                  x: isFlipped ? 0 : -20
+                }}
+                transition={{ delay: isFlipped ? 0.15 : 0, duration: 0.3 }}
+                className="mt-2"
+              >
+                <div className="flex flex-wrap gap-1 justify-center">
+                  {film.genres.slice(0, 4).map((genre, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onGenreClick?.(genre);
+                        onFlip(); // Flip card back to front side
+                      }}
+                      className="px-2 py-0.5 bg-white/20 text-white text-xs font-medium rounded-full border border-white/30 backdrop-blur-sm hover:bg-white/30 hover:border-white/50 transition-all duration-200 cursor-pointer"
+                      title={`Filter by ${genre}`}
+                    >
+                      {genre}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
             </div>
+
+            {/* Main Content Area */}
+            <div className="p-4 flex flex-col flex-1">
 
             {/* Synopsis - expandable */}
             {film.synopsis && (
@@ -393,7 +397,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 transition={{ delay: isFlipped ? 0.2 : 0, duration: 0.3 }}
                 className="mb-3"
               >
-                <h4 className="text-xs font-semibold text-slate-200 mb-1 mt-1 flex items-center gap-1 flex-shrink-0">
+                <h4 className="text-xs font-semibold text-gray-800 mb-1 mt-1 flex items-center gap-1 flex-shrink-0">
                   <span className="w-0.5 h-3 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></span>
                   Synopsis
                 </h4>
@@ -406,7 +410,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
-                  <p ref={textRef} className="text-xs text-slate-300 leading-relaxed">
+                    <p ref={textRef} className="text-xs text-gray-700 leading-relaxed">
                     {film.synopsis}
                   </p>
                 </motion.div>
@@ -416,7 +420,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                       e.stopPropagation();
                       setIsExpanded(!isExpanded);
                     }}
-                    className="mt-2 text-xs text-blue-300 hover:text-blue-200 transition-colors focus:outline-none self-start flex-shrink-0"
+                    className="mt-2 text-xs text-blue-600 hover:text-blue-800 transition-colors focus:outline-none self-start flex-shrink-0"
                   >
                     {isExpanded ? 'Show less' : 'Show all'}
                   </button>
@@ -436,13 +440,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   }}
                   transition={{ delay: isFlipped ? 0.25 : 0, duration: 0.3 }}
                 >
-                  <h4 className="text-xs font-semibold text-slate-200 mb-1 mt-1 flex items-center gap-1">
+                  <h4 className="text-xs font-semibold text-gray-800 mb-1 mt-1 flex items-center gap-1">
                     <span className="w-0.5 h-3 bg-gradient-to-b from-green-400 to-teal-400 rounded-full"></span>
                     Cast
                   </h4>
-                  <p className="text-xs text-slate-300">
+                  <p className="text-xs text-gray-700">
                     {film.cast.slice(0, 3).join(', ')}
-                    {film.cast.length > 3 && <span className="text-slate-400"> & others</span>}
+                    {film.cast.length > 3 && <span className="text-gray-500"> & others</span>}
                   </p>
                 </motion.div>
               )}
@@ -456,7 +460,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 }}
                 transition={{ delay: isFlipped ? 0.3 : 0, duration: 0.3 }}
               >
-                <h4 className="text-xs font-semibold text-slate-200 mb-1 mt-3 flex items-center gap-1">
+                <h4 className="text-xs font-semibold text-gray-800 mb-1 mt-3 flex items-center gap-1">
                   <span className="w-0.5 h-3 bg-gradient-to-b from-amber-400 to-orange-400 rounded-full"></span>
                   Festivals
                 </h4>
@@ -464,13 +468,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   {film.festivals.slice(0, 3).map((festival, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 text-xs font-medium rounded border backdrop-blur-sm bg-white/10 text-slate-300 border-white/20"
+                      className="text-xs text-gray-700"
                     >
-                      {festival.name.toUpperCase()} {festival.year}
+                      {festival.name === 'biff' ? 'BIFF' : festival.name.charAt(0).toUpperCase() + festival.name.slice(1).toLowerCase()} {festival.year}
                     </span>
                   ))}
                   {film.festivals.length > 3 && (
-                    <span className="text-xs text-slate-400 px-1">+{film.festivals.length - 3} more</span>
+                    <span className="text-xs text-gray-500 px-1">+{film.festivals.length - 3} more</span>
                   )}
                 </div>
               </motion.div>
@@ -521,6 +525,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 )}
               </div>
             </motion.div>
+            </div>
           </div>
         </div>
       </motion.div>
