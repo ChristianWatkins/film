@@ -512,7 +512,7 @@ export default function Filters({
         </div>
       </div>
       
-      {/* Festival Filter - Enhanced */}
+      {/* Festival Filter - Pill Layout */}
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
@@ -523,7 +523,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Festival</span>
                 {filters.festivals.length > 0 && (
-                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
                     {filters.festivals.length}
                   </span>
                 )}
@@ -550,41 +550,28 @@ export default function Filters({
           </div>
           
           {expandedSections.festival && (
-          <div className="px-4 py-3 bg-white">
-            <div className="space-y-1">
-              {availableFestivals.map(festival => (
-                <label key={festival} className="flex items-center py-1 px-2 rounded hover:bg-gray-50 cursor-pointer group">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      className="sr-only"
-                      checked={filters.festivals.includes(festival)}
-                      onChange={() => toggleFestival(festival)}
-                    />
-                    <div className={`w-4 h-4 rounded border-2 transition-all ${
+            <div className="px-4 py-4 bg-white">
+              <div className="flex flex-wrap gap-2">
+                {availableFestivals.map(festival => (
+                  <button
+                    key={festival}
+                    onClick={() => toggleFestival(festival)}
+                    className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
                       filters.festivals.includes(festival)
-                        ? 'bg-blue-500 border-blue-500'
-                        : 'border-gray-300 group-hover:border-blue-400'
-                    }`}>
-                      {filters.festivals.includes(festival) && (
-                        <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  <span className="ml-3 text-sm text-gray-900">
+                        ? 'bg-blue-500 border-blue-500 text-white shadow-md'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600'
+                    }`}
+                  >
                     {festivalDisplayNames[festival] || festival}
-                  </span>
-                </label>
-              ))}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
           )}
         </div>
       </div>
       
-      {/* Year Filter - Enhanced */}
+      {/* Year Filter - Pill Layout */}
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
@@ -595,7 +582,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Year</span>
                 {filters.years.length > 0 && (
-                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
                     {filters.years.length}
                   </span>
                 )}
@@ -622,34 +609,23 @@ export default function Filters({
           </div>
           
           {expandedSections.year && (
-          <div className="px-4 py-3 bg-white">
-            <div className="grid grid-cols-2 gap-1">
-              {availableYears.map(year => (
-                <label key={year} className="flex items-center py-1 px-2 rounded hover:bg-gray-50 cursor-pointer group">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      className="sr-only"
-                      checked={filters.years.includes(year)}
-                      onChange={() => toggleYear(year)}
-                    />
-                    <div className={`w-4 h-4 rounded border-2 transition-all ${
+            <div className="px-4 py-4 bg-white">
+              <div className="flex flex-wrap gap-2">
+                {availableYears.map(year => (
+                  <button
+                    key={year}
+                    onClick={() => toggleYear(year)}
+                    className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
                       filters.years.includes(year)
-                        ? 'bg-blue-500 border-blue-500'
-                        : 'border-gray-300 group-hover:border-blue-400'
-                    }`}>
-                      {filters.years.includes(year) && (
-                        <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  <span className="ml-3 text-sm text-gray-900">{year}</span>
-                </label>
-              ))}
+                        ? 'bg-blue-500 border-blue-500 text-white shadow-md'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600'
+                    }`}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
           )}
         </div>
       </div>
@@ -754,18 +730,18 @@ export default function Filters({
         </div>
       )}
       
-      {/* Genre Filter - Enhanced Collapsible */}
+      {/* Genre Filter - Pill Layout */}
       {availableGenres.length > 0 && (
         <div className="mb-4">
-          <div className="border border-gray-200  rounded-lg overflow-hidden">
+          <div className="border border-gray-200 rounded-lg overflow-hidden">
             <div className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between">
               <button 
                 onClick={() => toggleSection('genres')}
                 className="flex items-center gap-2 flex-grow"
               >
-                <span className="font-medium text-gray-700">Genres</span>
+                <span className="font-medium text-gray-700">Genre</span>
                 {filters.genres.length > 0 && (
-                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
                     {filters.genres.length}
                   </span>
                 )}
@@ -791,31 +767,20 @@ export default function Filters({
             </div>
             
             {expandedSections.genres && (
-              <div className="px-4 py-3 bg-white  max-h-48 overflow-y-auto">
-                <div className="space-y-1">
+              <div className="px-4 py-4 bg-white">
+                <div className="flex flex-wrap gap-2">
                   {availableGenres.map(genre => (
-                    <label key={genre} className="flex items-center py-1.5 px-2 rounded hover:  cursor-pointer group">
-                      <div className="relative">
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={filters.genres.includes(genre)}
-                          onChange={() => toggleGenre(genre)}
-                        />
-                        <div className={`w-4 h-4 rounded border-2 transition-all ${
-                          filters.genres.includes(genre)
-                            ? 'bg-blue-500 border-blue-500'
-                            : '  group-hover:border-blue-400'
-                        }`}>
-                          {filters.genres.includes(genre) && (
-                            <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          )}
-                        </div>
-                      </div>
-                      <span className="ml-3 text-sm text-gray-900 ">{genre}</span>
-                    </label>
+                    <button
+                      key={genre}
+                      onClick={() => toggleGenre(genre)}
+                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                        filters.genres.includes(genre)
+                          ? 'bg-blue-500 border-blue-500 text-white shadow-md'
+                          : 'bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600'
+                      }`}
+                    >
+                      {genre}
+                    </button>
                   ))}
                 </div>
               </div>
