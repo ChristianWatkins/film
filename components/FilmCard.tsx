@@ -372,7 +372,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                         onGenreClick?.(genre);
                         onFlip(); // Flip card back to front side
                       }}
-                      className="px-2 py-0.5 bg-white/20 text-white text-xs font-medium rounded-full border border-white/30 backdrop-blur-sm hover:bg-white/30 hover:border-white/50 transition-all duration-200 cursor-pointer"
+                      className="px-2 py-0.5 bg-[#FFB800] text-black text-xs font-medium rounded-full border border-[#FFB800] hover:bg-[#FFC533] hover:border-[#FFC533] transition-all duration-200 cursor-pointer"
                       title={`Filter by ${genre}`}
                     >
                       {genre}
