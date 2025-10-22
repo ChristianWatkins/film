@@ -41,7 +41,7 @@ export default function StreamingBadge({ providers, type }: StreamingBadgeProps)
   const hasMore = uniqueProviders.length > 1;
   
   return (
-    <div className="text-sm px-3 py-2 bg-gray-50 rounded border-l-2 border-blue-500">
+    <div className={`text-sm px-3 py-2 bg-gray-50 rounded border-l-2 border-blue-500 ${hasMore ? 'hover:bg-gray-100 transition-colors' : ''}`}>
       <div 
         className={`${hasMore ? 'cursor-pointer hover:text-blue-600 transition-colors' : ''}`}
         onClick={(e) => {
@@ -55,8 +55,8 @@ export default function StreamingBadge({ providers, type }: StreamingBadgeProps)
         {' '}
         <span className="text-gray-700">{bestProvider.provider}</span>
         {hasMore && (
-          <span className="text-gray-500 ml-1 text-xs">
-            {isExpanded ? '▲' : `▼ +${uniqueProviders.length - 1}`}
+          <span className="text-blue-600 ml-1 text-xs font-medium underline decoration-dotted underline-offset-2 hover:text-blue-700 transition-colors">
+            +{uniqueProviders.length - 1}
           </span>
         )}
       </div>
