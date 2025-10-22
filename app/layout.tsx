@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Film Festival Browser - Cannes Films with Streaming Availability",
-  description: "Browse Cannes Film Festival films (2020-2025) with streaming availability in Norway. Filter by year, awards, and streaming platforms.",
+  title: "Film Festival Browser - Film festical Films with Streaming Availability",
+  description: "Browse Film Festival films (2020-2025) with streaming availability in Norway. Filter by year, awards, and streaming platforms.",
 };
 
 export default function RootLayout({
