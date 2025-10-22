@@ -139,7 +139,7 @@ export default function Filters({
             placeholder="Search films, directors, genres, cast..."
             value={filters.searchQuery}
             onChange={(e) => onChange({ ...filters, searchQuery: e.target.value })}
-            className="w-full px-4 py-3 pl-10 pr-4 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-gray-500"
+            className="w-full px-4 py-3 pl-10 pr-4 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all placeholder:text-gray-500"
           />
           <svg 
             className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -164,129 +164,154 @@ export default function Filters({
       
       {/* Active Filters Summary */}
       {hasActiveFilters && (
-        <div className="mx-6 mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-blue-800">
-              Active Filters
-            </span>
-            <button 
-              onClick={clearAllFilters}
-              className="text-xs text-blue-600 hover:text-blue-700 font-medium transition-colors"
-            >
-              Clear all
-            </button>
-          </div>
-          <div className="flex flex-wrap gap-1">
-            {filters.searchQuery.trim() && (
-              <span className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                Search: "{filters.searchQuery}"
+        <div className="mx-6 mt-4">
+          <div className="border border-slate-200 rounded-lg overflow-hidden bg-slate-50/50">
+            <div className="px-4 py-3 bg-gradient-to-r from-slate-50 to-slate-100 border-b border-slate-200">
+              <div className="w-full flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="font-medium text-slate-700">Active Filters</span>
+                  <span className="bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
+                    {[
+                      filters.searchQuery.trim() ? 1 : 0,
+                      filters.genres.length,
+                      filters.countries.length,
+                      filters.festivals.length,
+                      filters.years.length,
+                      filters.showStreaming ? 1 : 0,
+                      filters.showRentBuy ? 1 : 0,
+                      filters.watchlistOnly ? 1 : 0,
+                      filters.awardedOnly ? 1 : 0,
+                      filters.selectedPlatforms.length
+                    ].reduce((sum, count) => sum + count, 0)}
+                  </span>
+                </div>
                 <button 
-                  onClick={() => onChange({ ...filters, searchQuery: '' })}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
+                  onClick={clearAllFilters}
+                  className="text-xs text-slate-600 hover:text-slate-700 hover:underline transition-colors font-medium"
                 >
-                  ×
+                  Clear all
                 </button>
-              </span>
-            )}
-            {filters.genres.map(genre => (
-              <span key={`active-genre-${genre}`} className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                {genre}
-                <button 
-                  onClick={() => toggleGenre(genre)}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-            {filters.countries.map(country => (
-              <span key={`active-country-${country}`} className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                {country}
-                <button 
-                  onClick={() => toggleCountry(country)}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-            {filters.festivals.map(festival => (
-              <span key={`active-festival-${festival}`} className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                {festivalDisplayNames[festival] || festival}
-                <button 
-                  onClick={() => toggleFestival(festival)}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-            {filters.years.map(year => (
-              <span key={`active-year-${year}`} className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                {year}
-                <button 
-                  onClick={() => toggleYear(year)}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-            {filters.showStreaming && (
-              <span className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                Streaming
-                <button 
-                  onClick={() => onChange({ ...filters, showStreaming: false })}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {filters.showRentBuy && (
-              <span className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                Rent/Buy
-                <button 
-                  onClick={() => onChange({ ...filters, showRentBuy: false })}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {filters.watchlistOnly && (
-              <span className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                My Watchlist
-                <button 
-                  onClick={() => onChange({ ...filters, watchlistOnly: false })}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {filters.awardedOnly && (
-              <span className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                Awarded Films
-                <button 
-                  onClick={() => onChange({ ...filters, awardedOnly: false })}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {filters.selectedPlatforms.map(platform => (
-              <span key={`active-platform-${platform}`} className="inline-flex items-center bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full border border-blue-200 font-medium">
-                {platform}
-                <button 
-                  onClick={() => togglePlatform(platform)}
-                  className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
+              </div>
+            </div>
+            
+            <div className="px-4 py-4 bg-white">
+              <div className="flex flex-wrap gap-2">
+              {filters.searchQuery && (
+                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    Search: "{filters.searchQuery}"
+                    <button
+                      onClick={() => onChange({ ...filters, searchQuery: '' })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      ×
+                    </button>
+                  </span>
+                )}
+                {filters.genres.map(genre => (
+                  <span key={`active-genre-${genre}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    {genre}
+                    <button
+                      onClick={() => onChange({ ...filters, genres: filters.genres.filter(g => g !== genre) })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      ×
+                    </button>
+                  </span>
+                ))}
+                                {filters.countries.map(country => (
+                  <span key={`active-country-${country}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    {country}
+                    <button
+                      onClick={() => onChange({ ...filters, countries: filters.countries.filter(c => c !== country) })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </span>
+                ))}
+                {filters.festivals.map(festival => (
+                  <span key={`active-festival-${festival}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    {festival}
+                    <button
+                      onClick={() => onChange({ ...filters, festivals: filters.festivals.filter(f => f !== festival) })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </span>
+                ))}
+                {filters.years.map(year => (
+                  <span key={`active-year-${year}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    {year}
+                    <button 
+                      onClick={() => toggleYear(year)}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      ×
+                    </button>
+                  </span>
+                ))}
+                {filters.showStreaming && (
+                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    Streaming
+                    <button
+                      onClick={() => onChange({ ...filters, showStreaming: false })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      ×
+                    </button>
+                  </span>
+                )}
+                {filters.showRentBuy && (
+                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    Rent/Buy
+                    <button
+                      onClick={() => onChange({ ...filters, showRentBuy: false })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      ×
+                    </button>
+                  </span>
+                )}
+                {filters.watchlistOnly && (
+                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    My Watchlist
+                    <button
+                      onClick={() => onChange({ ...filters, watchlistOnly: false })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      ×
+                    </button>
+                  </span>
+                )}
+                {filters.awardedOnly && (
+                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    Awarded Films
+                    <button
+                      onClick={() => onChange({ ...filters, awardedOnly: false })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      ×
+                    </button>
+                  </span>
+                )}
+                {filters.selectedPlatforms.map(platform => (
+                  <span key={`active-platform-${platform}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                    {platform}
+                    <button
+                      onClick={() => onChange({ ...filters, selectedPlatforms: filters.selectedPlatforms.filter(p => p !== platform) })}
+                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                    >
+                      ×
+                    </button>
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -305,7 +330,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Availability</span>
                 {(filters.showStreaming || filters.showRentBuy) && (
-                  <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                     {(filters.showStreaming ? 1 : 0) + (filters.showRentBuy ? 1 : 0)}
                   </span>
                 )}
@@ -338,9 +363,9 @@ export default function Filters({
                 <button
                   onClick={() => onChange({ ...filters, showStreaming: false, showRentBuy: false })}
                   className={`w-full px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2 ${
-                    !filters.showStreaming && !filters.showRentBuy
-                      ? 'bg-blue-500 border-blue-500 text-white shadow-md'
-                      : 'bg-white border-gray-300 text-gray-500 hover:border-gray-400 hover:text-gray-700'
+                    (!filters.showStreaming && !filters.showRentBuy)
+                      ? 'bg-slate-600 border-slate-600 text-white shadow-md'
+                      : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
                   }`}
                 >
                   {!filters.showStreaming && !filters.showRentBuy && (
@@ -356,8 +381,8 @@ export default function Filters({
                   <span className="text-sm font-medium text-gray-900">Streaming</span>
                   <button
                     onClick={() => onChange({ ...filters, showStreaming: !filters.showStreaming })}
-                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 ${
-                      filters.showStreaming ? 'bg-blue-500' : 'bg-gray-200'
+                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1 ${
+                      filters.showStreaming ? 'bg-slate-600' : 'bg-gray-200'
                     }`}
                   >
                     <span
@@ -373,8 +398,8 @@ export default function Filters({
                   <span className="text-sm font-medium text-gray-900">Rent/Buy</span>
                   <button
                     onClick={() => onChange({ ...filters, showRentBuy: !filters.showRentBuy })}
-                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 ${
-                      filters.showRentBuy ? 'bg-blue-500' : 'bg-gray-200'
+                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1 ${
+                      filters.showRentBuy ? 'bg-slate-600' : 'bg-gray-200'
                     }`}
                   >
                     <span
@@ -401,7 +426,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Special</span>
                 {(filters.watchlistOnly || filters.awardedOnly) && (
-                  <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                     {(filters.watchlistOnly ? 1 : 0) + (filters.awardedOnly ? 1 : 0)}
                   </span>
                 )}
@@ -489,7 +514,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Festival</span>
                 {filters.festivals.length > 0 && (
-                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                     {filters.festivals.length}
                   </span>
                 )}
@@ -522,11 +547,11 @@ export default function Filters({
                   <button
                     key={festival}
                     onClick={() => toggleFestival(festival)}
-                    className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
-                      filters.festivals.includes(festival)
-                        ? 'bg-blue-500 border-blue-500 text-white shadow-md'
-                        : 'bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600'
-                    }`}
+                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                        filters.festivals.includes(festival)
+                        ? 'bg-slate-600 border-slate-600 text-white shadow-md'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
+                      }`}
                   >
                     {festivalDisplayNames[festival] || festival}
                   </button>
@@ -548,7 +573,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Year</span>
                 {filters.years.length > 0 && (
-                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                     {filters.years.length}
                   </span>
                 )}
@@ -583,8 +608,8 @@ export default function Filters({
                     onClick={() => toggleYear(year)}
                     className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
                       filters.years.includes(year)
-                        ? 'bg-blue-500 border-blue-500 text-white shadow-md'
-                        : 'bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600'
+                        ? 'bg-slate-600 border-slate-600 text-white shadow-md'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
                     }`}
                   >
                     {year}
@@ -607,7 +632,7 @@ export default function Filters({
               <div className="flex items-center">
                 <span className="font-medium text-gray-700">Country</span>
                 {filters.countries.length > 0 && (
-                  <span className="ml-2 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="ml-2 bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                     {filters.countries.length}
                   </span>
                 )}
@@ -627,7 +652,7 @@ export default function Filters({
                       placeholder="Search countries..."
                       value={countrySearch}
                       onChange={(e) => setCountrySearch(e.target.value)}
-                      className="w-full px-3 py-2 pl-8 pr-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-3 py-2 pl-8 pr-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all"
                     />
                     <svg 
                       className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -668,8 +693,8 @@ export default function Filters({
                             />
                             <div className={`w-4 h-4 rounded border-2 transition-all ${
                               filters.countries.includes(country)
-                                ? 'bg-blue-500 border-blue-500'
-                                : 'border-gray-300 group-hover:border-blue-400'
+                                ? 'bg-slate-600 border-slate-600'
+                                : 'border-gray-300 group-hover:border-slate-400'
                             }`}>
                               {filters.countries.includes(country) && (
                                 <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -707,7 +732,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Genre</span>
                 {filters.genres.length > 0 && (
-                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                     {filters.genres.length}
                   </span>
                 )}
@@ -741,8 +766,8 @@ export default function Filters({
                       onClick={() => toggleGenre(genre)}
                       className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
                         filters.genres.includes(genre)
-                          ? 'bg-blue-500 border-blue-500 text-white shadow-md'
-                          : 'bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:text-blue-600'
+                        ? 'bg-slate-600 border-slate-600 text-white shadow-md'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
                       }`}
                     >
                       {genre}
@@ -766,7 +791,7 @@ export default function Filters({
               >
                 <span className="font-medium text-gray-700">Platforms</span>
                 {filters.selectedPlatforms.length > 0 && (
-                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                     {filters.selectedPlatforms.length}
                   </span>
                 )}
@@ -801,7 +826,7 @@ export default function Filters({
                       placeholder="Search platforms..."
                       value={platformSearch}
                       onChange={(e) => setPlatformSearch(e.target.value)}
-                      className="w-full px-3 py-2 pl-8 pr-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-3 py-2 pl-8 pr-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all"
                     />
                     <svg 
                       className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -842,8 +867,8 @@ export default function Filters({
                             />
                             <div className={`w-4 h-4 rounded border-2 transition-all ${
                               filters.selectedPlatforms.includes(platform)
-                                ? 'bg-blue-500 border-blue-500'
-                                : 'border-gray-300 group-hover:border-blue-400'
+                                ? 'bg-slate-600 border-slate-600'
+                                : 'border-gray-300 group-hover:border-slate-400'
                             }`}>
                               {filters.selectedPlatforms.includes(platform) && (
                                 <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
