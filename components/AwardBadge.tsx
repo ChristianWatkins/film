@@ -1,5 +1,5 @@
 import React from 'react';
-import { GiLion, GiPolarBear } from 'react-icons/gi';
+import { GiLion, GiPolarBear, GiPalmTree } from 'react-icons/gi';
 
 interface AwardBadgeProps {
   awards: Array<{
@@ -150,6 +150,7 @@ export default function AwardBadge({ awards, compact = false, maxShow = compact 
         // Check festival types
         const isVeniceAward = awardObj.festival.toLowerCase().includes('venice') || awardObj.festival.toLowerCase().includes('venezia');
         const isBerlinAward = awardObj.festival.toLowerCase().includes('berlin') || awardObj.festival.toLowerCase().includes('berlinale');
+        const isCannesAward = awardObj.festival.toLowerCase().includes('cannes');
         
         // For Venice awards, clean up the award text BEFORE applying getDisplayName
         let cleanedAward = awardObj.award;
@@ -197,8 +198,8 @@ export default function AwardBadge({ awards, compact = false, maxShow = compact 
         // Simple, consistent color for all awards
         const getColorClasses = () => {
           return compact 
-            ? 'bg-yellow-100 text-yellow-900 border-yellow-400 hover:bg-yellow-200' 
-            : 'bg-yellow-200 text-yellow-900 border-yellow-500';
+            ? 'bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200' 
+            : 'bg-gray-200 text-gray-800 border-gray-400';
         };
         
         return (
@@ -207,7 +208,7 @@ export default function AwardBadge({ awards, compact = false, maxShow = compact 
             title={fullTooltip} // Always show full info: festival + year + award
             className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold border transition-colors ${getColorClasses()}`}
           >
-            {/* Use specific icons for Venice (lion) and Berlin (bear), trophy for others */}
+            {/* Use specific icons for Venice (lion), Berlin (bear), Cannes (palm tree), trophy for others */}
             {isVeniceAward ? (
               <GiLion 
                 size={14} 
@@ -220,6 +221,13 @@ export default function AwardBadge({ awards, compact = false, maxShow = compact 
                 size={14} 
                 color={awardObj.award.toLowerCase().includes('golden') ? '#FFD700' : 
                        awardObj.award.toLowerCase().includes('silver') ? '#C0C0C0' : 
+                       '#CD7F32'} 
+              />
+            ) : isCannesAward ? (
+              <GiPalmTree 
+                size={14} 
+                color={awardObj.award.toLowerCase().includes('palme') ? '#FFD700' : 
+                       awardObj.award.toLowerCase().includes('grand prix') ? '#C0C0C0' : 
                        '#CD7F32'} 
               />
             ) : (
@@ -236,8 +244,8 @@ export default function AwardBadge({ awards, compact = false, maxShow = compact 
           title={`${remainingCount} more award${remainingCount > 1 ? 's' : ''}: ${sortedAwards.slice(maxShow).map(a => `${a.festival}: ${a.award}`).join(', ')}`}
           className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border transition-colors ${
             compact 
-              ? 'bg-yellow-50 text-yellow-700 border-yellow-300 hover:bg-yellow-100' 
-              : 'bg-yellow-100 text-yellow-800 border-yellow-400'
+              ? 'bg-gray-50 text-gray-700 border-gray-300 hover:bg-gray-100' 
+              : 'bg-gray-100 text-gray-800 border-gray-400'
           }`}
         >
           +{remainingCount}
