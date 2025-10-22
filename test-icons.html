@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Løve Ikon Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .icon-card {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+        .icon-card:hover {
+            border-color: #FFB800;
+        }
+        .icon-display {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .icon-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .icon-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .badge-preview {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #F59E0B;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .gull { color: #FFD700; }
+        .solv { color: #C0C0C0; }
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 40px 0 20px 0;
+            color: #333;
+            border-bottom: 2px solid #FFB800;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦁 Løve Ikon Test for Film Awards</h1>
+        
+        <div class="section-title">Unicode Løver (Standard)</div>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <div class="icon-display">🦁</div>
+                <div class="icon-name">Standard Løve</div>
+                <div class="icon-description">Mest vanlige løve emoji</div>
+                <div class="badge-preview">🦁 Golden Lion</div>
+            </div>
+            
+            <div class="icon-card">
+                <div class="icon-display">🦁 <span class="gull">♛</span></div>
+                <div class="icon-name">Løve + Gull Krone</div>
+                <div class="icon-description">Løve med gull krone for Golden Lion</div>
+                <div class="badge-preview">🦁♛ Golden Lion</div>
+            </div>
+            
+            <div class="icon-card">
+                <div class="icon-display">🦁 <span class="solv">♛</span></div>
+                <div class="icon-name">Løve + Sølv Krone</div>
+                <div class="icon-description">Løve med sølv krone for Silver Lion</div>
+                <div class="badge-preview">🦁♛ Silver Lion</div>
+            </div>
+        </div>
+
+        <div class="section-title">Alternative Løve Symboler</div>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <div class="icon-display">♌</div>
+                <div class="icon-name">Leo/Løven (Stjernetegn)</div>
+                <div class="icon-description">Løvestjernetegnet</div>
+                <div class="badge-preview">♌ Golden Lion</div>
+            </div>
+            
+            <div class="icon-card">
+                <div class="icon-display"><span class="gull">♌</span></div>
+                <div class="icon-name">Gull Leo</div>
+                <div class="icon-description">Gull farget Leo symbol</div>
+                <div class="badge-preview"><span class="gull">♌</span> Golden Lion</div>
+            </div>
+            
+            <div class="icon-card">
+                <div class="icon-display"><span class="solv">♌</span></div>
+                <div class="icon-name">Sølv Leo</div>
+                <div class="icon-description">Sølv farget Leo symbol</div>
+                <div class="badge-preview"><span class="solv">♌</span> Silver Lion</div>
+            </div>
+        </div>
+
+        <div class="section-title">Kreative Kombinasjoner</div>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <div class="icon-display"><span class="gull">🦁</span></div>
+                <div class="icon-name">Gull Løve</div>
+                <div class="icon-description">Løve i gull farge</div>
+                <div class="badge-preview"><span class="gull">🦁</span> Golden Lion</div>
+            </div>
+            
+            <div class="icon-card">
+                <div class="icon-display"><span class="solv">🦁</span></div>
+                <div class="icon-name">Sølv Løve</div>
+                <div class="icon-description">Løve i sølv farge</div>
+                <div class="badge-preview"><span class="solv">🦁</span> Silver Lion</div>
+            </div>
+            
+            <div class="icon-card">
+                <div class="icon-display">🏆</div>
+                <div class="icon-name">Standard Pokal (nåværende)</div>
+                <div class="icon-description">Det vi bruker nå</div>
+                <div class="badge-preview">🏆 Golden Lion</div>
+            </div>
+        </div>
+
+        <div class="section-title">Mer Minimalistiske</div>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <div class="icon-display">🦁</div>
+                <div class="icon-name">Kun "Lion"</div>
+                <div class="icon-description">Bare "Lion" uten "Golden"</div>
+                <div class="badge-preview">🦁 Lion</div>
+            </div>
+            
+            <div class="icon-card">
+                <div class="icon-display"><span class="gull">♌</span></div>
+                <div class="icon-name">Kun Leo Symbol</div>
+                <div class="icon-description">Bare Leo symbolet med farge</div>
+                <div class="badge-preview"><span class="gull">♌</span> Venice</div>
+            </div>
+            
+            <div class="icon-card">
+                <div class="icon-display">🦁<span class="gull">★</span></div>
+                <div class="icon-name">Løve + Gull Stjerne</div>
+                <div class="icon-description">Løve med gull stjerne</div>
+                <div class="badge-preview">🦁★ Golden Lion</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center; color: #666;">
+            <p><strong>Instruksjoner:</strong> Se på de forskjellige alternativene og si hvilken du liker best!</p>
+            <p>Vi kan også kombinere disse eller lage egne varianter basert på det du foretrekker.</p>
+        </div>
+    </div>
+</body>
+</html>

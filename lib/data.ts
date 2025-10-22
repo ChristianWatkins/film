@@ -5,9 +5,82 @@ import { hasEnabledStreaming, hasEnabledRent } from './streaming-config';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 
+// Award data types
+interface Award {
+  festival: string;
+  year: number;
+  award: string;
+  film: string;
+  originalTitle: string | null;
+  normalizedTitle: string;
+}
+
+interface AwardsData {
+  metadata: {
+    created: string;
+    source: string;
+    total_awards: number;
+    total_films: number;
+    festivals: string[];
+    years: number[];
+  };
+  awards: Award[];
+  films: Record<string, {
+    title: string;
+    year: number;
+    normalizedTitle: string;
+    originalTitle: string | null;
+    awarded: boolean;
+    awards: Array<{
+      festival: string;
+      award: string;
+      year: number;
+    }>;
+    festivals: string[];
+  }>;
+}
+
 // Create film key from title and year
 function createFilmKey(title: string, year: number): string {
   return `${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${year}`;
+}
+
+// Normalize film title for matching
+function normalizeTitle(title: string): string {
+  // Remove content in parentheses (original titles)
+  let normalized = title.replace(/\s*\([^)]+\)\s*/g, '').trim();
+  
+  // Convert to lowercase and remove special characters
+  normalized = normalized.toLowerCase()
+    .replace(/[^\w\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+    
+  return normalized;
+}
+
+// Load awards from JSON
+export async function loadAwards(): Promise<Map<string, { awarded: boolean, awards: Array<{award: string, festival: string, year: number}> }>> {
+  const awardsPath = path.join(DATA_DIR, 'awards', 'filmpriser.json');
+  const awardMap = new Map();
+  
+  try {
+    const content = await fs.readFile(awardsPath, 'utf-8');
+    const data: AwardsData = JSON.parse(content);
+    
+    // Use the pre-processed films data from JSON, keeping full award objects
+    Object.entries(data.films).forEach(([key, film]) => {
+      awardMap.set(key, {
+        awarded: film.awarded,
+        awards: film.awards // Keep the full award objects with festival info
+      });
+    });
+    
+    return awardMap;
+  } catch (error) {
+    console.error('Error loading awards:', error);
+    return new Map();
+  }
 }
 
 // Load all festival films
@@ -47,7 +120,7 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
           filmsMap.get(key).festivals.push({
             name: festivalName,
             year,
-            awarded: film.awarded
+            awarded: false // We'll get award info from CSV instead
           });
         });
       }
@@ -95,10 +168,11 @@ export async function loadEnhancedData(): Promise<any> {
 
 // Merge festival and streaming data
 export async function getAllFilms(): Promise<Film[]> {
-  const [festivalFilmsMap, streamingData, enhancedFilms] = await Promise.all([
+  const [festivalFilmsMap, streamingData, enhancedFilms, awardMap] = await Promise.all([
     loadFestivalFilms(),
     loadStreamingData(),
-    loadEnhancedData()
+    loadEnhancedData(),
+    loadAwards()
   ]);
   
   // Create a map of enhanced data for quick lookup
@@ -113,6 +187,17 @@ export async function getAllFilms(): Promise<Film[]> {
   for (const [filmKey, { film, festivals }] of festivalFilmsMap) {
     const streamingInfo = streamingData.films[filmKey];
     const enhancedInfo = enhancedMap.get(filmKey);
+    
+    // Look up award information using normalized title
+    const normalizedTitle = normalizeTitle(film.title);
+    const awardKey = `${normalizedTitle}-${film.year}`;
+    const awardInfo = awardMap.get(awardKey);
+    
+    // Update festival appearances with award status
+    const updatedFestivals = festivals.map(fest => ({
+      ...fest,
+      awarded: awardInfo?.awarded || false
+    }));
     
     films.push({
       // Core metadata
@@ -133,9 +218,9 @@ export async function getAllFilms(): Promise<Film[]> {
       justwatchLink: streamingInfo?.justwatch_url || null,
       posterUrl: enhancedInfo?.poster_url_tmdb || streamingInfo?.poster_url || null,
       
-      // Awards
-      awarded: film.awarded,
-      awards: film.awards || [],
+      // Awards - now from CSV data
+      awarded: awardInfo?.awarded || false,
+      awards: awardInfo?.awards || [],
       
       // Streaming availability - only count enabled platforms
       hasStreaming: hasEnabledStreaming(streamingInfo?.streaming || []),
@@ -146,7 +231,7 @@ export async function getAllFilms(): Promise<Film[]> {
       buy: streamingInfo?.buy || [],
       
       // Festival info
-      festivals,
+      festivals: updatedFestivals,
       
       // Internal
       filmKey

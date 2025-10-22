@@ -75,7 +75,11 @@ export interface Film {
   
   // Awards
   awarded: boolean;
-  awards: string[];
+  awards: Array<{
+    award: string;
+    festival: string;
+    year: number;
+  }>;
   
   // Streaming availability
   hasStreaming: boolean;

@@ -177,7 +177,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 {/* Award badges overlay on poster */}
                 {film.awarded && film.awards.length > 0 && (
                   <div className="absolute bottom-2 left-2 right-12">
-                    <AwardBadge awards={film.awards} />
+                    <AwardBadge awards={film.awards} compact />
                   </div>
                 )}
               </div>
@@ -195,7 +195,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 {/* Award badges overlay on placeholder */}
                 {film.awarded && film.awards.length > 0 && (
                   <div className="absolute bottom-2 left-2 right-12">
-                    <AwardBadge awards={film.awards} />
+                    <AwardBadge awards={film.awards} compact />
                   </div>
                 )}
               </div>

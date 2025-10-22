@@ -297,33 +297,37 @@ export default function Filters({
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
-            <button
-              className="w-full flex items-center justify-between text-left"
-              onClick={() => toggleSection('availability')}
-            >
-              <div className="flex items-center gap-2">
+            <div className="w-full flex items-center justify-between">
+              <button
+                className="flex items-center gap-2 text-left flex-grow"
+                onClick={() => toggleSection('availability')}
+              >
                 <span className="font-medium text-gray-700">Availability</span>
                 {(filters.showStreaming || filters.showRentBuy) && (
-                  <>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
-                      {(filters.showStreaming ? 1 : 0) + (filters.showRentBuy ? 1 : 0)}
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onChange({ ...filters, showStreaming: false, showRentBuy: false });
-                      }}
-                      className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors ml-1"
-                    >
-                      Clear
-                    </button>
-                  </>
+                  <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                    {(filters.showStreaming ? 1 : 0) + (filters.showRentBuy ? 1 : 0)}
+                  </span>
                 )}
+              </button>
+              <div className="flex items-center gap-2">
+                {(filters.showStreaming || filters.showRentBuy) && (
+                  <button
+                    onClick={() => onChange({ ...filters, showStreaming: false, showRentBuy: false })}
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
+                <button
+                  onClick={() => toggleSection('availability')}
+                  className="p-1"
+                >
+                  <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.availability ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
               </div>
-              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.availability ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+            </div>
           </div>
           
           {expandedSections.availability && (
@@ -409,33 +413,37 @@ export default function Filters({
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
-            <button
-              className="w-full flex items-center justify-between text-left"
-              onClick={() => toggleSection('special')}
-            >
-              <div className="flex items-center gap-2">
+            <div className="w-full flex items-center justify-between">
+              <button
+                className="flex items-center gap-2 text-left flex-grow"
+                onClick={() => toggleSection('special')}
+              >
                 <span className="font-medium text-gray-700">Special</span>
                 {(filters.watchlistOnly || filters.awardedOnly) && (
-                  <>
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
-                      {(filters.watchlistOnly ? 1 : 0) + (filters.awardedOnly ? 1 : 0)}
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onChange({ ...filters, watchlistOnly: false, awardedOnly: false });
-                      }}
-                      className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors ml-1"
-                    >
-                      Clear
-                    </button>
-                  </>
+                  <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                    {(filters.watchlistOnly ? 1 : 0) + (filters.awardedOnly ? 1 : 0)}
+                  </span>
                 )}
+              </button>
+              <div className="flex items-center gap-2">
+                {(filters.watchlistOnly || filters.awardedOnly) && (
+                  <button
+                    onClick={() => onChange({ ...filters, watchlistOnly: false, awardedOnly: false })}
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
+                <button
+                  onClick={() => toggleSection('special')}
+                  className="p-1"
+                >
+                  <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.special ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
               </div>
-              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.special ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+            </div>
           </div>
           
           {expandedSections.special && (
@@ -512,33 +520,37 @@ export default function Filters({
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
-            <button
-              className="w-full flex items-center justify-between text-left"
-              onClick={() => toggleSection('festival')}
-            >
-              <div className="flex items-center gap-2">
+            <div className="w-full flex items-center justify-between">
+              <button
+                className="flex items-center gap-2 text-left flex-grow"
+                onClick={() => toggleSection('festival')}
+              >
                 <span className="font-medium text-gray-700">Festival</span>
                 {filters.festivals.length > 0 && (
-                  <>
-                    <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
-                      {filters.festivals.length}
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onChange({ ...filters, festivals: [] });
-                      }}
-                      className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors ml-1"
-                    >
-                      Clear
-                    </button>
-                  </>
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
+                    {filters.festivals.length}
+                  </span>
                 )}
+              </button>
+              <div className="flex items-center gap-2">
+                {filters.festivals.length > 0 && (
+                  <button
+                    onClick={() => onChange({ ...filters, festivals: [] })}
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
+                <button
+                  onClick={() => toggleSection('festival')}
+                  className="p-1"
+                >
+                  <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.festival ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
               </div>
-              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.festival ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+            </div>
           </div>
           
           {expandedSections.festival && (
@@ -580,33 +592,37 @@ export default function Filters({
       <div className="mb-4">
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
-            <button
-              className="w-full flex items-center justify-between text-left"
-              onClick={() => toggleSection('year')}
-            >
-              <div className="flex items-center gap-2">
+            <div className="w-full flex items-center justify-between">
+              <button
+                className="flex items-center gap-2 text-left flex-grow"
+                onClick={() => toggleSection('year')}
+              >
                 <span className="font-medium text-gray-700">Year</span>
                 {filters.years.length > 0 && (
-                  <>
-                    <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
-                      {filters.years.length}
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onChange({ ...filters, years: [] });
-                      }}
-                      className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors ml-1"
-                    >
-                      Clear
-                    </button>
-                  </>
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
+                    {filters.years.length}
+                  </span>
                 )}
+              </button>
+              <div className="flex items-center gap-2">
+                {filters.years.length > 0 && (
+                  <button
+                    onClick={() => onChange({ ...filters, years: [] })}
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
+                <button
+                  onClick={() => toggleSection('year')}
+                  className="p-1"
+                >
+                  <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.year ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
               </div>
-              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.year ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+            </div>
           </div>
           
           {expandedSections.year && (
@@ -746,33 +762,37 @@ export default function Filters({
       {availableGenres.length > 0 && (
         <div className="mb-4">
           <div className="border border-gray-200  rounded-lg overflow-hidden">
-            <button 
-              onClick={() => toggleSection('genres')}
-              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between"
-            >
-              <div className="flex items-center gap-2">
+            <div className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between">
+              <button 
+                onClick={() => toggleSection('genres')}
+                className="flex items-center gap-2 flex-grow"
+              >
                 <span className="font-medium text-gray-700">Genres</span>
                 {filters.genres.length > 0 && (
-                  <>
-                    <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
-                      {filters.genres.length}
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        clearGenres();
-                      }}
-                      className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors ml-1"
-                    >
-                      Clear
-                    </button>
-                  </>
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
+                    {filters.genres.length}
+                  </span>
                 )}
+              </button>
+              <div className="flex items-center gap-2">
+                {filters.genres.length > 0 && (
+                  <button
+                    onClick={clearGenres}
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
+                <button
+                  onClick={() => toggleSection('genres')}
+                  className="p-1"
+                >
+                  <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.genres ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
               </div>
-              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.genres ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+            </div>
             
             {expandedSections.genres && (
               <div className="px-4 py-3 bg-white  max-h-48 overflow-y-auto">
@@ -812,33 +832,37 @@ export default function Filters({
       {availablePlatforms.length > 0 && (
         <div className="mb-4">
           <div className="border border-gray-200  rounded-lg overflow-hidden">
-            <button 
-              onClick={() => toggleSection('platforms')}
-              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between"
-            >
-              <div className="flex items-center gap-2">
+            <div className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between">
+              <button 
+                onClick={() => toggleSection('platforms')}
+                className="flex items-center gap-2 flex-grow"
+              >
                 <span className="font-medium text-gray-700">Platforms</span>
                 {filters.selectedPlatforms.length > 0 && (
-                  <>
-                    <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
-                      {filters.selectedPlatforms.length}
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        clearPlatforms();
-                      }}
-                      className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors ml-1"
-                    >
-                      Clear
-                    </button>
-                  </>
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800  text-xs px-2 py-1 rounded-full font-medium">
+                    {filters.selectedPlatforms.length}
+                  </span>
                 )}
+              </button>
+              <div className="flex items-center gap-2">
+                {filters.selectedPlatforms.length > 0 && (
+                  <button
+                    onClick={clearPlatforms}
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
+                <button
+                  onClick={() => toggleSection('platforms')}
+                  className="p-1"
+                >
+                  <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.platforms ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
               </div>
-              <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.platforms ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+            </div>
             
             {expandedSections.platforms && (
               <div className="bg-white">
