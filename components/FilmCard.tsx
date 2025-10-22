@@ -247,7 +247,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 href={film.mubiLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-semibold rounded hover:bg-[#0F0F1E] transition-colors flex items-center justify-center"
+                className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center transform"
                 onClick={(e) => e.stopPropagation()}
               >
                 MUBI
@@ -255,7 +255,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               
               <button
                 onClick={handleTrailerClick}
-                className="px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] transition-colors flex items-center justify-center cursor-pointer"
+                className="px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform"
                 title="Watch trailer fullscreen"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -268,7 +268,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   href={film.justwatchLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] transition-colors whitespace-nowrap flex items-center justify-center"
+                  className="px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform"
                   title="View streaming options on JustWatch"
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -372,7 +372,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                         onGenreClick?.(genre);
                         onFlip(); // Flip card back to front side
                       }}
-                      className="px-2 py-0.5 bg-[#FFB800] text-black text-xs font-medium rounded-full border border-[#FFB800] hover:bg-[#FFC533] hover:border-[#FFC533] transition-all duration-200 cursor-pointer"
+                      className="px-2 py-0.5 bg-[#FFB800] text-black text-xs font-medium rounded-full border border-[#FFB800] hover:bg-[#FFC533] hover:border-[#FFC533] hover:scale-110 hover:shadow-md transition-all duration-200 cursor-pointer transform"
                       title={`Filter by ${genre}`}
                     >
                       {genre}
@@ -420,7 +420,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                       e.stopPropagation();
                       setIsExpanded(!isExpanded);
                     }}
-                    className="mt-2 text-xs text-blue-600 hover:text-blue-800 transition-colors focus:outline-none self-start flex-shrink-0"
+                    className="mt-2 text-xs text-blue-600 hover:text-blue-800 hover:underline hover:scale-105 transition-all duration-200 focus:outline-none self-start flex-shrink-0 transform"
                   >
                     {isExpanded ? 'Show less' : 'Show all'}
                   </button>
@@ -495,7 +495,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   href={film.mubiLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 text-center px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] transition-colors"
+                  className="flex-1 text-center px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 transform"
                   onClick={(e) => e.stopPropagation()}
                 >
                   MUBI
@@ -503,7 +503,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 
                 <button
                   onClick={handleTrailerClick}
-                  className="px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] transition-colors flex items-center justify-center cursor-pointer"
+                  className="px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform"
                   title="Watch trailer fullscreen"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -516,7 +516,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                     href={film.justwatchLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] transition-colors whitespace-nowrap"
+                    className="px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap transform"
                     title="View streaming options on JustWatch"
                     onClick={(e) => e.stopPropagation()}
                   >
