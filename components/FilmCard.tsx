@@ -247,7 +247,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 href={film.mubiLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] transition-colors flex items-center justify-center"
+                className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-semibold rounded hover:bg-[#0F0F1E] transition-colors flex items-center justify-center"
                 onClick={(e) => e.stopPropagation()}
               >
                 MUBI

@@ -44,7 +44,12 @@ export default function StreamingBadge({ providers, type }: StreamingBadgeProps)
     <div className="text-sm px-3 py-2 bg-gray-50 rounded border-l-2 border-blue-500">
       <div 
         className={`${hasMore ? 'cursor-pointer hover:text-blue-600 transition-colors' : ''}`}
-        onClick={() => hasMore && setIsExpanded(!isExpanded)}
+        onClick={(e) => {
+          if (hasMore) {
+            e.stopPropagation();
+            setIsExpanded(!isExpanded);
+          }
+        }}
       >
         <span className="font-bold text-gray-900">{typeLabels[type]}:</span>
         {' '}
