@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { FaTrophy } from 'react-icons/fa';
+import { useAuth } from '@/lib/auth-context';
 import type { FilterState } from '@/lib/types';
 
 interface FiltersProps {
@@ -12,6 +13,7 @@ interface FiltersProps {
   availablePlatforms: string[];
   availableCountries: string[];
   availableGenres: string[];
+  onAuthRequired?: () => void;
 }
 
 export default function Filters({
@@ -21,8 +23,10 @@ export default function Filters({
   availableFestivals,
   availablePlatforms,
   availableCountries,
-  availableGenres
+  availableGenres,
+  onAuthRequired
 }: FiltersProps) {
+  const { user } = useAuth();
   
   // Map internal festival names to display names
   const festivalDisplayNames: Record<string, string> = {
@@ -457,16 +461,25 @@ export default function Filters({
               <div className="flex flex-wrap gap-2">
                 {/* My Watchlist Pill */}
                 <button
-                  onClick={() => onChange({ ...filters, watchlistOnly: !filters.watchlistOnly })}
+                  onClick={() => {
+                    if (!user) {
+                      onAuthRequired?.();
+                    } else {
+                      onChange({ ...filters, watchlistOnly: !filters.watchlistOnly });
+                    }
+                  }}
                   className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2 ${
-                    filters.watchlistOnly
+                    filters.watchlistOnly && user
                       ? 'bg-red-500 border-red-500 text-white shadow-md'
-                      : 'bg-white border-gray-300 text-gray-700 hover:border-red-400 hover:text-red-600'
+                      : !user
+                        ? 'bg-white border-gray-300 text-gray-400 hover:border-blue-400 hover:text-blue-600'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-red-400 hover:text-red-600'
                   }`}
+                  title={!user ? 'Sign in to use watchlist' : undefined}
                 >
                   <svg 
                     className={`w-4 h-4 transition-all duration-200 ${
-                      filters.watchlistOnly 
+                      filters.watchlistOnly && user
                         ? 'fill-white' 
                         : 'fill-none stroke-current'
                     }`} 
@@ -476,7 +489,7 @@ export default function Filters({
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
-                  My Watchlist
+                  {!user ? 'My Watchlist (Sign in)' : 'My Watchlist'}
                 </button>
                 
                 {/* Awarded Films Pill */}

@@ -1,10 +1,13 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import type { Film, FilterState } from '@/lib/types';
 import { applyFilters, sortFilms, type SortOption } from '@/lib/filters';
+import { useAuth } from '@/lib/auth-context';
 import Filters from './Filters';
 import FilmGrid from './FilmGrid';
+import UserMenu from './UserMenu';
+import AuthModal from './AuthModal';
 
 interface FilmBrowserProps {
   films: Film[];
@@ -38,7 +41,46 @@ export default function FilmBrowser({
   
   const [sortBy, setSortBy] = useState<SortOption>('year-desc');
   const [watchlistVersion, setWatchlistVersion] = useState(0);
+  const [userWatchlistFilmKeys, setUserWatchlistFilmKeys] = useState<string[]>([]);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const { user } = useAuth();
+
+  // Load user watchlist when user changes
+  useEffect(() => {
+    if (user) {
+      loadUserWatchlist();
+    } else {
+      setUserWatchlistFilmKeys([]);
+    }
+  }, [user, watchlistVersion]);
+
+  const loadUserWatchlist = async () => {
+    if (!user) return;
+    
+    try {
+      const res = await fetch('/api/watchlist');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success && data.watchlist) {
+          const filmKeys = data.watchlist.map((item: any) => item.filmKey);
+          setUserWatchlistFilmKeys(filmKeys);
+        }
+      }
+    } catch (error) {
+      console.error('Error loading watchlist:', error);
+    }
+  };
   
+  // Handle auth required from filters or film cards
+  const handleAuthRequired = () => {
+    setShowAuthModal(true);
+  };
+
+  const handleAuthSuccess = () => {
+    // Refresh watchlist when user logs in
+    setWatchlistVersion(v => v + 1);
+  };
+
   // Handle genre click from cards
   const handleGenreClick = (genre: string) => {
     const newGenres = filters.genres.includes(genre)
@@ -50,7 +92,7 @@ export default function FilmBrowser({
   
   // Apply filters and sorting
   const filteredAndSortedFilms = useMemo(() => {
-    let result = applyFilters(films, filters);
+    let result = applyFilters(films, filters, userWatchlistFilmKeys);
     
     // Apply search
     if (filters.searchQuery.trim()) {
@@ -66,7 +108,7 @@ export default function FilmBrowser({
     }
     
     return sortFilms(result, sortBy);
-  }, [films, filters, sortBy, watchlistVersion]);
+  }, [films, filters, sortBy, userWatchlistFilmKeys]);
   
   // Count streaming films
   const streamingCount = useMemo(() => 
@@ -93,13 +135,18 @@ export default function FilmBrowser({
       {/* Header */}
       <header className="bg-[#1A1A2E] shadow-lg border-b-4 border-[#FFB800]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-4xl font-bold text-[#FFB800] mb-2 flex items-center gap-3">
-            <span className="text-5xl">🎬</span>
-            <span>Film Festival Browser</span>
-          </h1>
-          <p className="text-white/90 text-lg font-medium">
-            {films.length} films from {festivalNamesText} • {streamingCount} available for streaming in Norway
-          </p>
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-4xl font-bold text-[#FFB800] mb-2 flex items-center gap-3">
+                <span className="text-5xl">🎬</span>
+                <span>Film Festival Browser</span>
+              </h1>
+              <p className="text-white/90 text-lg font-medium">
+                {films.length} films from {festivalNamesText} • {streamingCount} available for streaming in Norway
+              </p>
+            </div>
+            <UserMenu />
+          </div>
         </div>
       </header>
       
@@ -121,7 +168,7 @@ export default function FilmBrowser({
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Filters Sidebar */}
           <div className="lg:col-span-1">
-            <Filters
+            <Filters 
               filters={filters}
               onChange={setFilters}
               availableYears={availableYears}
@@ -129,6 +176,7 @@ export default function FilmBrowser({
               availablePlatforms={availablePlatforms}
               availableCountries={availableCountries}
               availableGenres={availableGenres}
+              onAuthRequired={handleAuthRequired}
             />
           </div>
           
@@ -140,10 +188,18 @@ export default function FilmBrowser({
               onSortChange={(sort) => setSortBy(sort as SortOption)}
               onGenreClick={handleGenreClick}
               onWatchlistChange={() => setWatchlistVersion(prev => prev + 1)}
+              onAuthRequired={handleAuthRequired}
             />
           </div>
         </div>
       </div>
+
+      {/* Auth Modal */}
+      <AuthModal 
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        onSuccess={handleAuthSuccess}
+      />
     </div>
   );
 }

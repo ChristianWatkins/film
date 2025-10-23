@@ -1,11 +1,15 @@
 import type { Film, FilterState } from './types';
-import { getWatchlist } from './watchlist';
 
 // Apply all filters to films
-export function applyFilters(films: Film[], filters: FilterState): Film[] {
-  // Get watchlist if needed
-  const watchlist = filters.watchlistOnly ? getWatchlist() : null;
+export function applyFilters(films: Film[], filters: FilterState, userWatchlistFilmKeys?: string[]): Film[] {
   return films.filter(film => {
+    // Watchlist filter
+    if (filters.watchlistOnly) {
+      if (!userWatchlistFilmKeys || !userWatchlistFilmKeys.includes(film.filmKey)) {
+        return false;
+      }
+    }
+    
     // Festival filter
     if (filters.festivals.length > 0) {
       const hasMatchingFestival = film.festivals.some(f => 
@@ -27,11 +31,6 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
     // Genre filter
     if (filters.genres.length > 0) {
       if (!film.genres || !film.genres.some(genre => filters.genres.includes(genre))) return false;
-    }
-    
-    // Watchlist filter
-    if (filters.watchlistOnly) {
-      if (!watchlist || !watchlist.has(film.filmKey)) return false;
     }
     
     // Awarded filter
