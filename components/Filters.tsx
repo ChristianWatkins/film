@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaTrophy } from 'react-icons/fa';
 import type { FilterState } from '@/lib/types';
 
@@ -124,12 +124,67 @@ export default function Filters({
     }));
   };
   
+  const scrollToFilms = () => {
+    // Find the film grid container and scroll to it
+    const filmGrid = document.querySelector('[data-film-grid]');
+    if (filmGrid) {
+      filmGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const scrollToFilters = () => {
+    // Scroll to top of page where filters are
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Track scroll position to determine which button to show
+  const [showFilmsButton, setShowFilmsButton] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const filmGrid = document.querySelector('[data-film-grid]');
+      if (filmGrid) {
+        const rect = filmGrid.getBoundingClientRect();
+        // If film grid is visible (top of grid is above bottom of viewport)
+        setShowFilmsButton(rect.top > window.innerHeight * 0.5);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden sticky top-4 max-h-[calc(100vh-2rem)] flex flex-col border border-gray-200">
-      {/* Enhanced Filters Header */}
-      <div className="bg-gradient-to-r from-gray-100 to-gray-200 px-6 py-4 flex items-center justify-between border-b border-gray-300">
-        <h2 className="text-xl font-bold text-gray-800">Filters</h2>
+    <>
+      {/* Floating Action Button - Mobile Only */}
+      <div className="lg:hidden fixed bottom-6 right-6 z-50">
+        <button
+          onClick={showFilmsButton ? scrollToFilms : scrollToFilters}
+          className="bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] font-semibold py-3 px-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-200 flex items-center gap-2 cursor-pointer"
+          style={{ boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
+        >
+          <span className="text-sm">
+            {showFilmsButton ? 'Films' : 'Filters'}
+          </span>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d={showFilmsButton ? "M19 14l-7 7m0 0l-7-7m7 7V3" : "M5 10l7-7m0 0l7 7m-7-7v18"} 
+            />
+          </svg>
+        </button>
       </div>
+      
+      {/* Filters Box */}
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden sticky top-4 max-h-[calc(100vh-2rem)] flex flex-col border border-gray-200">
+        {/* Enhanced Filters Header */}
+        <div className="bg-gradient-to-r from-gray-100 to-gray-200 px-6 py-4 flex items-center justify-between border-b border-gray-300">
+          <h2 className="text-xl font-bold text-gray-800">Filters</h2>
+        </div>
       
       {/* Search Field */}
       <div className="p-6 border-b border-gray-200 bg-white">
@@ -895,7 +950,8 @@ export default function Filters({
         </div>
       )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

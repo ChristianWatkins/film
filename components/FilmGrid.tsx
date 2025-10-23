@@ -35,7 +35,7 @@ export default function FilmGrid({ films, sortBy, onSortChange, onGenreClick, on
   }
   
   return (
-    <div>
+    <div data-film-grid>
       <div className="mb-4 flex items-center justify-between">
         <div className="text-sm text-gray-900">
           Showing <span className="font-semibold">{films.length}</span> film{films.length !== 1 ? 's' : ''}
