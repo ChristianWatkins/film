@@ -1,6 +1,26 @@
 import type { Film, FilterState } from './types';
 import { getWatchlist } from './watchlist';
 
+// Helper function to normalize platform names for filtering
+function normalizePlatformName(platform: string): string {
+  const lower = platform.toLowerCase();
+  
+  // Netflix variations
+  if (lower.includes('netflix')) {
+    return 'Netflix';
+  }
+  // Amazon variations
+  if (lower.includes('amazon')) {
+    return 'Amazon Prime Video';
+  }
+  // Apple variations
+  if (lower.includes('apple')) {
+    return 'Apple TV';
+  }
+  
+  return platform;
+}
+
 // Apply all filters to films
 export function applyFilters(films: Film[], filters: FilterState): Film[] {
   // Get watchlist if needed
@@ -51,13 +71,15 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
       // If specific platforms are selected
       if (hasSpecificPlatforms) {
         for (const selectedPlatform of filters.selectedPlatforms) {
-          // Check if film has streaming on this platform
-          const hasStreamingOnThisPlatform = film.streaming.some(s => s.provider === selectedPlatform);
+          // Check if film has streaming on this platform (with normalization)
+          const hasStreamingOnThisPlatform = film.streaming.some(s => 
+            normalizePlatformName(s.provider) === selectedPlatform
+          );
           
-          // Check if film has rent/buy on this platform
+          // Check if film has rent/buy on this platform (with normalization)
           const hasRentBuyOnThisPlatform = 
-            film.rent.some(r => r.provider === selectedPlatform) ||
-            film.buy.some(b => b.provider === selectedPlatform);
+            film.rent.some(r => normalizePlatformName(r.provider) === selectedPlatform) ||
+            film.buy.some(b => normalizePlatformName(b.provider) === selectedPlatform);
           
           // Apply priority logic: streaming first, then rent/buy only if no streaming anywhere
           if (hasStreamingFilter && hasStreamingOnThisPlatform) {

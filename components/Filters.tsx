@@ -117,6 +117,37 @@ export default function Filters({
   const [countrySearch, setCountrySearch] = useState('');
   const [platformSearch, setPlatformSearch] = useState('');
   
+  // Platform merging function to combine duplicate platforms
+  const mergePlatforms = (platforms: string[]): string[] => {
+    const platformMap = new Map<string, string>();
+    
+    platforms.forEach(platform => {
+      // Normalize platform names by removing variations
+      let baseName = platform;
+      
+      // Netflix variations
+      if (platform.toLowerCase().includes('netflix')) {
+        baseName = 'Netflix';
+      }
+      // Amazon variations
+      else if (platform.toLowerCase().includes('amazon')) {
+        baseName = 'Amazon Prime Video';
+      }
+      // Apple variations
+      else if (platform.toLowerCase().includes('apple')) {
+        baseName = 'Apple TV';
+      }
+      
+      // Store the base name
+      platformMap.set(baseName, baseName);
+    });
+    
+    return Array.from(platformMap.values()).sort();
+  };
+  
+  // Get merged platforms
+  const mergedPlatforms = mergePlatforms(availablePlatforms);
+  
   const toggleSection = (section: 'festival' | 'year' | 'country' | 'platforms' | 'genres' | 'availability' | 'special') => {
     setExpandedSections(prev => ({
       ...prev,
@@ -836,7 +867,7 @@ export default function Filters({
       )}
       
       {/* Platform Filter - Enhanced Collapsible */}
-      {availablePlatforms.length > 0 && (
+      {mergedPlatforms.length > 0 && (
         <div className="mb-4">
           <div className="border border-gray-200 rounded-lg overflow-hidden">
             <div className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between">
@@ -907,7 +938,7 @@ export default function Filters({
                 {/* Platform List */}
                 <div className="px-4 py-3 max-h-48 overflow-y-auto">
                   <div className="space-y-1">
-                    {availablePlatforms
+                    {mergedPlatforms
                       .filter(platform => 
                         platform.toLowerCase().includes(platformSearch.toLowerCase())
                       )
@@ -935,7 +966,7 @@ export default function Filters({
                           <span className="ml-3 text-sm text-gray-900">{platform}</span>
                         </label>
                       ))}
-                    {platformSearch && availablePlatforms.filter(platform => 
+                    {platformSearch && mergedPlatforms.filter(platform => 
                       platform.toLowerCase().includes(platformSearch.toLowerCase())
                     ).length === 0 && (
                       <div className="text-center py-4 text-gray-500 text-sm">
