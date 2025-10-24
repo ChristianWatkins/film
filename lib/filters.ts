@@ -39,32 +39,44 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
       return false;
     }
     
-    // Streaming availability filter - checkbox based (can select both)
+    // Streaming availability and platform filter - simplified logic
     const hasStreamingFilter = filters.showStreaming;
     const hasRentBuyFilter = filters.showRentBuy;
+    const hasSpecificPlatforms = filters.selectedPlatforms.length > 0;
     
-    // If at least one filter is active
-    if (hasStreamingFilter || hasRentBuyFilter) {
-      const matchesStreaming = hasStreamingFilter && film.hasStreaming;
-      const matchesRentBuy = hasRentBuyFilter && (film.hasRent || film.hasBuy);
+    // If at least one availability filter is active or specific platforms are selected
+    if (hasStreamingFilter || hasRentBuyFilter || hasSpecificPlatforms) {
+      let matchesAvailability = false;
       
-      // Film must match at least one selected option
-      if (!matchesStreaming && !matchesRentBuy) return false;
-    }
-    
-    // Platform-specific filter
-    if (filters.selectedPlatforms.length > 0) {
-      const filmProviders = [
-        ...film.streaming.map(s => s.provider),
-        ...film.rent.map(s => s.provider),
-        ...film.buy.map(s => s.provider)
-      ];
+      // If specific platforms are selected
+      if (hasSpecificPlatforms) {
+        for (const selectedPlatform of filters.selectedPlatforms) {
+          // Check if film has streaming on this platform
+          const hasStreamingOnThisPlatform = film.streaming.some(s => s.provider === selectedPlatform);
+          
+          // Check if film has rent/buy on this platform
+          const hasRentBuyOnThisPlatform = 
+            film.rent.some(r => r.provider === selectedPlatform) ||
+            film.buy.some(b => b.provider === selectedPlatform);
+          
+          // Apply priority logic: streaming first, then rent/buy only if no streaming anywhere
+          if (hasStreamingFilter && hasStreamingOnThisPlatform) {
+            matchesAvailability = true;
+          } else if (hasRentBuyFilter && hasRentBuyOnThisPlatform && !film.hasStreaming) {
+            matchesAvailability = true;
+          }
+        }
+      } else {
+        // No specific platforms, just check general availability
+        if (hasStreamingFilter && film.hasStreaming) {
+          matchesAvailability = true;
+        }
+        if (hasRentBuyFilter && (film.hasRent || film.hasBuy)) {
+          matchesAvailability = true;
+        }
+      }
       
-      const hasMatchingPlatform = filters.selectedPlatforms.some(platform =>
-        filmProviders.includes(platform)
-      );
-      
-      if (!hasMatchingPlatform) return false;
+      if (!matchesAvailability) return false;
     }
     
     return true;
