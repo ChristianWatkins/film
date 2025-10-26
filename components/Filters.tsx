@@ -145,6 +145,14 @@ export default function Filters({
     return Array.from(platformMap.values()).sort();
   };
   
+  // Function to get display name for platforms
+  const getPlatformDisplayName = (platform: string): string => {
+    if (platform === 'Cineasterna') {
+      return 'Cineast';
+    }
+    return platform;
+  };
+  
   // Get merged platforms
   const mergedPlatforms = mergePlatforms(availablePlatforms);
   
@@ -387,7 +395,7 @@ export default function Filters({
                 )}
                 {filters.selectedPlatforms.map(platform => (
                   <span key={`active-platform-${platform}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
-                    {platform}
+                    {getPlatformDisplayName(platform)}
                     <button
                       onClick={() => onChange({ ...filters, selectedPlatforms: filters.selectedPlatforms.filter(p => p !== platform) })}
                       className="ml-2 text-slate-300 hover:text-white transition-colors"
@@ -940,7 +948,8 @@ export default function Filters({
                   <div className="space-y-1">
                     {mergedPlatforms
                       .filter(platform => 
-                        platform.toLowerCase().includes(platformSearch.toLowerCase())
+                        platform.toLowerCase().includes(platformSearch.toLowerCase()) ||
+                        getPlatformDisplayName(platform).toLowerCase().includes(platformSearch.toLowerCase())
                       )
                       .map(platform => (
                         <label key={platform} className="flex items-center py-1.5 px-2 rounded hover:bg-gray-50 cursor-pointer group">
@@ -963,11 +972,12 @@ export default function Filters({
                               )}
                             </div>
                           </div>
-                          <span className="ml-3 text-sm text-gray-900">{platform}</span>
+                          <span className="ml-3 text-sm text-gray-900">{getPlatformDisplayName(platform)}</span>
                         </label>
                       ))}
                     {platformSearch && mergedPlatforms.filter(platform => 
-                      platform.toLowerCase().includes(platformSearch.toLowerCase())
+                      platform.toLowerCase().includes(platformSearch.toLowerCase()) ||
+                      getPlatformDisplayName(platform).toLowerCase().includes(platformSearch.toLowerCase())
                     ).length === 0 && (
                       <div className="text-center py-4 text-gray-500 text-sm">
                         No platforms found matching "{platformSearch}"

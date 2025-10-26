@@ -15,6 +15,14 @@ const typeLabels = {
   buy: 'Buy'
 };
 
+// Function to get display name for platforms  
+const getPlatformDisplayName = (platform: string): string => {
+  if (platform === 'Cineasterna') {
+    return 'Cineast';
+  }
+  return platform;
+};
+
 export default function StreamingBadge({ providers, type }: StreamingBadgeProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   
@@ -53,7 +61,7 @@ export default function StreamingBadge({ providers, type }: StreamingBadgeProps)
       >
         <span className="font-bold text-gray-900">{typeLabels[type]}:</span>
         {' '}
-        <span className="text-gray-700">{bestProvider.provider}</span>
+        <span className="text-gray-700">{getPlatformDisplayName(bestProvider.provider)}</span>
         {hasMore && (
           <span className="text-blue-600 ml-1 text-xs font-medium underline decoration-dotted underline-offset-2 hover:text-blue-700 transition-colors">
             +{uniqueProviders.length - 1}
@@ -66,7 +74,7 @@ export default function StreamingBadge({ providers, type }: StreamingBadgeProps)
         <div className="mt-2 pt-2 border-t border-gray-200 space-y-1">
           {uniqueProviders.slice(1).map((provider, idx) => (
             <div key={idx} className="text-xs text-gray-600 pl-2">
-              {provider.provider}
+              {getPlatformDisplayName(provider.provider)}
             </div>
           ))}
         </div>
