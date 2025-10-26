@@ -13,11 +13,11 @@
     { "name": "SkyShowtime", "enabled": true },
     { "name": "MUBI", "enabled": true },
     { "name": "Amazon Prime Video", "enabled": true },
+    { "name": "Cineasterna", "enabled": true },
     { "name": "Google Play Movies", "enabled": false },
     { "name": "Strim", "enabled": false },
     { "name": "Rakuten TV", "enabled": false },
     { "name": "SF Anytime", "enabled": false },
-    { "name": "Cineasterna", "enabled": false },
     { "name": "Blockbuster", "enabled": false },
     { "name": "DocAlliance Films", "enabled": false },
     { "name": "FilmBox+", "enabled": false }
