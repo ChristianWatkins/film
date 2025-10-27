@@ -226,6 +226,7 @@ export async function getAllFilms(): Promise<Film[]> {
       hasStreaming: hasEnabledStreaming(streamingInfo?.streaming || []),
       hasRent: hasEnabledRent(streamingInfo?.rent || []),
       hasBuy: hasEnabledRent(streamingInfo?.buy || []), // Using same logic for buy
+      justwatchFound: streamingInfo?.found || false, // Whether film was found on JustWatch
       streaming: streamingInfo?.streaming || [],
       rent: streamingInfo?.rent || [],
       buy: streamingInfo?.buy || [],

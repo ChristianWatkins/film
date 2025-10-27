@@ -101,6 +101,19 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
       if (!matchesAvailability) return false;
     }
     
+    // JustWatch found filter
+    if (filters.justwatchFound !== undefined && filters.justwatchFound !== null) {
+      if (filters.justwatchFound && !film.justwatchFound) return false;
+      if (!filters.justwatchFound && film.justwatchFound) return false;
+    }
+    
+    // JustWatch availability filter (only apply if film was found on JustWatch)
+    if (filters.justwatchAvailable !== undefined && filters.justwatchAvailable !== null && film.justwatchFound) {
+      const hasAnyAvailability = film.hasStreaming || film.hasRent || film.hasBuy;
+      if (filters.justwatchAvailable && !hasAnyAvailability) return false;
+      if (!filters.justwatchAvailable && hasAnyAvailability) return false;
+    }
+    
     return true;
   });
 }

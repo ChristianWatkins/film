@@ -85,6 +85,7 @@ export interface Film {
   hasStreaming: boolean;
   hasRent: boolean;
   hasBuy: boolean;
+  justwatchFound: boolean; // Whether film was found on JustWatch (regardless of availability)
   streaming: StreamingProvider[];
   rent: StreamingProvider[];
   buy: StreamingProvider[];
@@ -108,5 +109,7 @@ export interface FilterState {
   showRentBuy: boolean;
   selectedPlatforms: string[];
   searchQuery: string;
+  justwatchFound?: boolean | null; // null = show all, true = found only, false = not found only
+  justwatchAvailable?: boolean | null; // null = show all, true = has streaming/rent/buy, false = no options
 }
 

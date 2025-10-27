@@ -1,0 +1,617 @@
+{
+  "searchResults": [
+    {
+      "title": "Another Round",
+      "originalReleaseYear": 2020,
+      "posterUrl": "https://images.justwatch.com/poster/239936805/s332/another-round.webp",
+      "fullPath": "/no/movie/another-round"
+    },
+    {
+      "title": "Another Round",
+      "originalReleaseYear": 2018,
+      "posterUrl": "https://images.justwatch.com/poster/306731289/s332/.webp",
+      "fullPath": null
+    },
+    {
+      "title": "Another Round",
+      "originalReleaseYear": 1993,
+      "posterUrl": "",
+      "fullPath": null
+    },
+    {
+      "title": "One Battle After Another",
+      "originalReleaseYear": 2025,
+      "posterUrl": "https://images.justwatch.com/poster/334846074/s332/one-battle-after-another.webp",
+      "fullPath": "/no/movie/one-battle-after-another"
+    }
+  ],
+  "selectedMatch": {
+    "title": "Another Round",
+    "originalReleaseYear": 2020,
+    "posterUrl": "https://images.justwatch.com/poster/239936805/s332/another-round.webp",
+    "fullPath": "/no/movie/another-round"
+  },
+  "detailedData": {
+    "ID": "tm679789",
+    "originalTitle": "Druk",
+    "releastyear": 2020,
+    "isReleased": true,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "productionCountries": [
+      "DK",
+      "NL",
+      "SE"
+    ],
+    "shortDescription": "Four stagnant high school teachers decide to test out a theory that maintaining a constant level of intoxication will improve their overall lives.",
+    "imdbScore": 7.7,
+    "imdbCount": 219058,
+    "tmdbRating": 7.6,
+    "tomatoMeter": 93,
+    "Streams": [
+      {
+        "Resolution": "SD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "Netflix",
+        "Link": "https://www.netflix.com/title/81450757",
+        "Name": "Netflix",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/321739379/s160/netflix.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "Netflix",
+        "Link": "https://www.netflix.com/title/81450757",
+        "Name": "Netflix",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/321739379/s160/netflix.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "Amazon Prime Video",
+        "Link": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.6279b1cc-882a-445c-9224-4b485cb17dbb",
+        "Name": "Amazon Prime Video",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "da",
+          "fi",
+          "nb",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322556148/s160/amazonprimevideo.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "Amazon Prime Video",
+        "Link": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.6279b1cc-882a-445c-9224-4b485cb17dbb",
+        "Name": "Amazon Prime Video",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "da",
+          "fi",
+          "nb",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322556148/s160/amazonprimevideo.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "Viaplay",
+        "Link": "https://viaplay.no/filmer/et-glass-til-2020",
+        "Name": "Viaplay",
+        "Audio": [],
+        "Subtitle": [
+          "en",
+          "fi",
+          "no",
+          "sv",
+          "da"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150964/s160/viaplay.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "Viaplay",
+        "Link": "https://viaplay.no/filmer/et-glass-til-2020",
+        "Name": "Viaplay",
+        "Audio": [],
+        "Subtitle": [
+          "no",
+          "sv",
+          "da",
+          "en",
+          "fi"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150964/s160/viaplay.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "Strim",
+        "Link": "https://www.strim.no/film/1011374:vod/et-glass-til",
+        "Name": "Strim",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151529/s160/strim.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "Strim",
+        "Link": "https://www.strim.no/film/1011374:vod/et-glass-til",
+        "Name": "Strim",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151529/s160/strim.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "HBO Max",
+        "Link": "https://play.hbomax.com/show/f4fa841c-b4c9-418f-900a-5bd434653b42?utm_source=universal_search",
+        "Name": "HBO Max",
+        "Audio": [
+          "es",
+          "fr",
+          "pl",
+          "da"
+        ],
+        "Subtitle": [
+          "es",
+          "nb",
+          "nl",
+          "pl",
+          "da",
+          "en",
+          "fi",
+          "pt",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/332885683/s160/max.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "FLATRATE",
+        "Price": "",
+        "Provider": "HBO Max",
+        "Link": "https://play.hbomax.com/show/f4fa841c-b4c9-418f-900a-5bd434653b42?utm_source=universal_search",
+        "Name": "HBO Max",
+        "Audio": [
+          "da",
+          "es",
+          "fr",
+          "pl"
+        ],
+        "Subtitle": [
+          "da",
+          "en",
+          "fi",
+          "pt",
+          "es",
+          "nb",
+          "nl",
+          "pl",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/332885683/s160/max.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "RENT",
+        "Price": "NOK 1",
+        "Provider": "Amazon Video",
+        "Link": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.6279b1cc-882a-445c-9224-4b485cb17dbb",
+        "Name": "Amazon Video",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "da",
+          "fi",
+          "nb",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150880/s160/amazon.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "RENT",
+        "Price": "NOK 1",
+        "Provider": "Amazon Video",
+        "Link": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.6279b1cc-882a-445c-9224-4b485cb17dbb",
+        "Name": "Amazon Video",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "nb",
+          "sv",
+          "da",
+          "fi"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150880/s160/amazon.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "RENT",
+        "Price": "NOK 29",
+        "Provider": "Google Play Movies",
+        "Link": "https://play.google.com/store/movies/details/Et_Glass_Til?gl=NO&hl=en&id=1GThWd-grlM.P",
+        "Name": "Google Play Movies",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "da",
+          "fi",
+          "no",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150874/s160/play.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "RENT",
+        "Price": "NOK 29",
+        "Provider": "Blockbuster",
+        "Link": "https://blockbuster.no/movie/et-glass-til",
+        "Name": "Blockbuster",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151485/s160/blockbuster.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "RENT",
+        "Price": "NOK 29",
+        "Provider": "Blockbuster",
+        "Link": "https://blockbuster.no/movie/et-glass-til",
+        "Name": "Blockbuster",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151485/s160/blockbuster.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "RENT",
+        "Price": "NOK 39",
+        "Provider": "Apple TV",
+        "Link": "https://tv.apple.com/no/movie/et-glass-til/umc.cmc.3mcqgmi9vb3ifxj9r8knajtzr?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1530815677",
+        "Name": "Apple TV",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "fi",
+          "no",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150876/s160/itunes.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "RENT",
+        "Price": "NOK 39",
+        "Provider": "Apple TV",
+        "Link": "https://tv.apple.com/no/movie/et-glass-til/umc.cmc.3mcqgmi9vb3ifxj9r8knajtzr?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1530815677",
+        "Name": "Apple TV",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "fi",
+          "no",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150876/s160/itunes.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "RENT",
+        "Price": "NOK 39",
+        "Provider": "Google Play Movies",
+        "Link": "https://play.google.com/store/movies/details/Et_Glass_Til?gl=NO&hl=en&id=1GThWd-grlM.P",
+        "Name": "Google Play Movies",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "da",
+          "fi",
+          "no",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150874/s160/play.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "RENT",
+        "Price": "NOK 39",
+        "Provider": "Rakuten TV",
+        "Link": "https://www.rakuten.tv/no/movies/et-glass-til",
+        "Name": "Rakuten TV",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "fi",
+          "no",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150908/s160/wuaki.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "RENT",
+        "Price": "NOK 39",
+        "Provider": "TV 2 Play",
+        "Link": "https://play.tv2.no/film/et-glass-til-1627366.html",
+        "Name": "TV 2 Play",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151477/s160/sumotv2.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "RENT",
+        "Price": "NOK 39",
+        "Provider": "TV 2 Play",
+        "Link": "https://play.tv2.no/film/et-glass-til-1627366.html",
+        "Name": "TV 2 Play",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151477/s160/sumotv2.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "RENT",
+        "Price": "NOK 49",
+        "Provider": "SF Anytime",
+        "Link": "https://www.sfanytime.com/no/movie/druk",
+        "Name": "SF Anytime",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151510/s160/sfanytime.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "RENT",
+        "Price": "NOK 49",
+        "Provider": "SF Anytime",
+        "Link": "https://www.sfanytime.com/no/movie/druk",
+        "Name": "SF Anytime",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151510/s160/sfanytime.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "BUY",
+        "Price": "NOK 69",
+        "Provider": "Google Play Movies",
+        "Link": "https://play.google.com/store/movies/details/Et_Glass_Til?gl=NO&hl=en&id=1GThWd-grlM.P",
+        "Name": "Google Play Movies",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "sv",
+          "da",
+          "fi",
+          "no"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150874/s160/play.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Apple TV",
+        "Link": "https://tv.apple.com/no/movie/et-glass-til/umc.cmc.3mcqgmi9vb3ifxj9r8knajtzr?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1530815677",
+        "Name": "Apple TV",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "fi",
+          "no",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150876/s160/itunes.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Apple TV",
+        "Link": "https://tv.apple.com/no/movie/et-glass-til/umc.cmc.3mcqgmi9vb3ifxj9r8knajtzr?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1530815677",
+        "Name": "Apple TV",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "no",
+          "sv",
+          "fi"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150876/s160/itunes.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Google Play Movies",
+        "Link": "https://play.google.com/store/movies/details/Et_Glass_Til?gl=NO&hl=en&id=1GThWd-grlM.P",
+        "Name": "Google Play Movies",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "fi",
+          "no",
+          "sv",
+          "da"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150874/s160/play.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Rakuten TV",
+        "Link": "https://www.rakuten.tv/no/movies/et-glass-til",
+        "Name": "Rakuten TV",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "sv",
+          "fi",
+          "no"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150908/s160/wuaki.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Rakuten TV",
+        "Link": "https://www.rakuten.tv/no/movies/et-glass-til",
+        "Name": "Rakuten TV",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "fi",
+          "no",
+          "sv"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150908/s160/wuaki.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Blockbuster",
+        "Link": "https://blockbuster.no/movie/et-glass-til",
+        "Name": "Blockbuster",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151485/s160/blockbuster.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Blockbuster",
+        "Link": "https://blockbuster.no/movie/et-glass-til",
+        "Name": "Blockbuster",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151485/s160/blockbuster.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "SF Anytime",
+        "Link": "https://www.sfanytime.com/no/movie/druk",
+        "Name": "SF Anytime",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151510/s160/sfanytime.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "SF Anytime",
+        "Link": "https://www.sfanytime.com/no/movie/druk",
+        "Name": "SF Anytime",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151510/s160/sfanytime.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Amazon Video",
+        "Link": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.6279b1cc-882a-445c-9224-4b485cb17dbb",
+        "Name": "Amazon Video",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "sv",
+          "da",
+          "fi",
+          "nb"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150880/s160/amazon.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "BUY",
+        "Price": "NOK 79",
+        "Provider": "Amazon Video",
+        "Link": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.6279b1cc-882a-445c-9224-4b485cb17dbb",
+        "Name": "Amazon Video",
+        "Audio": [
+          "da"
+        ],
+        "Subtitle": [
+          "nb",
+          "sv",
+          "da",
+          "fi"
+        ],
+        "Icon": "https://images.justwatch.com/icon_wide/322150880/s160/amazon.webp"
+      },
+      {
+        "Resolution": "SD",
+        "Type": "BUY",
+        "Price": "NOK 139",
+        "Provider": "TV 2 Play",
+        "Link": "https://play.tv2.no/film/et-glass-til-1627366.html",
+        "Name": "TV 2 Play",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151477/s160/sumotv2.webp"
+      },
+      {
+        "Resolution": "HD",
+        "Type": "BUY",
+        "Price": "NOK 139",
+        "Provider": "TV 2 Play",
+        "Link": "https://play.tv2.no/film/et-glass-til-1627366.html",
+        "Name": "TV 2 Play",
+        "Audio": [],
+        "Subtitle": [],
+        "Icon": "https://images.justwatch.com/icon_wide/322151477/s160/sumotv2.webp"
+      }
+    ]
+  }
+}

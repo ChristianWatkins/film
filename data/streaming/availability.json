@@ -14238,10 +14238,16 @@
       "director": "Mstyslav Chernov"
     },
     "against-the-tide-2023": {
-      "found": false,
+      "found": true,
       "title": "AGAINST THE TIDE",
       "year": 2023,
-      "search_attempted": true,
+      "justwatch_id": "tm1289964",
+      "justwatch_url": "https://www.justwatch.com/us/movie/against-the-tide-2023",
+      "poster_url": null,
+      "streaming": [],
+      "rent": [],
+      "buy": [],
+      "last_updated": "2025-10-27T00:00:00.000Z",
       "festivals": [
         {
           "name": "bergen",
