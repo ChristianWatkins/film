@@ -19,6 +19,7 @@ interface FilmCardProps {
 export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
+  const [isDiscovering, setIsDiscovering] = useState(false);
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
 
@@ -108,7 +109,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
     setIsTextTruncated(false);
   };
 
-  const handleTrailerClick = (e: React.MouseEvent) => {
+    const handleTrailerClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     const trailerUrl = `${film.mubiLink}/trailer`;
     
@@ -118,13 +119,94 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
     
     const trailerWindow = window.open(
       trailerUrl,
-      'trailer',
-      `width=${screenWidth},height=${screenHeight},left=0,top=0,toolbar=no,menubar=no,location=no,status=no,resizable=yes,scrollbars=no`
+      '_blank',
+      `width=${screenWidth},height=${screenHeight},top=0,left=0,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
     );
     
-    // Try to focus the new window
     if (trailerWindow) {
       trailerWindow.focus();
+      // Try to maximize the window
+      trailerWindow.moveTo(0, 0);
+      trailerWindow.resizeTo(screenWidth, screenHeight);
+    }
+  };
+
+  const handleDiscoverMovies = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsDiscovering(true);
+    
+    try {
+      // Clean and prepare the search query
+      const cleanTitle = film.title
+        .replace(/[^\w\s\-\.'&]/g, '') // Remove special characters except basic ones
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim();
+      
+      // Try different query variations in order of preference
+      const searchQueries = [
+        cleanTitle, // Just the title first
+        `${cleanTitle} ${film.year}`, // Title with year
+        film.title.replace(/[^\w\s]/g, ' ').trim() // More aggressive cleaning
+      ].filter(q => q.length > 0 && q.length <= 100); // Filter valid queries
+      
+      let searchData = null;
+      let lastError = null;
+      
+      // Try each query until one works
+      for (const query of searchQueries) {
+        try {
+          const params = new URLSearchParams({
+            q: query,
+            // Don't include countries parameter to search all countries
+          });
+
+          const response = await fetch(`/api/justwatch-search?${params}`);
+          
+          if (response.ok) {
+            searchData = await response.json();
+            
+            // Check if we found results with streaming options
+            const foundResults = searchData.results.filter((result: any) => result.found);
+            const resultsWithOptions = foundResults.filter((result: any) => {
+              if (!result.details) return false;
+              const hasOptions = 
+                (result.details.streamingProviders && result.details.streamingProviders.length > 0) ||
+                (result.details.rentProviders && result.details.rentProviders.length > 0) ||
+                (result.details.buyProviders && result.details.buyProviders.length > 0);
+              return hasOptions;
+            });
+            
+            if (resultsWithOptions.length > 0) {
+              // Success! Navigate to search page with this query
+              const searchUrl = `/search?q=${encodeURIComponent(query)}&auto=true`;
+              window.location.href = searchUrl;
+              return;
+            }
+            // If no options found with this query, try the next one
+          } else {
+            const errorData = await response.json().catch(() => ({}));
+            lastError = errorData.error || `HTTP ${response.status}`;
+            // Continue to next query
+          }
+        } catch (error) {
+          lastError = error instanceof Error ? error.message : 'Network error';
+          // Continue to next query
+        }
+      }
+      
+      // If we get here, no query found streaming options
+      if (searchData) {
+        alert('Denne filmen ser ikke ut til å være tilgjengelig for streaming i noen land for øyeblikket.');
+      } else {
+        console.error('All search queries failed. Last error:', lastError);
+        alert(`Kunne ikke søke etter filmen. ${lastError ? `Feil: ${lastError}` : 'Prøv igjen senere.'}`);
+      }
+      
+    } catch (error) {
+      console.error('Error discovering movie:', error);
+      alert('Det oppstod en feil ved søk etter filmen. Prøv igjen senere.');
+    } finally {
+      setIsDiscovering(false);
     }
   };
 
@@ -274,6 +356,18 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 >
                   JustWatch
                 </a>
+              )}
+              
+              {/* Show Discover Movies button when film has no streaming availability in Norway */}
+              {(!film.hasStreaming && !film.hasRent && !film.hasBuy) && (
+                <button
+                  onClick={handleDiscoverMovies}
+                  disabled={isDiscovering}
+                  className="px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform disabled:opacity-50 disabled:cursor-not-allowed"
+                  title="Søk etter globale streaming-alternativer"
+                >
+                  {isDiscovering ? 'Søker...' : 'Søk Globalt'}
+                </button>
               )}
             </div>
           </div>

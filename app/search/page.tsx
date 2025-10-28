@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import JustWatchSearchForm from '@/components/JustWatchSearchForm';
@@ -16,6 +17,7 @@ interface SearchResponse {
 }
 
 export default function JustWatchSearchPage() {
+  const searchParams = useSearchParams();
   const [searchResults, setSearchResults] = useState<SearchResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -24,6 +26,17 @@ export default function JustWatchSearchPage() {
     countries: CountryMovieData[];
     isExpandedSearch?: boolean;
   } | null>(null);
+
+  // Handle automatic search from URL parameters
+  useEffect(() => {
+    const query = searchParams.get('q');
+    const auto = searchParams.get('auto');
+    
+    if (query && auto === 'true') {
+      // Perform automatic search without country restrictions
+      handleSearch(query, []);
+    }
+  }, [searchParams]);
 
   const handleSearch = async (query: string, countries: string[]) => {
     setIsLoading(true);
@@ -36,9 +49,13 @@ export default function JustWatchSearchPage() {
     try {
       // First attempt: search in selected countries
       let params = new URLSearchParams({
-        q: query,
-        countries: countries.join(',')
+        q: query
       });
+      
+      // Only add countries parameter if we have valid countries
+      if (countries.length > 0) {
+        params.set('countries', countries.join(','));
+      }
 
       let response = await fetch(`/api/justwatch-search?${params}`);
       
