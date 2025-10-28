@@ -12,7 +12,7 @@ const GLOBAL_RATE_LIMIT_WINDOW = 60000; // 1 minute
 const GLOBAL_RATE_LIMIT_MAX_REQUESTS = parseInt(process.env.GLOBAL_RATE_LIMIT_REQUESTS_PER_MINUTE || '3');
 let globalRateLimit = { count: 0, resetTime: Date.now() + GLOBAL_RATE_LIMIT_WINDOW };
 
-function checkRateLimit(ip: string): boolean {
+function checkRateLimit(ip: string): { allowed: boolean; reason?: string } {
   const now = Date.now();
   
   // Check global rate limit first
@@ -20,7 +20,10 @@ function checkRateLimit(ip: string): boolean {
     globalRateLimit = { count: 1, resetTime: now + GLOBAL_RATE_LIMIT_WINDOW };
   } else {
     if (globalRateLimit.count >= GLOBAL_RATE_LIMIT_MAX_REQUESTS) {
-      return false;
+      return { 
+        allowed: false, 
+        reason: `Global rate limit reached (${GLOBAL_RATE_LIMIT_MAX_REQUESTS} searches per minute for all users). Please wait a moment.`
+      };
     }
     globalRateLimit.count++;
   }
@@ -30,15 +33,18 @@ function checkRateLimit(ip: string): boolean {
 
   if (!userLimit || now > userLimit.resetTime) {
     rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
-    return true;
+    return { allowed: true };
   }
 
   if (userLimit.count >= RATE_LIMIT_MAX_REQUESTS) {
-    return false;
+    return { 
+      allowed: false, 
+      reason: `You've reached the limit of ${RATE_LIMIT_MAX_REQUESTS} searches per minute. Please wait a moment.`
+    };
   }
 
   userLimit.count++;
-  return true;
+  return { allowed: true };
 }
 
 // Supported countries with Norway first
@@ -162,9 +168,10 @@ export async function GET(request: NextRequest) {
   // Rate limiting
   const forwarded = request.headers.get('x-forwarded-for');
   const ip = forwarded ? forwarded.split(',')[0] : request.headers.get('x-real-ip') || 'unknown';
-  if (!checkRateLimit(ip)) {
+  const rateLimitCheck = checkRateLimit(ip);
+  if (!rateLimitCheck.allowed) {
     return NextResponse.json(
-      { error: 'Rate limit exceeded. Please try again later.' }, 
+      { error: rateLimitCheck.reason || 'Rate limit exceeded. Please try again later.' }, 
       { status: 429 }
     );
   }
@@ -251,7 +258,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('JustWatch search error:', error);
     return NextResponse.json(
-      { error: 'Failed to search JustWatch API' },
+      { error: 'JustWatch API is temporarily unavailable. Please try again later.' },
       { status: 500 }
     );
   }

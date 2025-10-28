@@ -39,7 +39,24 @@ export default function JustWatchSearchPage() {
       const response = await fetch(`/api/justwatch-search?${params}`);
       
       if (!response.ok) {
-        throw new Error(`Search failed: ${response.statusText}`);
+        // Try to get the error message from the JSON response
+        try {
+          const errorData = await response.json();
+          if (errorData.error) {
+            throw new Error(errorData.error);
+          }
+        } catch (jsonError) {
+          // If JSON parsing fails, fall back to status text
+        }
+        
+        // Handle specific status codes with user-friendly messages
+        if (response.status === 429) {
+          throw new Error('Too many searches. Please wait a moment and try again.');
+        } else if (response.status === 400) {
+          throw new Error('Invalid search request. Please check your input.');
+        } else {
+          throw new Error(`Search failed: ${response.statusText}`);
+        }
       }
 
       const data: SearchResponse = await response.json();
