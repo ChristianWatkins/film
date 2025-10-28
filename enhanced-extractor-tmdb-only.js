@@ -1,6 +1,10 @@
 // TMDB-First Enhanced Film Data Extraction (No MUBI scraping)
 import fs from 'fs/promises';
 import path from 'path';
+import { config } from 'dotenv';
+
+// Load environment variables
+config({ path: '.env.local' });
 
 const FESTIVALS_DIR = 'data/festivals';
 const OUTPUT_DIR = 'data/enhanced';

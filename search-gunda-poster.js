@@ -1,7 +1,13 @@
-const fetch = require('node-fetch');
+require('dotenv').config({ path: '.env.local' });
 
 async function searchGundaPoster() {
-    const apiKey = 'a8b35a9094ad1c1b49df8bde1c1a91b7';
+    const apiKey = process.env.TMDB_API_KEY;
+    
+    if (!apiKey) {
+        console.error('❌ TMDB_API_KEY not found in environment variables');
+        console.log('   Set it in .env.local or run: export TMDB_API_KEY=your_key');
+        return;
+    }
     
     try {
         // Search for Gunda from 2020

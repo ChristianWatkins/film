@@ -13,6 +13,47 @@ export interface FestivalFilm {
   cast?: string[]; // Main cast members
 }
 
+// JustWatch search types
+export interface JustWatchCountry {
+  code: string; // ISO country code (e.g., 'NO', 'US', 'GB')
+  name: string; // Full country name
+  flag: string; // Flag emoji
+}
+
+export interface JustWatchSearchResult {
+  id: string;
+  title: string;
+  originalReleaseYear?: number;
+  posterUrl?: string;
+  fullPath?: string;
+  objectType?: string; // 'movie' or 'show'
+}
+
+export interface JustWatchMovieDetails {
+  id: string;
+  title: string;
+  originalTitle?: string;
+  originalReleaseYear?: number;
+  posterUrl?: string;
+  imdbId?: string;
+  tmdbId?: number;
+  runtime?: number;
+  genres?: Array<{ name: string; }>;
+  synopsis?: string;
+  streamingProviders?: StreamingProvider[];
+  rentProviders?: StreamingProvider[];
+  buyProviders?: StreamingProvider[];
+  country: string;
+  justwatchUrl?: string;
+}
+
+export interface CountryMovieData {
+  country: JustWatchCountry;
+  found: boolean;
+  details?: JustWatchMovieDetails;
+  error?: string;
+}
+
 // Streaming data types
 export interface StreamingProvider {
   provider: string;

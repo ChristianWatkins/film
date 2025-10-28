@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "dotenv": "^17.2.3",
     "framer-motion": "^12.23.24",
     "justwatch-api-client": "^1.0.4",
     "lucide-react": "^0.546.0",
