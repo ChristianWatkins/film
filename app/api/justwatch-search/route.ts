@@ -50,19 +50,16 @@ function checkRateLimit(ip: string): { allowed: boolean; reason?: string } {
 // Supported countries with Norway first
 const COUNTRIES: JustWatchCountry[] = [
   { code: 'NO', name: 'Norway', flag: '🇳🇴' },
-  { code: 'US', name: 'United States', flag: '🇺🇸' },
+  { code: 'SE', name: 'Sweden', flag: '🇸🇪' },
+  { code: 'DK', name: 'Denmark', flag: '🇩🇰' },
   { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
   { code: 'DE', name: 'Germany', flag: '🇩🇪' },
   { code: 'FR', name: 'France', flag: '🇫🇷' },
-  { code: 'SE', name: 'Sweden', flag: '🇸🇪' },
-  { code: 'DK', name: 'Denmark', flag: '🇩🇰' },
   { code: 'FI', name: 'Finland', flag: '🇫🇮' },
   { code: 'IT', name: 'Italy', flag: '🇮🇹' },
   { code: 'ES', name: 'Spain', flag: '🇪🇸' },
   { code: 'NL', name: 'Netherlands', flag: '🇳🇱' },
-  { code: 'CA', name: 'Canada', flag: '🇨🇦' },
-  { code: 'AU', name: 'Australia', flag: '🇦🇺' },
-  { code: 'JP', name: 'Japan', flag: '🇯🇵' },
+  { code: 'US', name: 'United States', flag: '🇺🇸' }
 ];
 
 async function searchInCountry(
@@ -126,7 +123,10 @@ async function searchInCountry(
       runtime: details?.runtime,
       genres: details?.genres,
       synopsis: details?.shortDescription || details?.synopsis,
-      streamingProviders: details?.Streams?.filter((stream: any) => stream.Type === 'FLATRATE').map((stream: any) => ({
+      streamingProviders: details?.Streams?.filter((stream: any) => {
+        const type = stream.Type?.toLowerCase() || '';
+        return type.includes('subscription') || type.includes('flatrate') || type.includes('free');
+      }).map((stream: any) => ({
         provider: stream.Provider || stream.Name,
         quality: stream.Resolution,
         price: stream.Price || null,

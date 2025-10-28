@@ -149,25 +149,6 @@ export default function JustWatchSearchPage() {
             onMovieClick={handleMovieClick}
           />
         )}
-
-        {/* Initial Help Text */}
-        {!searchResults && !isLoading && !error && (
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
-            <div className="max-w-md mx-auto">
-              <h2 className="text-lg font-medium text-gray-900 mb-2">
-                Discover Movies Globally
-              </h2>
-              <p className="text-gray-600 mb-4">
-                Search for any movie to discover where it's available across different countries. 
-                Click on any result to see detailed streaming information.
-              </p>
-              <div className="text-sm text-gray-500">
-                <p className="mb-2">🇳🇴🇸🇪🇩🇰🇬🇧 Nordic countries + UK are selected by default</p>
-                <p>Results show availability across all selected countries</p>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
