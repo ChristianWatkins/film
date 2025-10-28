@@ -1,9 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, ClockIcon, StarIcon } from '@heroicons/react/24/outline';
 import type { CountryMovieData, JustWatchMovieDetails } from '@/lib/types';
+
+interface TMDBDetails {
+  tmdbId: number;
+  title: string;
+  originalTitle: string;
+  synopsis: string;
+  releaseDate: string;
+  runtime: number;
+  rating: number;
+  voteCount: number;
+  genres: Array<{ id: number; name: string; }>;
+  posterPath: string | null;
+  backdropPath: string | null;
+  imdbId: string;
+  directors: string[];
+  cast: string[];
+  productionCountries: Array<{ iso_3166_1: string; name: string; }>;
+  productionCompanies: Array<{ id: number; name: string; }>;
+}
 
 interface MovieDetailViewProps {
   movie: JustWatchMovieDetails;
@@ -14,6 +33,49 @@ interface MovieDetailViewProps {
 
 export default function MovieDetailView({ movie, allCountryData, onBack, isExpandedSearch }: MovieDetailViewProps) {
   const [showOnlyWithAvailability, setShowOnlyWithAvailability] = useState(true);
+  const [tmdbDetails, setTmdbDetails] = useState<TMDBDetails | null>(null);
+  const [tmdbLoading, setTmdbLoading] = useState(false);
+
+  // Fetch TMDB details if we have a TMDB ID or can search by title
+  useEffect(() => {
+    if (!tmdbDetails && !tmdbLoading) {
+      let apiUrl = '';
+      
+      if (movie.tmdbId) {
+        // Use TMDB ID if available
+        apiUrl = `/api/tmdb-details?tmdbId=${movie.tmdbId}`;
+        console.log('Fetching TMDB details for ID:', movie.tmdbId);
+      } else if (movie.title && movie.originalReleaseYear) {
+        // Fallback to search by title and year
+        apiUrl = `/api/tmdb-details?title=${encodeURIComponent(movie.title)}&year=${movie.originalReleaseYear}`;
+        console.log('Searching TMDB for:', movie.title, movie.originalReleaseYear);
+      }
+      
+      if (apiUrl) {
+        setTmdbLoading(true);
+        fetch(apiUrl)
+          .then(response => {
+            console.log('TMDB API response status:', response.status);
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error(`Failed to fetch TMDB details: ${response.status}`);
+          })
+          .then((data: TMDBDetails) => {
+            console.log('TMDB data received:', data);
+            setTmdbDetails(data);
+          })
+          .catch(error => {
+            console.error('Error fetching TMDB details:', error);
+          })
+          .finally(() => {
+            setTmdbLoading(false);
+          });
+      } else {
+        console.log('No TMDB ID or insufficient data to search TMDB');
+      }
+    }
+  }, [movie.tmdbId, movie.title, movie.originalReleaseYear, tmdbDetails, tmdbLoading]);
   
   // Create a comprehensive list of countries showing this specific movie's availability
   // We need to match countries that have this specific movie vs countries where it wasn't found
@@ -282,31 +344,117 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
                 </div>
               )}
 
-              {movie.synopsis && (
-                <p className="text-gray-700 leading-relaxed mb-4">{movie.synopsis}</p>
+              {/* Synopsis - prioritize TMDB */}
+              {(tmdbDetails?.synopsis || movie.synopsis) ? (
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  {tmdbDetails?.synopsis || movie.synopsis}
+                  {tmdbLoading && !tmdbDetails?.synopsis && movie.synopsis && (
+                    <span className="text-xs text-gray-500 ml-2">(Loading enhanced synopsis...)</span>
+                  )}
+                </p>
+              ) : (
+                <div className="text-gray-500 italic mb-4 text-sm">
+                  {tmdbLoading ? (
+                    <div className="flex items-center space-x-2">
+                      <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
+                      <span>Loading synopsis from TMDB...</span>
+                    </div>
+                  ) : (
+                    <>
+                      No synopsis available
+                      {movie.tmdbId ? ' (TMDB has no synopsis)' : ' (searched TMDB by title)'}
+                    </>
+                  )}
+                </div>
               )}
 
-              {/* Availability Summary */}
+              {/* Additional Movie Details */}
               <div className="bg-gray-50 rounded-lg p-4">
-                <h3 className="font-medium text-gray-900 mb-2">Global Availability</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">{availabilityStats.streaming}</div>
-                    <div className="text-gray-600">Countries with Streaming</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-yellow-600">{availabilityStats.rent}</div>
-                    <div className="text-gray-600">Countries with Rental</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">{availabilityStats.buy}</div>
-                    <div className="text-gray-600">Countries with Purchase</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-600">{availabilityStats.inCatalog}</div>
-                    <div className="text-gray-600">In Catalog (of {availabilityStats.total})</div>
-                  </div>
+                <h3 className="font-medium text-gray-900 mb-3">Movie Information</h3>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  {(tmdbDetails?.releaseDate || movie.originalReleaseYear) && (
+                    <div>
+                      <span className="font-medium text-gray-600">Release:</span>
+                      <div className="text-gray-900">
+                        {tmdbDetails?.releaseDate 
+                          ? new Date(tmdbDetails.releaseDate).getFullYear()
+                          : movie.originalReleaseYear
+                        }
+                      </div>
+                    </div>
+                  )}
+                  {(tmdbDetails?.runtime || movie.runtime) && (
+                    <div>
+                      <span className="font-medium text-gray-600">Runtime:</span>
+                      <div className="text-gray-900">{tmdbDetails?.runtime || movie.runtime} minutes</div>
+                    </div>
+                  )}
+                  {tmdbDetails?.rating && (
+                    <div>
+                      <span className="font-medium text-gray-600">TMDB Rating:</span>
+                      <div className="text-gray-900 flex items-center space-x-1">
+                        <StarIcon className="h-4 w-4 text-yellow-500" />
+                        <span>{tmdbDetails.rating.toFixed(1)}/10</span>
+                        <span className="text-xs text-gray-500">({tmdbDetails.voteCount} votes)</span>
+                      </div>
+                    </div>
+                  )}
+                  {tmdbDetails?.directors && tmdbDetails.directors.length > 0 && (
+                    <div>
+                      <span className="font-medium text-gray-600">Director{tmdbDetails.directors.length > 1 ? 's' : ''}:</span>
+                      <div className="text-gray-900">{tmdbDetails.directors.join(', ')}</div>
+                    </div>
+                  )}
+                  {(tmdbDetails?.originalTitle || movie.originalTitle) && 
+                   (tmdbDetails?.originalTitle || movie.originalTitle) !== (tmdbDetails?.title || movie.title) && (
+                    <div className="col-span-2">
+                      <span className="font-medium text-gray-600">Original Title:</span>
+                      <div className="text-gray-900">{tmdbDetails?.originalTitle || movie.originalTitle}</div>
+                    </div>
+                  )}
+                  {tmdbDetails?.cast && tmdbDetails.cast.length > 0 && (
+                    <div className="col-span-2">
+                      <span className="font-medium text-gray-600">Cast:</span>
+                      <div className="text-gray-900">{tmdbDetails.cast.slice(0, 5).join(', ')}{tmdbDetails.cast.length > 5 ? '...' : ''}</div>
+                    </div>
+                  )}
+                  {(tmdbDetails?.imdbId || movie.imdbId) && (
+                    <div>
+                      <span className="font-medium text-gray-600">IMDb:</span>
+                      <div>
+                        <a 
+                          href={`https://www.imdb.com/title/${tmdbDetails?.imdbId || movie.imdbId}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 text-sm"
+                        >
+                          View on IMDb ↗
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                  {(tmdbDetails?.tmdbId || movie.tmdbId) && (
+                    <div>
+                      <span className="font-medium text-gray-600">TMDB:</span>
+                      <div>
+                        <a 
+                          href={`https://www.themoviedb.org/movie/${tmdbDetails?.tmdbId || movie.tmdbId}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 text-sm"
+                        >
+                          View on TMDB ↗
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
+                {tmdbLoading && (
+                  <div className="mt-3 text-xs text-gray-500 flex items-center space-x-1">
+                    <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
+                    <span>Loading enhanced details from TMDB...</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
