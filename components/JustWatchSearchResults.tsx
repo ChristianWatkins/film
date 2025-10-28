@@ -319,7 +319,7 @@ export default function JustWatchSearchResults({
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'country' | 'availability')}
-              className="text-sm border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              className="text-sm text-gray-900 bg-white border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="country">Country</option>
               <option value="availability">Availability</option>

@@ -233,7 +233,7 @@ export default function Filters({
             placeholder="Search films, directors, genres, cast..."
             value={filters.searchQuery}
             onChange={(e) => onChange({ ...filters, searchQuery: e.target.value })}
-            className="w-full px-4 py-3 pl-10 pr-4 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all placeholder:text-gray-500"
+            className="w-full px-4 py-3 pl-10 pr-4 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all placeholder:text-gray-400"
           />
           <svg 
             className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -746,7 +746,7 @@ export default function Filters({
                       placeholder="Search countries..."
                       value={countrySearch}
                       onChange={(e) => setCountrySearch(e.target.value)}
-                      className="w-full px-3 py-2 pl-8 pr-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all"
+                      className="w-full px-3 py-2 pl-8 pr-8 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all placeholder:text-gray-400"
                     />
                     <svg 
                       className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -920,7 +920,7 @@ export default function Filters({
                       placeholder="Search platforms..."
                       value={platformSearch}
                       onChange={(e) => setPlatformSearch(e.target.value)}
-                      className="w-full px-3 py-2 pl-8 pr-8 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all"
+                      className="w-full px-3 py-2 pl-8 pr-8 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all placeholder:text-gray-400"
                     />
                     <svg 
                       className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
