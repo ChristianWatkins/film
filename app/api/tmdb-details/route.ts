@@ -74,12 +74,8 @@ async function searchAndFetchMovie(title: string, year?: string | null) {
     const searchUrl = `${TMDB_BASE_URL}/search/movie?api_key=${TMDB_API_KEY}&query=${searchQuery}${yearParam}&language=en-US`;
     
     const searchResponse = await fetch(searchUrl);
-    console.log('TMDB search response status:', searchResponse.status);
-    console.log('TMDB search URL:', searchUrl.replace(TMDB_API_KEY!, '***'));
-    
     if (!searchResponse.ok) {
       const errorText = await searchResponse.text();
-      console.log('TMDB search error response:', errorText);
       throw new Error(`TMDB search error: ${searchResponse.statusText} - ${errorText}`);
     }
 
@@ -152,9 +148,6 @@ function formatMovieData(movieData: TMDBMovieDetails, creditsData: TMDBCredits) 
 }
 
 export async function GET(request: NextRequest) {
-  console.log('TMDB_API_KEY available:', !!TMDB_API_KEY);
-  console.log('TMDB_API_KEY value:', TMDB_API_KEY ? TMDB_API_KEY.substring(0, 8) + '...' : 'undefined');
-  
   if (!TMDB_API_KEY) {
     return NextResponse.json(
       { error: 'TMDB API key not configured' },
