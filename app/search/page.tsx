@@ -22,6 +22,7 @@ export default function JustWatchSearchPage() {
   const [selectedMovie, setSelectedMovie] = useState<{
     movie: JustWatchMovieDetails;
     countries: CountryMovieData[];
+    isExpandedSearch?: boolean;
   } | null>(null);
 
   const handleSearch = async (query: string, countries: string[]) => {
@@ -29,14 +30,17 @@ export default function JustWatchSearchPage() {
     setError(null);
     setSearchResults(null);
     setSelectedMovie(null); // Clear any selected movie
+    
+    let wasExpandedSearch = false;
 
     try {
-      const params = new URLSearchParams({
+      // First attempt: search in selected countries
+      let params = new URLSearchParams({
         q: query,
         countries: countries.join(',')
       });
 
-      const response = await fetch(`/api/justwatch-search?${params}`);
+      let response = await fetch(`/api/justwatch-search?${params}`);
       
       if (!response.ok) {
         // Try to get the error message from the JSON response
@@ -59,8 +63,85 @@ export default function JustWatchSearchPage() {
         }
       }
 
-      const data: SearchResponse = await response.json();
+      let data: SearchResponse = await response.json();
+      
+      // Check if we found any results with actual streaming/rental/purchase options
+      const foundResults = data.results.filter(result => result.found);
+      const resultsWithOptions = foundResults.filter(result => {
+        if (!result.details) return false;
+        const hasOptions = 
+          (result.details.streamingProviders && result.details.streamingProviders.length > 0) ||
+          (result.details.rentProviders && result.details.rentProviders.length > 0) ||
+          (result.details.buyProviders && result.details.buyProviders.length > 0);
+        return hasOptions;
+      });
+      
+      // If no useful results found in selected countries, try searching all countries
+      if (resultsWithOptions.length === 0 && countries.length < 14) { // 14 is total number of countries
+        console.log(`No streaming options in selected countries (found ${foundResults.length} catalog entries, ${resultsWithOptions.length} with options), expanding search to all countries...`);
+        
+        // Search all countries as fallback
+        const fallbackParams = new URLSearchParams({
+          q: query
+          // Don't include countries parameter to get all countries
+        });
+
+        response = await fetch(`/api/justwatch-search?${fallbackParams}`);
+        
+        if (response.ok) {
+          const fallbackData: SearchResponse = await response.json();
+          const fallbackFoundResults = fallbackData.results.filter(result => result.found);
+          const fallbackResultsWithOptions = fallbackFoundResults.filter(result => {
+            if (!result.details) return false;
+            const hasOptions = 
+              (result.details.streamingProviders && result.details.streamingProviders.length > 0) ||
+              (result.details.rentProviders && result.details.rentProviders.length > 0) ||
+              (result.details.buyProviders && result.details.buyProviders.length > 0);
+            return hasOptions;
+          });
+          
+          if (fallbackResultsWithOptions.length > 0) {
+            // Use fallback results but add a note
+            data = {
+              ...fallbackData,
+              query: `${fallbackData.query} (expanded to all countries - no streaming options in selected countries)`
+            };
+            wasExpandedSearch = true;
+            console.log(`Found ${fallbackResultsWithOptions.length} results with streaming options after expanding search`);
+          }
+        }
+      }
+      
       setSearchResults(data);
+      
+      // Auto-navigate to detail view if only one unique movie found
+      const finalFoundResults = data.results.filter(result => result.found);
+      if (finalFoundResults.length > 0) {
+        // Group by movie title to count unique movies
+        const uniqueMovies = new Map();
+        finalFoundResults.forEach(result => {
+          if (result.details) {
+            const movieKey = `${result.details.title}-${result.details.originalReleaseYear}`;
+            if (!uniqueMovies.has(movieKey)) {
+              uniqueMovies.set(movieKey, {
+                movie: result.details,
+                countries: [result]
+              });
+            } else {
+              uniqueMovies.get(movieKey).countries.push(result);
+            }
+          }
+        });
+        
+        // If only one unique movie found, auto-navigate to detail view
+        if (uniqueMovies.size === 1) {
+          const [movieData] = uniqueMovies.values();
+          setSelectedMovie({
+            ...movieData,
+            isExpandedSearch: wasExpandedSearch
+          });
+        }
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Search failed');
     } finally {
@@ -69,7 +150,13 @@ export default function JustWatchSearchPage() {
   };
 
   const handleMovieClick = (movie: JustWatchMovieDetails, allCountryData: CountryMovieData[]) => {
-    setSelectedMovie({ movie, countries: allCountryData });
+    // Check if this was an expanded search by looking at the query
+    const isExpanded = searchResults?.query.includes('(expanded to all countries') || false;
+    setSelectedMovie({ 
+      movie, 
+      countries: allCountryData,
+      isExpandedSearch: isExpanded
+    });
   };
 
   const handleBackToSearch = () => {
@@ -83,6 +170,7 @@ export default function JustWatchSearchPage() {
         movie={selectedMovie.movie}
         allCountryData={selectedMovie.countries}
         onBack={handleBackToSearch}
+        isExpandedSearch={selectedMovie.isExpandedSearch}
       />
     );
   }

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, ClockIcon, StarIcon } from '@heroicons/react/24/outline';
 import type { CountryMovieData, JustWatchMovieDetails } from '@/lib/types';
@@ -8,9 +9,12 @@ interface MovieDetailViewProps {
   movie: JustWatchMovieDetails;
   allCountryData: CountryMovieData[];
   onBack: () => void;
+  isExpandedSearch?: boolean;
 }
 
-export default function MovieDetailView({ movie, allCountryData, onBack }: MovieDetailViewProps) {
+export default function MovieDetailView({ movie, allCountryData, onBack, isExpandedSearch }: MovieDetailViewProps) {
+  const [showOnlyWithAvailability, setShowOnlyWithAvailability] = useState(true);
+  
   // Create a comprehensive list of countries showing this specific movie's availability
   // We need to match countries that have this specific movie vs countries where it wasn't found
   const movieCountryData = allCountryData.map(countryResult => {
@@ -46,6 +50,19 @@ export default function MovieDetailView({ movie, allCountryData, onBack }: Movie
     // Then alphabetically
     return a.country.name.localeCompare(b.country.name);
   });
+
+  // Filter countries based on toggle
+  const filteredCountries = showOnlyWithAvailability 
+    ? sortedCountries.filter(country => {
+        if (!country.found || !country.details) return false;
+        // Check if there are any streaming, rental, or purchase options
+        const hasOptions = 
+          (country.details.streamingProviders && country.details.streamingProviders.length > 0) ||
+          (country.details.rentProviders && country.details.rentProviders.length > 0) ||
+          (country.details.buyProviders && country.details.buyProviders.length > 0);
+        return hasOptions;
+      })
+    : sortedCountries;
 
   const renderProviders = (providers: any[], type: 'streaming' | 'rent' | 'buy') => {
     if (!providers || providers.length === 0) return null;
@@ -182,6 +199,12 @@ export default function MovieDetailView({ movie, allCountryData, onBack }: Movie
     buy: movieCountryData.filter(c => 
       c.details?.buyProviders && c.details.buyProviders.length > 0
     ).length,
+    withOptions: movieCountryData.filter(c => {
+      if (!c.details) return false;
+      return (c.details.streamingProviders && c.details.streamingProviders.length > 0) ||
+             (c.details.rentProviders && c.details.rentProviders.length > 0) ||
+             (c.details.buyProviders && c.details.buyProviders.length > 0);
+    }).length,
     inCatalog: movieCountryData.filter(c => c.found).length,
     total: movieCountryData.length
   };
@@ -289,13 +312,64 @@ export default function MovieDetailView({ movie, allCountryData, onBack }: Movie
           </div>
         </div>
 
+        {/* Expanded Search Notice */}
+        {isExpandedSearch && (
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 rounded-lg p-6 mb-6 shadow-sm">
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center w-10 h-10 bg-amber-100 rounded-full">
+                  <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center space-x-2 mb-2">
+                  <h3 className="text-lg font-semibold text-amber-800">
+                    Search Expanded Globally
+                  </h3>
+                </div>
+                <p className="text-amber-700 leading-relaxed">
+                  <strong>"{movie.title}"</strong> wasn't available for streaming, rental, or purchase in your originally selected countries. 
+                  Our smart search automatically expanded to <strong>all {availabilityStats.total} countries</strong> to find where this movie is available.
+                </p>
+                <div className="mt-3 flex items-center space-x-4 text-sm text-amber-600">
+                  <div className="flex items-center space-x-1">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span>Found {availabilityStats.withOptions} {availabilityStats.withOptions === 1 ? 'country' : 'countries'} with viewing options</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Country-by-Country Availability */}
         <div className="mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">
-            Availability by Country
-          </h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-semibold text-gray-900">
+              Availability by Country
+            </h2>
+            <div className="flex items-center space-x-3">
+              <span className="text-sm text-gray-600">
+                {showOnlyWithAvailability ? `${filteredCountries.length} with options` : `${filteredCountries.length} total`}
+              </span>
+              <button
+                onClick={() => setShowOnlyWithAvailability(!showOnlyWithAvailability)}
+                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                  showOnlyWithAvailability
+                    ? 'bg-green-100 text-green-800 hover:bg-green-200'
+                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                }`}
+              >
+                {showOnlyWithAvailability ? 'Show All Countries' : 'Show Only Available'}
+              </button>
+            </div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {sortedCountries.map(renderCountryCard)}
+            {filteredCountries.map(renderCountryCard)}
           </div>
         </div>
       </div>

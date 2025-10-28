@@ -23,6 +23,9 @@ export default function MovieDiscoveryResults({
   const [showOnlyFound, setShowOnlyFound] = useState(false);
   const [sortBy, setSortBy] = useState<'country' | 'availability'>('country');
 
+  // Clean the query to remove any technical suffixes
+  const displayQuery = query.includes('(expanded to all countries') ? query.split(' (expanded to all countries')[0] : query;
+
   // Group results by movie (same title and year)
   const movieGroups = results.reduce((groups, result) => {
     if (!result.found || !result.details) return groups;
@@ -158,7 +161,7 @@ export default function MovieDiscoveryResults({
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-900">
-            Movies Found for "{query}"
+            Movies Found for "{displayQuery}"
           </h2>
           <div className="text-sm text-gray-600">
             {movieList.length} unique movies • Found in {foundInCountries} of {totalCountries} countries
@@ -177,7 +180,7 @@ export default function MovieDiscoveryResults({
         </div>
       ) : (
         <div className="text-center py-8 text-gray-500">
-          No movies found for "{query}". Try a different search term.
+          No movies found for "{displayQuery}". Try a different search term.
         </div>
       )}
     </div>
