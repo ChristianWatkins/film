@@ -314,26 +314,23 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
 
         {/* Expanded Search Notice */}
         {isExpandedSearch && (
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 rounded-lg p-6 mb-6 shadow-sm">
-            <div className="flex items-start space-x-4">
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 rounded-lg p-4 mb-6 shadow-sm">
+            <div className="flex items-start space-x-3">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center w-10 h-10 bg-amber-100 rounded-full">
-                  <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center justify-center w-8 h-8 bg-amber-100 rounded-full">
+                  <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
               </div>
               <div className="flex-1">
-                <div className="flex items-center space-x-2 mb-2">
-                  <h3 className="text-lg font-semibold text-amber-800">
-                    Search Expanded Globally
-                  </h3>
-                </div>
-                <p className="text-amber-700 leading-relaxed">
-                  <strong>"{movie.title}"</strong> wasn't available for streaming, rental, or purchase in your originally selected countries. 
-                  Our smart search automatically expanded to <strong>all {availabilityStats.total} countries</strong> to find where this movie is available.
+                <h3 className="text-base font-medium text-amber-800 mb-2">
+                  Search Expanded Globally
+                </h3>
+                <p className="text-sm text-amber-700 leading-relaxed mb-2">
+                  <strong>"{movie.title}"</strong> wasn't available in your selected countries, so we searched all {availabilityStats.total} countries instead.
                 </p>
-                <div className="mt-3 flex items-center space-x-4 text-sm text-amber-600">
+                <div className="flex items-center text-sm text-amber-600">
                   <div className="flex items-center space-x-1">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
