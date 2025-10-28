@@ -32537,7 +32537,7 @@
       "director": "Jean-Pierre Dardenne, Luc Dardenne"
     },
     "resurrection-2025": {
-      "found": false,
+      "found": true,
       "title": "RESURRECTION",
       "year": 2025,
       "search_attempted": true,
@@ -32548,7 +32548,30 @@
           "awarded": true
         }
       ],
-      "director": "Bi Gan"
+      "director": "Bi Gan",
+      "tmdb_id": "878608",
+      "imdb_id": "tt29002950",
+      "poster_url": "https://image.tmdb.org/t/p/w500/2kuh8g1JLwI5RAqATUhcAkyaLw3.jpg",
+      "synopsis": "In a world where humanity has lost the ability to dream, one creature remains entranced by the fading illusions of the dreamworld. This monster, adrift in reverie, clings to visions no one else can see — until a woman appears. Gifted with the rare power to perceive these illusions for what they truly are, she chooses to enter the monster's dreams, determined to uncover the truth that lies hidden within.",
+      "runtime": 156,
+      "rating": 0,
+      "vote_count": 0,
+      "genres": [
+        "Drama",
+        "Science Fiction"
+      ],
+      "release_date": "2025-10-24",
+      "original_title": "狂野时代",
+      "production_countries": [
+        "China",
+        "France"
+      ],
+      "justwatch_id": null,
+      "justwatch_url": null,
+      "streaming": [],
+      "rent": [],
+      "buy": [],
+      "last_updated": "2025-10-28T16:37:07.274Z"
     },
     "i-only-rest-in-the-storm-2025": {
       "found": true,
