@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, HeartIcon } from '@heroicons/react/24/outline';
+import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import type { Film, FilterState } from '@/lib/types';
 import { applyFilters, sortFilms, type SortOption } from '@/lib/filters';
 import Filters from './Filters';
@@ -106,7 +107,7 @@ export default function FilmBrowser({
               </p>
             </div>
             <div>
-                            <Link
+              <Link
                 href="/search"
                 className="inline-flex items-center px-4 py-2 border border-[#FFB800] text-[#FFB800] rounded-lg hover:bg-[#FFB800] hover:text-[#1A1A2E] transition-colors font-medium"
               >
@@ -155,6 +156,10 @@ export default function FilmBrowser({
               onSortChange={(sort) => setSortBy(sort as SortOption)}
               onGenreClick={handleGenreClick}
               onWatchlistChange={() => setWatchlistVersion(prev => prev + 1)}
+              watchlistOnly={filters.watchlistOnly}
+              onWatchlistToggle={() => setFilters(prev => ({ ...prev, watchlistOnly: !prev.watchlistOnly }))}
+              awardedOnly={filters.awardedOnly}
+              onAwardedToggle={() => setFilters(prev => ({ ...prev, awardedOnly: !prev.awardedOnly }))}
             />
           </div>
         </div>
