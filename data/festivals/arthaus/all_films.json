@@ -1,7 +1,7 @@
 {
   "festival": "arthaus",
   "year": "2025",
-  "last_updated": "2025-10-29T10:05:42.106Z",
+  "last_updated": "2025-10-29T10:37:51.301Z",
   "films": [
     {
       "title": "Amrum",
@@ -747,25 +747,6 @@
       ]
     },
     {
-      "title": "Boy from Heaven",
-      "year": 2010,
-      "country": "United States of America",
-      "director": null,
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 681426,
-      "original_title": "The Boy Who Came Back From Heaven",
-      "overview": "In 2004, Kevin Malarkey and his six-year-old son, Alex, suffered an horrific car accident. The impact from the crash paralyzed Alex―and medically speaking, it was unlikely that he could survive. “I think that Alex has gone to be with Jesus,” a friend told the stricken dad. But two months later, Alex awoke from a coma with an incredible story to share. Of events at the accident scene and in the hospital while he was unconscious. Of the angels who took him through the gates of heaven itself. Of the unearthly music that sounded just terrible to a six-year-old. And most amazing of all . . . of meeting and talking to Jesus.",
-      "poster_path": "/aCNdiXExgj3vOLXspKEqpWoM0V9.jpg",
-      "vote_average": 0,
-      "genres": [],
-      "runtime": 50,
-      "countries": [
-        "United States of America"
-      ]
-    },
-    {
       "title": "Apolonia, Apolonia",
       "year": 2023,
       "country": "Czech Republic",
@@ -1181,27 +1162,6 @@
       ]
     },
     {
-      "title": "Lille mamma [Petite Maman]",
-      "year": 1983,
-      "country": "Sweden",
-      "director": "Johan Hagelbäck",
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 596006,
-      "original_title": "Mamman och den vilda bebin",
-      "overview": "A mother has to take care of her wild baby.",
-      "poster_path": "/y9RGpENfIk3vrgec0gZMfqOKiCj.jpg",
-      "vote_average": 0,
-      "genres": [
-        "Animation"
-      ],
-      "runtime": 10,
-      "countries": [
-        "Sweden"
-      ]
-    },
-    {
       "title": "Gunda",
       "year": 1998,
       "country": "India",
@@ -1416,30 +1376,6 @@
       "runtime": 96,
       "countries": [
         "United Kingdom"
-      ]
-    },
-    {
-      "title": "Oss to",
-      "year": 1966,
-      "country": "France",
-      "director": "Michel Boisrond",
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 111475,
-      "original_title": "Atout cœur à Tokyo pour OSS 117",
-      "overview": "After an American Navy base is annihilated by a secret weapon, Agent OSS 117 is sent to Japan to investigate the organization that's claiming responsibility, and threatening the US with another attack, if they don't pay.",
-      "poster_path": "/tGYq9z1i20zIdFdcmd9NwtkM0vI.jpg",
-      "vote_average": 6.8,
-      "genres": [
-        "Action",
-        "Crime",
-        "Thriller"
-      ],
-      "runtime": 100,
-      "countries": [
-        "France",
-        "Italy"
       ]
     },
     {
@@ -1793,27 +1729,6 @@
       ],
       "runtime": 0,
       "countries": []
-    },
-    {
-      "title": "3 kvinner",
-      "year": 1977,
-      "country": "United States of America",
-      "director": "Robert Altman",
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 41662,
-      "original_title": "3 Women",
-      "overview": "Two co-workers, one a vain woman and the other an awkward teenager, share an increasingly bizarre relationship after becoming roommates.",
-      "poster_path": "/uL5Yg8MEgHGXymTaJBYXn9g0xsH.jpg",
-      "vote_average": 7.1,
-      "genres": [
-        "Drama"
-      ],
-      "runtime": 124,
-      "countries": [
-        "United States of America"
-      ]
     },
     {
       "title": "Woman at War",
@@ -2551,27 +2466,6 @@
       ]
     },
     {
-      "title": "Afterparty",
-      "year": 2009,
-      "country": "Poland",
-      "director": "Jan P. Matuszyński",
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 1146711,
-      "original_title": "Afterparty",
-      "overview": "\"When pain is unbearable, when love is unconditional, when chance dictates the unfolding of events, anything is possible...\"",
-      "poster_path": null,
-      "vote_average": 0,
-      "genres": [
-        "Drama"
-      ],
-      "runtime": 0,
-      "countries": [
-        "Poland"
-      ]
-    },
-    {
       "title": "Havet brenner",
       "year": 2016,
       "country": "France",
@@ -3022,29 +2916,6 @@
         "Belgium",
         "France",
         "Germany"
-      ]
-    },
-    {
-      "title": "Leviatan",
-      "year": 1984,
-      "country": "Spain",
-      "director": "Claudio Fragasso",
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 87148,
-      "original_title": "Leviatán",
-      "overview": "Victor Raven, a famous rock star, returns to his childhood home to shoot a music video. Believing his presence is responsible for the return of a monstrous hound that killed folks when he was kid, the locals decide to do something violent about it.",
-      "poster_path": "/aGb8qRCgTU0cQlSwBrS1w9PG2ok.jpg",
-      "vote_average": 4.95,
-      "genres": [
-        "Horror"
-      ],
-      "runtime": 84,
-      "countries": [
-        "Spain",
-        "United States of America",
-        "Puerto Rico"
       ]
     },
     {
@@ -3575,27 +3446,6 @@
       ]
     },
     {
-      "title": "Barbara",
-      "year": 1998,
-      "country": "Italy",
-      "director": "Angelo Orlando",
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 329956,
-      "original_title": "Barbara",
-      "overview": "Aldo e Pino two layers go to Barbara to find out new sexual experiences.",
-      "poster_path": "/awjtoaM77ivTdumHy8zPM2uNXt5.jpg",
-      "vote_average": 5.1,
-      "genres": [
-        "Comedy"
-      ],
-      "runtime": 85,
-      "countries": [
-        "Italy"
-      ]
-    },
-    {
       "title": "Amour",
       "year": 2012,
       "country": "France",
@@ -3776,27 +3626,6 @@
       "countries": []
     },
     {
-      "title": "Poesi",
-      "year": 1990,
-      "country": "Brazil",
-      "director": "João Moreira Salles",
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 493228,
-      "original_title": "Poesia é uma ou duas linhas, por trás uma imensa paisagem",
-      "overview": "Tribute to the Carioca poet Ana Cristina Cesar, with quotes from Charles Baudelaire, Sylvia Plath, Czeslaw Milosz, T. S. Eliot, Armando Freitas Filho, Cacaso, Carlos Drummond de Andrade, and Manuel Bandeira, accompanied by music from Billie Holiday.",
-      "poster_path": "/sdL5fyaLFcBPNhdM70CuYcflBTP.jpg",
-      "vote_average": 0,
-      "genres": [
-        "Documentary"
-      ],
-      "runtime": 9,
-      "countries": [
-        "Brazil"
-      ]
-    },
-    {
       "title": "678 KAIRO",
       "year": 2010,
       "country": "Egypt",
@@ -3883,31 +3712,6 @@
       "runtime": 75,
       "countries": [
         "Italy"
-      ]
-    },
-    {
-      "title": "Mother",
-      "year": 2025,
-      "country": "Belgium",
-      "director": "Teona Strugar Mitevska",
-      "link": "",
-      "awarded": false,
-      "awards": [],
-      "tmdb_id": 1292123,
-      "original_title": "Mother",
-      "overview": "The film follows seven consecutive days at a pivotal moment in Mother Teresa’s life, the period where she decides to leave the Loreto Entally convent in Calcutta and launch her own order.",
-      "poster_path": "/AcDw2c0HlCMb8GHIDu11PC8x8Xv.jpg",
-      "vote_average": 0,
-      "genres": [
-        "Drama",
-        "History"
-      ],
-      "runtime": 103,
-      "countries": [
-        "Belgium",
-        "Denmark",
-        "Macedonia",
-        "Sweden"
       ]
     },
     {
@@ -4520,7 +4324,7 @@
       "last_manual_update": "2025-10-29T10:30:00.000Z",
       "manually_added": [
         "Vår Juliette (TMDB: 1000965)",
-        "En liten bit av kaken (TMDB: 1234591)", 
+        "En liten bit av kaken (TMDB: 1234591)",
         "Kensukes hemmelige øy (TMDB: 587563)",
         "Høstgule blader (TMDB: 986280)",
         "Gordon og Paddy – nøttemysteriet i skogen (TMDB: 493913)",
