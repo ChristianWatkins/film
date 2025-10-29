@@ -351,7 +351,7 @@ export default function Filters({
                 </div>
                 <button 
                   onClick={clearAllFilters}
-                  className="text-xs text-slate-600 hover:text-slate-700 hover:underline transition-colors font-medium"
+                  className="text-xs text-slate-600 hover:text-slate-700 hover:underline transition-colors font-medium cursor-pointer"
                 >
                   Clear all
                 </button>
@@ -365,7 +365,7 @@ export default function Filters({
                     Search: "{filters.searchQuery}"
                     <button
                       onClick={() => onChange({ ...filters, searchQuery: '' })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       ×
                     </button>
@@ -376,7 +376,7 @@ export default function Filters({
                     {genre}
                     <button
                       onClick={() => onChange({ ...filters, genres: filters.genres.filter(g => g !== genre) })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       ×
                     </button>
@@ -387,7 +387,7 @@ export default function Filters({
                     {country}
                     <button
                       onClick={() => onChange({ ...filters, countries: filters.countries.filter(c => c !== country) })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -400,7 +400,7 @@ export default function Filters({
                     {festival}
                     <button
                       onClick={() => onChange({ ...filters, festivals: filters.festivals.filter(f => f !== festival) })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -413,7 +413,7 @@ export default function Filters({
                     {year}
                     <button 
                       onClick={() => toggleYear(year)}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       ×
                     </button>
@@ -424,7 +424,7 @@ export default function Filters({
                     Streaming
                     <button
                       onClick={() => onChange({ ...filters, showStreaming: false })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       ×
                     </button>
@@ -435,7 +435,7 @@ export default function Filters({
                     Rent/Buy
                     <button
                       onClick={() => onChange({ ...filters, showRentBuy: false })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       ×
                     </button>
@@ -446,7 +446,7 @@ export default function Filters({
                     My Watchlist
                     <button
                       onClick={() => onChange({ ...filters, watchlistOnly: false })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       ×
                     </button>
@@ -457,7 +457,7 @@ export default function Filters({
                     Awarded Films
                     <button
                       onClick={() => onChange({ ...filters, awardedOnly: false })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       ×
                     </button>
@@ -468,7 +468,7 @@ export default function Filters({
                     {getPlatformDisplayName(platform)}
                     <button
                       onClick={() => onChange({ ...filters, selectedPlatforms: filters.selectedPlatforms.filter(p => p !== platform) })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors"
+                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                       ×
                     </button>
@@ -489,7 +489,7 @@ export default function Filters({
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
             <div className="w-full flex items-center justify-between">
               <button
-                className="flex items-center gap-2 text-left flex-grow"
+                className="flex items-center gap-2 text-left flex-grow cursor-pointer"
                 onClick={() => toggleSection('availability')}
               >
                 <span className="font-medium text-gray-700">Availability</span>
@@ -503,14 +503,14 @@ export default function Filters({
                 {(filters.showStreaming || filters.showRentBuy) && (
                   <button
                     onClick={() => onChange({ ...filters, showStreaming: false, showRentBuy: false })}
-                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors cursor-pointer"
                   >
                     Clear
                   </button>
                 )}
                 <button
                   onClick={() => toggleSection('availability')}
-                  className="p-1"
+                  className="p-1 cursor-pointer"
                 >
                   <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.availability ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -526,7 +526,7 @@ export default function Filters({
                 {/* All Films Button */}
                 <button
                   onClick={() => onChange({ ...filters, showStreaming: false, showRentBuy: false })}
-                  className={`w-full px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2 ${
+                  className={`w-full px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2 cursor-pointer ${
                     (!filters.showStreaming && !filters.showRentBuy)
                       ? 'bg-slate-600 border-slate-600 text-white shadow-md'
                       : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
@@ -545,7 +545,7 @@ export default function Filters({
                   <span className="text-sm font-medium text-gray-900">Streaming</span>
                   <button
                     onClick={() => onChange({ ...filters, showStreaming: !filters.showStreaming })}
-                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1 ${
+                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1 cursor-pointer ${
                       filters.showStreaming ? 'bg-slate-600' : 'bg-gray-200'
                     }`}
                   >
@@ -562,7 +562,7 @@ export default function Filters({
                   <span className="text-sm font-medium text-gray-900">Rent/Buy</span>
                   <button
                     onClick={() => onChange({ ...filters, showRentBuy: !filters.showRentBuy })}
-                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1 ${
+                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1 cursor-pointer ${
                       filters.showRentBuy ? 'bg-slate-600' : 'bg-gray-200'
                     }`}
                   >
@@ -585,7 +585,7 @@ export default function Filters({
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
             <div className="w-full flex items-center justify-between">
               <button
-                className="flex items-center gap-2 text-left flex-grow"
+                className="flex items-center gap-2 text-left flex-grow cursor-pointer"
                 onClick={() => toggleSection('special')}
               >
                 <span className="font-medium text-gray-700">Special</span>
@@ -599,14 +599,14 @@ export default function Filters({
                 {(filters.watchlistOnly || filters.awardedOnly) && (
                   <button
                     onClick={() => onChange({ ...filters, watchlistOnly: false, awardedOnly: false })}
-                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors cursor-pointer"
                   >
                     Clear
                   </button>
                 )}
                 <button
                   onClick={() => toggleSection('special')}
-                  className="p-1"
+                  className="p-1 cursor-pointer"
                 >
                   <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.special ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -622,7 +622,7 @@ export default function Filters({
                 {/* My Watchlist Pill */}
                 <button
                   onClick={() => onChange({ ...filters, watchlistOnly: !filters.watchlistOnly })}
-                  className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2 ${
+                  className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2 cursor-pointer ${
                     filters.watchlistOnly
                       ? 'bg-red-500 border-red-500 text-white shadow-md'
                       : 'bg-white border-gray-300 text-gray-700 hover:border-red-400 hover:text-red-600'
@@ -646,7 +646,7 @@ export default function Filters({
                 {/* Awarded Films Pill */}
                 <button
                   onClick={() => onChange({ ...filters, awardedOnly: !filters.awardedOnly })}
-                  className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2 ${
+                  className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2 cursor-pointer ${
                     filters.awardedOnly
                       ? 'bg-yellow-500 border-yellow-500 text-white shadow-md'
                       : 'bg-white border-gray-300 text-gray-700 hover:border-yellow-400 hover:text-yellow-600'
@@ -673,7 +673,7 @@ export default function Filters({
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
             <div className="w-full flex items-center justify-between">
               <button
-                className="flex items-center gap-2 text-left flex-grow"
+                className="flex items-center gap-2 text-left flex-grow cursor-pointer"
                 onClick={() => toggleSection('festival')}
               >
                 <span className="font-medium text-gray-700">Festival</span>
@@ -687,14 +687,14 @@ export default function Filters({
                 {filters.festivals.length > 0 && (
                   <button
                     onClick={() => onChange({ ...filters, festivals: [] })}
-                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors cursor-pointer"
                   >
                     Clear
                   </button>
                 )}
                 <button
                   onClick={() => toggleSection('festival')}
-                  className="p-1"
+                  className="p-1 cursor-pointer"
                 >
                   <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.festival ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -711,7 +711,7 @@ export default function Filters({
                   <button
                     key={festival}
                     onClick={() => toggleFestival(festival)}
-                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 cursor-pointer ${
                         filters.festivals.includes(festival)
                         ? 'bg-slate-600 border-slate-600 text-white shadow-md'
                         : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
@@ -732,7 +732,7 @@ export default function Filters({
           <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
             <div className="w-full flex items-center justify-between">
               <button
-                className="flex items-center gap-2 text-left flex-grow"
+                className="flex items-center gap-2 text-left flex-grow cursor-pointer"
                 onClick={() => toggleSection('year')}
               >
                 <span className="font-medium text-gray-700">Year</span>
@@ -746,14 +746,14 @@ export default function Filters({
                 {filters.years.length > 0 && (
                   <button
                     onClick={() => onChange({ ...filters, years: [] })}
-                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors cursor-pointer"
                   >
                     Clear
                   </button>
                 )}
                 <button
                   onClick={() => toggleSection('year')}
-                  className="p-1"
+                  className="p-1 cursor-pointer"
                 >
                   <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.year ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -774,7 +774,7 @@ export default function Filters({
                     <button
                       key={year}
                       onClick={() => toggleYear(year)}
-                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 cursor-pointer ${
                         filters.years.includes(year)
                           ? 'bg-slate-600 border-slate-600 text-white shadow-md'
                           : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
@@ -802,7 +802,7 @@ export default function Filters({
                     <button
                       key={range}
                       onClick={() => toggleYearRange(range)}
-                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 cursor-pointer ${
                         isSelected
                           ? 'bg-slate-600 border-slate-600 text-white shadow-md'
                           : isPartial
@@ -826,7 +826,7 @@ export default function Filters({
           <div className="border border-gray-200 rounded-lg overflow-hidden">
             <button 
               onClick={() => toggleSection('country')}
-              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between"
+              className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between cursor-pointer"
             >
               <div className="flex items-center">
                 <span className="font-medium text-gray-700">Country</span>
@@ -864,7 +864,7 @@ export default function Filters({
                     {countrySearch && (
                       <button
                         onClick={() => setCountrySearch('')}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -927,7 +927,7 @@ export default function Filters({
             <div className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between">
               <button 
                 onClick={() => toggleSection('genres')}
-                className="flex items-center gap-2 flex-grow"
+                className="flex items-center gap-2 flex-grow cursor-pointer"
               >
                 <span className="font-medium text-gray-700">Genre</span>
                 {filters.genres.length > 0 && (
@@ -940,14 +940,14 @@ export default function Filters({
                 {filters.genres.length > 0 && (
                   <button
                     onClick={clearGenres}
-                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors cursor-pointer"
                   >
                     Clear
                   </button>
                 )}
                 <button
                   onClick={() => toggleSection('genres')}
-                  className="p-1"
+                  className="p-1 cursor-pointer"
                 >
                   <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.genres ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -963,7 +963,7 @@ export default function Filters({
                     <button
                       key={genre}
                       onClick={() => toggleGenre(genre)}
-                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 cursor-pointer ${
                         filters.genres.includes(genre)
                         ? 'bg-slate-600 border-slate-600 text-white shadow-md'
                         : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
@@ -986,7 +986,7 @@ export default function Filters({
             <div className="w-full px-4 py-3 text-left bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 transition-all border-b border-gray-200 flex items-center justify-between">
               <button 
                 onClick={() => toggleSection('platforms')}
-                className="flex items-center gap-2 flex-grow"
+                className="flex items-center gap-2 flex-grow cursor-pointer"
               >
                 <span className="font-medium text-gray-700">Platforms</span>
                 {filters.selectedPlatforms.length > 0 && (
@@ -999,14 +999,14 @@ export default function Filters({
                 {filters.selectedPlatforms.length > 0 && (
                   <button
                     onClick={clearPlatforms}
-                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors"
+                    className="text-xs text-red-600 hover:text-red-700 hover:underline transition-colors cursor-pointer"
                   >
                     Clear
                   </button>
                 )}
                 <button
                   onClick={() => toggleSection('platforms')}
-                  className="p-1"
+                  className="p-1 cursor-pointer"
                 >
                   <svg className={`w-5 h-5 transition-transform duration-200 text-gray-600 ${expandedSections.platforms ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -1038,7 +1038,7 @@ export default function Filters({
                     {platformSearch && (
                       <button
                         onClick={() => setPlatformSearch('')}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
