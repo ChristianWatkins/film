@@ -361,118 +361,123 @@ export default function Filters({
             <div className="px-4 py-4 bg-white">
               <div className="flex flex-wrap gap-2">
               {filters.searchQuery && (
-                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    onClick={() => onChange({ ...filters, searchQuery: '' })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     Search: "{filters.searchQuery}"
-                    <button
-                      onClick={() => onChange({ ...filters, searchQuery: '' })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       ×
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 )}
                 {filters.genres.map(genre => (
-                  <span key={`active-genre-${genre}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    key={`active-genre-${genre}`}
+                    onClick={() => onChange({ ...filters, genres: filters.genres.filter(g => g !== genre) })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     {genre}
-                    <button
-                      onClick={() => onChange({ ...filters, genres: filters.genres.filter(g => g !== genre) })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       ×
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 ))}
-                                {filters.countries.map(country => (
-                  <span key={`active-country-${country}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                {filters.countries.map(country => (
+                  <button
+                    key={`active-country-${country}`}
+                    onClick={() => onChange({ ...filters, countries: filters.countries.filter(c => c !== country) })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     {country}
-                    <button
-                      onClick={() => onChange({ ...filters, countries: filters.countries.filter(c => c !== country) })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 ))}
                 {filters.festivals.map(festival => (
-                  <span key={`active-festival-${festival}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    key={`active-festival-${festival}`}
+                    onClick={() => onChange({ ...filters, festivals: filters.festivals.filter(f => f !== festival) })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     {festival}
-                    <button
-                      onClick={() => onChange({ ...filters, festivals: filters.festivals.filter(f => f !== festival) })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 ))}
                 {filters.years.map(year => (
-                  <span key={`active-year-${year}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    key={`active-year-${year}`}
+                    onClick={() => toggleYear(year)}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     {year}
-                    <button 
-                      onClick={() => toggleYear(year)}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       ×
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 ))}
                 {filters.showStreaming && (
-                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    onClick={() => onChange({ ...filters, showStreaming: false })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     Streaming
-                    <button
-                      onClick={() => onChange({ ...filters, showStreaming: false })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       ×
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 )}
                 {filters.showRentBuy && (
-                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    onClick={() => onChange({ ...filters, showRentBuy: false })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     Rent/Buy
-                    <button
-                      onClick={() => onChange({ ...filters, showRentBuy: false })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       ×
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 )}
                 {filters.watchlistOnly && (
-                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    onClick={() => onChange({ ...filters, watchlistOnly: false })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     My Watchlist
-                    <button
-                      onClick={() => onChange({ ...filters, watchlistOnly: false })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       ×
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 )}
                 {filters.awardedOnly && (
-                  <span className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    onClick={() => onChange({ ...filters, awardedOnly: false })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     Awarded Films
-                    <button
-                      onClick={() => onChange({ ...filters, awardedOnly: false })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       ×
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 )}
                 {filters.selectedPlatforms.map(platform => (
-                  <span key={`active-platform-${platform}`} className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium">
+                  <button
+                    key={`active-platform-${platform}`}
+                    onClick={() => onChange({ ...filters, selectedPlatforms: filters.selectedPlatforms.filter(p => p !== platform) })}
+                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                  >
                     {getPlatformDisplayName(platform)}
-                    <button
-                      onClick={() => onChange({ ...filters, selectedPlatforms: filters.selectedPlatforms.filter(p => p !== platform) })}
-                      className="ml-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    >
+                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       ×
-                    </button>
-                  </span>
+                    </span>
+                  </button>
                 ))}
               </div>
             </div>
