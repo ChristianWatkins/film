@@ -26,9 +26,11 @@ export default function Filters({
   
   // Map internal festival names to display names
   const festivalDisplayNames: Record<string, string> = {
+    'arthaus': 'Arthaus',
     'bergen': 'BIFF',
-    'berlin': 'Berlinale',
+    'berlin': 'Berlinale', 
     'cannes': 'Cannes',
+    'haugesund': 'Haugesund',
     'venice': 'Venice'
   };
   

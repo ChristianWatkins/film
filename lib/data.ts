@@ -105,7 +105,20 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
         const year = yearFile.replace('.json', '');
         const filePath = path.join(festivalPath, yearFile);
         const content = await fs.readFile(filePath, 'utf-8');
-        const filmList: FestivalFilm[] = JSON.parse(content);
+        const rawData = JSON.parse(content);
+        
+        // Handle different data structures
+        let filmList: FestivalFilm[];
+        if (Array.isArray(rawData)) {
+          // Standard format: array of films
+          filmList = rawData;
+        } else if (rawData.films && Array.isArray(rawData.films)) {
+          // Arthaus format: object with films property
+          filmList = rawData.films;
+        } else {
+          console.warn(`Unexpected data structure in ${filePath}, skipping...`);
+          continue;
+        }
         
         filmList.forEach(film => {
           const key = createFilmKey(film.title, film.year);
