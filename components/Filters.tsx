@@ -40,6 +40,74 @@ export default function Filters({
       : [...filters.years, year];
     onChange({ ...filters, years: newYears });
   };
+
+  // New function to toggle year ranges
+  const toggleYearRange = (range: string) => {
+    let yearsToToggle: number[] = [];
+    
+    switch (range) {
+      case 'pre-2000':
+        yearsToToggle = availableYears.filter(y => y <= 1999);
+        break;
+      case '2000-2009':
+        yearsToToggle = availableYears.filter(y => y >= 2000 && y <= 2009);
+        break;
+      case '2010-2019':
+        yearsToToggle = availableYears.filter(y => y >= 2010 && y <= 2019);
+        break;
+    }
+    
+    // Check if all years in range are selected
+    const allSelected = yearsToToggle.every(year => filters.years.includes(year));
+    
+    if (allSelected) {
+      // Remove all years in this range
+      const newYears = filters.years.filter(year => !yearsToToggle.includes(year));
+      onChange({ ...filters, years: newYears });
+    } else {
+      // Add all years in this range
+      const newYears = [...new Set([...filters.years, ...yearsToToggle])];
+      onChange({ ...filters, years: newYears });
+    }
+  };
+
+  // Function to check if a year range is selected
+  const isYearRangeSelected = (range: string): boolean => {
+    let yearsInRange: number[] = [];
+    
+    switch (range) {
+      case 'pre-2000':
+        yearsInRange = availableYears.filter(y => y <= 1999);
+        break;
+      case '2000-2009':
+        yearsInRange = availableYears.filter(y => y >= 2000 && y <= 2009);
+        break;
+      case '2010-2019':
+        yearsInRange = availableYears.filter(y => y >= 2010 && y <= 2019);
+        break;
+    }
+    
+    return yearsInRange.length > 0 && yearsInRange.every(year => filters.years.includes(year));
+  };
+
+  // Function to check if any year in range is selected (for partial selection indicator)
+  const isYearRangePartiallySelected = (range: string): boolean => {
+    let yearsInRange: number[] = [];
+    
+    switch (range) {
+      case 'pre-2000':
+        yearsInRange = availableYears.filter(y => y <= 1999);
+        break;
+      case '2000-2009':
+        yearsInRange = availableYears.filter(y => y >= 2000 && y <= 2009);
+        break;
+      case '2010-2019':
+        yearsInRange = availableYears.filter(y => y >= 2010 && y <= 2019);
+        break;
+    }
+    
+    return yearsInRange.some(year => filters.years.includes(year)) && !isYearRangeSelected(range);
+  };
   
   const toggleFestival = (festival: string) => {
     const newFestivals = filters.festivals.includes(festival)
@@ -698,19 +766,54 @@ export default function Filters({
           {expandedSections.year && (
             <div className="px-4 py-4 bg-white">
               <div className="flex flex-wrap gap-2">
-                {availableYears.map(year => (
-                  <button
-                    key={year}
-                    onClick={() => toggleYear(year)}
-                    className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
-                      filters.years.includes(year)
-                        ? 'bg-slate-600 border-slate-600 text-white shadow-md'
-                        : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
-                    }`}
-                  >
-                    {year}
-                  </button>
-                ))}
+                {/* Individual year buttons for 2020+ (newest first) */}
+                {availableYears
+                  .filter(year => year >= 2020)
+                  .sort((a, b) => b - a) // Most recent first
+                  .map(year => (
+                    <button
+                      key={year}
+                      onClick={() => toggleYear(year)}
+                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                        filters.years.includes(year)
+                          ? 'bg-slate-600 border-slate-600 text-white shadow-md'
+                          : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
+                      }`}
+                    >
+                      {year}
+                    </button>
+                  ))
+                }
+                
+                {/* Year range buttons for older films (descending order) */}
+                {['2010-2019', '2000-2009', 'pre-2000'].map(range => {
+                  const isSelected = isYearRangeSelected(range);
+                  const isPartial = isYearRangePartiallySelected(range);
+                  const yearsInRange = availableYears.filter(y => {
+                    if (range === 'pre-2000') return y <= 1999;
+                    if (range === '2000-2009') return y >= 2000 && y <= 2009;
+                    if (range === '2010-2019') return y >= 2010 && y <= 2019;
+                    return false;
+                  });
+                  
+                  if (yearsInRange.length === 0) return null;
+                  
+                  return (
+                    <button
+                      key={range}
+                      onClick={() => toggleYearRange(range)}
+                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                        isSelected
+                          ? 'bg-slate-600 border-slate-600 text-white shadow-md'
+                          : isPartial
+                          ? 'bg-slate-100 border-slate-400 text-slate-700 shadow-sm'
+                          : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
+                      }`}
+                    >
+                      {range === 'pre-2000' ? 'Pre-2000' : range}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
