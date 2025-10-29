@@ -58,6 +58,27 @@ export default function FilmGrid({
         </div>
         
         <div className="flex items-center gap-3">
+          {/* Awards Button */}
+          {onAwardedToggle && (
+            <button
+              onClick={onAwardedToggle}
+              className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
+                awardedOnly 
+                  ? 'bg-yellow-100 hover:bg-yellow-200 text-yellow-600' 
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
+              }`}
+              title={awardedOnly ? "Show all films" : "Show awarded films only"}
+            >
+              <FaTrophy 
+                className={`w-5 h-5 transition-colors ${
+                  awardedOnly 
+                    ? 'text-current' 
+                    : 'text-current'
+                }`} 
+              />
+            </button>
+          )}
+
           {/* Favourites Button */}
           {onWatchlistToggle && (
             <button
@@ -82,27 +103,6 @@ export default function FilmGrid({
                   d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                 />
               </svg>
-            </button>
-          )}
-
-          {/* Awards Button */}
-          {onAwardedToggle && (
-            <button
-              onClick={onAwardedToggle}
-              className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
-                awardedOnly 
-                  ? 'bg-yellow-100 hover:bg-yellow-200 text-yellow-600' 
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
-              }`}
-              title={awardedOnly ? "Show all films" : "Show awarded films only"}
-            >
-              <FaTrophy 
-                className={`w-5 h-5 transition-colors ${
-                  awardedOnly 
-                    ? 'text-current' 
-                    : 'text-current'
-                }`} 
-              />
             </button>
           )}
           
