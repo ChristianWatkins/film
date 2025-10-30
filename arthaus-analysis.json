@@ -1,0 +1,3699 @@
+[
+  {
+    "index": 1,
+    "title": "Amrum",
+    "year": 2025,
+    "director": "Fatih Akin",
+    "country": "Germany",
+    "originalTitle": "Amrum",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/amrum",
+      "https://mubi.com/en/no/films/amrum-2025",
+      "https://mubi.com/en/no/films/amrum-akin"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 2,
+    "title": "Nouvelle Vague",
+    "year": 2025,
+    "director": "Richard Linklater",
+    "country": "France",
+    "originalTitle": "Nouvelle Vague",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/nouvelle-vague",
+      "https://mubi.com/en/no/films/nouvelle-vague-2025",
+      "https://mubi.com/en/no/films/nouvelle-vague-linklater"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 3,
+    "title": "Sound of Falling",
+    "year": 2025,
+    "director": "Mascha Schilinski",
+    "country": "Germany",
+    "originalTitle": "In die Sonne schauen",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/in-die-sonne-schauen",
+      "https://mubi.com/en/no/films/sound-of-falling",
+      "https://mubi.com/en/no/films/sound-of-falling-2025",
+      "https://mubi.com/en/no/films/sound-of-falling-schilinski"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 4,
+    "title": "It Was Just an Accident",
+    "year": 2025,
+    "director": "Jafar Panahi",
+    "country": "Iran",
+    "originalTitle": "یک تصادف ساده",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/it-was-just-an-accident",
+      "https://mubi.com/en/no/films/it-was-just-an-accident-2025",
+      "https://mubi.com/en/no/films/it-was-just-an-accident-panahi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 5,
+    "title": "Romería",
+    "year": 2025,
+    "director": "Carla Simón",
+    "country": "Spain",
+    "originalTitle": "Romería",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/romera",
+      "https://mubi.com/en/no/films/romera-2025",
+      "https://mubi.com/en/no/films/romera-simón"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 6,
+    "title": "Hind Rajabs stemme",
+    "year": 2025,
+    "director": "Kaouther Ben Hania",
+    "country": "France",
+    "originalTitle": "صوت هند رجب",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/hind-rajabs-stemme",
+      "https://mubi.com/en/no/films/hind-rajabs-stemme-2025",
+      "https://mubi.com/en/no/films/hind-rajabs-stemme-hania"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 7,
+    "title": "Christy",
+    "year": 2025,
+    "director": "David Michôd",
+    "country": "United States of America",
+    "originalTitle": "Christy",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/christy",
+      "https://mubi.com/en/no/films/christy-2025",
+      "https://mubi.com/en/no/films/christy-michôd"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "rating"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 8,
+    "title": "El jockey",
+    "year": 2024,
+    "director": "Luis Ortega",
+    "country": "Argentina",
+    "originalTitle": "El jockey",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/el-jockey",
+      "https://mubi.com/en/no/films/el-jockey-2024",
+      "https://mubi.com/en/no/films/el-jockey-ortega"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 9,
+    "title": "Kveldsvakt",
+    "year": 2025,
+    "director": "Petra Biondina Volpe",
+    "country": "Switzerland",
+    "originalTitle": "Heldin",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/heldin",
+      "https://mubi.com/en/no/films/kveldsvakt",
+      "https://mubi.com/en/no/films/kveldsvakt-2025",
+      "https://mubi.com/en/no/films/kveldsvakt-volpe"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 10,
+    "title": "The Blue Trail",
+    "year": 2025,
+    "director": "Gabriel Mascaro",
+    "country": "Brazil",
+    "originalTitle": "O Último Azul",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/o-ltimo-azul",
+      "https://mubi.com/en/no/films/the-blue-trail",
+      "https://mubi.com/en/no/films/the-blue-trail-2025",
+      "https://mubi.com/en/no/films/the-blue-trail-mascaro"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 11,
+    "title": "Kjærlighet",
+    "year": 2024,
+    "director": "Dag Johan Haugerud",
+    "country": "Norway",
+    "originalTitle": "Kjærlighet",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/kjrlighet",
+      "https://mubi.com/en/no/films/kjrlighet-2024",
+      "https://mubi.com/en/no/films/kjrlighet-haugerud"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 12,
+    "title": "Ljósbrot",
+    "year": 2024,
+    "director": "Rúnar Rúnarsson",
+    "country": "Croatia",
+    "originalTitle": "Ljósbrot",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ljsbrot",
+      "https://mubi.com/en/no/films/ljsbrot-2024",
+      "https://mubi.com/en/no/films/ljsbrot-rúnarsson"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 13,
+    "title": "Memoir of a Snail",
+    "year": 2024,
+    "director": "Adam Elliot",
+    "country": "Australia",
+    "originalTitle": "Memoir of a Snail",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/memoir-of-a-snail",
+      "https://mubi.com/en/no/films/memoir-of-a-snail-2024",
+      "https://mubi.com/en/no/films/memoir-of-a-snail-elliot"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 14,
+    "title": "Drømmer",
+    "year": 2024,
+    "director": "Dag Johan Haugerud",
+    "country": "Norway",
+    "originalTitle": "Drømmer",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/drmmer",
+      "https://mubi.com/en/no/films/drmmer-2024",
+      "https://mubi.com/en/no/films/drmmer-haugerud"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 15,
+    "title": "The Substance",
+    "year": 2024,
+    "director": "Coralie Fargeat",
+    "country": "France",
+    "originalTitle": "The Substance",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/the-substance",
+      "https://mubi.com/en/no/films/the-substance-2024",
+      "https://mubi.com/en/no/films/the-substance-fargeat"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 16,
+    "title": "Vermiglio – landsbyen mellom fjellene",
+    "year": 2024,
+    "director": "Maura Delpero",
+    "country": "Italy",
+    "originalTitle": "Vermiglio",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/vermiglio",
+      "https://mubi.com/en/no/films/vermiglio-landsbyen-mellom-fjellene",
+      "https://mubi.com/en/no/films/vermiglio-landsbyen-mellom-fjellene-2024",
+      "https://mubi.com/en/no/films/vermiglio-landsbyen-mellom-fjellene-delpero"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 17,
+    "title": "Black Dog",
+    "year": 2024,
+    "director": "Guan Hu",
+    "country": "China",
+    "originalTitle": "狗阵",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/black-dog",
+      "https://mubi.com/en/no/films/black-dog-2024",
+      "https://mubi.com/en/no/films/black-dog-hu"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 18,
+    "title": "Vår Juliette",
+    "year": 2024,
+    "director": "Blandine Lenoir",
+    "country": "France",
+    "originalTitle": "Juliette au printemps",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/juliette-au-printemps",
+      "https://mubi.com/en/no/films/vr-juliette",
+      "https://mubi.com/en/no/films/vr-juliette-2024",
+      "https://mubi.com/en/no/films/vr-juliette-lenoir"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 19,
+    "title": "Parthenope - Napolis skjønnhet",
+    "year": 2024,
+    "director": "Paolo Sorrentino",
+    "country": "France",
+    "originalTitle": "Parthenope",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/parthenope",
+      "https://mubi.com/en/no/films/parthenope-napolis-skjnnhet",
+      "https://mubi.com/en/no/films/parthenope-napolis-skjnnhet-2024",
+      "https://mubi.com/en/no/films/parthenope-napolis-skjnnhet-sorrentino"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 20,
+    "title": "SEX",
+    "year": 2024,
+    "director": "Dag Johan Haugerud",
+    "country": "Norway",
+    "originalTitle": "Sex",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/sex",
+      "https://mubi.com/en/no/films/sex",
+      "https://mubi.com/en/no/films/sex-2024",
+      "https://mubi.com/en/no/films/sex-haugerud"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 21,
+    "title": "En liten bit av kaken",
+    "year": 2024,
+    "director": "Maryam Moghaddam",
+    "country": "France",
+    "originalTitle": "کیک محبوب من",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/en-liten-bit-av-kaken",
+      "https://mubi.com/en/no/films/en-liten-bit-av-kaken-2024",
+      "https://mubi.com/en/no/films/en-liten-bit-av-kaken-moghaddam"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 22,
+    "title": "Perfect Days",
+    "year": 2023,
+    "director": "Wim Wenders",
+    "country": "Germany",
+    "originalTitle": "PERFECT DAYS",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/perfect-days",
+      "https://mubi.com/en/no/films/perfect-days",
+      "https://mubi.com/en/no/films/perfect-days-2023",
+      "https://mubi.com/en/no/films/perfect-days-wenders"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 23,
+    "title": "Kensukes hemmelige øy",
+    "year": 2024,
+    "director": "Kirk Hendry",
+    "country": "France",
+    "originalTitle": "Kensuke's Kingdom",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/kensukes-kingdom",
+      "https://mubi.com/en/no/films/kensukes-hemmelige-y",
+      "https://mubi.com/en/no/films/kensukes-hemmelige-y-2024",
+      "https://mubi.com/en/no/films/kensukes-hemmelige-y-hendry"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 24,
+    "title": "Hør Her'a!",
+    "year": 2023,
+    "director": "Kaveh Tehrani",
+    "country": "Norway",
+    "originalTitle": "Hør her'a!",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/hr-hera",
+      "https://mubi.com/en/no/films/hr-hera",
+      "https://mubi.com/en/no/films/hr-hera-2023",
+      "https://mubi.com/en/no/films/hr-hera-tehrani"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 25,
+    "title": "Høstgule blader",
+    "year": 2023,
+    "director": "Aki Kaurismäki",
+    "country": "Finland",
+    "originalTitle": "Kuolleet lehdet",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/kuolleet-lehdet",
+      "https://mubi.com/en/no/films/hstgule-blader",
+      "https://mubi.com/en/no/films/hstgule-blader-2023",
+      "https://mubi.com/en/no/films/hstgule-blader-kaurismäki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 26,
+    "title": "LUNDEFJELL - EGGET SOM FORSVANT",
+    "year": 2023,
+    "director": "Jeremy Purcell",
+    "country": "Ireland",
+    "originalTitle": "Puffin Rock and the New Friends",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/puffin-rock-and-the-new-friends",
+      "https://mubi.com/en/no/films/lundefjell-egget-som-forsvant",
+      "https://mubi.com/en/no/films/lundefjell-egget-som-forsvant-2023",
+      "https://mubi.com/en/no/films/lundefjell-egget-som-forsvant-purcell"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 27,
+    "title": "GUTTEN OG HEGREN",
+    "year": 2023,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "君たちはどう生きるか",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/gutten-og-hegren",
+      "https://mubi.com/en/no/films/gutten-og-hegren-2023",
+      "https://mubi.com/en/no/films/gutten-og-hegren-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 28,
+    "title": "About Dry Grasses",
+    "year": 2023,
+    "director": "Nuri Bilge Ceylan",
+    "country": "France",
+    "originalTitle": "Kuru Otlar Üstüne",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/kuru-otlar-stne",
+      "https://mubi.com/en/no/films/about-dry-grasses",
+      "https://mubi.com/en/no/films/about-dry-grasses-2023",
+      "https://mubi.com/en/no/films/about-dry-grasses-ceylan"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 29,
+    "title": "Olfas døtre",
+    "year": 2023,
+    "director": "Kaouther Ben Hania",
+    "country": "France",
+    "originalTitle": "بنات ألفة",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/olfas-dtre",
+      "https://mubi.com/en/no/films/olfas-dtre-2023",
+      "https://mubi.com/en/no/films/olfas-dtre-hania"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 30,
+    "title": "Tatt av tiden",
+    "year": 2022,
+    "director": "Eric Gravel",
+    "country": "France",
+    "originalTitle": "À plein temps",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/plein-temps",
+      "https://mubi.com/en/no/films/tatt-av-tiden",
+      "https://mubi.com/en/no/films/tatt-av-tiden-2022",
+      "https://mubi.com/en/no/films/tatt-av-tiden-gravel"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 31,
+    "title": "How to Have Sex",
+    "year": 2023,
+    "director": "Molly Manning Walker",
+    "country": "United Kingdom",
+    "originalTitle": "How to Have Sex",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/how-to-have-sex",
+      "https://mubi.com/en/no/films/how-to-have-sex-2023",
+      "https://mubi.com/en/no/films/how-to-have-sex-walker"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 32,
+    "title": "Rød Himmel",
+    "year": 2006,
+    "director": "Cristiano Bortone",
+    "country": "Italy",
+    "originalTitle": "Rosso come il cielo",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/rosso-come-il-cielo",
+      "https://mubi.com/en/no/films/rd-himmel",
+      "https://mubi.com/en/no/films/rd-himmel-2006",
+      "https://mubi.com/en/no/films/rd-himmel-bortone"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 33,
+    "title": "Apolonia, Apolonia",
+    "year": 2023,
+    "director": "Lea Glob",
+    "country": "Czech Republic",
+    "originalTitle": "Apolonia, Apolonia",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/apolonia-apolonia",
+      "https://mubi.com/en/no/films/apolonia-apolonia-2023",
+      "https://mubi.com/en/no/films/apolonia-apolonia-glob"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 34,
+    "title": "After Yang",
+    "year": 2022,
+    "director": "Kogonada",
+    "country": "United States of America",
+    "originalTitle": "After Yang",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/after-yang",
+      "https://mubi.com/en/no/films/after-yang-2022",
+      "https://mubi.com/en/no/films/after-yang-kogonada"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 35,
+    "title": "Love Life",
+    "year": 2022,
+    "director": "Koji Fukada",
+    "country": "France",
+    "originalTitle": "LOVE LIFE",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/love-life",
+      "https://mubi.com/en/no/films/love-life",
+      "https://mubi.com/en/no/films/love-life-2022",
+      "https://mubi.com/en/no/films/love-life-fukada"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 36,
+    "title": "Ingen bjørner",
+    "year": 2022,
+    "director": "Jafar Panahi",
+    "country": "Iran",
+    "originalTitle": "Khers nist",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/khers-nist",
+      "https://mubi.com/en/no/films/ingen-bjrner",
+      "https://mubi.com/en/no/films/ingen-bjrner-2022",
+      "https://mubi.com/en/no/films/ingen-bjrner-panahi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 37,
+    "title": "Hvor er Anne Frank",
+    "year": 2021,
+    "director": "Ari Folman",
+    "country": "Australia",
+    "originalTitle": "Where Is Anne Frank",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/where-is-anne-frank",
+      "https://mubi.com/en/no/films/hvor-er-anne-frank",
+      "https://mubi.com/en/no/films/hvor-er-anne-frank-2021",
+      "https://mubi.com/en/no/films/hvor-er-anne-frank-folman"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 38,
+    "title": "Decision to Leave",
+    "year": 2022,
+    "director": "Park Chan-wook",
+    "country": "South Korea",
+    "originalTitle": "헤어질 결심",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/decision-to-leave",
+      "https://mubi.com/en/no/films/decision-to-leave-2022",
+      "https://mubi.com/en/no/films/decision-to-leave-chan-wook"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 39,
+    "title": "Mor og sønn",
+    "year": 1997,
+    "director": "Aleksandr Sokurov",
+    "country": "Germany",
+    "originalTitle": "Мать и сын",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/mor-og-snn",
+      "https://mubi.com/en/no/films/mor-og-snn-1997",
+      "https://mubi.com/en/no/films/mor-og-snn-sokurov"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 40,
+    "title": "Aftersun",
+    "year": 2022,
+    "director": "Charlotte Wells",
+    "country": "United Kingdom",
+    "originalTitle": "Aftersun",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/aftersun",
+      "https://mubi.com/en/no/films/aftersun-2022",
+      "https://mubi.com/en/no/films/aftersun-wells"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 41,
+    "title": "Ferskenlunden i Catalonia",
+    "year": 2022,
+    "director": "Carla Simón",
+    "country": "Spain",
+    "originalTitle": "Alcarràs",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/alcarrs",
+      "https://mubi.com/en/no/films/ferskenlunden-i-catalonia",
+      "https://mubi.com/en/no/films/ferskenlunden-i-catalonia-2022",
+      "https://mubi.com/en/no/films/ferskenlunden-i-catalonia-simón"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 42,
+    "title": "Ali & Ava",
+    "year": 2022,
+    "director": "Clio Barnard",
+    "country": "United Kingdom",
+    "originalTitle": "Ali & Ava",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ali-ava",
+      "https://mubi.com/en/no/films/ali-ava-2022",
+      "https://mubi.com/en/no/films/ali-ava-barnard"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 43,
+    "title": "Close",
+    "year": 2022,
+    "director": "Lukas Dhont",
+    "country": "Belgium",
+    "originalTitle": "Close",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/close",
+      "https://mubi.com/en/no/films/close-2022",
+      "https://mubi.com/en/no/films/close-dhont"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 44,
+    "title": "Natt i Paris",
+    "year": 2022,
+    "director": "Antoinette Boulat",
+    "country": "Belgium",
+    "originalTitle": "Ma nuit",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ma-nuit",
+      "https://mubi.com/en/no/films/natt-i-paris",
+      "https://mubi.com/en/no/films/natt-i-paris-2022",
+      "https://mubi.com/en/no/films/natt-i-paris-boulat"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 45,
+    "title": "Drive My Car",
+    "year": 2021,
+    "director": "Ryūsuke Hamaguchi",
+    "country": "Japan",
+    "originalTitle": "ドライブ・マイ・カー",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/drive-my-car",
+      "https://mubi.com/en/no/films/drive-my-car-2021",
+      "https://mubi.com/en/no/films/drive-my-car-hamaguchi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 46,
+    "title": "Drømmemannen",
+    "year": 2021,
+    "director": "Maria Schrader",
+    "country": "Germany",
+    "originalTitle": "Ich bin dein Mensch",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ich-bin-dein-mensch",
+      "https://mubi.com/en/no/films/drmmemannen",
+      "https://mubi.com/en/no/films/drmmemannen-2021",
+      "https://mubi.com/en/no/films/drmmemannen-schrader"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 47,
+    "title": "Weathering with You",
+    "year": 2019,
+    "director": "Makoto Shinkai",
+    "country": "Japan",
+    "originalTitle": "天気の子",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/weathering-with-you",
+      "https://mubi.com/en/no/films/weathering-with-you-2019",
+      "https://mubi.com/en/no/films/weathering-with-you-shinkai"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 48,
+    "title": "Evolution",
+    "year": 2016,
+    "director": "Lucile Hadžihalilović",
+    "country": "Belgium",
+    "originalTitle": "Évolution",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/volution",
+      "https://mubi.com/en/no/films/evolution",
+      "https://mubi.com/en/no/films/evolution-2016",
+      "https://mubi.com/en/no/films/evolution-hadžihalilović"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 49,
+    "title": "Veien videre",
+    "year": 2021,
+    "director": "Panah Panahi",
+    "country": "Iran",
+    "originalTitle": "جاده خاکی",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/veien-videre",
+      "https://mubi.com/en/no/films/veien-videre-2021",
+      "https://mubi.com/en/no/films/veien-videre-panahi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 50,
+    "title": "Et glass til",
+    "year": 2020,
+    "director": "Thomas Vinterberg",
+    "country": "Denmark",
+    "originalTitle": "Druk",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/druk",
+      "https://mubi.com/en/no/films/et-glass-til",
+      "https://mubi.com/en/no/films/et-glass-til-2020",
+      "https://mubi.com/en/no/films/et-glass-til-vinterberg"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 51,
+    "title": "Gunda",
+    "year": 1998,
+    "director": "Kanti Shah",
+    "country": "India",
+    "originalTitle": "Gunda",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/gunda",
+      "https://mubi.com/en/no/films/gunda-1998",
+      "https://mubi.com/en/no/films/gunda-shah"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 52,
+    "title": "Ninjababy",
+    "year": 2021,
+    "director": "Yngvild Sve Flikke",
+    "country": "Norway",
+    "originalTitle": "Ninjababy",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ninjababy",
+      "https://mubi.com/en/no/films/ninjababy-2021",
+      "https://mubi.com/en/no/films/ninjababy-flikke"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 53,
+    "title": "Det finnes ingen djevel",
+    "year": 2020,
+    "director": "Mohammad Rasoulof",
+    "country": "Germany",
+    "originalTitle": "شیطان وجود ندارد",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/det-finnes-ingen-djevel",
+      "https://mubi.com/en/no/films/det-finnes-ingen-djevel-2020",
+      "https://mubi.com/en/no/films/det-finnes-ingen-djevel-rasoulof"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 54,
+    "title": "Ulvevandrerne",
+    "year": 2020,
+    "director": "Tomm Moore",
+    "country": "France",
+    "originalTitle": "Wolfwalkers",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/wolfwalkers",
+      "https://mubi.com/en/no/films/ulvevandrerne",
+      "https://mubi.com/en/no/films/ulvevandrerne-2020",
+      "https://mubi.com/en/no/films/ulvevandrerne-moore"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 55,
+    "title": "Memories of Murder",
+    "year": 2003,
+    "director": "Bong Joon Ho",
+    "country": "South Korea",
+    "originalTitle": "살인의 추억",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/memories-of-murder",
+      "https://mubi.com/en/no/films/memories-of-murder-2003",
+      "https://mubi.com/en/no/films/memories-of-murder-ho"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 56,
+    "title": "Ville vestens datter",
+    "year": 2020,
+    "director": "Rémi Chayé",
+    "country": "Denmark",
+    "originalTitle": "Calamity, une enfance de Martha Jane Cannary",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/calamity-une-enfance-de-martha-jane-cannary",
+      "https://mubi.com/en/no/films/ville-vestens-datter",
+      "https://mubi.com/en/no/films/ville-vestens-datter-2020",
+      "https://mubi.com/en/no/films/ville-vestens-datter-chayé"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 57,
+    "title": "Quo vadis, Aida?",
+    "year": 2021,
+    "director": "Jasmila Žbanić",
+    "country": "Austria",
+    "originalTitle": "Quo Vadis, Aida?",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/quo-vadis-aida",
+      "https://mubi.com/en/no/films/quo-vadis-aida",
+      "https://mubi.com/en/no/films/quo-vadis-aida-2021",
+      "https://mubi.com/en/no/films/quo-vadis-aida-žbanić"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 58,
+    "title": "Rocks",
+    "year": 2019,
+    "director": "Sarah Gavron",
+    "country": "United Kingdom",
+    "originalTitle": "Rocks",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/rocks",
+      "https://mubi.com/en/no/films/rocks-2019",
+      "https://mubi.com/en/no/films/rocks-gavron"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 59,
+    "title": "Billie",
+    "year": 2020,
+    "director": "James Erskine",
+    "country": "United Kingdom",
+    "originalTitle": "Billie",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/billie",
+      "https://mubi.com/en/no/films/billie-2020",
+      "https://mubi.com/en/no/films/billie-erskine"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 60,
+    "title": "Undine",
+    "year": 1992,
+    "director": "Eckhart Schmidt",
+    "country": "Germany",
+    "originalTitle": "Undine",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/undine",
+      "https://mubi.com/en/no/films/undine-1992",
+      "https://mubi.com/en/no/films/undine-schmidt"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 61,
+    "title": "Spring Uje Spring",
+    "year": 2020,
+    "director": "Henrik Schyffert",
+    "country": "Sweden",
+    "originalTitle": "Spring Uje spring",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/spring-uje-spring",
+      "https://mubi.com/en/no/films/spring-uje-spring",
+      "https://mubi.com/en/no/films/spring-uje-spring-2020",
+      "https://mubi.com/en/no/films/spring-uje-spring-schyffert"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 62,
+    "title": "I morgen danser vi",
+    "year": 2019,
+    "director": "Levan Akin",
+    "country": "France",
+    "originalTitle": "და ჩვენ ვიცეკვეთ",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/i-morgen-danser-vi",
+      "https://mubi.com/en/no/films/i-morgen-danser-vi-2019",
+      "https://mubi.com/en/no/films/i-morgen-danser-vi-akin"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 63,
+    "title": "Unge Ahmed",
+    "year": 2019,
+    "director": "Jean-Pierre Dardenne",
+    "country": "Belgium",
+    "originalTitle": "Le jeune Ahmed",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/le-jeune-ahmed",
+      "https://mubi.com/en/no/films/unge-ahmed",
+      "https://mubi.com/en/no/films/unge-ahmed-2019",
+      "https://mubi.com/en/no/films/unge-ahmed-dardenne"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 64,
+    "title": "Echo",
+    "year": 2017,
+    "director": "Victor Perez",
+    "country": "Sweden",
+    "originalTitle": "Echo",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/echo",
+      "https://mubi.com/en/no/films/echo-2017",
+      "https://mubi.com/en/no/films/echo-perez"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "poster"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 65,
+    "title": "Portrett av en kvinne i flammer",
+    "year": 2019,
+    "director": "Céline Sciamma",
+    "country": "France",
+    "originalTitle": "Portrait de la jeune fille en feu",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/portrait-de-la-jeune-fille-en-feu",
+      "https://mubi.com/en/no/films/portrett-av-en-kvinne-i-flammer",
+      "https://mubi.com/en/no/films/portrett-av-en-kvinne-i-flammer-2019",
+      "https://mubi.com/en/no/films/portrett-av-en-kvinne-i-flammer-sciamma"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 66,
+    "title": "Parasitt",
+    "year": 1958,
+    "director": "Søren Melson",
+    "country": "Denmark",
+    "originalTitle": "Parasitterne",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/parasitterne",
+      "https://mubi.com/en/no/films/parasitt",
+      "https://mubi.com/en/no/films/parasitt-1958",
+      "https://mubi.com/en/no/films/parasitt-melson"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "rating"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 67,
+    "title": "The Farewell",
+    "year": 2019,
+    "director": "Lulu Wang",
+    "country": "China",
+    "originalTitle": "The Farewell",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/the-farewell",
+      "https://mubi.com/en/no/films/the-farewell-2019",
+      "https://mubi.com/en/no/films/the-farewell-wang"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 68,
+    "title": "Monos",
+    "year": 2019,
+    "director": "Alejandro Landes Echavarría",
+    "country": "Argentina",
+    "originalTitle": "Monos",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/monos",
+      "https://mubi.com/en/no/films/monos-2019",
+      "https://mubi.com/en/no/films/monos-echavarría"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 69,
+    "title": "Barn",
+    "year": 2019,
+    "director": "Dag Johan Haugerud",
+    "country": "Norway",
+    "originalTitle": "Barn",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/barn",
+      "https://mubi.com/en/no/films/barn-2019",
+      "https://mubi.com/en/no/films/barn-haugerud"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 70,
+    "title": "Atlantis",
+    "year": 2021,
+    "director": "Meg Rickards",
+    "country": "South Africa",
+    "originalTitle": "Atlantis",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/atlantis",
+      "https://mubi.com/en/no/films/atlantis-2021",
+      "https://mubi.com/en/no/films/atlantis-rickards"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "rating"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 71,
+    "title": "Godt nyttår, Chile",
+    "year": 2019,
+    "director": "Dominga Sotomayor",
+    "country": "Argentina",
+    "originalTitle": "Tarde para morir joven",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/tarde-para-morir-joven",
+      "https://mubi.com/en/no/films/godt-nyttr-chile",
+      "https://mubi.com/en/no/films/godt-nyttr-chile-2019",
+      "https://mubi.com/en/no/films/godt-nyttr-chile-sotomayor"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 72,
+    "title": "Mellom linjene",
+    "year": 2018,
+    "director": "Olivier Assayas",
+    "country": "France",
+    "originalTitle": "Doubles vies",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/doubles-vies",
+      "https://mubi.com/en/no/films/mellom-linjene",
+      "https://mubi.com/en/no/films/mellom-linjene-2018",
+      "https://mubi.com/en/no/films/mellom-linjene-assayas"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 73,
+    "title": "Lykkelige Lazzaro",
+    "year": 2018,
+    "director": "Alice Rohrwacher",
+    "country": "France",
+    "originalTitle": "Lazzaro felice",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/lazzaro-felice",
+      "https://mubi.com/en/no/films/lykkelige-lazzaro",
+      "https://mubi.com/en/no/films/lykkelige-lazzaro-2018",
+      "https://mubi.com/en/no/films/lykkelige-lazzaro-rohrwacher"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 74,
+    "title": "Amazing Grace",
+    "year": 2007,
+    "director": null,
+    "country": null,
+    "originalTitle": "Amazing Grace",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/amazing-grace",
+      "https://mubi.com/en/no/films/amazing-grace-2007"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "runtime",
+      "rating"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 75,
+    "title": "Woman at War",
+    "year": 2018,
+    "director": "Benedikt Erlingsson",
+    "country": "France",
+    "originalTitle": "Kona fer í stríð",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/kona-fer-str",
+      "https://mubi.com/en/no/films/woman-at-war",
+      "https://mubi.com/en/no/films/woman-at-war-2018",
+      "https://mubi.com/en/no/films/woman-at-war-erlingsson"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 76,
+    "title": "Forført",
+    "year": 2020,
+    "director": null,
+    "country": null,
+    "originalTitle": "Forført - af Jan Hellesøe",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/forfrt-af-jan-hellese",
+      "https://mubi.com/en/no/films/forfrt",
+      "https://mubi.com/en/no/films/forfrt-2020"
+    ],
+    "missingData": [
+      "mubi_link",
+      "synopsis",
+      "cast",
+      "runtime",
+      "rating"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 77,
+    "title": "Burning",
+    "year": 2021,
+    "director": "Eva Orner",
+    "country": "Australia",
+    "originalTitle": "Burning",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/burning",
+      "https://mubi.com/en/no/films/burning-2021",
+      "https://mubi.com/en/no/films/burning-orner"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 78,
+    "title": "mid90s",
+    "year": 2018,
+    "director": "Jonah Hill",
+    "country": "United States of America",
+    "originalTitle": "mid90s",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/mid90s",
+      "https://mubi.com/en/no/films/mid90s-2018",
+      "https://mubi.com/en/no/films/mid90s-hill"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 79,
+    "title": "Den skyldige",
+    "year": 2018,
+    "director": "Gustav Möller",
+    "country": "Denmark",
+    "originalTitle": "Den skyldige",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/den-skyldige",
+      "https://mubi.com/en/no/films/den-skyldige-2018",
+      "https://mubi.com/en/no/films/den-skyldige-möller"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 80,
+    "title": "Capernaum",
+    "year": 2018,
+    "director": "Nadine Labaki",
+    "country": "France",
+    "originalTitle": "کفرناحوم",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/capernaum",
+      "https://mubi.com/en/no/films/capernaum-2018",
+      "https://mubi.com/en/no/films/capernaum-labaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 81,
+    "title": "The Sisters Brothers",
+    "year": 2018,
+    "director": "Jacques Audiard",
+    "country": "France",
+    "originalTitle": "The Sisters Brothers",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/the-sisters-brothers",
+      "https://mubi.com/en/no/films/the-sisters-brothers-2018",
+      "https://mubi.com/en/no/films/the-sisters-brothers-audiard"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 82,
+    "title": "Sorry to Bother You",
+    "year": 2018,
+    "director": "Boots Riley",
+    "country": "United States of America",
+    "originalTitle": "Sorry to Bother You",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/sorry-to-bother-you",
+      "https://mubi.com/en/no/films/sorry-to-bother-you-2018",
+      "https://mubi.com/en/no/films/sorry-to-bother-you-riley"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 83,
+    "title": "Amatører",
+    "year": 2018,
+    "director": "Gabriela Pichler",
+    "country": "Sweden",
+    "originalTitle": "Amatörer",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/amatrer",
+      "https://mubi.com/en/no/films/amatrer",
+      "https://mubi.com/en/no/films/amatrer-2018",
+      "https://mubi.com/en/no/films/amatrer-pichler"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 84,
+    "title": "Western",
+    "year": 2017,
+    "director": "Valeska Grisebach",
+    "country": "Germany",
+    "originalTitle": "Western",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/western",
+      "https://mubi.com/en/no/films/western-2017",
+      "https://mubi.com/en/no/films/western-grisebach"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 85,
+    "title": "Savnet",
+    "year": 2019,
+    "director": "Mads Reuther",
+    "country": "Denmark",
+    "originalTitle": "Savnet",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/savnet",
+      "https://mubi.com/en/no/films/savnet-2019",
+      "https://mubi.com/en/no/films/savnet-reuther"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "rating"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 86,
+    "title": "Om kropp og sjel",
+    "year": 2017,
+    "director": "Ildikó Enyedi",
+    "country": "Hungary",
+    "originalTitle": "Testről és lélekről",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/testrl-s-llekrl",
+      "https://mubi.com/en/no/films/om-kropp-og-sjel",
+      "https://mubi.com/en/no/films/om-kropp-og-sjel-2017",
+      "https://mubi.com/en/no/films/om-kropp-og-sjel-enyedi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 87,
+    "title": "The Insult",
+    "year": 1994,
+    "director": "Peter Segal",
+    "country": "United States of America",
+    "originalTitle": "Naked Gun 33⅓: The Final Insult",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/naked-gun-33-the-final-insult",
+      "https://mubi.com/en/no/films/the-insult",
+      "https://mubi.com/en/no/films/the-insult-1994",
+      "https://mubi.com/en/no/films/the-insult-segal"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 88,
+    "title": "Ut av intet",
+    "year": 2017,
+    "director": "Fatih Akin",
+    "country": "France",
+    "originalTitle": "Aus dem Nichts",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/aus-dem-nichts",
+      "https://mubi.com/en/no/films/ut-av-intet",
+      "https://mubi.com/en/no/films/ut-av-intet-2017",
+      "https://mubi.com/en/no/films/ut-av-intet-akin"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 89,
+    "title": "Happy End",
+    "year": 2011,
+    "director": "Björn Runge",
+    "country": "Sweden",
+    "originalTitle": "Happy End",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/happy-end",
+      "https://mubi.com/en/no/films/happy-end-2011",
+      "https://mubi.com/en/no/films/happy-end-runge"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 90,
+    "title": "Gordon og Paddy – nøttemysteriet i skogen",
+    "year": 2017,
+    "director": "Linda Hambäck",
+    "country": "Sweden",
+    "originalTitle": "Gordon & Paddy",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/gordon-paddy",
+      "https://mubi.com/en/no/films/gordon-og-paddy-nttemysteriet-i-skogen",
+      "https://mubi.com/en/no/films/gordon-og-paddy-nttemysteriet-i-skogen-2017",
+      "https://mubi.com/en/no/films/gordon-og-paddy-nttemysteriet-i-skogen-hambäck"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 91,
+    "title": "Mannen mot strømmen",
+    "year": 2017,
+    "director": "Mohammad Rasoulof",
+    "country": "Czech Republic",
+    "originalTitle": "لرد",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/mannen-mot-strmmen",
+      "https://mubi.com/en/no/films/mannen-mot-strmmen-2017",
+      "https://mubi.com/en/no/films/mannen-mot-strmmen-rasoulof"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 92,
+    "title": "Den andre siden av håpet",
+    "year": 2017,
+    "director": "Aki Kaurismäki",
+    "country": "Finland",
+    "originalTitle": "Toivon tuolla puolen",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/toivon-tuolla-puolen",
+      "https://mubi.com/en/no/films/den-andre-siden-av-hpet",
+      "https://mubi.com/en/no/films/den-andre-siden-av-hpet-2017",
+      "https://mubi.com/en/no/films/den-andre-siden-av-hpet-kaurismäki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 93,
+    "title": "The Square",
+    "year": 2017,
+    "director": "Ruben Östlund",
+    "country": "Denmark",
+    "originalTitle": "The Square",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/the-square",
+      "https://mubi.com/en/no/films/the-square-2017",
+      "https://mubi.com/en/no/films/the-square-östlund"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 94,
+    "title": "120 slag i minuttet",
+    "year": 2017,
+    "director": "Robin Campillo",
+    "country": "France",
+    "originalTitle": "120 battements par minute",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/120-battements-par-minute",
+      "https://mubi.com/en/no/films/120-slag-i-minuttet",
+      "https://mubi.com/en/no/films/120-slag-i-minuttet-2017",
+      "https://mubi.com/en/no/films/120-slag-i-minuttet-campillo"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 95,
+    "title": "Himmelen over Havanna",
+    "year": 2014,
+    "director": "Laurent Cantet",
+    "country": "France",
+    "originalTitle": "Retour à Ithaque",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/retour-ithaque",
+      "https://mubi.com/en/no/films/himmelen-over-havanna",
+      "https://mubi.com/en/no/films/himmelen-over-havanna-2014",
+      "https://mubi.com/en/no/films/himmelen-over-havanna-cantet"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 96,
+    "title": "Kammerpiken",
+    "year": 2016,
+    "director": "Park Chan-wook",
+    "country": "South Korea",
+    "originalTitle": "아가씨",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/kammerpiken",
+      "https://mubi.com/en/no/films/kammerpiken-2016",
+      "https://mubi.com/en/no/films/kammerpiken-chan-wook"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 97,
+    "title": "Den store prøven",
+    "year": 2016,
+    "director": "Cristian Mungiu",
+    "country": "Belgium",
+    "originalTitle": "Bacalaureat",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/bacalaureat",
+      "https://mubi.com/en/no/films/den-store-prven",
+      "https://mubi.com/en/no/films/den-store-prven-2016",
+      "https://mubi.com/en/no/films/den-store-prven-mungiu"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 98,
+    "title": "Sommer 1993",
+    "year": 2017,
+    "director": "Carla Simón",
+    "country": "Spain",
+    "originalTitle": "Estiu 1993",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/estiu-1993",
+      "https://mubi.com/en/no/films/sommer-1993",
+      "https://mubi.com/en/no/films/sommer-1993-2017",
+      "https://mubi.com/en/no/films/sommer-1993-simón"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 99,
+    "title": "Min pappa Toni Erdmann",
+    "year": 2016,
+    "director": "Maren Ade",
+    "country": "Austria",
+    "originalTitle": "Toni Erdmann",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/toni-erdmann",
+      "https://mubi.com/en/no/films/min-pappa-toni-erdmann",
+      "https://mubi.com/en/no/films/min-pappa-toni-erdmann-2016",
+      "https://mubi.com/en/no/films/min-pappa-toni-erdmann-ade"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 100,
+    "title": "The Rules for Everything",
+    "year": 2017,
+    "director": "Kim Hiorthøy",
+    "country": "Norway",
+    "originalTitle": "The Rules for Everything",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/the-rules-for-everything",
+      "https://mubi.com/en/no/films/the-rules-for-everything-2017",
+      "https://mubi.com/en/no/films/the-rules-for-everything-hiorthøy"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 101,
+    "title": "Neruda",
+    "year": 2016,
+    "director": "Pablo Larraín",
+    "country": "United States of America",
+    "originalTitle": "Neruda",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/neruda",
+      "https://mubi.com/en/no/films/neruda-2016",
+      "https://mubi.com/en/no/films/neruda-larraín"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 102,
+    "title": "Your name.",
+    "year": 2016,
+    "director": "Makoto Shinkai",
+    "country": "Japan",
+    "originalTitle": "君の名は。",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/your-name",
+      "https://mubi.com/en/no/films/your-name-2016",
+      "https://mubi.com/en/no/films/your-name-shinkai"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 103,
+    "title": "Kvinne, ukjent",
+    "year": 2016,
+    "director": "Jean-Pierre Dardenne",
+    "country": "Belgium",
+    "originalTitle": "La Fille inconnue",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/la-fille-inconnue",
+      "https://mubi.com/en/no/films/kvinne-ukjent",
+      "https://mubi.com/en/no/films/kvinne-ukjent-2016",
+      "https://mubi.com/en/no/films/kvinne-ukjent-dardenne"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 104,
+    "title": "Phantom Boy",
+    "year": 2015,
+    "director": "Alain Gagnol",
+    "country": "Belgium",
+    "originalTitle": "Phantom Boy",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/phantom-boy",
+      "https://mubi.com/en/no/films/phantom-boy-2015",
+      "https://mubi.com/en/no/films/phantom-boy-gagnol"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 105,
+    "title": "Neon Bull",
+    "year": 2016,
+    "director": "Gabriel Mascaro",
+    "country": "Brazil",
+    "originalTitle": "Boi Neon",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/boi-neon",
+      "https://mubi.com/en/no/films/neon-bull",
+      "https://mubi.com/en/no/films/neon-bull-2016",
+      "https://mubi.com/en/no/films/neon-bull-mascaro"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 106,
+    "title": "Under kirsebærtrærne",
+    "year": 2015,
+    "director": "Naomi Kawase",
+    "country": "Japan",
+    "originalTitle": "あん",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/under-kirsebrtrrne",
+      "https://mubi.com/en/no/films/under-kirsebrtrrne-2015",
+      "https://mubi.com/en/no/films/under-kirsebrtrrne-kawase"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 107,
+    "title": "Havet brenner",
+    "year": 2016,
+    "director": "Gianfranco Rosi",
+    "country": "France",
+    "originalTitle": "Fuocoammare",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/fuocoammare",
+      "https://mubi.com/en/no/films/havet-brenner",
+      "https://mubi.com/en/no/films/havet-brenner-2016",
+      "https://mubi.com/en/no/films/havet-brenner-rosi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 108,
+    "title": "24 uker",
+    "year": 2016,
+    "director": "Anne Zohra Berrached",
+    "country": "Germany",
+    "originalTitle": "24 Wochen",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/24-wochen",
+      "https://mubi.com/en/no/films/24-uker",
+      "https://mubi.com/en/no/films/24-uker-2016",
+      "https://mubi.com/en/no/films/24-uker-berrached"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 109,
+    "title": "El Club",
+    "year": 2015,
+    "director": "Pablo Larraín",
+    "country": "Chile",
+    "originalTitle": "El club",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/el-club",
+      "https://mubi.com/en/no/films/el-club",
+      "https://mubi.com/en/no/films/el-club-2015",
+      "https://mubi.com/en/no/films/el-club-larraín"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 110,
+    "title": "Stabukker",
+    "year": 2015,
+    "director": "Grímur Hákonarson",
+    "country": "Denmark",
+    "originalTitle": "Hrútar",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/hrtar",
+      "https://mubi.com/en/no/films/stabukker",
+      "https://mubi.com/en/no/films/stabukker-2015",
+      "https://mubi.com/en/no/films/stabukker-hákonarson"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 111,
+    "title": "45 år",
+    "year": 2015,
+    "director": "Andrew Haigh",
+    "country": "United Kingdom",
+    "originalTitle": "45 Years",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/45-years",
+      "https://mubi.com/en/no/films/45-r",
+      "https://mubi.com/en/no/films/45-r-2015",
+      "https://mubi.com/en/no/films/45-r-haigh"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 112,
+    "title": "Min arabiske vår",
+    "year": 2016,
+    "director": "Mohamed Ben Attia",
+    "country": "Belgium",
+    "originalTitle": "نحبك هادي",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/min-arabiske-vr",
+      "https://mubi.com/en/no/films/min-arabiske-vr-2016",
+      "https://mubi.com/en/no/films/min-arabiske-vr-attia"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 113,
+    "title": "A Perfect Day",
+    "year": 2015,
+    "director": "Fernando León de Aranoa",
+    "country": "Spain",
+    "originalTitle": "A Perfect Day",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/a-perfect-day",
+      "https://mubi.com/en/no/films/a-perfect-day-2015",
+      "https://mubi.com/en/no/films/a-perfect-day-aranoa"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 114,
+    "title": "Dagen i går [Only Yesterday]",
+    "year": 1991,
+    "director": "Isao Takahata",
+    "country": "Japan",
+    "originalTitle": "おもひでぽろぽろ",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/dagen-i-gr-only-yesterday",
+      "https://mubi.com/en/no/films/dagen-i-gr-only-yesterday-1991",
+      "https://mubi.com/en/no/films/dagen-i-gr-only-yesterday-takahata"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 115,
+    "title": "Sauls sønn",
+    "year": 2015,
+    "director": "László Nemes",
+    "country": "France",
+    "originalTitle": "Saul fia",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/saul-fia",
+      "https://mubi.com/en/no/films/sauls-snn",
+      "https://mubi.com/en/no/films/sauls-snn-2015",
+      "https://mubi.com/en/no/films/sauls-snn-nemes"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 116,
+    "title": "Heart of a Dog",
+    "year": 2015,
+    "director": "Laurie Anderson",
+    "country": "United States of America",
+    "originalTitle": "Heart of a Dog",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/heart-of-a-dog",
+      "https://mubi.com/en/no/films/heart-of-a-dog-2015",
+      "https://mubi.com/en/no/films/heart-of-a-dog-anderson"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 117,
+    "title": "Taxi Teheran",
+    "year": 2015,
+    "director": "Jafar Panahi",
+    "country": "Iran",
+    "originalTitle": "تاکسی",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/taxi-teheran",
+      "https://mubi.com/en/no/films/taxi-teheran-2015",
+      "https://mubi.com/en/no/films/taxi-teheran-panahi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 118,
+    "title": "Korsveien",
+    "year": 2014,
+    "director": "Dietrich Brüggemann",
+    "country": "Germany",
+    "originalTitle": "Kreuzweg",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/kreuzweg",
+      "https://mubi.com/en/no/films/korsveien",
+      "https://mubi.com/en/no/films/korsveien-2014",
+      "https://mubi.com/en/no/films/korsveien-brüggemann"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 119,
+    "title": "EDEN",
+    "year": 2025,
+    "director": "Ron Howard",
+    "country": "United States of America",
+    "originalTitle": "Eden",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/eden",
+      "https://mubi.com/en/no/films/eden",
+      "https://mubi.com/en/no/films/eden-2025",
+      "https://mubi.com/en/no/films/eden-howard"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 120,
+    "title": "En natt i Berlin",
+    "year": 2015,
+    "director": "Sebastian Schipper",
+    "country": "Germany",
+    "originalTitle": "Victoria",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/victoria",
+      "https://mubi.com/en/no/films/en-natt-i-berlin",
+      "https://mubi.com/en/no/films/en-natt-i-berlin-2015",
+      "https://mubi.com/en/no/films/en-natt-i-berlin-schipper"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 121,
+    "title": "Marnie - Min Hemmelige Venninne",
+    "year": 1964,
+    "director": "Alfred Hitchcock",
+    "country": "United States of America",
+    "originalTitle": "Marnie",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/marnie",
+      "https://mubi.com/en/no/films/marnie-min-hemmelige-venninne",
+      "https://mubi.com/en/no/films/marnie-min-hemmelige-venninne-1964",
+      "https://mubi.com/en/no/films/marnie-min-hemmelige-venninne-hitchcock"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 122,
+    "title": "Småfugler",
+    "year": 2016,
+    "director": "Rúnar Rúnarsson",
+    "country": "Iceland",
+    "originalTitle": "Þrestir",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/restir",
+      "https://mubi.com/en/no/films/smfugler",
+      "https://mubi.com/en/no/films/smfugler-2016",
+      "https://mubi.com/en/no/films/smfugler-rúnarsson"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 123,
+    "title": "Jordens salt",
+    "year": 1954,
+    "director": "Herbert J. Biberman",
+    "country": "United States of America",
+    "originalTitle": "Salt of the Earth",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/salt-of-the-earth",
+      "https://mubi.com/en/no/films/jordens-salt",
+      "https://mubi.com/en/no/films/jordens-salt-1954",
+      "https://mubi.com/en/no/films/jordens-salt-biberman"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 124,
+    "title": "Vivianes kamp",
+    "year": 2014,
+    "director": "Shlomi Elkabetz",
+    "country": "Germany",
+    "originalTitle": "גט: המשפט של ויויאן אמסלם",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/vivianes-kamp",
+      "https://mubi.com/en/no/films/vivianes-kamp-2014",
+      "https://mubi.com/en/no/films/vivianes-kamp-elkabetz"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 125,
+    "title": "My Skinny Sister",
+    "year": 2015,
+    "director": "Sanna Lenken",
+    "country": "Germany",
+    "originalTitle": "Min lilla syster",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/min-lilla-syster",
+      "https://mubi.com/en/no/films/my-skinny-sister",
+      "https://mubi.com/en/no/films/my-skinny-sister-2015",
+      "https://mubi.com/en/no/films/my-skinny-sister-lenken"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 126,
+    "title": "Still Life",
+    "year": 2014,
+    "director": "Bertrand Mandico",
+    "country": "Belgium",
+    "originalTitle": "La résurrection des natures mortes (Living Still Life)",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/la-rsurrection-des-natures-mortes-living-still-life",
+      "https://mubi.com/en/no/films/still-life",
+      "https://mubi.com/en/no/films/still-life-2014",
+      "https://mubi.com/en/no/films/still-life-mandico"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 127,
+    "title": "To dager, en natt",
+    "year": 2014,
+    "director": "Jean-Pierre Dardenne",
+    "country": "Belgium",
+    "originalTitle": "Deux jours, une nuit",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/deux-jours-une-nuit",
+      "https://mubi.com/en/no/films/to-dager-en-natt",
+      "https://mubi.com/en/no/films/to-dager-en-natt-2014",
+      "https://mubi.com/en/no/films/to-dager-en-natt-dardenne"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 128,
+    "title": "Sangen fra havet",
+    "year": 2014,
+    "director": "Tomm Moore",
+    "country": "Ireland",
+    "originalTitle": "Song of the Sea",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/song-of-the-sea",
+      "https://mubi.com/en/no/films/sangen-fra-havet",
+      "https://mubi.com/en/no/films/sangen-fra-havet-2014",
+      "https://mubi.com/en/no/films/sangen-fra-havet-moore"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 129,
+    "title": "Fortellingen om Prinsesse Kaguya",
+    "year": 2013,
+    "director": "Isao Takahata",
+    "country": "Japan",
+    "originalTitle": "かぐや姫の物語",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/fortellingen-om-prinsesse-kaguya",
+      "https://mubi.com/en/no/films/fortellingen-om-prinsesse-kaguya-2013",
+      "https://mubi.com/en/no/films/fortellingen-om-prinsesse-kaguya-takahata"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 130,
+    "title": "Phoenix",
+    "year": 1998,
+    "director": "Danny Cannon",
+    "country": "United States of America",
+    "originalTitle": "Phoenix",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/phoenix",
+      "https://mubi.com/en/no/films/phoenix-1998",
+      "https://mubi.com/en/no/films/phoenix-cannon"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 131,
+    "title": "PRIDE",
+    "year": 2014,
+    "director": "Matthew Warchus",
+    "country": "France",
+    "originalTitle": "Pride",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/pride",
+      "https://mubi.com/en/no/films/pride",
+      "https://mubi.com/en/no/films/pride-2014",
+      "https://mubi.com/en/no/films/pride-warchus"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 132,
+    "title": "Det er meg du vil ha",
+    "year": 2014,
+    "director": "Dag Johan Haugerud",
+    "country": "Norway",
+    "originalTitle": "Det er meg du vil ha",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/det-er-meg-du-vil-ha",
+      "https://mubi.com/en/no/films/det-er-meg-du-vil-ha-2014",
+      "https://mubi.com/en/no/films/det-er-meg-du-vil-ha-haugerud"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 133,
+    "title": "Ida",
+    "year": 2013,
+    "director": "Paweł Pawlikowski",
+    "country": "Poland",
+    "originalTitle": "Ida",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ida",
+      "https://mubi.com/en/no/films/ida-2013",
+      "https://mubi.com/en/no/films/ida-pawlikowski"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 134,
+    "title": "Ernest & Celestine",
+    "year": 2012,
+    "director": "Stéphane Aubier",
+    "country": "Belgium",
+    "originalTitle": "Ernest et Célestine",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ernest-et-clestine",
+      "https://mubi.com/en/no/films/ernest-celestine",
+      "https://mubi.com/en/no/films/ernest-celestine-2012",
+      "https://mubi.com/en/no/films/ernest-celestine-aubier"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 135,
+    "title": "Som far, så sønn",
+    "year": 2013,
+    "director": "Hirokazu Kore-eda",
+    "country": "Japan",
+    "originalTitle": "そして父になる",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/som-far-s-snn",
+      "https://mubi.com/en/no/films/som-far-s-snn-2013",
+      "https://mubi.com/en/no/films/som-far-s-snn-kore-eda"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 136,
+    "title": "Raketten",
+    "year": 2013,
+    "director": "Kim Mordaunt",
+    "country": "Australia",
+    "originalTitle": "The Rocket",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/the-rocket",
+      "https://mubi.com/en/no/films/raketten",
+      "https://mubi.com/en/no/films/raketten-2013",
+      "https://mubi.com/en/no/films/raketten-mordaunt"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 137,
+    "title": "Turist",
+    "year": 2014,
+    "director": "Ruben Östlund",
+    "country": "Denmark",
+    "originalTitle": "Turist",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/turist",
+      "https://mubi.com/en/no/films/turist-2014",
+      "https://mubi.com/en/no/films/turist-östlund"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 138,
+    "title": "Fortiden",
+    "year": 2012,
+    "director": "Birger Larsen",
+    "country": "Denmark",
+    "originalTitle": "Den som dræber - Fortidens skygge",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/den-som-drber-fortidens-skygge",
+      "https://mubi.com/en/no/films/fortiden",
+      "https://mubi.com/en/no/films/fortiden-2012",
+      "https://mubi.com/en/no/films/fortiden-larsen"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 139,
+    "title": "Gjenforeningen",
+    "year": 2013,
+    "director": "Anna Odell",
+    "country": "Sweden",
+    "originalTitle": "Återträffen",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/tertrffen",
+      "https://mubi.com/en/no/films/gjenforeningen",
+      "https://mubi.com/en/no/films/gjenforeningen-2013",
+      "https://mubi.com/en/no/films/gjenforeningen-odell"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 140,
+    "title": "Vinden stiger",
+    "year": 2013,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "風立ちぬ",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/vinden-stiger",
+      "https://mubi.com/en/no/films/vinden-stiger-2013",
+      "https://mubi.com/en/no/films/vinden-stiger-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 141,
+    "title": "Meg eier ingen",
+    "year": 2013,
+    "director": "Kjell-Åke Andersson",
+    "country": "Norway",
+    "originalTitle": "Mig äger ingen",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/mig-ger-ingen",
+      "https://mubi.com/en/no/films/meg-eier-ingen",
+      "https://mubi.com/en/no/films/meg-eier-ingen-2013",
+      "https://mubi.com/en/no/films/meg-eier-ingen-andersson"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 142,
+    "title": "Blå er den varmeste fargen",
+    "year": 2013,
+    "director": "Abdellatif Kechiche",
+    "country": "Belgium",
+    "originalTitle": "La Vie d'Adèle - Chapitres 1 et 2",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/la-vie-dadle-chapitres-1-et-2",
+      "https://mubi.com/en/no/films/bl-er-den-varmeste-fargen",
+      "https://mubi.com/en/no/films/bl-er-den-varmeste-fargen-2013",
+      "https://mubi.com/en/no/films/bl-er-den-varmeste-fargen-kechiche"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 143,
+    "title": "Den grønne sykkelen",
+    "year": 2012,
+    "director": "Haifaa al-Mansour",
+    "country": "Germany",
+    "originalTitle": "Das Mädchen Wadjda",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/das-mdchen-wadjda",
+      "https://mubi.com/en/no/films/den-grnne-sykkelen",
+      "https://mubi.com/en/no/films/den-grnne-sykkelen-2012",
+      "https://mubi.com/en/no/films/den-grnne-sykkelen-al-mansour"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 144,
+    "title": "Hannah Arendt",
+    "year": 2012,
+    "director": "Margarethe von Trotta",
+    "country": "France",
+    "originalTitle": "Hannah Arendt",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/hannah-arendt",
+      "https://mubi.com/en/no/films/hannah-arendt-2012",
+      "https://mubi.com/en/no/films/hannah-arendt-trotta"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 145,
+    "title": "Stories We Tell",
+    "year": 2012,
+    "director": "Sarah Polley",
+    "country": "Canada",
+    "originalTitle": "Stories We Tell",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/stories-we-tell",
+      "https://mubi.com/en/no/films/stories-we-tell-2012",
+      "https://mubi.com/en/no/films/stories-we-tell-polley"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 146,
+    "title": "Frances Ha",
+    "year": 2013,
+    "director": "Noah Baumbach",
+    "country": "Brazil",
+    "originalTitle": "Frances Ha",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/frances-ha",
+      "https://mubi.com/en/no/films/frances-ha-2013",
+      "https://mubi.com/en/no/films/frances-ha-baumbach"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 147,
+    "title": "Møte på Valmueåsen",
+    "year": 2011,
+    "director": "Goro Miyazaki",
+    "country": "Japan",
+    "originalTitle": "コクリコ坂から",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/mte-p-valmuesen",
+      "https://mubi.com/en/no/films/mte-p-valmuesen-2011",
+      "https://mubi.com/en/no/films/mte-p-valmuesen-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 148,
+    "title": "Rebellen [War Witch]",
+    "year": 2013,
+    "director": "Eckhart Schmidt",
+    "country": "Germany",
+    "originalTitle": "Hollywood Rebellen",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/hollywood-rebellen",
+      "https://mubi.com/en/no/films/rebellen-war-witch",
+      "https://mubi.com/en/no/films/rebellen-war-witch-2013",
+      "https://mubi.com/en/no/films/rebellen-war-witch-schmidt"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "poster",
+      "rating"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 149,
+    "title": "Stem nei",
+    "year": 2012,
+    "director": "Pablo Larraín",
+    "country": "Chile",
+    "originalTitle": "No",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/no",
+      "https://mubi.com/en/no/films/stem-nei",
+      "https://mubi.com/en/no/films/stem-nei-2012",
+      "https://mubi.com/en/no/films/stem-nei-larraín"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 150,
+    "title": "Amour",
+    "year": 2012,
+    "director": "Michael Haneke",
+    "country": "France",
+    "originalTitle": "Amour",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/amour",
+      "https://mubi.com/en/no/films/amour-2012",
+      "https://mubi.com/en/no/films/amour-haneke"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 151,
+    "title": "Rust og bein",
+    "year": 2012,
+    "director": "Jacques Audiard",
+    "country": "France",
+    "originalTitle": "De rouille et d'os",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/de-rouille-et-dos",
+      "https://mubi.com/en/no/films/rust-og-bein",
+      "https://mubi.com/en/no/films/rust-og-bein-2012",
+      "https://mubi.com/en/no/films/rust-og-bein-audiard"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 152,
+    "title": "SPISE SOVE DØ",
+    "year": 2012,
+    "director": "Gabriela Pichler",
+    "country": "Sweden",
+    "originalTitle": "Äta sova dö",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ta-sova-d",
+      "https://mubi.com/en/no/films/spise-sove-d",
+      "https://mubi.com/en/no/films/spise-sove-d-2012",
+      "https://mubi.com/en/no/films/spise-sove-d-pichler"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 153,
+    "title": "Arriettas hemmelige verden",
+    "year": 2010,
+    "director": "Hiromasa Yonebayashi",
+    "country": "France",
+    "originalTitle": "借りぐらしのアリエッティ",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/arriettas-hemmelige-verden",
+      "https://mubi.com/en/no/films/arriettas-hemmelige-verden-2010",
+      "https://mubi.com/en/no/films/arriettas-hemmelige-verden-yonebayashi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 154,
+    "title": "Norwegian Wood",
+    "year": 2010,
+    "director": "Trần Anh Hùng",
+    "country": "Japan",
+    "originalTitle": "ノルウェイの森",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/norwegian-wood",
+      "https://mubi.com/en/no/films/norwegian-wood-2010",
+      "https://mubi.com/en/no/films/norwegian-wood-hùng"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 155,
+    "title": "Nader og Simin – et brudd",
+    "year": 2011,
+    "director": "Asghar Farhadi",
+    "country": "France",
+    "originalTitle": "جدایی نادر از سیمین",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/nader-og-simin-et-brudd",
+      "https://mubi.com/en/no/films/nader-og-simin-et-brudd-2011",
+      "https://mubi.com/en/no/films/nader-og-simin-et-brudd-farhadi"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 156,
+    "title": "Pina",
+    "year": 2011,
+    "director": "Wim Wenders",
+    "country": "France",
+    "originalTitle": "Pina",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/pina",
+      "https://mubi.com/en/no/films/pina-2011",
+      "https://mubi.com/en/no/films/pina-wenders"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 157,
+    "title": "Treet",
+    "year": 2023,
+    "director": "Ida Hansen Eldøen",
+    "country": null,
+    "originalTitle": "Treet",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/treet",
+      "https://mubi.com/en/no/films/treet-2023",
+      "https://mubi.com/en/no/films/treet-eldøen"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "genres",
+      "rating"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 158,
+    "title": "678 KAIRO",
+    "year": 2010,
+    "director": "Mohamed Diab",
+    "country": "Egypt",
+    "originalTitle": "٦٧٨",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/678-kairo",
+      "https://mubi.com/en/no/films/678-kairo-2010",
+      "https://mubi.com/en/no/films/678-kairo-diab"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 159,
+    "title": "Soul Kitchen",
+    "year": 2009,
+    "director": "Fatih Akin",
+    "country": "France",
+    "originalTitle": "Soul Kitchen",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/soul-kitchen",
+      "https://mubi.com/en/no/films/soul-kitchen-2009",
+      "https://mubi.com/en/no/films/soul-kitchen-akin"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 160,
+    "title": "Jordsjø-krønikene",
+    "year": 2006,
+    "director": "Goro Miyazaki",
+    "country": "Japan",
+    "originalTitle": "ゲド戦記",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/jordsjkrnikene",
+      "https://mubi.com/en/no/films/jordsjkrnikene-2006",
+      "https://mubi.com/en/no/films/jordsjkrnikene-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 161,
+    "title": "Sommerlunsj i Roma",
+    "year": 2008,
+    "director": "Gianni Di Gregorio",
+    "country": "Italy",
+    "originalTitle": "Pranzo di ferragosto",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/pranzo-di-ferragosto",
+      "https://mubi.com/en/no/films/sommerlunsj-i-roma",
+      "https://mubi.com/en/no/films/sommerlunsj-i-roma-2008",
+      "https://mubi.com/en/no/films/sommerlunsj-i-roma-gregorio"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 162,
+    "title": "The Secret Of Kells",
+    "year": 2009,
+    "director": "Tomm Moore",
+    "country": "Ireland",
+    "originalTitle": "The Secret of Kells",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/the-secret-of-kells",
+      "https://mubi.com/en/no/films/the-secret-of-kells",
+      "https://mubi.com/en/no/films/the-secret-of-kells-2009",
+      "https://mubi.com/en/no/films/the-secret-of-kells-moore"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 163,
+    "title": "Det hvite båndet",
+    "year": 2009,
+    "director": "Michael Haneke",
+    "country": "Italy",
+    "originalTitle": "Das weiße Band - Eine deutsche Kindergeschichte",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/das-weie-band-eine-deutsche-kindergeschichte",
+      "https://mubi.com/en/no/films/det-hvite-bndet",
+      "https://mubi.com/en/no/films/det-hvite-bndet-2009",
+      "https://mubi.com/en/no/films/det-hvite-bndet-haneke"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 164,
+    "title": "Ponyo på klippen ved havet",
+    "year": 2008,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "崖の上のポニョ",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/ponyo-p-klippen-ved-havet",
+      "https://mubi.com/en/no/films/ponyo-p-klippen-ved-havet-2008",
+      "https://mubi.com/en/no/films/ponyo-p-klippen-ved-havet-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 165,
+    "title": "Pans labyrint",
+    "year": 2006,
+    "director": "Guillermo del Toro",
+    "country": "Mexico",
+    "originalTitle": "El laberinto del fauno",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/el-laberinto-del-fauno",
+      "https://mubi.com/en/no/films/pans-labyrint",
+      "https://mubi.com/en/no/films/pans-labyrint-2006",
+      "https://mubi.com/en/no/films/pans-labyrint-toro"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 166,
+    "title": "Skjult",
+    "year": 2009,
+    "director": "Pål Øie",
+    "country": "Norway",
+    "originalTitle": "Skjult",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/skjult",
+      "https://mubi.com/en/no/films/skjult-2009",
+      "https://mubi.com/en/no/films/skjult-øie"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 167,
+    "title": "Det levende slottet",
+    "year": 2004,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "ハウルの動く城",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/det-levende-slottet",
+      "https://mubi.com/en/no/films/det-levende-slottet-2004",
+      "https://mubi.com/en/no/films/det-levende-slottet-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 168,
+    "title": "Ulvetid",
+    "year": 1981,
+    "director": "Jens Ravn",
+    "country": "Denmark",
+    "originalTitle": "Ulvetid",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/ulvetid",
+      "https://mubi.com/en/no/films/ulvetid-1981",
+      "https://mubi.com/en/no/films/ulvetid-ravn"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 169,
+    "title": "Chihiro og heksene",
+    "year": 2001,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "千と千尋の神隠し",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/chihiro-og-heksene",
+      "https://mubi.com/en/no/films/chihiro-og-heksene-2001",
+      "https://mubi.com/en/no/films/chihiro-og-heksene-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 170,
+    "title": "Katteprinsen",
+    "year": 2002,
+    "director": "Hiroyuki Morita",
+    "country": "Japan",
+    "originalTitle": "猫の恩返し",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/katteprinsen",
+      "https://mubi.com/en/no/films/katteprinsen-2002",
+      "https://mubi.com/en/no/films/katteprinsen-morita"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 171,
+    "title": "Barking Dogs Never Bite",
+    "year": 2000,
+    "director": "Bong Joon Ho",
+    "country": "South Korea",
+    "originalTitle": "플란다스의 개",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/barking-dogs-never-bite",
+      "https://mubi.com/en/no/films/barking-dogs-never-bite-2000",
+      "https://mubi.com/en/no/films/barking-dogs-never-bite-ho"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 172,
+    "title": "Prinsesse Mononoke - IMAX og 4k",
+    "year": 1997,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "もののけ姫",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/prinsesse-mononoke-imax-og-4k",
+      "https://mubi.com/en/no/films/prinsesse-mononoke-imax-og-4k-1997",
+      "https://mubi.com/en/no/films/prinsesse-mononoke-imax-og-4k-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 173,
+    "title": "Naboene Yamada",
+    "year": 1999,
+    "director": "Isao Takahata",
+    "country": "Japan",
+    "originalTitle": "ホーホケキョ となりの山田くん",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/naboene-yamada",
+      "https://mubi.com/en/no/films/naboene-yamada-1999",
+      "https://mubi.com/en/no/films/naboene-yamada-takahata"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 174,
+    "title": "Funny Games",
+    "year": 1997,
+    "director": "Michael Haneke",
+    "country": "Austria",
+    "originalTitle": "Funny Games",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/funny-games",
+      "https://mubi.com/en/no/films/funny-games-1997",
+      "https://mubi.com/en/no/films/funny-games-haneke"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 175,
+    "title": "Slottet",
+    "year": 1964,
+    "director": "Anker Sørensen",
+    "country": "Denmark",
+    "originalTitle": "Slottet",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/slottet",
+      "https://mubi.com/en/no/films/slottet-1964",
+      "https://mubi.com/en/no/films/slottet-sørensen"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 176,
+    "title": "Whisper of the Heart",
+    "year": 1995,
+    "director": "Yoshifumi Kondo",
+    "country": "Japan",
+    "originalTitle": "耳をすませば",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/whisper-of-the-heart",
+      "https://mubi.com/en/no/films/whisper-of-the-heart-1995",
+      "https://mubi.com/en/no/films/whisper-of-the-heart-kondo"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 177,
+    "title": "Pompoko",
+    "year": 1994,
+    "director": "Isao Takahata",
+    "country": "Japan",
+    "originalTitle": "平成狸合戦ぽんぽこ",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/pompoko",
+      "https://mubi.com/en/no/films/pompoko-1994",
+      "https://mubi.com/en/no/films/pompoko-takahata"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 178,
+    "title": "Ocean Waves",
+    "year": 1993,
+    "director": "Tomomi Mochizuki",
+    "country": "Japan",
+    "originalTitle": "海がきこえる",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/ocean-waves",
+      "https://mubi.com/en/no/films/ocean-waves-1993",
+      "https://mubi.com/en/no/films/ocean-waves-mochizuki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 179,
+    "title": "71 fragmenter av tilfeldighetens kronologi",
+    "year": 1995,
+    "director": "Michael Haneke",
+    "country": "Austria",
+    "originalTitle": "71 Fragmente einer Chronologie des Zufalls",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/71-fragmente-einer-chronologie-des-zufalls",
+      "https://mubi.com/en/no/films/71-fragmenter-av-tilfeldighetens-kronologi",
+      "https://mubi.com/en/no/films/71-fragmenter-av-tilfeldighetens-kronologi-1995",
+      "https://mubi.com/en/no/films/71-fragmenter-av-tilfeldighetens-kronologi-haneke"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 180,
+    "title": "Bennys video",
+    "year": 1992,
+    "director": "Michael Haneke",
+    "country": "Austria",
+    "originalTitle": "Benny's Video",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/bennys-video",
+      "https://mubi.com/en/no/films/bennys-video",
+      "https://mubi.com/en/no/films/bennys-video-1992",
+      "https://mubi.com/en/no/films/bennys-video-haneke"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 181,
+    "title": "Porco Rosso",
+    "year": 1992,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "紅の豚",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/porco-rosso",
+      "https://mubi.com/en/no/films/porco-rosso-1992",
+      "https://mubi.com/en/no/films/porco-rosso-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 182,
+    "title": "Kikis budservice",
+    "year": 1989,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "魔女の宅急便",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/kikis-budservice",
+      "https://mubi.com/en/no/films/kikis-budservice-1989",
+      "https://mubi.com/en/no/films/kikis-budservice-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 183,
+    "title": "Det sjuende kontinentet",
+    "year": 1989,
+    "director": "Michael Haneke",
+    "country": "Austria",
+    "originalTitle": "Der siebente Kontinent",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/der-siebente-kontinent",
+      "https://mubi.com/en/no/films/det-sjuende-kontinentet",
+      "https://mubi.com/en/no/films/det-sjuende-kontinentet-1989",
+      "https://mubi.com/en/no/films/det-sjuende-kontinentet-haneke"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 184,
+    "title": "Min nabo Totoro",
+    "year": 1988,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "となりのトトロ",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/min-nabo-totoro",
+      "https://mubi.com/en/no/films/min-nabo-totoro-1988",
+      "https://mubi.com/en/no/films/min-nabo-totoro-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 185,
+    "title": "Laputa - Himmelslottet",
+    "year": 2015,
+    "director": "Jakub Šmíd",
+    "country": "Czech Republic",
+    "originalTitle": "Laputa",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/laputa",
+      "https://mubi.com/en/no/films/laputa-himmelslottet",
+      "https://mubi.com/en/no/films/laputa-himmelslottet-2015",
+      "https://mubi.com/en/no/films/laputa-himmelslottet-šmíd"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast",
+      "runtime"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 186,
+    "title": "Nausicaä - prinsessen fra Vindens dal",
+    "year": 1984,
+    "director": "Hayao Miyazaki",
+    "country": "Japan",
+    "originalTitle": "風の谷のナウシカ",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/",
+      "https://mubi.com/en/no/films/nausica-prinsessen-fra-vindens-dal",
+      "https://mubi.com/en/no/films/nausica-prinsessen-fra-vindens-dal-1984",
+      "https://mubi.com/en/no/films/nausica-prinsessen-fra-vindens-dal-miyazaki"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  },
+  {
+    "index": 187,
+    "title": "Småen",
+    "year": 1921,
+    "director": "Charlie Chaplin",
+    "country": "United States of America",
+    "originalTitle": "The Kid",
+    "currentLink": "",
+    "potentialMubiUrls": [
+      "https://mubi.com/en/no/films/the-kid",
+      "https://mubi.com/en/no/films/smen",
+      "https://mubi.com/en/no/films/smen-1921",
+      "https://mubi.com/en/no/films/smen-chaplin"
+    ],
+    "missingData": [
+      "mubi_link",
+      "cast"
+    ],
+    "hasCompleteData": false
+  }
+]

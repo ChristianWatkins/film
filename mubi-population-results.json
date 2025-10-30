@@ -1,0 +1,943 @@
+{
+  "timestamp": "2025-10-29T12:47:09.155Z",
+  "total_films": 187,
+  "found_links": 14,
+  "success_rate": "7.5%",
+  "results": [
+    {
+      "film": "Amrum",
+      "url": "https://mubi.com/en/no/films/amrum",
+      "status": "found"
+    },
+    {
+      "film": "Nouvelle Vague",
+      "url": "https://mubi.com/en/no/films/nouvelle-vague",
+      "status": "found"
+    },
+    {
+      "film": "Sound of Falling",
+      "url": "https://mubi.com/en/no/films/sound-of-falling",
+      "status": "found"
+    },
+    {
+      "film": "It Was Just an Accident",
+      "url": "https://mubi.com/en/no/films/it-was-just-an-accident",
+      "status": "found"
+    },
+    {
+      "film": "Romería",
+      "url": "https://mubi.com/en/no/films/romeria",
+      "status": "found"
+    },
+    {
+      "film": "Hind Rajabs stemme",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Christy",
+      "url": "https://mubi.com/en/no/films/christy",
+      "status": "found"
+    },
+    {
+      "film": "El jockey",
+      "url": "https://mubi.com/en/no/films/el-jockey",
+      "status": "found"
+    },
+    {
+      "film": "Kveldsvakt",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "The Blue Trail",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Kjærlighet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ljósbrot",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Memoir of a Snail",
+      "url": "https://mubi.com/en/no/films/memoir-of-a-snail",
+      "status": "found"
+    },
+    {
+      "film": "Drømmer",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "The Substance",
+      "url": "https://mubi.com/en/no/films/the-substance",
+      "status": "found"
+    },
+    {
+      "film": "Vermiglio – landsbyen mellom fjellene",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Black Dog",
+      "url": "https://mubi.com/en/no/films/black-dog",
+      "status": "found"
+    },
+    {
+      "film": "Vår Juliette",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Parthenope - Napolis skjønnhet",
+      "url": "https://mubi.com/en/no/films/parthenope",
+      "status": "found"
+    },
+    {
+      "film": "SEX",
+      "url": "https://mubi.com/en/no/films/sex",
+      "status": "found"
+    },
+    {
+      "film": "En liten bit av kaken",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Perfect Days",
+      "url": "https://mubi.com/en/no/films/perfect-days",
+      "status": "found"
+    },
+    {
+      "film": "Kensukes hemmelige øy",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Hør Her'a!",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Høstgule blader",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "LUNDEFJELL - EGGET SOM FORSVANT",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "GUTTEN OG HEGREN",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "About Dry Grasses",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Olfas døtre",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Tatt av tiden",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "How to Have Sex",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Rød Himmel",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Apolonia, Apolonia",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "After Yang",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Love Life",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ingen bjørner",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Hvor er Anne Frank",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Decision to Leave",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Mor og sønn",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Aftersun",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ferskenlunden i Catalonia",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ali & Ava",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Close",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Natt i Paris",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Drive My Car",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Drømmemannen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Weathering with You",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Evolution",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Veien videre",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Et glass til",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Gunda",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ninjababy",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Det finnes ingen djevel",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ulvevandrerne",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Memories of Murder",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ville vestens datter",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Quo vadis, Aida?",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Rocks",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Billie",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Undine",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Spring Uje Spring",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "I morgen danser vi",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Unge Ahmed",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Echo",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Portrett av en kvinne i flammer",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Parasitt",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "The Farewell",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Monos",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Barn",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Atlantis",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Godt nyttår, Chile",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Mellom linjene",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Lykkelige Lazzaro",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Amazing Grace",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Woman at War",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Forført",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Burning",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "mid90s",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Den skyldige",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Capernaum",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "The Sisters Brothers",
+      "url": "https://mubi.com/en/no/films/the-sisters-brothers",
+      "status": "found"
+    },
+    {
+      "film": "Sorry to Bother You",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Amatører",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Western",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Savnet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Om kropp og sjel",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "The Insult",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ut av intet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Happy End",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Gordon og Paddy – nøttemysteriet i skogen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Mannen mot strømmen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Den andre siden av håpet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "The Square",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "120 slag i minuttet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Himmelen over Havanna",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Kammerpiken",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Den store prøven",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Sommer 1993",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Min pappa Toni Erdmann",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "The Rules for Everything",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Neruda",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Your name.",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Kvinne, ukjent",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Phantom Boy",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Neon Bull",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Under kirsebærtrærne",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Havet brenner",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "24 uker",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "El Club",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Stabukker",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "45 år",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Min arabiske vår",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "A Perfect Day",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Dagen i går [Only Yesterday]",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Sauls sønn",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Heart of a Dog",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Taxi Teheran",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Korsveien",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "EDEN",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "En natt i Berlin",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Marnie - Min Hemmelige Venninne",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Småfugler",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Jordens salt",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Vivianes kamp",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "My Skinny Sister",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Still Life",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "To dager, en natt",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Sangen fra havet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Fortellingen om Prinsesse Kaguya",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Phoenix",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "PRIDE",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Det er meg du vil ha",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ida",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ernest & Celestine",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Som far, så sønn",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Raketten",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Turist",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Fortiden",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Gjenforeningen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Vinden stiger",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Meg eier ingen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Blå er den varmeste fargen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Den grønne sykkelen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Hannah Arendt",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Stories We Tell",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Frances Ha",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Møte på Valmueåsen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Rebellen [War Witch]",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Stem nei",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Amour",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Rust og bein",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "SPISE SOVE DØ",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Arriettas hemmelige verden",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Norwegian Wood",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Nader og Simin – et brudd",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Pina",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Treet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "678 KAIRO",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Soul Kitchen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Jordsjø-krønikene",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Sommerlunsj i Roma",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "The Secret Of Kells",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Det hvite båndet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ponyo på klippen ved havet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Pans labyrint",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Skjult",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Det levende slottet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ulvetid",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Chihiro og heksene",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Katteprinsen",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Barking Dogs Never Bite",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Prinsesse Mononoke - IMAX og 4k",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Naboene Yamada",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Funny Games",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Slottet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Whisper of the Heart",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Pompoko",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Ocean Waves",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "71 fragmenter av tilfeldighetens kronologi",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Bennys video",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Porco Rosso",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Kikis budservice",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Det sjuende kontinentet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Min nabo Totoro",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Laputa - Himmelslottet",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Nausicaä - prinsessen fra Vindens dal",
+      "url": null,
+      "status": "not_found"
+    },
+    {
+      "film": "Småen",
+      "url": null,
+      "status": "not_found"
+    }
+  ]
+}

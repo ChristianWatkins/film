@@ -235,19 +235,20 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             </svg>
           </div>
 
-          {/* Poster Image - clickable to MUBI */}
-          <a
-            href={film.mubiLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block relative w-full aspect-[2/3] group"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {film.posterUrl ? (
-              <div className="relative w-full h-full bg-gray-200">
-                <img
-                  src={film.posterUrl}
-                  alt={film.title}
+          {/* Poster Image - clickable to MUBI if link exists */}
+          {film.mubiLink ? (
+            <a
+              href={film.mubiLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative w-full aspect-[2/3] group"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {film.posterUrl ? (
+                <div className="relative w-full h-full bg-gray-200">
+                  <img
+                    src={film.posterUrl}
+                    alt={film.title}
                   className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                   loading="lazy"
                 />
@@ -283,6 +284,49 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               </div>
             )}
           </a>
+          ) : (
+            <div className="block relative w-full aspect-[2/3] group">
+              {film.posterUrl ? (
+                <div className="relative w-full h-full bg-gray-200">
+                  <img
+                    src={film.posterUrl}
+                    alt={film.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  {/* Watchlist button - top left to avoid flip indicator */}
+                  <div className="absolute top-2 left-2 z-10">
+                    <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
+                  </div>
+                  
+                  {/* Award badges overlay on poster */}
+                  {film.awarded && film.awards.length > 0 && (
+                    <div className="absolute bottom-2 left-2 right-12">
+                      <AwardBadge awards={film.awards} compact />
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="relative w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                  <div className="text-center p-4">
+                    <div className="text-4xl mb-2">🎬</div>
+                    <p className="text-xs text-gray-500 font-medium">No poster available</p>
+                  </div>
+                  {/* Watchlist button - top left to avoid flip indicator */}
+                  <div className="absolute top-2 left-2 z-10">
+                    <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
+                  </div>
+                  
+                  {/* Award badges overlay on placeholder */}
+                  {film.awarded && film.awards.length > 0 && (
+                    <div className="absolute bottom-2 left-2 right-12">
+                      <AwardBadge awards={film.awards} compact />
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
           
           {/* Film info - flex-1 to push buttons to bottom */}
           <div className="p-4 flex flex-col flex-1">
@@ -325,15 +369,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             
             {/* Action buttons - anchored at bottom */}
             <div className="flex gap-1 mt-auto">
-              <a
-                href={film.mubiLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center transform"
-                onClick={(e) => e.stopPropagation()}
-              >
-                MUBI
-              </a>
+              {film.mubiLink && (
+                <a
+                  href={film.mubiLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center transform"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  MUBI
+                </a>
+              )}
               
               <button
                 onClick={handleTrailerClick}
@@ -585,15 +631,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             >
               {/* Action buttons - same as front card */}
               <div className="flex gap-1">
-                <a
-                  href={film.mubiLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 transform"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  MUBI
-                </a>
+                {film.mubiLink && (
+                  <a
+                    href={film.mubiLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 transform"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    MUBI
+                  </a>
+                )}
                 
                 <button
                   onClick={handleTrailerClick}

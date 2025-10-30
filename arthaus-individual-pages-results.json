@@ -1,0 +1,599 @@
+{
+  "summary": {
+    "totalChecked": 20,
+    "validPages": 7,
+    "withMubiLinks": 0,
+    "errors": 0
+  },
+  "filmsWithMubiLinks": [],
+  "allResults": [
+    {
+      "index": 1,
+      "title": "Amrum",
+      "year": 2025,
+      "director": "Fatih Akin",
+      "slug": "amrum",
+      "url": "https://www.arthaus.no/movie/amrum",
+      "isValidPage": true,
+      "pageTitle": "Arthaus - Amrum",
+      "h1": "Amrum",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus - Amrum\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Fre",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus - Amrum\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Fre",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 2,
+      "title": "Nouvelle Vague",
+      "year": 2025,
+      "director": "Richard Linklater",
+      "slug": "nouvelle-vague",
+      "url": "https://www.arthaus.no/movie/nouvelle-vague",
+      "isValidPage": true,
+      "pageTitle": "Arthaus - Nouvelle Vague",
+      "h1": "Nouvelle Vague",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus - Nouvelle Vague\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awes",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus - Nouvelle Vague\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awes",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 3,
+      "title": "Sound of Falling",
+      "year": 2025,
+      "director": "Mascha Schilinski",
+      "slug": "sound-of-falling",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 4,
+      "title": "It Was Just an Accident",
+      "year": 2025,
+      "director": "Jafar Panahi",
+      "slug": "it-was-just-an-accident",
+      "url": "https://www.arthaus.no/movie/it-was-just-an-accident",
+      "isValidPage": true,
+      "pageTitle": "Arthaus - It Was Just an Accident",
+      "h1": "It Was Just an Accident",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus - It Was Just an Accident\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus - It Was Just an Accident\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 5,
+      "title": "Romería",
+      "year": 2025,
+      "director": "Carla Simón",
+      "slug": "romera",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 6,
+      "title": "Hind Rajabs stemme",
+      "year": 2025,
+      "director": "Kaouther Ben Hania",
+      "slug": "hind-rajabs-stemme",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 7,
+      "title": "Christy",
+      "year": 2025,
+      "director": "David Michôd",
+      "slug": "christy",
+      "url": "https://www.arthaus.no/movie/christy",
+      "isValidPage": true,
+      "pageTitle": "Arthaus - Christy",
+      "h1": "Christy",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus - Christy\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 F",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus - Christy\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 F",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 8,
+      "title": "El jockey",
+      "year": 2024,
+      "director": "Luis Ortega",
+      "slug": "el-jockey",
+      "url": "https://www.arthaus.no/movie/el-jockey",
+      "isValidPage": true,
+      "pageTitle": "Arthaus - El jockey",
+      "h1": "El jockey",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus - El jockey\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus - El jockey\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 9,
+      "title": "Kveldsvakt",
+      "year": 2025,
+      "director": "Petra Biondina Volpe",
+      "slug": "kveldsvakt",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 10,
+      "title": "The Blue Trail",
+      "year": 2025,
+      "director": "Gabriel Mascaro",
+      "slug": "the-blue-trail",
+      "url": "https://www.arthaus.no/movie/the-blue-trail",
+      "isValidPage": true,
+      "pageTitle": "Arthaus - The Blue Trail",
+      "h1": "The Blue Trail",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus - The Blue Trail\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awes",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus - The Blue Trail\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awes",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 11,
+      "title": "Kjærlighet",
+      "year": 2024,
+      "director": "Dag Johan Haugerud",
+      "slug": "kjrlighet",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 12,
+      "title": "Ljósbrot",
+      "year": 2024,
+      "director": "Rúnar Rúnarsson",
+      "slug": "ljsbrot",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 13,
+      "title": "Memoir of a Snail",
+      "year": 2024,
+      "director": "Adam Elliot",
+      "slug": "memoir-of-a-snail",
+      "url": "https://www.arthaus.no/movie/memoir-of-a-snail/film-info#landing",
+      "isValidPage": false,
+      "pageTitle": "Memoir of a Snail",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Memoir of a Snail \n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 ",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Memoir of a Snail \n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 ",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 14,
+      "title": "Drømmer",
+      "year": 2024,
+      "director": "Dag Johan Haugerud",
+      "slug": "drmmer",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 15,
+      "title": "The Substance",
+      "year": 2024,
+      "director": "Coralie Fargeat",
+      "slug": "the-substance",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 16,
+      "title": "Vermiglio – landsbyen mellom fjellene",
+      "year": 2024,
+      "director": "Maura Delpero",
+      "slug": "vermiglio-landsbyen-mellom-fjellene",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 17,
+      "title": "Black Dog",
+      "year": 2024,
+      "director": "Guan Hu",
+      "slug": "black-dog",
+      "url": "https://www.arthaus.no/movie/black-dog",
+      "isValidPage": true,
+      "pageTitle": "Arthaus - Black Dog",
+      "h1": "Black Dog",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus - Black Dog\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus - Black Dog\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 18,
+      "title": "Vår Juliette",
+      "year": 2024,
+      "director": "Blandine Lenoir",
+      "slug": "vr-juliette",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 19,
+      "title": "Parthenope - Napolis skjønnhet",
+      "year": 2024,
+      "director": "Paolo Sorrentino",
+      "slug": "parthenope-napolis-skjnnhet",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    },
+    {
+      "index": 20,
+      "title": "SEX",
+      "year": 2024,
+      "director": "Dag Johan Haugerud",
+      "slug": "sex",
+      "url": "https://www.arthaus.no/home",
+      "isValidPage": false,
+      "pageTitle": "Arthaus",
+      "mubiLinks": [],
+      "streamingElements": [
+        {
+          "tag": "HTML",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "HEAD",
+          "text": "Arthaus\n    \n    \n    :root, :host {\n  --fa-font-solid: normal 900 1em/1 \"Font Awesome 6 Free\";\n  --",
+          "classes": ""
+        },
+        {
+          "tag": "STYLE",
+          "text": "[_nghost-ng-c296930194]{position:relative}footer[_ngcontent-ng-c296930194]{display:var(--footerDispl",
+          "classes": ""
+        }
+      ],
+      "streamingButtons": []
+    }
+  ],
+  "scrapedAt": "2025-10-29T13:32:36.145Z"
+}
