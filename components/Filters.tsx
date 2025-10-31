@@ -686,7 +686,26 @@ export default function Filters({
               <div className="flex flex-wrap gap-2">
                 {/* My Watchlist Pill */}
                 <button
-                  onClick={() => onChange({ ...filters, watchlistOnly: !filters.watchlistOnly })}
+                  onClick={() => {
+                    if (filters.watchlistOnly) {
+                      // If already active, just turn it off
+                      onChange({ ...filters, watchlistOnly: false });
+                    } else {
+                      // Clear all filters first, then set watchlist filter
+                      onChange({
+                        festivals: [],
+                        years: [],
+                        countries: [],
+                        genres: [],
+                        awardedOnly: false,
+                        watchlistOnly: true,
+                        showStreaming: false,
+                        showRentBuy: false,
+                        selectedPlatforms: [],
+                        searchQuery: ''
+                      });
+                    }
+                  }}
                   className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2 cursor-pointer ${
                     filters.watchlistOnly
                       ? 'bg-red-500 border-red-500 text-white shadow-md'

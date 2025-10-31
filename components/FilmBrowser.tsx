@@ -157,7 +157,26 @@ export default function FilmBrowser({
               onGenreClick={handleGenreClick}
               onWatchlistChange={() => setWatchlistVersion(prev => prev + 1)}
               watchlistOnly={filters.watchlistOnly}
-              onWatchlistToggle={() => setFilters(prev => ({ ...prev, watchlistOnly: !prev.watchlistOnly }))}
+              onWatchlistToggle={() => {
+                if (filters.watchlistOnly) {
+                  // If already active, just turn it off
+                  setFilters(prev => ({ ...prev, watchlistOnly: false }));
+                } else {
+                  // Clear all filters first, then set watchlist filter
+                  setFilters({
+                    festivals: [],
+                    years: [],
+                    countries: [],
+                    genres: [],
+                    awardedOnly: false,
+                    watchlistOnly: true,
+                    showStreaming: false,
+                    showRentBuy: false,
+                    selectedPlatforms: [],
+                    searchQuery: ''
+                  });
+                }
+              }}
               awardedOnly={filters.awardedOnly}
               onAwardedToggle={() => setFilters(prev => ({ ...prev, awardedOnly: !prev.awardedOnly }))}
             />
