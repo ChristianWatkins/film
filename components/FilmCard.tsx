@@ -271,7 +271,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               href={film.mubiLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="block relative w-full aspect-[2/3] group"
+              className="block relative w-full aspect-[2/3] overflow-hidden group"
               onClick={(e) => e.stopPropagation()}
             >
               {film.posterUrl ? (
@@ -315,7 +315,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             )}
           </a>
           ) : (
-            <div className="block relative w-full aspect-[2/3] group">
+            <div className="block relative w-full aspect-[2/3] overflow-hidden group">
               {film.posterUrl ? (
                 <div className="relative w-full h-full bg-gray-200">
                   <img
