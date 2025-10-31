@@ -281,7 +281,10 @@ export async function getAllFilms(): Promise<Film[]> {
       // Use festival link, but filter out empty strings and convert to undefined if empty
       mubiLink: (film.link && film.link.trim()) || undefined,
       justwatchLink: streamingInfo?.justwatch_url || null,
-      posterUrl: enhancedInfo?.poster_url_tmdb || streamingInfo?.poster_url || null,
+      // Poster priority: enhanced > festival poster_path > streaming
+      posterUrl: enhancedInfo?.poster_url_tmdb 
+        || ((film as any).poster_path ? `https://image.tmdb.org/t/p/w500${(film as any).poster_path}` : null)
+        || streamingInfo?.poster_url || null,
       
       // Awards - now from CSV data
       awarded: awardInfo?.awarded || false,
