@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-10-31T00:32:13.549Z",
+  "last_updated": "2025-10-31T00:59:24.002Z",
   "country": "NO",
   "total_films": 738,
   "films": {
@@ -48622,16 +48622,23 @@
       "director": "Dietrich Brüggemann"
     },
     "eden-2014": {
-      "found": false,
+      "found": true,
       "title": "EDEN",
       "year": 2014,
       "justwatch_id": null,
       "justwatch_url": null,
       "poster_url": null,
-      "streaming": [],
+      "streaming": [
+        {
+          "provider": "Filmoteket",
+          "quality": null,
+          "price": null,
+          "url": null
+        }
+      ],
       "rent": [],
       "buy": [],
-      "last_updated": "2025-10-31T00:32:13.548Z",
+      "last_updated": "2025-10-31T00:59:23.998Z",
       "festivals": [
         {
           "name": "arthaus",
