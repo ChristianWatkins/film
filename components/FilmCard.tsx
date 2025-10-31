@@ -694,6 +694,18 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                     JustWatch
                   </a>
                 )}
+                
+                {/* Show Discover Movies button when film has no streaming availability in Norway */}
+                {(!film.hasStreaming && !film.hasRent && !film.hasBuy) && (
+                  <button
+                    onClick={handleDiscoverMovies}
+                    disabled={isDiscovering}
+                    className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform disabled:opacity-50 disabled:cursor-not-allowed"
+                    title="Søk etter globale streaming-alternativer"
+                  >
+                    {isDiscovering ? 'Søker...' : 'Søk Globalt'}
+                  </button>
+                )}
               </div>
             </motion.div>
             </div>
