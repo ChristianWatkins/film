@@ -31,14 +31,16 @@ export default function JustWatchSearchPage() {
   useEffect(() => {
     const query = searchParams.get('q');
     const auto = searchParams.get('auto');
+    const yearParam = searchParams.get('year');
     
     if (query && auto === 'true') {
       // Perform automatic search without country restrictions
-      handleSearch(query, []);
+      // Use showAllMovies = false by default for auto searches (maintains original behavior)
+      handleSearch(query, [], false, yearParam ? parseInt(yearParam, 10) : null);
     }
   }, [searchParams]);
 
-  const handleSearch = async (query: string, countries: string[]) => {
+  const handleSearch = async (query: string, countries: string[], showAllMovies: boolean = false, targetYear?: number | null) => {
     setIsLoading(true);
     setError(null);
     setSearchResults(null);
@@ -51,6 +53,11 @@ export default function JustWatchSearchPage() {
       let params = new URLSearchParams({
         q: query
       });
+      
+      // Add year parameter if provided
+      if (targetYear) {
+        params.set('year', String(targetYear));
+      }
       
       // Only add countries parameter if we have valid countries
       if (countries.length > 0) {
@@ -102,6 +109,11 @@ export default function JustWatchSearchPage() {
           q: query
           // Don't include countries parameter to get all countries
         });
+        
+        // Add year parameter if provided
+        if (targetYear) {
+          fallbackParams.set('year', String(targetYear));
+        }
 
         response = await fetch(`/api/justwatch-search?${fallbackParams}`);
         
@@ -150,14 +162,35 @@ export default function JustWatchSearchPage() {
           }
         });
         
-        // If only one unique movie found, auto-navigate to detail view
-        if (uniqueMovies.size === 1) {
+        // Only auto-navigate if:
+        // 1. There's exactly one unique movie, AND
+        // 2. There are no other movies with the same title but different years
+        const movieList = Array.from(uniqueMovies.values());
+        const hasMultipleVersions = movieList.some((movieData) => {
+          return movieList.some(other => 
+            other !== movieData &&
+            other.movie.title === movieData.movie.title && 
+            other.movie.originalReleaseYear !== movieData.movie.originalReleaseYear
+          );
+        });
+        
+        // Check if the found movie matches the target year (if provided)
+        const yearMatches = targetYear ? 
+          movieList.every(m => m.movie.originalReleaseYear === targetYear) : true;
+        
+        // Only auto-select if:
+        // 1. showAllMovies setting is NOT enabled (if enabled, always show selection UI)
+        // 2. There's exactly one unique movie
+        // 3. No multiple versions with same title but different years
+        // 4. The found movie matches the target year (if year was provided)
+        if (!showAllMovies && uniqueMovies.size === 1 && !hasMultipleVersions && yearMatches) {
           const [movieData] = uniqueMovies.values();
           setSelectedMovie({
             ...movieData,
             isExpandedSearch: wasExpandedSearch
           });
         }
+        // If showAllMovies is enabled, or there are multiple movies with same title but different years, or year doesn't match, show selection UI
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Search failed');

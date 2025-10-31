@@ -176,6 +176,11 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             q: query,
             // Don't include countries parameter to search all countries
           });
+          
+          // Add year parameter to help with matching when query doesn't include year
+          if (!query.includes(String(film.year))) {
+            params.set('year', String(film.year));
+          }
 
           const response = await fetch(`/api/justwatch-search?${params}`);
           
@@ -194,8 +199,16 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             });
             
             if (resultsWithOptions.length > 0) {
-              // Success! Navigate to search page with this query
-              const searchUrl = `/search?q=${encodeURIComponent(query)}&auto=true`;
+              // Success! Navigate to search page with this query and year
+              const searchParams = new URLSearchParams({
+                q: query,
+                auto: 'true'
+              });
+              // Add year parameter if not already in query
+              if (!query.includes(String(film.year))) {
+                searchParams.set('year', String(film.year));
+              }
+              const searchUrl = `/search?${searchParams.toString()}`;
               window.location.href = searchUrl;
               return;
             }

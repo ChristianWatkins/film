@@ -65,8 +65,9 @@ const COUNTRIES: JustWatchCountry[] = [
 async function searchInCountry(
   justwatch: any,
   query: string, 
-  country: JustWatchCountry
-): Promise<CountryMovieData> {
+  country: JustWatchCountry,
+  targetYear?: number | null
+): Promise<CountryMovieData[]> {
   try {
     // Only log in development
     if (process.env.NODE_ENV === 'development') {
@@ -77,90 +78,143 @@ async function searchInCountry(
     const searchResults: JustWatchSearchResult[] = await justwatch.search(query, country.code);
     
     if (!searchResults || searchResults.length === 0) {
-      return {
+      return [{
         country,
         found: false,
         error: 'No search results found'
-      };
+      }];
     }
 
-    // Find the best match (prefer exact title matches and movies)
-    let bestMatch = searchResults.find(result => 
-      result.objectType === 'movie' && 
-      result.title.toLowerCase() === query.toLowerCase()
-    );
-    
-    if (!bestMatch) {
-      bestMatch = searchResults.find(result => result.objectType === 'movie');
-    }
-    
-    if (!bestMatch) {
-      bestMatch = searchResults[0];
-    }
-
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`Found match in ${country.name}: ${bestMatch.title} (${bestMatch.originalReleaseYear})`);
-    }
-
-    // Get detailed information
-    let details: any = null;
-    if (bestMatch.fullPath) {
-      try {
-        details = await justwatch.getData(bestMatch.fullPath, country.code);
-      } catch (error) {
-        console.warn(`Failed to get details for ${bestMatch.title} in ${country.name}:`, error);
+    // Filter to movies only - check both objectType and if it's undefined, assume it's a movie if it has a year
+    const movies = searchResults.filter(result => {
+      // If objectType is defined, use it
+      if (result.objectType !== undefined) {
+        return result.objectType === 'movie';
       }
+      // If objectType is undefined but it has a release year, likely a movie
+      // (TV shows usually don't have originalReleaseYear in the same way)
+      return result.originalReleaseYear !== undefined && result.originalReleaseYear !== null;
+    });
+
+    if (movies.length === 0) {
+      return [{
+        country,
+        found: false,
+        error: 'No movies found in search results'
+      }];
     }
 
-    const movieDetails: JustWatchMovieDetails = {
-      id: bestMatch.id,
-      title: bestMatch.title,
-      originalTitle: details?.originalTitle || bestMatch.title,
-      originalReleaseYear: bestMatch.originalReleaseYear,
-      posterUrl: bestMatch.posterUrl || details?.posterUrl,
-      imdbId: details?.externalIds?.imdbId,
-      tmdbId: details?.externalIds?.tmdbId,
-      runtime: details?.runtime,
-      genres: details?.genres,
-      synopsis: details?.shortDescription || details?.synopsis,
-      streamingProviders: details?.Streams?.filter((stream: any) => {
-        const type = stream.Type?.toLowerCase() || '';
-        return type.includes('subscription') || type.includes('flatrate') || type.includes('free');
-      }).map((stream: any) => ({
-        provider: stream.Provider || stream.Name,
-        quality: stream.Resolution,
-        price: stream.Price || null,
-        url: stream.Link
-      })) || [],
-      rentProviders: details?.Streams?.filter((stream: any) => stream.Type === 'RENT').map((stream: any) => ({
-        provider: stream.Provider || stream.Name,
-        quality: stream.Resolution,
-        price: stream.Price || null,
-        url: stream.Link
-      })) || [],
-      buyProviders: details?.Streams?.filter((stream: any) => stream.Type === 'BUY').map((stream: any) => ({
-        provider: stream.Provider || stream.Name,
-        quality: stream.Resolution,
-        price: stream.Price || null,
-        url: stream.Link
-      })) || [],
-      country: country.code,
-      justwatchUrl: bestMatch.fullPath ? `https://www.justwatch.com${bestMatch.fullPath}` : undefined
-    };
+    // Sort movies by relevance:
+    // 1. Exact title + year match (if year provided)
+    // 2. Exact title match
+    // 3. Closest year match (if year provided)
+    // 4. Others
+    const queryLower = query.toLowerCase().trim();
+    const sortedMovies = [...movies].sort((a, b) => {
+      const aTitleMatch = a.title.toLowerCase() === queryLower;
+      const bTitleMatch = b.title.toLowerCase() === queryLower;
+      
+      if (targetYear) {
+        const aYearMatch = a.originalReleaseYear === targetYear;
+        const bYearMatch = b.originalReleaseYear === targetYear;
+        
+        // Exact title + year match is best
+        if (aTitleMatch && aYearMatch && !(bTitleMatch && bYearMatch)) return -1;
+        if (bTitleMatch && bYearMatch && !(aTitleMatch && aYearMatch)) return 1;
+        
+        // Exact title match is next
+        if (aTitleMatch && !bTitleMatch) return -1;
+        if (bTitleMatch && !aTitleMatch) return 1;
+        
+        // Then closest year match
+        const aYearDiff = Math.abs((a.originalReleaseYear || 0) - targetYear);
+        const bYearDiff = Math.abs((b.originalReleaseYear || 0) - targetYear);
+        return aYearDiff - bYearDiff;
+      } else {
+        // No year provided, just prioritize exact title match
+        if (aTitleMatch && !bTitleMatch) return -1;
+        if (bTitleMatch && !aTitleMatch) return 1;
+      }
+      
+      return 0;
+    });
 
-    return {
+    // Return all matching movies (limit to 10 per country to avoid too many results)
+    const moviesToProcess = sortedMovies.slice(0, 10);
+    const results: CountryMovieData[] = [];
+
+    for (const match of moviesToProcess) {
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`Found match in ${country.name}: ${match.title} (${match.originalReleaseYear})`);
+      }
+
+      // Get detailed information
+      let details: any = null;
+      if (match.fullPath) {
+        try {
+          details = await justwatch.getData(match.fullPath, country.code);
+        } catch (error) {
+          console.warn(`Failed to get details for ${match.title} in ${country.name}:`, error);
+          continue; // Skip this movie if we can't get details
+        }
+      }
+
+      const movieDetails: JustWatchMovieDetails = {
+        id: match.id,
+        title: match.title,
+        originalTitle: details?.originalTitle || match.title,
+        originalReleaseYear: match.originalReleaseYear,
+        posterUrl: match.posterUrl || details?.posterUrl,
+        imdbId: details?.externalIds?.imdbId,
+        tmdbId: details?.externalIds?.tmdbId,
+        runtime: details?.runtime,
+        genres: details?.genres,
+        synopsis: details?.shortDescription || details?.synopsis,
+        streamingProviders: details?.Streams?.filter((stream: any) => {
+          const type = stream.Type?.toLowerCase() || '';
+          return type.includes('subscription') || type.includes('flatrate') || type.includes('free');
+        }).map((stream: any) => ({
+          provider: stream.Provider || stream.Name,
+          quality: stream.Resolution,
+          price: stream.Price || null,
+          url: stream.Link
+        })) || [],
+        rentProviders: details?.Streams?.filter((stream: any) => stream.Type === 'RENT').map((stream: any) => ({
+          provider: stream.Provider || stream.Name,
+          quality: stream.Resolution,
+          price: stream.Price || null,
+          url: stream.Link
+        })) || [],
+        buyProviders: details?.Streams?.filter((stream: any) => stream.Type === 'BUY').map((stream: any) => ({
+          provider: stream.Provider || stream.Name,
+          quality: stream.Resolution,
+          price: stream.Price || null,
+          url: stream.Link
+        })) || [],
+        country: country.code,
+        justwatchUrl: match.fullPath ? `https://www.justwatch.com${match.fullPath}` : undefined
+      };
+
+      results.push({
+        country,
+        found: true,
+        details: movieDetails
+      });
+    }
+
+    return results.length > 0 ? results : [{
       country,
-      found: true,
-      details: movieDetails
-    };
+      found: false,
+      error: 'Could not fetch movie details'
+    }];
 
   } catch (error) {
     console.error(`Error searching in ${country.name}:`, error);
-    return {
+    return [{
       country,
       found: false,
       error: error instanceof Error ? error.message : 'Unknown error'
-    };
+    }];
   }
 }
 
@@ -178,6 +232,8 @@ export async function GET(request: NextRequest) {
 
   const { searchParams } = new URL(request.url);
   const query = searchParams.get('q');
+  const yearParam = searchParams.get('year');
+  const targetYear = yearParam ? parseInt(yearParam, 10) : null;
   const countriesParam = searchParams.get('countries');
   const countries = countriesParam ? countriesParam.split(',').filter(c => c.trim().length > 0) : [];
 
@@ -219,19 +275,26 @@ export async function GET(request: NextRequest) {
 
     // Search in all countries (or filtered countries)
     const results = await Promise.allSettled(
-      searchCountries.map(country => searchInCountry(justwatch, sanitizedQuery, country))
+      searchCountries.map(country => searchInCountry(justwatch, sanitizedQuery, country, targetYear))
     );
 
-    // Process results
-    const countryResults: CountryMovieData[] = results.map((result, index) => {
+    // Process results - flatten arrays since searchInCountry now returns multiple results
+    const countryResults: CountryMovieData[] = [];
+    results.forEach((result, index) => {
       if (result.status === 'fulfilled') {
-        return result.value;
+        // result.value is now an array of CountryMovieData
+        if (Array.isArray(result.value)) {
+          countryResults.push(...result.value);
+        } else {
+          // Fallback for backward compatibility
+          countryResults.push(result.value);
+        }
       } else {
-        return {
+        countryResults.push({
           country: searchCountries[index],
           found: false,
           error: result.reason?.message || 'Search failed'
-        };
+        });
       }
     });
 

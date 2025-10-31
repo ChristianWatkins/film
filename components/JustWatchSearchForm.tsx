@@ -20,18 +20,19 @@ const COUNTRIES: JustWatchCountry[] = [
 ];
 
 interface JustWatchSearchFormProps {
-  onSearch: (query: string, countries: string[]) => void;
+  onSearch: (query: string, countries: string[], showAllMovies?: boolean) => void;
   isLoading: boolean;
 }
 
 export default function JustWatchSearchForm({ onSearch, isLoading }: JustWatchSearchFormProps) {
   const [query, setQuery] = useState('');
   const [selectedCountries, setSelectedCountries] = useState<string[]>(['NO', 'SE', 'DK', 'GB']); // Default to Norway, Sweden, Denmark, UK
+  const [showAllMovies, setShowAllMovies] = useState(false); // Default: unchecked
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      onSearch(query.trim(), selectedCountries);
+      onSearch(query.trim(), selectedCountries, showAllMovies);
     }
   };
 
@@ -140,6 +141,21 @@ export default function JustWatchSearchForm({ onSearch, isLoading }: JustWatchSe
               Please select at least one country to search.
             </p>
           )}
+        </div>
+
+        {/* Show All Movies Setting */}
+        <div className="flex items-center space-x-2">
+          <input
+            type="checkbox"
+            id="showAllMovies"
+            checked={showAllMovies}
+            onChange={(e) => setShowAllMovies(e.target.checked)}
+            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            disabled={isLoading}
+          />
+          <label htmlFor="showAllMovies" className="text-sm text-gray-700 cursor-pointer">
+            Show all movies and manually select (bypasses auto-selection when only one movie is found)
+          </label>
         </div>
 
         {/* Search Button */}
