@@ -265,7 +265,8 @@ export async function getAllFilms(): Promise<Film[]> {
     
     films.push({
       // Core metadata
-      title: film.title,
+      // Prefer English title from TMDB over Norwegian festival title
+      title: enhancedInfo?.tmdb_title || enhancedInfo?.title || film.title,
       year: film.year,
       country: film.country,
       director: film.director,
