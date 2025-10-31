@@ -86,6 +86,7 @@ export async function loadAwards(): Promise<Map<string, { awarded: boolean, awar
 // Load all festival films
 export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalFilm, festivals: FestivalAppearance[] }>> {
   const filmsMap = new Map();
+  const filmsByTmdbId = new Map<number, string>(); // Map TMDB ID to filmKey for deduplication
   const festivalsDir = path.join(DATA_DIR, 'festivals');
   
   try {
@@ -142,33 +143,111 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
           
           const key = createFilmKey(normalizedFilm.title, normalizedFilm.year);
           
-          if (!filmsMap.has(key)) {
-            filmsMap.set(key, {
+          // Check if this film should be merged with an existing one by TMDB ID
+          let existingKey = key;
+          if (film.tmdb_id) {
+            const tmdbId = typeof film.tmdb_id === 'string' ? parseInt(film.tmdb_id, 10) : film.tmdb_id;
+            if (!isNaN(tmdbId) && filmsByTmdbId.has(tmdbId)) {
+              // This film has a TMDB ID that we've seen before - merge with that entry
+              existingKey = filmsByTmdbId.get(tmdbId)!;
+            } else {
+              // Check if there's an existing film with the same normalized title/year that should get this TMDB ID
+              // This handles the case where films from different festivals have different title formats
+              // but are the same film (e.g., "PARTHENOPE" vs "Parthenope - Napolis skjønnhet")
+              for (const [existingFilmKey, existingEntry] of filmsMap.entries()) {
+                const existingFilm = existingEntry.film;
+                // Same year
+                if (existingFilm.year === normalizedFilm.year && !(existingFilm as any).tmdb_id) {
+                  const existingTitleNorm = normalizeTitle(existingFilm.title);
+                  const newTitleNorm = normalizeTitle(normalizedFilm.title);
+                  
+                  // Check if titles match after normalization (removing special chars, case, etc.)
+                  let shouldMerge = existingTitleNorm === newTitleNorm;
+                  
+                  // Also check if one title starts with or contains the base word of the other
+                  // This handles cases like "PARTHENOPE" vs "Parthenope - Napolis skjønnhet"
+                  if (!shouldMerge) {
+                    // Check if one normalized title starts with the other (handles most cases)
+                    const shorter = existingTitleNorm.length < newTitleNorm.length ? existingTitleNorm : newTitleNorm;
+                    const longer = existingTitleNorm.length >= newTitleNorm.length ? existingTitleNorm : newTitleNorm;
+                    shouldMerge = longer.startsWith(shorter) && shorter.length >= 6; // At least 6 chars for confidence
+                    
+                    // Also try base word extraction for edge cases
+                    if (!shouldMerge) {
+                      const extractBase = (title: string): string => {
+                        // Get first word that's at least 4 characters
+                        const words = title.split(' ').filter(w => w.length >= 4);
+                        return words[0]?.toLowerCase() || title.substring(0, 10).toLowerCase();
+                      };
+                      
+                      const existingBase = extractBase(existingTitleNorm);
+                      const newBase = extractBase(newTitleNorm);
+                      shouldMerge = existingBase === newBase && existingBase.length >= 4;
+                    }
+                  }
+                  
+                  if (shouldMerge) {
+                    existingKey = existingFilmKey;
+                    // Assign TMDB ID to the existing film
+                    (existingFilm as any).tmdb_id = tmdbId;
+                    filmsByTmdbId.set(tmdbId, existingKey);
+                    break;
+                  }
+                }
+              }
+            }
+          }
+          
+          if (!filmsMap.has(existingKey)) {
+            filmsMap.set(existingKey, {
               film: normalizedFilm,
               festivals: []
             });
             // Preserve tmdb_id for enhanced data lookup (not in FestivalFilm interface)
             if (film.tmdb_id) {
-              (filmsMap.get(key)!.film as any).tmdb_id = film.tmdb_id;
+              const tmdbId = typeof film.tmdb_id === 'string' ? parseInt(film.tmdb_id, 10) : film.tmdb_id;
+              if (!isNaN(tmdbId)) {
+                (filmsMap.get(existingKey)!.film as any).tmdb_id = tmdbId;
+                filmsByTmdbId.set(tmdbId, existingKey);
+              }
             }
           } else {
             // If film already exists, preserve tmdb_id if it wasn't there before
-            const existingFilm = filmsMap.get(key)!.film;
-            if (film.tmdb_id && !(existingFilm as any).tmdb_id) {
-              (existingFilm as any).tmdb_id = film.tmdb_id;
+            const existingFilm = filmsMap.get(existingKey)!.film;
+            if (film.tmdb_id) {
+              const tmdbId = typeof film.tmdb_id === 'string' ? parseInt(film.tmdb_id, 10) : film.tmdb_id;
+              if (!isNaN(tmdbId)) {
+                if (!(existingFilm as any).tmdb_id) {
+                  (existingFilm as any).tmdb_id = tmdbId;
+                  filmsByTmdbId.set(tmdbId, existingKey);
+                }
+              }
             }
             // Preserve link: prefer non-empty link (new one wins if existing is empty, otherwise keep existing)
             if (normalizedFilm.link && (!existingFilm.link || !existingFilm.link.trim())) {
               existingFilm.link = normalizedFilm.link;
             }
+            // Prefer film with TMDB ID if one doesn't have it
+            if (film.tmdb_id && !(existingFilm as any).tmdb_id) {
+              // Merge other metadata if the new film has better data
+              if (normalizedFilm.synopsis && !existingFilm.synopsis) {
+                existingFilm.synopsis = normalizedFilm.synopsis;
+              }
+              if (normalizedFilm.genres && (!existingFilm.genres || existingFilm.genres.length === 0)) {
+                existingFilm.genres = normalizedFilm.genres;
+              }
+              if (normalizedFilm.cast && (!existingFilm.cast || existingFilm.cast.length === 0)) {
+                existingFilm.cast = normalizedFilm.cast;
+              }
+            }
           }
           
-          const existingFestival = filmsMap.get(key)!.festivals.find((f: FestivalAppearance) => 
+          const existingFestival = filmsMap.get(existingKey)!.festivals.find((f: FestivalAppearance) => 
             f.name === festivalName && f.year === normalizedYear
           );
           
           if (!existingFestival) {
-            filmsMap.get(key)!.festivals.push({
+            filmsMap.get(existingKey)!.festivals.push({
               name: festivalName,
               year: normalizedYear,
               awarded: false // We'll get award info from CSV instead
