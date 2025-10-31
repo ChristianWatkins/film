@@ -71,6 +71,59 @@ export default function Filters({
     }
   };
 
+  // Helper function to group years into ranges and individual years for active filters display
+  const groupYearsForDisplay = (years: number[]): Array<{ type: 'range' | 'year', label: string, years: number[] }> => {
+    if (years.length === 0) return [];
+    
+    const sortedYears = [...years].sort((a, b) => b - a); // Descending order
+    const result: Array<{ type: 'range' | 'year', label: string, years: number[] }> = [];
+    
+    // Check for known ranges first - only show as range if ALL years in range are selected
+    const rangeChecks = [
+      { range: 'pre-2000', condition: (y: number) => y <= 1999 },
+      { range: '2000-2009', condition: (y: number) => y >= 2000 && y <= 2009 },
+      { range: '2010-2019', condition: (y: number) => y >= 2010 && y <= 2019 },
+    ];
+    
+    const remainingYears = new Set(sortedYears);
+    
+    // Check each range - only show as range if all years in range are selected
+    for (const { range, condition } of rangeChecks) {
+      const allYearsInRange = availableYears.filter(condition);
+      const yearsInRangeSelected = sortedYears.filter(y => condition(y) && remainingYears.has(y));
+      
+      if (yearsInRangeSelected.length > 0) {
+        // Check if all years in this range are selected
+        const allSelected = allYearsInRange.length > 0 && allYearsInRange.every(y => remainingYears.has(y));
+        
+        if (allSelected) {
+          // Show as range badge if all years in range are selected
+          result.push({
+            type: 'range',
+            label: range === 'pre-2000' ? 'Pre-2000' : range,
+            years: allYearsInRange
+          });
+          allYearsInRange.forEach(y => remainingYears.delete(y));
+        }
+        // If not all selected, individual years will be shown below
+      }
+    }
+    
+    // Add remaining individual years (both older years that weren't in complete ranges, and 2020+)
+    const individualYears = Array.from(remainingYears)
+      .sort((a, b) => b - a);
+    
+    individualYears.forEach(year => {
+      result.push({
+        type: 'year',
+        label: year.toString(),
+        years: [year]
+      });
+    });
+    
+    return result;
+  };
+
   // Function to check if a year range is selected
   const isYearRangeSelected = (range: string): boolean => {
     let yearsInRange: number[] = [];
@@ -340,7 +393,7 @@ export default function Filters({
                       filters.genres.length,
                       filters.countries.length,
                       filters.festivals.length,
-                      filters.years.length,
+                      groupYearsForDisplay(filters.years).length,
                       filters.showStreaming ? 1 : 0,
                       filters.showRentBuy ? 1 : 0,
                       filters.watchlistOnly ? 1 : 0,
@@ -403,7 +456,7 @@ export default function Filters({
                     onClick={() => onChange({ ...filters, festivals: filters.festivals.filter(f => f !== festival) })}
                     className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
                   >
-                    {festival}
+                    {festivalDisplayNames[festival] || festival}
                     <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -411,18 +464,25 @@ export default function Filters({
                     </span>
                   </button>
                 ))}
-                {filters.years.map(year => (
-                  <button
-                    key={`active-year-${year}`}
-                    onClick={() => toggleYear(year)}
-                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
-                  >
-                    {year}
-                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
-                      ×
-                    </span>
-                  </button>
-                ))}
+                {groupYearsForDisplay(filters.years).map((item, idx) => {
+                  const handleRemove = () => {
+                    const newYears = filters.years.filter(y => !item.years.includes(y));
+                    onChange({ ...filters, years: newYears });
+                  };
+                  
+                  return (
+                    <button
+                      key={`active-year-${item.type}-${idx}`}
+                      onClick={handleRemove}
+                      className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                    >
+                      {item.label}
+                      <span className="ml-2 text-slate-300 hover:text-white transition-colors">
+                        ×
+                      </span>
+                    </button>
+                  );
+                })}
                 {filters.showStreaming && (
                   <button
                     onClick={() => onChange({ ...filters, showStreaming: false })}
@@ -743,7 +803,7 @@ export default function Filters({
                 <span className="font-medium text-gray-700">Year</span>
                 {filters.years.length > 0 && (
                   <span className="bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
-                    {filters.years.length}
+                    {groupYearsForDisplay(filters.years).length}
                   </span>
                 )}
               </button>

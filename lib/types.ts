@@ -110,7 +110,7 @@ export interface Film {
   tmdbRating?: number; // TMDB rating out of 10
   
   // Links
-  mubiLink: string;
+  mubiLink?: string;
   justwatchLink?: string | null;
   posterUrl?: string | null;
   

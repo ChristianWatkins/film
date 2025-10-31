@@ -48621,36 +48621,17 @@
       ],
       "director": "Dietrich Brüggemann"
     },
-    "eden-2025": {
-      "found": true,
+    "eden-2014": {
+      "found": false,
       "title": "EDEN",
-      "year": 2025,
-      "justwatch_id": "tm1434941",
-      "justwatch_url": "https://www.justwatch.com/no/movie/eden-2025",
-      "poster_url": "https://images.justwatch.com/poster/332702506/s332/eden-2025.webp",
-      "streaming": [
-        {
-          "provider": "Amazon Prime Video",
-          "quality": "SD",
-          "price": null,
-          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.db46f202-1c1c-48a4-b7ca-9d18faefe3ed"
-        },
-        {
-          "provider": "Amazon Prime Video",
-          "quality": "HD",
-          "price": null,
-          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.db46f202-1c1c-48a4-b7ca-9d18faefe3ed"
-        },
-        {
-          "provider": "Amazon Prime Video",
-          "quality": "_4K",
-          "price": null,
-          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.db46f202-1c1c-48a4-b7ca-9d18faefe3ed"
-        }
-      ],
+      "year": 2014,
+      "justwatch_id": null,
+      "justwatch_url": null,
+      "poster_url": "https://www.themoviedb.org/t/p/w1280/uImYG8bSXIS66WdRJDl4qhVQQrv.jpg",
+      "streaming": [],
       "rent": [],
       "buy": [],
-      "last_updated": "2025-10-29T10:30:22.045Z",
+      "last_updated": "2025-10-30T00:00:00.000Z",
       "festivals": [
         {
           "name": "arthaus",
@@ -48658,7 +48639,7 @@
           "awarded": false
         }
       ],
-      "director": "Ron Howard"
+      "director": "Mia Hansen-Løve"
     },
     "en-natt-i-berlin-2015": {
       "found": true,

@@ -32,7 +32,7 @@ interface DataQualityRow {
   hasCast: boolean;
   justwatchFound: boolean; // Whether found on JustWatch at all
   sources: DataSource;
-  mubiLink: string;
+  mubiLink?: string;
   posterSource: 'tmdb' | 'justwatch' | 'none';
   dataCompleteness: number; // Percentage of available data fields
 }

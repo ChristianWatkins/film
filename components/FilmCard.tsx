@@ -23,6 +23,22 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
 
+  // Festival display name mapping (consistent with Filters component)
+  const festivalDisplayNames: Record<string, string> = {
+    'arthaus': 'Arthaus',
+    'biff': 'BIFF',
+    'bergen': 'BIFF',
+    'berlin': 'Berlinale',
+    'cannes': 'Cannes',
+    'haugesund': 'Haugesund',
+    'venice': 'Venice'
+  };
+
+  const getFestivalDisplayName = (name: string): string => {
+    return festivalDisplayNames[name.toLowerCase()] || 
+           name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  };
+
   // Helper function to get country code
   const getCountryCode = (country: string): string => {
     const countryCodes: { [key: string]: string } = {
@@ -111,6 +127,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
 
     const handleTrailerClick = (e: React.MouseEvent) => {
     e.stopPropagation();
+    if (!film.mubiLink) return;
     const trailerUrl = `${film.mubiLink}/trailer`;
     
     // Open in new window with maximized dimensions
@@ -604,18 +621,30 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <span className="w-0.5 h-3 bg-gradient-to-b from-amber-400 to-orange-400 rounded-full"></span>
                   Festivals
                 </h4>
-                <div className="flex flex-wrap gap-1">
-                  {film.festivals.slice(0, 3).map((festival, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs text-gray-700"
-                    >
-                      {festival.name === 'biff' ? 'BIFF' : festival.name.charAt(0).toUpperCase() + festival.name.slice(1).toLowerCase()} {festival.year}
-                    </span>
-                  ))}
-                  {film.festivals.length > 3 && (
-                    <span className="text-xs text-gray-500 px-1">+{film.festivals.length - 3} more</span>
-                  )}
+                <div className="flex flex-col gap-0.5">
+                  {(() => {
+                    // Group festivals by name to show unique festival names only
+                    const uniqueFestivals = Array.from(
+                      new Map(film.festivals.map(f => [f.name, f])).values()
+                    );
+                    const displayedFestivals = uniqueFestivals.slice(0, 3);
+                    
+                    return (
+                      <>
+                        {displayedFestivals.map((festival, idx) => (
+                          <span
+                            key={idx}
+                            className="text-xs text-gray-700"
+                          >
+                            {getFestivalDisplayName(festival.name)}
+                          </span>
+                        ))}
+                        {uniqueFestivals.length > 3 && (
+                          <span className="text-xs text-gray-500 px-1">+{uniqueFestivals.length - 3} more</span>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
               </motion.div>
             </div>

@@ -103,38 +103,77 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
         if (!yearFile.endsWith('.json')) continue;
         
         const year = yearFile.replace('.json', '');
+        // Normalize year names for display (remove suffixes like -fixed, +)
+        const normalizedYear = year.replace(/[-+].*$/, '');
         const filePath = path.join(festivalPath, yearFile);
         const content = await fs.readFile(filePath, 'utf-8');
         const rawData = JSON.parse(content);
         
-        // Handle different data structures
-        let filmList: FestivalFilm[];
-        if (Array.isArray(rawData)) {
-          // Standard format: array of films
-          filmList = rawData;
-        } else if (rawData.films && Array.isArray(rawData.films)) {
-          // Arthaus format: object with films property
-          filmList = rawData.films;
-        } else {
-          console.warn(`Unexpected data structure in ${filePath}, skipping...`);
+        // Expect all festival data to be in array format
+        if (!Array.isArray(rawData)) {
+          console.warn(`Expected array format in ${filePath}, skipping...`);
           continue;
         }
         
+        const filmList: any[] = rawData;
+        
         filmList.forEach(film => {
-          const key = createFilmKey(film.title, film.year);
+          // Normalize film data to match standard FestivalFilm format
+          // Convert Arthaus/TMDB format fields to standard format
+          const normalizedFilm: FestivalFilm = {
+            title: film.title,
+            year: film.year,
+            country: film.country,
+            director: film.director,
+            link: film.link,
+            awarded: film.awarded || false,
+            awards: film.awards || [],
+            // Normalize synopsis/overview
+            synopsis: film.synopsis || film.overview || undefined,
+            // Normalize genres (should already be array, but ensure it is)
+            genres: Array.isArray(film.genres) ? film.genres : undefined,
+            // Normalize runtime (convert number to string if needed)
+            runtime: film.runtime ? (typeof film.runtime === 'number' ? film.runtime.toString() : film.runtime) : undefined,
+            // Normalize cast - handle both string arrays and object arrays
+            cast: Array.isArray(film.cast) 
+              ? film.cast.map((c: any) => typeof c === 'string' ? c : c.name || c).filter(Boolean)
+              : undefined
+          };
+          
+          const key = createFilmKey(normalizedFilm.title, normalizedFilm.year);
           
           if (!filmsMap.has(key)) {
             filmsMap.set(key, {
-              film,
+              film: normalizedFilm,
               festivals: []
             });
+            // Preserve tmdb_id for enhanced data lookup (not in FestivalFilm interface)
+            if (film.tmdb_id) {
+              (filmsMap.get(key)!.film as any).tmdb_id = film.tmdb_id;
+            }
+          } else {
+            // If film already exists, preserve tmdb_id if it wasn't there before
+            const existingFilm = filmsMap.get(key)!.film;
+            if (film.tmdb_id && !(existingFilm as any).tmdb_id) {
+              (existingFilm as any).tmdb_id = film.tmdb_id;
+            }
+            // Preserve link: prefer non-empty link (new one wins if existing is empty, otherwise keep existing)
+            if (normalizedFilm.link && (!existingFilm.link || !existingFilm.link.trim())) {
+              existingFilm.link = normalizedFilm.link;
+            }
           }
           
-          filmsMap.get(key).festivals.push({
-            name: festivalName,
-            year,
-            awarded: false // We'll get award info from CSV instead
-          });
+          const existingFestival = filmsMap.get(key)!.festivals.find((f: FestivalAppearance) => 
+            f.name === festivalName && f.year === normalizedYear
+          );
+          
+          if (!existingFestival) {
+            filmsMap.get(key)!.festivals.push({
+              name: festivalName,
+              year: normalizedYear,
+              awarded: false // We'll get award info from CSV instead
+            });
+          }
         });
       }
     }
@@ -190,16 +229,28 @@ export async function getAllFilms(): Promise<Film[]> {
   
   // Create a map of enhanced data for quick lookup
   const enhancedMap = new Map();
+  const enhancedMapByTmdbId = new Map(); // Also index by TMDB ID for fallback lookup
+  
   enhancedFilms.forEach((film: any) => {
     const key = createFilmKey(film.title, film.year);
     enhancedMap.set(key, film);
+    
+    // Also index by TMDB ID if available
+    if (film.tmdb_id) {
+      enhancedMapByTmdbId.set(film.tmdb_id, film);
+    }
   });
   
   const films: Film[] = [];
   
   for (const [filmKey, { film, festivals }] of festivalFilmsMap) {
     const streamingInfo = streamingData.films[filmKey];
-    const enhancedInfo = enhancedMap.get(filmKey);
+    let enhancedInfo = enhancedMap.get(filmKey);
+    
+    // Fallback: if no enhanced data found by title/year, try TMDB ID lookup
+    if (!enhancedInfo && (film as any).tmdb_id) {
+      enhancedInfo = enhancedMapByTmdbId.get((film as any).tmdb_id);
+    }
     
     // Look up award information using normalized title
     const normalizedTitle = normalizeTitle(film.title);
@@ -227,7 +278,8 @@ export async function getAllFilms(): Promise<Film[]> {
       tmdbRating: enhancedInfo?.tmdb_rating || undefined,
       
       // Links - prefer enhanced poster
-      mubiLink: film.link,
+      // Use festival link, but filter out empty strings and convert to undefined if empty
+      mubiLink: (film.link && film.link.trim()) || undefined,
       justwatchLink: streamingInfo?.justwatch_url || null,
       posterUrl: enhancedInfo?.poster_url_tmdb || streamingInfo?.poster_url || null,
       

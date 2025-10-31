@@ -142,7 +142,7 @@ const linksToAdd = {
   "Vivianes kamp": "https://mubi.com/en/no/films/gett-the-trial-of-viviane-amsalem",
   "My Skinny Sister": "https://mubi.com/en/no/films/my-skinny-sister",
   "Still Life": "https://mubi.com/en/no/films/still-life-2013",
-  "To dager, en natt": "https://mubi.com/en/no/films/two-days-one-night",z
+  "To dager, en natt": "https://mubi.com/en/no/films/two-days-one-night",
   "Sangen fra havet": "https://mubi.com/en/no/films/song-of-the-sea-2014",
   "Fortellingen om Prinsesse Kaguya": "https://mubi.com/en/no/films/the-tale-of-princess-kaguya",
   "Phoenix": "https://mubi.com/en/no/films/phoenix-2014",
