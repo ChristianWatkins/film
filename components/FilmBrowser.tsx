@@ -68,24 +68,65 @@ export default function FilmBrowser({
     });
   };
   
+  // Helper function to normalize text for searching (removes accents/diacritics)
+  const normalizeForSearch = (text: string): string => {
+    return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  };
+  
   // Apply filters and sorting
   const filteredAndSortedFilms = useMemo(() => {
     let result = applyFilters(films, filters);
     
-    // Apply search
+    // Apply search and tag films with relevance scores
+    let hasSearchQuery = false;
     if (filters.searchQuery.trim()) {
-      const query = filters.searchQuery.toLowerCase();
-      result = result.filter(film =>
-        film.title.toLowerCase().includes(query) ||
-        film.director?.toLowerCase().includes(query) ||
-        film.synopsis?.toLowerCase().includes(query) ||
-        film.genres?.some(genre => genre.toLowerCase().includes(query)) ||
-        film.cast?.some(actor => actor.toLowerCase().includes(query)) ||
-        film.country?.toLowerCase().includes(query)
-      );
+      hasSearchQuery = true;
+      const query = normalizeForSearch(filters.searchQuery);
+      
+      // Filter and add relevance score to each film
+      result = result
+        .filter(film =>
+          normalizeForSearch(film.title).includes(query) ||
+          (film.director && normalizeForSearch(film.director).includes(query)) ||
+          (film.synopsis && normalizeForSearch(film.synopsis).includes(query)) ||
+          film.genres?.some(genre => normalizeForSearch(genre).includes(query)) ||
+          film.cast?.some(actor => normalizeForSearch(actor).includes(query)) ||
+          (film.country && normalizeForSearch(film.country).includes(query))
+        )
+        .map(film => {
+          const normalizedTitle = normalizeForSearch(film.title);
+          let relevanceScore = 0;
+          
+          // Higher score = higher priority
+          if (normalizedTitle.startsWith(query)) {
+            relevanceScore = 3; // Title starts with query (highest priority)
+          } else if (normalizedTitle.includes(query)) {
+            relevanceScore = 2; // Title contains query
+          } else {
+            relevanceScore = 1; // Match in other fields
+          }
+          
+          return { ...film, _relevanceScore: relevanceScore };
+        });
     }
     
-    return sortFilms(result, sortBy);
+    // Apply regular sorting
+    const sorted = sortFilms(result, sortBy);
+    
+    // If there's a search query, re-sort by relevance first, then by the regular sort
+    if (hasSearchQuery) {
+      return sorted.sort((a: any, b: any) => {
+        // First, sort by relevance score (descending)
+        if (b._relevanceScore !== a._relevanceScore) {
+          return b._relevanceScore - a._relevanceScore;
+        }
+        
+        // If relevance is the same, maintain the order from sortFilms
+        return 0;
+      });
+    }
+    
+    return sorted;
   }, [films, filters, sortBy, watchlistVersion]);
   
   // Count streaming films
@@ -97,7 +138,7 @@ export default function FilmBrowser({
   // Create festival display names for header
   const festivalDisplayNames: Record<string, string> = {
     'arthaus': 'Arthaus',
-    'bergen': 'BIFF',
+    'bergen': 'BIFFa',
     'berlin': 'Berlinale',
     'cannes': 'Cannes',
     'venice': 'Venice'
