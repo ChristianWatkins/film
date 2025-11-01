@@ -191,7 +191,7 @@ export default function FilmBrowser({
   // Create festival display names for header
   const festivalDisplayNames: Record<string, string> = {
     'arthaus': 'Arthaus',
-    'bergen': 'BIFFa',
+    'bergen': 'BIFF',
     'berlin': 'Berlinale',
     'cannes': 'Cannes',
     'venice': 'Venice'
