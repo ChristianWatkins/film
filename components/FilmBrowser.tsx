@@ -40,7 +40,7 @@ export default function FilmBrowser({
     searchQuery: ''
   });
   
-  const [sortBy, setSortBy] = useState<SortOption>('year-desc');
+  const [sortBy, setSortBy] = useState<SortOption>('title-asc');
   const [watchlistVersion, setWatchlistVersion] = useState(0);
   
   // Handle genre click from cards
