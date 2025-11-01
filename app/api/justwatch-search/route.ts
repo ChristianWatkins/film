@@ -47,18 +47,22 @@ function checkRateLimit(ip: string): { allowed: boolean; reason?: string } {
   return { allowed: true };
 }
 
-// Supported countries with Norway first
+// Supported countries with Nordic countries first
 const COUNTRIES: JustWatchCountry[] = [
+  // Nordic countries
   { code: 'NO', name: 'Norway', flag: '🇳🇴' },
   { code: 'SE', name: 'Sweden', flag: '🇸🇪' },
   { code: 'DK', name: 'Denmark', flag: '🇩🇰' },
+  { code: 'FI', name: 'Finland', flag: '🇫🇮' },
+  { code: 'IS', name: 'Iceland', flag: '🇮🇸' },
+  // Other European countries
   { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
   { code: 'DE', name: 'Germany', flag: '🇩🇪' },
   { code: 'FR', name: 'France', flag: '🇫🇷' },
-  { code: 'FI', name: 'Finland', flag: '🇫🇮' },
   { code: 'IT', name: 'Italy', flag: '🇮🇹' },
   { code: 'ES', name: 'Spain', flag: '🇪🇸' },
   { code: 'NL', name: 'Netherlands', flag: '🇳🇱' },
+  // North America
   { code: 'US', name: 'United States', flag: '🇺🇸' }
 ];
 

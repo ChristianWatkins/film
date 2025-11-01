@@ -6,18 +6,25 @@ import type { JustWatchCountry } from '@/lib/types';
 
 // Available countries for selection
 const COUNTRIES: JustWatchCountry[] = [
+  // Nordic countries
   { code: 'NO', name: 'Norway', flag: '🇳🇴' },
   { code: 'SE', name: 'Sweden', flag: '🇸🇪' },
   { code: 'DK', name: 'Denmark', flag: '🇩🇰' },
-  { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
-  { code: 'US', name: 'United States', flag: '🇺🇸' },
   { code: 'FI', name: 'Finland', flag: '🇫🇮' },
+  { code: 'IS', name: 'Iceland', flag: '🇮🇸' },
+  // Other European countries
+  { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
   { code: 'DE', name: 'Germany', flag: '🇩🇪' },
   { code: 'FR', name: 'France', flag: '🇫🇷' },
   { code: 'IT', name: 'Italy', flag: '🇮🇹' },
   { code: 'ES', name: 'Spain', flag: '🇪🇸' },
-  { code: 'NL', name: 'Netherlands', flag: '🇳🇱' }
+  { code: 'NL', name: 'Netherlands', flag: '🇳🇱' },
+  // North America
+  { code: 'US', name: 'United States', flag: '🇺🇸' }
 ];
+
+// Nordic country codes for quick selection
+const NORDIC_COUNTRIES = ['NO', 'SE', 'DK', 'FI', 'IS'];
 
 interface JustWatchSearchFormProps {
   onSearch: (query: string, countries: string[], showAllMovies?: boolean) => void;
@@ -26,7 +33,7 @@ interface JustWatchSearchFormProps {
 
 export default function JustWatchSearchForm({ onSearch, isLoading }: JustWatchSearchFormProps) {
   const [query, setQuery] = useState('');
-  const [selectedCountries, setSelectedCountries] = useState<string[]>(['NO', 'SE', 'DK', 'GB']); // Default to Norway, Sweden, Denmark, UK
+  const [selectedCountries, setSelectedCountries] = useState<string[]>(NORDIC_COUNTRIES); // Default to Nordic countries
   const [showAllMovies, setShowAllMovies] = useState(false); // Default: unchecked
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -52,8 +59,8 @@ export default function JustWatchSearchForm({ onSearch, isLoading }: JustWatchSe
     setSelectedCountries([]);
   };
 
-  const resetToNordic = () => {
-    setSelectedCountries(['NO', 'SE', 'DK', 'GB']);
+  const selectNordic = () => {
+    setSelectedCountries(NORDIC_COUNTRIES);
   };
 
   return (
@@ -89,10 +96,10 @@ export default function JustWatchSearchForm({ onSearch, isLoading }: JustWatchSe
             <div className="flex gap-2">
               <button
                 type="button"
-                onClick={resetToNordic}
+                onClick={selectNordic}
                 className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded hover:bg-blue-200 transition-colors"
               >
-                Nordic + UK
+                Nordic
               </button>
               <button
                 type="button"
