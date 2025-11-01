@@ -4309,5 +4309,27 @@
     "countries": [
       "United States of America"
     ]
+  },
+  {
+    "title": "EDEN",
+    "year": 2014,
+    "country": "France",
+    "director": "Mia Hansen-Løve",
+    "link": "https://mubi.com/en/no/films/eden-2014-mia-hansen-love",
+    "awarded": false,
+    "awards": [],
+    "tmdb_id": 283330,
+    "original_title": "Eden",
+    "overview": "A group of disillusioned outsiders abandon modern society in search of a new beginning. Settling on a remote, uninhabited island, their utopian dream quickly unravels as they discover that the greatest threat isn't the brutal climate or deadly wildlife, but each other.",
+    "poster_path": "/jbFEESMVbpJU8IjZBjiWGJdEsxR.jpg",
+    "vote_average": 6.786,
+    "genres": [
+      "Thriller",
+      "Drama"
+    ],
+    "runtime": 129,
+    "countries": [
+      "United States of America"
+    ]
   }
 ]

@@ -6,7 +6,8 @@
     "director": "Charlotte Wells",
     "link": "https://mubi.com/en/no/films/aftersun",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 965150
   },
   {
     "title": "CLOSE",
@@ -17,7 +18,8 @@
     "awarded": true,
     "awards": [
       "Grand Prix"
-    ]
+    ],
+    "tmdb_id": 901563
   },
   {
     "title": "DECISION TO LEAVE",
@@ -28,7 +30,8 @@
     "awarded": true,
     "awards": [
       "Best Director"
-    ]
+    ],
+    "tmdb_id": 705996
   },
   {
     "title": "SICK OF MYSELF",

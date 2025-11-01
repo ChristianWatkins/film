@@ -158,7 +158,8 @@
     "director": "Jafar Panahi",
     "link": "https://mubi.com/en/no/films/no-bears",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 974521
   },
   {
     "title": "VERA",
@@ -295,7 +296,8 @@
     "director": "Koji Fukada",
     "link": "https://mubi.com/en/no/films/love-life-2022",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 927594
   },
   {
     "title": "THE LAST DAYS OF HUMANITY",

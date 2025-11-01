@@ -8,7 +8,8 @@
     "awarded": true,
     "awards": [
       "Best Actor"
-    ]
+    ],
+    "tmdb_id": 976893
   },
   {
     "title": "FALLEN LEAVES",
@@ -17,7 +18,8 @@
     "director": "Aki Kaurismäki",
     "link": "https://mubi.com/en/no/films/fallen-leaves-2023",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 986280
   },
   {
     "title": "MONSTER",
@@ -86,7 +88,8 @@
     "director": "Molly Manning Walker",
     "link": "https://mubi.com/en/no/films/how-to-have-sex",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1075175
   },
   {
     "title": "THE DELINQUENTS",
@@ -173,7 +176,8 @@
     "awarded": true,
     "awards": [
       "Best Actress"
-    ]
+    ],
+    "tmdb_id": 665733
   },
   {
     "title": "THE OLD OAK",

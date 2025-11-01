@@ -57,7 +57,8 @@
     "awarded": true,
     "awards": [
       "Palme d'Or"
-    ]
+    ],
+    "tmdb_id": 1456349
   },
   {
     "title": "THE SECRET AGENT",
@@ -79,7 +80,8 @@
     "awarded": true,
     "awards": [
       "Jury Prize"
-    ]
+    ],
+    "tmdb_id": 1221061
   },
   {
     "title": "EDDINGTON",
@@ -182,7 +184,8 @@
     "director": "Richard Linklater",
     "link": "https://mubi.com/en/no/films/nouvelle-vague-2024",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1254808
   },
   {
     "title": "MIRRORS NO. 3",

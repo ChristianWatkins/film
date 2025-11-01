@@ -64,7 +64,8 @@
     "director": "Maryam Moghadam, Behtash Sanaeeha",
     "link": "https://mubi.com/en/no/films/my-favourite-cake",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1234591
   },
   {
     "title": "LA COCINA",
@@ -205,7 +206,8 @@
     "director": "Dag Johan Haugerud",
     "link": "https://mubi.com/en/no/films/sex-2024",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1228681
   },
   {
     "title": "WHAT DID YOU DREAM LAST NIGHT, PARAJANOV?",

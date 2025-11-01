@@ -60,7 +60,8 @@
     "director": "Petra Biondina Volpe",
     "link": "https://mubi.com/en/no/films/late-shift-2025",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1356670
   },
   {
     "title": "THE BLUE TRAIL",
@@ -69,7 +70,8 @@
     "director": "Gabriel Mascaro",
     "link": "https://mubi.com/en/no/films/the-other-side-of-the-sky",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1172265
   },
   {
     "title": "DEAF",
