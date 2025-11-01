@@ -14,9 +14,10 @@ interface FilmCardProps {
   onFlip: () => void;
   onGenreClick?: (genre: string) => void;
   onWatchlistChange?: () => void;
+  onDirectorClick?: (director: string) => void;
 }
 
-export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange }: FilmCardProps) {
+export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
@@ -115,14 +116,21 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   }, [isFlipped, isExpanded, film.synopsis]);
   
   const handleCardClick = (e: React.MouseEvent) => {
-    // Don't flip if clicking on buttons or links
-    if ((e.target as HTMLElement).closest('button, a')) {
+    // Don't flip if clicking on buttons, links, or clickable director name
+    if ((e.target as HTMLElement).closest('button, a, .clickable-director')) {
       return;
     }
     onFlip();
     // Reset synopsis expansion when card flips
     setIsExpanded(false);
     setIsTextTruncated(false);
+  };
+
+  const handleDirectorClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (film.director && onDirectorClick) {
+      onDirectorClick(film.director);
+    }
   };
 
     const handleTrailerClick = (e: React.MouseEvent) => {
@@ -313,7 +321,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             <h3 className="font-bold text-lg mb-1 line-clamp-2 text-gray-900">{film.title}</h3>
             
             {film.director && (
-              <p className="text-sm text-gray-700 mb-1">{film.director}</p>
+              <p 
+                className="clickable-director text-sm text-gray-700 mb-1 cursor-pointer hover:text-[#FFB800] hover:underline transition-colors" 
+                onClick={handleDirectorClick}
+                title={`Show all films by ${film.director}`}
+              >
+                {film.director}
+              </p>
             )}
             
             <p className="text-sm text-gray-600 mb-3">
@@ -444,7 +458,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               </h3>
               <div className="text-sm text-white/90 space-y-1">
                 {film.director && (
-                  <div className="font-medium text-white text-sm">{film.director}</div>
+                  <div 
+                    className="clickable-director font-medium text-white text-sm cursor-pointer hover:text-[#FFB800] hover:underline transition-colors" 
+                    onClick={handleDirectorClick}
+                    title={`Show all films by ${film.director}`}
+                  >
+                    {film.director}
+                  </div>
                 )}
                 <div className="flex items-center justify-center gap-1.5 text-xs">
                   {film.year && (

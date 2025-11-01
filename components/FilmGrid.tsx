@@ -16,6 +16,7 @@ interface FilmGridProps {
   onWatchlistToggle?: () => void;
   awardedOnly?: boolean;
   onAwardedToggle?: () => void;
+  onDirectorClick?: (director: string) => void;
 }
 
 export default function FilmGrid({ 
@@ -27,7 +28,8 @@ export default function FilmGrid({
   watchlistOnly = false,
   onWatchlistToggle,
   awardedOnly = false,
-  onAwardedToggle
+  onAwardedToggle,
+  onDirectorClick
 }: FilmGridProps) {
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
 
@@ -129,6 +131,7 @@ export default function FilmGrid({
             onFlip={() => handleCardFlip(film.filmKey)}
             onGenreClick={onGenreClick}
             onWatchlistChange={onWatchlistChange}
+            onDirectorClick={onDirectorClick}
           />
         ))}
       </div>

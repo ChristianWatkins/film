@@ -51,6 +51,23 @@ export default function FilmBrowser({
     setFilters({ ...filters, genres: newGenres });
   };
   
+  // Handle director click from cards
+  const handleDirectorClick = (director: string) => {
+    // Clear all filters and set only the search query to the director name
+    setFilters({
+      festivals: [],
+      years: [],
+      countries: [],
+      genres: [],
+      awardedOnly: false,
+      watchlistOnly: false,
+      showStreaming: false,
+      showRentBuy: false,
+      selectedPlatforms: [],
+      searchQuery: director
+    });
+  };
+  
   // Apply filters and sorting
   const filteredAndSortedFilms = useMemo(() => {
     let result = applyFilters(films, filters);
@@ -155,6 +172,7 @@ export default function FilmBrowser({
               sortBy={sortBy}
               onSortChange={(sort) => setSortBy(sort as SortOption)}
               onGenreClick={handleGenreClick}
+              onDirectorClick={handleDirectorClick}
               onWatchlistChange={() => setWatchlistVersion(prev => prev + 1)}
               watchlistOnly={filters.watchlistOnly}
               onWatchlistToggle={() => {
