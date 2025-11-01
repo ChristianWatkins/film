@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { MagnifyingGlassIcon, HeartIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
+import { RotateCw, Check } from 'lucide-react';
 import type { Film, FilterState } from '@/lib/types';
 import { applyFilters, sortFilms, type SortOption } from '@/lib/filters';
 import Filters from './Filters';
@@ -26,22 +27,72 @@ export default function FilmBrowser({
   availableCountries,
   availableGenres
 }: FilmBrowserProps) {
-  const [filters, setFilters] = useState<FilterState>({
-    festivals: [],
-    years: [],
-    countries: [],
-    excludedCountries: ['United States'],
-    genres: [],
-    awardedOnly: false,
-    watchlistOnly: false,
-    showStreaming: true,  // Default: show streaming films
-    showRentBuy: true,    // Default: show rent/buy films
-    selectedPlatforms: [],
-    searchQuery: ''
-  });
+  // Load saved filters from localStorage
+  const loadSavedFilters = (): FilterState => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('filmFilters');
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch (e) {
+          console.error('Failed to load saved filters:', e);
+        }
+      }
+    }
+    // Default filters if nothing saved
+    return {
+      festivals: [],
+      years: [],
+      countries: [],
+      excludedCountries: ['United States'],
+      genres: [],
+      awardedOnly: false,
+      watchlistOnly: false,
+      showStreaming: true,
+      showRentBuy: true,
+      selectedPlatforms: [],
+      searchQuery: ''
+    };
+  };
+  
+  const [filters, setFilters] = useState<FilterState>(loadSavedFilters());
   
   const [sortBy, setSortBy] = useState<SortOption>('title-asc');
   const [watchlistVersion, setWatchlistVersion] = useState(0);
+  const [showSaveToast, setShowSaveToast] = useState(false);
+  const [showResetToast, setShowResetToast] = useState(false);
+  
+  // Save current filters to localStorage
+  const saveCurrentFilters = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('filmFilters', JSON.stringify(filters));
+      setShowSaveToast(true);
+      setTimeout(() => setShowSaveToast(false), 2000);
+    }
+  };
+  
+  // Reset to default filters
+  const resetToDefaults = () => {
+    const defaults: FilterState = {
+      festivals: [],
+      years: [],
+      countries: [],
+      excludedCountries: ['United States'],
+      genres: [],
+      awardedOnly: false,
+      watchlistOnly: false,
+      showStreaming: true,
+      showRentBuy: true,
+      selectedPlatforms: [],
+      searchQuery: ''
+    };
+    setFilters(defaults);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('filmFilters', JSON.stringify(defaults));
+      setShowResetToast(true);
+      setTimeout(() => setShowResetToast(false), 2000);
+    }
+  };
   
   // Handle genre click from cards
   const handleGenreClick = (genre: string) => {
@@ -154,6 +205,35 @@ export default function FilmBrowser({
   
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Toast Notifications */}
+      {showSaveToast && (
+        <div 
+          className="fixed bottom-6 right-6 z-50"
+          style={{
+            animation: 'slideUp 0.3s ease-out',
+          }}
+        >
+          <div className="bg-slate-700 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-2">
+            <Check className="w-5 h-5 text-green-400" />
+            <span className="text-sm font-medium">Filter defaults saved!</span>
+          </div>
+        </div>
+      )}
+      
+      {showResetToast && (
+        <div 
+          className="fixed bottom-6 right-6 z-50"
+          style={{
+            animation: 'slideUp 0.3s ease-out',
+          }}
+        >
+          <div className="bg-slate-700 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-2">
+            <RotateCw className="w-5 h-5 text-blue-400" />
+            <span className="text-sm font-medium">Filters reset to defaults!</span>
+          </div>
+        </div>
+      )}
+      
       {/* Header */}
       <header className="bg-[#1A1A2E] shadow-lg border-b-4 border-[#FFB800]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -213,6 +293,8 @@ export default function FilmBrowser({
               availablePlatforms={availablePlatforms}
               availableCountries={availableCountries}
               availableGenres={availableGenres}
+              onSaveDefaults={saveCurrentFilters}
+              onResetDefaults={resetToDefaults}
             />
           </div>
           

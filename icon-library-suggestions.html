@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Suggestions - Save & Reset</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .icon-box {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .icon-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: #f8f9fa;
+        }
+        
+        .icon-box svg {
+            width: 32px;
+            height: 32px;
+            stroke: #475569;
+            fill: none;
+            transition: stroke 0.2s;
+        }
+        
+        .icon-box.filled svg {
+            fill: #475569;
+            stroke: none;
+        }
+        
+        .icon-box:hover svg {
+            stroke: #1e293b;
+        }
+        
+        .icon-box.filled:hover svg {
+            fill: #1e293b;
+        }
+        
+        .icon-name {
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .library-badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        
+        .badge-heroicons { background: #e8f5e9; color: #2e7d32; }
+        .badge-react-icons { background: #fff3e0; color: #e65100; }
+        .badge-lucide { background: #fce4ec; color: #c2185b; }
+        
+        .selected {
+            background: #e0f2fe !important;
+            border: 2px solid #0284c7;
+        }
+        
+        .selected svg {
+            stroke: #0284c7 !important;
+            fill: #0284c7 !important;
+        }
+        
+        .code-output {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .code-output h3 {
+            margin-top: 0;
+            color: #1a1a2e;
+        }
+        
+        .code-output pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+        }
+        
+        .type-label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Icon Suggestions - Save & Reset</h1>
+    <p class="subtitle">Click an icon to select it and see the code</p>
+    
+    <!-- Save Icons -->
+    <div class="section">
+        <h2 class="section-title">Save Icons</h2>
+        <div class="icon-grid" id="saveIcons">
+            <!-- Heroicons -->
+            <div class="icon-box" data-type="save" data-library="heroicons" data-name="Bookmark" data-path="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+                <div class="icon-name">Bookmark</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <div class="icon-box" data-type="save" data-library="heroicons" data-name="BookmarkSolid" data-path="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+                <div class="icon-name">Bookmark (Solid)</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <div class="icon-box" data-type="save" data-library="heroicons" data-name="DocumentArrowDown" data-path="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zm-9-7v6m-3-3l3 3 3-3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zm-9-7v6m-3-3l3 3 3-3" />
+                </svg>
+                <div class="icon-name">Document Arrow Down</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <div class="icon-box" data-type="save" data-library="heroicons" data-name="ArrowDownTray" data-path="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                <div class="icon-name">Arrow Down Tray</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <div class="icon-box" data-type="save" data-library="heroicons" data-name="CheckCircle" data-path="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="icon-name">Check Circle</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <!-- React Icons -->
+            <div class="icon-box filled" data-type="save" data-library="react-icons" data-name="FaSave" data-path="M893.3 293.3L730.7 130.7c-7.5-7.5-16.7-13-26.7-16V112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V338.5c0-17-6.7-33.2-18.7-45.2zM384 184h256v104H384V184zm456 656H184V264h127v216h402V264h127v576zM384 442l264 120v64l-264-120v-64z">
+                <svg fill="currentColor" viewBox="0 0 1024 1024">
+                    <path d="M893.3 293.3L730.7 130.7c-7.5-7.5-16.7-13-26.7-16V112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V338.5c0-17-6.7-33.2-18.7-45.2zM384 184h256v104H384V184zm456 656H184V264h127v216h402V264h127v576zM384 442l264 120v64l-264-120v-64z"/>
+                </svg>
+                <div class="icon-name">Floppy Disk</div>
+                <span class="library-badge badge-react-icons">React Icons</span>
+            </div>
+            
+            <div class="icon-box filled" data-type="save" data-library="react-icons" data-name="FaBookmark" data-path="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM765 393.7l-37.8 37.8c-4.2 4.2-9.9 6.6-15.8 6.6H548.5c-11.9 0-21.6-9.7-21.6-21.6V308.9c0-17.7 14.3-32 32-32h178.7c5.9 0 11.6 2.4 15.8 6.6l37.8 37.8c9.1 9.1 9.1 23.9 0 33.4z">
+                <svg fill="currentColor" viewBox="0 0 1024 1024">
+                    <path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM765 393.7l-37.8 37.8c-4.2 4.2-9.9 6.6-15.8 6.6H548.5c-11.9 0-21.6-9.7-21.6-21.6V308.9c0-17.7 14.3-32 32-32h178.7c5.9 0 11.6 2.4 15.8 6.6l37.8 37.8c9.1 9.1 9.1 23.9 0 33.4z"/>
+                </svg>
+                <div class="icon-name">Bookmark</div>
+                <span class="library-badge badge-react-icons">React Icons</span>
+            </div>
+            
+            <!-- Lucide -->
+            <div class="icon-box" data-type="save" data-library="lucide" data-name="Save" data-path="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z M17 21v-8H7v8 M7 3v5h8">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 21v-8H7v8" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3v5h8" />
+                </svg>
+                <div class="icon-name">Save</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <div class="icon-box" data-type="save" data-library="lucide" data-name="Bookmark" data-path="M19 21l-7-4-7 4V5a2 2 0 012-2h10a2 2 0 012 2z">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21l-7-4-7 4V5a2 2 0 012-2h10a2 2 0 012 2z" />
+                </svg>
+                <div class="icon-name">Bookmark</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <div class="icon-box" data-type="save" data-library="lucide" data-name="Download" data-path="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4 M7 10l5 5 5-5 M12 15V3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10l5 5 5-5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15V3" />
+                </svg>
+                <div class="icon-name">Download</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Reset Icons -->
+    <div class="section">
+        <h2 class="section-title">Reset/Reload Icons</h2>
+        <div class="icon-grid" id="resetIcons">
+            <!-- Heroicons -->
+            <div class="icon-box" data-type="reset" data-library="heroicons" data-name="ArrowPath" data-path="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+                <div class="icon-name">Arrow Path</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="heroicons" data-name="ArrowPathRoundedSquare" data-path="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
+                </svg>
+                <div class="icon-name">Arrow Path Rounded Square</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="heroicons" data-name="ArrowUturnLeft" data-path="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                </svg>
+                <div class="icon-name">Arrow U Turn Left</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="heroicons" data-name="ArrowUturnRight" data-path="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+                </svg>
+                <div class="icon-name">Arrow U Turn Right</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <!-- React Icons -->
+            <div class="icon-box filled" data-type="reset" data-library="react-icons" data-name="FaRedo" data-path="M758.2 839.1C851.8 765.9 912 651.9 912 523.9c0-192.3-147.2-350.7-337.1-370.1-12.2-1.3-24.5 1.4-35.7 7.8-11.2 6.4-20.7 15.8-27.4 27.3-6.7 11.5-10.5 24.6-10.5 38.1v4.9c0 17.7 14.3 32 32 32h4.9c13.5 0 26.6-3.7 38.1-10.5 11.5-6.7 20.9-16.2 27.3-27.4 6.4-11.2 9.1-23.5 7.8-35.7-15.1-144.5-139.2-258.3-285.6-258.3-158.1 0-286.5 128.4-286.5 286.5s128.4 286.5 286.5 286.5c78.5 0 150.5-31.8 202.5-83.5l-42.5-42.5c-35.8 35.8-85.3 58-140.5 58-106.1 0-192.2-86.1-192.2-192.2s86.1-192.2 192.2-192.2c51.8 0 99.2 20.5 133.9 54.2l-57.5 57.5c-12.5 12.5-12.5 32.8 0 45.3l128.1 128.1c12.5 12.5 32.8 12.5 45.3 0l128.1-128.1c12.5-12.5 12.5-32.8 0-45.3l-57.5-57.5c-41.6-41.6-98.8-67.4-161.4-67.4-132.7 0-240.3 107.6-240.3 240.3s107.6 240.3 240.3 240.3c70.6 0 134.8-30.6 179.2-79.2l42.5 42.5z">
+                <svg fill="currentColor" viewBox="0 0 1024 1024">
+                    <path d="M758.2 839.1C851.8 765.9 912 651.9 912 523.9c0-192.3-147.2-350.7-337.1-370.1-12.2-1.3-24.5 1.4-35.7 7.8-11.2 6.4-20.7 15.8-27.4 27.3-6.7 11.5-10.5 24.6-10.5 38.1v4.9c0 17.7 14.3 32 32 32h4.9c13.5 0 26.6-3.7 38.1-10.5 11.5-6.7 20.9-16.2 27.3-27.4 6.4-11.2 9.1-23.5 7.8-35.7-15.1-144.5-139.2-258.3-285.6-258.3-158.1 0-286.5 128.4-286.5 286.5s128.4 286.5 286.5 286.5c78.5 0 150.5-31.8 202.5-83.5l-42.5-42.5c-35.8 35.8-85.3 58-140.5 58-106.1 0-192.2-86.1-192.2-192.2s86.1-192.2 192.2-192.2c51.8 0 99.2 20.5 133.9 54.2l-57.5 57.5c-12.5 12.5-12.5 32.8 0 45.3l128.1 128.1c12.5 12.5 32.8 12.5 45.3 0l128.1-128.1c12.5-12.5 12.5-32.8 0-45.3l-57.5-57.5c-41.6-41.6-98.8-67.4-161.4-67.4-132.7 0-240.3 107.6-240.3 240.3s107.6 240.3 240.3 240.3c70.6 0 134.8-30.6 179.2-79.2l42.5 42.5z"/>
+                </svg>
+                <div class="icon-name">Redo</div>
+                <span class="library-badge badge-react-icons">React Icons</span>
+            </div>
+            
+            <div class="icon-box filled" data-type="reset" data-library="react-icons" data-name="FaSync" data-path="M433 95.5c-139.5 7.5-251.5 117.5-258.5 257.5-5.5 98.5 47.5 188.5 130.5 239.5v-58.5c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32s14.3-32 32-32h101.5c-108.5-79-163.5-213.5-110.5-343.5 57.5-139.5 197.5-237.5 343.5-246.5 17.7-1 32.5 13.3 33.5 31s-13.3 32.5-31 33.5zM832 640c-17.7 0-32 14.3-32 32v101.5c-108.5 79-242.5 24-343.5-110.5-17.3-14.3-17.3-42.5 0-56.8 14.3-17.3 42.5-17.3 56.8 0 77.5 88.5 202.5 130.5 311.5 91.5v-58.5c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H640c-17.7 0-32-14.3-32-32s14.3-32 32-32h192z">
+                <svg fill="currentColor" viewBox="0 0 1024 1024">
+                    <path d="M433 95.5c-139.5 7.5-251.5 117.5-258.5 257.5-5.5 98.5 47.5 188.5 130.5 239.5v-58.5c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32s14.3-32 32-32h101.5c-108.5-79-163.5-213.5-110.5-343.5 57.5-139.5 197.5-237.5 343.5-246.5 17.7-1 32.5 13.3 33.5 31s-13.3 32.5-31 33.5zM832 640c-17.7 0-32 14.3-32 32v101.5c-108.5 79-242.5 24-343.5-110.5-17.3-14.3-17.3-42.5 0-56.8 14.3-17.3 42.5-17.3 56.8 0 77.5 88.5 202.5 130.5 311.5 91.5v-58.5c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H640c-17.7 0-32-14.3-32-32s14.3-32 32-32h192z"/>
+                </svg>
+                <div class="icon-name">Sync</div>
+                <span class="library-badge badge-react-icons">React Icons</span>
+            </div>
+            
+            <!-- Lucide -->
+            <div class="icon-box" data-type="reset" data-library="lucide" data-name="RotateCcw" data-path="M1 4v6h6 M3.51 15a9 9 0 102.13-9.36L1 10">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 4v6h6" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.51 15a9 9 0 102.13-9.36L1 10" />
+                </svg>
+                <div class="icon-name">Rotate CCW</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="lucide" data-name="RotateCw" data-path="M21 12a9 9 0 11-9-9c2.52 0 4.93 1 6.74 2.74L21 8 M21 3v5h-5">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 3v5h-5" />
+                </svg>
+                <div class="icon-name">Rotate CW</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="lucide" data-name="RefreshCw" data-path="M21 12a9 9 0 11-9-9c2.12 0 4.07.74 5.6 2 M21 12v-4h-4 M3 12a9 9 0 009 9c2.12 0 4.07-.74 5.6-2 M3 12v4h4">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-9-9c2.12 0 4.07.74 5.6 2" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12v-4h-4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12a9 9 0 009 9c2.12 0 4.07-.74 5.6-2" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12v4h4" />
+                </svg>
+                <div class="icon-name">Refresh CW</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="lucide" data-name="RefreshCcw" data-path="M1 4v6h6 M21 20v-6h-6 M3.51 9a9 9 0 0114.85-3.36L21 10 M21 14a9 9 0 01-14.85 3.36L3 14">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 4v6h6" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 20v-6h-6" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.51 9a9 9 0 0114.85-3.36L21 10" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 14a9 9 0 01-14.85 3.36L3 14" />
+                </svg>
+                <div class="icon-name">Refresh CCW</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="lucide" data-name="RotateCw" data-path="M21 12a9 9 0 11-9-9c2.52 0 4.93 1 6.74 2.74L21 8 M21 3v5h-5">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 3v5h-5" />
+                </svg>
+                <div class="icon-name">Rotate CW (Simple)</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="lucide" data-name="Undo2" data-path="M9 14 4 9l5-5 M4 9h10.5a5.5 5.5 0 015.5 5.5v0a5.5 5.5 0 01-5.5 5.5H11">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14 4 9l5-5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9h10.5a5.5 5.5 0 015.5 5.5v0a5.5 5.5 0 01-5.5 5.5H11" />
+                </svg>
+                <div class="icon-name">Undo 2</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <div class="icon-box" data-type="reset" data-library="lucide" data-name="Repeat" data-path="m17 2 4 4-4 4 M3 11v-1a4 4 0 014-4h14 M21 13v1a4 4 0 01-4 4H3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m17 2 4 4-4 4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 11v-1a4 4 0 014-4h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13v1a4 4 0 01-4 4H3" />
+                </svg>
+                <div class="icon-name">Repeat</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+            
+            <!-- More Heroicons -->
+            <div class="icon-box" data-type="reset" data-library="heroicons" data-name="ArrowUturnDown" data-path="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                <div class="icon-name">Arrow U Turn Down</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+            
+            <!-- React Icons - More -->
+            <div class="icon-box filled" data-type="reset" data-library="react-icons" data-name="FaUndo" data-path="M433 95.5c-139.5 7.5-251.5 117.5-258.5 257.5-5.5 98.5 47.5 188.5 130.5 239.5v-58.5c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32s14.3-32 32-32h101.5c-108.5-79-163.5-213.5-110.5-343.5 57.5-139.5 197.5-237.5 343.5-246.5 17.7-1 32.5 13.3 33.5 31s-13.3 32.5-31 33.5zM832 640c-17.7 0-32 14.3-32 32v101.5c-108.5 79-242.5 24-343.5-110.5-17.3-14.3-17.3-42.5 0-56.8 14.3-17.3 42.5-17.3 56.8 0 77.5 88.5 202.5 130.5 311.5 91.5v-58.5c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H640c-17.7 0-32-14.3-32-32s14.3-32 32-32h192z">
+                <svg fill="currentColor" viewBox="0 0 1024 1024">
+                    <path d="M433 95.5c-139.5 7.5-251.5 117.5-258.5 257.5-5.5 98.5 47.5 188.5 130.5 239.5v-58.5c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32s14.3-32 32-32h101.5c-108.5-79-163.5-213.5-110.5-343.5 57.5-139.5 197.5-237.5 343.5-246.5 17.7-1 32.5 13.3 33.5 31s-13.3 32.5-31 33.5zM832 640c-17.7 0-32 14.3-32 32v101.5c-108.5 79-242.5 24-343.5-110.5-17.3-14.3-17.3-42.5 0-56.8 14.3-17.3 42.5-17.3 56.8 0 77.5 88.5 202.5 130.5 311.5 91.5v-58.5c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H640c-17.7 0-32-14.3-32-32s14.3-32 32-32h192z"/>
+                </svg>
+                <div class="icon-name">Undo</div>
+                <span class="library-badge badge-react-icons">React Icons</span>
+            </div>
+            
+            <div class="icon-box filled" data-type="reset" data-library="react-icons" data-name="FaRotateLeft" data-path="M672 418.4H448c-17.7 0-32 14.3-32 32v241.8c0 17.7 14.3 32 32 32h241.8c17.7 0 32-14.3 32-32V518.8l50.5 50.5c20.3 20.3 53.2 20.3 73.5 0 20.3-20.3 20.3-53.2 0-73.5L729.9 394.9c-20.3-20.3-53.2-20.3-73.5 0-10.1 10.1-15.1 23.4-15.1 36.7v86.8zM448 800H192c-35.3 0-64-28.7-64-64V448c0-35.3 28.7-64 64-64h64v-64H192c-70.7 0-128 57.3-128 128v288c0 70.7 57.3 128 128 128h256c70.7 0 128-57.3 128-128v-64H448v64z">
+                <svg fill="currentColor" viewBox="0 0 1024 1024">
+                    <path d="M672 418.4H448c-17.7 0-32 14.3-32 32v241.8c0 17.7 14.3 32 32 32h241.8c17.7 0 32-14.3 32-32V518.8l50.5 50.5c20.3 20.3 53.2 20.3 73.5 0 20.3-20.3 20.3-53.2 0-73.5L729.9 394.9c-20.3-20.3-53.2-20.3-73.5 0-10.1 10.1-15.1 23.4-15.1 36.7v86.8zM448 800H192c-35.3 0-64-28.7-64-64V448c0-35.3 28.7-64 64-64h64v-64H192c-70.7 0-128 57.3-128 128v288c0 70.7 57.3 128 128 128h256c70.7 0 128-57.3 128-128v-64H448v64z"/>
+                </svg>
+                <div class="icon-name">Rotate Left</div>
+                <span class="library-badge badge-react-icons">React Icons</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="code-output" id="codeOutput" style="display: none;">
+        <h3>Selected Icons Code</h3>
+        <div id="saveCode" style="display: none;">
+            <h4>Save Icon:</h4>
+            <pre id="saveCodeText"></pre>
+        </div>
+        <div id="resetCode" style="display: none;">
+            <h4>Reset Icon:</h4>
+            <pre id="resetCodeText"></pre>
+        </div>
+    </div>
+    
+    <script>
+        const boxes = document.querySelectorAll('.icon-box');
+        let selectedSave = null;
+        let selectedReset = null;
+        const codeOutput = document.getElementById('codeOutput');
+        const saveCode = document.getElementById('saveCode');
+        const resetCode = document.getElementById('resetCode');
+        const saveCodeText = document.getElementById('saveCodeText');
+        const resetCodeText = document.getElementById('resetCodeText');
+        
+        boxes.forEach(box => {
+            box.addEventListener('click', () => {
+                const type = box.dataset.type;
+                const library = box.dataset.library;
+                const name = box.dataset.name;
+                const path = box.dataset.path;
+                const isFilled = box.classList.contains('filled');
+                
+                // Remove selected from same type
+                if (type === 'save') {
+                    document.querySelectorAll('[data-type="save"]').forEach(b => b.classList.remove('selected'));
+                    box.classList.add('selected');
+                    selectedSave = { library, name, path, isFilled };
+                } else {
+                    document.querySelectorAll('[data-type="reset"]').forEach(b => b.classList.remove('selected'));
+                    box.classList.add('selected');
+                    selectedReset = { library, name, path, isFilled };
+                }
+                
+                updateCode();
+            });
+        });
+        
+        function updateCode() {
+            if (selectedSave || selectedReset) {
+                codeOutput.style.display = 'block';
+                
+                if (selectedSave) {
+                    saveCode.style.display = 'block';
+                    const fillAttr = selectedSave.isFilled ? 'fill="currentColor"' : 'fill="none" stroke="currentColor"';
+                    const strokeWidth = selectedSave.isFilled ? '' : ' strokeWidth={2}';
+                    const code = `import { ${selectedSave.name} } from '${selectedSave.library === 'heroicons' ? '@heroicons/react/24/outline' : selectedSave.library === 'react-icons' ? `react-icons/${selectedSave.name.startsWith('Fa') ? 'fa' : 'hi'}` : 'lucide-react'}';
+
+<${selectedSave.name} className="w-5 h-5" />`;
+                    saveCodeText.textContent = code;
+                } else {
+                    saveCode.style.display = 'none';
+                }
+                
+                if (selectedReset) {
+                    resetCode.style.display = 'block';
+                    const fillAttr = selectedReset.isFilled ? 'fill="currentColor"' : 'fill="none" stroke="currentColor"';
+                    const strokeWidth = selectedReset.isFilled ? '' : ' strokeWidth={2}';
+                    const code = `import { ${selectedReset.name} } from '${selectedReset.library === 'heroicons' ? '@heroicons/react/24/outline' : selectedReset.library === 'react-icons' ? `react-icons/${selectedReset.name.startsWith('Fa') ? 'fa' : 'hi'}` : 'lucide-react'}';
+
+<${selectedReset.name} className="w-5 h-5" />`;
+                    resetCodeText.textContent = code;
+                } else {
+                    resetCode.style.display = 'none';
+                }
+                
+                codeOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+</body>
+</html>
+
