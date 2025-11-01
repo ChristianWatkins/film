@@ -96,8 +96,9 @@ export default function FilmBrowser({
   
   // Create festival display names for header
   const festivalDisplayNames: Record<string, string> = {
-    'bergen': 'Bergen',
-    'berlin': 'Berlin',
+    'arthaus': 'Arthaus',
+    'bergen': 'BIFF',
+    'berlin': 'Berlinale',
     'cannes': 'Cannes',
     'venice': 'Venice'
   };
@@ -119,9 +120,16 @@ export default function FilmBrowser({
                 <span className="text-5xl">🎬</span>
                 <span>Film Festival Browser</span>
               </h1>
-              <p className="text-white/90 text-lg font-medium">
-                {films.length} films from {festivalNamesText} • {streamingCount} available for streaming in Norway
-              </p>
+              {/* Mobile version - shorter text */}
+              <div className="md:hidden text-white/90 text-lg font-medium">
+                <p>{films.length} festival films</p>
+                <p>{streamingCount} available for streaming</p>
+              </div>
+              {/* Desktop version - full text */}
+              <div className="hidden md:block text-white/90 text-lg font-medium">
+                <p>{films.length} films from {festivalNamesText}</p>
+                <p>{streamingCount} available for streaming in Norway</p>
+              </div>
             </div>
             <div>
               <Link
