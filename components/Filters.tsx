@@ -1008,9 +1008,36 @@ export default function Filters({
                         country.toLowerCase().includes(countrySearch.toLowerCase())
                       )
                       .sort((a, b) => {
-                        // Put United States at the top
-                        if (a === 'United States') return -1;
-                        if (b === 'United States') return 1;
+                        const aIsExcluded = filters.excludedCountries.includes(a);
+                        const bIsExcluded = filters.excludedCountries.includes(b);
+                        const aIsIncluded = filters.countries.includes(a);
+                        const bIsIncluded = filters.countries.includes(b);
+                        
+                        // First: excluded countries (minus)
+                        if (aIsExcluded && !bIsExcluded) return -1;
+                        if (!aIsExcluded && bIsExcluded) return 1;
+                        
+                        // If both excluded, sort alphabetically
+                        if (aIsExcluded && bIsExcluded) {
+                          return a.localeCompare(b);
+                        }
+                        
+                        // Second: included countries (plus)
+                        if (aIsIncluded && !bIsIncluded) return -1;
+                        if (!aIsIncluded && bIsIncluded) return 1;
+                        
+                        // If both included, sort alphabetically
+                        if (aIsIncluded && bIsIncluded) {
+                          return a.localeCompare(b);
+                        }
+                        
+                        // Third: unselected countries - put United States at top if not selected
+                        if (!aIsExcluded && !aIsIncluded && !bIsExcluded && !bIsIncluded) {
+                          if (a === 'United States') return -1;
+                          if (b === 'United States') return 1;
+                        }
+                        
+                        // Default: alphabetical
                         return a.localeCompare(b);
                       })
                       .map(country => {
