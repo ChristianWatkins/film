@@ -190,6 +190,8 @@ export default function Filters({
       const newCountries = filters.countries.filter(c => c !== country);
       onChange({ ...filters, excludedCountries: newExcluded, countries: newCountries });
     }
+    // Clear search field when a country is selected
+    setCountrySearch('');
   };
   
   const togglePlatform = (platform: string) => {
