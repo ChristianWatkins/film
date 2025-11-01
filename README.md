@@ -27,7 +27,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Streaming Services
 
-You can customize which streaming platforms to show in `config/streaming-services.json`.
+You can customize which streaming platforms to show in `config/app-config.json`.
 
 **Example:** Hide platforms you don't use:
 ```json

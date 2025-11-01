@@ -1,4 +1,4 @@
-import streamingConfig from '../config/streaming-services.json';
+import streamingConfig from '@/config/app-config.json';
 import type { StreamingProvider } from './types';
 
 export interface PlatformConfig {
@@ -13,6 +13,7 @@ export interface StreamingConfig {
   showOnlyFirstMatch: boolean;
   showMoreIndicator: boolean;
   hideDisabledPlatforms: boolean;
+  enableCardAnimations: boolean;
 }
 
 // Get the config
@@ -104,4 +105,10 @@ export function hasEnabledRent(providers: StreamingProvider[]): boolean {
   
   const enabled = filterEnabledProviders(providers);
   return enabled.length > 0;
+}
+
+// Check if card animations should be enabled
+export function shouldEnableCardAnimations(): boolean {
+  const config = getStreamingConfig();
+  return config.enableCardAnimations !== false; // Default to true if not specified
 }

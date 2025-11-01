@@ -1,8 +1,8 @@
-# Streaming Services Configuration
+# Application Configuration
 
-Control which platforms you have and their priority by simply reordering the list!
+Control streaming platforms, their priority, and UI settings through a simple JSON configuration file.
 
-## File: `streaming-services.json`
+## File: `app-config.json`
 
 ### Structure
 
@@ -16,7 +16,8 @@ Control which platforms you have and their priority by simply reordering the lis
   "hideRentBuyIfStreaming": true,
   "showOnlyFirstMatch": true,
   "showMoreIndicator": true,
-  "hideDisabledPlatforms": true
+  "hideDisabledPlatforms": true,
+  "enableCardAnimations": true
 }
 ```
 
@@ -47,6 +48,10 @@ Each platform has:
 **hideDisabledPlatforms** (boolean)
 - `true` (default): Only consider platforms where `enabled: true`
 - `false`: Show all platforms regardless of enabled status
+
+**enableCardAnimations** (boolean)
+- `true` (default): Enable smooth animations when cards appear/disappear or change position
+- `false`: Disable card animations for instant updates
 
 ## How It Works
 

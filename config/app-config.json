@@ -26,6 +26,7 @@
   "hideBuyIfRent": true,
   "showOnlyFirstMatch": true,
   "showMoreIndicator": false,
-  "hideDisabledPlatforms": true
+  "hideDisabledPlatforms": true,
+  "enableCardAnimations": true
 }
 

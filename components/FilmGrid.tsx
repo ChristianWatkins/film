@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { FaTrophy } from 'react-icons/fa';
+import { shouldEnableCardAnimations } from '@/lib/streaming-config';
 import type { Film } from '@/lib/types';
 import FilmCard from './FilmCard';
 
@@ -32,6 +34,7 @@ export default function FilmGrid({
   onDirectorClick
 }: FilmGridProps) {
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
+  const enableAnimations = shouldEnableCardAnimations();
 
   const handleCardFlip = (filmKey: string) => {
     // If the same card is clicked, close it. Otherwise, open the new one.
@@ -122,19 +125,53 @@ export default function FilmGrid({
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {films.map(film => (
-          <FilmCard 
-            key={film.filmKey} 
-            film={film} 
-            isFlipped={flippedCard === film.filmKey}
-            onFlip={() => handleCardFlip(film.filmKey)}
-            onGenreClick={onGenreClick}
-            onWatchlistChange={onWatchlistChange}
-            onDirectorClick={onDirectorClick}
-          />
-        ))}
-      </div>
+      {enableAnimations ? (
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          layout
+        >
+          <AnimatePresence mode="sync">
+            {films.map((film, index) => (
+              <motion.div
+                key={film.filmKey}
+                layout
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                transition={{ 
+                  duration: 0.3,
+                  delay: Math.min(index * 0.02, 0.15),
+                  ease: [0.22, 1, 0.36, 1],
+                  layout: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
+                }}
+              >
+                <FilmCard 
+                  film={film} 
+                  isFlipped={flippedCard === film.filmKey}
+                  onFlip={() => handleCardFlip(film.filmKey)}
+                  onGenreClick={onGenreClick}
+                  onWatchlistChange={onWatchlistChange}
+                  onDirectorClick={onDirectorClick}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {films.map(film => (
+            <FilmCard 
+              key={film.filmKey}
+              film={film} 
+              isFlipped={flippedCard === film.filmKey}
+              onFlip={() => handleCardFlip(film.filmKey)}
+              onGenreClick={onGenreClick}
+              onWatchlistChange={onWatchlistChange}
+              onDirectorClick={onDirectorClick}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
