@@ -267,7 +267,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           >
         <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative">
           {/* Flip indicator - top right corner */}
-          <div className="absolute top-3 right-3 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-opacity">
+          <div className="absolute top-3 right-3 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
@@ -284,7 +284,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   loading="lazy"
                 />
                 {/* Watchlist button - top left to avoid flip indicator */}
-                <div className="absolute top-2 left-2 z-10">
+                <div className="absolute top-3 left-3 z-10">
                   <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
                 </div>
                 
@@ -302,7 +302,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <p className="text-xs text-gray-500 font-medium">No poster available</p>
                 </div>
                 {/* Watchlist button - top left to avoid flip indicator */}
-                <div className="absolute top-2 left-2 z-10">
+                <div className="absolute top-3 left-3 z-10">
                   <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
                 </div>
                 
@@ -380,7 +380,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 className="px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform flex-shrink-0"
                 title="Watch trailer fullscreen"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </button>
@@ -433,12 +433,12 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
           
           {/* Watchlist button - top left corner */}
-          <div className="absolute top-2 left-2 z-20">
+          <div className="absolute top-3 left-3 z-20">
             <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
           </div>
           
           {/* Back indicator - top right corner */}
-          <div className="absolute top-3 right-3 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20">
+          <div className="absolute top-3 right-3 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
@@ -665,7 +665,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   className="px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform flex-shrink-0"
                   title="Watch trailer fullscreen"
                 >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
                 </button>

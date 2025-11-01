@@ -37,7 +37,7 @@ export default function WatchlistButton({ filmKey, title, onChange }: WatchlistB
   return (
     <button
       onClick={handleClick}
-      className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
+      className={`p-1.5 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
         isAnimating ? 'scale-125' : 'scale-100'
       } ${
         isInWatchlist 
