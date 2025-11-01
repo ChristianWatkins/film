@@ -432,6 +432,11 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
           
+          {/* Watchlist button - top left corner */}
+          <div className="absolute top-2 left-2 z-20">
+            <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
+          </div>
+          
           {/* Back indicator - top right corner */}
           <div className="absolute top-3 right-3 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20">
             <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
