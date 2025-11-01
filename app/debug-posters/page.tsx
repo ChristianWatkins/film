@@ -42,7 +42,6 @@ export default async function DebugPostersPage() {
               <div className="space-y-2">
                 <p><strong>Title:</strong> {film.title}</p>
                 <p><strong>Year:</strong> {film.year}</p>
-                <p><strong>TMDB ID:</strong> {film.tmdbId || 'MISSING'}</p>
                 <p><strong>Poster URL:</strong> {film.posterUrl || 'MISSING'}</p>
                 
                 {film.posterUrl ? (
