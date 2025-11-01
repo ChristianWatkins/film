@@ -169,11 +169,22 @@ export default function Filters({
     onChange({ ...filters, festivals: newFestivals });
   };
   
-  const toggleCountry = (country: string) => {
-    const newCountries = filters.countries.includes(country)
-      ? filters.countries.filter(c => c !== country)
-      : [...filters.countries, country];
-    onChange({ ...filters, countries: newCountries });
+  const toggleCountry = (country: string, mode: 'include' | 'exclude') => {
+    if (mode === 'include') {
+      const isCurrentlyIncluded = filters.countries.includes(country);
+      const newCountries = isCurrentlyIncluded
+        ? filters.countries.filter(c => c !== country)
+        : [...filters.countries, country];
+      const newExcluded = filters.excludedCountries.filter(c => c !== country);
+      onChange({ ...filters, countries: newCountries, excludedCountries: newExcluded });
+    } else {
+      const isCurrentlyExcluded = filters.excludedCountries.includes(country);
+      const newExcluded = isCurrentlyExcluded
+        ? filters.excludedCountries.filter(c => c !== country)
+        : [...filters.excludedCountries, country];
+      const newCountries = filters.countries.filter(c => c !== country);
+      onChange({ ...filters, excludedCountries: newExcluded, countries: newCountries });
+    }
   };
   
   const togglePlatform = (platform: string) => {
@@ -203,6 +214,7 @@ export default function Filters({
       festivals: [],
       years: [],
       countries: [],
+      excludedCountries: [],
       genres: [],
       awardedOnly: false,
       watchlistOnly: false,
@@ -217,6 +229,7 @@ export default function Filters({
     filters.festivals.length > 0 ||
     filters.years.length > 0 ||
     filters.countries.length > 0 ||
+    filters.excludedCountries.length > 0 ||
     filters.genres.length > 0 ||
     filters.awardedOnly ||
     filters.watchlistOnly ||
@@ -274,6 +287,14 @@ export default function Filters({
       return 'Cineast';
     }
     return platform;
+  };
+  
+  // Function to get display name for countries
+  const getCountryDisplayName = (country: string): string => {
+    if (country === 'United States') {
+      return 'USA';
+    }
+    return country;
   };
   
   // Get merged platforms
@@ -392,6 +413,7 @@ export default function Filters({
                       filters.searchQuery.trim() ? 1 : 0,
                       filters.genres.length,
                       filters.countries.length,
+                      filters.excludedCountries.length,
                       filters.festivals.length,
                       groupYearsForDisplay(filters.years).length,
                       filters.showStreaming ? 1 : 0,
@@ -440,10 +462,24 @@ export default function Filters({
                   <button
                     key={`active-country-${country}`}
                     onClick={() => onChange({ ...filters, countries: filters.countries.filter(c => c !== country) })}
-                    className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
+                    className="inline-flex items-center bg-green-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-green-700 transition-colors"
                   >
-                    {country}
-                    <span className="ml-2 text-slate-300 hover:text-white transition-colors">
+                    + {getCountryDisplayName(country)}
+                    <span className="ml-2 text-green-200 hover:text-white transition-colors">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </span>
+                  </button>
+                ))}
+                {filters.excludedCountries.map(country => (
+                  <button
+                    key={`active-excluded-country-${country}`}
+                    onClick={() => onChange({ ...filters, excludedCountries: filters.excludedCountries.filter(c => c !== country) })}
+                    className="inline-flex items-center bg-slate-400 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-500 transition-colors"
+                  >
+                    − {getCountryDisplayName(country)}
+                    <span className="ml-2 text-slate-200 hover:text-white transition-colors">
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
@@ -696,6 +732,7 @@ export default function Filters({
                         festivals: [],
                         years: [],
                         countries: [],
+                        excludedCountries: [],
                         genres: [],
                         awardedOnly: false,
                         watchlistOnly: true,
@@ -914,9 +951,9 @@ export default function Filters({
             >
               <div className="flex items-center">
                 <span className="font-medium text-gray-700">Country</span>
-                {filters.countries.length > 0 && (
+                {(filters.countries.length > 0 || filters.excludedCountries.length > 0) && (
                   <span className="ml-2 bg-slate-600 text-white text-xs px-2 py-1 rounded-full font-medium">
-                    {filters.countries.length}
+                    {filters.countries.length + filters.excludedCountries.length}
                   </span>
                 )}
               </div>
@@ -960,35 +997,59 @@ export default function Filters({
                 
                 {/* Country List */}
                 <div className="px-4 py-3 max-h-48 overflow-y-auto">
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     {availableCountries
                       .filter(country => 
                         country.toLowerCase().includes(countrySearch.toLowerCase())
                       )
-                      .map(country => (
-                        <label key={country} className="flex items-center py-1 px-2 rounded hover:bg-gray-50 cursor-pointer group">
-                          <div className="relative">
-                            <input
-                              type="checkbox"
-                              className="sr-only"
-                              checked={filters.countries.includes(country)}
-                              onChange={() => toggleCountry(country)}
-                            />
-                            <div className={`w-4 h-4 rounded border-2 transition-all ${
-                              filters.countries.includes(country)
-                                ? 'bg-slate-600 border-slate-600'
-                                : 'border-gray-300 group-hover:border-slate-400'
-                            }`}>
-                              {filters.countries.includes(country) && (
-                                <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
-                              )}
+                      .sort((a, b) => {
+                        // Put United States at the top
+                        if (a === 'United States') return -1;
+                        if (b === 'United States') return 1;
+                        return a.localeCompare(b);
+                      })
+                      .map(country => {
+                        const isIncluded = filters.countries.includes(country);
+                        const isExcluded = filters.excludedCountries.includes(country);
+                        
+                        return (
+                          <div key={country} className="flex items-center py-1.5 px-2 rounded hover:bg-gray-50 group transition-colors">
+                            <div className="flex items-center gap-1.5 mr-2">
+                              {/* Include button */}
+                              <button
+                                onClick={() => toggleCountry(country, 'include')}
+                                className={`w-5 h-5 rounded flex items-center justify-center text-base font-semibold transition-all ${
+                                  isIncluded
+                                    ? 'bg-green-500 text-white shadow-sm'
+                                    : 'bg-white border border-gray-300 text-gray-400 hover:border-green-400 hover:text-green-500'
+                                }`}
+                                title="Include this country"
+                              >
+                                +
+                              </button>
+                              {/* Exclude button */}
+                              <button
+                                onClick={() => toggleCountry(country, 'exclude')}
+                                className={`w-5 h-5 rounded flex items-center justify-center text-base font-semibold transition-all ${
+                                  isExcluded
+                                    ? 'bg-slate-400 text-white shadow-sm'
+                                    : 'bg-white border border-gray-300 text-gray-400 hover:border-slate-400 hover:text-slate-500'
+                                }`}
+                                title="Exclude this country"
+                              >
+                                −
+                              </button>
                             </div>
+                            <span className={`text-sm flex-1 ${
+                              isIncluded ? 'text-green-700 font-medium' : 
+                              isExcluded ? 'text-slate-600 font-medium' : 
+                              'text-gray-900'
+                            }`}>
+                              {getCountryDisplayName(country)}
+                            </span>
                           </div>
-                          <span className="ml-3 text-sm text-gray-900">{country}</span>
-                        </label>
-                      ))}
+                        );
+                      })}
                     {countrySearch && availableCountries.filter(country => 
                       country.toLowerCase().includes(countrySearch.toLowerCase())
                     ).length === 0 && (

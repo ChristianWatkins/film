@@ -39,9 +39,14 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
       if (!filters.years.includes(film.year)) return false;
     }
     
-    // Country filter
+    // Country filter - include
     if (filters.countries.length > 0) {
       if (!film.country || !filters.countries.includes(film.country)) return false;
+    }
+    
+    // Country filter - exclude
+    if (filters.excludedCountries.length > 0) {
+      if (film.country && filters.excludedCountries.includes(film.country)) return false;
     }
     
     // Genre filter

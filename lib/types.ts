@@ -143,6 +143,7 @@ export interface FilterState {
   festivals: string[];
   years: number[];
   countries: string[];
+  excludedCountries: string[];
   genres: string[];
   awardedOnly: boolean;
   watchlistOnly: boolean;
