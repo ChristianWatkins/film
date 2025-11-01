@@ -9,7 +9,7 @@ const RATE_LIMIT_MAX_REQUESTS = parseInt(process.env.RATE_LIMIT_REQUESTS_PER_MIN
 
 // Global rate limiting
 const GLOBAL_RATE_LIMIT_WINDOW = 60000; // 1 minute
-const GLOBAL_RATE_LIMIT_MAX_REQUESTS = parseInt(process.env.GLOBAL_RATE_LIMIT_REQUESTS_PER_MINUTE || '3');
+const GLOBAL_RATE_LIMIT_MAX_REQUESTS = parseInt(process.env.GLOBAL_RATE_LIMIT_REQUESTS_PER_MINUTE || '6');
 let globalRateLimit = { count: 0, resetTime: Date.now() + GLOBAL_RATE_LIMIT_WINDOW };
 
 function checkRateLimit(ip: string): { allowed: boolean; reason?: string } {
