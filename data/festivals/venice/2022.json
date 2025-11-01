@@ -95,7 +95,9 @@
     "director": "Laura Citarella",
     "link": "https://mubi.com/en/no/films/trenque-lauquen-part-1",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 715742,
+    "poster_path": "/pSxqQpy0IbmVwzUNMGnoTVRg7f0.jpg"
   },
   {
     "title": "‎TRENQUE LAUQUEN: PART 2",
@@ -104,7 +106,9 @@
     "director": "Laura Citarella",
     "link": "https://mubi.com/en/no/films/trenque-lauquen-part-2",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 715742,
+    "poster_path": "/pSxqQpy0IbmVwzUNMGnoTVRg7f0.jpg"
   },
   {
     "title": "PEARL",

@@ -8,7 +8,8 @@
     "awarded": true,
     "awards": [
       "Golden Bear"
-    ]
+    ],
+    "tmdb_id": 804251
   },
   {
     "title": "NEST",
@@ -306,7 +307,9 @@
     "director": "Max Linz",
     "link": "https://mubi.com/en/no/films/the-state-and-me",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 927993,
+    "poster_path": "/iL8UN7jYAHv5RDRYHaz4qjthIzD.jpg"
   },
   {
     "title": "BRAINWASHED: SEX-CAMERA-POWER",

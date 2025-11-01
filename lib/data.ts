@@ -142,6 +142,14 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
               : undefined
           };
           
+          // Preserve tmdb_id and poster_path from the raw film data
+          if (film.tmdb_id) {
+            (normalizedFilm as any).tmdb_id = film.tmdb_id;
+          }
+          if (film.poster_path) {
+            (normalizedFilm as any).poster_path = film.poster_path;
+          }
+          
           const key = createFilmKey(normalizedFilm.title, normalizedFilm.year);
           
           // Check if this film should be merged with an existing one
@@ -263,6 +271,10 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
                 filmsByTmdbId.set(tmdbId, existingKey);
               }
             }
+            // Preserve poster_path as well
+            if (film.poster_path) {
+              (filmsMap.get(existingKey)!.film as any).poster_path = film.poster_path;
+            }
           } else {
             // If film already exists, ensure tmdb_id is set and mapped correctly
             const existingFilm = filmsMap.get(existingKey)!.film;
@@ -274,6 +286,10 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
                 // Always update mapping to point to this key (important for deduplication)
                 filmsByTmdbId.set(tmdbId, existingKey);
               }
+            }
+            // Preserve poster_path: prefer one with poster_path
+            if (film.poster_path && !(existingFilm as any).poster_path) {
+              (existingFilm as any).poster_path = film.poster_path;
             }
             // Preserve link: prefer non-empty link (new one wins if existing is empty, otherwise keep existing)
             if (normalizedFilm.link && (!existingFilm.link || !existingFilm.link.trim())) {

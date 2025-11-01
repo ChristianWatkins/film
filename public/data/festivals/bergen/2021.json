@@ -6,7 +6,8 @@
     "director": "Ryusuke Hamaguchi",
     "link": "https://mubi.com/en/no/films/drive-my-car",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 758866
   },
   {
     "title": "TITANE",
@@ -42,7 +43,8 @@
     "director": "Panah Panahi",
     "link": "https://mubi.com/en/no/films/hit-the-road-2021",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 838154
   },
   {
     "title": "MEMORIA",
@@ -188,7 +190,9 @@
     "director": "Alice Diop",
     "link": "https://mubi.com/en/no/films/nous-2021",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 658854,
+    "poster_path": "/zDl36RTXJW1GhCqz6FOYRl7sCt7.jpg"
   },
   {
     "title": "PETROV'S FLU",

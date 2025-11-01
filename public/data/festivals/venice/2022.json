@@ -95,7 +95,9 @@
     "director": "Laura Citarella",
     "link": "https://mubi.com/en/no/films/trenque-lauquen-part-1",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 715742,
+    "poster_path": "/pSxqQpy0IbmVwzUNMGnoTVRg7f0.jpg"
   },
   {
     "title": "‎TRENQUE LAUQUEN: PART 2",
@@ -104,7 +106,9 @@
     "director": "Laura Citarella",
     "link": "https://mubi.com/en/no/films/trenque-lauquen-part-2",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 715742,
+    "poster_path": "/pSxqQpy0IbmVwzUNMGnoTVRg7f0.jpg"
   },
   {
     "title": "PEARL",
@@ -158,7 +162,8 @@
     "director": "Jafar Panahi",
     "link": "https://mubi.com/en/no/films/no-bears",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 974521
   },
   {
     "title": "VERA",
@@ -295,7 +300,8 @@
     "director": "Koji Fukada",
     "link": "https://mubi.com/en/no/films/love-life-2022",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 927594
   },
   {
     "title": "THE LAST DAYS OF HUMANITY",

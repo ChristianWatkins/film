@@ -17,7 +17,8 @@
     "director": "Kaouther Ben Hania",
     "link": "https://mubi.com/en/no/films/the-voice-of-hind-rajab",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1480382
   },
   {
     "title": "NO OTHER CHOICE",
@@ -149,7 +150,8 @@
     "director": "Viv Li",
     "link": "https://mubi.com/en/no/films/a-soil-a-culture-a-river-a-people",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1516303
   },
   {
     "title": "DIRECTOR'S DIARY",
