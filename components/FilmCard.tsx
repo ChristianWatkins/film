@@ -21,8 +21,20 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
+  const [expandedHeight, setExpandedHeight] = useState<number | 'auto'>(256); // Default 16rem in px
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
+  const prevExpandedRef = useRef(false);
+  
+  // Fallback heuristic to ensure the toggle appears even if height detection fails
+  const shouldShowSynopsisToggleFallback = (film.synopsis?.length || 0) > 320;
+  const canToggleSynopsis = isTextTruncated || shouldShowSynopsisToggleFallback;
+  
+  // Helper to toggle synopsis expansion with direction tracking
+  const handleSynopsisToggle = () => {
+    prevExpandedRef.current = isExpanded;
+    setIsExpanded(!isExpanded);
+  };
 
   // Festival display name mapping (consistent with Filters component)
   const festivalDisplayNames: Record<string, string> = {
@@ -108,12 +120,31 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   };
   
   useEffect(() => {
-    if (isFlipped && synopsisRef.current && textRef.current && !isExpanded) {
-      const containerHeight = synopsisRef.current.clientHeight;
-      const textHeight = textRef.current.scrollHeight;
-      setIsTextTruncated(textHeight > containerHeight);
+    if (isFlipped && textRef.current) {
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        if (textRef.current) {
+          // Compare text height to collapsed container max-height (in px)
+          const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+          const collapsedMaxPx = 16 * rootFontSize; // 16rem when collapsed
+          
+          // Create a temporary clone to measure full height without constraints
+          const clone = textRef.current.cloneNode(true) as HTMLElement;
+          clone.style.position = 'absolute';
+          clone.style.visibility = 'hidden';
+          clone.style.height = 'auto';
+          clone.style.width = textRef.current.offsetWidth + 'px';
+          document.body.appendChild(clone);
+          
+          const textHeight = clone.scrollHeight;
+          document.body.removeChild(clone);
+          
+          setIsTextTruncated(textHeight > collapsedMaxPx);
+          setExpandedHeight(textHeight);
+        }
+      });
     }
-  }, [isFlipped, isExpanded, film.synopsis]);
+  }, [isFlipped, film.synopsis]);
   
   const handleCardClick = (e: React.MouseEvent) => {
     // Don't flip if clicking on buttons, links, or clickable director name
@@ -124,6 +155,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
     // Reset synopsis expansion when card flips
     setIsExpanded(false);
     setIsTextTruncated(false);
+    prevExpandedRef.current = false;
   };
 
   const handleDirectorClick = (e: React.MouseEvent) => {
@@ -249,7 +281,18 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   };
 
   return (
-    <div className="w-full h-full relative" style={{ perspective: '1000px' }}>
+    <motion.div 
+      layout
+      transition={{
+        layout: { 
+          type: "spring",
+          stiffness: 300,
+          damping: 30
+        }
+      }}
+      className="w-full h-full relative" 
+      style={{ perspective: '1000px' }}
+    >
       <AnimatePresence mode="wait" initial={false}>
         {!isFlipped ? (
           <motion.div
@@ -257,7 +300,10 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             initial={{ rotateY: 0 }}
             animate={{ rotateY: 0 }}
             exit={{ rotateY: -180 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            transition={{ 
+              duration: 0.6, 
+              ease: "easeInOut"
+            }}
             className="w-full h-full cursor-pointer"
             onClick={handleCardClick}
             style={{ 
@@ -265,7 +311,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               backfaceVisibility: 'hidden'
             }}
           >
-        <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative">
+        <motion.div 
+          layout
+          transition={{
+            layout: { 
+              type: "spring",
+              stiffness: 300,
+              damping: 30
+            }
+          }}
+          className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative"
+        >
           {/* Flip indicator - top right corner */}
           <div className="absolute top-3 right-3 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -411,7 +467,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
 
         ) : (
@@ -420,7 +476,10 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             initial={{ rotateY: 180 }}
             animate={{ rotateY: 0 }}
             exit={{ rotateY: 180 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{ 
+              duration: 0.6,
+              ease: "easeInOut"
+            }}
             className="w-full h-full cursor-pointer"
             onClick={handleCardClick}
             style={{ 
@@ -428,7 +487,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               backfaceVisibility: 'hidden'
             }}
           >
-        <div className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 relative">
+        <motion.div 
+          layout
+          transition={{
+            layout: { 
+              type: "spring",
+              stiffness: 300,
+              damping: 30
+            }
+          }}
+          className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 relative"
+        >
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
           
@@ -445,7 +514,10 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           </div>
 
           {/* Back content */}
-          <div className="flex flex-col h-full text-left relative z-10">
+          <motion.div 
+            layout
+            className="flex flex-col h-full text-left relative z-10"
+          >
             {/* Colored Header Section */}
             <div className="bg-gradient-to-r from-gray-800 to-slate-800 p-4 -m-4 mb-0 rounded-t-lg">
               {/* Header */}
@@ -529,7 +601,10 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             </div>
 
             {/* Main Content Area */}
-            <div className="p-4 flex flex-col flex-1">
+            <motion.div 
+              layout
+              className="p-4 flex flex-col flex-1"
+            >
 
             {/* Synopsis - expandable */}
             {film.synopsis && (
@@ -540,32 +615,57 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   y: isFlipped ? 0 : 20
                 }}
                 transition={{ delay: isFlipped ? 0.2 : 0, duration: 0.3 }}
-                className="mb-3"
+                className="mb-3 flex-shrink-0"
               >
                 <h4 className="text-xs font-semibold text-gray-800 mb-1 mt-1 flex items-center gap-1 flex-shrink-0">
                   <span className="w-0.5 h-3 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></span>
                   Synopsis
                 </h4>
-                <motion.div
-                  ref={synopsisRef}
-                  initial={false}
-                  animate={{ 
-                    maxHeight: isExpanded ? '20rem' : '12rem'
-                  }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className="overflow-hidden"
-                >
-                    <p ref={textRef} className="text-xs text-gray-700 leading-relaxed">
-                    {film.synopsis}
-                  </p>
-                </motion.div>
-                {isTextTruncated && (
+                <div className="relative">
+                  <motion.div
+                    ref={synopsisRef}
+                    initial={false}
+                    animate={{ 
+                      height: isExpanded ? 'auto' : 256 // 16rem = 256px collapsed, auto when expanded
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30
+                    }}
+                    className={`relative overflow-hidden ${canToggleSynopsis ? 'cursor-pointer select-none' : ''}`}
+                    onClick={(e) => {
+                      if (!canToggleSynopsis) return;
+                      e.stopPropagation();
+                      handleSynopsisToggle();
+                    }}
+                    role={canToggleSynopsis ? 'button' : undefined}
+                    aria-expanded={canToggleSynopsis ? isExpanded : undefined}
+                  >
+                    <p 
+                      ref={textRef} 
+                      className="text-xs text-gray-700 leading-relaxed"
+                    >
+                      {film.synopsis}
+                    </p>
+                  </motion.div>
+                  {canToggleSynopsis && !isExpanded && (
+                    <motion.div
+                      initial={false}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-100 to-transparent"
+                    />
+                  )}
+                </div>
+                {(canToggleSynopsis) && (
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setIsExpanded(!isExpanded);
+                      handleSynopsisToggle();
                     }}
-                    className="mt-2 text-xs text-blue-600 hover:text-blue-800 hover:underline hover:scale-105 transition-all duration-200 focus:outline-none self-start flex-shrink-0 transform"
+                    className="mt-2 text-xs text-blue-600 hover:text-blue-800 hover:underline hover:scale-105 transition-all duration-200 focus:outline-none self-start flex-shrink-0 transform cursor-pointer"
                   >
                     {isExpanded ? 'Show less' : 'Show all'}
                   </button>
@@ -574,7 +674,10 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             )}
 
             {/* Bottom section - Cast and Festivals */}
-            <div className="space-y-2">
+            <motion.div 
+              layout
+              className="space-y-2"
+            >
               {/* Cast - compact */}
               {film.cast && film.cast.length > 0 && (
                 <motion.div
@@ -635,10 +738,11 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   })()}
                 </div>
               </motion.div>
-            </div>
+            </motion.div>
 
             {/* Footer */}
             <motion.div
+              layout
               initial={false}
               animate={{ 
                 opacity: isFlipped ? 1 : 0
@@ -696,13 +800,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 )}
               </div>
             </motion.div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
 

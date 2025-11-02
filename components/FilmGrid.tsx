@@ -142,7 +142,11 @@ export default function FilmGrid({
                   duration: 0.3,
                   delay: Math.min(index * 0.02, 0.15),
                   ease: [0.22, 1, 0.36, 1],
-                  layout: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
+                  layout: { 
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 30
+                  }
                 }}
               >
                 <FilmCard 
