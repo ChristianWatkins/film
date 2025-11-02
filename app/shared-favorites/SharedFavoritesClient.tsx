@@ -38,7 +38,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         }
         
         // Parse the shared favorites
-        const result = parseSharedFavorites(favsParam);
+        const result = await parseSharedFavorites(favsParam);
         
         if (!result.success || !result.filmKeys) {
           setError(result.error || 'Failed to load shared favorites');

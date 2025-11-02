@@ -14,9 +14,9 @@ export default function WatchlistExportImport({ onClose }: WatchlistExportImport
   const [error, setError] = useState('');
 
   // Generate share URL
-  const handleGenerateShareUrl = () => {
+  const handleGenerateShareUrl = async () => {
     try {
-      const url = generateShareableUrl(listName);
+      const url = await generateShareableUrl(listName);
       if (!url) {
         setError('No favorites to share');
         return;

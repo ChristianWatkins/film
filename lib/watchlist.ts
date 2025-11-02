@@ -1,6 +1,7 @@
 'use client';
 
 import LZString from 'lz-string';
+import { encodeFilmKeys, decodeFilmKeys } from './film-mapping';
 
 const WATCHLIST_KEY = 'film-festival-watchlist';
 
@@ -112,19 +113,19 @@ export function importWatchlist(jsonString: string): boolean {
   }
 }
 
-// Export watchlist as compressed base64-encoded string
-export function exportWatchlistAsBase64(): string {
+// Export watchlist as compressed base64-encoded string with short codes
+export async function exportWatchlistAsBase64(): Promise<string> {
   const items = getWatchlistItems();
   
   // Only store filmKeys - titles can be looked up from films data
   const filmKeys = items.map(item => item.filmKey);
   
-  // Join with commas and compress
-  const keysString = filmKeys.join(',');
+  // Convert film keys to short codes (e.g., "no-other-land-2024" -> "a4g")
+  const shortCodesString = await encodeFilmKeys(filmKeys);
   
-  // Compress and encode
+  // Compress and encode using URL-safe compression (produces shorter strings)
   if (typeof window !== 'undefined') {
-    return LZString.compressToBase64(keysString);
+    return LZString.compressToEncodedURIComponent(shortCodesString);
   }
   return '';
 }
@@ -149,14 +150,14 @@ function isValidWatchlistItem(item: any): item is WatchlistItem {
 }
 
 // Import watchlist from compressed base64-encoded string with strict validation
-export function importWatchlistFromBase64(base64String: string): { success: boolean; error?: string; itemsImported?: number } {
+export async function importWatchlistFromBase64(base64String: string): Promise<{ success: boolean; error?: string; itemsImported?: number }> {
   if (typeof window === 'undefined') {
     return { success: false, error: 'Not available in server environment' };
   }
   
   try {
     // Use shared validation function
-    const result = validateBase64FavoritesString(base64String);
+    const result = await validateBase64FavoritesString(base64String);
     
     if (!result.success || !result.filmKeys) {
       return { success: false, error: result.error || 'Validation failed' };
@@ -196,14 +197,14 @@ export function clearWatchlist(): void {
 }
 
 // Generate shareable URL for favorites
-export function generateShareableUrl(listName?: string): string {
+export async function generateShareableUrl(listName?: string): Promise<string> {
   if (typeof window === 'undefined') return '';
   
-  const base64String = exportWatchlistAsBase64();
+  const base64String = await exportWatchlistAsBase64();
   if (!base64String) return '';
   
-  // URL encode the base64 string to handle special characters
-  const encodedString = encodeURIComponent(base64String);
+  // String is already URL-safe from compressToEncodedURIComponent
+  const encodedString = base64String;
   
   // Build URL with optional name parameter
   let shareUrl = `${window.location.origin}/shared-favorites?favs=${encodedString}`;
@@ -217,17 +218,17 @@ export function generateShareableUrl(listName?: string): string {
 }
 
 // Parse shared favorites from URL parameter
-export function parseSharedFavorites(urlParam: string): { success: boolean; error?: string; filmKeys?: string[] } {
+export async function parseSharedFavorites(urlParam: string): Promise<{ success: boolean; error?: string; filmKeys?: string[] }> {
   if (!urlParam) {
     return { success: false, error: 'No data provided' };
   }
   
   try {
-    // URL decode the parameter
-    const decodedString = decodeURIComponent(urlParam);
+    // String is already decoded from URL parameter
+    const decodedString = urlParam;
     
     // Reuse the import validation (without actually saving to localStorage)
-    const result = validateBase64FavoritesString(decodedString);
+    const result = await validateBase64FavoritesString(decodedString);
     
     if (result.success && result.filmKeys) {
       return { success: true, filmKeys: result.filmKeys };
@@ -241,7 +242,7 @@ export function parseSharedFavorites(urlParam: string): { success: boolean; erro
 }
 
 // Validate base64 string and return film keys (used by both import and share)
-function validateBase64FavoritesString(base64String: string): { success: boolean; error?: string; filmKeys?: string[] } {
+async function validateBase64FavoritesString(base64String: string): Promise<{ success: boolean; error?: string; filmKeys?: string[] }> {
   try {
     // Input type validation
     if (typeof base64String !== 'string') {
@@ -251,8 +252,8 @@ function validateBase64FavoritesString(base64String: string): { success: boolean
     // Trim whitespace
     const trimmedString = base64String.trim();
     
-    // Validate base64 format (alphanumeric, +, /, =, -, _ for LZ-String)
-    if (!/^[A-Za-z0-9+/=\-_]+$/.test(trimmedString)) {
+    // Validate format for URL-safe compressed string (alphanumeric and URL-safe characters)
+    if (!/^[A-Za-z0-9+/=\-_*!~'()]+$/.test(trimmedString)) {
       return { success: false, error: 'Invalid format' };
     }
     
@@ -270,29 +271,34 @@ function validateBase64FavoritesString(base64String: string): { success: boolean
       return { success: false, error: 'Invalid data format' };
     }
     
-    // Decompress from base64
-    let keysString: string | null;
+    // Decompress from URL-safe encoding
+    let shortCodesString: string | null;
     try {
-      keysString = LZString.decompressFromBase64(trimmedString);
-      if (!keysString) {
+      shortCodesString = LZString.decompressFromEncodedURIComponent(trimmedString);
+      if (!shortCodesString) {
         return { success: false, error: 'Failed to decompress data' };
       }
       
       // Additional validation after decompression
-      if (typeof keysString !== 'string') {
+      if (typeof shortCodesString !== 'string') {
         return { success: false, error: 'Invalid decompressed data' };
       }
       
       // Check decompressed string length
-      if (keysString.length > 500000) { // Max 500KB uncompressed
+      if (shortCodesString.length > 500000) { // Max 500KB uncompressed
         return { success: false, error: 'Decompressed data too large' };
       }
     } catch (e) {
       return { success: false, error: 'Failed to decode string' };
     }
     
-    // Split comma-separated filmKeys
-    const filmKeys = keysString.split(',').filter(key => key.trim());
+    // Decode short codes back to film keys
+    let filmKeys: string[];
+    try {
+      filmKeys = await decodeFilmKeys(shortCodesString);
+    } catch (e) {
+      return { success: false, error: 'Failed to decode film keys' };
+    }
     
     // Validate array length
     if (filmKeys.length > 10000) {
