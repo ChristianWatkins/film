@@ -456,9 +456,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   y: isFlipped ? 0 : -20
                 }}
                 transition={{ delay: isFlipped ? 0.1 : 0, duration: 0.3 }}
-                className="text-center mb-3 pt-3"
+                className="text-center mb-3 pt-3 px-12"
               >
-                <h3 className="text-lg font-bold text-white mb-1 leading-tight">
+                <h3 className="text-lg md:text-xl font-bold text-white mt-1 mb-1 leading-tight line-clamp-2 break-words">
                 {film.title}
               </h3>
               <div className="text-sm text-white/90 space-y-1">
