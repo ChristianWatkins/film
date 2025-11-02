@@ -43,11 +43,6 @@ export default function FilmGrid({
     setFlippedCard(flippedCard === filmKey ? null : filmKey);
   };
 
-  const handleImportSuccess = () => {
-    // Refresh the watchlist display
-    onWatchlistChange?.();
-  };
-
   if (films.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
@@ -207,11 +202,10 @@ export default function FilmGrid({
         </div>
       )}
 
-      {/* Export/Import Modal */}
+      {/* Share Modal */}
       {showExportImportModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <WatchlistExportImport
-            onImportSuccess={handleImportSuccess}
             onClose={() => setShowExportImportModal(false)}
           />
         </div>
