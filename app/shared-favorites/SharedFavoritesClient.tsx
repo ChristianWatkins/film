@@ -246,11 +246,11 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-[#1A1A2E] hover:bg-[#2A2A3E] text-white p-4 rounded-full shadow-lg transition-all duration-200 z-50 cursor-pointer hover:scale-110"
+          className="fixed bottom-6 right-6 p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform bg-gray-100 hover:bg-gray-200 text-gray-400 shadow-lg z-50"
           aria-label="Scroll to top"
         >
           <svg 
-            className="w-6 h-6" 
+            className="w-5 h-5" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
