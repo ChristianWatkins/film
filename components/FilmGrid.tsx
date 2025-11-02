@@ -7,6 +7,7 @@ import { FaTrophy } from 'react-icons/fa';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
 import type { Film } from '@/lib/types';
 import FilmCard from './FilmCard';
+import WatchlistExportImport from './WatchlistExportImport';
 
 interface FilmGridProps {
   films: Film[];
@@ -34,11 +35,17 @@ export default function FilmGrid({
   onDirectorClick
 }: FilmGridProps) {
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
+  const [showExportImportModal, setShowExportImportModal] = useState(false);
   const enableAnimations = shouldEnableCardAnimations();
 
   const handleCardFlip = (filmKey: string) => {
     // If the same card is clicked, close it. Otherwise, open the new one.
     setFlippedCard(flippedCard === filmKey ? null : filmKey);
+  };
+
+  const handleImportSuccess = () => {
+    // Refresh the watchlist display
+    onWatchlistChange?.();
   };
 
   if (films.length === 0) {
@@ -111,6 +118,29 @@ export default function FilmGrid({
             </button>
           )}
           
+          {/* Export/Import Button */}
+          {onWatchlistToggle && watchlistOnly && (
+            <button
+              onClick={() => setShowExportImportModal(true)}
+              className="p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform bg-gray-100 hover:bg-gray-200 text-gray-400"
+              title="Export or import favourites"
+            >
+              <svg 
+                className="w-5 h-5" 
+                fill="none"
+                stroke="currentColor" 
+                strokeWidth="2" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"
+                />
+              </svg>
+            </button>
+          )}
+          
           {/* Sort dropdown */}
           <select
             value={sortBy}
@@ -174,6 +204,16 @@ export default function FilmGrid({
               onDirectorClick={onDirectorClick}
             />
           ))}
+        </div>
+      )}
+
+      {/* Export/Import Modal */}
+      {showExportImportModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <WatchlistExportImport
+            onImportSuccess={handleImportSuccess}
+            onClose={() => setShowExportImportModal(false)}
+          />
         </div>
       )}
     </div>

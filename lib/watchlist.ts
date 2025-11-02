@@ -1,5 +1,7 @@
 'use client';
 
+import LZString from 'lz-string';
+
 const WATCHLIST_KEY = 'film-festival-watchlist';
 
 export interface WatchlistItem {
@@ -107,6 +109,166 @@ export function importWatchlist(jsonString: string): boolean {
   } catch (e) {
     console.error('Error importing watchlist:', e);
     return false;
+  }
+}
+
+// Export watchlist as compressed base64-encoded string
+export function exportWatchlistAsBase64(): string {
+  const items = getWatchlistItems();
+  
+  // Only store filmKeys - titles can be looked up from films data
+  const filmKeys = items.map(item => item.filmKey);
+  
+  // Join with commas and compress
+  const keysString = filmKeys.join(',');
+  
+  // Compress and encode
+  if (typeof window !== 'undefined') {
+    return LZString.compressToBase64(keysString);
+  }
+  return '';
+}
+
+// Validate watchlist item structure
+function isValidWatchlistItem(item: any): item is WatchlistItem {
+  return (
+    typeof item === 'object' &&
+    item !== null &&
+    typeof item.filmKey === 'string' &&
+    typeof item.title === 'string' &&
+    typeof item.addedAt === 'string' &&
+    // Only allow these three properties
+    Object.keys(item).length === 3 &&
+    // Validate filmKey format (alphanumeric, dash, underscore only)
+    /^[a-zA-Z0-9_-]+$/.test(item.filmKey) &&
+    // Validate title length
+    item.title.length > 0 && item.title.length < 500 &&
+    // Validate date format
+    !isNaN(Date.parse(item.addedAt))
+  );
+}
+
+// Import watchlist from compressed base64-encoded string with strict validation
+export function importWatchlistFromBase64(base64String: string): { success: boolean; error?: string; itemsImported?: number } {
+  if (typeof window === 'undefined') {
+    return { success: false, error: 'Not available in server environment' };
+  }
+  
+  try {
+    // Input type validation
+    if (typeof base64String !== 'string') {
+      return { success: false, error: 'Invalid input type' };
+    }
+    
+    // Trim whitespace
+    const trimmedString = base64String.trim();
+    
+    // Validate base64 format (alphanumeric, +, /, =, -, _ for LZ-String)
+    if (!/^[A-Za-z0-9+/=\-_]+$/.test(trimmedString)) {
+      return { success: false, error: 'Invalid format' };
+    }
+    
+    // Validate length (reasonable limits)
+    if (trimmedString.length > 100000) { // ~75KB of data
+      return { success: false, error: 'Data too large' };
+    }
+    
+    if (trimmedString.length === 0) {
+      return { success: false, error: 'Empty data' };
+    }
+    
+    // Check for suspicious patterns that might indicate injection attempts
+    if (trimmedString.includes('<script') || trimmedString.includes('javascript:') || trimmedString.includes('onerror=')) {
+      return { success: false, error: 'Invalid data format' };
+    }
+    
+    // Decompress from base64
+    let keysString: string | null;
+    try {
+      keysString = LZString.decompressFromBase64(trimmedString);
+      if (!keysString) {
+        return { success: false, error: 'Failed to decompress data' };
+      }
+      
+      // Additional validation after decompression
+      if (typeof keysString !== 'string') {
+        return { success: false, error: 'Invalid decompressed data' };
+      }
+      
+      // Check decompressed string length
+      if (keysString.length > 500000) { // Max 500KB uncompressed
+        return { success: false, error: 'Decompressed data too large' };
+      }
+    } catch (e) {
+      return { success: false, error: 'Failed to decode string' };
+    }
+    
+    // Split comma-separated filmKeys
+    const filmKeys = keysString.split(',').filter(key => key.trim());
+    
+    // Validate array length
+    if (filmKeys.length > 10000) {
+      return { success: false, error: 'Too many items (max 10,000)' };
+    }
+    
+    if (filmKeys.length === 0) {
+      return { success: false, error: 'No favorites found' };
+    }
+    
+    // Validate each filmKey and create full watchlist items
+    const validItems: WatchlistItem[] = [];
+    const now = new Date().toISOString();
+    const seenKeys = new Set<string>(); // Prevent duplicates
+    
+    for (const filmKey of filmKeys) {
+      // Skip if already processed (remove duplicates)
+      if (seenKeys.has(filmKey)) {
+        continue;
+      }
+      
+      // Validate filmKey format (alphanumeric, dash, underscore only)
+      if (!/^[a-zA-Z0-9_-]+$/.test(filmKey)) {
+        return { success: false, error: 'Invalid film ID detected' };
+      }
+      
+      // Validate length (min and max)
+      if (filmKey.length < 3 || filmKey.length > 200) {
+        return { success: false, error: 'Invalid film ID length' };
+      }
+      
+      // Prevent common injection patterns
+      const lowerKey = filmKey.toLowerCase();
+      if (lowerKey.includes('script') || lowerKey.includes('eval') || lowerKey.includes('function')) {
+        return { success: false, error: 'Invalid film ID format' };
+      }
+      
+      seenKeys.add(filmKey);
+      
+      // Create watchlist item (title will be looked up from films data when displaying)
+      validItems.push({
+        filmKey,
+        title: '', // Empty title - will be populated from film data when needed
+        addedAt: now
+      });
+    }
+    
+    // Final validation - ensure we have valid items
+    if (validItems.length === 0) {
+      return { success: false, error: 'No valid favorites found' };
+    }
+    
+    // All validation passed, save to localStorage
+    // Wrap in try-catch in case localStorage is full or unavailable
+    try {
+      localStorage.setItem(WATCHLIST_KEY, JSON.stringify(validItems));
+    } catch (storageError) {
+      return { success: false, error: 'Failed to save favorites' };
+    }
+    
+    return { success: true, itemsImported: validItems.length };
+  } catch (e) {
+    console.error('Error importing watchlist:', e);
+    return { success: false, error: 'Unexpected error during import' };
   }
 }
 
