@@ -155,6 +155,94 @@ export function importWatchlistFromBase64(base64String: string): { success: bool
   }
   
   try {
+    // Use shared validation function
+    const result = validateBase64FavoritesString(base64String);
+    
+    if (!result.success || !result.filmKeys) {
+      return { success: false, error: result.error || 'Validation failed' };
+    }
+    
+    // Create watchlist items from validated film keys
+    const validItems: WatchlistItem[] = [];
+    const now = new Date().toISOString();
+    
+    for (const filmKey of result.filmKeys) {
+      validItems.push({
+        filmKey,
+        title: '', // Empty title - will be populated from film data when needed
+        addedAt: now
+      });
+    }
+    
+    // All validation passed, save to localStorage
+    // Wrap in try-catch in case localStorage is full or unavailable
+    try {
+      localStorage.setItem(WATCHLIST_KEY, JSON.stringify(validItems));
+    } catch (storageError) {
+      return { success: false, error: 'Failed to save favorites' };
+    }
+    
+    return { success: true, itemsImported: validItems.length };
+  } catch (e) {
+    console.error('Error importing watchlist:', e);
+    return { success: false, error: 'Unexpected error during import' };
+  }
+}
+
+// Clear watchlist
+export function clearWatchlist(): void {
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(WATCHLIST_KEY);
+}
+
+// Generate shareable URL for favorites
+export function generateShareableUrl(listName?: string): string {
+  if (typeof window === 'undefined') return '';
+  
+  const base64String = exportWatchlistAsBase64();
+  if (!base64String) return '';
+  
+  // URL encode the base64 string to handle special characters
+  const encodedString = encodeURIComponent(base64String);
+  
+  // Build URL with optional name parameter
+  let shareUrl = `${window.location.origin}/shared-favorites?favs=${encodedString}`;
+  
+  if (listName && listName.trim()) {
+    const encodedName = encodeURIComponent(listName.trim());
+    shareUrl = `${window.location.origin}/shared-favorites?name=${encodedName}&favs=${encodedString}`;
+  }
+  
+  return shareUrl;
+}
+
+// Parse shared favorites from URL parameter
+export function parseSharedFavorites(urlParam: string): { success: boolean; error?: string; filmKeys?: string[] } {
+  if (!urlParam) {
+    return { success: false, error: 'No data provided' };
+  }
+  
+  try {
+    // URL decode the parameter
+    const decodedString = decodeURIComponent(urlParam);
+    
+    // Reuse the import validation (without actually saving to localStorage)
+    const result = validateBase64FavoritesString(decodedString);
+    
+    if (result.success && result.filmKeys) {
+      return { success: true, filmKeys: result.filmKeys };
+    }
+    
+    return { success: false, error: result.error || 'Invalid data' };
+  } catch (e) {
+    console.error('Error parsing shared favorites:', e);
+    return { success: false, error: 'Failed to parse shared favorites' };
+  }
+}
+
+// Validate base64 string and return film keys (used by both import and share)
+function validateBase64FavoritesString(base64String: string): { success: boolean; error?: string; filmKeys?: string[] } {
+  try {
     // Input type validation
     if (typeof base64String !== 'string') {
       return { success: false, error: 'Invalid input type' };
@@ -215,9 +303,8 @@ export function importWatchlistFromBase64(base64String: string): { success: bool
       return { success: false, error: 'No favorites found' };
     }
     
-    // Validate each filmKey and create full watchlist items
-    const validItems: WatchlistItem[] = [];
-    const now = new Date().toISOString();
+    // Validate each filmKey
+    const validKeys: string[] = [];
     const seenKeys = new Set<string>(); // Prevent duplicates
     
     for (const filmKey of filmKeys) {
@@ -243,38 +330,18 @@ export function importWatchlistFromBase64(base64String: string): { success: bool
       }
       
       seenKeys.add(filmKey);
-      
-      // Create watchlist item (title will be looked up from films data when displaying)
-      validItems.push({
-        filmKey,
-        title: '', // Empty title - will be populated from film data when needed
-        addedAt: now
-      });
+      validKeys.push(filmKey);
     }
     
     // Final validation - ensure we have valid items
-    if (validItems.length === 0) {
+    if (validKeys.length === 0) {
       return { success: false, error: 'No valid favorites found' };
     }
     
-    // All validation passed, save to localStorage
-    // Wrap in try-catch in case localStorage is full or unavailable
-    try {
-      localStorage.setItem(WATCHLIST_KEY, JSON.stringify(validItems));
-    } catch (storageError) {
-      return { success: false, error: 'Failed to save favorites' };
-    }
-    
-    return { success: true, itemsImported: validItems.length };
+    return { success: true, filmKeys: validKeys };
   } catch (e) {
-    console.error('Error importing watchlist:', e);
-    return { success: false, error: 'Unexpected error during import' };
+    console.error('Error validating favorites string:', e);
+    return { success: false, error: 'Unexpected error during validation' };
   }
-}
-
-// Clear watchlist
-export function clearWatchlist(): void {
-  if (typeof window === 'undefined') return;
-  localStorage.removeItem(WATCHLIST_KEY);
 }
 
