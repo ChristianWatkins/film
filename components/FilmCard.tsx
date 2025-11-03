@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import type { Film } from '@/lib/types';
 import AwardBadge from './AwardBadge';
 import StreamingBadge from './StreamingBadge';
@@ -15,9 +16,12 @@ interface FilmCardProps {
   onGenreClick?: (genre: string) => void;
   onWatchlistChange?: () => void;
   onDirectorClick?: (director: string) => void;
+  showWatchedToggle?: boolean;
+  isWatched?: boolean;
+  onWatchedToggle?: (filmKey: string) => void;
 }
 
-export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick }: FilmCardProps) {
+export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
@@ -147,8 +151,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   }, [isFlipped, film.synopsis]);
   
   const handleCardClick = (e: React.MouseEvent) => {
-    // Don't flip if clicking on buttons, links, or clickable director name
-    if ((e.target as HTMLElement).closest('button, a, .clickable-director')) {
+    // Don't flip if clicking on buttons, links, clickable director name, or watched toggle
+    if ((e.target as HTMLElement).closest('button, a, .clickable-director, .watched-toggle')) {
       return;
     }
     onFlip();
@@ -156,6 +160,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
     setIsExpanded(false);
     setIsTextTruncated(false);
     prevExpandedRef.current = false;
+  };
+
+  const handleWatchedClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onWatchedToggle) {
+      onWatchedToggle(film.filmKey);
+    }
   };
 
   const handleDirectorClick = (e: React.MouseEvent) => {
@@ -328,6 +339,21 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </div>
+
+          {/* Watched toggle - top right, next to flip indicator */}
+          {showWatchedToggle && (
+            <div 
+              className="watched-toggle absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+              onClick={handleWatchedClick}
+              title={isWatched ? "Mark as not watched" : "Mark as watched"}
+            >
+              {isWatched ? (
+                <EyeSlashIcon className="w-5 h-5 text-white" />
+              ) : (
+                <EyeIcon className="w-5 h-5 text-white" />
+              )}
+            </div>
+          )}
 
           {/* Poster Image - click to flip card */}
           <div className="block relative w-full aspect-[2/3] overflow-hidden group">
@@ -512,6 +538,21 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </div>
+
+          {/* Watched toggle - top right, next to back indicator */}
+          {showWatchedToggle && (
+            <div 
+              className="watched-toggle absolute top-3 right-12 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+              onClick={handleWatchedClick}
+              title={isWatched ? "Mark as not watched" : "Mark as watched"}
+            >
+              {isWatched ? (
+                <EyeSlashIcon className="w-5 h-5 text-white" />
+              ) : (
+                <EyeIcon className="w-5 h-5 text-white" />
+              )}
+            </div>
+          )}
 
           {/* Back content */}
           <motion.div 

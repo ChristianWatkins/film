@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { FaTrophy } from 'react-icons/fa';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
 import type { Film } from '@/lib/types';
@@ -20,6 +21,11 @@ interface FilmGridProps {
   awardedOnly?: boolean;
   onAwardedToggle?: () => void;
   onDirectorClick?: (director: string) => void;
+  watchedOnly?: boolean;
+  onWatchedToggle?: () => void;
+  isInFavoritesView?: boolean;
+  watchedMovies?: Set<string>;
+  onWatchedChange?: (filmKey: string) => void;
 }
 
 export default function FilmGrid({ 
@@ -32,7 +38,12 @@ export default function FilmGrid({
   onWatchlistToggle,
   awardedOnly = false,
   onAwardedToggle,
-  onDirectorClick
+  onDirectorClick,
+  watchedOnly = false,
+  onWatchedToggle,
+  isInFavoritesView = false,
+  watchedMovies = new Set(),
+  onWatchedChange
 }: FilmGridProps) {
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
@@ -83,6 +94,25 @@ export default function FilmGrid({
                     : 'text-current'
                 }`} 
               />
+            </button>
+          )}
+
+          {/* Watched Movies Button - only show when in favorites view */}
+          {onWatchedToggle && isInFavoritesView && (
+            <button
+              onClick={onWatchedToggle}
+              className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
+                watchedOnly 
+                  ? 'bg-blue-100 hover:bg-blue-200 text-blue-600' 
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
+              }`}
+              title={watchedOnly ? "Show favourites" : "Show watched movies"}
+            >
+              {watchedOnly ? (
+                <EyeSlashIcon className="w-5 h-5" />
+              ) : (
+                <EyeIcon className="w-5 h-5" />
+              )}
             </button>
           )}
 
@@ -181,6 +211,9 @@ export default function FilmGrid({
                   onGenreClick={onGenreClick}
                   onWatchlistChange={onWatchlistChange}
                   onDirectorClick={onDirectorClick}
+                  showWatchedToggle={isInFavoritesView}
+                  isWatched={watchedMovies.has(film.filmKey)}
+                  onWatchedToggle={onWatchedChange}
                 />
               </motion.div>
             ))}
@@ -197,6 +230,9 @@ export default function FilmGrid({
               onGenreClick={onGenreClick}
               onWatchlistChange={onWatchlistChange}
               onDirectorClick={onDirectorClick}
+              showWatchedToggle={isInFavoritesView}
+              isWatched={watchedMovies.has(film.filmKey)}
+              onWatchedToggle={onWatchedChange}
             />
           ))}
         </div>

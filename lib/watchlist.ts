@@ -4,6 +4,7 @@ import LZString from 'lz-string';
 import { encodeFilmKeys, decodeFilmKeys } from './film-mapping';
 
 const WATCHLIST_KEY = 'film-festival-watchlist';
+const WATCHED_KEY = 'film-festival-watched';
 
 export interface WatchlistItem {
   filmKey: string;
@@ -194,6 +195,101 @@ export async function importWatchlistFromBase64(base64String: string): Promise<{
 export function clearWatchlist(): void {
   if (typeof window === 'undefined') return;
   localStorage.removeItem(WATCHLIST_KEY);
+}
+
+// ===== WATCHED MOVIES FUNCTIONS =====
+
+// Get all watched movies
+export function getWatchedMovies(): Set<string> {
+  if (typeof window === 'undefined') return new Set();
+  
+  try {
+    const stored = localStorage.getItem(WATCHED_KEY);
+    if (stored) {
+      const items: WatchlistItem[] = JSON.parse(stored);
+      return new Set(items.map(item => item.filmKey));
+    }
+  } catch (e) {
+    console.error('Error reading watched movies:', e);
+  }
+  
+  return new Set();
+}
+
+// Get detailed watched movie items
+export function getWatchedMoviesItems(): WatchlistItem[] {
+  if (typeof window === 'undefined') return [];
+  
+  try {
+    const stored = localStorage.getItem(WATCHED_KEY);
+    if (stored) {
+      return JSON.parse(stored);
+    }
+  } catch (e) {
+    console.error('Error reading watched movies:', e);
+  }
+  
+  return [];
+}
+
+// Add to watched movies (and remove from watchlist)
+export function addToWatched(filmKey: string, title: string): void {
+  if (typeof window === 'undefined') return;
+  
+  try {
+    const items = getWatchedMoviesItems();
+    
+    // Don't add duplicates
+    if (items.some(item => item.filmKey === filmKey)) return;
+    
+    items.push({
+      filmKey,
+      title,
+      addedAt: new Date().toISOString()
+    });
+    
+    localStorage.setItem(WATCHED_KEY, JSON.stringify(items));
+    
+    // Remove from watchlist/favorites
+    removeFromWatchlist(filmKey);
+  } catch (e) {
+    console.error('Error adding to watched movies:', e);
+  }
+}
+
+// Remove from watched movies
+export function removeFromWatched(filmKey: string): void {
+  if (typeof window === 'undefined') return;
+  
+  try {
+    const items = getWatchedMoviesItems();
+    const filtered = items.filter(item => item.filmKey !== filmKey);
+    localStorage.setItem(WATCHED_KEY, JSON.stringify(filtered));
+  } catch (e) {
+    console.error('Error removing from watched movies:', e);
+  }
+}
+
+// Toggle watched status
+export function toggleWatched(filmKey: string, title: string): boolean {
+  const watchedMovies = getWatchedMovies();
+  const isWatched = watchedMovies.has(filmKey);
+  
+  if (isWatched) {
+    removeFromWatched(filmKey);
+    // Add back to watchlist/favorites when unwatching
+    addToWatchlist(filmKey, title);
+    return false;
+  } else {
+    addToWatched(filmKey, title);
+    return true;
+  }
+}
+
+// Clear watched movies
+export function clearWatchedMovies(): void {
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(WATCHED_KEY);
 }
 
 // Generate shareable URL for favorites

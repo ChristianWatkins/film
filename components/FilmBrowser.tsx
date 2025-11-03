@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { MagnifyingGlassIcon, HeartIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { RotateCw, Check } from 'lucide-react';
 import type { Film, FilterState } from '@/lib/types';
 import { applyFilters, sortFilms, type SortOption } from '@/lib/filters';
+import { getWatchedMovies, toggleWatched } from '@/lib/watchlist';
 import Filters from './Filters';
 import FilmGrid from './FilmGrid';
 
@@ -61,6 +62,13 @@ export default function FilmBrowser({
   const [watchlistVersion, setWatchlistVersion] = useState(0);
   const [showSaveToast, setShowSaveToast] = useState(false);
   const [showResetToast, setShowResetToast] = useState(false);
+  const [watchedOnly, setWatchedOnly] = useState(false);
+  const [watchedMovies, setWatchedMovies] = useState<Set<string>>(new Set());
+  
+  // Load watched movies from localStorage
+  useEffect(() => {
+    setWatchedMovies(getWatchedMovies());
+  }, [watchlistVersion]); // Reload when watchlist changes
   
   // Save current filters to localStorage
   const saveCurrentFilters = () => {
@@ -119,6 +127,26 @@ export default function FilmBrowser({
       selectedPlatforms: [],
       searchQuery: director
     });
+    setWatchedOnly(false);
+  };
+  
+  // Handle watched toggle
+  const handleWatchedToggle = () => {
+    setWatchedOnly(prev => !prev);
+    // Ensure favorites view is active when viewing watched
+    if (!watchedOnly && !filters.watchlistOnly) {
+      setFilters(prev => ({ ...prev, watchlistOnly: true }));
+    }
+  };
+  
+  // Handle watched change (mark/unmark film as watched)
+  const handleWatchedChange = (filmKey: string) => {
+    const film = films.find(f => f.filmKey === filmKey);
+    if (film) {
+      toggleWatched(filmKey, film.title);
+      setWatchedMovies(getWatchedMovies());
+      setWatchlistVersion(prev => prev + 1); // Trigger refresh
+    }
   };
   
   // Helper function to normalize text for searching (removes accents/diacritics)
@@ -128,7 +156,21 @@ export default function FilmBrowser({
   
   // Apply filters and sorting
   const filteredAndSortedFilms = useMemo(() => {
-    let result = applyFilters(films, filters);
+    // When viewing watched movies, don't apply the watchlist filter
+    const filtersToApply = watchedOnly 
+      ? { ...filters, watchlistOnly: false } 
+      : filters;
+    
+    let result = applyFilters(films, filtersToApply);
+    
+    // Apply watched movies filtering
+    if (watchedOnly) {
+      // Show only watched movies
+      result = result.filter(film => watchedMovies.has(film.filmKey));
+    } else if (filters.watchlistOnly) {
+      // When viewing favorites, exclude watched movies
+      result = result.filter(film => !watchedMovies.has(film.filmKey));
+    }
     
     // Apply search and tag films with relevance scores
     let hasSearchQuery = false;
@@ -180,7 +222,7 @@ export default function FilmBrowser({
     }
     
     return sorted;
-  }, [films, filters, sortBy, watchlistVersion]);
+  }, [films, filters, sortBy, watchlistVersion, watchedOnly, watchedMovies]);
   
   // Count streaming films
   const streamingCount = useMemo(() => 
@@ -312,6 +354,7 @@ export default function FilmBrowser({
                 if (filters.watchlistOnly) {
                   // If already active, just turn it off
                   setFilters(prev => ({ ...prev, watchlistOnly: false }));
+                  setWatchedOnly(false);
                 } else {
                   // Clear all filters first, then set watchlist filter
                   setFilters({
@@ -327,10 +370,16 @@ export default function FilmBrowser({
                     selectedPlatforms: [],
                     searchQuery: ''
                   });
+                  setWatchedOnly(false);
                 }
               }}
               awardedOnly={filters.awardedOnly}
               onAwardedToggle={() => setFilters(prev => ({ ...prev, awardedOnly: !prev.awardedOnly }))}
+              watchedOnly={watchedOnly}
+              onWatchedToggle={handleWatchedToggle}
+              isInFavoritesView={filters.watchlistOnly}
+              watchedMovies={watchedMovies}
+              onWatchedChange={handleWatchedChange}
             />
           </div>
         </div>
