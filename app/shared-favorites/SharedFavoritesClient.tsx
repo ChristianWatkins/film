@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { parseSharedFavorites, addToWatchlist, getWatchlist } from '@/lib/watchlist';
+import { parseSharedFavorites, addToWatchlist, getWatchlist, generateShareableUrlFromFilmKeys } from '@/lib/watchlist';
 import type { Film } from '@/lib/types';
 import FilmCard from '@/components/FilmCard';
 
@@ -20,6 +20,12 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   const [importSuccess, setImportSuccess] = useState(false);
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [removedFilms, setRemovedFilms] = useState<Set<string>>(new Set());
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [shareListName, setShareListName] = useState('');
+  const [shareUrl, setShareUrl] = useState('');
+  const [shareCopied, setShareCopied] = useState(false);
+  const [shareError, setShareError] = useState('');
   
   useEffect(() => {
     const loadSharedFavorites = async () => {
@@ -27,6 +33,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         // Get the favs parameter from URL
         const favsParam = searchParams.get('favs');
         const nameParam = searchParams.get('name');
+        const removedParam = searchParams.get('removed');
         
         if (!favsParam) {
           setError('No favorites data found in URL');
@@ -39,6 +46,12 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
           setListName(decodeURIComponent(nameParam));
         }
         
+        // Parse removed films from URL
+        const removed = removedParam 
+          ? new Set(removedParam.split(',').filter(key => key.trim()))
+          : new Set<string>();
+        setRemovedFilms(removed);
+        
         // Parse the shared favorites
         const result = await parseSharedFavorites(favsParam);
         
@@ -48,8 +61,10 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
           return;
         }
         
-        // Filter to only show shared favorites
-        const shared = films.filter(film => result.filmKeys?.includes(film.filmKey));
+        // Filter to only show shared favorites, excluding removed ones
+        const shared = films.filter(film => 
+          result.filmKeys?.includes(film.filmKey) && !removed.has(film.filmKey)
+        );
         setSharedFilms(shared);
         
         // Load user's current watchlist
@@ -103,6 +118,66 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   const handleAddToFavorites = (filmKey: string, title: string) => {
     addToWatchlist(filmKey, title);
     setUserWatchlist(getWatchlist());
+  };
+
+  const handleRemoveFilm = (filmKey: string) => {
+    // Add to removed films set
+    const newRemovedFilms = new Set(removedFilms);
+    newRemovedFilms.add(filmKey);
+    setRemovedFilms(newRemovedFilms);
+    
+    // Remove from displayed films
+    setSharedFilms(sharedFilms.filter(film => film.filmKey !== filmKey));
+    
+    // Update URL with removed films
+    const currentParams = new URLSearchParams(searchParams.toString());
+    const removedArray = Array.from(newRemovedFilms);
+    currentParams.set('removed', removedArray.join(','));
+    
+    // Update browser URL without page reload
+    const newUrl = `${window.location.pathname}?${currentParams.toString()}`;
+    window.history.pushState({}, '', newUrl);
+  };
+
+  // Generate share URL for edited list
+  const handleGenerateShareUrl = async () => {
+    try {
+      if (sharedFilms.length === 0) {
+        setShareError('No films to share');
+        return;
+      }
+      
+      const filmKeys = sharedFilms.map(film => film.filmKey);
+      const url = await generateShareableUrlFromFilmKeys(filmKeys, shareListName || undefined);
+      
+      if (!url) {
+        setShareError('Failed to generate share URL');
+        return;
+      }
+      
+      setShareUrl(url);
+      setShareError('');
+    } catch (e) {
+      setShareError('Failed to generate share URL');
+      console.error(e);
+    }
+  };
+
+  // Copy share URL to clipboard
+  const handleCopyShareUrl = async () => {
+    if (!shareUrl) {
+      await handleGenerateShareUrl();
+      return;
+    }
+    
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2000);
+    } catch (e) {
+      setShareError('Failed to copy to clipboard');
+      console.error(e);
+    }
   };
   
   if (loading) {
@@ -200,21 +275,136 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         
         {/* Action Bar */}
         <div className="bg-white rounded-lg shadow p-4 mb-6">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-3">
             <div className="text-gray-900">
               Showing <span className="font-semibold">{sharedFilms.length}</span> shared film{sharedFilms.length !== 1 ? 's' : ''}
             </div>
-            <button
-              onClick={handleAddAllToFavorites}
-              className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
-            >
-              <svg className="w-5 h-5" fill="currentColor" stroke="currentColor" strokeWidth="0" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-              Add All to My Favorites
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setShowShareModal(!showShareModal)}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+                Share Edited List
+              </button>
+              <button
+                onClick={handleAddAllToFavorites}
+                className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="currentColor" stroke="currentColor" strokeWidth="0" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                Add All to My Favorites
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Share Modal */}
+        {showShareModal && (
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-6 border border-gray-200">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">Share Edited List</h3>
+              <button
+                onClick={() => {
+                  setShowShareModal(false);
+                  setShareUrl('');
+                  setShareListName('');
+                  setShareError('');
+                }}
+                className="text-gray-400 hover:text-gray-900 transition-colors cursor-pointer"
+                aria-label="Close"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-4">
+              <p className="text-gray-600 text-sm">
+                Generate a new share link for this edited list ({sharedFilms.length} film{sharedFilms.length !== 1 ? 's' : ''}).
+              </p>
+
+              {/* List Name Input */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  List Name (optional)
+                </label>
+                <input
+                  type="text"
+                  value={shareListName}
+                  onChange={(e) => setShareListName(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-text text-gray-900 placeholder:text-gray-500"
+                  placeholder="e.g., My Favorite Films"
+                  maxLength={50}
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  This name will appear in the URL and on the shared page
+                </p>
+              </div>
+
+              {!shareUrl && (
+                <button
+                  onClick={handleGenerateShareUrl}
+                  className="w-full bg-slate-600 hover:bg-slate-700 text-white font-medium py-3 px-4 rounded-lg transition-colors cursor-pointer"
+                >
+                  Generate Share Link
+                </button>
+              )}
+
+              {shareUrl && (
+                <>
+                  <div className="bg-gray-50 border border-gray-300 rounded-lg p-4">
+                    <div className="font-mono text-xs text-gray-800 break-all max-h-40 overflow-y-auto">
+                      {shareUrl}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCopyShareUrl}
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    {shareCopied ? (
+                      <>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        Link Copied!
+                      </>
+                    ) : (
+                      <>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        Copy Share Link
+                      </>
+                    )}
+                  </button>
+
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
+                    <p className="font-medium mb-1">💡 Tip</p>
+                    <p>Send this link to friends so they can view your edited list. The link works on any device and browser!</p>
+                  </div>
+                </>
+              )}
+
+              {/* Error Message */}
+              {shareError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 text-red-800">
+                    <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-sm font-medium">{shareError}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
         
         {/* Success Message */}
         {importSuccess && (
@@ -237,6 +427,8 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
               isFlipped={flippedCard === film.filmKey}
               onFlip={() => handleCardFlip(film.filmKey)}
               onWatchlistChange={() => setUserWatchlist(getWatchlist())}
+              showRemoveButton={true}
+              onRemove={handleRemoveFilm}
             />
           ))}
         </div>

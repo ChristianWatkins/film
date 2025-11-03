@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { EyeIcon, EyeSlashIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import type { Film } from '@/lib/types';
 import AwardBadge from './AwardBadge';
 import StreamingBadge from './StreamingBadge';
@@ -19,9 +19,11 @@ interface FilmCardProps {
   showWatchedToggle?: boolean;
   isWatched?: boolean;
   onWatchedToggle?: (filmKey: string) => void;
+  showRemoveButton?: boolean;
+  onRemove?: (filmKey: string) => void;
 }
 
-export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle }: FilmCardProps) {
+export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle, showRemoveButton, onRemove }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
@@ -166,6 +168,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
     e.stopPropagation();
     if (onWatchedToggle) {
       onWatchedToggle(film.filmKey);
+    }
+  };
+
+  const handleRemoveClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onRemove) {
+      onRemove(film.filmKey);
     }
   };
 
@@ -340,8 +349,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             </svg>
           </div>
 
-          {/* Watched toggle - top right, next to flip indicator */}
-          {showWatchedToggle && (
+          {/* Watched toggle OR Remove button - top right, next to flip indicator */}
+          {showRemoveButton && (
+            <div 
+              className="remove-button absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+              onClick={handleRemoveClick}
+              title="Remove from list"
+            >
+              <XMarkIcon className="w-5 h-5 text-white" />
+            </div>
+          )}
+          {!showRemoveButton && showWatchedToggle && (
             <div 
               className="watched-toggle absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
               onClick={handleWatchedClick}
@@ -539,8 +557,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             </svg>
           </div>
 
-          {/* Watched toggle - top right, next to back indicator */}
-          {showWatchedToggle && (
+          {/* Watched toggle OR Remove button - top right, next to back indicator */}
+          {showRemoveButton && (
+            <div 
+              className="remove-button absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+              onClick={handleRemoveClick}
+              title="Remove from list"
+            >
+              <XMarkIcon className="w-5 h-5 text-white" />
+            </div>
+          )}
+          {!showRemoveButton && showWatchedToggle && (
             <div 
               className="watched-toggle absolute top-3 right-12 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
               onClick={handleWatchedClick}

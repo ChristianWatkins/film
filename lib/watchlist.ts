@@ -313,6 +313,31 @@ export async function generateShareableUrl(listName?: string): Promise<string> {
   return shareUrl;
 }
 
+// Generate shareable URL from a custom list of film keys
+export async function generateShareableUrlFromFilmKeys(filmKeys: string[], listName?: string): Promise<string> {
+  if (typeof window === 'undefined') return '';
+  
+  if (!filmKeys || filmKeys.length === 0) {
+    return '';
+  }
+  
+  // Convert film keys to short codes (e.g., "no-other-land-2024" -> "a4g")
+  const shortCodesString = await encodeFilmKeys(filmKeys);
+  
+  // Compress and encode using URL-safe compression (produces shorter strings)
+  const encodedString = LZString.compressToEncodedURIComponent(shortCodesString);
+  
+  // Build URL with optional name parameter
+  let shareUrl = `${window.location.origin}/shared-favorites?favs=${encodedString}`;
+  
+  if (listName && listName.trim()) {
+    const encodedName = encodeURIComponent(listName.trim());
+    shareUrl = `${window.location.origin}/shared-favorites?name=${encodedName}&favs=${encodedString}`;
+  }
+  
+  return shareUrl;
+}
+
 // Parse shared favorites from URL parameter
 export async function parseSharedFavorites(urlParam: string): Promise<{ success: boolean; error?: string; filmKeys?: string[] }> {
   if (!urlParam) {

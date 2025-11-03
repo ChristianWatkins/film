@@ -79,7 +79,7 @@ export default function WatchlistExportImport({ onClose }: WatchlistExportImport
               type="text"
               value={listName}
               onChange={(e) => setListName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-text"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-text text-gray-900 placeholder:text-gray-500"
               placeholder="e.g., My Favorite Films"
               maxLength={50}
             />
