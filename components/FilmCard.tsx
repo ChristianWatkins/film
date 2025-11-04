@@ -27,13 +27,14 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
-  const [expandedHeight, setExpandedHeight] = useState<number | 'auto'>(256); // Default 16rem in px
+  const [expandedHeight, setExpandedHeight] = useState<number | 'auto'>(195); // Default 10 lines (~195px)
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const prevExpandedRef = useRef(false);
   
   // Fallback heuristic to ensure the toggle appears even if height detection fails
-  const shouldShowSynopsisToggleFallback = (film.synopsis?.length || 0) > 320;
+  // Approximate: 10 lines × ~55 chars per line = ~550 chars
+  const shouldShowSynopsisToggleFallback = (film.synopsis?.length || 0) > 550;
   const canToggleSynopsis = isTextTruncated || shouldShowSynopsisToggleFallback;
   
   // Helper to toggle synopsis expansion with direction tracking
@@ -130,10 +131,6 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
       // Use requestAnimationFrame to ensure DOM is ready
       requestAnimationFrame(() => {
         if (textRef.current) {
-          // Compare text height to collapsed container max-height (in px)
-          const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-          const collapsedMaxPx = 16 * rootFontSize; // 16rem when collapsed
-          
           // Create a temporary clone to measure full height without constraints
           const clone = textRef.current.cloneNode(true) as HTMLElement;
           clone.style.position = 'absolute';
@@ -145,7 +142,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           const textHeight = clone.scrollHeight;
           document.body.removeChild(clone);
           
-          setIsTextTruncated(textHeight > collapsedMaxPx);
+          // 10 lines = 12px (text-xs) × 1.625 (leading-relaxed) × 10 lines = 195px
+          const maxHeightFor10Lines = 195;
+          setIsTextTruncated(textHeight > maxHeightFor10Lines);
           setExpandedHeight(textHeight);
         }
       });
@@ -698,7 +697,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                     ref={synopsisRef}
                     initial={false}
                     animate={{ 
-                      maxHeight: isExpanded ? (expandedHeight === 256 ? 9999 : expandedHeight) : 256
+                      maxHeight: canToggleSynopsis 
+                        ? (isExpanded ? (expandedHeight === 195 ? 9999 : expandedHeight) : 195)
+                        : 9999 // Show full height when toggle isn't needed
                     }}
                     transition={{
                       type: "spring",
