@@ -86,11 +86,19 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
             film.rent.some(r => normalizePlatformName(r.provider) === selectedPlatform) ||
             film.buy.some(b => normalizePlatformName(b.provider) === selectedPlatform);
           
-          // Apply priority logic: streaming first, then rent/buy only if no streaming anywhere
-          if (hasStreamingFilter && hasStreamingOnThisPlatform) {
-            matchesAvailability = true;
-          } else if (hasRentBuyFilter && hasRentBuyOnThisPlatform && !film.hasStreaming) {
-            matchesAvailability = true;
+          // If no type filters are active, match any availability on the platform
+          if (!hasStreamingFilter && !hasRentBuyFilter) {
+            if (hasStreamingOnThisPlatform || hasRentBuyOnThisPlatform) {
+              matchesAvailability = true;
+            }
+          } else {
+            // Apply type filters: check for the specific availability type requested
+            if (hasStreamingFilter && hasStreamingOnThisPlatform) {
+              matchesAvailability = true;
+            }
+            if (hasRentBuyFilter && hasRentBuyOnThisPlatform) {
+              matchesAvailability = true;
+            }
           }
         }
       } else {
