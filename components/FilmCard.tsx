@@ -698,8 +698,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                     ref={synopsisRef}
                     initial={false}
                     animate={{ 
-                      height: isExpanded ? expandedHeight : undefined,
-                      maxHeight: isExpanded ? undefined : 256 // Limit to 16rem when collapsed
+                      maxHeight: isExpanded ? (expandedHeight === 256 ? 9999 : expandedHeight) : 256
                     }}
                     transition={{
                       type: "spring",
