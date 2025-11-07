@@ -6,7 +6,8 @@
     "director": "Charlotte Wells",
     "link": "https://mubi.com/en/no/films/aftersun",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 965150
   },
   {
     "title": "CLOSE",
@@ -15,7 +16,8 @@
     "director": "Lukas Dhont",
     "link": "https://mubi.com/en/no/films/close-2022",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 901563
   },
   {
     "title": "DECISION TO LEAVE",
@@ -24,7 +26,8 @@
     "director": "Park Chan-wook",
     "link": "https://mubi.com/en/no/films/decision-to-leave",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 705996
   },
   {
     "title": "HOLY SPIDER",
@@ -179,7 +182,8 @@
     "director": "Jafar Panahi",
     "link": "https://mubi.com/en/no/films/no-bears",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 974521
   },
   {
     "title": "THE MENU",

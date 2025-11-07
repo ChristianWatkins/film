@@ -42,7 +42,8 @@
     "director": "Thomas Vinterberg",
     "link": "https://mubi.com/en/no/films/druk",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 580175
   },
   {
     "title": "SUMMER OF 85",

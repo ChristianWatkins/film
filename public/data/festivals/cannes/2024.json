@@ -17,7 +17,8 @@
     "awarded": true,
     "awards": [
       "Best Screenplay"
-    ]
+    ],
+    "tmdb_id": 933260
   },
   {
     "title": "THE GIRL WITH THE NEEDLE",
@@ -153,7 +154,8 @@
     "director": "Paolo Sorrentino",
     "link": "https://mubi.com/en/no/films/parthenope",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1109255
   },
   {
     "title": "BAD FOR A MOMENT",
@@ -330,7 +332,8 @@
     "awarded": true,
     "awards": [
       "Prix Un Certain Regard"
-    ]
+    ],
+    "tmdb_id": 1249423
   },
   {
     "title": "THE COUNT OF MONTE-CRISTO",

@@ -6,7 +6,8 @@
     "director": "Thomas Vinterberg",
     "link": "https://mubi.com/en/no/films/druk",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 580175
   },
   {
     "title": "SUMMER OF 85",
@@ -24,7 +25,8 @@
     "director": "Mohammad Rasoulof",
     "link": "https://mubi.com/en/no/films/there-is-no-evil",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 667935
   },
   {
     "title": "BEGINNING",
@@ -60,7 +62,8 @@
     "director": "Jasmila Žbanić",
     "link": "https://mubi.com/en/no/films/quo-vadis-aida",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 728118
   },
   {
     "title": "LAST AND FIRST MEN",

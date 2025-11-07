@@ -246,7 +246,8 @@
     "director": "João Canijo",
     "link": "https://mubi.com/en/no/films/bad-living",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1059941
   },
   {
     "title": "BLACKBERRY",
@@ -309,7 +310,8 @@
     "director": "João Canijo",
     "link": "https://mubi.com/en/no/films/living-bad",
     "awarded": false,
-    "awards": []
+    "awards": [],
+    "tmdb_id": 1059941
   },
   {
     "title": "AND THE KING SAID: WHAT A FANTASTIC MACHINE!",

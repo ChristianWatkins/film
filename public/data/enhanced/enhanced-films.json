@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-10-22T12:39:15.011Z",
+  "last_updated": "2025-10-22T12:45:32.860Z",
   "total_films": 648,
   "tmdb_found": 642,
   "success_rate": "99.1%",
@@ -5237,7 +5237,7 @@
       "awards": [],
       "festival": "bergen",
       "festival_year": "2020",
-      "tmdb_id": 718173,
+      "tmdb_id": 718199,
       "imdb_id": "tt11318602",
       "tmdb_title": "Gunda",
       "original_title": "Gunda",
@@ -5251,8 +5251,8 @@
         "Documentary"
       ],
       "release_date": "2020-04-17",
-      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500/58nql1pAhpO7ZGX5MDDm6a6IzEU.jpg",
-      "backdrop_url": "https://image.tmdb.org/t/p/w1280/58nql1pAhpO7ZGX5MDDm6a6IzEU.jpg",
+      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500/gCjJiJz5wMZWwsKL3T8UcJRlPbA.jpg",
+      "backdrop_url": "https://image.tmdb.org/t/p/w1280/gCjJiJz5wMZWwsKL3T8UcJRlPbA.jpg",
       "budget": null,
       "revenue": null,
       "production_companies": [
@@ -5304,7 +5304,7 @@
       "extraction_sources": [
         "manual_correction"
       ],
-      "extraction_timestamp": "2025-10-22T12:39:15.011Z",
+      "extraction_timestamp": "2025-10-22T12:45:32.860Z",
       "extraction_success": {
         "tmdb": true,
         "manual_correction": true

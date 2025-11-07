@@ -48,7 +48,7 @@ const linksToAdd = {
   "Olfas døtre": "https://mubi.com/en/no/films/four-daughters-2023",
   "Tatt av tiden": "https://mubi.com/en/no/films/a-plein-temps",
   "How to Have Sex": "https://mubi.com/en/no/films/how-to-have-sex",
-  "Rød Himmel": "https://mubi.com/en/no/films/afire",
+  "Rød Himmel": "https://mubi.com/en/no/films/red-like-the-sky",
   "Apolonia, Apolonia": "https://mubi.com/en/no/films/apolonia-apolonia",
   "After Yang": "https://mubi.com/en/no/films/after-yang",
   "Love Life": "https://mubi.com/en/no/films/love-life-2022",
