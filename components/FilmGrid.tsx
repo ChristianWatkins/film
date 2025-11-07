@@ -12,8 +12,6 @@ import WatchlistExportImport from './WatchlistExportImport';
 
 interface FilmGridProps {
   films: Film[];
-  sortBy: string;
-  onSortChange: (sort: string) => void;
   onGenreClick?: (genre: string) => void;
   onWatchlistChange?: () => void;
   watchlistOnly?: boolean;
@@ -30,8 +28,6 @@ interface FilmGridProps {
 
 export default function FilmGrid({ 
   films, 
-  sortBy, 
-  onSortChange, 
   onGenreClick, 
   onWatchlistChange, 
   watchlistOnly = false,
@@ -295,18 +291,6 @@ export default function FilmGrid({
                 </svg>
               </button>
             )}
-            
-            {/* Sort dropdown */}
-            <select
-              value={sortBy}
-              onChange={(e) => onSortChange(e.target.value)}
-              className="px-3 py-1.5 border border-gray-300 rounded bg-white text-gray-900 text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            >
-              <option value="year-desc">Year ↓</option>
-              <option value="year-asc">Year ↑</option>
-              <option value="title-asc">A-Z</option>
-              <option value="title-desc">Z-A</option>
-            </select>
           </div>
         </div>
         </>

@@ -344,8 +344,6 @@ export default function FilmBrowser({
           <div className="lg:col-span-3">
             <FilmGrid 
               films={filteredAndSortedFilms} 
-              sortBy={sortBy}
-              onSortChange={(sort) => setSortBy(sort as SortOption)}
               onGenreClick={handleGenreClick}
               onDirectorClick={handleDirectorClick}
               onWatchlistChange={() => setWatchlistVersion(prev => prev + 1)}
