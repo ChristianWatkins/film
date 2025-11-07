@@ -127,8 +127,8 @@ export default function FilmGrid({
         setRowJumpEnabled(prev => !prev);
       }
       
-      // L key toggles filters (only in presentation mode)
-      if ((e.key === 'l' || e.key === 'L') && rowJumpEnabled) {
+      // Tab key toggles filters (only in presentation mode)
+      if (e.key === 'Tab' && rowJumpEnabled) {
         e.preventDefault();
         setShowFilters(prev => !prev);
       }
@@ -244,7 +244,7 @@ export default function FilmGrid({
                     ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
                     : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
                 }`}
-                title="Toggle filters (or press L)"
+                title="Toggle filters (or press Tab)"
               >
                 <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
@@ -258,7 +258,7 @@ export default function FilmGrid({
           </div>
           <div className="text-sm">
             Row <span className="font-bold text-[#FFB800]">{currentRowIndex + 1}</span> of <span className="font-bold">{totalRows}</span>
-            <span className="ml-4 text-gray-400">Use scroll wheel to navigate • Press P or ESC to exit{filters && ' • Press L for filters'}</span>
+            <span className="ml-4 text-gray-400">Use scroll wheel to navigate • Press P or ESC to exit{filters && ' • Press Tab for filters'}</span>
           </div>
         </div>
       )}
