@@ -67,6 +67,7 @@ export default function FilmGrid({
   const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [showHelpOverlay, setShowHelpOverlay] = useState(false);
+  const [allCardsFlipped, setAllCardsFlipped] = useState(false);
   const [currentRowIndex, setCurrentRowIndex] = useState(0);
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
@@ -138,6 +139,12 @@ export default function FilmGrid({
         setShowHelpOverlay(prev => !prev);
       }
       
+      // Spacebar toggles all visible cards flip (only in presentation mode)
+      if (e.key === ' ' && rowJumpEnabled && !showFilters && !showHelpOverlay) {
+        e.preventDefault();
+        setAllCardsFlipped(prev => !prev);
+      }
+      
       // Tab key toggles filters (only in presentation mode)
       if (e.key === 'Tab' && rowJumpEnabled) {
         e.preventDefault();
@@ -200,10 +207,11 @@ export default function FilmGrid({
     };
   }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length]);
 
-  // Reset row index when row jump is disabled, films change, or filters change
+  // Reset row index and card flips when row jump is disabled, films change, or filters change
   useEffect(() => {
     if (!rowJumpEnabled) {
       setCurrentRowIndex(0);
+      setAllCardsFlipped(false);
     } else {
       // Check if current row index is beyond available rows after filtering
       const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
@@ -477,7 +485,7 @@ export default function FilmGrid({
                 >
                   <FilmCard 
                     film={film} 
-                    isFlipped={flippedCard === film.filmKey}
+                    isFlipped={flippedCard === film.filmKey || (rowJumpEnabled && allCardsFlipped)}
                     onFlip={() => handleCardFlip(film.filmKey)}
                     onGenreClick={onGenreClick}
                     onWatchlistChange={onWatchlistChange}
@@ -508,7 +516,7 @@ export default function FilmGrid({
                 <div key={film.filmKey} data-film-card>
                   <FilmCard 
                     film={film} 
-                    isFlipped={flippedCard === film.filmKey}
+                    isFlipped={flippedCard === film.filmKey || (rowJumpEnabled && allCardsFlipped)}
                     onFlip={() => handleCardFlip(film.filmKey)}
                     onGenreClick={onGenreClick}
                     onWatchlistChange={onWatchlistChange}
@@ -528,7 +536,7 @@ export default function FilmGrid({
               <div key={film.filmKey} data-film-card>
                 <FilmCard 
                   film={film} 
-                  isFlipped={flippedCard === film.filmKey}
+                  isFlipped={flippedCard === film.filmKey || (rowJumpEnabled && allCardsFlipped)}
                   onFlip={() => handleCardFlip(film.filmKey)}
                   onGenreClick={onGenreClick}
                   onWatchlistChange={onWatchlistChange}
@@ -609,6 +617,11 @@ export default function FilmGrid({
                 <div className="flex items-center justify-between">
                   <span className="text-gray-700">Show/hide help</span>
                   <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">H</kbd>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700">Toggle all card flips</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">Space</kbd>
                 </div>
                 
                 <div className="flex items-center justify-between">

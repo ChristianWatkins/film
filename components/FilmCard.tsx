@@ -29,8 +29,10 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
   const [expandedHeight, setExpandedHeight] = useState<number | 'auto'>(195);
+  const [frontHeight, setFrontHeight] = useState<number>(500);
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
+  const frontRef = useRef<HTMLDivElement>(null);
   const prevExpandedRef = useRef(false);
   
   const shouldShowSynopsisToggleFallback = (film.synopsis?.length || 0) > 550;
@@ -145,7 +147,30 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
       });
     }
   }, [isFlipped, film.synopsis, isPresentationMode]);
-  
+
+  // Measure front side height and apply to back side
+  useEffect(() => {
+    if (frontRef.current && !isFlipped) {
+      const measureHeight = () => {
+        const height = frontRef.current?.offsetHeight;
+        if (height && height > 0) {
+          setFrontHeight(height);
+        }
+      };
+      
+      // Measure after images load and layout settles
+      const timer = setTimeout(measureHeight, 100);
+      
+      // Also measure on window resize
+      window.addEventListener('resize', measureHeight);
+      
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('resize', measureHeight);
+      };
+    }
+  }, [isFlipped, film.posterUrl]);
+
   const handleCardClick = (e: React.MouseEvent) => {
     // Don't flip if clicking on buttons, links, clickable director name, or watched toggle
     if ((e.target as HTMLElement).closest('button, a, .clickable-director, .watched-toggle')) {
@@ -316,7 +341,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             animate={{ rotateY: 0 }}
             exit={{ rotateY: -180 }}
             transition={{ 
-              duration: 0.6, 
+              duration: 0.4, 
               ease: "easeInOut"
             }}
             className="w-full h-full cursor-pointer"
@@ -335,7 +360,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               damping: 30
             }
           }}
-          className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative"
+          ref={frontRef}
+          className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative min-h-[500px]"
         >
           {/* Flip indicator - top right corner */}
           <div className="absolute top-3 right-3 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform">
@@ -518,7 +544,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             animate={{ rotateY: 0 }}
             exit={{ rotateY: 180 }}
             transition={{ 
-              duration: 0.6,
+              duration: 0.4,
               ease: "easeInOut"
             }}
             className="w-full h-full cursor-pointer"
@@ -538,6 +564,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             }
           }}
           className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 relative"
+          style={{ minHeight: `${frontHeight}px` }}
         >
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
