@@ -62,6 +62,7 @@ export default function FilmGrid({
   const [showExportImportModal, setShowExportImportModal] = useState(false);
   const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
+  const [showHelpOverlay, setShowHelpOverlay] = useState(false);
   const [currentRowIndex, setCurrentRowIndex] = useState(0);
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
@@ -127,6 +128,12 @@ export default function FilmGrid({
         setRowJumpEnabled(prev => !prev);
       }
       
+      // H key toggles help overlay (only in presentation mode)
+      if ((e.key === 'h' || e.key === 'H') && rowJumpEnabled) {
+        e.preventDefault();
+        setShowHelpOverlay(prev => !prev);
+      }
+      
       // Tab key toggles filters (only in presentation mode)
       if (e.key === 'Tab' && rowJumpEnabled) {
         e.preventDefault();
@@ -169,10 +176,12 @@ export default function FilmGrid({
         }
       }
       
-      // ESC key exits presentation mode or closes filters
+      // ESC key exits presentation mode or closes overlays
       if (e.key === 'Escape') {
         e.preventDefault();
-        if (showFilters) {
+        if (showHelpOverlay) {
+          setShowHelpOverlay(false);
+        } else if (showFilters) {
           setShowFilters(false);
         } else if (rowJumpEnabled) {
           setRowJumpEnabled(false);
@@ -185,7 +194,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled, showFilters, currentRowIndex, films.length]);
+  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length]);
 
   // Reset row index when row jump is disabled, films change, or filters change
   useEffect(() => {
@@ -262,6 +271,21 @@ export default function FilmGrid({
             <div className="text-lg font-medium">
               Presentation Mode
             </div>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            <div className="text-sm text-white/70">
+              Row {currentRowIndex + 1} of {totalRows}
+            </div>
+            <button
+              onClick={() => setShowHelpOverlay(true)}
+              className="p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+              title="Show keyboard shortcuts (or press H)"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
           </div>
 
         </div>
@@ -537,6 +561,58 @@ export default function FilmGrid({
           availableGenres={availableGenres}
           onClose={() => setShowFilters(false)}
         />
+      )}
+
+      {/* Help Overlay */}
+      {showHelpOverlay && rowJumpEnabled && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-2xl max-w-md w-full p-6">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-gray-900">Keyboard Shortcuts</h3>
+              <button
+                onClick={() => setShowHelpOverlay(false)}
+                className="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-gray-700 transition-colors"
+                title="Close help"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="grid gap-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700">Toggle presentation mode</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">P</kbd>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700">Navigate up/down</span>
+                  <div className="flex gap-1">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">↑</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">↓</kbd>
+                  </div>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700">Toggle filters</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">Tab</kbd>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700">Show/hide help</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">H</kbd>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700">Exit/close</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">Esc</kbd>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
