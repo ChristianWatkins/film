@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
@@ -98,6 +98,13 @@ export default function FilmGrid({
       
       if (newRowIndex !== currentRowIndex) {
         setCurrentRowIndex(newRowIndex);
+        
+        // Scroll to the new row
+        const startIndex = newRowIndex * cardsPerRow;
+        const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+        if (targetCard) {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     };
 
@@ -108,7 +115,7 @@ export default function FilmGrid({
     };
   }, [rowJumpEnabled, currentRowIndex, films.length]);
 
-  // Unified keyboard shortcuts - P to toggle, ESC to exit, L for filters
+  // Unified keyboard shortcuts - P to toggle, ESC to exit, L for filters, arrows for navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't trigger if typing in an input
@@ -124,6 +131,42 @@ export default function FilmGrid({
       if ((e.key === 'l' || e.key === 'L') && rowJumpEnabled) {
         e.preventDefault();
         setShowFilters(prev => !prev);
+      }
+      
+      // Arrow key navigation (only in presentation mode)
+      if (rowJumpEnabled && !showFilters) {
+        const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+        const totalRows = Math.ceil(films.length / cardsPerRow);
+        
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (currentRowIndex < totalRows - 1) {
+            const newRowIndex = currentRowIndex + 1;
+            setCurrentRowIndex(newRowIndex);
+            
+            // Scroll to the new row
+            const startIndex = newRowIndex * cardsPerRow;
+            const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+            if (targetCard) {
+              targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+        }
+        
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (currentRowIndex > 0) {
+            const newRowIndex = currentRowIndex - 1;
+            setCurrentRowIndex(newRowIndex);
+            
+            // Scroll to the new row
+            const startIndex = newRowIndex * cardsPerRow;
+            const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+            if (targetCard) {
+              targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+        }
       }
       
       // ESC key exits presentation mode or closes filters
@@ -142,7 +185,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled, showFilters]);
+  }, [rowJumpEnabled, showFilters, currentRowIndex, films.length]);
 
   // Reset row index when row jump is disabled or films change
   useEffect(() => {
@@ -166,7 +209,7 @@ export default function FilmGrid({
   }
   
   // Calculate which films to show in current row
-  const getVisibleFilms = () => {
+  const visibleFilms = useMemo(() => {
     if (!rowJumpEnabled) return films;
     
     // Must match the grid-cols CSS classes and wheel handler
@@ -175,9 +218,7 @@ export default function FilmGrid({
     const startIndex = currentRowIndex * cardsPerRow;
     const endIndex = startIndex + cardsPerRow;
     return films.slice(startIndex, endIndex);
-  };
-
-  const visibleFilms = rowJumpEnabled ? getVisibleFilms() : films;
+  }, [rowJumpEnabled, currentRowIndex, films]);
   const totalRows = rowJumpEnabled ? Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) : 0;
 
   return (
@@ -354,7 +395,7 @@ export default function FilmGrid({
         className={rowJumpEnabled ? 'flex-1 flex items-center justify-center px-32 py-8 overflow-hidden outline-none' : ''}
         tabIndex={rowJumpEnabled ? 0 : undefined}
       >
-        {enableAnimations ? (
+        {enableAnimations && !rowJumpEnabled ? (
           <motion.div 
             className={rowJumpEnabled 
               ? 'grid grid-cols-2 md:grid-cols-4 gap-8 w-full [&>*]:max-w-none'
@@ -398,11 +439,39 @@ export default function FilmGrid({
               ))}
             </AnimatePresence>
           </motion.div>
+        ) : rowJumpEnabled ? (
+          <AnimatePresence mode="wait">
+            <motion.div 
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full [&>*]:max-w-none"
+              key={currentRowIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ 
+                duration: 0.2,
+                ease: "easeOut"
+              }}
+            >
+              {visibleFilms.map(film => (
+                <div key={film.filmKey} data-film-card>
+                  <FilmCard 
+                    film={film} 
+                    isFlipped={flippedCard === film.filmKey}
+                    onFlip={() => handleCardFlip(film.filmKey)}
+                    onGenreClick={onGenreClick}
+                    onWatchlistChange={onWatchlistChange}
+                    onDirectorClick={onDirectorClick}
+                    showWatchedToggle={isInFavoritesView}
+                    isWatched={watchedMovies.has(film.filmKey)}
+                    onWatchedToggle={onWatchedChange}
+                    isPresentationMode={rowJumpEnabled}
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         ) : (
-          <div className={rowJumpEnabled 
-            ? 'grid grid-cols-2 md:grid-cols-4 gap-8 w-full [&>*]:max-w-none'
-            : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
-          }>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {visibleFilms.map(film => (
               <div key={film.filmKey} data-film-card>
                 <FilmCard 
