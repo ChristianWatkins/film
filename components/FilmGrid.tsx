@@ -63,18 +63,58 @@ export default function FilmGrid({
   onResetDefaults
 }: FilmGridProps) {
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
+  const flippedCardRef = useRef<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
   const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [showHelpOverlay, setShowHelpOverlay] = useState(false);
   const [allCardsFlipped, setAllCardsFlipped] = useState(false);
   const [currentRowIndex, setCurrentRowIndex] = useState(0);
+  const [keyPressCount, setKeyPressCount] = useState<{[key: string]: {count: number, lastTime: number}}>({});
+  const [trailerLaunching, setTrailerLaunching] = useState<string | null>(null);
+  const keyPressRef = useRef<{[key: string]: {count: number, lastTime: number}}>({});
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
 
   const handleCardFlip = (filmKey: string) => {
     // If the same card is clicked, close it. Otherwise, open the new one.
-    setFlippedCard(flippedCard === filmKey ? null : filmKey);
+    // Use ref for more reliable state checking
+    const currentFlipped = flippedCardRef.current;
+    const newFlippedCard = currentFlipped === filmKey ? null : filmKey;
+    setFlippedCard(newFlippedCard);
+    flippedCardRef.current = newFlippedCard;
+  };
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    flippedCardRef.current = flippedCard;
+  }, [flippedCard]);
+
+  const playTrailer = (film: Film) => {
+    if (!film.mubiLink) return;
+    
+    // Show visual feedback
+    setTrailerLaunching(film.filmKey);
+    setTimeout(() => setTrailerLaunching(null), 1000);
+    
+    const trailerUrl = `${film.mubiLink}/trailer`;
+    
+    // Open in new window with maximized dimensions
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    
+    const trailerWindow = window.open(
+      trailerUrl,
+      '_blank',
+      `width=${screenWidth},height=${screenHeight},top=0,left=0,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
+    );
+    
+    if (trailerWindow) {
+      trailerWindow.focus();
+      // Try to maximize the window
+      trailerWindow.moveTo(0, 0);
+      trailerWindow.resizeTo(screenWidth, screenHeight);
+    }
   };
 
   // Row jump functionality - full screen presentation mode
@@ -150,12 +190,36 @@ export default function FilmGrid({
       }
       
       // Number keys (1, 2, 3, 4) flip individual cards (only in presentation mode)
+      // Double-click same number key to play trailer
       if (['1', '2', '3', '4'].includes(e.key) && rowJumpEnabled && !showFilters && !showHelpOverlay) {
         e.preventDefault();
         const cardIndex = parseInt(e.key) - 1; // Convert to 0-based index
         if (cardIndex < visibleFilms.length) {
           const targetFilm = visibleFilms[cardIndex];
-          handleCardFlip(targetFilm.filmKey);
+          const now = Date.now();
+          const keyState = keyPressRef.current[e.key] || { count: 0, lastTime: 0 };
+          
+          // Check if this is a quick second press (within 300ms)
+          if (keyState.count === 1 && now - keyState.lastTime < 300) {
+            // Double-click detected - play trailer
+            playTrailer(targetFilm);
+            // Reset the key state
+            keyPressRef.current[e.key] = { count: 0, lastTime: now };
+          } else {
+            // First press or too slow (treat as new single press)
+            keyPressRef.current[e.key] = { count: 1, lastTime: now };
+            
+            // Delay card flip to allow for double-click
+            setTimeout(() => {
+              const currentState = keyPressRef.current[e.key] || { count: 0, lastTime: 0 };
+              // Only flip if still at count 1 (no double-click happened)
+              if (currentState.count === 1 && currentState.lastTime === now) {
+                handleCardFlip(targetFilm.filmKey);
+              }
+              // Always reset the count after the timeout
+              keyPressRef.current[e.key] = { count: 0, lastTime: now };
+            }, 300);
+          }
         }
       }
       
@@ -228,6 +292,13 @@ export default function FilmGrid({
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length]);
+
+  // Clear key press count when exiting presentation mode
+  useEffect(() => {
+    if (!rowJumpEnabled) {
+      keyPressRef.current = {};
+    }
+  }, [rowJumpEnabled]);
 
   // Reset row index and card flips when row jump is disabled, films change, or filters change
   useEffect(() => {
@@ -726,7 +797,7 @@ export default function FilmGrid({
       {/* Help Overlay */}
       {showHelpOverlay && rowJumpEnabled && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-2xl max-w-md w-full p-6">
+          <div className="bg-white rounded-lg shadow-2xl max-w-lg w-full p-6">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-gray-900">Keyboard Shortcuts</h3>
               <button
@@ -742,47 +813,57 @@ export default function FilmGrid({
             
             <div className="space-y-4">
               <div className="grid gap-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700">Toggle presentation mode</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">P</kbd>
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 flex-1">Toggle presentation mode</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">P</kbd>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700">Navigate up/down</span>
-                  <div className="flex gap-1">
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">↑</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">↓</kbd>
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 flex-1">Navigate up/down</span>
+                  <div className="flex gap-1 flex-shrink-0">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">↑</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">↓</kbd>
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700">Toggle filters</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">Tab</kbd>
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 flex-1">Toggle filters</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">Tab</kbd>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700">Show/hide help</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">H</kbd>
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 flex-1">Show/hide help</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">H</kbd>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700">Toggle all card flips</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">Space</kbd>
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 flex-1">Toggle all card flips</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">Space</kbd>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700">Flip individual cards</span>
-                  <div className="flex gap-1">
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">1</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">2</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">3</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">4</kbd>
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 flex-1">Flip individual cards</span>
+                  <div className="flex gap-1 flex-shrink-0">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">1</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">2</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">3</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">4</kbd>
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700">Exit/close</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">Esc</kbd>
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 flex-1">Play trailer (double-click)</span>
+                  <div className="flex gap-1 flex-shrink-0">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">1 1</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">2 2</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">3 3</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">4 4</kbd>
+                  </div>
+                </div>
+                
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 flex-1">Exit/close</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">Esc</kbd>
                 </div>
               </div>
             </div>
