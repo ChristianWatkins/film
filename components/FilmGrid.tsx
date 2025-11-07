@@ -303,7 +303,7 @@ export default function FilmGrid({
               </button>
             )}
             <div className="text-lg font-medium">
-              Presentation Mode
+              Showing {films.length} film{films.length !== 1 ? 's' : ''}
             </div>
           </div>
           
@@ -465,6 +465,82 @@ export default function FilmGrid({
             <div className="text-lg font-medium" style={{ transform: 'rotate(180deg) scaleX(2)' }}>
               ^
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Action Buttons - Presentation Mode */}
+      {rowJumpEnabled && (
+        <div className="fixed top-0 z-40 py-4" style={{ right: '128px' }}>
+          <div className="flex items-center gap-4 justify-end">
+            {/* Export/Import Button */}
+            {onWatchlistToggle && watchlistOnly && (
+              <button
+                onClick={() => setShowExportImportModal(true)}
+                className="p-2 rounded-full transition-colors cursor-pointer bg-white/90 hover:bg-white text-gray-700"
+                title="Share your favorites"
+              >
+                <svg 
+                  className="w-5 h-5" 
+                  fill="none"
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/* Watched Movies Button - only show when in favorites view */}
+            {onWatchedToggle && isInFavoritesView && (
+              <button
+                onClick={onWatchedToggle}
+                className={`p-2 rounded-full transition-colors cursor-pointer ${
+                  watchedOnly 
+                    ? 'bg-blue-500 hover:bg-blue-600 text-white' 
+                    : 'bg-white/90 hover:bg-white text-gray-700'
+                }`}
+                title={watchedOnly ? "Show favourites" : "Show watched movies"}
+              >
+                {watchedOnly ? (
+                  <EyeSlashIcon className="w-5 h-5" />
+                ) : (
+                  <EyeIcon className="w-5 h-5" />
+                )}
+              </button>
+            )}
+
+            {/* Favourites Button */}
+            {onWatchlistToggle && (
+              <button
+                onClick={onWatchlistToggle}
+                className={`p-2 rounded-full transition-colors cursor-pointer ${
+                  watchlistOnly 
+                    ? 'bg-red-500 hover:bg-red-600 text-white' 
+                    : 'bg-white/90 hover:bg-white text-gray-700'
+                }`}
+                title={watchlistOnly ? "Show all films" : "Show favourites only"}
+              >
+                <svg 
+                  className="w-5 h-5" 
+                  fill={watchlistOnly ? 'currentColor' : 'none'}
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       )}
