@@ -308,9 +308,6 @@ export default function FilmGrid({
           </div>
           
           <div className="flex items-center gap-4">
-            <div className="text-sm text-white/70">
-              Row {currentRowIndex + 1} of {totalRows}
-            </div>
             <button
               onClick={() => setShowHelpOverlay(true)}
               className="p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors"
