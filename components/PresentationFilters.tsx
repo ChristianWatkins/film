@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { RotateCw, Save } from 'lucide-react';
 import type { FilterState } from '@/lib/types';
 
 interface PresentationFiltersProps {
@@ -12,6 +13,8 @@ interface PresentationFiltersProps {
   availableCountries: string[];
   availableGenres: string[];
   onClose: () => void;
+  onSaveDefaults?: () => void;
+  onResetDefaults?: () => void;
 }
 
 export default function PresentationFilters({
@@ -22,7 +25,9 @@ export default function PresentationFilters({
   availablePlatforms,
   availableCountries,
   availableGenres,
-  onClose
+  onClose,
+  onSaveDefaults,
+  onResetDefaults
 }: PresentationFiltersProps) {
   const [searchQuery, setSearchQuery] = useState(filters.searchQuery);
 
@@ -175,15 +180,46 @@ export default function PresentationFilters({
 
       {/* Filter Container */}
       <div className="flex-1 bg-[#1A1A2E] py-6 px-16 overflow-y-auto">
-        {/* Search Section */}
+        {/* Search Section with Save/Reset Buttons */}
         <div className="max-w-6xl mx-auto mb-6">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => handleSearchChange(e.target.value)}
-            placeholder="Search films, directors, cast, genres..."
-            className="w-full py-4 px-6 text-lg border-2 border-[#FFB800] rounded-2xl bg-white outline-none focus:border-[#FFC533] focus:shadow-[0_0_0_3px_rgba(255,184,0,0.2)] transition-all"
-          />
+          <div className="flex items-center gap-4">
+            {/* Search Input */}
+            <div className="flex-1">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                placeholder="Search films, directors, cast, genres..."
+                className="w-full py-4 px-6 text-lg border-2 border-[#FFB800] rounded-2xl bg-white outline-none focus:border-[#FFC533] focus:shadow-[0_0_0_3px_rgba(255,184,0,0.2)] transition-all"
+              />
+            </div>
+            
+            {/* Save/Reset Buttons */}
+            {(onSaveDefaults || onResetDefaults) && (
+              <div className="flex items-center gap-3">
+                {onResetDefaults && (
+                  <button
+                    onClick={onResetDefaults}
+                    className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 rounded-lg transition-all duration-200 cursor-pointer"
+                    title="Reset to default filters"
+                  >
+                    <RotateCw className="w-4 h-4" />
+                    <span className="text-sm font-medium">Reset</span>
+                  </button>
+                )}
+                {onSaveDefaults && (
+                  <button
+                    onClick={onSaveDefaults}
+                    className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 rounded-lg transition-all duration-200 cursor-pointer"
+                    title="Save current filters as default"
+                  >
+                    <Save className="w-4 h-4" />
+                    <span className="text-sm font-medium">Save</span>
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Filter Grid */}

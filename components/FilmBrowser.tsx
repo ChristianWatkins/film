@@ -443,6 +443,8 @@ export default function FilmBrowser({
               availablePlatforms={availablePlatforms}
               availableCountries={availableCountries}
               availableGenres={availableGenres}
+              onSaveDefaults={saveCurrentFilters}
+              onResetDefaults={resetToDefaults}
             />
           </div>
         </div>

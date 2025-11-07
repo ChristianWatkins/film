@@ -33,6 +33,8 @@ interface FilmGridProps {
   availablePlatforms?: string[];
   availableCountries?: string[];
   availableGenres?: string[];
+  onSaveDefaults?: () => void;
+  onResetDefaults?: () => void;
 }
 
 export default function FilmGrid({ 
@@ -56,7 +58,9 @@ export default function FilmGrid({
   availableFestivals = [],
   availablePlatforms = [],
   availableCountries = [],
-  availableGenres = []
+  availableGenres = [],
+  onSaveDefaults,
+  onResetDefaults
 }: FilmGridProps) {
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
@@ -560,6 +564,8 @@ export default function FilmGrid({
           availableCountries={availableCountries}
           availableGenres={availableGenres}
           onClose={() => setShowFilters(false)}
+          onSaveDefaults={onSaveDefaults}
+          onResetDefaults={onResetDefaults}
         />
       )}
 
