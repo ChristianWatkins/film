@@ -454,17 +454,68 @@ export default function FilmGrid({
         <div className="fixed top-1/2 right-6 transform -translate-y-1/2 z-40">
           <div className="flex flex-col items-center text-gray-400 drop-shadow-lg px-4">
             {/* Up caret */}
-            <div className="text-lg font-medium" style={{ transform: 'scaleX(2)' }}>
+            <button 
+              onClick={() => {
+                if (currentRowIndex > 0) {
+                  const newRowIndex = currentRowIndex - 1;
+                  setCurrentRowIndex(newRowIndex);
+                  
+                  // Reset card flip states when moving to new row
+                  setFlippedCard(null);
+                  setAllCardsFlipped(false);
+                  
+                  // Scroll to the new row
+                  const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+                  const startIndex = newRowIndex * cardsPerRow;
+                  const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+                  if (targetCard) {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }
+              }}
+              disabled={currentRowIndex === 0}
+              className={`text-lg font-medium cursor-pointer hover:text-gray-600 transition-colors ${
+                currentRowIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              style={{ transform: 'scaleX(2)' }}
+              title="Previous row (or press ↑)"
+            >
               ^
-            </div>
+            </button>
             {/* Row indicator */}
             <div className="text-sm font-mono tabular-nums font-bold tracking-wider">
               {currentRowIndex + 1}/{Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2))}
             </div>
             {/* Down caret */}
-            <div className="text-lg font-medium" style={{ transform: 'rotate(180deg) scaleX(2)' }}>
+            <button 
+              onClick={() => {
+                const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+                const totalRows = Math.ceil(films.length / cardsPerRow);
+                if (currentRowIndex < totalRows - 1) {
+                  const newRowIndex = currentRowIndex + 1;
+                  setCurrentRowIndex(newRowIndex);
+                  
+                  // Reset card flip states when moving to new row
+                  setFlippedCard(null);
+                  setAllCardsFlipped(false);
+                  
+                  // Scroll to the new row
+                  const startIndex = newRowIndex * cardsPerRow;
+                  const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+                  if (targetCard) {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }
+              }}
+              disabled={currentRowIndex >= Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) - 1}
+              className={`text-lg font-medium cursor-pointer hover:text-gray-600 transition-colors ${
+                currentRowIndex >= Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) - 1 ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              style={{ transform: 'rotate(180deg) scaleX(2)' }}
+              title="Next row (or press ↓)"
+            >
               ^
-            </div>
+            </button>
           </div>
         </div>
       )}
