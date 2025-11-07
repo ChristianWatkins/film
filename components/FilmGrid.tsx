@@ -83,28 +83,37 @@ export default function FilmGrid({
       }
     };
 
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, [rowJumpEnabled, currentRowIndex, films.length]);
+
+  // Unified keyboard shortcuts - P to toggle, ESC to exit
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      // Don't trigger if typing in an input
+      if ((e.target as HTMLElement).matches('input, textarea')) return;
+      
+      // P key toggles presentation mode
+      if (e.key === 'p' || e.key === 'P') {
         e.preventDefault();
-        e.stopPropagation();
+        setRowJumpEnabled(prev => !prev);
+      }
+      
+      // ESC key exits presentation mode (only when active)
+      if (e.key === 'Escape' && rowJumpEnabled) {
+        e.preventDefault();
         setRowJumpEnabled(false);
       }
     };
 
-    window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled, currentRowIndex, films.length]);
-
-  // Auto-focus when entering presentation mode to ensure keyboard events work
-  useEffect(() => {
-    if (rowJumpEnabled && gridRef.current) {
-      gridRef.current.focus();
-    }
   }, [rowJumpEnabled]);
 
   // Reset row index when row jump is disabled or films change
@@ -164,7 +173,7 @@ export default function FilmGrid({
           </div>
           <div className="text-sm">
             Row <span className="font-bold text-[#FFB800]">{currentRowIndex + 1}</span> of <span className="font-bold">{totalRows}</span>
-            <span className="ml-4 text-gray-400">Use scroll wheel to navigate</span>
+            <span className="ml-4 text-gray-400">Use scroll wheel to navigate • Press P or ESC to exit</span>
           </div>
         </div>
       )}
@@ -185,7 +194,7 @@ export default function FilmGrid({
                   ? 'bg-purple-100 hover:bg-purple-200 text-purple-600' 
                   : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
               }`}
-              title={rowJumpEnabled ? "Exit presentation mode" : "Enter presentation mode"}
+              title={rowJumpEnabled ? "Exit presentation mode" : "Enter presentation mode (or press P)"}
             >
               <svg 
                 className="w-5 h-5" 
@@ -206,13 +215,13 @@ export default function FilmGrid({
             {onAwardedToggle && (
               <button
                 onClick={onAwardedToggle}
-                className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
-                  awardedOnly 
-                    ? 'bg-yellow-100 hover:bg-yellow-200 text-yellow-600' 
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
-                }`}
-                title={awardedOnly ? "Show all films" : "Show awarded films only"}
-              >
+              className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
+                awardedOnly 
+                  ? 'bg-yellow-100 hover:bg-yellow-200 text-yellow-600' 
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
+              }`}
+              title={awardedOnly ? "Show all films" : "Show awarded films only (or press A)"}
+            >
                 <FaTrophy 
                   className={`w-5 h-5 transition-colors ${
                     awardedOnly 
@@ -246,13 +255,13 @@ export default function FilmGrid({
             {onWatchlistToggle && (
               <button
                 onClick={onWatchlistToggle}
-                className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
-                  watchlistOnly 
-                    ? 'bg-red-100 hover:bg-red-200 text-red-600' 
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
-                }`}
-                title={watchlistOnly ? "Show all films" : "Show favourites only"}
-              >
+              className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
+                watchlistOnly 
+                  ? 'bg-red-100 hover:bg-red-200 text-red-600' 
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
+              }`}
+              title={watchlistOnly ? "Show all films" : "Show favourites only (or press F)"}
+            >
                 <svg 
                   className="w-5 h-5" 
                   fill={watchlistOnly ? 'currentColor' : 'none'}

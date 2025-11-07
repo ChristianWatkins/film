@@ -149,6 +149,63 @@ export default function FilmBrowser({
     }
   };
   
+  // Global keyboard shortcut - F to toggle favorites
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      // Only trigger if not typing in an input
+      if ((e.key === 'f' || e.key === 'F') && 
+          !(e.target as HTMLElement).matches('input, textarea')) {
+        e.preventDefault();
+        
+        if (filters.watchlistOnly) {
+          // If already active, just turn it off
+          setFilters(prev => ({ ...prev, watchlistOnly: false }));
+          setWatchedOnly(false);
+        } else {
+          // Clear all filters first, then set watchlist filter
+          setFilters({
+            festivals: [],
+            years: [],
+            countries: [],
+            excludedCountries: [],
+            genres: [],
+            awardedOnly: false,
+            watchlistOnly: true,
+            showStreaming: false,
+            showRentBuy: false,
+            selectedPlatforms: [],
+            searchQuery: ''
+          });
+          setWatchedOnly(false);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleGlobalKeyDown);
+    };
+  }, [filters.watchlistOnly]);
+  
+  // Global keyboard shortcut - A to toggle awards
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      // Only trigger if not typing in an input
+      if ((e.key === 'a' || e.key === 'A') && 
+          !(e.target as HTMLElement).matches('input, textarea')) {
+        e.preventDefault();
+        setFilters(prev => ({ ...prev, awardedOnly: !prev.awardedOnly }));
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleGlobalKeyDown);
+    };
+  }, [filters.awardedOnly]);
+  
   // Helper function to normalize text for searching (removes accents/diacritics)
   const normalizeForSearch = (text: string): string => {
     return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
