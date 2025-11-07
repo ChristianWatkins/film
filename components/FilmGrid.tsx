@@ -105,6 +105,10 @@ export default function FilmGrid({
       if (newRowIndex !== currentRowIndex) {
         setCurrentRowIndex(newRowIndex);
         
+        // Reset card flip states when moving to new row
+        setFlippedCard(null);
+        setAllCardsFlipped(false);
+        
         // Scroll to the new row
         const startIndex = newRowIndex * cardsPerRow;
         const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
@@ -145,6 +149,16 @@ export default function FilmGrid({
         setAllCardsFlipped(prev => !prev);
       }
       
+      // Number keys (1, 2, 3, 4) flip individual cards (only in presentation mode)
+      if (['1', '2', '3', '4'].includes(e.key) && rowJumpEnabled && !showFilters && !showHelpOverlay) {
+        e.preventDefault();
+        const cardIndex = parseInt(e.key) - 1; // Convert to 0-based index
+        if (cardIndex < visibleFilms.length) {
+          const targetFilm = visibleFilms[cardIndex];
+          handleCardFlip(targetFilm.filmKey);
+        }
+      }
+      
       // Tab key toggles filters (only in presentation mode)
       if (e.key === 'Tab' && rowJumpEnabled) {
         e.preventDefault();
@@ -162,6 +176,10 @@ export default function FilmGrid({
             const newRowIndex = currentRowIndex + 1;
             setCurrentRowIndex(newRowIndex);
             
+            // Reset card flip states when moving to new row
+            setFlippedCard(null);
+            setAllCardsFlipped(false);
+            
             // Scroll to the new row
             const startIndex = newRowIndex * cardsPerRow;
             const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
@@ -176,6 +194,10 @@ export default function FilmGrid({
           if (currentRowIndex > 0) {
             const newRowIndex = currentRowIndex - 1;
             setCurrentRowIndex(newRowIndex);
+            
+            // Reset card flip states when moving to new row
+            setFlippedCard(null);
+            setAllCardsFlipped(false);
             
             // Scroll to the new row
             const startIndex = newRowIndex * cardsPerRow;
@@ -622,6 +644,16 @@ export default function FilmGrid({
                 <div className="flex items-center justify-between">
                   <span className="text-gray-700">Toggle all card flips</span>
                   <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">Space</kbd>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700">Flip individual cards</span>
+                  <div className="flex gap-1">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">1</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">2</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">3</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono">4</kbd>
+                  </div>
                 </div>
                 
                 <div className="flex items-center justify-between">
