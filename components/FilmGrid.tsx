@@ -187,12 +187,19 @@ export default function FilmGrid({
     };
   }, [rowJumpEnabled, showFilters, currentRowIndex, films.length]);
 
-  // Reset row index when row jump is disabled or films change
+  // Reset row index when row jump is disabled, films change, or filters change
   useEffect(() => {
     if (!rowJumpEnabled) {
       setCurrentRowIndex(0);
+    } else {
+      // Check if current row index is beyond available rows after filtering
+      const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+      const totalRows = Math.ceil(films.length / cardsPerRow);
+      if (currentRowIndex >= totalRows && totalRows > 0) {
+        setCurrentRowIndex(0); // Reset to first row
+      }
     }
-  }, [rowJumpEnabled, films.length]);
+  }, [rowJumpEnabled, films.length, JSON.stringify(filters), currentRowIndex]);
 
   if (films.length === 0) {
     return (
