@@ -521,8 +521,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 </a>
               )}
               
-              {/* Show Discover Movies button when film has no streaming availability in Norway */}
-              {(!film.hasStreaming && !film.hasRent && !film.hasBuy) && (
+              {/* Show Discover Movies button when film has no JustWatch link */}
+              {!film.justwatchLink && (
                 <button
                   onClick={handleDiscoverMovies}
                   disabled={isDiscovering}

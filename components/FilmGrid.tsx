@@ -11,6 +11,34 @@ import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
 import PresentationFilters from './PresentationFilters';
 
+// Custom hook to safely get cards per row
+const useCardsPerRow = () => {
+  const [cardsPerRow, setCardsPerRow] = useState(2); // Default fallback
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+    
+    const updateCardsPerRow = () => {
+      if (typeof window !== 'undefined') {
+        setCardsPerRow(window.innerWidth >= 768 ? 4 : 2);
+      }
+    };
+    
+    // Set initial value
+    updateCardsPerRow();
+    
+    // Listen for resize
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', updateCardsPerRow);
+      return () => window.removeEventListener('resize', updateCardsPerRow);
+    }
+  }, []);
+  
+  // Return consistent value until mounted
+  return isMounted ? cardsPerRow : 2;
+};
+
 interface FilmGridProps {
   films: Film[];
   onGenreClick?: (genre: string) => void;
@@ -73,6 +101,9 @@ export default function FilmGrid({
   const [keyPressCount, setKeyPressCount] = useState<{[key: string]: {count: number, lastTime: number}}>({});
   const [trailerLaunching, setTrailerLaunching] = useState<string | null>(null);
   const keyPressRef = useRef<{[key: string]: {count: number, lastTime: number}}>({});
+  
+  // Safe way to get cards per row
+  const cardsPerRow = useCardsPerRow();
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
 
@@ -129,14 +160,12 @@ export default function FilmGrid({
       if (Math.abs(e.deltaY) < 5) return;
       const scrollingDown = e.deltaY > 0;
       
-      // Calculate how many cards per row based on viewport
-      // Must match the grid-cols CSS classes below
-      const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+      // Use the safe cardsPerRow from hook
       
-      const totalRows = Math.ceil(films.length / cardsPerRow);
+      const totalRowsInEffect = Math.ceil(films.length / cardsPerRow);
       
       let newRowIndex = currentRowIndex;
-      if (scrollingDown && currentRowIndex < totalRows - 1) {
+      if (scrollingDown && currentRowIndex < totalRowsInEffect - 1) {
         newRowIndex = currentRowIndex + 1;
       } else if (!scrollingDown && currentRowIndex > 0) {
         newRowIndex = currentRowIndex - 1;
@@ -163,7 +192,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [rowJumpEnabled, currentRowIndex, films.length]);
+  }, [rowJumpEnabled, currentRowIndex, films.length, cardsPerRow]);
 
   // Unified keyboard shortcuts - P to toggle, ESC to exit, L for filters, arrows for navigation
   useEffect(() => {
@@ -231,7 +260,6 @@ export default function FilmGrid({
       
       // Arrow key navigation (only in presentation mode)
       if (rowJumpEnabled && !showFilters) {
-        const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
         const totalRows = Math.ceil(films.length / cardsPerRow);
         
         if (e.key === 'ArrowDown') {
@@ -291,7 +319,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length]);
+  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length, cardsPerRow]);
 
   // Clear key press count when exiting presentation mode
   useEffect(() => {
@@ -307,13 +335,26 @@ export default function FilmGrid({
       setAllCardsFlipped(false);
     } else {
       // Check if current row index is beyond available rows after filtering
-      const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
       const totalRows = Math.ceil(films.length / cardsPerRow);
       if (currentRowIndex >= totalRows && totalRows > 0) {
         setCurrentRowIndex(0); // Reset to first row
       }
     }
-  }, [rowJumpEnabled, films.length, JSON.stringify(filters), currentRowIndex]);
+  }, [rowJumpEnabled, films.length, JSON.stringify(filters), currentRowIndex, cardsPerRow]);
+
+  // Calculate which films to show in current row (must be before early return to maintain consistent hook calls)
+  const visibleFilms = useMemo(() => {
+    if (!rowJumpEnabled) return films;
+    
+    const startIndex = currentRowIndex * cardsPerRow;
+    const endIndex = startIndex + cardsPerRow;
+    return films.slice(startIndex, endIndex);
+  }, [rowJumpEnabled, currentRowIndex, films, cardsPerRow]);
+  
+  const totalRows = useMemo(() => {
+    if (!rowJumpEnabled) return 0;
+    return Math.ceil(films.length / cardsPerRow);
+  }, [rowJumpEnabled, films, cardsPerRow]);
 
   if (films.length === 0) {
     return (
@@ -328,19 +369,6 @@ export default function FilmGrid({
       </div>
     );
   }
-  
-  // Calculate which films to show in current row
-  const visibleFilms = useMemo(() => {
-    if (!rowJumpEnabled) return films;
-    
-    // Must match the grid-cols CSS classes and wheel handler
-    const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
-    
-    const startIndex = currentRowIndex * cardsPerRow;
-    const endIndex = startIndex + cardsPerRow;
-    return films.slice(startIndex, endIndex);
-  }, [rowJumpEnabled, currentRowIndex, films]);
-  const totalRows = rowJumpEnabled ? Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) : 0;
 
   return (
     <div data-film-grid className={rowJumpEnabled ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
@@ -536,7 +564,6 @@ export default function FilmGrid({
                   setAllCardsFlipped(false);
                   
                   // Scroll to the new row
-                  const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
                   const startIndex = newRowIndex * cardsPerRow;
                   const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
                   if (targetCard) {
@@ -555,12 +582,11 @@ export default function FilmGrid({
             </button>
             {/* Row indicator */}
             <div className="text-sm font-mono tabular-nums font-bold tracking-wider">
-              {currentRowIndex + 1}/{Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2))}
+              {currentRowIndex + 1}/{Math.ceil(films.length / cardsPerRow)}
             </div>
             {/* Down caret */}
             <button 
               onClick={() => {
-                const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
                 const totalRows = Math.ceil(films.length / cardsPerRow);
                 if (currentRowIndex < totalRows - 1) {
                   const newRowIndex = currentRowIndex + 1;
@@ -578,9 +604,9 @@ export default function FilmGrid({
                   }
                 }
               }}
-              disabled={currentRowIndex >= Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) - 1}
+              disabled={currentRowIndex >= Math.ceil(films.length / cardsPerRow) - 1}
               className={`text-lg font-medium cursor-pointer hover:text-gray-600 transition-colors ${
-                currentRowIndex >= Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) - 1 ? 'opacity-50 cursor-not-allowed' : ''
+                currentRowIndex >= Math.ceil(films.length / cardsPerRow) - 1 ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               style={{ transform: 'rotate(180deg) scaleX(2)' }}
               title="Next row (or press ↓)"
