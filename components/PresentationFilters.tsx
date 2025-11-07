@@ -147,6 +147,35 @@ export default function PresentationFilters({
     handleFilterChange('searchQuery', query);
   };
 
+  // 3-state country toggle: Normal → Include → Exclude → Normal
+  const handleCountryToggle = (country: string) => {
+    const isIncluded = filters.countries.includes(country);
+    const isExcluded = filters.excludedCountries.includes(country);
+    
+    if (!isIncluded && !isExcluded) {
+      // State 1: Normal → Include
+      onFiltersChange({
+        ...filters,
+        countries: [...filters.countries, country],
+        excludedCountries: filters.excludedCountries.filter(c => c !== country)
+      });
+    } else if (isIncluded) {
+      // State 2: Include → Exclude
+      onFiltersChange({
+        ...filters,
+        countries: filters.countries.filter(c => c !== country),
+        excludedCountries: [...filters.excludedCountries, country]
+      });
+    } else {
+      // State 3: Exclude → Normal
+      onFiltersChange({
+        ...filters,
+        countries: filters.countries.filter(c => c !== country),
+        excludedCountries: filters.excludedCountries.filter(c => c !== country)
+      });
+    }
+  };
+
   // Handle ESC key to close filters
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -203,9 +232,9 @@ export default function PresentationFilters({
                     className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 rounded-lg transition-all duration-200 cursor-pointer"
                     title="Reset to default filters"
                   >
-                    <RotateCw className="w-4 h-4" />
-                    <span className="text-sm font-medium">Reset</span>
-                  </button>
+                  <RotateCw className="w-4 h-4" />
+                  <span className="text-sm font-medium">Default</span>
+                </button>
                 )}
                 {onSaveDefaults && (
                   <button
@@ -366,19 +395,27 @@ export default function PresentationFilters({
                 
                 return (
                   <>
-                    {availablePriorityCountries.map((country) => (
-                      <button
-                        key={country}
-                        onClick={() => handleArrayToggle('countries', country)}
-                        className={`px-4 py-2 rounded-full text-sm transition-all duration-200 border cursor-pointer ${
-                          filters.countries.includes(country)
-                            ? 'bg-[#FFB800] text-[#1A1A2E] border-[#FFB800] font-semibold'
-                            : 'bg-white/10 text-white border-white/20 hover:bg-white/15 hover:border-white/40'
-                        }`}
-                      >
-                        {getCountryDisplayName(country)}
-                      </button>
-                    ))}
+                    {availablePriorityCountries.map((country) => {
+                      const isIncluded = filters.countries.includes(country);
+                      const isExcluded = filters.excludedCountries.includes(country);
+                      
+                      return (
+                        <button
+                          key={country}
+                          onClick={() => handleCountryToggle(country)}
+                          className={`px-4 py-2 rounded-full text-sm transition-all duration-200 border cursor-pointer ${
+                            isIncluded
+                              ? 'bg-green-500 text-white border-green-500 font-semibold'
+                              : isExcluded
+                              ? 'bg-red-500/80 text-white border-red-500 font-semibold'
+                              : 'bg-white/10 text-white border-white/20 hover:bg-white/15 hover:border-white/40'
+                          }`}
+                          title={isIncluded ? 'Included - Click to exclude' : isExcluded ? 'Excluded - Click to default' : 'Click to include'}
+                        >
+                          {getCountryDisplayName(country)}
+                        </button>
+                      );
+                    })}
                     {otherCountries.length > 0 && (
                       <button
                         onClick={() => {
