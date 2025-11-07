@@ -21,23 +21,21 @@ interface FilmCardProps {
   onWatchedToggle?: (filmKey: string) => void;
   showRemoveButton?: boolean;
   onRemove?: (filmKey: string) => void;
+  isPresentationMode?: boolean;
 }
 
-export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle, showRemoveButton, onRemove }: FilmCardProps) {
+export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle, showRemoveButton, onRemove, isPresentationMode = false }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
-  const [expandedHeight, setExpandedHeight] = useState<number | 'auto'>(195); // Default 10 lines (~195px)
+  const [expandedHeight, setExpandedHeight] = useState<number | 'auto'>(195);
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const prevExpandedRef = useRef(false);
   
-  // Fallback heuristic to ensure the toggle appears even if height detection fails
-  // Approximate: 10 lines × ~55 chars per line = ~550 chars
   const shouldShowSynopsisToggleFallback = (film.synopsis?.length || 0) > 550;
-  const canToggleSynopsis = isTextTruncated || shouldShowSynopsisToggleFallback;
+  const canToggleSynopsis = !isPresentationMode && (isTextTruncated || shouldShowSynopsisToggleFallback);
   
-  // Helper to toggle synopsis expansion with direction tracking
   const handleSynopsisToggle = () => {
     prevExpandedRef.current = isExpanded;
     setIsExpanded(!isExpanded);
@@ -61,7 +59,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
 
   // Helper function to get country code
   const getCountryCode = (country: string): string => {
-    const countryCodes: { [key: string]: string } = {
+    const countryCodes: { [key: string]: string} = {
       'Norway': 'NOR',
       'United States': 'USA',
       'USA': 'USA',
@@ -127,11 +125,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   };
   
   useEffect(() => {
-    if (isFlipped && textRef.current) {
-      // Use requestAnimationFrame to ensure DOM is ready
+    if (isFlipped && textRef.current && !isPresentationMode) {
       requestAnimationFrame(() => {
         if (textRef.current) {
-          // Create a temporary clone to measure full height without constraints
           const clone = textRef.current.cloneNode(true) as HTMLElement;
           clone.style.position = 'absolute';
           clone.style.visibility = 'hidden';
@@ -142,14 +138,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           const textHeight = clone.scrollHeight;
           document.body.removeChild(clone);
           
-          // 10 lines = 12px (text-xs) × 1.625 (leading-relaxed) × 10 lines = 195px
           const maxHeightFor10Lines = 195;
           setIsTextTruncated(textHeight > maxHeightFor10Lines);
           setExpandedHeight(textHeight);
         }
       });
     }
-  }, [isFlipped, film.synopsis]);
+  }, [isFlipped, film.synopsis, isPresentationMode]);
   
   const handleCardClick = (e: React.MouseEvent) => {
     // Don't flip if clicking on buttons, links, clickable director name, or watched toggle
@@ -157,10 +152,11 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
       return;
     }
     onFlip();
-    // Reset synopsis expansion when card flips
-    setIsExpanded(false);
-    setIsTextTruncated(false);
-    prevExpandedRef.current = false;
+    if (!isPresentationMode) {
+      setIsExpanded(false);
+      setIsTextTruncated(false);
+      prevExpandedRef.current = false;
+    }
   };
 
   const handleWatchedClick = (e: React.MouseEvent) => {
@@ -677,7 +673,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               className="p-4 flex flex-col flex-1"
             >
 
-            {/* Synopsis - expandable */}
+            {/* Synopsis - expandable in normal mode, fixed in presentation mode */}
             {film.synopsis && (
               <motion.div
                 initial={false}
@@ -692,47 +688,57 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <span className="w-0.5 h-3 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></span>
                   Synopsis
                 </h4>
-                <div className="relative">
-                  <motion.div
-                    ref={synopsisRef}
-                    initial={false}
-                    animate={{ 
-                      maxHeight: canToggleSynopsis 
-                        ? (isExpanded ? (expandedHeight === 195 ? 9999 : expandedHeight) : 195)
-                        : 9999 // Show full height when toggle isn't needed
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 30
-                    }}
-                    className={`relative overflow-hidden ${canToggleSynopsis ? 'cursor-pointer select-none' : ''}`}
-                    onClick={(e) => {
-                      if (!canToggleSynopsis) return;
-                      e.stopPropagation();
-                      handleSynopsisToggle();
-                    }}
-                    role={canToggleSynopsis ? 'button' : undefined}
-                    aria-expanded={canToggleSynopsis ? isExpanded : undefined}
-                  >
-                    <p 
-                      ref={textRef} 
-                      className="text-xs text-gray-700 leading-relaxed"
-                    >
+                {isPresentationMode ? (
+                  /* Presentation mode - show all text without expand button */
+                  <div className="relative">
+                    <p className="text-xs text-gray-700 leading-relaxed">
                       {film.synopsis}
                     </p>
-                  </motion.div>
-                  {canToggleSynopsis && !isExpanded && (
+                  </div>
+                ) : (
+                  /* Normal mode - expandable */
+                  <div className="relative">
                     <motion.div
+                      ref={synopsisRef}
                       initial={false}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-100 to-transparent"
-                    />
-                  )}
-                </div>
-                {(canToggleSynopsis) && (
+                      animate={{ 
+                        maxHeight: canToggleSynopsis 
+                          ? (isExpanded ? (expandedHeight === 195 ? 9999 : expandedHeight) : 195)
+                          : 9999
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30
+                      }}
+                      className={`relative overflow-hidden ${canToggleSynopsis ? 'cursor-pointer select-none' : ''}`}
+                      onClick={(e) => {
+                        if (!canToggleSynopsis) return;
+                        e.stopPropagation();
+                        handleSynopsisToggle();
+                      }}
+                      role={canToggleSynopsis ? 'button' : undefined}
+                      aria-expanded={canToggleSynopsis ? isExpanded : undefined}
+                    >
+                      <p 
+                        ref={textRef} 
+                        className="text-xs text-gray-700 leading-relaxed"
+                      >
+                        {film.synopsis}
+                      </p>
+                    </motion.div>
+                    {canToggleSynopsis && !isExpanded && (
+                      <motion.div
+                        initial={false}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-100 to-transparent"
+                      />
+                    )}
+                  </div>
+                )}
+                {canToggleSynopsis && (
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
