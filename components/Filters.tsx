@@ -39,6 +39,16 @@ export default function Filters({
     'venice': 'Venice'
   };
   
+  // Function to get display name for festivals with proper capitalization
+  const getFestivalDisplayName = (festival: string): string => {
+    // First check if we have a specific display name mapping
+    if (festivalDisplayNames[festival]) {
+      return festivalDisplayNames[festival];
+    }
+    // Otherwise, capitalize the first letter and return
+    return festival.charAt(0).toUpperCase() + festival.slice(1);
+  };
+  
   const toggleYear = (year: number) => {
     const newYears = filters.years.includes(year)
       ? filters.years.filter(y => y !== year)
@@ -274,7 +284,7 @@ export default function Filters({
       }
       // Amazon variations
       else if (platform.toLowerCase().includes('amazon')) {
-        baseName = 'Amazon Prime Video';
+        baseName = 'Amazon';
       }
       // Apple variations
       else if (platform.toLowerCase().includes('apple')) {
@@ -499,7 +509,7 @@ export default function Filters({
                     onClick={() => onChange({ ...filters, festivals: filters.festivals.filter(f => f !== festival) })}
                     className="inline-flex items-center bg-slate-600 text-white text-xs px-3 py-1.5 rounded-full shadow-sm font-medium cursor-pointer hover:bg-slate-700 transition-colors"
                   >
-                    {festivalDisplayNames[festival] || festival}
+                    {getFestivalDisplayName(festival)}
                     <span className="ml-2 text-slate-300 hover:text-white transition-colors">
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -845,7 +855,7 @@ export default function Filters({
                         : 'bg-white border-gray-300 text-gray-700 hover:border-slate-400 hover:text-slate-600'
                       }`}
                   >
-                    {festivalDisplayNames[festival] || festival}
+                    {getFestivalDisplayName(festival)}
                   </button>
                 ))}
               </div>

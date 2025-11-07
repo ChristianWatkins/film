@@ -20,6 +20,9 @@ const getPlatformDisplayName = (platform: string): string => {
   if (platform === 'Cineasterna') {
     return 'Cineast';
   }
+  if (platform === 'Amazon Prime Video') {
+    return 'Amazon';
+  }
   return platform;
 };
 

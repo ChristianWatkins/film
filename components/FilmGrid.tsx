@@ -6,9 +6,10 @@ import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { FaTrophy } from 'react-icons/fa';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
-import type { Film } from '@/lib/types';
+import type { Film, FilterState } from '@/lib/types';
 import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
+import PresentationFilters from './PresentationFilters';
 
 interface FilmGridProps {
   films: Film[];
@@ -24,6 +25,14 @@ interface FilmGridProps {
   isInFavoritesView?: boolean;
   watchedMovies?: Set<string>;
   onWatchedChange?: (filmKey: string) => void;
+  // Filter props for presentation mode
+  filters?: FilterState;
+  onFiltersChange?: (filters: FilterState) => void;
+  availableYears?: number[];
+  availableFestivals?: string[];
+  availablePlatforms?: string[];
+  availableCountries?: string[];
+  availableGenres?: string[];
 }
 
 export default function FilmGrid({ 
@@ -39,11 +48,20 @@ export default function FilmGrid({
   onWatchedToggle,
   isInFavoritesView = false,
   watchedMovies = new Set(),
-  onWatchedChange
+  onWatchedChange,
+  // Filter props
+  filters,
+  onFiltersChange,
+  availableYears = [],
+  availableFestivals = [],
+  availablePlatforms = [],
+  availableCountries = [],
+  availableGenres = []
 }: FilmGridProps) {
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
   const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
   const [currentRowIndex, setCurrentRowIndex] = useState(0);
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
@@ -90,7 +108,7 @@ export default function FilmGrid({
     };
   }, [rowJumpEnabled, currentRowIndex, films.length]);
 
-  // Unified keyboard shortcuts - P to toggle, ESC to exit
+  // Unified keyboard shortcuts - P to toggle, ESC to exit, L for filters
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't trigger if typing in an input
@@ -102,10 +120,20 @@ export default function FilmGrid({
         setRowJumpEnabled(prev => !prev);
       }
       
-      // ESC key exits presentation mode (only when active)
-      if (e.key === 'Escape' && rowJumpEnabled) {
+      // L key toggles filters (only in presentation mode)
+      if ((e.key === 'l' || e.key === 'L') && rowJumpEnabled) {
         e.preventDefault();
-        setRowJumpEnabled(false);
+        setShowFilters(prev => !prev);
+      }
+      
+      // ESC key exits presentation mode or closes filters
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        if (showFilters) {
+          setShowFilters(false);
+        } else if (rowJumpEnabled) {
+          setRowJumpEnabled(false);
+        }
       }
     };
 
@@ -114,7 +142,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled]);
+  }, [rowJumpEnabled, showFilters]);
 
   // Reset row index when row jump is disabled or films change
   useEffect(() => {
@@ -167,13 +195,29 @@ export default function FilmGrid({
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
+            {filters && onFiltersChange && (
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
+                  showFilters
+                    ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
+                    : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
+                }`}
+                title="Toggle filters (or press L)"
+              >
+                <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                </svg>
+                Filters
+              </button>
+            )}
             <div className="text-lg font-medium">
               Presentation Mode
             </div>
           </div>
           <div className="text-sm">
             Row <span className="font-bold text-[#FFB800]">{currentRowIndex + 1}</span> of <span className="font-bold">{totalRows}</span>
-            <span className="ml-4 text-gray-400">Use scroll wheel to navigate • Press P or ESC to exit</span>
+            <span className="ml-4 text-gray-400">Use scroll wheel to navigate • Press P or ESC to exit{filters && ' • Press L for filters'}</span>
           </div>
         </div>
       )}
@@ -386,6 +430,20 @@ export default function FilmGrid({
             onClose={() => setShowExportImportModal(false)}
           />
         </div>
+      )}
+
+      {/* Presentation Filters */}
+      {showFilters && rowJumpEnabled && filters && onFiltersChange && (
+        <PresentationFilters
+          filters={filters}
+          onFiltersChange={onFiltersChange}
+          availableYears={availableYears}
+          availableFestivals={availableFestivals}
+          availablePlatforms={availablePlatforms}
+          availableCountries={availableCountries}
+          availableGenres={availableGenres}
+          onClose={() => setShowFilters(false)}
+        />
       )}
     </div>
   );

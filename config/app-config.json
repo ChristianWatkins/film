@@ -20,7 +20,12 @@
     { "name": "SF Anytime", "enabled": false },
     { "name": "Blockbuster", "enabled": false },
     { "name": "DocAlliance Films", "enabled": false },
-    { "name": "FilmBox+", "enabled": false }
+    { "name": "FilmBox+", "enabled": false },
+    { "name": "Takflix", "enabled": false },
+    { "name": "True Story", "enabled": false },
+    { "name": "Eventive", "enabled": false },
+    { "name": "JustwatchTV", "enabled": false },
+    { "name": "Plex", "enabled": false }
   ],
   "hideRentBuyIfStreaming": true,
   "hideBuyIfRent": true,

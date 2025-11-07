@@ -1,6 +1,8 @@
 import fs from 'fs/promises';
 import path from 'path';
-import type { Film, FestivalFilm, FestivalAppearance, StreamingData, StreamingAvailability } from './types';
+import type { Film, FilterState, StreamingProvider, FestivalFilm, FestivalAppearance, StreamingAvailability } from './types';
+import { getWatchlist } from './watchlist';
+import { filterEnabledProviders } from './streaming-config';
 import { hasEnabledStreaming, hasEnabledRent } from './streaming-config';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
@@ -487,7 +489,7 @@ export async function getAllFilms(): Promise<Film[]> {
     const awardInfo = awardMap.get(awardKey);
     
     // Update festival appearances with award status
-    const updatedFestivals = festivals.map(fest => ({
+    const updatedFestivals = festivals.map((fest: FestivalAppearance) => ({
       ...fest,
       awarded: awardInfo?.awarded || false
     }));
@@ -557,12 +559,61 @@ export function getUniqueFestivals(films: Film[]): string[] {
 }
 
 // Get unique streaming providers from films
+// Helper function to normalize platform names (same as in filters.ts)
+function normalizePlatformName(platform: string): string {
+  const lower = platform.toLowerCase();
+  
+  // Netflix variations
+  if (lower.includes('netflix')) {
+    return 'Netflix';
+  }
+  // Amazon variations
+  if (lower.includes('amazon')) {
+    return 'Amazon';
+  }
+  // Apple variations
+  if (lower.includes('apple')) {
+    return 'Apple TV';
+  }
+  
+  return platform;
+}
+
+// Function to get display name for platforms (same as StreamingBadge.tsx)
+function getPlatformDisplayName(platform: string): string {
+  if (platform === 'Cineasterna') {
+    return 'Cineast';
+  }
+  // Handle both normalized and non-normalized Amazon names
+  if (platform === 'Amazon Prime Video' || platform === 'Amazon') {
+    return 'Amazon';
+  }
+  return platform;
+}
+
 export function getUniqueProviders(films: Film[]): string[] {
   const providers = new Set<string>();
   films.forEach(film => {
-    film.streaming.forEach(s => providers.add(s.provider));
-    film.rent.forEach(s => providers.add(s.provider));
-    film.buy.forEach(s => providers.add(s.provider));
+    // Filter to enabled platforms and then extract normalized display names
+    const enabledStreaming = filterEnabledProviders(film.streaming);
+    const enabledRent = filterEnabledProviders(film.rent);
+    const enabledBuy = filterEnabledProviders(film.buy);
+    
+    enabledStreaming.forEach((s: StreamingProvider) => {
+      const normalized = normalizePlatformName(s.provider);
+      const displayName = getPlatformDisplayName(normalized);
+      providers.add(displayName);
+    });
+    enabledRent.forEach((s: StreamingProvider) => {
+      const normalized = normalizePlatformName(s.provider);
+      const displayName = getPlatformDisplayName(normalized);
+      providers.add(displayName);
+    });
+    enabledBuy.forEach((s: StreamingProvider) => {
+      const normalized = normalizePlatformName(s.provider);
+      const displayName = getPlatformDisplayName(normalized);
+      providers.add(displayName);
+    });
   });
   return Array.from(providers).sort();
 }

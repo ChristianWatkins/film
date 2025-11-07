@@ -11,7 +11,7 @@ function normalizePlatformName(platform: string): string {
   }
   // Amazon variations
   if (lower.includes('amazon')) {
-    return 'Amazon Prime Video';
+    return 'Amazon';
   }
   // Apple variations
   if (lower.includes('apple')) {
@@ -19,6 +19,14 @@ function normalizePlatformName(platform: string): string {
   }
   
   return platform;
+}
+
+// Helper function to convert display names back to filter names
+function displayNameToFilterName(displayName: string): string {
+  if (displayName === 'Cineast') {
+    return 'Cineasterna';
+  }
+  return displayName;
 }
 
 // Apply all filters to films
@@ -76,15 +84,18 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
       // If specific platforms are selected
       if (hasSpecificPlatforms) {
         for (const selectedPlatform of filters.selectedPlatforms) {
+          // Convert display name back to filter name for comparison
+          const filterName = displayNameToFilterName(selectedPlatform);
+          
           // Check if film has streaming on this platform (with normalization)
           const hasStreamingOnThisPlatform = film.streaming.some(s => 
-            normalizePlatformName(s.provider) === selectedPlatform
+            normalizePlatformName(s.provider) === filterName
           );
           
           // Check if film has rent/buy on this platform (with normalization)
           const hasRentBuyOnThisPlatform = 
-            film.rent.some(r => normalizePlatformName(r.provider) === selectedPlatform) ||
-            film.buy.some(b => normalizePlatformName(b.provider) === selectedPlatform);
+            film.rent.some(r => normalizePlatformName(r.provider) === filterName) ||
+            film.buy.some(b => normalizePlatformName(b.provider) === filterName);
           
           // If no type filters are active, match any availability on the platform
           if (!hasStreamingFilter && !hasRentBuyFilter) {

@@ -53,10 +53,8 @@ export function filterEnabledProviders(providers: StreamingProvider[]): Streamin
   
   return providers.filter(provider => {
     const platformConfig = config.platforms.find(p => p.name === provider.provider);
-    // If not in config, show it (new platform)
-    if (!platformConfig) return true;
-    // Otherwise check if enabled
-    return platformConfig.enabled;
+    // Only show platforms that are explicitly enabled
+    return platformConfig && platformConfig.enabled;
   });
 }
 

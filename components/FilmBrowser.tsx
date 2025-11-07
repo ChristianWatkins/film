@@ -435,6 +435,14 @@ export default function FilmBrowser({
               isInFavoritesView={filters.watchlistOnly}
               watchedMovies={watchedMovies}
               onWatchedChange={handleWatchedChange}
+              // Filter props for presentation mode
+              filters={filters}
+              onFiltersChange={setFilters}
+              availableYears={availableYears}
+              availableFestivals={availableFestivals}
+              availablePlatforms={availablePlatforms}
+              availableCountries={availableCountries}
+              availableGenres={availableGenres}
             />
           </div>
         </div>
