@@ -390,6 +390,26 @@ export default function FilmGrid({
         </>
       )}
       
+      {/* Row Navigation Indicator - Presentation Mode */}
+      {rowJumpEnabled && (
+        <div className="fixed top-1/2 right-6 transform -translate-y-1/2 z-40">
+          <div className="flex flex-col items-center text-gray-400 drop-shadow-lg px-4">
+            {/* Up caret */}
+            <div className="text-lg font-medium" style={{ transform: 'scaleX(2)' }}>
+              ^
+            </div>
+            {/* Row indicator */}
+            <div className="text-sm font-mono tabular-nums font-bold tracking-wider">
+              {currentRowIndex + 1}/{Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2))}
+            </div>
+            {/* Down caret */}
+            <div className="text-lg font-medium" style={{ transform: 'rotate(180deg) scaleX(2)' }}>
+              ^
+            </div>
+          </div>
+        </div>
+      )}
+      
       <div 
         ref={gridRef}
         className={rowJumpEnabled ? 'flex-1 flex items-center justify-center px-32 py-8 overflow-hidden outline-none' : ''}
