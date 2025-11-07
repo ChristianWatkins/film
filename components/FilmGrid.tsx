@@ -256,10 +256,7 @@ export default function FilmGrid({
               Presentation Mode
             </div>
           </div>
-          <div className="text-sm">
-            Row <span className="font-bold text-[#FFB800]">{currentRowIndex + 1}</span> of <span className="font-bold">{totalRows}</span>
-            <span className="ml-4 text-gray-400">Use scroll wheel to navigate • Press P or ESC to exit{filters && ' • Press Tab for filters'}</span>
-          </div>
+
         </div>
       )}
 
