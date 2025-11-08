@@ -1,343 +1,110 @@
 [
   {
-    "title": "SENTIMENTAL VALUE",
-    "year": 2025,
-    "country": "Norway",
-    "director": "Joachim Trier",
-    "link": "https://mubi.com/en/no/films/sentimental-value",
-    "awarded": true,
-    "awards": [
-      "Grand Prix"
-    ]
+    "id": "aiq"
   },
   {
-    "title": "SIRÂT",
-    "year": 2025,
-    "country": "France",
-    "director": "Oliver Laxe",
-    "link": "https://mubi.com/en/no/films/sirat",
-    "awarded": true,
-    "awards": [
-      "Jury Prize"
-    ]
+    "id": "aiB"
   },
   {
-    "title": "THE PHOENICIAN SCHEME",
-    "year": 2025,
-    "country": "United States",
-    "director": "Wes Anderson",
-    "link": "https://mubi.com/en/no/films/the-phoenician-scheme",
-    "awarded": false,
-    "awards": []
+    "id": "aks"
   },
   {
-    "title": "SORRY, BABY",
-    "year": 2025,
-    "country": "United States",
-    "director": "Eva Victor",
-    "link": "https://mubi.com/en/no/films/sorry-baby-2025",
-    "awarded": false,
-    "awards": []
+    "id": "aiU"
   },
   {
-    "title": "A POET",
-    "year": 2025,
-    "country": "Sweden",
-    "director": "Simón Mesa Soto",
-    "link": "https://mubi.com/en/no/films/a-poet-2025",
-    "awarded": false,
-    "awards": []
+    "id": "aar"
   },
   {
-    "title": "IT WAS JUST AN ACCIDENT",
-    "year": 2025,
-    "country": "Iran",
-    "director": "Jafar Panahi",
-    "link": "https://mubi.com/en/no/films/it-was-just-an-accident",
-    "awarded": true,
-    "awards": [
-      "Palme d'Or"
-    ],
-    "tmdb_id": 1456349
+    "id": "aeQ"
   },
   {
-    "title": "THE SECRET AGENT",
-    "year": 2025,
-    "country": "Brazil",
-    "director": "Kleber Mendonça Filho",
-    "link": "https://mubi.com/en/no/films/the-secret-agent-2025",
-    "awarded": true,
-    "awards": [
-      "Best Director & 1 other"
-    ]
+    "id": "akB"
   },
   {
-    "title": "SOUND OF FALLING",
-    "year": 2025,
-    "country": "Germany",
-    "director": "Mascha Schilinski",
-    "link": "https://mubi.com/en/no/films/sound-of-falling",
-    "awarded": true,
-    "awards": [
-      "Jury Prize"
-    ],
-    "tmdb_id": 1221061
+    "id": "aiZ"
   },
   {
-    "title": "EDDINGTON",
-    "year": 2025,
-    "country": "United States",
-    "director": "Ari Aster",
-    "link": "https://mubi.com/en/no/films/eddington",
-    "awarded": false,
-    "awards": []
+    "id": "acT"
   },
   {
-    "title": "ALPHA",
-    "year": 2025,
-    "country": "France",
-    "director": "Julia Ducournau",
-    "link": "https://mubi.com/en/no/films/alpha",
-    "awarded": false,
-    "awards": []
+    "id": "aaS"
   },
   {
-    "title": "THE HISTORY OF SOUND",
-    "year": 2025,
-    "country": "United States",
-    "director": "Oliver Hermanus",
-    "link": "https://mubi.com/en/no/films/the-history-of-sound",
-    "awarded": false,
-    "awards": []
+    "id": "aj0"
   },
   {
-    "title": "MAGELLAN",
-    "year": 2025,
-    "country": "Spain",
-    "director": "Lav Diaz",
-    "link": "https://mubi.com/en/no/films/magellan-2025",
-    "awarded": false,
-    "awards": []
+    "id": "afS"
   },
   {
-    "title": "THE MASTERMIND",
-    "year": 2025,
-    "country": "United States",
-    "director": "Kelly Reichardt",
-    "link": "https://mubi.com/en/no/films/the-mastermind",
-    "awarded": false,
-    "awards": []
+    "id": "akd"
   },
   {
-    "title": "DIE MY LOVE",
-    "year": 2025,
-    "country": "United States",
-    "director": "Lynne Ramsay",
-    "link": "https://mubi.com/en/no/films/die-my-love",
-    "awarded": false,
-    "awards": []
+    "id": "acB"
   },
   {
-    "title": "MISSION: IMPOSSIBLE - THE FINAL RECKONING",
-    "year": 2025,
-    "country": "United States",
-    "director": "Christopher McQuarrie",
-    "link": "https://mubi.com/en/no/films/mission-impossible-the-final-reckoning",
-    "awarded": false,
-    "awards": []
+    "id": "agn"
   },
   {
-    "title": "THE YOUNG MOTHER'S HOME",
-    "year": 2025,
-    "country": "Belgium",
-    "director": "Jean-Pierre Dardenne, Luc Dardenne",
-    "link": "https://mubi.com/en/no/films/the-young-mothers-home",
-    "awarded": true,
-    "awards": [
-      "Best Screenplay"
-    ]
+    "id": "ak5"
   },
   {
-    "title": "RESURRECTION",
-    "year": 2025,
-    "country": "France",
-    "director": "Bi Gan",
-    "link": "https://mubi.com/en/no/films/resurrection-2024",
-    "awarded": true,
-    "awards": [
-      "Jury's Special Award"
-    ]
+    "id": "ah2"
   },
   {
-    "title": "I ONLY REST IN THE STORM",
-    "year": 2025,
-    "country": "Portugal",
-    "director": "Pedro Pinho",
-    "link": "https://mubi.com/en/no/films/i-only-rest-in-the-storm",
-    "awarded": false,
-    "awards": []
+    "id": "aex"
   },
   {
-    "title": "NOUVELLE VAGUE",
-    "year": 2025,
-    "country": "France",
-    "director": "Richard Linklater",
-    "link": "https://mubi.com/en/no/films/nouvelle-vague-2024",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 1254808
+    "id": "ag1"
   },
   {
-    "title": "MIRRORS NO. 3",
-    "year": 2025,
-    "country": "Germany",
-    "director": "Christian Petzold",
-    "link": "https://mubi.com/en/no/films/miroirs-no-3",
-    "awarded": false,
-    "awards": []
+    "id": "agl"
   },
   {
-    "title": "TWO PROSECUTORS",
-    "year": 2025,
-    "country": "Latvia",
-    "director": "Sergei Loznitsa",
-    "link": "https://mubi.com/en/no/films/two-prosecutors",
-    "awarded": false,
-    "awards": []
+    "id": "aln"
   },
   {
-    "title": "THE LOVE THAT REMAINS",
-    "year": 2025,
-    "country": "France",
-    "director": "Hlynur Pálmason",
-    "link": "https://mubi.com/en/no/films/on-land-and-sea",
-    "awarded": false,
-    "awards": []
+    "id": "akc"
   },
   {
-    "title": "THE CHRONOLOGY OF WATER",
-    "year": 2025,
-    "country": "United States",
-    "director": "Kristen Stewart",
-    "link": "https://mubi.com/en/no/films/the-chronology-of-water",
-    "awarded": false,
-    "awards": []
+    "id": "ajF"
   },
   {
-    "title": "THE PRESIDENT'S CAKE",
-    "year": 2025,
-    "country": "Iraq",
-    "director": "Hasan Hadi",
-    "link": "https://mubi.com/en/no/films/the-president-s-cake",
-    "awarded": false,
-    "awards": []
+    "id": "aku"
   },
   {
-    "title": "NINO",
-    "year": 2025,
-    "country": "France",
-    "director": "Pauline Loquès",
-    "link": "https://mubi.com/en/no/films/nino-2025",
-    "awarded": false,
-    "awards": []
+    "id": "agS"
   },
   {
-    "title": "A USEFUL GHOST",
-    "year": 2025,
-    "country": "France",
-    "director": "Ratchapoom Boonbunchachoke",
-    "link": "https://mubi.com/en/no/films/a-useful-ghost",
-    "awarded": false,
-    "awards": []
+    "id": "aax"
   },
   {
-    "title": "COLOURS OF TIME",
-    "year": 2025,
-    "country": "France",
-    "director": "Cédric Klapisch",
-    "link": "https://mubi.com/en/no/films/colours-of-time-2025",
-    "awarded": false,
-    "awards": []
+    "id": "ab7"
   },
   {
-    "title": "THE LITTLE SISTER",
-    "year": 2025,
-    "country": "Germany",
-    "director": "Hafsia Herzi",
-    "link": "https://mubi.com/en/no/films/la-petite-derniere",
-    "awarded": false,
-    "awards": []
+    "id": "aka"
   },
   {
-    "title": "MY FATHER'S SHADOW",
-    "year": 2025,
-    "country": "United Kingdom",
-    "director": "Akinola Davies Jr.",
-    "link": "https://mubi.com/en/no/films/my-father-s-shadow",
-    "awarded": false,
-    "awards": []
+    "id": "agA"
   },
   {
-    "title": "HOMEBOUND",
-    "year": 2025,
-    "country": "India",
-    "director": "Neeraj Ghaywan",
-    "link": "https://mubi.com/en/no/films/homebound-2025",
-    "awarded": false,
-    "awards": []
+    "id": "aei"
   },
   {
-    "title": "LITTLE AMÉLIE OR THE CHARACTER OF RAIN",
-    "year": 2025,
-    "country": "France",
-    "director": "Maïlys Vallade, Liane-Cho Han Jin Kuang",
-    "link": "https://mubi.com/en/no/films/little-amelie",
-    "awarded": false,
-    "awards": []
+    "id": "afy"
   },
   {
-    "title": "THE MYSTERIOUS GAZE OF THE FLAMINGO",
-    "year": 2025,
-    "country": "Chile",
-    "director": "Diego Céspedes",
-    "link": "https://mubi.com/en/no/films/the-mysterious-gaze-of-the-flamingo",
-    "awarded": false,
-    "awards": []
+    "id": "akj"
   },
   {
-    "title": "YES",
-    "year": 2025,
-    "country": "Cyprus",
-    "director": "Nadav Lapid",
-    "link": "https://mubi.com/en/no/films/yes-2025",
-    "awarded": false,
-    "awards": []
+    "id": "alZ"
   },
   {
-    "title": "LEFT-HANDED GIRL",
-    "year": 2025,
-    "country": "Taiwan",
-    "director": "Tsou Shih-Ching",
-    "link": "https://mubi.com/en/no/films/left-handed-girl",
-    "awarded": false,
-    "awards": []
+    "id": "afp"
   },
   {
-    "title": "THE LAST ONE FOR THE ROAD",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Francesco Sossai",
-    "link": "https://mubi.com/en/no/films/the-last-one-for-the-road",
-    "awarded": false,
-    "awards": []
+    "id": "aj9"
   },
   {
-    "title": "FUORI",
-    "year": 2025,
-    "country": "France",
-    "director": "Mario Martone",
-    "link": "https://mubi.com/en/no/films/fuori",
-    "awarded": false,
-    "awards": []
+    "id": "adB"
   }
 ]

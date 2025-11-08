@@ -1,342 +1,110 @@
 [
   {
-    "title": "PRISCILLA",
-    "year": 2023,
-    "country": "United States",
-    "director": "Sofia Coppola",
-    "link": "https://mubi.com/en/no/films/priscilla",
-    "awarded": true,
-    "awards": [
-      "Volpi Cup - Best Actress"
-    ]
+    "id": "ahN"
   },
   {
-    "title": "GASOLINE RAINBOW",
-    "year": 2023,
-    "country": "United States",
-    "director": "Bill Ross IV, Turner Ross",
-    "link": "https://mubi.com/en/no/films/gasoline-rainbow",
-    "awarded": false,
-    "awards": []
+    "id": "adF"
   },
   {
-    "title": "POOR THINGS",
-    "year": 2023,
-    "country": "United States",
-    "director": "Yorgos Lanthimos",
-    "link": "https://mubi.com/en/no/films/poor-things",
-    "awarded": true,
-    "awards": [
-      "Golden Lion for Best Film"
-    ]
+    "id": "ahG"
   },
   {
-    "title": "HUMANIST VAMPIRE SEEKING CONSENTING SUICIDAL PERSON",
-    "year": 2023,
-    "country": "Canada",
-    "director": "Ariane Louis-Seize",
-    "link": "https://mubi.com/en/no/films/humanist-vampire-seeking-consenting-suicidal-person",
-    "awarded": true,
-    "awards": [
-      "GdA Director's Award"
-    ]
+    "id": "aes"
   },
   {
-    "title": "THE BEAST",
-    "year": 2023,
-    "country": "France",
-    "director": "Bertrand Bonello",
-    "link": "https://mubi.com/en/no/films/the-beast-2023",
-    "awarded": false,
-    "awards": []
+    "id": "ajz"
   },
   {
-    "title": "EVIL DOES NOT EXIST",
-    "year": 2023,
-    "country": "Japan",
-    "director": "Ryusuke Hamaguchi",
-    "link": "https://mubi.com/en/no/films/evil-does-not-exist",
-    "awarded": true,
-    "awards": [
-      "Grand prix du jury & 4 others"
-    ]
+    "id": "ac9"
   },
   {
-    "title": "MEMORY",
-    "year": 2023,
-    "country": "United States",
-    "director": "Michel Franco",
-    "link": "https://mubi.com/en/no/films/memory-2023",
-    "awarded": true,
-    "awards": [
-      "Volpi Cup - Best Actor"
-    ]
+    "id": "agc"
   },
   {
-    "title": "HESITATION WOUND",
-    "year": 2023,
-    "country": "Turkey",
-    "director": "Selman Nacar",
-    "link": "https://mubi.com/en/no/films/hesitation-wound",
-    "awarded": false,
-    "awards": []
+    "id": "ad8"
   },
   {
-    "title": "THE PROMISED LAND",
-    "year": 2023,
-    "country": "Denmark",
-    "director": "Nikolaj Arcel",
-    "link": "https://mubi.com/en/no/films/king-s-land",
-    "awarded": false,
-    "awards": []
+    "id": "akv"
   },
   {
-    "title": "EYE TWO TIMES MOUTH",
-    "year": 2023,
-    "country": "Mexico",
-    "director": "Lila Avilés",
-    "link": "https://mubi.com/en/no/films/eye-two-times-mouth",
-    "awarded": false,
-    "awards": []
+    "id": "add"
   },
   {
-    "title": "IO CAPITANO",
-    "year": 2023,
-    "country": "Italy",
-    "director": "Matteo Garrone",
-    "link": "https://mubi.com/en/no/films/io-capitano",
-    "awarded": true,
-    "awards": [
-      "Best Director & 1 other"
-    ]
+    "id": "aeN"
   },
   {
-    "title": "HOARD",
-    "year": 2023,
-    "country": "United Kingdom",
-    "director": "Luna Carmoon",
-    "link": "https://mubi.com/en/no/films/hoard",
-    "awarded": false,
-    "awards": []
+    "id": "aef"
   },
   {
-    "title": "THE OCEANS ARE THE REAL CONTINENTS",
-    "year": 2023,
-    "country": "Italy",
-    "director": "Tommaso Santambrogio",
-    "link": "https://mubi.com/en/no/films/the-oceans-are-the-real-continents-2023",
-    "awarded": false,
-    "awards": []
+    "id": "ako"
   },
   {
-    "title": "LIFE IS NOT A COMPETITION, BUT I'M WINNING",
-    "year": 2023,
-    "country": "Germany",
-    "director": "Julia Fuhr Mann",
-    "link": "https://mubi.com/en/no/films/life-is-not-a-competition-but-i-m-winning",
-    "awarded": false,
-    "awards": []
+    "id": "afv"
   },
   {
-    "title": "THE WONDERFUL STORY OF HENRY SUGAR",
-    "year": 2023,
-    "country": "United States",
-    "director": "Wes Anderson",
-    "link": "https://mubi.com/en/no/films/the-wonderful-story-of-henry-sugar",
-    "awarded": false,
-    "awards": []
+    "id": "ak1"
   },
   {
-    "title": "OUT OF SEASON",
-    "year": 2023,
-    "country": "France",
-    "director": "Stéphane Brizé",
-    "link": "https://mubi.com/en/no/films/hors-saison-2023",
-    "awarded": false,
-    "awards": []
+    "id": "ahg"
   },
   {
-    "title": "DAAAAAALI!",
-    "year": 2023,
-    "country": "France",
-    "director": "Quentin Dupieux",
-    "link": "https://mubi.com/en/no/films/daaaaaali",
-    "awarded": false,
-    "awards": []
+    "id": "ack"
   },
   {
-    "title": "SOCIETY OF THE SNOW",
-    "year": 2023,
-    "country": "Chile",
-    "director": "Juan Antonio Bayona",
-    "link": "https://mubi.com/en/no/films/society-of-the-snow",
-    "awarded": false,
-    "awards": []
+    "id": "aiO"
   },
   {
-    "title": "RYUICHI SAKAMOTO | OPUS",
-    "year": 2023,
-    "country": "Japan",
-    "director": "Neo Sora",
-    "link": "https://mubi.com/en/no/films/ryuichi-sakamoto-opus",
-    "awarded": false,
-    "awards": []
+    "id": "aif"
   },
   {
-    "title": "THE KILLER",
-    "year": 2023,
-    "country": "United States",
-    "director": "David Fincher",
-    "link": "https://mubi.com/en/no/films/the-killer-2022",
-    "awarded": false,
-    "awards": []
+    "id": "aj7"
   },
   {
-    "title": "BYE BYE TIBERIAS",
-    "year": 2023,
-    "country": "France",
-    "director": "Lina Soualem",
-    "link": "https://mubi.com/en/no/films/bye-bye-tiberias",
-    "awarded": false,
-    "awards": []
+    "id": "abU"
   },
   {
-    "title": "GREEN BORDER",
-    "year": 2023,
-    "country": "Poland",
-    "director": "Agnieszka Holland",
-    "link": "https://mubi.com/en/no/films/the-green-border",
-    "awarded": true,
-    "awards": [
-      "Special Jury Prize"
-    ]
+    "id": "adT"
   },
   {
-    "title": "DORMITORY",
-    "year": 2023,
-    "country": "Turkey",
-    "director": "Nehir Tuna",
-    "link": "https://mubi.com/en/no/films/dormitory",
-    "awarded": false,
-    "awards": []
+    "id": "acJ"
   },
   {
-    "title": "EL CONDE",
-    "year": 2023,
-    "country": "Chile",
-    "director": "Pablo Larraín",
-    "link": "https://mubi.com/en/no/films/el-conde",
-    "awarded": true,
-    "awards": [
-      "Best Screenplay"
-    ]
+    "id": "acX"
   },
   {
-    "title": "MAESTRO",
-    "year": 2023,
-    "country": "United States",
-    "director": "Bradley Cooper",
-    "link": "https://mubi.com/en/no/films/bernstein",
-    "awarded": false,
-    "awards": []
+    "id": "afR"
   },
   {
-    "title": "TATAMI",
-    "year": 2023,
-    "country": "Georgia",
-    "director": "Guy Nattiv, Zar Amir Ebrahimi",
-    "link": "https://mubi.com/en/no/films/tatami",
-    "awarded": false,
-    "awards": []
+    "id": "ajp"
   },
   {
-    "title": "DOGMAN",
-    "year": 2023,
-    "country": "France",
-    "director": "Luc Besson",
-    "link": "https://mubi.com/en/no/films/dogman-2023",
-    "awarded": false,
-    "awards": []
+    "id": "acH"
   },
   {
-    "title": "MENUS-PLAISIRS LES TROISGROS",
-    "year": 2023,
-    "country": "France",
-    "director": "Frederick Wiseman",
-    "link": "https://mubi.com/en/no/films/menus-plaisirs-les-troisgros",
-    "awarded": false,
-    "awards": []
+    "id": "agf"
   },
   {
-    "title": "HIT MAN",
-    "year": 2023,
-    "country": "United States",
-    "director": "Richard Linklater",
-    "link": "https://mubi.com/en/no/films/hitman-2023",
-    "awarded": false,
-    "awards": []
+    "id": "aec"
   },
   {
-    "title": "COUP DE CHANCE",
-    "year": 2023,
-    "country": "France",
-    "director": "Woody Allen",
-    "link": "https://mubi.com/en/no/films/coup-de-chance-2023",
-    "awarded": false,
-    "awards": []
+    "id": "ace"
   },
   {
-    "title": "AGGRO DR1FT",
-    "year": 2023,
-    "country": "United States",
-    "director": "Harmony Korine",
-    "link": "https://mubi.com/en/no/films/aggro-dr1ft",
-    "awarded": false,
-    "awards": []
+    "id": "aaJ"
   },
   {
-    "title": "FERRARI",
-    "year": 2023,
-    "country": "United States",
-    "director": "Michael Mann",
-    "link": "https://mubi.com/en/no/films/enzo-ferrari",
-    "awarded": false,
-    "awards": []
+    "id": "adn"
   },
   {
-    "title": "THIS IS HOW A CHILD BECOMES A POET",
-    "year": 2023,
-    "country": "France",
-    "director": "Céline Sciamma",
-    "link": "https://mubi.com/en/no/films/this-is-how-a-child-becomes-a-poet",
-    "awarded": false,
-    "awards": []
+    "id": "ak8"
   },
   {
-    "title": "WANDER TO WONDER",
-    "year": 2023,
-    "country": "France",
-    "director": "Nina Gantz",
-    "link": "https://mubi.com/en/no/films/wander-to-wonder",
-    "awarded": false,
-    "awards": []
+    "id": "alK"
   },
   {
-    "title": "THE SUMMER WITH CARMEN",
-    "year": 2023,
-    "country": "Greece",
-    "director": "Zacharias Mavroeidis",
-    "link": "https://mubi.com/en/no/films/the-summer-with-carmen",
-    "awarded": false,
-    "awards": []
+    "id": "akP"
   },
   {
-    "title": "HEARTLESS",
-    "year": 2023,
-    "country": "Italy",
-    "director": "Nara Normande, Tião",
-    "link": "https://mubi.com/en/no/films/heartless-2023",
-    "awarded": false,
-    "awards": []
+    "id": "ad6"
   }
 ]

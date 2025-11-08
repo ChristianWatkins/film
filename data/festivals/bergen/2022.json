@@ -1,332 +1,110 @@
 [
   {
-    "title": "AFTERSUN",
-    "year": 2022,
-    "country": "United Kingdom",
-    "director": "Charlotte Wells",
-    "link": "https://mubi.com/en/no/films/aftersun",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 965150
+    "id": "aaH"
   },
   {
-    "title": "CLOSE",
-    "year": 2022,
-    "country": "Belgium",
-    "director": "Lukas Dhont",
-    "link": "https://mubi.com/en/no/films/close-2022",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 901563
+    "id": "ab4"
   },
   {
-    "title": "DECISION TO LEAVE",
-    "year": 2022,
-    "country": "South Korea",
-    "director": "Park Chan-wook",
-    "link": "https://mubi.com/en/no/films/decision-to-leave",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 705996
+    "id": "acr"
   },
   {
-    "title": "HOLY SPIDER",
-    "year": 2022,
-    "country": "Denmark",
-    "director": "Ali Abbasi",
-    "link": "https://mubi.com/en/no/films/holy-spider",
-    "awarded": false,
-    "awards": []
+    "id": "aeh"
   },
   {
-    "title": "THE FIVE DEVILS",
-    "year": 2022,
-    "country": "France",
-    "director": "Léa Mysius",
-    "link": "https://mubi.com/en/no/films/les-cinq-diables",
-    "awarded": true,
-    "awards": [
-      "Cinema Extraordinaire Award"
-    ]
+    "id": "ajU"
   },
   {
-    "title": "CRIMES OF THE FUTURE",
-    "year": 2022,
-    "country": "Canada",
-    "director": "David Cronenberg",
-    "link": "https://mubi.com/en/no/films/crimes-of-the-future-2022",
-    "awarded": false,
-    "awards": []
+    "id": "acg"
   },
   {
-    "title": "ONE FINE MORNING",
-    "year": 2022,
-    "country": "France",
-    "director": "Mia Hansen-Løve",
-    "link": "https://mubi.com/en/no/films/one-fine-morning-2022",
-    "awarded": false,
-    "awards": []
+    "id": "aha"
   },
   {
-    "title": "EO",
-    "year": 2022,
-    "country": "Poland",
-    "director": "Jerzy Skolimowski",
-    "link": "https://mubi.com/en/no/films/e-o",
-    "awarded": false,
-    "awards": []
+    "id": "ac4"
   },
   {
-    "title": "THE BANSHEES OF INISHERIN",
-    "year": 2022,
-    "country": "Ireland",
-    "director": "Martin McDonagh",
-    "link": "https://mubi.com/en/no/films/the-banshees-of-inisherin",
-    "awarded": false,
-    "awards": []
+    "id": "ajy"
   },
   {
-    "title": "BROKER",
-    "year": 2022,
-    "country": "South Korea",
-    "director": "Hirokazu Koreeda",
-    "link": "https://mubi.com/en/no/films/broker-2022",
-    "awarded": false,
-    "awards": []
+    "id": "abP"
   },
   {
-    "title": "ALL THE BEAUTY AND THE BLOODSHED",
-    "year": 2022,
-    "country": "United States",
-    "director": "Laura Poitras",
-    "link": "https://mubi.com/en/no/films/all-the-beauty-and-the-bloodshed",
-    "awarded": false,
-    "awards": []
+    "id": "aaP"
   },
   {
-    "title": "BURNING DAYS",
-    "year": 2022,
-    "country": "Turkey",
-    "director": "Emin Alper",
-    "link": "https://mubi.com/en/no/films/burning-days",
-    "awarded": false,
-    "awards": []
+    "id": "abS"
   },
   {
-    "title": "DE HUMANI CORPORIS FABRICA",
-    "year": 2022,
-    "country": "France",
-    "director": "Verena Paravel, Lucien Castaing-Taylor",
-    "link": "https://mubi.com/en/no/films/de-humani-corporis-fabrica",
-    "awarded": false,
-    "awards": []
+    "id": "aco"
   },
   {
-    "title": "THE INNOCENT",
-    "year": 2022,
-    "country": "France",
-    "director": "Louis Garrel",
-    "link": "https://mubi.com/en/no/films/the-innocent-2022",
-    "awarded": false,
-    "awards": []
+    "id": "aj3"
   },
   {
-    "title": "BONES AND ALL",
-    "year": 2022,
-    "country": "United States",
-    "director": "Luca Guadagnino",
-    "link": "https://mubi.com/en/no/films/bones-and-all",
-    "awarded": false,
-    "awards": []
+    "id": "abM"
   },
   {
-    "title": "MORE THAN EVER",
-    "year": 2022,
-    "country": "France",
-    "director": "Emily Atef",
-    "link": "https://mubi.com/en/no/films/more-than-ever",
-    "awarded": false,
-    "awards": []
+    "id": "agu"
   },
   {
-    "title": "FIRE OF LOVE",
-    "year": 2022,
-    "country": "Canada",
-    "director": "Sara Dosa",
-    "link": "https://mubi.com/en/no/films/fire-of-love-2022",
-    "awarded": false,
-    "awards": []
+    "id": "adp"
   },
   {
-    "title": "RIMINI",
-    "year": 2022,
-    "country": "Germany",
-    "director": "Ulrich Seidl",
-    "link": "https://mubi.com/en/no/films/rimini",
-    "awarded": false,
-    "awards": []
+    "id": "ah8"
   },
   {
-    "title": "ARGENTINA, 1985",
-    "year": 2022,
-    "country": "Argentina",
-    "director": "Santiago Mitre",
-    "link": "https://mubi.com/en/no/films/argentina-1985-2022",
-    "awarded": false,
-    "awards": []
+    "id": "abb"
   },
   {
-    "title": "NO BEARS",
-    "year": 2022,
-    "country": "Iran",
-    "director": "Jafar Panahi",
-    "link": "https://mubi.com/en/no/films/no-bears",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 974521
+    "id": "agU"
   },
   {
-    "title": "THE MENU",
-    "year": 2022,
-    "country": "United States",
-    "director": "Mark Mylod",
-    "link": "https://mubi.com/en/no/films/the-menu-2020",
-    "awarded": false,
-    "awards": []
+    "id": "akf"
   },
   {
-    "title": "FALCON LAKE",
-    "year": 2022,
-    "country": "Canada",
-    "director": "Charlotte Le Bon",
-    "link": "https://mubi.com/en/no/films/falcon-lake",
-    "awarded": false,
-    "awards": []
+    "id": "ade"
   },
   {
-    "title": "SONNE",
-    "year": 2022,
-    "country": "Austria",
-    "director": "Kurdwin Ayub",
-    "link": "https://mubi.com/en/no/films/sonne-2022",
-    "awarded": false,
-    "awards": []
+    "id": "aiT"
   },
   {
-    "title": "THREE THOUSAND YEARS OF LONGING",
-    "year": 2022,
-    "country": "United States",
-    "director": "George Miller",
-    "link": "https://mubi.com/en/no/films/three-thousand-years-of-longing",
-    "awarded": false,
-    "awards": []
+    "id": "alb"
   },
   {
-    "title": "CESÁRIA ÉVORA",
-    "year": 2022,
-    "country": "Portugal",
-    "director": "Ana Sofia Fonseca",
-    "link": "https://mubi.com/en/no/films/cesaria-evora",
-    "awarded": false,
-    "awards": []
+    "id": "ab0"
   },
   {
-    "title": "CAIRO CONSPIRACY",
-    "year": 2022,
-    "country": "Sweden",
-    "director": "Tarik Saleh",
-    "link": "https://mubi.com/en/no/films/boy-from-heaven",
-    "awarded": false,
-    "awards": []
+    "id": "abW"
   },
   {
-    "title": "ALL THAT BREATHES",
-    "year": 2022,
-    "country": "India",
-    "director": "Shaunak Sen",
-    "link": "https://mubi.com/en/no/films/all-that-breathes",
-    "awarded": false,
-    "awards": []
+    "id": "aaO"
   },
   {
-    "title": "WILL-O'-THE-WISP",
-    "year": 2022,
-    "country": "Portugal",
-    "director": "João Pedro Rodrigues",
-    "link": "https://mubi.com/en/no/films/will-o-the-wisp-2022",
-    "awarded": false,
-    "awards": []
+    "id": "alW"
   },
   {
-    "title": "LA JAURÍA",
-    "year": 2022,
-    "country": "France",
-    "director": "Andrés Ramírez Pulido",
-    "link": "https://mubi.com/en/no/films/la-jauria",
-    "awarded": false,
-    "awards": []
+    "id": "aff"
   },
   {
-    "title": "SHE SAID",
-    "year": 2022,
-    "country": "United States",
-    "director": "Maria Schrader",
-    "link": "https://mubi.com/en/no/films/she-said-2022",
-    "awarded": false,
-    "awards": []
+    "id": "aiv"
   },
   {
-    "title": "HUESERA: THE BONE WOMAN",
-    "year": 2022,
-    "country": "Peru",
-    "director": "Michelle Garza Cervera",
-    "link": "https://mubi.com/en/no/films/huesera",
-    "awarded": false,
-    "awards": []
+    "id": "aeq"
   },
   {
-    "title": "ENYS MEN",
-    "year": 2022,
-    "country": "United Kingdom",
-    "director": "Mark Jenkin",
-    "link": "https://mubi.com/en/no/films/enys-men",
-    "awarded": false,
-    "awards": []
+    "id": "ac3"
   },
   {
-    "title": "THE WORST ONES",
-    "year": 2022,
-    "country": "France",
-    "director": "Lise Akoka, Romane Gueret",
-    "link": "https://mubi.com/en/no/films/les-pires",
-    "awarded": false,
-    "awards": []
+    "id": "ak3"
   },
   {
-    "title": "PAMFIR",
-    "year": 2022,
-    "country": "Ukraine",
-    "director": "Dmytro Sukholytkyy-Sobchuk",
-    "link": "https://mubi.com/en/no/films/pamfir",
-    "awarded": false,
-    "awards": []
+    "id": "ahj"
   },
   {
-    "title": "HOW TO SAVE A DEAD FRIEND",
-    "year": 2022,
-    "country": "Germany",
-    "director": "Marusya Syroechkovskaya",
-    "link": "https://mubi.com/en/no/films/how-to-save-a-dead-friend-2022",
-    "awarded": false,
-    "awards": []
+    "id": "aeo"
   },
   {
-    "title": "BRAINWASHED: SEX-CAMERA-POWER",
-    "year": 2022,
-    "country": "United States",
-    "director": "Nina Menkes",
-    "link": "https://mubi.com/en/no/films/brainwashed-sex-camera-power",
-    "awarded": false,
-    "awards": []
+    "id": "abO"
   }
 ]

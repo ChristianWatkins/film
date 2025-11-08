@@ -1,338 +1,110 @@
 [
   {
-    "title": "FATHER MOTHER SISTER BROTHER",
-    "year": 2025,
-    "country": "United States",
-    "director": "Jim Jarmusch",
-    "link": "https://mubi.com/en/no/films/father-mother-sister-brother",
-    "awarded": true,
-    "awards": [
-      "Golden Lion for Best Film"
-    ]
+    "id": "adj"
   },
   {
-    "title": "THE VOICE OF HIND RAJAB",
-    "year": 2025,
-    "country": "France",
-    "director": "Kaouther Ben Hania",
-    "link": "https://mubi.com/en/no/films/the-voice-of-hind-rajab",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 1480382
+    "id": "akY"
   },
   {
-    "title": "NO OTHER CHOICE",
-    "year": 2025,
-    "country": "South Korea",
-    "director": "Park Chan-wook",
-    "link": "https://mubi.com/en/no/films/no-other-choice",
-    "awarded": false,
-    "awards": []
+    "id": "agW"
   },
   {
-    "title": "BUGONIA",
-    "year": 2025,
-    "country": "United Kingdom",
-    "director": "Yorgos Lanthimos",
-    "link": "https://mubi.com/en/no/films/save-the-green-planet-2021",
-    "awarded": true,
-    "awards": [
-      "Green Drop Award"
-    ]
+    "id": "abQ"
   },
   {
-    "title": "LA GRAZIA",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Paolo Sorrentino",
-    "link": "https://mubi.com/en/no/films/la-grazia",
-    "awarded": true,
-    "awards": [
-      "Best Actor & 6 others"
-    ]
+    "id": "afe"
   },
   {
-    "title": "SILENT FRIEND",
-    "year": 2025,
-    "country": "Hungary",
-    "director": "Ildikó Enyedi",
-    "link": "https://mubi.com/en/no/films/silent-friend",
-    "awarded": false,
-    "awards": []
+    "id": "aiz"
   },
   {
-    "title": "THE SMASHING MACHINE",
-    "year": 2025,
-    "country": "United States",
-    "director": "Benny Safdie",
-    "link": "https://mubi.com/en/no/films/the-smashing-machine-2024",
-    "awarded": false,
-    "awards": []
+    "id": "akH"
   },
   {
-    "title": "FRANKENSTEIN",
-    "year": 2025,
-    "country": "United States",
-    "director": "Guillermo del Toro",
-    "link": "https://mubi.com/en/no/films/frankenstein-391537",
-    "awarded": false,
-    "awards": []
+    "id": "adz"
   },
   {
-    "title": "UN FILM FATTO PER BENE",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Franco Maresco",
-    "link": "https://mubi.com/en/no/films/un-film-fatto-per-bene",
-    "awarded": false,
-    "awards": []
+    "id": "alr"
   },
   {
-    "title": "A HOUSE OF DYNAMITE",
-    "year": 2025,
-    "country": "United States",
-    "director": "Kathryn Bigelow",
-    "link": "https://mubi.com/en/no/films/aurora-2023-kathryn-bigelow",
-    "awarded": false,
-    "awards": []
+    "id": "aap"
   },
   {
-    "title": "LAGUNA",
-    "year": 2025,
-    "country": "Lithuania",
-    "director": "Sharunas Bartas",
-    "link": "https://mubi.com/en/no/films/laguna-2025",
-    "awarded": false,
-    "awards": []
+    "id": "afg"
   },
   {
-    "title": "AT WORK",
-    "year": 2025,
-    "country": "France",
-    "director": "Valérie Donzelli",
-    "link": "https://mubi.com/en/no/films/a-pied-d-oeuvre",
-    "awarded": true,
-    "awards": [
-      "Award for Best Screenplay"
-    ]
+    "id": "abg"
   },
   {
-    "title": "THE HOLY BOY",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Paolo Strippoli",
-    "link": "https://mubi.com/en/no/films/la-valle-dei-sorrisi",
-    "awarded": true,
-    "awards": []
+    "id": "aj1"
   },
   {
-    "title": "LANDMARKS",
-    "year": 2025,
-    "country": "Denmark",
-    "director": "Lucrecia Martel",
-    "link": "https://mubi.com/en/no/films/chocobar",
-    "awarded": false,
-    "awards": []
+    "id": "afi"
   },
   {
-    "title": "AFTER THE HUNT",
-    "year": 2025,
-    "country": "United States",
-    "director": "Luca Guadagnino",
-    "link": "https://mubi.com/en/no/films/after-the-hunt-2025",
-    "awarded": false,
-    "awards": []
+    "id": "aaF"
   },
   {
-    "title": "A SOIL A CULTURE A RIVER A PEOPLE",
-    "year": 2025,
-    "country": "China",
-    "director": "Viv Li",
-    "link": "https://mubi.com/en/no/films/a-soil-a-culture-a-river-a-people",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 1516303
+    "id": "aau"
   },
   {
-    "title": "DIRECTOR'S DIARY",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Aleksandr Sokurov",
-    "link": "https://mubi.com/en/no/films/director-s-diary",
-    "awarded": false,
-    "awards": []
+    "id": "acC"
   },
   {
-    "title": "FRAGMENTS FOR VENUS",
-    "year": 2025,
-    "country": "France",
-    "director": "Alice Diop",
-    "link": "https://mubi.com/en/no/films/fragments-for-venus",
-    "awarded": false,
-    "awards": []
+    "id": "adw"
   },
   {
-    "title": "MARINA",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Paoli De Luca",
-    "link": "https://mubi.com/en/no/films/marina-2025",
-    "awarded": false,
-    "awards": []
+    "id": "afW"
   },
   {
-    "title": "THE STRANGER",
-    "year": 2025,
-    "country": "France",
-    "director": "François Ozon",
-    "link": "https://mubi.com/en/no/films/the-stranger-2025-francois-ozon",
-    "awarded": true,
-    "awards": [
-      "BookCiak Award"
-    ]
+    "id": "akN"
   },
   {
-    "title": "HOW TO SHOOT A GHOST",
-    "year": 2025,
-    "country": "United States",
-    "director": "Charlie Kaufman",
-    "link": "https://mubi.com/en/no/films/how-to-shoot-a-ghost",
-    "awarded": false,
-    "awards": []
+    "id": "aep"
   },
   {
-    "title": "BARRIO TRISTE",
-    "year": 2025,
-    "country": "United States",
-    "director": "Stillz Matias Vasquez",
-    "link": "https://mubi.com/en/no/films/barrio-triste",
-    "awarded": false,
-    "awards": []
+    "id": "abq"
   },
   {
-    "title": "DO YOU LOVE ME",
-    "year": 2025,
-    "country": "Qatar",
-    "director": "Lana Daher",
-    "link": "https://mubi.com/en/no/films/do-you-love-me-2025",
-    "awarded": false,
-    "awards": []
+    "id": "acG"
   },
   {
-    "title": "FATHER",
-    "year": 2025,
-    "country": "Poland",
-    "director": "Tereza Nvotová",
-    "link": "https://mubi.com/en/no/films/father-2025",
-    "awarded": false,
-    "awards": []
+    "id": "adi"
   },
   {
-    "title": "SERMON TO THE VOID",
-    "year": 2025,
-    "country": "Turkey",
-    "director": "Hilal Baydarov",
-    "link": "https://mubi.com/en/no/films/sermon-to-the-void",
-    "awarded": false,
-    "awards": []
+    "id": "ais"
   },
   {
-    "title": "STRAIGHT CIRCLE",
-    "year": 2025,
-    "country": "United Kingdom",
-    "director": "Oscar Hudson",
-    "link": "https://mubi.com/en/no/films/straight-circle",
-    "awarded": false,
-    "awards": []
+    "id": "ai9"
   },
   {
-    "title": "HUMAN RESOURCE",
-    "year": 2025,
-    "country": "Thailand",
-    "director": "Nawapol Thamrongrattanarit",
-    "link": "https://mubi.com/en/no/films/human-resource-2025",
-    "awarded": false,
-    "awards": []
+    "id": "aer"
   },
   {
-    "title": "THE IVY",
-    "year": 2025,
-    "country": "Spain",
-    "director": "Ana Cristina Barragán",
-    "link": "https://mubi.com/en/no/films/the-ivy-2025",
-    "awarded": false,
-    "awards": []
+    "id": "aj5"
   },
   {
-    "title": "STRANGE RIVER",
-    "year": 2025,
-    "country": "Spain",
-    "director": "Jaume Claret Muxart",
-    "link": "https://mubi.com/en/no/films/strange-river",
-    "awarded": false,
-    "awards": []
+    "id": "aja"
   },
   {
-    "title": "THE KIDNAPPING OF ARABELLA",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Carolina Cavalli",
-    "link": "https://mubi.com/en/no/films/the-kidnapping-of-arabella",
-    "awarded": false,
-    "awards": []
+    "id": "aj6"
   },
   {
-    "title": "THE WIZARD OF THE KREMLIN",
-    "year": 2025,
-    "country": "France",
-    "director": "Olivier Assayas",
-    "link": "https://mubi.com/en/no/films/the-wizard-of-the-kremlin",
-    "awarded": false,
-    "awards": []
+    "id": "ak0"
   },
   {
-    "title": "GOFFREDO FELICISSIMO",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Franco Maresco",
-    "link": "https://mubi.com/en/no/films/goffredo-felicissimo",
-    "awarded": false,
-    "awards": []
+    "id": "adM"
   },
   {
-    "title": "FAMILY FEAST",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Nadir Taji",
-    "link": "https://mubi.com/en/no/films/family-feast",
-    "awarded": false,
-    "awards": []
+    "id": "adg"
   },
   {
-    "title": "REMAINS",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Fabio Bobbio",
-    "link": "https://mubi.com/en/no/films/remains-2025",
-    "awarded": false,
-    "awards": []
+    "id": "ah1"
   },
   {
-    "title": "CONFINI, CANTI",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Simone Massi",
-    "link": "https://mubi.com/en/no/films/confini-canti",
-    "awarded": false,
-    "awards": []
+    "id": "aca"
   },
   {
-    "title": "PRINCES OF SAINT-TROPEZ",
-    "year": 2025,
-    "country": "Italy",
-    "director": "Amin Harfouch",
-    "link": "https://mubi.com/en/no/films/princes-of-saint-trope",
-    "awarded": false,
-    "awards": []
+    "id": "aih"
   }
 ]

@@ -1,344 +1,110 @@
 [
   {
-    "title": "PERFECT DAYS",
-    "year": 2023,
-    "country": "Japan",
-    "director": "Wim Wenders",
-    "link": "https://mubi.com/en/no/films/perfect-days",
-    "awarded": true,
-    "awards": [
-      "Best Actor"
-    ],
-    "tmdb_id": 976893
+    "id": "ahv"
   },
   {
-    "title": "FALLEN LEAVES",
-    "year": 2023,
-    "country": "Finland",
-    "director": "Aki Kaurismäki",
-    "link": "https://mubi.com/en/no/films/fallen-leaves-2023",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 986280
+    "id": "adf"
   },
   {
-    "title": "MONSTER",
-    "year": 2023,
-    "country": "Japan",
-    "director": "Hirokazu Koreeda",
-    "link": "https://mubi.com/en/no/films/monster-2023",
-    "awarded": true,
-    "awards": [
-      "Best Screenplay & 1 other"
-    ]
+    "id": "ags"
   },
   {
-    "title": "STRANGE WAY OF LIFE",
-    "year": 2023,
-    "country": "Spain",
-    "director": "Pedro Almodóvar",
-    "link": "https://mubi.com/en/no/films/strange-way-of-life",
-    "awarded": false,
-    "awards": []
+    "id": "ajb"
   },
   {
-    "title": "THE SETTLERS",
-    "year": 2023,
-    "country": "Chile",
-    "director": "Felipe Gálvez",
-    "link": "https://mubi.com/en/no/films/the-settlers-2023",
-    "awarded": false,
-    "awards": []
+    "id": "akE"
   },
   {
-    "title": "27",
-    "year": 2023,
-    "country": "France",
-    "director": "Flóra Anna Buda",
-    "link": "https://mubi.com/en/no/films/27-2023",
-    "awarded": true,
-    "awards": [
-      "Palme d'Or: Short Film"
-    ]
+    "id": "aag"
   },
   {
-    "title": "LA CHIMERA",
-    "year": 2023,
-    "country": "Italy",
-    "director": "Alice Rohrwacher",
-    "link": "https://mubi.com/en/no/films/la-chimera",
-    "awarded": false,
-    "awards": []
+    "id": "afc"
   },
   {
-    "title": "ANATOMY OF A FALL",
-    "year": 2023,
-    "country": "France",
-    "director": "Justine Triet",
-    "link": "https://mubi.com/en/no/films/anatomy-of-a-fall",
-    "awarded": true,
-    "awards": [
-      "Palme d'Or"
-    ]
+    "id": "aaZ"
   },
   {
-    "title": "HOW TO HAVE SEX",
-    "year": 2023,
-    "country": "United Kingdom",
-    "director": "Molly Manning Walker",
-    "link": "https://mubi.com/en/no/films/how-to-have-sex",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 1075175
+    "id": "aen"
   },
   {
-    "title": "THE DELINQUENTS",
-    "year": 2023,
-    "country": "Argentina",
-    "director": "Rodrigo Moreno",
-    "link": "https://mubi.com/en/no/films/los-delincuentes",
-    "awarded": false,
-    "awards": []
+    "id": "ajH"
   },
   {
-    "title": "BLACKBIRD BLACKBIRD BLACKBERRY",
-    "year": 2023,
-    "country": "Switzerland",
-    "director": "Elene Naveriani",
-    "link": "https://mubi.com/en/no/films/blackbird-blackbird-blackberry",
-    "awarded": false,
-    "awards": []
+    "id": "abG"
   },
   {
-    "title": "THE TASTE OF THINGS",
-    "year": 2023,
-    "country": "France",
-    "director": "Trần Anh Hùng",
-    "link": "https://mubi.com/en/no/films/the-taste-of-things",
-    "awarded": true,
-    "awards": [
-      "Best Director"
-    ]
+    "id": "akS"
   },
   {
-    "title": "ROBOT DREAMS",
-    "year": 2023,
-    "country": "Spain",
-    "director": "Pablo Berger",
-    "link": "https://mubi.com/en/no/films/robot-dreams",
-    "awarded": false,
-    "awards": []
+    "id": "aia"
   },
   {
-    "title": "THE ZONE OF INTEREST",
-    "year": 2023,
-    "country": "United Kingdom",
-    "director": "Jonathan Glazer",
-    "link": "https://mubi.com/en/no/films/the-zone-of-interest",
-    "awarded": true,
-    "awards": [
-      "Grand Prix"
-    ]
+    "id": "ak6"
   },
   {
-    "title": "INSHALLAH A BOY",
-    "year": 2023,
-    "country": "Jordan",
-    "director": "Amjad Al-Rasheed",
-    "link": "https://mubi.com/en/no/films/inshallah-a-boy",
-    "awarded": false,
-    "awards": []
+    "id": "aeI"
   },
   {
-    "title": "THE RED SEA MAKES ME WANNA CRY",
-    "year": 2023,
-    "country": "Germany",
-    "director": "Faris Alrjoob",
-    "link": "https://mubi.com/en/no/films/the-red-sea-makes-me-wanna-cry",
-    "awarded": false,
-    "awards": []
+    "id": "akx"
   },
   {
-    "title": "BOLERO",
-    "year": 2023,
-    "country": "France",
-    "director": "Nans Laborde-Jourdàa",
-    "link": "https://mubi.com/en/no/films/bolero-2023",
-    "awarded": false,
-    "awards": []
+    "id": "abL"
   },
   {
-    "title": "ABOUT DRY GRASSES",
-    "year": 2023,
-    "country": "Turkey",
-    "director": "Nuri Bilge Ceylan",
-    "link": "https://mubi.com/en/no/films/about-dry-grasses-2023",
-    "awarded": true,
-    "awards": [
-      "Best Actress"
-    ],
-    "tmdb_id": 665733
+    "id": "aaz"
   },
   {
-    "title": "THE OLD OAK",
-    "year": 2023,
-    "country": "United Kingdom",
-    "director": "Ken Loach",
-    "link": "https://mubi.com/en/no/films/the-old-oak",
-    "awarded": false,
-    "awards": []
+    "id": "akp"
   },
   {
-    "title": "THE NATURE OF LOVE",
-    "year": 2023,
-    "country": "Canada",
-    "director": "Monia Chokri",
-    "link": "https://mubi.com/en/no/films/the-nature-of-love",
-    "awarded": false,
-    "awards": []
+    "id": "akl"
   },
   {
-    "title": "KILLERS OF THE FLOWER MOON",
-    "year": 2023,
-    "country": "United States",
-    "director": "Martin Scorsese",
-    "link": "https://mubi.com/en/no/films/killers-of-the-flower-moon",
-    "awarded": false,
-    "awards": []
+    "id": "ae2"
   },
   {
-    "title": "OCCUPIED CITY",
-    "year": 2023,
-    "country": "United Kingdom",
-    "director": "Steve McQueen",
-    "link": "https://mubi.com/en/no/films/the-occupied-city",
-    "awarded": false,
-    "awards": []
+    "id": "ag2"
   },
   {
-    "title": "THE FEELING THAT THE TIME FOR DOING SOMETHING HAS PASSED",
-    "year": 2023,
-    "country": "United States",
-    "director": "Joanna Arnow",
-    "link": "https://mubi.com/en/no/films/the-feeling-that-the-time-for-doing-something-has-passed",
-    "awarded": false,
-    "awards": []
+    "id": "ajT"
   },
   {
-    "title": "LEMON TREE",
-    "year": 2023,
-    "country": "United States",
-    "director": "Rachel Walden",
-    "link": "https://mubi.com/en/no/films/lemon-tree-2023",
-    "awarded": false,
-    "awards": []
+    "id": "afr"
   },
   {
-    "title": "RETURN TO REASON",
-    "year": 2023,
-    "country": "France",
-    "director": "Man Ray",
-    "link": "https://mubi.com/en/no/films/return-to-reason-2023",
-    "awarded": false,
-    "awards": []
+    "id": "ah4"
   },
   {
-    "title": "TRAILER OF THE FILM THAT WILL NEVER EXIST: 'PHONY WARS'",
-    "year": 2023,
-    "country": "France",
-    "director": "Jean-Luc Godard",
-    "link": "https://mubi.com/en/no/films/trailer-of-the-film-that-will-never-exist-phony-wars",
-    "awarded": false,
-    "awards": []
+    "id": "ali"
   },
   {
-    "title": "RIDDLE OF FIRE",
-    "year": 2023,
-    "country": "United States",
-    "director": "Weston Razooli",
-    "link": "https://mubi.com/en/no/films/riddle-of-fire",
-    "awarded": false,
-    "awards": []
+    "id": "ah7"
   },
   {
-    "title": "CLOSE YOUR EYES",
-    "year": 2023,
-    "country": "Spain",
-    "director": "Víctor Erice",
-    "link": "https://mubi.com/en/no/films/close-your-eyes-2023",
-    "awarded": false,
-    "awards": []
+    "id": "ab5"
   },
   {
-    "title": "OMEN",
-    "year": 2023,
-    "country": "Belgium",
-    "director": "Baloji",
-    "link": "https://mubi.com/en/no/films/augure",
-    "awarded": false,
-    "awards": []
+    "id": "ag6"
   },
   {
-    "title": "ASTEROID CITY",
-    "year": 2023,
-    "country": "United States",
-    "director": "Wes Anderson",
-    "link": "https://mubi.com/en/no/films/asteroid-city",
-    "awarded": false,
-    "awards": []
+    "id": "abf"
   },
   {
-    "title": "THE SWEET EAST",
-    "year": 2023,
-    "country": "United States",
-    "director": "Sean Price Williams",
-    "link": "https://mubi.com/en/no/films/the-sweet-east",
-    "awarded": false,
-    "awards": []
+    "id": "akQ"
   },
   {
-    "title": "ANSELM",
-    "year": 2023,
-    "country": "Germany",
-    "director": "Wim Wenders",
-    "link": "https://mubi.com/en/no/films/anselm-das-rauschen-der-zeit",
-    "awarded": false,
-    "awards": []
+    "id": "aa7"
   },
   {
-    "title": "MAY DECEMBER",
-    "year": 2023,
-    "country": "United States",
-    "director": "Todd Haynes",
-    "link": "https://mubi.com/en/no/films/may-december",
-    "awarded": false,
-    "awards": []
+    "id": "af3"
   },
   {
-    "title": "LAST SUMMER",
-    "year": 2023,
-    "country": "France",
-    "director": "Catherine Breillat",
-    "link": "https://mubi.com/en/no/films/l-ete-dernier",
-    "awarded": false,
-    "awards": []
+    "id": "afm"
   },
   {
-    "title": "ONLY THE RIVER FLOWS",
-    "year": 2023,
-    "country": "China",
-    "director": "Wei Shujun",
-    "link": "https://mubi.com/en/no/films/only-the-river-flows",
-    "awarded": false,
-    "awards": []
+    "id": "ahc"
   },
   {
-    "title": "PICTURES OF GHOSTS",
-    "year": 2023,
-    "country": "Brazil",
-    "director": "Kleber Mendonça Filho",
-    "link": "https://mubi.com/en/no/films/pictures-of-ghosts",
-    "awarded": false,
-    "awards": []
+    "id": "ahA"
   }
 ]

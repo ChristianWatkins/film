@@ -1,334 +1,110 @@
 [
   {
-    "title": "DRIVE MY CAR",
-    "year": 2021,
-    "country": "Japan",
-    "director": "Ryusuke Hamaguchi",
-    "link": "https://mubi.com/en/no/films/drive-my-car",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 758866
+    "id": "acO"
   },
   {
-    "title": "TITANE",
-    "year": 2021,
-    "country": "France",
-    "director": "Julia Ducournau",
-    "link": "https://mubi.com/en/no/films/titane",
-    "awarded": false,
-    "awards": []
+    "id": "alf"
   },
   {
-    "title": "PETITE MAMAN",
-    "year": 2021,
-    "country": "France",
-    "director": "Céline Sciamma",
-    "link": "https://mubi.com/en/no/films/petite-maman",
-    "awarded": false,
-    "awards": []
+    "id": "ahw"
   },
   {
-    "title": "PARIS, 13TH DISTRICT",
-    "year": 2021,
-    "country": "France",
-    "director": "Jacques Audiard",
-    "link": "https://mubi.com/en/no/films/les-olympiades",
-    "awarded": false,
-    "awards": []
+    "id": "ahm"
   },
   {
-    "title": "HIT THE ROAD",
-    "year": 2021,
-    "country": "Iran",
-    "director": "Panah Panahi",
-    "link": "https://mubi.com/en/no/films/hit-the-road-2021",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 838154
+    "id": "aed"
   },
   {
-    "title": "MEMORIA",
-    "year": 2021,
-    "country": "Colombia",
-    "director": "Apichatpong Weerasethakul",
-    "link": "https://mubi.com/en/no/films/memoria-2021",
-    "awarded": false,
-    "awards": []
+    "id": "aga"
   },
   {
-    "title": "COW",
-    "year": 2021,
-    "country": "United Kingdom",
-    "director": "Andrea Arnold",
-    "link": "https://mubi.com/en/no/films/cow-2021",
-    "awarded": false,
-    "awards": []
+    "id": "acf"
   },
   {
-    "title": "ANNETTE",
-    "year": 2021,
-    "country": "France",
-    "director": "Leos Carax",
-    "link": "https://mubi.com/en/no/films/annette",
-    "awarded": false,
-    "awards": []
+    "id": "aa4"
   },
   {
-    "title": "COMPARTMENT NO. 6",
-    "year": 2021,
-    "country": "Finland",
-    "director": "Juho Kuosmanen",
-    "link": "https://mubi.com/en/no/films/compartment-no-6",
-    "awarded": false,
-    "awards": []
+    "id": "ab9"
   },
   {
-    "title": "SUNDOWN",
-    "year": 2021,
-    "country": "Mexico",
-    "director": "Michel Franco",
-    "link": "https://mubi.com/en/no/films/sundown-2021",
-    "awarded": true,
-    "awards": [
-      "Cinema Extraordinaire Award"
-    ]
+    "id": "ajf"
   },
   {
-    "title": "A CHIARA",
-    "year": 2021,
-    "country": "Italy",
-    "director": "Jonas Carpignano",
-    "link": "https://mubi.com/en/no/films/a-chiara",
-    "awarded": false,
-    "awards": []
+    "id": "aak"
   },
   {
-    "title": "TAMING THE GARDEN",
-    "year": 2021,
-    "country": "Georgia",
-    "director": "Salomé Jashi",
-    "link": "https://mubi.com/en/no/films/taming-the-garden",
-    "awarded": false,
-    "awards": []
+    "id": "ajn"
   },
   {
-    "title": "UNCLENCHING THE FISTS",
-    "year": 2021,
-    "country": "Russia",
-    "director": "Kira Kovalenko",
-    "link": "https://mubi.com/en/no/films/unclenching-the-fists",
-    "awarded": false,
-    "awards": []
+    "id": "als"
   },
   {
-    "title": "MONEYBOYS",
-    "year": 2021,
-    "country": "Austria",
-    "director": "C.B. Yi",
-    "link": "https://mubi.com/en/no/films/moneyboys",
-    "awarded": false,
-    "awards": []
+    "id": "agp"
   },
   {
-    "title": "PIG",
-    "year": 2021,
-    "country": "United States",
-    "director": "Michael Sarnoski",
-    "link": "https://mubi.com/en/no/films/pig-2020",
-    "awarded": false,
-    "awards": []
+    "id": "ahB"
   },
   {
-    "title": "THE GIRL AND THE SPIDER",
-    "year": 2021,
-    "country": "Switzerland",
-    "director": "Ramon Zürcher, Silvan Zürcher",
-    "link": "https://mubi.com/en/no/films/the-girl-and-the-spider",
-    "awarded": false,
-    "awards": []
+    "id": "ajW"
   },
   {
-    "title": "TASTE",
-    "year": 2021,
-    "country": "Vietnam",
-    "director": "Le Bao",
-    "link": "https://mubi.com/en/no/films/taste-2021",
-    "awarded": false,
-    "awards": []
+    "id": "ajo"
   },
   {
-    "title": "ALL-IN",
-    "year": 2021,
-    "country": "Belgium",
-    "director": "Volkan Üce",
-    "link": "https://mubi.com/en/no/films/all-in-2021-volkan-uce",
-    "awarded": false,
-    "awards": []
+    "id": "aaM"
   },
   {
-    "title": "MEMORY BOX",
-    "year": 2021,
-    "country": "France",
-    "director": "Joana Hadjithomas, Khalil Joreige",
-    "link": "https://mubi.com/en/no/films/memory-box-2021",
-    "awarded": false,
-    "awards": []
+    "id": "agd"
   },
   {
-    "title": "EVOLUTION",
-    "year": 2021,
-    "country": "Hungary",
-    "director": "Kornél Mundruczó",
-    "link": "https://mubi.com/en/no/films/evolution-2021",
-    "awarded": false,
-    "awards": []
+    "id": "adb"
   },
   {
-    "title": "WE",
-    "year": 2021,
-    "country": "France",
-    "director": "Alice Diop",
-    "link": "https://mubi.com/en/no/films/nous-2021",
-    "awarded": false,
-    "awards": [],
-    "tmdb_id": 658854,
-    "poster_path": "/zDl36RTXJW1GhCqz6FOYRl7sCt7.jpg"
+    "id": "alL"
   },
   {
-    "title": "PETROV'S FLU",
-    "year": 2021,
-    "country": "Russia",
-    "director": "Kirill Serebrennikov",
-    "link": "https://mubi.com/en/no/films/petrov-s-flu",
-    "awarded": false,
-    "awards": []
+    "id": "ahx"
   },
   {
-    "title": "THE DIVIDE",
-    "year": 2021,
-    "country": "France",
-    "director": "Catherine Corsini",
-    "link": "https://mubi.com/en/no/films/la-fracture",
-    "awarded": true,
-    "awards": [
-      "Propaganda Nights Award"
-    ]
+    "id": "ajL"
   },
   {
-    "title": "HIVE",
-    "year": 2021,
-    "country": "Republic of Kosovo",
-    "director": "Blerta Basholli",
-    "link": "https://mubi.com/en/no/films/hive",
-    "awarded": false,
-    "awards": []
+    "id": "aee"
   },
   {
-    "title": "HOUSE ARREST",
-    "year": 2021,
-    "country": "Russia",
-    "director": "Aleksey German Jr.",
-    "link": "https://mubi.com/en/no/films/house-arrest-2021",
-    "awarded": false,
-    "awards": []
+    "id": "ael"
   },
   {
-    "title": "LAST NIGHT IN SOHO",
-    "year": 2021,
-    "country": "United Kingdom",
-    "director": "Edgar Wright",
-    "link": "https://mubi.com/en/no/films/last-night-in-soho",
-    "awarded": false,
-    "awards": []
+    "id": "afl"
   },
   {
-    "title": "SUMMER OF SOUL",
-    "year": 2021,
-    "country": "United States",
-    "director": "Ahmir '?uestlove' Thompson",
-    "link": "https://mubi.com/en/no/films/summer-of-soul-or-when-the-revolution-could-not-be-televised",
-    "awarded": false,
-    "awards": []
+    "id": "aje"
   },
   {
-    "title": "CODA",
-    "year": 2021,
-    "country": "United States",
-    "director": "Sian Heder",
-    "link": "https://mubi.com/en/no/films/coda-2021",
-    "awarded": false,
-    "awards": []
+    "id": "ab6"
   },
   {
-    "title": "THE CARD COUNTER",
-    "year": 2021,
-    "country": "United States",
-    "director": "Paul Schrader",
-    "link": "https://mubi.com/en/no/films/the-card-counter",
-    "awarded": false,
-    "awards": []
+    "id": "ajE"
   },
   {
-    "title": "CASABLANCA BEATS",
-    "year": 2021,
-    "country": "France",
-    "director": "Nabil Ayouch",
-    "link": "https://mubi.com/en/no/films/casablanca-beats",
-    "awarded": false,
-    "awards": []
+    "id": "abY"
   },
   {
-    "title": "LUZZU",
-    "year": 2021,
-    "country": "Malta",
-    "director": "Alex Camilleri",
-    "link": "https://mubi.com/en/no/films/luzzu",
-    "awarded": false,
-    "awards": []
+    "id": "afM"
   },
   {
-    "title": "THE VELVET QUEEN",
-    "year": 2021,
-    "country": "France",
-    "director": "Marie Amiguet",
-    "link": "https://mubi.com/en/no/films/la-panthere-des-neiges",
-    "awarded": false,
-    "awards": []
+    "id": "akX"
   },
   {
-    "title": "MASS",
-    "year": 2021,
-    "country": "United States",
-    "director": "Fran Kranz",
-    "link": "https://mubi.com/en/no/films/mass",
-    "awarded": false,
-    "awards": []
+    "id": "af0"
   },
   {
-    "title": "NITRAM",
-    "year": 2021,
-    "country": "Australia",
-    "director": "Justin Kurzel",
-    "link": "https://mubi.com/en/no/films/nitram",
-    "awarded": false,
-    "awards": []
+    "id": "agT"
   },
   {
-    "title": "THE SPARKS BROTHERS",
-    "year": 2021,
-    "country": "United States",
-    "director": "Edgar Wright",
-    "link": "https://mubi.com/en/no/films/the-sparks-brothers",
-    "awarded": false,
-    "awards": []
+    "id": "akJ"
   },
   {
-    "title": "NEPTUNE FROST",
-    "year": 2021,
-    "country": "United States",
-    "director": "Saul Williams, Anisia Uzeyman",
-    "link": "https://mubi.com/en/no/films/neptune-frost",
-    "awarded": false,
-    "awards": []
+    "id": "agK"
   }
 ]

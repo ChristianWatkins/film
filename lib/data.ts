@@ -42,6 +42,48 @@ interface AwardsData {
   }>;
 }
 
+// Master films data types (now includes all TMDB data too)
+interface MasterFilm {
+  id: string; // Short code ID (3 chars) - NEVER changes
+  filmKey: string; // For backward compatibility
+  title: string; // English title from TMDB
+  year: number;
+  director: string | null;
+  country: string | null;
+  mubiLink: string | null;
+  tmdb_id: number | null;
+  // TMDB enrichment fields
+  imdb_id?: string;
+  original_title?: string; // Original language title from TMDB
+  synopsis?: string;
+  tagline?: string;
+  tmdb_rating?: number;
+  tmdb_vote_count?: number;
+  tmdb_popularity?: number;
+  runtime?: number;
+  genres?: string[];
+  release_date?: string;
+  poster_url_tmdb?: string;
+  backdrop_url?: string;
+  budget?: number;
+  revenue?: number;
+  production_companies?: string[];
+  production_countries?: string[];
+  spoken_languages?: string[];
+  keywords?: string[];
+  cast?: any[];
+  crew?: any[];
+  similar_films?: any[];
+  recommendations?: any[];
+}
+
+interface MasterFilmsData {
+  last_updated: string;
+  total_films: number;
+  note?: string;
+  films: Record<string, MasterFilm>; // Keyed by ID (short code)
+}
+
 // Create film key from title and year
 function createFilmKey(title: string, year: number): string {
   return `${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${year}`;
@@ -85,11 +127,29 @@ export async function loadAwards(): Promise<Map<string, { awarded: boolean, awar
   }
 }
 
-// Load all festival films
-export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalFilm, festivals: FestivalAppearance[] }>> {
+// Load master films database
+export async function loadMasterFilms(): Promise<Map<string, MasterFilm>> {
+  const filmsPath = path.join(DATA_DIR, 'films.json');
   const filmsMap = new Map();
-  const filmsByTmdbId = new Map<number, string>(); // Map TMDB ID to filmKey for deduplication
-  const filmsByMubiLink = new Map<string, string>(); // Map MUBI link to filmKey for deduplication
+  
+  try {
+    const content = await fs.readFile(filmsPath, 'utf-8');
+    const data: MasterFilmsData = JSON.parse(content);
+    
+    Object.entries(data.films).forEach(([filmKey, film]) => {
+      filmsMap.set(filmKey, film);
+    });
+    
+    return filmsMap;
+  } catch (error) {
+    console.error('Error loading master films:', error);
+    throw error;
+  }
+}
+
+// Load festival appearances (now simplified to id references only)
+export async function loadFestivalAppearances(): Promise<Map<string, FestivalAppearance[]>> {
+  const appearancesMap = new Map<string, FestivalAppearance[]>();
   const festivalsDir = path.join(DATA_DIR, 'festivals');
   
   try {
@@ -113,216 +173,31 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
         const content = await fs.readFile(filePath, 'utf-8');
         const rawData = JSON.parse(content);
         
-        // Expect all festival data to be in array format
+        // Expect all festival data to be in array format with id references
         if (!Array.isArray(rawData)) {
           console.warn(`Expected array format in ${filePath}, skipping...`);
           continue;
         }
         
-        const filmList: any[] = rawData;
+        const filmList: { id: string }[] = rawData;
         
-        filmList.forEach(film => {
-          // Normalize film data to match standard FestivalFilm format
-          // Convert Arthaus/TMDB format fields to standard format
-          const normalizedFilm: FestivalFilm = {
-            title: film.title,
-            year: film.year,
-            country: film.country,
-            director: film.director,
-            link: film.link,
-            awarded: film.awarded || false,
-            awards: film.awards || [],
-            // Normalize synopsis/overview
-            synopsis: film.synopsis || film.overview || undefined,
-            // Normalize genres (should already be array, but ensure it is)
-            genres: Array.isArray(film.genres) ? film.genres : undefined,
-            // Normalize runtime (convert number to string if needed)
-            runtime: film.runtime ? (typeof film.runtime === 'number' ? film.runtime.toString() : film.runtime) : undefined,
-            // Normalize cast - handle both string arrays and object arrays
-            cast: Array.isArray(film.cast) 
-              ? film.cast.map((c: any) => typeof c === 'string' ? c : c.name || c).filter(Boolean)
-              : undefined
-          };
+        filmList.forEach(({ id }) => {
+          if (!id) return;
           
-          // Preserve tmdb_id and poster_path from the raw film data
-          if (film.tmdb_id) {
-            (normalizedFilm as any).tmdb_id = film.tmdb_id;
-          }
-          if (film.poster_path) {
-            (normalizedFilm as any).poster_path = film.poster_path;
+          // Get or create appearances array for this film
+          if (!appearancesMap.has(id)) {
+            appearancesMap.set(id, []);
           }
           
-          const key = createFilmKey(normalizedFilm.title, normalizedFilm.year);
-          
-          // Check if this film should be merged with an existing one
-          let existingKey = key;
-          
-          // Helper function to extract MUBI film ID from link
-          const extractMubiId = (link: string | undefined): string | null => {
-            if (!link || !link.trim()) return null;
-            // Extract film ID from MUBI URL: https://mubi.com/en/no/films/parthenope -> parthenope
-            const match = link.match(/\/films\/([^\/\?]+)/);
-            return match ? match[1].toLowerCase() : null;
-          };
-          
-          const mubiId = extractMubiId(normalizedFilm.link);
-          
-          // First, check by MUBI link (if this film has one)
-          if (mubiId && filmsByMubiLink.has(mubiId)) {
-            // This film has a MUBI link we've seen before - merge with that entry
-            existingKey = filmsByMubiLink.get(mubiId)!;
-          }
-          // Then check by TMDB ID (if this film has one and not already matched by MUBI)
-          else if (film.tmdb_id && existingKey === key) {
-            const tmdbId = typeof film.tmdb_id === 'string' ? parseInt(film.tmdb_id, 10) : film.tmdb_id;
-            if (!isNaN(tmdbId) && filmsByTmdbId.has(tmdbId)) {
-              // This film has a TMDB ID that we've seen before - merge with that entry
-              existingKey = filmsByTmdbId.get(tmdbId)!;
-            } else {
-              // Check if there's an existing film with the same normalized title/year that should get this TMDB ID
-              // This handles the case where films from different festivals have different title formats
-              // but are the same film (e.g., "PARTHENOPE" vs "Parthenope - Napolis skjønnhet")
-              for (const [existingFilmKey, existingEntry] of filmsMap.entries()) {
-                const existingFilm = existingEntry.film;
-                // Same year
-                if (existingFilm.year === normalizedFilm.year && !(existingFilm as any).tmdb_id) {
-                  const existingTitleNorm = normalizeTitle(existingFilm.title);
-                  const newTitleNorm = normalizeTitle(normalizedFilm.title);
-                  
-                  // Check if titles match after normalization (removing special chars, case, etc.)
-                  let shouldMerge = existingTitleNorm === newTitleNorm;
-                  
-                  // Also check if one title starts with or contains the base word of the other
-                  // This handles cases like "PARTHENOPE" vs "Parthenope - Napolis skjønnhet"
-                  if (!shouldMerge) {
-                    // Check if one normalized title starts with the other (handles most cases)
-                    const shorter = existingTitleNorm.length < newTitleNorm.length ? existingTitleNorm : newTitleNorm;
-                    const longer = existingTitleNorm.length >= newTitleNorm.length ? existingTitleNorm : newTitleNorm;
-                    shouldMerge = longer.startsWith(shorter) && shorter.length >= 6; // At least 6 chars for confidence
-                    
-                    // Also try base word extraction for edge cases
-                    if (!shouldMerge) {
-                      const extractBase = (title: string): string => {
-                        // Get first word that's at least 4 characters
-                        const words = title.split(' ').filter(w => w.length >= 4);
-                        return words[0]?.toLowerCase() || title.substring(0, 10).toLowerCase();
-                      };
-                      
-                      const existingBase = extractBase(existingTitleNorm);
-                      const newBase = extractBase(newTitleNorm);
-                      shouldMerge = existingBase === newBase && existingBase.length >= 4;
-                    }
-                  }
-                  
-                  if (shouldMerge) {
-                    existingKey = existingFilmKey;
-                    // Assign TMDB ID to the existing film
-                    (existingFilm as any).tmdb_id = tmdbId;
-                    filmsByTmdbId.set(tmdbId, existingKey);
-                    break;
-                  }
-                }
-              }
-            }
-          } else {
-            // This film doesn't have a TMDB ID - check if we should merge it with an existing film that has one
-            // This handles the case where Arthaus (with TMDB ID) comes before Bergen/Cannes (without)
-            for (const [existingFilmKey, existingEntry] of filmsMap.entries()) {
-              const existingFilm = existingEntry.film;
-              const existingTmdbId = (existingFilm as any).tmdb_id;
-              
-              // Only merge if existing film has TMDB ID and same year
-              if (existingTmdbId && !isNaN(existingTmdbId) && existingFilm.year === normalizedFilm.year) {
-                const existingTitleNorm = normalizeTitle(existingFilm.title);
-                const newTitleNorm = normalizeTitle(normalizedFilm.title);
-                
-                // Check if titles match after normalization
-                let shouldMerge = existingTitleNorm === newTitleNorm;
-                
-                if (!shouldMerge) {
-                  // Check if one normalized title starts with the other
-                  const shorter = existingTitleNorm.length < newTitleNorm.length ? existingTitleNorm : newTitleNorm;
-                  const longer = existingTitleNorm.length >= newTitleNorm.length ? existingTitleNorm : newTitleNorm;
-                  shouldMerge = longer.startsWith(shorter) && shorter.length >= 6;
-                }
-                
-                if (shouldMerge) {
-                  existingKey = existingFilmKey;
-                  // Copy TMDB ID to this film entry for future lookups
-                  (normalizedFilm as any).tmdb_id = existingTmdbId;
-                  filmsByTmdbId.set(existingTmdbId, existingKey);
-                  break;
-                }
-              }
-            }
-          }
-          
-          if (!filmsMap.has(existingKey)) {
-            // Create new entry
-            filmsMap.set(existingKey, {
-              film: normalizedFilm,
-              festivals: []
-            });
-            // Preserve tmdb_id for enhanced data lookup (not in FestivalFilm interface)
-            if (film.tmdb_id) {
-              const tmdbId = typeof film.tmdb_id === 'string' ? parseInt(film.tmdb_id, 10) : film.tmdb_id;
-              if (!isNaN(tmdbId)) {
-                // Set TMDB ID on the newly created film
-                (filmsMap.get(existingKey)!.film as any).tmdb_id = tmdbId;
-                // Register the TMDB ID mapping
-                filmsByTmdbId.set(tmdbId, existingKey);
-              }
-            }
-            // Preserve poster_path as well
-            if (film.poster_path) {
-              (filmsMap.get(existingKey)!.film as any).poster_path = film.poster_path;
-            }
-          } else {
-            // If film already exists, ensure tmdb_id is set and mapped correctly
-            const existingFilm = filmsMap.get(existingKey)!.film;
-            if (film.tmdb_id) {
-              const tmdbId = typeof film.tmdb_id === 'string' ? parseInt(film.tmdb_id, 10) : film.tmdb_id;
-              if (!isNaN(tmdbId)) {
-                // Always set TMDB ID on existing film (in case it was missing)
-                (existingFilm as any).tmdb_id = tmdbId;
-                // Always update mapping to point to this key (important for deduplication)
-                filmsByTmdbId.set(tmdbId, existingKey);
-              }
-            }
-            // Preserve poster_path: prefer one with poster_path
-            if (film.poster_path && !(existingFilm as any).poster_path) {
-              (existingFilm as any).poster_path = film.poster_path;
-            }
-            // Preserve link: prefer non-empty link (new one wins if existing is empty, otherwise keep existing)
-            if (normalizedFilm.link && (!existingFilm.link || !existingFilm.link.trim())) {
-              existingFilm.link = normalizedFilm.link;
-            }
-            // Prefer film with TMDB ID if one doesn't have it
-            if (film.tmdb_id && !(existingFilm as any).tmdb_id) {
-              // Merge other metadata if the new film has better data
-              if (normalizedFilm.synopsis && !existingFilm.synopsis) {
-                existingFilm.synopsis = normalizedFilm.synopsis;
-              }
-              if (normalizedFilm.genres && (!existingFilm.genres || existingFilm.genres.length === 0)) {
-                existingFilm.genres = normalizedFilm.genres;
-              }
-              if (normalizedFilm.cast && (!existingFilm.cast || existingFilm.cast.length === 0)) {
-                existingFilm.cast = normalizedFilm.cast;
-              }
-            }
-          }
+          const appearances = appearancesMap.get(id)!;
           
           // Check if this festival appearance already exists
-          // Deduplicate by festival name only (not year) to avoid duplicates
-          // when the same film appears in multiple year files for the same festival
-          const existingFestival = filmsMap.get(existingKey)!.festivals.find((f: FestivalAppearance) => 
-            f.name === festivalName
-          );
+          const existingFestival = appearances.find(f => f.name === festivalName);
           
           if (!existingFestival) {
-            filmsMap.get(existingKey)!.festivals.push({
+            appearances.push({
               name: festivalName,
-              year: normalizedYear, // Use normalized year for display consistency
+              year: normalizedYear,
               awarded: false // We'll get award info from CSV instead
             });
           }
@@ -330,88 +205,9 @@ export async function loadFestivalFilms(): Promise<Map<string, { film: FestivalF
       }
     }
     
-    // Final pass: merge any remaining duplicates by TMDB ID
-    // This handles cases where films were processed in different orders
-    const finalFilmsMap = new Map();
-    const finalFilmsByTmdbId = new Map<number, string>();
-    
-    for (const [key, entry] of filmsMap.entries()) {
-      const film = entry.film;
-      const tmdbId = (film as any).tmdb_id;
-      
-      let targetKey = key;
-      
-      // If this film has a TMDB ID, check if we've already seen it
-      if (tmdbId && !isNaN(tmdbId)) {
-        if (finalFilmsByTmdbId.has(tmdbId)) {
-          // Merge with existing film
-          targetKey = finalFilmsByTmdbId.get(tmdbId)!;
-          const existingEntry = finalFilmsMap.get(targetKey)!;
-          
-          // Merge festivals - deduplicate by festival name only (not year)
-          // since a film can appear in the same festival across different year files
-          entry.festivals.forEach((fest: FestivalAppearance) => {
-            const existingFestival = existingEntry.festivals.find((f: FestivalAppearance) => 
-              f.name === fest.name
-            );
-            if (!existingFestival) {
-              existingEntry.festivals.push(fest);
-            }
-          });
-          
-          // Merge metadata (prefer existing data with TMDB ID)
-          const existingFilm = existingEntry.film;
-          if (film.link && (!existingFilm.link || !existingFilm.link.trim())) {
-            existingFilm.link = film.link;
-          }
-        } else {
-          // First time seeing this TMDB ID
-          finalFilmsMap.set(key, entry);
-          finalFilmsByTmdbId.set(tmdbId, key);
-        }
-      } else {
-        // No TMDB ID - check if we can match by normalized title/year with existing TMDB films
-        let matched = false;
-        for (const [existingTmdbId, existingKey] of finalFilmsByTmdbId.entries()) {
-          const existingEntry = finalFilmsMap.get(existingKey)!;
-          const existingFilm = existingEntry.film;
-          
-          if (existingFilm.year === film.year) {
-            const existingTitleNorm = normalizeTitle(existingFilm.title);
-            const newTitleNorm = normalizeTitle(film.title);
-            
-            const shorter = existingTitleNorm.length < newTitleNorm.length ? existingTitleNorm : newTitleNorm;
-            const longer = existingTitleNorm.length >= newTitleNorm.length ? existingTitleNorm : newTitleNorm;
-            
-            if (longer.startsWith(shorter) && shorter.length >= 6) {
-              // Merge with existing
-              targetKey = existingKey;
-              const existingEntry = finalFilmsMap.get(targetKey)!;
-              
-              entry.festivals.forEach((fest: FestivalAppearance) => {
-                const existingFestival = existingEntry.festivals.find((f: FestivalAppearance) => 
-                  f.name === fest.name
-                );
-                if (!existingFestival) {
-                  existingEntry.festivals.push(fest);
-                }
-              });
-              
-              matched = true;
-              break;
-            }
-          }
-        }
-        
-        if (!matched) {
-          finalFilmsMap.set(key, entry);
-        }
-      }
-    }
-    
-    return finalFilmsMap;
+    return appearancesMap;
   } catch (error) {
-    console.error('Error loading festival films:', error);
+    console.error('Error loading festival appearances:', error);
     throw error;
   }
 }
@@ -435,53 +231,27 @@ export async function loadStreamingData(): Promise<StreamingAvailability> {
   }
 }
 
-// Load enhanced TMDB data
-export async function loadEnhancedData(): Promise<any> {
-  const enhancedPath = path.join(DATA_DIR, 'enhanced', 'enhanced-films-tmdb.json');
-  
-  try {
-    const content = await fs.readFile(enhancedPath, 'utf-8');
-    const data = JSON.parse(content);
-    return data.films || [];
-  } catch (error) {
-    console.error('Error loading enhanced TMDB data:', error);
-    return [];
-  }
+// Note: Enhanced TMDB data is now merged into films.json, so this function is no longer needed
+// Keeping it for backwards compatibility but it returns empty
+export async function loadEnhancedData(): Promise<Map<string, MasterFilm>> {
+  // Enhanced data is now merged into films.json
+  return new Map();
 }
 
-// Merge festival and streaming data
+// Merge all data sources into Film objects
 export async function getAllFilms(): Promise<Film[]> {
-  const [festivalFilmsMap, streamingData, enhancedFilms, awardMap] = await Promise.all([
-    loadFestivalFilms(),
+  const [masterFilms, festivalAppearances, streamingData, awardMap] = await Promise.all([
+    loadMasterFilms(),
+    loadFestivalAppearances(),
     loadStreamingData(),
-    loadEnhancedData(),
     loadAwards()
   ]);
   
-  // Create a map of enhanced data for quick lookup
-  const enhancedMap = new Map();
-  const enhancedMapByTmdbId = new Map(); // Also index by TMDB ID for fallback lookup
-  
-  enhancedFilms.forEach((film: any) => {
-    const key = createFilmKey(film.title, film.year);
-    enhancedMap.set(key, film);
-    
-    // Also index by TMDB ID if available
-    if (film.tmdb_id) {
-      enhancedMapByTmdbId.set(film.tmdb_id, film);
-    }
-  });
-  
   const films: Film[] = [];
   
-  for (const [filmKey, { film, festivals }] of festivalFilmsMap) {
-    const streamingInfo = streamingData.films[filmKey];
-    let enhancedInfo = enhancedMap.get(filmKey);
-    
-    // Fallback: if no enhanced data found by title/year, try TMDB ID lookup
-    if (!enhancedInfo && (film as any).tmdb_id) {
-      enhancedInfo = enhancedMapByTmdbId.get((film as any).tmdb_id);
-    }
+  for (const [id, film] of masterFilms) {
+    const appearances = festivalAppearances.get(id) || [];
+    const streamingInfo = streamingData.films[id];
     
     // Look up award information using normalized title
     const normalizedTitle = normalizeTitle(film.title);
@@ -489,37 +259,33 @@ export async function getAllFilms(): Promise<Film[]> {
     const awardInfo = awardMap.get(awardKey);
     
     // Update festival appearances with award status
-    const updatedFestivals = festivals.map((fest: FestivalAppearance) => ({
+    const updatedFestivals = appearances.map(fest => ({
       ...fest,
       awarded: awardInfo?.awarded || false
     }));
     
     films.push({
-      // Core metadata
-      // Prefer English title from TMDB over Norwegian festival title
-      title: enhancedInfo?.tmdb_title || enhancedInfo?.title || film.title,
+      // Core metadata (now all in one file!)
+      title: film.title, // Already English from TMDB after migration
       year: film.year,
-      // Prefer country from enhanced/TMDB data over festival data when TMDB ID exists
-      country: enhancedInfo?.country || film.country,
+      // Prefer country from TMDB production_countries when available
+      country: film.production_countries?.[0] || film.country,
       director: film.director,
       
-      // Enhanced metadata - prefer enhanced data over festival data
-      synopsis: enhancedInfo?.synopsis || film.synopsis || undefined,
-      genres: enhancedInfo?.genres || film.genres || undefined,
-      runtime: enhancedInfo?.runtime?.toString() || film.runtime || undefined,
-      cast: enhancedInfo?.cast?.map((c: any) => c.name || c).slice(0, 6) || film.cast || undefined,
-      tmdbRating: enhancedInfo?.tmdb_rating || undefined,
+      // TMDB metadata (now in same file)
+      synopsis: film.synopsis || undefined,
+      genres: film.genres || undefined,
+      runtime: film.runtime?.toString() || undefined,
+      cast: film.cast?.map((c: any) => c.name || c).slice(0, 6) || undefined,
+      tmdbRating: film.tmdb_rating || undefined,
       
-      // Links - prefer enhanced poster
-      // Use festival link, but filter out empty strings and convert to undefined if empty
-      mubiLink: (film.link && film.link.trim()) || undefined,
+      // Links
+      mubiLink: film.mubiLink || undefined,
       justwatchLink: streamingInfo?.justwatch_url || null,
-      // Poster priority: enhanced > festival poster_path > streaming
-      posterUrl: enhancedInfo?.poster_url_tmdb 
-        || ((film as any).poster_path ? `https://image.tmdb.org/t/p/w500${(film as any).poster_path}` : null)
-        || streamingInfo?.poster_url || null,
+      // Poster priority: TMDB poster URL > streaming poster
+      posterUrl: film.poster_url_tmdb || streamingInfo?.poster_url || null,
       
-      // Awards - now from CSV data
+      // Awards
       awarded: awardInfo?.awarded || false,
       awards: awardInfo?.awards || [],
       
@@ -527,7 +293,7 @@ export async function getAllFilms(): Promise<Film[]> {
       hasStreaming: hasEnabledStreaming(streamingInfo?.streaming || []),
       hasRent: hasEnabledRent(streamingInfo?.rent || []),
       hasBuy: hasEnabledRent(streamingInfo?.buy || []), // Using same logic for buy
-      justwatchFound: streamingInfo?.found || false, // Whether film was found on JustWatch
+      justwatchFound: streamingInfo?.found || false,
       streaming: streamingInfo?.streaming || [],
       rent: streamingInfo?.rent || [],
       buy: streamingInfo?.buy || [],
@@ -535,8 +301,8 @@ export async function getAllFilms(): Promise<Film[]> {
       // Festival info
       festivals: updatedFestivals,
       
-      // Internal
-      filmKey
+      // Internal - keep filmKey for backward compatibility (watchlist, sharing, etc.)
+      filmKey: film.filmKey
     });
   }
   
@@ -591,6 +357,7 @@ function getPlatformDisplayName(platform: string): string {
   return platform;
 }
 
+// Get unique streaming providers from films
 export function getUniqueProviders(films: Film[]): string[] {
   const providers = new Set<string>();
   films.forEach(film => {
@@ -639,4 +406,3 @@ export function getUniqueGenres(films: Film[]): string[] {
   });
   return Array.from(genres).sort();
 }
-

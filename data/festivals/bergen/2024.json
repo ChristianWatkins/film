@@ -1,625 +1,110 @@
 [
   {
-    "title": "THE GIRL WITH THE NEEDLE",
-    "year": 2024,
-    "country": "Denmark",
-    "director": "Magnus von Horn",
-    "link": "https://mubi.com/en/no/films/the-girl-with-the-needle",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Struggling to survive in post-WWI Copenhagen, a newly unemployed and pregnant young woman is taken in by a charismatic elder to help run an underground adoption agency. The two form an unexpected bond, until a sudden discovery changes everything.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Magnus von Horn"
-    ]
+    "id": "ajX"
   },
   {
-    "title": "DAHOMEY",
-    "year": 2024,
-    "country": "France",
-    "director": "Mati Diop",
-    "link": "https://mubi.com/en/no/films/dahomey",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "A history lesson had never been so mesmerizing! This wondrous work of cinematic excavation by Bill Morrison is an archival odyssey into the abyss of capitalism. The documentary is an exquisite ode to the materiality of celluloid and a political and poetic act of resistance in the digital age.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Mati Diop"
-    ]
+    "id": "acm"
   },
   {
-    "title": "NO OTHER LAND",
-    "year": 2024,
-    "country": "Palestine",
-    "director": "Basel Adra & 3 more",
-    "link": "https://mubi.com/en/no/films/no-other-land",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Using the testimony of cameras, young Palestinians and Israelis document settler violence in the West Bank in this rousing, Oscar®-winning film. Few grounds for collaboration are as volatile—yet solidarity establishes itself against all odds, creating an essential work of contemporary cinema.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Basel Adra",
-      "Hamdan Ballal",
-      "Yuval Abraham",
-      "Rachel Szor",
-      "Sean McAllister"
-    ]
+    "id": "agX"
   },
   {
-    "title": "THE SEED OF THE SACRED FIG",
-    "year": 2024,
-    "country": "Iran",
-    "director": "Mohammad Rasoulof",
-    "link": "https://mubi.com/en/no/films/the-seed-of-the-sacred-fig",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Iman, a judge in Tehran, grows paranoid amid political unrest when his gun vanishes. Suspecting his wife and daughters, he enforces harsh rules at home, escalating tension as family and societal norms slowly unravel.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Mohammad Rasoulof",
-      "Carlo Mirabella-Davis"
-    ]
+    "id": "akD"
   },
   {
-    "title": "MATT AND MARA",
-    "year": 2024,
-    "country": "Canada",
-    "director": "Kazik Radwanski",
-    "link": "https://mubi.com/en/no/films/matt-and-mara",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "80",
-    "cast": [
-      "Kazik Radwanski",
-      "Deragh CampbellCast"
-    ]
+    "id": "af2"
   },
   {
-    "title": "FLOW",
-    "year": 2024,
-    "country": "Latvia",
-    "director": "Gints Zilbalodis",
-    "link": "https://mubi.com/en/no/films/flow-2024",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "A surreal reverie laced with hallucinogenic imagery, Flóra Anna Buda’s animated Cannes prizewinner basks in the glorious messiness of young adulthood. Against the all-too-relatable reality of financial precarity and other grown-up blues, 27 liberates the mind through playfully raunchy fantasies.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Gints Zilbalodis",
-      "René Laloux"
-    ]
+    "id": "adr"
   },
   {
-    "title": "MY FAVOURITE CAKE",
-    "year": 2024,
-    "country": "Iran",
-    "director": "Maryam Moghadam, Behtash Sanaeeha",
-    "link": "https://mubi.com/en/no/films/my-favourite-cake",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "The rich inner worlds of children—filled with unanswered questions and fantastical reveries—come vividly alive in Shinji Sômai’s poetic masterpiece. Trailing after the hurried footsteps of a lovably mischievous troublemaker, Moving  probes the delicate passage between innocence and understanding.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Maryam Moghadam",
-      "Behtash Sanaeeha",
-      "Agnès Varda"
-    ],
-    "tmdb_id": 1234591
+    "id": "agB"
   },
   {
-    "title": "ONE OF THOSE DAYS WHEN HEMME DIES",
-    "year": 2024,
-    "country": "Turkey",
-    "director": "Murat Fıratoğlu",
-    "link": "https://mubi.com/en/no/films/one-of-those-days-when-hemme-dies",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "82",
-    "cast": [
-      "Murat Fıratoğlu",
-      "Krzysztof Kieślowski"
-    ]
+    "id": "ahb"
   },
   {
-    "title": "HARVEST",
-    "year": 2024,
-    "country": "United Kingdom",
-    "director": "Athina Rachel Tsangari",
-    "link": "https://mubi.com/en/no/films/harvest",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "A trip into the heart of darkness, Herzog’s mix of historical storytelling and documentary styling delivers an immediacy rarely found in period tales. Anchoring the brutal, bleakly farcical dissection of colonial arrogance and cruelty is Klaus Kinski’s hypnotizing madman with delusions of grandeur.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Athina Rachel Tsangari",
-      "Gregg Araki"
-    ]
+    "id": "ad2"
   },
   {
-    "title": "ANORA",
-    "year": 2024,
-    "country": "United States",
-    "director": "Sean Baker",
-    "link": "https://mubi.com/en/no/films/anora",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "A young escort from Brooklyn meets and impulsively marries the son of a Russian oligarch. Once the news reaches Russia, her fairy tale is threatened as his parents set out for New York to get the marriage annulled.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Sean Baker",
-      "Federico Fellini"
-    ]
+    "id": "aa5"
   },
   {
-    "title": "WILD DIAMOND",
-    "year": 2024,
-    "country": "France",
-    "director": "Agathe Riedinger",
-    "link": "https://mubi.com/en/no/films/wild-diamond",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Liane, 19 years old, daring and fiery, lives with her mother and little sister under the dusty sun of Fréjus in the South of France. Obsessed with beauty and fame, she sees reality TV as her opportunity to be loved. Fate smiles upon her when she auditions for Miracle Island.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Agathe Riedinger",
-      "Agnès Varda"
-    ]
+    "id": "alV"
   },
   {
-    "title": "APRIL",
-    "year": 2024,
-    "country": "Georgia",
-    "director": "Dea Kulumbegashvili",
-    "link": "https://mubi.com/en/no/films/april",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Storm clouds darken fields of rapeseed and livestock shrink from torchlight in Dea Kulumbegashvili’s unblinking second feature, named after the cruelest month. Resolutely formalist in its depiction of moral courage, April reckons with male violence and salvific endings in the season of new life.",
-    "genres": [],
-    "runtime": "",
-    "cast": [
-      "Dea Kulumbegashvili",
-      "Ia SukhitashviliCast"
-    ]
+    "id": "aa9"
   },
   {
-    "title": "ALL WE IMAGINE AS LIGHT",
-    "year": 2024,
-    "country": "France",
-    "director": "Payal Kapadia",
-    "link": "https://mubi.com/en/no/films/all-we-imagine-as-light",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "In Mumbai, Nurse Prabha’s routine is troubled when she receives an unexpected gift from her estranged husband. Her younger roommate, Anu, tries in vain to find a spot in the city to be intimate with her boyfriend. A trip to a beach town allows them to find a space for their desires to manifest.",
-    "genres": [],
-    "runtime": "118",
-    "cast": [
-      "Payal Kapadia",
-      "Agnès Varda"
-    ]
+    "id": "aaR"
   },
   {
-    "title": "PARTHENOPE",
-    "year": 2024,
-    "country": "Italy",
-    "director": "Paolo Sorrentino",
-    "link": "https://mubi.com/en/no/films/parthenope",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Born in the Bay of Naples in 1950, Parthenope searches for happiness over the long summers of her youth, falling in love with her home city and its many memorable characters. But when tragedy strikes, and carefree romances lose their thrill, she decides to seek a deeper sense of purpose.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "136",
-    "cast": [
-      "Paolo Sorrentino",
-      "Agnès Varda"
-    ],
-    "tmdb_id": 1109255
+    "id": "aho"
   },
   {
-    "title": "SEPTEMBER SAYS",
-    "year": 2024,
-    "country": "France",
-    "director": "Ariane Labed",
-    "link": "https://mubi.com/en/no/films/september-says",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "100",
-    "cast": [
-      "Ariane Labed",
-      "Gregg Araki"
-    ]
+    "id": "air"
   },
   {
-    "title": "PAVEMENTS",
-    "year": 2024,
-    "country": "United States",
-    "director": "Alex Ross Perry",
-    "link": "https://mubi.com/en/no/films/pavements",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Leandro Listorti’s debut is a sublime experiment: a film resurrecting cinematic ghosts, injecting life into projects that never saw the light. Made out of unfinished Argentinian movies, this entrancing patchwork of fragmented narratives is an ode to the infinite possibilities of storytelling.",
-    "genres": [
-      "musical"
-    ],
-    "runtime": "128",
-    "cast": [
-      "Alex Ross Perry",
-      "Fatih Akın"
-    ]
+    "id": "ahs"
   },
   {
-    "title": "THE ROOM NEXT DOOR",
-    "year": 2024,
-    "country": "Spain",
-    "director": "Pedro Almodóvar",
-    "link": "https://mubi.com/en/no/films/the-room-next-door-2024",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "A terrific Tennessee drama of a spiritual awakening in times of crisis, Something, Anything is Paul Harrill’s understated yet empowering entry into feature filmmaking. An independent with a heart, this is a film about the promises of transformation: when everything you wanted suddenly falls apart.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "107",
-    "cast": [
-      "Pedro Almodóvar",
-      "Carlo Mirabella-Davis"
-    ]
+    "id": "aky"
   },
   {
-    "title": "LOVE",
-    "year": 2024,
-    "country": "Norway",
-    "director": "Dag Johan Haugerud",
-    "link": "https://mubi.com/en/no/films/kjaerlighet-sex-drommer-kjaerlighet",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Prior to making waves with Never Rarely Sometimes Always, Eliza Hittman directed this sensual and assured coming-of-age story. Winner of the Directing Award at Sundance, Beach Rats stars Harris Dickinson (Babygirl) as a Brooklyn teenager imbued with vulnerability and quiet yearning.",
-    "genres": [
-      "action"
-    ],
-    "runtime": "120",
-    "cast": [
-      "Dag Johan Haugerud",
-      "Robert Bresson"
-    ],
-    "tmdb_id": 1228685
+    "id": "afE"
   },
   {
-    "title": "CAUGHT BY THE TIDES",
-    "year": 2024,
-    "country": "China",
-    "director": "Jia Zhangke",
-    "link": "https://mubi.com/en/no/films/caught-by-the-tides",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "An arthouse staple of the ’90s, the Three Colors films hold up some twenty years later as complex, emotionally resonant, and visually beguiling tales of contemporary Europe.  The first part, Blue, is a story of death and rebirth that features a tour-de-force performance by Juliette Binoche.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "111",
-    "cast": [
-      "Jia Zhangke",
-      "Krzysztof Kieślowski"
-    ]
+    "id": "abZ"
   },
   {
-    "title": "UNIVERSAL LANGUAGE",
-    "year": 2024,
-    "country": "Canada",
-    "director": "Matthew Rankin",
-    "link": "https://mubi.com/en/no/films/universal-language",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Hailed as the first sci-fi film, George Méliès’s seminal short embodies the spellbinding possibilities of cinema as a vessel of dreams that shoots for the stars. Achieved through inventive special effects, the image of a rocket ship striking a grimacing moon is forever immortalized in film history.",
-    "genres": [
-      "comedy"
-    ],
-    "runtime": "89",
-    "cast": [
-      "Matthew Rankin",
-      "Krzysztof Kieślowski"
-    ]
+    "id": "alx"
   },
   {
-    "title": "I SAW THE TV GLOW",
-    "year": 2024,
-    "country": "United States",
-    "director": "Jane Schoenbrun",
-    "link": "https://mubi.com/en/no/films/i-saw-the-tv-glow",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Teenager Owen is just trying to make it through life in the suburbs when his classmate introduces him to a mysterious late-night TV show — a vision of a supernatural world beneath their own. In the pale glow of the television, Owen’s view of reality begins to crack.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "100",
-    "cast": [
-      "Jane Schoenbrun",
-      "F.W. Murnau"
-    ]
+    "id": "aey"
   },
   {
-    "title": "SOUNDTRACK TO A COUP D'ETAT",
-    "year": 2024,
-    "country": "Netherlands",
-    "director": "Johan Grimonprez",
-    "link": "https://mubi.com/en/no/films/soundtrack-to-a-coup-d-etat",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "",
-    "genres": [
-      "war",
-      "documentary"
-    ],
-    "runtime": "150",
-    "cast": [
-      "Johan Grimonprez",
-      "Jennie Livingston"
-    ]
+    "id": "ai0"
   },
   {
-    "title": "GOOD ONE",
-    "year": 2024,
-    "country": "United States",
-    "director": "India Donaldson",
-    "link": "https://mubi.com/en/no/films/good-one",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "17-year-old Sam embarks on a backpacking trip in the Catskills with her dad and his oldest friend. As the two men quickly settle into a quarrelsome dynamic, airing long-held grievances, Sam attempts to mediate. But when lines are crossed and her trust is betrayed, tensions reach a fever pitch.",
-    "genres": [
-      "thriller"
-    ],
-    "runtime": "90",
-    "cast": [
-      "India Donaldson",
-      "Federico Fellini"
-    ]
+    "id": "adN"
   },
   {
-    "title": "A REAL PAIN",
-    "year": 2024,
-    "country": "Poland",
-    "director": "Jesse Eisenberg",
-    "link": "https://mubi.com/en/no/films/a-real-pain",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Two estranged cousins reunite for a tour through Poland to honor their beloved grandmother. The adventure takes a turn when the pair’s old tensions resurface against the backdrop of their family history.",
-    "genres": [
-      "drama",
-      "thriller",
-      "romance"
-    ],
-    "runtime": "90",
-    "cast": [
-      "Jesse Eisenberg",
-      "Krzysztof Kieślowski"
-    ]
+    "id": "aas"
   },
   {
-    "title": "THE OUTRUN",
-    "year": 2024,
-    "country": "United Kingdom",
-    "director": "Nora Fingscheidt",
-    "link": "https://mubi.com/en/no/films/the-outrun",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Rona, fresh out of rehab, returns to the wild and beautiful Orkney Islands after a decade of chaotic living in London. Now 30, she grapples with her troubled past as memories of a traumatic childhood blend with recent events that have led her toward recovery.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "118",
-    "cast": [
-      "Nora Fingscheidt",
-      "Robert Bresson"
-    ]
+    "id": "akq"
   },
   {
-    "title": "SOULEYMANE'S STORY",
-    "year": 2024,
-    "country": "France",
-    "director": "Boris Lojkine",
-    "link": "https://mubi.com/en/no/films/l-histoire-de-souleymane",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "As he pedals through the streets of Paris to deliver meals, Souleymane repeats his story. In two days, he must pass his asylum application interview, the key to obtaining papers. But Souleymane is not ready.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "97",
-    "cast": [
-      "Boris Lojkine"
-    ]
+    "id": "aiY"
   },
   {
-    "title": "KNEECAP",
-    "year": 2024,
-    "country": "Ireland",
-    "director": "Rich Peppiatt",
-    "link": "https://mubi.com/en/no/films/kneecap",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "In Stolen Kisses, Jean-Pierre Léaud has now become Antoine Doinel as an adult (barely), and is running the streets of Paris as a detective. This mischievous and whimsical adventure shows François Truffaut at his most exquisite, playing with the detective thriller genre while running after romance.",
-    "genres": [],
-    "runtime": "105",
-    "cast": [
-      "Rich Peppiatt",
-      "Gregg Araki"
-    ]
+    "id": "ae5"
   },
   {
-    "title": "THE SPARROW IN THE CHIMNEY",
-    "year": 2024,
-    "country": "Switzerland",
-    "director": "Ramon Zürcher",
-    "link": "https://mubi.com/en/no/films/the-sparrow-in-the-chimney",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "The rich inner worlds of children—filled with unanswered questions and fantastical reveries—come vividly alive in Shinji Sômai’s poetic masterpiece. Trailing after the hurried footsteps of a lovably mischievous troublemaker, Moving  probes the delicate passage between innocence and understanding.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "117",
-    "cast": [
-      "Ramon Zürcher",
-      "Gregg Araki"
-    ]
+    "id": "akK"
   },
   {
-    "title": "BLACK DOG",
-    "year": 2024,
-    "country": "China",
-    "director": "Guan Hu",
-    "link": "https://mubi.com/en/no/films/gou-zhen",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "On the edge of the Gobi Desert in Northwest China, Lang returns to his hometown after being released from jail. While working for the local dog patrol team to clear the town of stray dogs before the 2008 Olympic Games, he strikes up an unlikely connection with a black dog.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "110",
-    "cast": [
-      "Guan Hu",
-      "Krzysztof Kieślowski"
-    ],
-    "tmdb_id": 1249423
+    "id": "abE"
   },
   {
-    "title": "ON BECOMING A GUINEA FOWL",
-    "year": 2024,
-    "country": "Zambia",
-    "director": "Rungano Nyoni",
-    "link": "https://mubi.com/en/no/films/on-becoming-a-guinea-fowl",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Following the critical acclaim of I Am Not a Witch, Rungano Nyoni stuns with this confident second feature. Contemplating Zambian traditions and family dynamics with respect and a dose of dry humour, this surreal, intriguing film builds into an engrossing story of buried memories.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "95",
-    "cast": [
-      "Rungano Nyoni",
-      "Federico Fellini"
-    ]
+    "id": "ag7"
   },
   {
-    "title": "THE DEVIL'S BATH",
-    "year": 2024,
-    "country": "Austria",
-    "director": "Veronika Franz, Severin Fiala",
-    "link": "https://mubi.com/en/no/films/the-devil-s-bath",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Located somewhere between the kitsch heaven of underground film and the fire and brimstone of evangelical propaganda stands The Burning Hell. If you’re familiar with grindhouse director Ron Ormond’s work (he started making religious films after surviving a plane crash), you’ll know what’s in store.",
-    "genres": [],
-    "runtime": "121",
-    "cast": [
-      "Veronika Franz",
-      "Severin Fiala",
-      "George A. Romero"
-    ]
+    "id": "ajJ"
   },
   {
-    "title": "DYING",
-    "year": 2024,
-    "country": "Germany",
-    "director": "Matthias Glasner",
-    "link": "https://mubi.com/en/no/films/dying-2024",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Martín﻿ Rejtman’s comeback 11 years after The Magic Gloves did not disappoint. Taking a suicide attempt as the starting point and surprising us at every turn, the film is a fascinating and subversive exercise in comedy: its sophisticated storytelling, dark humor and deadpan beauty are just genius.",
-    "genres": [
-      "drama"
-    ],
-    "runtime": "183",
-    "cast": [
-      "Matthias Glasner",
-      "Krzysztof Kieślowski"
-    ]
+    "id": "acQ"
   },
   {
-    "title": "DÌDI",
-    "year": 2024,
-    "country": "United States",
-    "director": "Sean Wang",
-    "link": "https://mubi.com/en/no/films/didi",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "Groundbreaking in more ways than one, Cheryl Dunye’s autofiction work was the first feature to be directed by a Black lesbian filmmaker. A highlight of the ’90s New Queer Cinema, this joyous comedy wittily reflects, with contagious energy, on film history, representation, race relations, and desire.",
-    "genres": [
-      "family",
-      "drama"
-    ],
-    "runtime": "96",
-    "cast": [
-      "Sean Wang",
-      "Krzysztof Kieślowski"
-    ]
+    "id": "acj"
   },
   {
-    "title": "THE SHROUDS",
-    "year": 2024,
-    "country": "Canada",
-    "director": "David Cronenberg",
-    "link": "https://mubi.com/en/no/films/the-shrouds",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "This misunderstood cult classic sees surrealist mastermind David Lynch back in Los Angeles, journeying once more down the rabbit hole. Indulging in a career-long interest in doubling and doppelgängers, the looping and splintered story of this nightmarish neo-noir weighs heavily with foreboding.",
-    "genres": [],
-    "runtime": "120",
-    "cast": [
-      "David Cronenberg"
-    ]
+    "id": "akF"
   },
   {
-    "title": "EAT THE NIGHT",
-    "year": 2024,
-    "country": "France",
-    "director": "Caroline Poggi, Jonathan Vinel",
-    "link": "https://mubi.com/en/no/films/eat-the-night",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "",
-    "genres": [],
-    "runtime": "105",
-    "cast": [
-      "Caroline Poggi",
-      "Jonathan Vinel",
-      "Park Chan-wook"
-    ]
+    "id": "acR"
   },
   {
-    "title": "SANTOSH",
-    "year": 2024,
-    "country": "United Kingdom",
-    "director": "Sandhya Suri",
-    "link": "https://mubi.com/en/no/films/santosh-2024",
-    "awarded": false,
-    "awards": [],
-    "synopsis": "",
-    "genres": [],
-    "runtime": "",
-    "cast": []
+    "id": "ail"
   }
 ]

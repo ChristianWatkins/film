@@ -99,8 +99,17 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
     };
   });
 
+  // Deduplicate countries by country code (in case of duplicates)
+  const uniqueCountryData = movieCountryData.reduce((acc, current) => {
+    const exists = acc.find(item => item.country.code === current.country.code);
+    if (!exists) {
+      acc.push(current);
+    }
+    return acc;
+  }, [] as typeof movieCountryData);
+
   // Sort countries: Norway first, then by availability, then alphabetically
-  const sortedCountries = [...movieCountryData].sort((a, b) => {
+  const sortedCountries = [...uniqueCountryData].sort((a, b) => {
     // Norway first
     if (a.country.code === 'NO') return -1;
     if (b.country.code === 'NO') return 1;
