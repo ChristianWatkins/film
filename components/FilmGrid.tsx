@@ -6,6 +6,7 @@ import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { FaTrophy } from 'react-icons/fa';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
+import { getLastUsedMode, saveLastUsedMode } from '@/lib/preferences';
 import type { Film, FilterState } from '@/lib/types';
 import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
@@ -93,7 +94,10 @@ export default function FilmGrid({
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const flippedCardRef = useRef<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
-  const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
+  // Initialize with saved preference (defaults to presentation mode for new users)
+  const [rowJumpEnabled, setRowJumpEnabled] = useState(() => {
+    return getLastUsedMode() === 'presentation';
+  });
   const [showFilters, setShowFilters] = useState(false);
   const [showHelpOverlay, setShowHelpOverlay] = useState(false);
   const [allCardsFlipped, setAllCardsFlipped] = useState(false);
@@ -106,6 +110,11 @@ export default function FilmGrid({
   const cardsPerRow = useCardsPerRow();
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
+
+  // Save mode preference whenever it changes
+  useEffect(() => {
+    saveLastUsedMode(rowJumpEnabled ? 'presentation' : 'normal');
+  }, [rowJumpEnabled]);
 
   const handleCardFlip = (filmKey: string) => {
     // If the same card is clicked, close it. Otherwise, open the new one.
