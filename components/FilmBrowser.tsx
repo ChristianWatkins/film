@@ -353,15 +353,19 @@ export default function FilmBrowser({
                 <p>{streamingCount} available for streaming in Norway</p>
               </div>
             </div>
-            <div>
-              <Link
-                href="/search"
-                className="inline-flex items-center px-4 py-2 border border-[#FFB800] text-[#FFB800] rounded-lg hover:bg-[#FFB800] hover:text-[#1A1A2E] transition-colors font-medium"
-              >
-                <MagnifyingGlassIcon className="h-5 w-5 mr-2" />
-                Discover Movies
-              </Link>
-            </div>
+            {process.env.NODE_ENV === 'development' && (
+              <div>
+                <Link
+                  href="/admin/films"
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-[#FFB800] text-[#FFB800] rounded-lg hover:bg-[#FFB800] hover:text-[#1A1A2E] transition-colors font-medium"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                  Admin
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </header>

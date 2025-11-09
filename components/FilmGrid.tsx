@@ -3,8 +3,9 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { EyeIcon, EyeSlashIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { FaTrophy } from 'react-icons/fa';
+import Link from 'next/link';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
 import { getLastUsedMode, saveLastUsedMode } from '@/lib/preferences';
 import type { Film, FilterState } from '@/lib/types';
@@ -438,6 +439,15 @@ export default function FilmGrid({
             </div>
             
             <div className="flex items-center gap-3">
+            {/* Search Button */}
+            <Link
+              href="/search"
+              className="p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform bg-gray-100 hover:bg-gray-200 text-gray-400"
+              title="Discover Movies"
+            >
+              <MagnifyingGlassIcon className="w-5 h-5" />
+            </Link>
+
             {/* Row Jump Button */}
             <button
               onClick={() => setRowJumpEnabled(!rowJumpEnabled)}
