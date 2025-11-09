@@ -74,6 +74,15 @@ export async function POST(request: Request) {
     const bestMatch = sortedMovies[0];
     console.log(`  Found match: ${bestMatch.title} (${bestMatch.originalReleaseYear})`);
     
+    // Check if fullPath exists
+    if (!bestMatch.fullPath) {
+      console.log('  No fullPath found for match');
+      return NextResponse.json({
+        found: false,
+        message: 'Film found but missing fullPath'
+      });
+    }
+    
     // Get detailed data
     const details = await justwatch.getData(bestMatch.fullPath, 'NO');
     
