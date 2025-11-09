@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { MagnifyingGlassIcon, HeartIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
@@ -28,6 +29,8 @@ export default function FilmBrowser({
   availableCountries,
   availableGenres
 }: FilmBrowserProps) {
+  const pathname = usePathname();
+  
   // Load saved filters from localStorage
   const loadSavedFilters = (): FilterState => {
     if (typeof window !== 'undefined') {
@@ -353,7 +356,7 @@ export default function FilmBrowser({
                 <p>{streamingCount} available for streaming in Norway</p>
               </div>
             </div>
-            {process.env.NODE_ENV === 'development' && (
+            {process.env.NODE_ENV === 'development' && !pathname?.startsWith('/admin') && (
               <div>
                 <Link
                   href="/admin/films"

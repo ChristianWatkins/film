@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useMemo } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { EyeIcon, EyeSlashIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
@@ -12,34 +13,6 @@ import type { Film, FilterState } from '@/lib/types';
 import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
 import PresentationFilters from './PresentationFilters';
-
-// Custom hook to safely get cards per row
-const useCardsPerRow = () => {
-  const [cardsPerRow, setCardsPerRow] = useState(2); // Default fallback
-  const [isMounted, setIsMounted] = useState(false);
-  
-  useEffect(() => {
-    setIsMounted(true);
-    
-    const updateCardsPerRow = () => {
-      if (typeof window !== 'undefined') {
-        setCardsPerRow(window.innerWidth >= 768 ? 4 : 2);
-      }
-    };
-    
-    // Set initial value
-    updateCardsPerRow();
-    
-    // Listen for resize
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', updateCardsPerRow);
-      return () => window.removeEventListener('resize', updateCardsPerRow);
-    }
-  }, []);
-  
-  // Return consistent value until mounted
-  return isMounted ? cardsPerRow : 2;
-};
 
 interface FilmGridProps {
   films: Film[];
@@ -92,30 +65,22 @@ export default function FilmGrid({
   onSaveDefaults,
   onResetDefaults
 }: FilmGridProps) {
+  const pathname = usePathname();
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const flippedCardRef = useRef<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
-  // Initialize with saved preference (defaults to presentation mode for new users)
-  const [rowJumpEnabled, setRowJumpEnabled] = useState(() => {
-    return getLastUsedMode() === 'presentation';
-  });
+  const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [showHelpOverlay, setShowHelpOverlay] = useState(false);
   const [allCardsFlipped, setAllCardsFlipped] = useState(false);
   const [currentRowIndex, setCurrentRowIndex] = useState(0);
   const [keyPressCount, setKeyPressCount] = useState<{[key: string]: {count: number, lastTime: number}}>({});
   const [trailerLaunching, setTrailerLaunching] = useState<string | null>(null);
+  const [showLocalSearch, setShowLocalSearch] = useState(false);
+  const [localSearchQuery, setLocalSearchQuery] = useState('');
   const keyPressRef = useRef<{[key: string]: {count: number, lastTime: number}}>({});
-  
-  // Safe way to get cards per row
-  const cardsPerRow = useCardsPerRow();
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
-
-  // Save mode preference whenever it changes
-  useEffect(() => {
-    saveLastUsedMode(rowJumpEnabled ? 'presentation' : 'normal');
-  }, [rowJumpEnabled]);
 
   const handleCardFlip = (filmKey: string) => {
     // If the same card is clicked, close it. Otherwise, open the new one.
@@ -170,12 +135,14 @@ export default function FilmGrid({
       if (Math.abs(e.deltaY) < 5) return;
       const scrollingDown = e.deltaY > 0;
       
-      // Use the safe cardsPerRow from hook
+      // Calculate how many cards per row based on viewport
+      // Must match the grid-cols CSS classes below
+      const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
       
-      const totalRowsInEffect = Math.ceil(films.length / cardsPerRow);
+      const totalRows = Math.ceil(films.length / cardsPerRow);
       
       let newRowIndex = currentRowIndex;
-      if (scrollingDown && currentRowIndex < totalRowsInEffect - 1) {
+      if (scrollingDown && currentRowIndex < totalRows - 1) {
         newRowIndex = currentRowIndex + 1;
       } else if (!scrollingDown && currentRowIndex > 0) {
         newRowIndex = currentRowIndex - 1;
@@ -202,7 +169,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [rowJumpEnabled, currentRowIndex, films.length, cardsPerRow]);
+  }, [rowJumpEnabled, currentRowIndex, films.length]);
 
   // Unified keyboard shortcuts - P to toggle, ESC to exit, L for filters, arrows for navigation
   useEffect(() => {
@@ -270,6 +237,7 @@ export default function FilmGrid({
       
       // Arrow key navigation (only in presentation mode)
       if (rowJumpEnabled && !showFilters) {
+        const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
         const totalRows = Math.ceil(films.length / cardsPerRow);
         
         if (e.key === 'ArrowDown') {
@@ -329,7 +297,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length, cardsPerRow]);
+  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length]);
 
   // Clear key press count when exiting presentation mode
   useEffect(() => {
@@ -345,26 +313,13 @@ export default function FilmGrid({
       setAllCardsFlipped(false);
     } else {
       // Check if current row index is beyond available rows after filtering
+      const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
       const totalRows = Math.ceil(films.length / cardsPerRow);
       if (currentRowIndex >= totalRows && totalRows > 0) {
         setCurrentRowIndex(0); // Reset to first row
       }
     }
-  }, [rowJumpEnabled, films.length, JSON.stringify(filters), currentRowIndex, cardsPerRow]);
-
-  // Calculate which films to show in current row (must be before early return to maintain consistent hook calls)
-  const visibleFilms = useMemo(() => {
-    if (!rowJumpEnabled) return films;
-    
-    const startIndex = currentRowIndex * cardsPerRow;
-    const endIndex = startIndex + cardsPerRow;
-    return films.slice(startIndex, endIndex);
-  }, [rowJumpEnabled, currentRowIndex, films, cardsPerRow]);
-  
-  const totalRows = useMemo(() => {
-    if (!rowJumpEnabled) return 0;
-    return Math.ceil(films.length / cardsPerRow);
-  }, [rowJumpEnabled, films, cardsPerRow]);
+  }, [rowJumpEnabled, films.length, JSON.stringify(filters), currentRowIndex]);
 
   if (films.length === 0) {
     return (
@@ -379,158 +334,118 @@ export default function FilmGrid({
       </div>
     );
   }
+  
+  // Calculate which films to show in current row
+  const visibleFilms = useMemo(() => {
+    if (!rowJumpEnabled) return films;
+    
+    // Must match the grid-cols CSS classes and wheel handler
+    const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+    
+    const startIndex = currentRowIndex * cardsPerRow;
+    const endIndex = startIndex + cardsPerRow;
+    return films.slice(startIndex, endIndex);
+  }, [rowJumpEnabled, currentRowIndex, films]);
+  const totalRows = rowJumpEnabled ? Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) : 0;
 
   return (
     <div data-film-grid className={rowJumpEnabled ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
-      {/* Presentation mode header */}
+      {/* Row indicator when in presentation mode */}
       {rowJumpEnabled && (
-        <div className="bg-[#1A1A2E] text-white py-4 shadow-lg relative">
-          {/* Exit Button - positioned at far left */}
-          <button
-            onClick={() => setRowJumpEnabled(false)}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
-            title="Exit presentation mode (or press ESC)"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
-
-          
-          {/* Inner container matching card grid padding */}
-          <div className="px-32 flex items-center justify-between">
-            {/* Left side: Filters, Film count */}
-            <div className="flex items-center gap-4">
-              {filters && onFiltersChange && (
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
-                    showFilters
-                      ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
-                      : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
-                  }`}
-                  title="Toggle filters (or press Tab)"
-                >
-                  <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
-                  </svg>
-                  Filters
-                </button>
-              )}
-              <div className="text-lg font-medium">
-                Showing {films.length} film{films.length !== 1 ? 's' : ''}
-              </div>
-            </div>
-            
-            {/* Right side: Action buttons */}
-            <div className="flex items-center gap-3">
-              {/* Export/Import Button */}
-              {onWatchlistToggle && watchlistOnly && (
-                <button
-                  onClick={() => setShowExportImportModal(true)}
-                  className="p-2 rounded-full transition-colors cursor-pointer bg-white/10 hover:bg-white/20 text-white"
-                  title="Share your favorites"
-                >
-                  <svg 
-                    className="w-5 h-5" 
-                    fill="none"
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                    />
-                  </svg>
-                </button>
-              )}
-
-              {/* Watched Movies Button - only show when in favorites view */}
-              {onWatchedToggle && isInFavoritesView && (
-                <button
-                  onClick={onWatchedToggle}
-                  className={`p-2 rounded-full transition-colors cursor-pointer ${
-                    watchedOnly 
-                      ? 'bg-blue-500 hover:bg-blue-600 text-white' 
-                      : 'bg-white/10 hover:bg-white/20 text-white'
-                  }`}
-                  title={watchedOnly ? "Show favourites" : "Show watched movies"}
-                >
-                  {watchedOnly ? (
-                    <EyeSlashIcon className="w-5 h-5" />
-                  ) : (
-                    <EyeIcon className="w-5 h-5" />
-                  )}
-                </button>
-              )}
-
-              {/* Search Button */}
-              <Link
-                href="/search"
-                className="p-2 rounded-full transition-colors cursor-pointer bg-white/10 hover:bg-white/20 text-white"
-                title="Discover Movies"
+        <>
+        <div className="bg-[#1A1A2E] text-white py-4 px-8 flex items-center justify-between shadow-lg">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setRowJumpEnabled(false)}
+              className="p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
+              title="Exit presentation mode (or press ESC)"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            {filters && onFiltersChange && (
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
+                  showFilters
+                    ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
+                    : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
+                }`}
+                title="Toggle filters (or press Tab)"
               >
-                <MagnifyingGlassIcon className="w-5 h-5" />
+                <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                </svg>
+                Filters
+              </button>
+            )}
+            <div className="text-lg font-medium">
+              Showing {films.length} film{films.length !== 1 ? 's' : ''}
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            {/* Admin Button - only show in development and not on admin pages */}
+            {process.env.NODE_ENV === 'development' && !pathname?.startsWith('/admin') && (
+              <Link
+                href="/admin/films"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#FFB800] text-[#FFB800] rounded hover:bg-[#FFB800] hover:text-[#1A1A2E] transition-colors text-sm font-medium"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                Admin
               </Link>
+            )}
+            {/* Help Button */}
+            <button
+              onClick={() => setShowHelpOverlay(true)}
+              className="p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
+              title="Show keyboard shortcuts (or press H)"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
+          </div>
 
-              {/* Favourites Button */}
-              {onWatchlistToggle && (
+        </div>
+
+        {/* Presentation Mode Search Input */}
+        {showLocalSearch && filters && onFiltersChange && (
+          <div className="bg-[#1A1A2E] px-8 pb-4">
+            <div className="relative max-w-2xl">
+              <input
+                type="text"
+                placeholder="Search films, directors, genres, cast..."
+                value={filters.searchQuery}
+                onChange={(e) => onFiltersChange({ ...filters, searchQuery: e.target.value })}
+                className="w-full px-4 py-3 pl-10 pr-10 text-sm text-gray-900 border-2 border-[#FFB800] rounded-lg focus:ring-2 focus:ring-[#FFB800] focus:border-[#FFB800] transition-all placeholder:text-gray-400"
+                autoFocus
+              />
+              <svg 
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              {filters.searchQuery && (
                 <button
-                  onClick={onWatchlistToggle}
-                  className={`p-2 rounded-full transition-colors cursor-pointer ${
-                    watchlistOnly 
-                      ? 'bg-red-500 hover:bg-red-600 text-white' 
-                      : 'bg-white/10 hover:bg-white/20 text-white'
-                  }`}
-                  title={watchlistOnly ? "Show all films" : "Show favourites only"}
+                  onClick={() => onFiltersChange({ ...filters, searchQuery: '' })}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
                 >
-                  <svg 
-                    className="w-5 h-5" 
-                    fill={watchlistOnly ? 'currentColor' : 'none'}
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               )}
             </div>
           </div>
-
-          {/* Edit Films Link - only visible in development */}
-          {process.env.NODE_ENV === 'development' && (
-            <a
-              href="/admin/films"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute right-16 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
-              title="Edit Films (Dev only)"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-              </svg>
-            </a>
-          )}
-
-          {/* Help Button - absolute positioned to far right */}
-          <button
-            onClick={() => setShowHelpOverlay(true)}
-            className="absolute right-8 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
-            title="Show keyboard shortcuts (or press H)"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </button>
-        </div>
+        )}
+        </>
       )}
 
       {!rowJumpEnabled && (
@@ -615,6 +530,33 @@ export default function FilmGrid({
               </button>
             )}
 
+            {/* Search Button */}
+            {filters && onFiltersChange && (
+              <button
+                onClick={() => setShowLocalSearch(!showLocalSearch)}
+                className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
+                  showLocalSearch || (filters.searchQuery && filters.searchQuery.length > 0)
+                    ? 'bg-blue-100 hover:bg-blue-200 text-blue-600' 
+                    : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
+                }`}
+                title="Search films"
+              >
+                <svg 
+                  className="w-5 h-5" 
+                  fill="none"
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+                  />
+                </svg>
+              </button>
+            )}
+
             {/* Favourites Button */}
             {onWatchlistToggle && (
               <button
@@ -630,7 +572,7 @@ export default function FilmGrid({
                   className="w-5 h-5" 
                   fill={watchlistOnly ? 'currentColor' : 'none'}
                   stroke="currentColor" 
-                  strokeWidth="2" 
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
                 >
                   <path 
@@ -666,6 +608,40 @@ export default function FilmGrid({
             )}
           </div>
         </div>
+
+        {/* Local Search Input */}
+        {showLocalSearch && filters && onFiltersChange && (
+          <div className="mb-4">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search films, directors, genres, cast..."
+                value={filters.searchQuery}
+                onChange={(e) => onFiltersChange({ ...filters, searchQuery: e.target.value })}
+                className="w-full px-4 py-3 pl-10 pr-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-gray-400"
+                autoFocus
+              />
+              <svg 
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              {filters.searchQuery && (
+                <button
+                  onClick={() => onFiltersChange({ ...filters, searchQuery: '' })}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
+        )}
         </>
       )}
       
@@ -685,6 +661,7 @@ export default function FilmGrid({
                   setAllCardsFlipped(false);
                   
                   // Scroll to the new row
+                  const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
                   const startIndex = newRowIndex * cardsPerRow;
                   const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
                   if (targetCard) {
@@ -703,11 +680,12 @@ export default function FilmGrid({
             </button>
             {/* Row indicator */}
             <div className="text-sm font-mono tabular-nums font-bold tracking-wider">
-              {currentRowIndex + 1}/{Math.ceil(films.length / cardsPerRow)}
+              {currentRowIndex + 1}/{Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2))}
             </div>
             {/* Down caret */}
             <button 
               onClick={() => {
+                const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
                 const totalRows = Math.ceil(films.length / cardsPerRow);
                 if (currentRowIndex < totalRows - 1) {
                   const newRowIndex = currentRowIndex + 1;
@@ -725,15 +703,45 @@ export default function FilmGrid({
                   }
                 }
               }}
-              disabled={currentRowIndex >= Math.ceil(films.length / cardsPerRow) - 1}
+              disabled={currentRowIndex >= Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) - 1}
               className={`text-lg font-medium cursor-pointer hover:text-gray-600 transition-colors ${
-                currentRowIndex >= Math.ceil(films.length / cardsPerRow) - 1 ? 'opacity-50 cursor-not-allowed' : ''
+                currentRowIndex >= Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) - 1 ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               style={{ transform: 'rotate(180deg) scaleX(2)' }}
               title="Next row (or press ↓)"
             >
               ^
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Action Buttons - Presentation Mode */}
+      {rowJumpEnabled && (
+        <div className="fixed top-0 z-40 py-4" style={{ right: '128px' }}>
+          <div className="flex items-center gap-4 justify-end">
+            {/* Export/Import Button */}
+            {onWatchlistToggle && watchlistOnly && (
+              <button
+                onClick={() => setShowExportImportModal(true)}
+                className="p-2 rounded-full transition-colors cursor-pointer bg-white/90 hover:bg-white text-gray-700"
+                title="Share your favorites"
+              >
+                <svg 
+                  className="w-5 h-5" 
+                  fill="none"
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                  />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       )}
