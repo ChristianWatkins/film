@@ -33,8 +33,8 @@ export async function POST(request: Request) {
       });
     }
     
-    // Filter to movies only
-    const movies = searchResults.filter((result: any) => {
+    // Filter to movies only (using any type to avoid JustWatch API typing issues)
+    const movies = (searchResults as any[]).filter((result: any) => {
       if (result.objectType !== undefined) {
         return result.objectType === 'movie';
       }
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
       return aYearDiff - bYearDiff;
     });
     
-    const bestMatch = sortedMovies[0];
+    const bestMatch: any = sortedMovies[0];
     console.log(`  Found match: ${bestMatch.title} (${bestMatch.originalReleaseYear})`);
     
     // Check if fullPath exists
