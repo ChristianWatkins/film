@@ -385,19 +385,21 @@ export default function FilmGrid({
       {/* Presentation mode header */}
       {rowJumpEnabled && (
         <div className="bg-[#1A1A2E] text-white py-4 shadow-lg relative">
+          {/* Exit Button - positioned at far left */}
+          <button
+            onClick={() => setRowJumpEnabled(false)}
+            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
+            title="Exit presentation mode (or press ESC)"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
           {/* Inner container matching card grid padding */}
           <div className="px-32 flex items-center justify-between">
-            {/* Left side: Exit, Filters, Film count */}
+            {/* Left side: Filters, Film count */}
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => setRowJumpEnabled(false)}
-                className="p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
-                title="Exit presentation mode (or press ESC)"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
               {filters && onFiltersChange && (
                 <button
                   onClick={() => setShowFilters(!showFilters)}
