@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, Fragment } from 'react';
+import Link from 'next/link';
 
 interface FestivalAppearance {
   name: string;
@@ -293,7 +294,16 @@ export default function AdminFilmsPage() {
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h1 className="text-3xl font-bold mb-2 text-gray-900">Film Admin</h1>
+          <div className="flex items-center justify-between mb-2">
+            <h1 className="text-3xl font-bold text-gray-900">Film Admin</h1>
+            <Link
+              href="/"
+              className="px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 cursor-pointer transition-colors"
+              title="Return to film browser in your last used mode"
+            >
+              ← Back to Films
+            </Link>
+          </div>
           <p className="text-gray-700 mb-4">
             Edit all film data (core + TMDB). Changes are saved to <code className="bg-gray-100 px-2 py-1 rounded text-gray-900">data/films.json</code>
           </p>

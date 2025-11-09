@@ -82,6 +82,26 @@ export default function FilmGrid({
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
 
+  // Initialize presentation mode from localStorage on mount
+  useEffect(() => {
+    const lastMode = getLastUsedMode();
+    if (lastMode === 'presentation') {
+      setRowJumpEnabled(true);
+    }
+  }, []);
+
+  // Save presentation mode to localStorage when it changes
+  useEffect(() => {
+    const mode = rowJumpEnabled ? 'presentation' : 'normal';
+    saveLastUsedMode(mode);
+  }, [rowJumpEnabled]);
+
+  // Helper function to safely get cards per row
+  const getCardsPerRow = () => {
+    if (typeof window === 'undefined') return 4; // Default for SSR
+    return window.innerWidth >= 768 ? 4 : 2;
+  };
+
   const handleCardFlip = (filmKey: string) => {
     // If the same card is clicked, close it. Otherwise, open the new one.
     // Use ref for more reliable state checking
@@ -137,7 +157,7 @@ export default function FilmGrid({
       
       // Calculate how many cards per row based on viewport
       // Must match the grid-cols CSS classes below
-      const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+      const cardsPerRow = getCardsPerRow();
       
       const totalRows = Math.ceil(films.length / cardsPerRow);
       
@@ -235,9 +255,15 @@ export default function FilmGrid({
         setShowFilters(prev => !prev);
       }
       
+      // S key toggles search (only in presentation mode)
+      if ((e.key === 's' || e.key === 'S') && rowJumpEnabled) {
+        e.preventDefault();
+        setShowLocalSearch(prev => !prev);
+      }
+      
       // Arrow key navigation (only in presentation mode)
       if (rowJumpEnabled && !showFilters) {
-        const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+        const cardsPerRow = getCardsPerRow();
         const totalRows = Math.ceil(films.length / cardsPerRow);
         
         if (e.key === 'ArrowDown') {
@@ -313,7 +339,7 @@ export default function FilmGrid({
       setAllCardsFlipped(false);
     } else {
       // Check if current row index is beyond available rows after filtering
-      const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+      const cardsPerRow = getCardsPerRow();
       const totalRows = Math.ceil(films.length / cardsPerRow);
       if (currentRowIndex >= totalRows && totalRows > 0) {
         setCurrentRowIndex(0); // Reset to first row
@@ -340,75 +366,106 @@ export default function FilmGrid({
     if (!rowJumpEnabled) return films;
     
     // Must match the grid-cols CSS classes and wheel handler
-    const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+    const cardsPerRow = getCardsPerRow();
     
     const startIndex = currentRowIndex * cardsPerRow;
     const endIndex = startIndex + cardsPerRow;
     return films.slice(startIndex, endIndex);
   }, [rowJumpEnabled, currentRowIndex, films]);
-  const totalRows = rowJumpEnabled ? Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) : 0;
+  const totalRows = rowJumpEnabled ? Math.ceil(films.length / getCardsPerRow()) : 0;
 
   return (
     <div data-film-grid className={rowJumpEnabled ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
       {/* Row indicator when in presentation mode */}
       {rowJumpEnabled && (
         <>
-        <div className="bg-[#1A1A2E] text-white py-4 px-8 flex items-center justify-between shadow-lg">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setRowJumpEnabled(false)}
-              className="p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
-              title="Exit presentation mode (or press ESC)"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            {filters && onFiltersChange && (
+        <div className="bg-[#1A1A2E] text-white py-4 relative shadow-lg">
+          <button
+            onClick={() => setRowJumpEnabled(false)}
+            className="absolute left-8 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
+            title="Exit presentation mode (or press ESC)"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Inner container matching card grid padding */}
+          <div className="px-32 flex items-center justify-between">
+            <div className="flex items-center gap-6">
+              {filters && onFiltersChange && (
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
+                    showFilters
+                      ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
+                      : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
+                  }`}
+                  title="Toggle filters (or press Tab)"
+                >
+                  <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                  </svg>
+                  Filters
+                </button>
+              )}
+              <div className="text-lg font-medium">
+                Showing {films.length} film{films.length !== 1 ? 's' : ''}
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              {/* Watchlist Toggle Button */}
               <button
-                onClick={() => setShowFilters(!showFilters)}
-                className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
-                  showFilters
-                    ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
-                    : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
+                onClick={onWatchlistToggle}
+                className={`p-2 rounded-full transition-all cursor-pointer ${
+                  watchlistOnly
+                    ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E]'
+                    : 'bg-white/10 hover:bg-white/20 text-white'
                 }`}
-                title="Toggle filters (or press Tab)"
+                title={watchlistOnly ? "Show all films" : "Show only watchlist"}
               >
-                <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
-                </svg>
-                Filters
+                <HeartIconSolid className={`w-5 h-5 ${watchlistOnly ? 'text-[#1A1A2E]' : 'text-white'}`} />
               </button>
-            )}
-            <div className="text-lg font-medium">
-              Showing {films.length} film{films.length !== 1 ? 's' : ''}
+
+              {/* Search Toggle Button */}
+              <button
+                onClick={() => setShowLocalSearch(!showLocalSearch)}
+                className={`p-2 rounded-full transition-all cursor-pointer ${
+                  showLocalSearch
+                    ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E]'
+                    : 'bg-white/10 hover:bg-white/20 text-white'
+                }`}
+                title={showLocalSearch ? "Hide search" : "Show search (or press S)"}
+              >
+                <MagnifyingGlassIcon className={`w-5 h-5 ${showLocalSearch ? 'text-[#1A1A2E]' : 'text-white'}`} />
+              </button>
             </div>
           </div>
-          
-          <div className="flex items-center gap-4">
-            {/* Admin Button - only show in development and not on admin pages */}
-            {process.env.NODE_ENV === 'development' && !pathname?.startsWith('/admin') && (
-              <Link
-                href="/admin/films"
-                className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#FFB800] text-[#FFB800] rounded hover:bg-[#FFB800] hover:text-[#1A1A2E] transition-colors text-sm font-medium"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                </svg>
-                Admin
-              </Link>
-            )}
-            {/* Help Button */}
-            <button
-              onClick={() => setShowHelpOverlay(true)}
-              className="p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
-              title="Show keyboard shortcuts (or press H)"
+
+          {/* Edit Films Link - only visible in development and not on admin pages */}
+          {process.env.NODE_ENV === 'development' && !pathname?.startsWith('/admin') && (
+            <Link
+              href="/admin/films"
+              className="absolute right-16 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
+              title="Edit Films (Dev only)"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
               </svg>
-            </button>
-          </div>
+            </Link>
+          )}
+
+          {/* Help Button - absolute positioned to far right */}
+          <button
+            onClick={() => setShowHelpOverlay(true)}
+            className="absolute right-8 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
+            title="Show keyboard shortcuts (or press H)"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
 
         </div>
 
@@ -661,7 +718,7 @@ export default function FilmGrid({
                   setAllCardsFlipped(false);
                   
                   // Scroll to the new row
-                  const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+                  const cardsPerRow = getCardsPerRow();
                   const startIndex = newRowIndex * cardsPerRow;
                   const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
                   if (targetCard) {
@@ -680,12 +737,12 @@ export default function FilmGrid({
             </button>
             {/* Row indicator */}
             <div className="text-sm font-mono tabular-nums font-bold tracking-wider">
-              {currentRowIndex + 1}/{Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2))}
+              {currentRowIndex + 1}/{Math.ceil(films.length / getCardsPerRow())}
             </div>
             {/* Down caret */}
             <button 
               onClick={() => {
-                const cardsPerRow = window.innerWidth >= 768 ? 4 : 2;
+                const cardsPerRow = getCardsPerRow();
                 const totalRows = Math.ceil(films.length / cardsPerRow);
                 if (currentRowIndex < totalRows - 1) {
                   const newRowIndex = currentRowIndex + 1;
@@ -703,9 +760,9 @@ export default function FilmGrid({
                   }
                 }
               }}
-              disabled={currentRowIndex >= Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) - 1}
+              disabled={currentRowIndex >= Math.ceil(films.length / getCardsPerRow()) - 1}
               className={`text-lg font-medium cursor-pointer hover:text-gray-600 transition-colors ${
-                currentRowIndex >= Math.ceil(films.length / (window.innerWidth >= 768 ? 4 : 2)) - 1 ? 'opacity-50 cursor-not-allowed' : ''
+                currentRowIndex >= Math.ceil(films.length / getCardsPerRow()) - 1 ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               style={{ transform: 'rotate(180deg) scaleX(2)' }}
               title="Next row (or press ↓)"
