@@ -382,52 +382,135 @@ export default function FilmGrid({
 
   return (
     <div data-film-grid className={rowJumpEnabled ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
-      {/* Row indicator when in presentation mode */}
+      {/* Presentation mode header */}
       {rowJumpEnabled && (
-        <div className="bg-[#1A1A2E] text-white py-4 px-8 flex items-center justify-between shadow-lg">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setRowJumpEnabled(false)}
-              className="p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
-              title="Exit presentation mode (or press ESC)"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            {filters && onFiltersChange && (
+        <div className="bg-[#1A1A2E] text-white py-4 shadow-lg relative">
+          {/* Inner container matching card grid padding */}
+          <div className="px-32 flex items-center justify-between">
+            {/* Left side: Exit, Filters, Film count */}
+            <div className="flex items-center gap-4">
               <button
-                onClick={() => setShowFilters(!showFilters)}
-                className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
-                  showFilters
-                    ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
-                    : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
-                }`}
-                title="Toggle filters (or press Tab)"
+                onClick={() => setRowJumpEnabled(false)}
+                className="p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
+                title="Exit presentation mode (or press ESC)"
               >
-                <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
-                Filters
               </button>
-            )}
-            <div className="text-lg font-medium">
-              Showing {films.length} film{films.length !== 1 ? 's' : ''}
+              {filters && onFiltersChange && (
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
+                    showFilters
+                      ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
+                      : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
+                  }`}
+                  title="Toggle filters (or press Tab)"
+                >
+                  <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                  </svg>
+                  Filters
+                </button>
+              )}
+              <div className="text-lg font-medium">
+                Showing {films.length} film{films.length !== 1 ? 's' : ''}
+              </div>
+            </div>
+            
+            {/* Right side: Action buttons */}
+            <div className="flex items-center gap-3">
+              {/* Export/Import Button */}
+              {onWatchlistToggle && watchlistOnly && (
+                <button
+                  onClick={() => setShowExportImportModal(true)}
+                  className="p-2 rounded-full transition-colors cursor-pointer bg-white/10 hover:bg-white/20 text-white"
+                  title="Share your favorites"
+                >
+                  <svg 
+                    className="w-5 h-5" 
+                    fill="none"
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                    />
+                  </svg>
+                </button>
+              )}
+
+              {/* Watched Movies Button - only show when in favorites view */}
+              {onWatchedToggle && isInFavoritesView && (
+                <button
+                  onClick={onWatchedToggle}
+                  className={`p-2 rounded-full transition-colors cursor-pointer ${
+                    watchedOnly 
+                      ? 'bg-blue-500 hover:bg-blue-600 text-white' 
+                      : 'bg-white/10 hover:bg-white/20 text-white'
+                  }`}
+                  title={watchedOnly ? "Show favourites" : "Show watched movies"}
+                >
+                  {watchedOnly ? (
+                    <EyeSlashIcon className="w-5 h-5" />
+                  ) : (
+                    <EyeIcon className="w-5 h-5" />
+                  )}
+                </button>
+              )}
+
+              {/* Search Button */}
+              <Link
+                href="/search"
+                className="p-2 rounded-full transition-colors cursor-pointer bg-white/10 hover:bg-white/20 text-white"
+                title="Discover Movies"
+              >
+                <MagnifyingGlassIcon className="w-5 h-5" />
+              </Link>
+
+              {/* Favourites Button */}
+              {onWatchlistToggle && (
+                <button
+                  onClick={onWatchlistToggle}
+                  className={`p-2 rounded-full transition-colors cursor-pointer ${
+                    watchlistOnly 
+                      ? 'bg-red-500 hover:bg-red-600 text-white' 
+                      : 'bg-white/10 hover:bg-white/20 text-white'
+                  }`}
+                  title={watchlistOnly ? "Show all films" : "Show favourites only"}
+                >
+                  <svg 
+                    className="w-5 h-5" 
+                    fill={watchlistOnly ? 'currentColor' : 'none'}
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    />
+                  </svg>
+                </button>
+              )}
             </div>
           </div>
-          
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setShowHelpOverlay(true)}
-              className="p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
-              title="Show keyboard shortcuts (or press H)"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </button>
-          </div>
 
+          {/* Help Button - absolute positioned to far right */}
+          <button
+            onClick={() => setShowHelpOverlay(true)}
+            className="absolute right-8 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
+            title="Show keyboard shortcuts (or press H)"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
         </div>
       )}
 
@@ -632,82 +715,6 @@ export default function FilmGrid({
             >
               ^
             </button>
-          </div>
-        </div>
-      )}
-
-      {/* Floating Action Buttons - Presentation Mode */}
-      {rowJumpEnabled && (
-        <div className="fixed top-0 z-40 py-4" style={{ right: '128px' }}>
-          <div className="flex items-center gap-4 justify-end">
-            {/* Export/Import Button */}
-            {onWatchlistToggle && watchlistOnly && (
-              <button
-                onClick={() => setShowExportImportModal(true)}
-                className="p-2 rounded-full transition-colors cursor-pointer bg-white/90 hover:bg-white text-gray-700"
-                title="Share your favorites"
-              >
-                <svg 
-                  className="w-5 h-5" 
-                  fill="none"
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                  />
-                </svg>
-              </button>
-            )}
-
-            {/* Watched Movies Button - only show when in favorites view */}
-            {onWatchedToggle && isInFavoritesView && (
-              <button
-                onClick={onWatchedToggle}
-                className={`p-2 rounded-full transition-colors cursor-pointer ${
-                  watchedOnly 
-                    ? 'bg-blue-500 hover:bg-blue-600 text-white' 
-                    : 'bg-white/90 hover:bg-white text-gray-700'
-                }`}
-                title={watchedOnly ? "Show favourites" : "Show watched movies"}
-              >
-                {watchedOnly ? (
-                  <EyeSlashIcon className="w-5 h-5" />
-                ) : (
-                  <EyeIcon className="w-5 h-5" />
-                )}
-              </button>
-            )}
-
-            {/* Favourites Button */}
-            {onWatchlistToggle && (
-              <button
-                onClick={onWatchlistToggle}
-                className={`p-2 rounded-full transition-colors cursor-pointer ${
-                  watchlistOnly 
-                    ? 'bg-red-500 hover:bg-red-600 text-white' 
-                    : 'bg-white/90 hover:bg-white text-gray-700'
-                }`}
-                title={watchlistOnly ? "Show all films" : "Show favourites only"}
-              >
-                <svg 
-                  className="w-5 h-5" 
-                  fill={watchlistOnly ? 'currentColor' : 'none'}
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </button>
-            )}
           </div>
         </div>
       )}
