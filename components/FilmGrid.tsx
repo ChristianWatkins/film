@@ -420,12 +420,12 @@ export default function FilmGrid({
                 onClick={onWatchlistToggle}
                 className={`p-2 rounded-full transition-all cursor-pointer ${
                   watchlistOnly
-                    ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E]'
+                    ? 'bg-white hover:bg-white/90 text-red-600'
                     : 'bg-white/10 hover:bg-white/20 text-white'
                 }`}
                 title={watchlistOnly ? "Show all films" : "Show only watchlist"}
               >
-                <HeartIconSolid className={`w-5 h-5 ${watchlistOnly ? 'text-[#1A1A2E]' : 'text-white'}`} />
+                <HeartIconSolid className={`w-5 h-5 ${watchlistOnly ? 'text-red-600' : 'text-white'}`} />
               </button>
 
               {/* Search Toggle Button */}
@@ -513,15 +513,6 @@ export default function FilmGrid({
             </div>
             
             <div className="flex items-center gap-3">
-            {/* Search Button */}
-            <Link
-              href="/search"
-              className="p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform bg-gray-100 hover:bg-gray-200 text-gray-400"
-              title="Discover Movies"
-            >
-              <MagnifyingGlassIcon className="w-5 h-5" />
-            </Link>
-
             {/* Row Jump Button */}
             <button
               onClick={() => setRowJumpEnabled(!rowJumpEnabled)}
