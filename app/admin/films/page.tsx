@@ -50,6 +50,7 @@ export default function AdminFilmsPage() {
   const [availableFestivals, setAvailableFestivals] = useState<{ name: string; years: string[] }[]>([]);
   const [deletingFilmId, setDeletingFilmId] = useState<string | null>(null);
   const [refreshingJustWatch, setRefreshingJustWatch] = useState<string | null>(null);
+  const [filterMode, setFilterMode] = useState<'all' | 'needs-review' | 'has-tmdb'>('all');
 
   // Check if we're in development
   const isDevelopment = process.env.NODE_ENV === 'development';
@@ -247,7 +248,7 @@ export default function AdminFilmsPage() {
     let processedValue: any = value || null;
     
     // Handle special field types
-    if (field === 'year' || field === 'runtime') {
+    if (field === 'year' || field === 'runtime' || field === 'tmdb_id') {
       processedValue = value ? parseInt(value, 10) : null;
     } else if (field === 'genres') {
       // Convert comma-separated string to array
@@ -260,16 +261,31 @@ export default function AdminFilmsPage() {
     });
   };
 
-  // Filter films by search term
+  // Filter films by search term and review status
   const filteredFilms = films.filter(film => {
+    // Apply search filter
     const searchLower = searchTerm.toLowerCase();
-    return (
+    const matchesSearch = (
       film.title.toLowerCase().includes(searchLower) ||
       film.director?.toLowerCase().includes(searchLower) ||
       film.year.toString().includes(searchLower) ||
       film.filmKey.includes(searchLower)
     );
+    
+    if (!matchesSearch) return false;
+    
+    // Apply status filter
+    if (filterMode === 'needs-review') {
+      return !film.tmdb_id; // Only films without TMDB ID (truly failed to find)
+    } else if (filterMode === 'has-tmdb') {
+      return !!film.tmdb_id;
+    }
+    
+    return true; // 'all' mode
   });
+  
+  // Count films needing review (only those without TMDB ID)
+  const needsReviewCount = films.filter(f => !f.tmdb_id).length;
 
   if (!isDevelopment) {
     return (
@@ -322,6 +338,39 @@ export default function AdminFilmsPage() {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-500 text-gray-900"
             />
+          </div>
+          
+          <div className="mb-4 flex gap-2">
+            <button
+              onClick={() => setFilterMode('all')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                filterMode === 'all'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              All Films ({films.length})
+            </button>
+            <button
+              onClick={() => setFilterMode('needs-review')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                filterMode === 'needs-review'
+                  ? 'bg-orange-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              ⚠️ Needs Review ({needsReviewCount})
+            </button>
+            <button
+              onClick={() => setFilterMode('has-tmdb')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                filterMode === 'has-tmdb'
+                  ? 'bg-green-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              ✓ Has TMDB ({films.length - needsReviewCount})
+            </button>
           </div>
           
           <div className="text-sm text-gray-900 mb-2">
@@ -442,6 +491,29 @@ export default function AdminFilmsPage() {
                                 value={editingFilm.runtime || ''}
                                 onChange={(e) => handleFieldChange('runtime', e.target.value)}
                                 className="w-full px-3 py-2 border border-gray-300 rounded text-gray-900 placeholder-gray-500"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">TMDB ID</label>
+                              <input
+                                type="number"
+                                value={editingFilm.tmdb_id || ''}
+                                onChange={(e) => handleFieldChange('tmdb_id', e.target.value)}
+                                className="w-full px-3 py-2 border border-gray-300 rounded text-gray-900 placeholder-gray-500"
+                                placeholder="e.g., 123456"
+                              />
+                              <p className="text-xs text-gray-500 mt-1">
+                                Find on <a href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">themoviedb.org</a> - ID is in the URL
+                              </p>
+                            </div>
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">IMDB ID</label>
+                              <input
+                                type="text"
+                                value={editingFilm.imdb_id || ''}
+                                onChange={(e) => handleFieldChange('imdb_id', e.target.value)}
+                                className="w-full px-3 py-2 border border-gray-300 rounded text-gray-900 placeholder-gray-500"
+                                placeholder="e.g., tt1234567"
                               />
                             </div>
                             <div>

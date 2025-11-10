@@ -1,0 +1,1529 @@
+[dotenv@17.2.3] injecting env (7) from .env.local -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+🔧 Fixing Missing TMDB IDs
+============================================================
+
+📊 Found 504 films with IMDB ID but no TMDB ID
+
+🔍 Looking up TMDB IDs...
+
+[1/504] Summer of 85 (2020)
+   IMDB: tt10457128
+   ✅ Found TMDB ID: 659959
+[2/504] The Beginning of Life 2: Outside (2020)
+   IMDB: tt12190648
+   ✅ Found TMDB ID: 765188
+[3/504] Nomadland (2020)
+   IMDB: tt9770150
+   ✅ Found TMDB ID: 581734
+[4/504] Never Gonna Snow Again (2020)
+   IMDB: tt9526784
+   ✅ Found TMDB ID: 726151
+[5/504] Last and First Men (2020)
+   IMDB: tt8015444
+   ✅ Found TMDB ID: 566038
+[6/504] New Order (2020)
+   IMDB: tt12474056
+   ✅ Found TMDB ID: 575446
+[7/504] Mayor (2020)
+   IMDB: tt11614054
+   ✅ Found TMDB ID: 681011
+[8/504] Welcome to Chechnya (2020)
+   IMDB: tt11394200
+   ✅ Found TMDB ID: 653579
+[9/504] Palm Springs (2020)
+   IMDB: tt9484998
+   ✅ Found TMDB ID: 587792
+[10/504] Yellow Cat (2020)
+   IMDB: tt12792608
+   ✅ Found TMDB ID: 728145
+[11/504] Promising Young Woman (2020)
+   IMDB: tt9620292
+   ✅ Found TMDB ID: 582014
+[12/504] If It Were Love (2020)
+   IMDB: tt11018424
+   ✅ Found TMDB ID: 649285
+[13/504] Bad Tales (2020)
+   IMDB: tt8526370
+   ✅ Found TMDB ID: 614292
+[14/504] The Trouble with Being Born (2020)
+   IMDB: tt9220966
+   ✅ Found TMDB ID: 664589
+[15/504] Preparations to Be Together for an Unknown Period of Time (2020)
+   IMDB: tt12564514
+   ✅ Found TMDB ID: 727002
+[16/504] Never Rarely Sometimes Always (2020)
+   IMDB: tt7772582
+   ✅ Found TMDB ID: 595671
+[17/504] Uppercase Print (2020)
+   IMDB: tt10452766
+   ✅ Found TMDB ID: 655368
+[18/504] Love Affair(s) (2020)
+   IMDB: tt12443930
+   ✅ Found TMDB ID: 661935
+[19/504] Feels Good Man (2020)
+   IMDB: tt11394182
+   ✅ Found TMDB ID: 653578
+[20/504] Shirley (2020)
+   IMDB: tt8430598
+   ✅ Found TMDB ID: 547017
+[21/504] Meanwhile on Earth (2020)
+   IMDB: tt11450902
+   ✅ Found TMDB ID: 658806
+[22/504] A Common Crime (2020)
+   IMDB: tt11732324
+   ✅ Found TMDB ID: 665779
+[23/504] Kajillionaire (2020)
+   IMDB: tt8143990
+   ✅ Found TMDB ID: 541305
+[24/504] Epicentro (2020)
+   IMDB: tt11393948
+   ✅ Found TMDB ID: 653754
+[25/504] Gunda (2020)
+   IMDB: tt11318602
+   ❌ Could not find TMDB ID
+[26/504] Aalto (2020)
+   IMDB: tt9634036
+   ✅ Found TMDB ID: 683722
+[27/504] The Mole Agent (2020)
+   IMDB: tt11394298
+   ✅ Found TMDB ID: 653756
+[28/504] Stray (2020)
+   IMDB: tt9343098
+   ✅ Found TMDB ID: 727330
+[29/504] Alex Fernández: The Best Comedian in the World (2020)
+   IMDB: tt11497900
+   ✅ Found TMDB ID: 667040
+[30/504] DAU. Natasha (2020)
+   IMDB: tt11697832
+   ✅ Found TMDB ID: 667995
+[31/504] Mogul Mowgli (2020)
+   IMDB: tt9892094
+   ✅ Found TMDB ID: 665764
+[32/504] No Hard Feelings (2020)
+   IMDB: tt11714360
+   ✅ Found TMDB ID: 742778
+[33/504] Acasă, My Home (2020)
+   IMDB: tt11364376
+   ✅ Found TMDB ID: 653742
+[34/504] Titane (2021)
+   IMDB: tt10944760
+   ✅ Found TMDB ID: 630240
+[35/504] Petite Maman (2021)
+   IMDB: tt13204490
+   ✅ Found TMDB ID: 749004
+[36/504] Paris, 13th District (2021)
+   IMDB: tt12708658
+   ✅ Found TMDB ID: 746131
+[37/504] Memoria (2021)
+   IMDB: tt8399288
+   ✅ Found TMDB ID: 511819
+[38/504] John - The Last Cowboy (2021)
+   IMDB: tt9654370
+   ✅ Found TMDB ID: 887475
+[39/504] Annette (2021)
+   IMDB: tt6217926
+   ✅ Found TMDB ID: 424277
+[40/504] Compartment No. 6 (2021)
+   IMDB: tt10262648
+   ✅ Found TMDB ID: 588182
+[41/504] Taming the Garden (2021)
+   IMDB: tt13621424
+   ✅ Found TMDB ID: 776556
+[42/504] Unclenching the Fists (2021)
+   IMDB: tt14775666
+   ✅ Found TMDB ID: 583198
+[43/504] Moneyboys (2021)
+   IMDB: tt11783988
+   ✅ Found TMDB ID: 676819
+[44/504] Pig (2021)
+   IMDB: tt11003218
+   ✅ Found TMDB ID: 635731
+[45/504] The Girl and the Spider (2021)
+   IMDB: tt11967484
+   ✅ Found TMDB ID: 517815
+[46/504] All-In (2021)
+   IMDB: tt14210468
+   ✅ Found TMDB ID: 805017
+[47/504] Memory Box (2021)
+   IMDB: tt7265490
+   ✅ Found TMDB ID: 633949
+[48/504] Eureka: Eureka Seven Hi-Evolution (2021)
+   IMDB: tt11951334
+   ✅ Found TMDB ID: 843269
+[49/504] Petrov's Flu (2021)
+   IMDB: tt10380900
+   ✅ Found TMDB ID: 609490
+[50/504] Hive (2021)
+   IMDB: tt13648212
+   ✅ Found TMDB ID: 776541
+[51/504] House Arrest (2021)
+   IMDB: tt14779456
+   ✅ Found TMDB ID: 1111365
+[52/504] Last Night in Soho (2021)
+   IMDB: tt9639470
+   ✅ Found TMDB ID: 576845
+[53/504] Summer of Soul (...Or, When the Revolution Could Not Be Televised) (2021)
+   IMDB: tt11422728
+   ❌ Could not find TMDB ID
+[54/504] CODA (2021)
+   IMDB: tt10366460
+   ✅ Found TMDB ID: 776503
+[55/504] The Card Counter (2021)
+   IMDB: tt11196036
+   ✅ Found TMDB ID: 643532
+[56/504] Casablanca Beats (2021)
+   IMDB: tt14773800
+   ✅ Found TMDB ID: 575764
+[57/504] Luzzu (2021)
+   IMDB: tt11379584
+   ✅ Found TMDB ID: 776544
+[58/504] The Velvet Queen (2021)
+   IMDB: tt11937680
+   ✅ Found TMDB ID: 842356
+[59/504] Mass (2021)
+   IMDB: tt11389748
+   ✅ Found TMDB ID: 423333
+[60/504] Nitram (2021)
+   IMDB: tt13694628
+   ✅ Found TMDB ID: 797457
+[61/504] The Sparks Brothers (2021)
+   IMDB: tt8610436
+   ✅ Found TMDB ID: 776485
+[62/504] Neptune Frost (2021)
+   IMDB: tt11873472
+   ✅ Found TMDB ID: 671109
+[63/504] Holy Spider (2022)
+   IMDB: tt18550140
+   ✅ Found TMDB ID: 889699
+[64/504] The Five Devils (2022)
+   IMDB: tt13391708
+   ✅ Found TMDB ID: 820697
+[65/504] Crimes of the Future (2022)
+   IMDB: tt14549466
+   ✅ Found TMDB ID: 819876
+[66/504] One Fine Morning (2022)
+   IMDB: tt13482828
+   ✅ Found TMDB ID: 747779
+[67/504] EO (2022)
+   IMDB: tt19652910
+   ✅ Found TMDB ID: 785398
+[68/504] The Banshees of Inisherin (2022)
+   IMDB: tt11813216
+   ✅ Found TMDB ID: 674324
+[69/504] Broker (2022)
+   IMDB: tt13056052
+   ✅ Found TMDB ID: 736732
+[70/504] All the Beauty and the Bloodshed (2022)
+   IMDB: tt21374850
+   ✅ Found TMDB ID: 1004663
+[71/504] Burning Days (2022)
+   IMDB: tt14859416
+   ✅ Found TMDB ID: 682152
+[72/504] De Humani Corporis Fabrica (2022)
+   IMDB: tt19783948
+   ✅ Found TMDB ID: 721232
+[73/504] The Innocent (2022)
+   IMDB: tt19841734
+   ✅ Found TMDB ID: 919573
+[74/504] Bones and All (2022)
+   IMDB: tt10168670
+   ✅ Found TMDB ID: 791177
+[75/504] More Than Ever (2022)
+   IMDB: tt14275050
+   ✅ Found TMDB ID: 843093
+[76/504] Fire of Love (2022)
+   IMDB: tt16227014
+   ✅ Found TMDB ID: 913823
+[77/504] Rimini (2022)
+   IMDB: tt8956284
+   ✅ Found TMDB ID: 505570
+[78/504] Argentina 1985 (2022)
+   IMDB: tt15301048
+   ✅ Found TMDB ID: 714888
+[79/504] The Menu (2022)
+   IMDB: tt9764362
+   ✅ Found TMDB ID: 593643
+[80/504] Falcon Lake (2022)
+   IMDB: tt11448830
+   ✅ Found TMDB ID: 946127
+[81/504] Sun (2022)
+   IMDB: tt15429106
+   ✅ Found TMDB ID: 928735
+[82/504] Three Thousand Years of Longing (2022)
+   IMDB: tt9198364
+   ✅ Found TMDB ID: 556694
+[83/504] Cesária Évora (2022)
+   IMDB: tt17675266
+   ✅ Found TMDB ID: 934668
+[84/504] Cairo Conspiracy (2022)
+   IMDB: tt15452062
+   ✅ Found TMDB ID: 788977
+[85/504] All That Breathes (2022)
+   IMDB: tt16377862
+   ✅ Found TMDB ID: 913838
+[86/504] Will-o’-the-Wisp (2022)
+   IMDB: tt11460816
+   ✅ Found TMDB ID: 964704
+[87/504] The Pack (2022)
+   IMDB: tt19768056
+   ✅ Found TMDB ID: 961735
+[88/504] She Said (2022)
+   IMDB: tt11198810
+   ✅ Found TMDB ID: 837881
+[89/504] Huesera: The Bone Woman (2022)
+   IMDB: tt11718516
+   ✅ Found TMDB ID: 772515
+[90/504] Enys Men (2022)
+   IMDB: tt11698800
+   ✅ Found TMDB ID: 740049
+[91/504] The Worst Ones (2022)
+   IMDB: tt19719862
+   ✅ Found TMDB ID: 962543
+[92/504] Pamfir (2022)
+   IMDB: tt9455468
+   ✅ Found TMDB ID: 850297
+[93/504] How to Save a Dead Friend (2022)
+   IMDB: tt19747800
+   ✅ Found TMDB ID: 951164
+[94/504] Brainwashed: Sex-Camera-Power (2022)
+   IMDB: tt10410506
+   ✅ Found TMDB ID: 817127
+[95/504] Monster (2023)
+   IMDB: tt29941084
+   ✅ Found TMDB ID: 1203484
+[96/504] Passages (2023)
+   IMDB: tt16252698
+   ✅ Found TMDB ID: 898673
+[97/504] Priscilla (2023)
+   IMDB: tt22041854
+   ✅ Found TMDB ID: 1020006
+[98/504] La Chimera (2023)
+   IMDB: tt14561712
+   ✅ Found TMDB ID: 837335
+[99/504] Anatomy of a Fall (2023)
+   IMDB: tt17009710
+   ✅ Found TMDB ID: 915935
+[100/504] Do Not Expect Too Much from the End of the World (2023)
+   IMDB: tt18162096
+   ✅ Found TMDB ID: 937085
+[101/504] Past Lives (2023)
+   IMDB: tt13238346
+   ✅ Found TMDB ID: 666277
+[102/504] Blackbird Blackbird Blackberry (2023)
+   IMDB: tt27737950
+   ✅ Found TMDB ID: 1114866
+[103/504] Poor Things (2023)
+   IMDB: tt14230458
+   ✅ Found TMDB ID: 792307
+[104/504] The Zone of Interest (2023)
+   IMDB: tt7160372
+   ✅ Found TMDB ID: 467244
+[105/504] The Old Oak (2023)
+   IMDB: tt19883634
+   ✅ Found TMDB ID: 970348
+[106/504] All of Us Strangers (2023)
+   IMDB: tt21192142
+   ✅ Found TMDB ID: 994108
+[107/504] Riddle of Fire (2023)
+   IMDB: tt7575046
+   ✅ Found TMDB ID: 1114873
+[108/504] Omen (2023)
+   IMDB: tt21086802
+   ✅ Found TMDB ID: 889818
+[109/504] The Sweet East (2023)
+   IMDB: tt27546190
+   ✅ Found TMDB ID: 1010639
+[110/504] Anselm (2023)
+   IMDB: tt27502250
+   ✅ Found TMDB ID: 1112547
+[111/504] May December (2023)
+   IMDB: tt13651794
+   ✅ Found TMDB ID: 839369
+[112/504] Smoke Sauna Sisterhood (2023)
+   IMDB: tt23640230
+   ✅ Found TMDB ID: 1058688
+[113/504] Critical Zone (2023)
+   IMDB: tt27720531
+   ✅ Found TMDB ID: 1147359
+[114/504] Only the River Flows (2023)
+   IMDB: tt27590147
+   ✅ Found TMDB ID: 1115379
+[115/504] 20 Days in Mariupol (2023)
+   IMDB: tt24082438
+   ✅ Found TMDB ID: 1058616
+[116/504] Against the Tide (2023)
+   IMDB: tt24082466
+   ✅ Found TMDB ID: 1058621
+[117/504] The Eternal Memory (2023)
+   IMDB: tt24082488
+   ✅ Found TMDB ID: 1032760
+[118/504] Samsara (2023)
+   IMDB: tt21909682
+   ✅ Found TMDB ID: 1077684
+[119/504] here (2023)
+   IMDB: tt29625907
+   ✅ Found TMDB ID: 1463730
+[120/504] Disco Boy (2023)
+   IMDB: tt22180518
+   ✅ Found TMDB ID: 922830
+[121/504] Femme (2023)
+   IMDB: tt20114686
+   ✅ Found TMDB ID: 976581
+[122/504] The Animal Kingdom (2023)
+   IMDB: tt16606592
+   ✅ Found TMDB ID: 943134
+[123/504] Inside the Yellow Cocoon Shell (2023)
+   IMDB: tt10399622
+   ✅ Found TMDB ID: 1114816
+[124/504] Jeanne du Barry (2023)
+   IMDB: tt17277414
+   ✅ Found TMDB ID: 921452
+[125/504] Menus-Plaisirs, les Troisgros (2023)
+   IMDB: tt28494786
+   ✅ Found TMDB ID: 1077050
+[126/504] Fireworks (2023)
+   IMDB: tt26687781
+   ✅ Found TMDB ID: 1084412
+[127/504] Beyond Utopia (2023)
+   IMDB: tt25470468
+   ✅ Found TMDB ID: 1070032
+[128/504] The Girl with the Needle (2024)
+   IMDB: tt10236164
+   ✅ Found TMDB ID: 1232827
+[129/504] Dahomey (2024)
+   IMDB: tt31015216
+   ✅ Found TMDB ID: 1101256
+[130/504] No Other Land (2024)
+   IMDB: tt30953759
+   ✅ Found TMDB ID: 1232493
+[131/504] The Seed of the Sacred Fig (2024)
+   IMDB: tt32178949
+   ✅ Found TMDB ID: 1278263
+[132/504] Matt and Mara (2024)
+   IMDB: tt13109862
+   ✅ Found TMDB ID: 887180
+[133/504] One of Those Days When Hemme Dies (2024)
+   IMDB: tt33030347
+   ✅ Found TMDB ID: 1320279
+[134/504] Harvest (2024)
+   IMDB: tt33055331
+   ✅ Found TMDB ID: 1366327
+[135/504] Anora (2024)
+   IMDB: tt28607951
+   ✅ Found TMDB ID: 1064213
+[136/504] Wild Diamond (2024)
+   IMDB: tt28319139
+   ✅ Found TMDB ID: 1108336
+[137/504] On April 22, 2023, from 13:05 to 13:11, Nothing Happened in Irpin (2024)
+   IMDB: tt32341362
+   ✅ Found TMDB ID: 1288640
+[138/504] All We Imagine as Light (2024)
+   IMDB: tt32086077
+   ✅ Found TMDB ID: 927547
+[139/504] September Says (2024)
+   IMDB: tt29315015
+   ✅ Found TMDB ID: 1212337
+[140/504] Beneath the Pavement, the Beach (2024)
+   IMDB: tt31065083
+   ✅ Found TMDB ID: 1233360
+[141/504] The Room Next Door (2024)
+   IMDB: tt29439114
+   ✅ Found TMDB ID: 1088514
+[142/504] Caught by the Tides (2024)
+   IMDB: tt27958252
+   ✅ Found TMDB ID: 1136837
+[143/504] Universal Language (2024)
+   IMDB: tt31691389
+   ✅ Found TMDB ID: 988397
+[144/504] I Saw the TV Glow (2024)
+   IMDB: tt15574270
+   ✅ Found TMDB ID: 858017
+[145/504] Soundtrack to a Coup d'Etat (2024)
+   IMDB: tt14452174
+   ✅ Found TMDB ID: 1214539
+[146/504] Good One (2024)
+   IMDB: tt30319516
+   ✅ Found TMDB ID: 1122618
+[147/504] A Real Pain (2024)
+   IMDB: tt21823606
+   ✅ Found TMDB ID: 1013850
+[148/504] The Outrun (2024)
+   IMDB: tt11687002
+   ✅ Found TMDB ID: 785542
+[149/504] Souleymane's Story (2024)
+   IMDB: tt32086046
+   ✅ Found TMDB ID: 1158996
+[150/504] Kneecap (2024)
+   IMDB: tt27367464
+   ✅ Found TMDB ID: 1180629
+[151/504] The Sparrow in the Chimney (2024)
+   IMDB: tt32359054
+   ✅ Found TMDB ID: 1102390
+[152/504] On Becoming a Guinea Fowl (2024)
+   IMDB: tt32083311
+   ✅ Found TMDB ID: 1082938
+[153/504] The Devil's Bath (2024)
+   IMDB: tt29141112
+   ✅ Found TMDB ID: 931944
+[154/504] Dìdi (弟弟) (2024)
+   IMDB: tt30319503
+   ✅ Found TMDB ID: 1158915
+[155/504] Zanatany, when soulless shrouds whisper (2024)
+   IMDB: tt32495811
+   ✅ Found TMDB ID: 1220414
+[156/504] Eat the Night (2024)
+   IMDB: tt32128915
+   ✅ Found TMDB ID: 1250007
+[157/504] Santosh (2024)
+   IMDB: tt30444418
+   ✅ Found TMDB ID: 1233208
+[158/504] Nest (2022)
+   IMDB: tt16965946
+   ✅ Found TMDB ID: 928747
+[159/504] Love, Deutschmarks and Death (2022)
+   IMDB: tt13588944
+   ✅ Found TMDB ID: 928350
+[160/504] This Much I Know to Be True (2022)
+   IMDB: tt15721828
+   ✅ Found TMDB ID: 927025
+[161/504] The Quiet Girl (2022)
+   IMDB: tt15109082
+   ✅ Found TMDB ID: 916405
+[162/504] Rabiye Kurnaz vs. George W. Bush (2022)
+   IMDB: tt13471738
+   ✅ Found TMDB ID: 915960
+[163/504] Rewind & Play (2022)
+   IMDB: tt17555566
+   ✅ Found TMDB ID: 928004
+[164/504] Unrest (2022)
+   IMDB: tt11409736
+   ✅ Found TMDB ID: 749136
+[165/504] Talking About the Weather (2022)
+   IMDB: tt10779254
+   ✅ Found TMDB ID: 916426
+[166/504] That Kind of Summer (2022)
+   IMDB: tt16944826
+   ✅ Found TMDB ID: 925181
+[167/504] Incredible But True (2022)
+   IMDB: tt13145534
+   ✅ Found TMDB ID: 735697
+[168/504] Mutzenbacher (2022)
+   IMDB: tt17309916
+   ✅ Found TMDB ID: 928731
+[169/504] Both Sides of the Blade (2022)
+   IMDB: tt13535920
+   ✅ Found TMDB ID: 768757
+[170/504] Queens of the Qing Dynasty (2022)
+   IMDB: tt13368192
+   ✅ Found TMDB ID: 928733
+[171/504] Robe of Gems (2022)
+   IMDB: tt17280362
+   ✅ Found TMDB ID: 928718
+[172/504] The Passengers of the Night (2022)
+   IMDB: tt13846402
+   ✅ Found TMDB ID: 895659
+[173/504] Coma (2022)
+   IMDB: tt17308130
+   ✅ Found TMDB ID: 920772
+[174/504] Geographies of Solitude (2022)
+   IMDB: tt11398152
+   ✅ Found TMDB ID: 927998
+[175/504] The Dependent Variables (2022)
+   IMDB: tt17155136
+   ✅ Found TMDB ID: 927068
+[176/504] The Novelist's Film (2022)
+   IMDB: tt17146978
+   ✅ Found TMDB ID: 928713
+[177/504] Flux Gourmet (2022)
+   IMDB: tt15010292
+   ✅ Found TMDB ID: 848818
+[178/504] Swing Ride (2022)
+   IMDB: tt15085570
+   ✅ Found TMDB ID: 870712
+[179/504] Nobody's Hero (2022)
+   IMDB: tt11669538
+   ✅ Found TMDB ID: 660709
+[180/504] Beautiful Beings (2022)
+   IMDB: tt13845660
+   ✅ Found TMDB ID: 879901
+[181/504] Happer's Comet (2022)
+   IMDB: tt17072038
+   ✅ Found TMDB ID: 927606
+[182/504] A E I O U – A Quick Alphabet of Love (2022)
+   IMDB: tt17154094
+   ✅ Found TMDB ID: 928709
+[183/504] Grand Jete (2022)
+   IMDB: tt13887082
+   ✅ Found TMDB ID: 928358
+[184/504] Return to Dust (2022)
+   IMDB: tt17097088
+   ✅ Found TMDB ID: 928720
+[185/504] Super Natural (2022)
+   IMDB: tt17373978
+   ✅ Found TMDB ID: 916458
+[186/504] Convenience Store (2022)
+   IMDB: tt17079178
+   ✅ Found TMDB ID: 779056
+[187/504] Before, Now & Then (2022)
+   IMDB: tt15215918
+   ✅ Found TMDB ID: 859933
+[188/504] Girl in the Picture (2022)
+   IMDB: tt21059520
+   ✅ Found TMDB ID: 988046
+[189/504] Reality (2023)
+   IMDB: tt24068064
+   ✅ Found TMDB ID: 985617
+[190/504] Afire (2023)
+   IMDB: tt26440619
+   ✅ Found TMDB ID: 900379
+[191/504] Kokomo City (2023)
+   IMDB: tt22528178
+   ✅ Found TMDB ID: 1058678
+[192/504] Our Body (2023)
+   IMDB: tt26347358
+   ✅ Found TMDB ID: 1000495
+[193/504] 20,000 Species of Bees (2023)
+   IMDB: tt21113962
+   ✅ Found TMDB ID: 1053600
+[194/504] In the Blind Spot (2023)
+   IMDB: tt26448958
+   ✅ Found TMDB ID: 1077676
+[195/504] Orlando, My Political Biography (2023)
+   IMDB: tt26448981
+   ✅ Found TMDB ID: 1077683
+[196/504] Ingeborg Bachmann – Journey into the Desert (2023)
+   IMDB: tt16103266
+   ✅ Found TMDB ID: 978580
+[197/504] Tótem (2023)
+   IMDB: tt26315142
+   ✅ Found TMDB ID: 958186
+[198/504] The Beast in the Jungle (2023)
+   IMDB: tt19864472
+   ✅ Found TMDB ID: 820694
+[199/504] And, Towards Happy Alleys (2023)
+   IMDB: tt26452090
+   ✅ Found TMDB ID: 1075809
+[200/504] The Teachers' Lounge (2023)
+   IMDB: tt26612950
+   ✅ Found TMDB ID: 998022
+[201/504] Infinity Pool (2023)
+   IMDB: tt10365998
+   ✅ Found TMDB ID: 667216
+[202/504] On the Adamant (2023)
+   IMDB: tt26448811
+   ✅ Found TMDB ID: 1070449
+[203/504] Ramona (2023)
+   IMDB: tt18281054
+   ✅ Found TMDB ID: 1000264
+[204/504] In Love and Deep Water (2023)
+   IMDB: tt21211474
+   ✅ Found TMDB ID: 1180199
+[205/504] Till the End of the Night (2023)
+   IMDB: tt23283892
+   ✅ Found TMDB ID: 1069164
+[206/504] BlackBerry (2023)
+   IMDB: tt21867434
+   ✅ Found TMDB ID: 1016084
+[207/504] Between Revolutions (2023)
+   IMDB: tt16386126
+   ✅ Found TMDB ID: 1074757
+[208/504] Seven Winters in Tehran (2023)
+   IMDB: tt26188684
+   ✅ Found TMDB ID: 1073462
+[209/504] Last Things (2023)
+   IMDB: tt24163872
+   ✅ Found TMDB ID: 1058639
+[210/504] Sisi & I (2023)
+   IMDB: tt14040054
+   ✅ Found TMDB ID: 913521
+[211/504] Inside (2023)
+   IMDB: tt14781036
+   ✅ Found TMDB ID: 958196
+[212/504] And the King Said, What a Fantastic Machine (2023)
+   IMDB: tt24082520
+   ✅ Found TMDB ID: 1058652
+[213/504] The Lost Boys of Mercury (2023)
+   IMDB: tt27417450
+   ✅ Found TMDB ID: 1108348
+[214/504] A Different Man (2024)
+   IMDB: tt21097228
+   ✅ Found TMDB ID: 989662
+[215/504] Made in England: The Films of Powell and Pressburger (2024)
+   IMDB: tt19895822
+   ✅ Found TMDB ID: 1139072
+[216/504] La cocina (2024)
+   IMDB: tt19864832
+   ✅ Found TMDB ID: 966238
+[217/504] Pepe (2024)
+   IMDB: tt10781034
+   ✅ Found TMDB ID: 1172241
+[218/504] Faruk (2024)
+   IMDB: tt30440590
+   ✅ Found TMDB ID: 1217805
+[219/504] An Odd Turn (2024)
+   IMDB: tt30887276
+   ✅ Found TMDB ID: 1233393
+[220/504] My Summer With Irène (2024)
+   IMDB: tt30949231
+   ✅ Found TMDB ID: 1151173
+[221/504] Elbow (2024)
+   IMDB: tt30521172
+   ✅ Found TMDB ID: 543596
+[222/504] Godzilla x Kong: The New Empire (2024)
+   IMDB: tt14539740
+   ✅ Found TMDB ID: 823464
+[223/504] Through the Graves the Wind Is Blowing (2024)
+   IMDB: tt31018975
+   ✅ Found TMDB ID: 1234620
+[224/504] Bye Bye Turtle (2024)
+   IMDB: tt30887199
+   ✅ Found TMDB ID: 1233402
+[225/504] A Traveler's Needs (2024)
+   IMDB: tt31015344
+   ✅ Found TMDB ID: 1146410
+[226/504] Love Lies Bleeding (2024)
+   IMDB: tt19637052
+   ✅ Found TMDB ID: 948549
+[227/504] What Did You Dream Last Night, Parajanov? (2024)
+   IMDB: tt30961441
+   ✅ Found TMDB ID: 1233080
+[228/504] Small Things Like These (2024)
+   IMDB: tt27196021
+   ✅ Found TMDB ID: 1102493
+[229/504] Exhuma (2024)
+   IMDB: tt27802490
+   ✅ Found TMDB ID: 838209
+[230/504] I'm Not Everything I Want to Be (2024)
+   IMDB: tt28090065
+   ✅ Found TMDB ID: 883126
+[231/504] Young Hearts (2024)
+   IMDB: tt15245268
+   ✅ Found TMDB ID: 1232449
+[232/504] Intercepted (2024)
+   IMDB: tt30956212
+   ✅ Found TMDB ID: 1229477
+[233/504] Chime (2024)
+   IMDB: tt30516366
+   ✅ Found TMDB ID: 1219556
+[234/504] Sasquatch Sunset (2024)
+   IMDB: tt30180830
+   ✅ Found TMDB ID: 1015634
+[235/504] Architecton (2024)
+   IMDB: tt18346498
+   ✅ Found TMDB ID: 1234597
+[236/504] Spaceman (2024)
+   IMDB: tt11097384
+   ✅ Found TMDB ID: 636706
+[237/504] Favoriten (2024)
+   IMDB: tt31015543
+   ✅ Found TMDB ID: 940770
+[238/504] Hot Milk (2025)
+   IMDB: tt17538632
+   ✅ Found TMDB ID: 933490
+[239/504] Magic Farm (2025)
+   IMDB: tt34966919
+   ✅ Found TMDB ID: 1309962
+[240/504] The Ugly Stepsister (2025)
+   IMDB: tt29344903
+   ✅ Found TMDB ID: 1284120
+[241/504] Lurker (2025)
+   IMDB: tt13651462
+   ✅ Found TMDB ID: 1264573
+[242/504] Mickey 17 (2025)
+   IMDB: tt12299608
+   ✅ Found TMDB ID: 696506
+[243/504] Kontinental '25 (2025)
+   IMDB: tt35492581
+   ✅ Found TMDB ID: 1410189
+[244/504] Deaf (2025)
+   IMDB: tt26923797
+   ✅ Found TMDB ID: 1303613
+[245/504] What Does That Nature Say to You (2025)
+   IMDB: tt35499025
+   ✅ Found TMDB ID: 1418849
+[246/504] Night Stage (2025)
+   IMDB: tt35050890
+   ✅ Found TMDB ID: 1403903
+[247/504] Reflection in a Dead Diamond (2025)
+   IMDB: tt32263401
+   ✅ Found TMDB ID: 1013446
+[248/504] The Message (2025)
+   IMDB: tt33022022
+   ✅ Found TMDB ID: 1429252
+[249/504] Two Times João Liberada (2025)
+   IMDB: tt35504279
+   ✅ Found TMDB ID: 1421136
+[250/504] Lesbian Space Princess (2025)
+   IMDB: tt29781139
+   ✅ Found TMDB ID: 1333141
+[251/504] Blue Moon (2025)
+   IMDB: tt32536315
+   ✅ Found TMDB ID: 1299655
+[252/504] The Ice Tower (2025)
+   IMDB: tt28171985
+   ✅ Found TMDB ID: 1143440
+[253/504] If I Had Legs I'd Kick You (2025)
+   IMDB: tt18382850
+   ✅ Found TMDB ID: 1160360
+[254/504] Little Trouble Girls (2025)
+   IMDB: tt28834646
+   ✅ Found TMDB ID: 1019871
+[255/504] That Summer in Paris (2025)
+   IMDB: tt35489613
+   ✅ Found TMDB ID: 1294706
+[256/504] Timestamp (2025)
+   IMDB: tt35500333
+   ✅ Found TMDB ID: 1421157
+[257/504] Living the Land (2025)
+   IMDB: tt32238621
+   ✅ Found TMDB ID: 1421153
+[258/504] After Dreaming (2025)
+   IMDB: tt35437028
+   ✅ Found TMDB ID: 1418530
+[259/504] Ancestral Visions of the Future (2025)
+   IMDB: tt33037725
+   ✅ Found TMDB ID: 1405458
+[260/504] Letters from Wolf Street (2025)
+   IMDB: tt35451785
+   ✅ Found TMDB ID: 1418519
+[261/504] Dreams (2025)
+   IMDB: tt31710990
+   ✅ Found TMDB ID: 1134463
+[262/504] The Memory of Butterflies (2025)
+   IMDB: tt32094197
+   ✅ Found TMDB ID: 1524906
+[263/504] Beneath Which Rivers Flow (2025)
+   IMDB: tt35050803
+   ✅ Found TMDB ID: 1405329
+[264/504] The Devil Smokes (and Saves the Burnt Matches in the Same Box) (2025)
+   IMDB: tt35484319
+   ✅ Found TMDB ID: 1338552
+[265/504] Ari (2025)
+   IMDB: tt31869782
+   ✅ Found TMDB ID: 1256192
+[266/504] The Good Sister (2025)
+   IMDB: tt33385045
+   ✅ Found TMDB ID: 1492733
+[267/504] Hysteria (2025)
+   IMDB: tt30129207
+   ✅ Found TMDB ID: 1399696
+[268/504] Sandbag Dam (2025)
+   IMDB: tt35051064
+   ✅ Found TMDB ID: 1404172
+[269/504] Islands (2025)
+   IMDB: tt27796126
+   ✅ Found TMDB ID: 1128547
+[270/504] The Nature of Invisible Things (2025)
+   IMDB: tt35051106
+   ✅ Found TMDB ID: 1403855
+[271/504] Under the Flags, the Sun (2025)
+   IMDB: tt32279108
+   ✅ Found TMDB ID: 1404184
+[272/504] Pleasure (2021)
+   IMDB: tt8550054
+   ✅ Found TMDB ID: 592695
+[273/504] My Fat Arse and I (2021)
+   IMDB: tt14030488
+   ✅ Found TMDB ID: 741770
+[274/504] John and the Hole (2021)
+   IMDB: tt11307724
+   ✅ Found TMDB ID: 682532
+[275/504] Souad (2021)
+   IMDB: tt12444454
+   ✅ Found TMDB ID: 712131
+[276/504] Limbo (2020)
+   IMDB: tt9138170
+   ✅ Found TMDB ID: 554371
+[277/504] Josep (2020)
+   IMDB: tt10534996
+   ✅ Found TMDB ID: 680952
+[278/504] Taipei Suicide Story (2020)
+   IMDB: tt11232334
+   ✅ Found TMDB ID: 741780
+[279/504] Skies of Lebanon (2020)
+   IMDB: tt11952238
+   ✅ Found TMDB ID: 712345
+[280/504] The Monopoly of Violence (2020)
+   IMDB: tt12313458
+   ✅ Found TMDB ID: 723124
+[281/504] Good Thanks, You? (2020)
+   IMDB: tt9104848
+   ✅ Found TMDB ID: 712360
+[282/504] My Donkey, My Lover & I (2020)
+   IMDB: tt11013434
+   ✅ Found TMDB ID: 669664
+[283/504] Gagarine (2020)
+   IMDB: tt12444424
+   ✅ Found TMDB ID: 712178
+[284/504] The Night Doctor (2020)
+   IMDB: tt11967116
+   ✅ Found TMDB ID: 712124
+[285/504] After We Collided (2020)
+   IMDB: tt10362466
+   ✅ Found TMDB ID: 613504
+[286/504] Menarche (2020)
+   IMDB: tt12241006
+   ✅ Found TMDB ID: 714037
+[287/504] Spring Blossom (2020)
+   IMDB: tt12444426
+   ✅ Found TMDB ID: 712134
+[288/504] Race Antenna (2020)
+   IMDB: tt13836684
+   ✅ Found TMDB ID: 741799
+[289/504] Downstream to Kinshasa (2020)
+   IMDB: tt10676042
+   ✅ Found TMDB ID: 712144
+[290/504] Nadia, Butterfly (2020)
+   IMDB: tt12439508
+   ✅ Found TMDB ID: 702654
+[291/504] Maalbeek (2020)
+   IMDB: tt13332920
+   ✅ Found TMDB ID: 714032
+[292/504] DNA-M Divine Not Accept Machines (2020)
+   IMDB: tt10305502
+   ✅ Found TMDB ID: 652432
+[293/504] Ammonite (2020)
+   IMDB: tt7983894
+   ✅ Found TMDB ID: 568467
+[294/504] Slalom (2020)
+   IMDB: tt9697780
+   ✅ Found TMDB ID: 585744
+[295/504] Simple Passion (2020)
+   IMDB: tt10023172
+   ✅ Found TMDB ID: 526811
+[296/504] The Truffle Hunters (2020)
+   IMDB: tt11394318
+   ✅ Found TMDB ID: 653762
+[297/504] Yes I Am: The Ric Weiland Story (2023)
+   IMDB: tt7315826
+   ✅ Found TMDB ID: 791590
+[298/504] The Worst Person in the World (2021)
+   IMDB: tt10370710
+   ✅ Found TMDB ID: 660120
+[299/504] Great Freedom (2021)
+   IMDB: tt14775784
+   ✅ Found TMDB ID: 835975
+[300/504] Vortex (2021)
+   IMDB: tt14821150
+   ✅ Found TMDB ID: 807070
+[301/504] Lamb (2021)
+   IMDB: tt9812474
+   ✅ Found TMDB ID: 788929
+[302/504] Zero Fucks Given (2021)
+   IMDB: tt13482806
+   ✅ Found TMDB ID: 833326
+[303/504] Prayers for the Stolen (2021)
+   IMDB: tt10366574
+   ✅ Found TMDB ID: 670981
+[304/504] Bergman Island (2021)
+   IMDB: tt6910282
+   ✅ Found TMDB ID: 477044
+[305/504] Invisible Demons (2021)
+   IMDB: tt14927320
+   ✅ Found TMDB ID: 842361
+[306/504] Hold Me Tight (2021)
+   IMDB: tt13137576
+   ✅ Found TMDB ID: 756651
+[307/504] Lingui: The Sacred Bonds (2021)
+   IMDB: tt13846546
+   ✅ Found TMDB ID: 820693
+[308/504] Benedetta (2021)
+   IMDB: tt6823148
+   ✅ Found TMDB ID: 454527
+[309/504] Deception (2021)
+   IMDB: tt13613056
+   ✅ Found TMDB ID: 774343
+[310/504] Futura (2021)
+   IMDB: tt14081460
+   ✅ Found TMDB ID: 833335
+[311/504] Police × Heroine Lovepatrina! Movie Version ~Challenge from a Phantom Thief! Let's Arrest with Love and a Pat!~ (2021)
+   IMDB: tt13904268
+   ✅ Found TMDB ID: 799197
+[312/504] Mariner of the Mountains (2021)
+   IMDB: tt9619234
+   ✅ Found TMDB ID: 662714
+[313/504] All the Crows in the World (2021)
+   IMDB: tt14994868
+   ✅ Found TMDB ID: 843024
+[314/504] Softie (2021)
+   IMDB: tt11394314
+   ✅ Found TMDB ID: 653761
+[315/504] The Tale of King Crab (2021)
+   IMDB: tt13830148
+   ✅ Found TMDB ID: 833408
+[316/504] Train Again (2021)
+   IMDB: tt14812810
+   ✅ Found TMDB ID: 838152
+[317/504] The French Dispatch (2021)
+   IMDB: tt8847712
+   ✅ Found TMDB ID: 542178
+[318/504] A Tale of Love and Desire (2021)
+   IMDB: tt12077970
+   ✅ Found TMDB ID: 820702
+[319/504] Marx Can Wait (2021)
+   IMDB: tt12544762
+   ✅ Found TMDB ID: 777726
+[320/504] The Souvenir: Part II (2021)
+   IMDB: tt6992978
+   ✅ Found TMDB ID: 473021
+[321/504] France (2021)
+   IMDB: tt9714030
+   ✅ Found TMDB ID: 602334
+[322/504] Sick of Myself (2022)
+   IMDB: tt18816518
+   ✅ Found TMDB ID: 788734
+[323/504] Leila's Brothers (2022)
+   IMDB: tt19653180
+   ✅ Found TMDB ID: 962558
+[324/504] Fantastic Beasts: The Secrets of Dumbledore (2022)
+   IMDB: tt4123432
+   ✅ Found TMDB ID: 338953
+[325/504] Everybody Loves Jeanne (2022)
+   IMDB: tt14913250
+   ✅ Found TMDB ID: 925096
+[326/504] Triangle of Sadness (2022)
+   IMDB: tt7322224
+   ✅ Found TMDB ID: 497828
+[327/504] Return to Seoul (2022)
+   IMDB: tt19719836
+   ✅ Found TMDB ID: 952701
+[328/504] Hideous (2022)
+   IMDB: tt19768100
+   ✅ Found TMDB ID: 961359
+[329/504] The Eight Mountains (2022)
+   IMDB: tt14641542
+   ✅ Found TMDB ID: 803700
+[330/504] Joyland (2022)
+   IMDB: tt19719976
+   ✅ Found TMDB ID: 962571
+[331/504] The Potemkinists (2022)
+   IMDB: tt20223278
+   ✅ Found TMDB ID: 968282
+[332/504] Corsage (2022)
+   IMDB: tt11992694
+   ✅ Found TMDB ID: 888321
+[333/504] Pacifiction (2022)
+   IMDB: tt13702796
+   ✅ Found TMDB ID: 691214
+[334/504] Aribada (2022)
+   IMDB: tt19932882
+   ✅ Found TMDB ID: 968256
+[335/504] Godland (2022)
+   IMDB: tt19623228
+   ✅ Found TMDB ID: 960206
+[336/504] Butterfly Vision (2022)
+   IMDB: tt14867294
+   ✅ Found TMDB ID: 962568
+[337/504] Top Gun: Maverick (2022)
+   IMDB: tt1745960
+   ✅ Found TMDB ID: 361743
+[338/504] R.M.N. (2022)
+   IMDB: tt18550182
+   ✅ Found TMDB ID: 919570
+[339/504] Smoking Causes Coughing (2022)
+   IMDB: tt15471560
+   ✅ Found TMDB ID: 872709
+[340/504] Stampede (2022)
+   IMDB: tt26341167
+   ✅ Found TMDB ID: 1046105
+[341/504] The Green Perfume (2022)
+   IMDB: tt15732372
+   ✅ Found TMDB ID: 950053
+[342/504] Revoir Paris (2022)
+   IMDB: tt15329224
+   ✅ Found TMDB ID: 915931
+[343/504] DEAW #13 Udom Taephanich Stand Up Comedy Show (2022)
+   IMDB: tt22055118
+   ✅ Found TMDB ID: 1025455
+[344/504] Strange Way of Life (2023)
+   IMDB: tt13055264
+   ✅ Found TMDB ID: 963765
+[345/504] The Settlers (2023)
+   IMDB: tt10370812
+   ✅ Found TMDB ID: 989589
+[346/504] 27 (2023)
+   IMDB: tt13021784
+   ✅ Found TMDB ID: 715222
+[347/504] The Delinquents (2023)
+   IMDB: tt18558306
+   ✅ Found TMDB ID: 714889
+[348/504] The Taste of Things (2023)
+   IMDB: tt19760052
+   ✅ Found TMDB ID: 964960
+[349/504] Robot Dreams (2023)
+   IMDB: tt13429870
+   ✅ Found TMDB ID: 838240
+[350/504] Inshallah a Boy (2023)
+   IMDB: tt25406412
+   ✅ Found TMDB ID: 1069185
+[351/504] The Red Sea Makes Me Wanna Cry (2023)
+   IMDB: tt27728178
+   ✅ Found TMDB ID: 1116242
+[352/504] The Grand Bolero (2023)
+   IMDB: tt11773446
+   ✅ Found TMDB ID: 795254
+[353/504] The Nature of Love (2023)
+   IMDB: tt22487338
+   ✅ Found TMDB ID: 912520
+[354/504] Killers of the Flower Moon (2023)
+   IMDB: tt5537002
+   ✅ Found TMDB ID: 466420
+[355/504] Occupied City (2023)
+   IMDB: tt9573150
+   ✅ Found TMDB ID: 573952
+[356/504] The Feeling That the Time for Doing Something Has Passed (2023)
+   IMDB: tt27722061
+   ✅ Found TMDB ID: 1059319
+[357/504] Lemon Tree (2023)
+   IMDB: tt27543446
+   ✅ Found TMDB ID: 1116557
+[358/504] Trailer of a Film That Will Never Exist: Phony Wars (2023)
+   IMDB: tt27770872
+   ✅ Found TMDB ID: 1065727
+[359/504] Close Your Eyes (2023)
+   IMDB: tt21284358
+   ✅ Found TMDB ID: 997294
+[360/504] Asteroid City (2023)
+   IMDB: tt14230388
+   ✅ Found TMDB ID: 747188
+[361/504] Last Summer (2023)
+   IMDB: tt14550346
+   ✅ Found TMDB ID: 812037
+[362/504] Pictures of Ghosts (2023)
+   IMDB: tt27502227
+   ✅ Found TMDB ID: 1112548
+[363/504] Horizon: An American Saga - Chapter 2 (2025)
+   IMDB: tt27665778
+   ✅ Found TMDB ID: 1120368
+[364/504] Bird (2024)
+   IMDB: tt28277817
+   ✅ Found TMDB ID: 1128752
+[365/504] Emilia Pérez (2024)
+   IMDB: tt20221436
+   ✅ Found TMDB ID: 974950
+[366/504] Grand Tour (2024)
+   IMDB: tt27180099
+   ✅ Found TMDB ID: 1098709
+[367/504] Beating Hearts (2024)
+   IMDB: tt27490099
+   ✅ Found TMDB ID: 959604
+[368/504] The Second Act (2024)
+   IMDB: tt30784256
+   ✅ Found TMDB ID: 1161108
+[369/504] It's Not Me (2024)
+   IMDB: tt27989261
+   ✅ Found TMDB ID: 1136987
+[370/504] Motel Destino (2024)
+   IMDB: tt28608358
+   ✅ Found TMDB ID: 1161879
+[371/504] Bad for a Moment (2024)
+   IMDB: tt32205780
+   ✅ Found TMDB ID: 1279231
+[372/504] The Balconettes (2024)
+   IMDB: tt27721737
+   ✅ Found TMDB ID: 1112466
+[373/504] Kinds of Kindness (2024)
+   IMDB: tt22408160
+   ✅ Found TMDB ID: 1029955
+[374/504] Megalopolis (2024)
+   IMDB: tt10128846
+   ✅ Found TMDB ID: 592831
+[375/504] Furiosa: A Mad Max Saga (2024)
+   IMDB: tt12037194
+   ✅ Found TMDB ID: 786892
+[376/504] Eephus (2024)
+   IMDB: tt28332337
+   ✅ Found TMDB ID: 1226777
+[377/504] Misericordia (2024)
+   IMDB: tt32085997
+   ✅ Found TMDB ID: 1063574
+[378/504] Three Kilometres to the End of the World (2024)
+   IMDB: tt32186523
+   ✅ Found TMDB ID: 1278338
+[379/504] Việt and Nam (2024)
+   IMDB: tt32086052
+   ✅ Found TMDB ID: 846586
+[380/504] Ghost Trail (2024)
+   IMDB: tt30135174
+   ✅ Found TMDB ID: 1001292
+[381/504] Blue Sun Palace (2024)
+   IMDB: tt32119297
+   ✅ Found TMDB ID: 1274751
+[382/504] The Apprentice (2024)
+   IMDB: tt8368368
+   ✅ Found TMDB ID: 1182047
+[383/504] Absent (2024)
+   IMDB: tt32146361
+   ✅ Found TMDB ID: 1274295
+[384/504] The Count of Monte Cristo (2024)
+   IMDB: tt26446278
+   ✅ Found TMDB ID: 1084736
+[385/504] Sentimental Value (2025)
+   IMDB: tt27714581
+   ✅ Found TMDB ID: 1124566
+[386/504] Sirāt (2025)
+   IMDB: tt32298285
+   ✅ Found TMDB ID: 1151272
+[387/504] The Phoenician Scheme (2025)
+   IMDB: tt30840798
+   ✅ Found TMDB ID: 1137350
+[388/504] Sorry, Baby (2025)
+   IMDB: tt32843349
+   ✅ Found TMDB ID: 1205515
+[389/504] A Poet (2025)
+   IMDB: tt36544524
+   ✅ Found TMDB ID: 1465563
+[390/504] The Secret Agent (2025)
+   IMDB: tt27847051
+   ✅ Found TMDB ID: 1220564
+[391/504] Eddington (2025)
+   IMDB: tt31176520
+   ✅ Found TMDB ID: 648878
+[392/504] Alpha (2025)
+   IMDB: tt32275943
+   ✅ Found TMDB ID: 1284460
+[393/504] The History of Sound (2025)
+   IMDB: tt15799524
+   ✅ Found TMDB ID: 891584
+[394/504] Magellan (2025)
+   IMDB: tt36456563
+   ✅ Found TMDB ID: 975335
+[395/504] The Mastermind (2025)
+   IMDB: tt33455099
+   ✅ Found TMDB ID: 1352624
+[396/504] Die My Love (2025)
+   IMDB: tt9362736
+   ✅ Found TMDB ID: 1033148
+[397/504] Mission: Impossible - The Final Reckoning (2025)
+   IMDB: tt9603208
+   ✅ Found TMDB ID: 575265
+[398/504] Resurrection (2025)
+   IMDB: tt66733256
+   ✅ Found TMDB ID: 1279580
+[399/504] I Only Rest in the Storm (2025)
+   IMDB: tt36642485
+   ✅ Found TMDB ID: 1103551
+[400/504] Mirrors No. 3 (2025)
+   IMDB: tt32247943
+   ✅ Found TMDB ID: 1178602
+[401/504] Two Prosecutors (2025)
+   IMDB: tt35521200
+   ✅ Found TMDB ID: 1257406
+[402/504] The Love That Remains (2025)
+   IMDB: tt33381401
+   ✅ Found TMDB ID: 1258509
+[403/504] The Chronology of Water (2025)
+   IMDB: tt8667404
+   ✅ Found TMDB ID: 524635
+[404/504] The President's Cake (2025)
+   IMDB: tt36580119
+   ✅ Found TMDB ID: 1464883
+[405/504] Nino (2025)
+   IMDB: tt35519445
+   ✅ Found TMDB ID: 1313229
+[406/504] A Useful Ghost (2025)
+   IMDB: tt22530226
+   ✅ Found TMDB ID: 1364904
+[407/504] Colours of Time (2025)
+   IMDB: tt31411349
+   ✅ Found TMDB ID: 1235304
+[408/504] The Little Sister (2025)
+   IMDB: tt28326501
+   ✅ Found TMDB ID: 961077
+[409/504] My Father's Shadow (2025)
+   IMDB: tt35695538
+   ✅ Found TMDB ID: 1432605
+[410/504] Homebound (2025)
+   IMDB: tt26733325
+   ✅ Found TMDB ID: 1227739
+[411/504] Little Amélie or the Character of Rain (2025)
+   IMDB: tt29313285
+   ✅ Found TMDB ID: 682012
+[412/504] The Mysterious Gaze of the Flamingo (2025)
+   IMDB: tt22237964
+   ✅ Found TMDB ID: 896096
+[413/504] Yes (2025)
+   IMDB: tt36667493
+   ✅ Found TMDB ID: 1149614
+[414/504] Left-Handed Girl (2025)
+   IMDB: tt27722618
+   ✅ Found TMDB ID: 999075
+[415/504] The Last One for the Road (2025)
+   IMDB: tt36491632
+   ✅ Found TMDB ID: 1462322
+[416/504] Fuori (2025)
+   IMDB: tt34768402
+   ✅ Found TMDB ID: 1310830
+[417/504] Copenhagen Cowboy: Nightcall with Nicolas Winding Refn (2023)
+   IMDB: tt26452836
+   ✅ Found TMDB ID: 1078856
+[418/504] Saint Omer (2022)
+   IMDB: tt15376894
+   ✅ Found TMDB ID: 925943
+[419/504] Blue Jean (2022)
+   IMDB: tt8649344
+   ✅ Found TMDB ID: 971699
+[420/504] TÁR (2022)
+   IMDB: tt14444726
+   ✅ Found TMDB ID: 817758
+[421/504] Letter to My Mother for My Son (2022)
+   IMDB: tt21974482
+   ✅ Found TMDB ID: 1005766
+[422/504] Other People's Children (2022)
+   IMDB: tt15403712
+   ✅ Found TMDB ID: 803694
+[423/504] The Whale (2022)
+   IMDB: tt13833688
+   ✅ Found TMDB ID: 785084
+[424/504] Pearl (2022)
+   IMDB: tt18925334
+   ✅ Found TMDB ID: 949423
+[425/504] The Fabulous Ones (2022)
+   IMDB: tt21876556
+   ✅ Found TMDB ID: 970229
+[426/504] House Comes with a Bird (2022)
+   IMDB: tt19338010
+   ✅ Found TMDB ID: 953508
+[427/504] Vera (2022)
+   IMDB: tt21377368
+   ✅ Found TMDB ID: 1005279
+[428/504] Monica, O My Darling (2022)
+   IMDB: tt15128068
+   ✅ Found TMDB ID: 915831
+[429/504] BARDO, False Chronicle of a Handful of Truths (2022)
+   IMDB: tt14176542
+   ✅ Found TMDB ID: 685691
+[430/504] Blonde (2022)
+   IMDB: tt1655389
+   ✅ Found TMDB ID: 301502
+[431/504] The Eternal Daughter (2022)
+   IMDB: tt13874422
+   ✅ Found TMDB ID: 790867
+[432/504] Charlotte Salomon: Life and the Maiden (2022)
+   IMDB: tt27192204
+   ✅ Found TMDB ID: 1050699
+[433/504] White Noise (2022)
+   IMDB: tt6160448
+   ✅ Found TMDB ID: 744594
+[434/504] Athena (2022)
+   IMDB: tt15445056
+   ✅ Found TMDB ID: 852046
+[435/504] Anhell69 (2022)
+   IMDB: tt21364460
+   ✅ Found TMDB ID: 1004598
+[436/504] Don't Worry Darling (2022)
+   IMDB: tt10731256
+   ✅ Found TMDB ID: 619730
+[437/504] Living (2022)
+   IMDB: tt9051908
+   ✅ Found TMDB ID: 760099
+[438/504] Master Gardener (2022)
+   IMDB: tt15342244
+   ✅ Found TMDB ID: 869612
+[439/504] Autobiography (2022)
+   IMDB: tt21372280
+   ✅ Found TMDB ID: 859981
+[440/504] When the Waves Are Gone (2022)
+   IMDB: tt12824896
+   ✅ Found TMDB ID: 643736
+[441/504] The Last Days of Humanity (2022)
+   IMDB: tt21376832
+   ✅ Found TMDB ID: 1004675
+[442/504] L'immensità (2022)
+   IMDB: tt13051724
+   ✅ Found TMDB ID: 770724
+[443/504] Have You Seen This Woman? (2022)
+   IMDB: tt14108038
+   ✅ Found TMDB ID: 1004605
+[444/504] Luxembourg, Luxembourg (2022)
+   IMDB: tt19783714
+   ✅ Found TMDB ID: 1005141
+[445/504] Gasoline Rainbow (2023)
+   IMDB: tt28494031
+   ✅ Found TMDB ID: 1156110
+[446/504] Humanist Vampire Seeking Consenting Suicidal Person (2023)
+   IMDB: tt24216998
+   ✅ Found TMDB ID: 988402
+[447/504] Transformers: Rise of the Beasts (2023)
+   IMDB: tt5090568
+   ✅ Found TMDB ID: 667538
+[448/504] Evil Does Not Exist (2023)
+   IMDB: tt28490044
+   ✅ Found TMDB ID: 1156125
+[449/504] Memory (2023)
+   IMDB: tt19864828
+   ✅ Found TMDB ID: 979097
+[450/504] Hesitation Wound (2023)
+   IMDB: tt21482312
+   ✅ Found TMDB ID: 1025377
+[451/504] The Promised Land (2023)
+   IMDB: tt20561198
+   ✅ Found TMDB ID: 980026
+[452/504] Eye Two Times Mouth (2023)
+   IMDB: tt26745986
+   ✅ Found TMDB ID: 1089596
+[453/504] Io Capitano (2023)
+   IMDB: tt14225838
+   ✅ Found TMDB ID: 937746
+[454/504] Hoarder on the Border (2023)
+   IMDB: tt28444512
+   ✅ Found TMDB ID: 1129646
+[455/504] Oceans Are the Real Continents (2023)
+   IMDB: tt28635355
+   ✅ Found TMDB ID: 1157027
+[456/504] Life Is Not a Competition, But I’m Winning (2023)
+   IMDB: tt20231566
+   ✅ Found TMDB ID: 1155694
+[457/504] The Wonderful Story of Henry Sugar (2023)
+   IMDB: tt16968450
+   ✅ Found TMDB ID: 923939
+[458/504] Daaaaaalí! (2023)
+   IMDB: tt23476446
+   ✅ Found TMDB ID: 1045770
+[459/504] Society of the Snow (2023)
+   IMDB: tt16277242
+   ✅ Found TMDB ID: 906126
+[460/504] Ryuichi Sakamoto: Opus (2023)
+   IMDB: tt28490873
+   ✅ Found TMDB ID: 1156189
+[461/504] The Killer (2023)
+   IMDB: tt1136617
+   ✅ Found TMDB ID: 800158
+[462/504] Bye Bye Tiberias (2023)
+   IMDB: tt22857256
+   ✅ Found TMDB ID: 1156646
+[463/504] Green Border (2023)
+   IMDB: tt27722543
+   ✅ Found TMDB ID: 1121956
+[464/504] Dormitory (2023)
+   IMDB: tt20236042
+   ✅ Found TMDB ID: 1156208
+[465/504] El Conde (2023)
+   IMDB: tt21113540
+   ✅ Found TMDB ID: 991708
+[466/504] Maestro (2023)
+   IMDB: tt5535276
+   ✅ Found TMDB ID: 523607
+[467/504] Tatami (2023)
+   IMDB: tt26674818
+   ✅ Found TMDB ID: 1084066
+[468/504] Dogman (2023)
+   IMDB: tt17009348
+   ✅ Found TMDB ID: 944401
+[469/504] Coup de Chance (2023)
+   IMDB: tt15140278
+   ✅ Found TMDB ID: 859235
+[470/504] AGGRO DR1FT (2023)
+   IMDB: tt28494518
+   ✅ Found TMDB ID: 1156118
+[471/504] Ferrari (2023)
+   IMDB: tt3758542
+   ✅ Found TMDB ID: 365620
+[472/504] This Is How a Child Becomes a Poet (2023)
+   IMDB: tt28641841
+   ✅ Found TMDB ID: 1157101
+[473/504] Wander to Wonder (2023)
+   IMDB: tt28768679
+   ✅ Found TMDB ID: 1156605
+[474/504] The Summer with Carmen (2023)
+   IMDB: tt27139897
+   ✅ Found TMDB ID: 1157023
+[475/504] Heartless Outlaws (2023)
+   IMDB: tt22235414
+   ✅ Found TMDB ID: 1374953
+[476/504] Father Mother Sister Brother (2025)
+   IMDB: tt31189315
+   ✅ Found TMDB ID: 1159206
+[477/504] No Other Choice (2025)
+   IMDB: tt1527793
+   ✅ Found TMDB ID: 639988
+[478/504] Bugonia (2025)
+   IMDB: tt12300742
+   ✅ Found TMDB ID: 701387
+[479/504] La Grazia (2025)
+   IMDB: tt34886821
+   ✅ Found TMDB ID: 1397364
+[480/504] Silent Friend (2025)
+   IMDB: tt27811632
+   ✅ Found TMDB ID: 1168719
+[481/504] The Smashing Machine (2025)
+   IMDB: tt11214558
+   ✅ Found TMDB ID: 760329
+[482/504] Frankenstein (2025)
+   IMDB: tt1312221
+   ✅ Found TMDB ID: 1062722
+[483/504] Bravo Bene! (2025)
+   IMDB: tt30874362
+   ✅ Found TMDB ID: 1276271
+[484/504] A House of Dynamite (2025)
+   IMDB: tt32376165
+   ✅ Found TMDB ID: 1290159
+[485/504] Laguna (2025)
+   IMDB: tt37963565
+   ✅ Found TMDB ID: 1520513
+[486/504] The Holy Boy (2025)
+   IMDB: tt33382323
+   ✅ Found TMDB ID: 1092936
+[487/504] Landmarks (2025)
+   IMDB: tt9859510
+   ✅ Found TMDB ID: 661603
+[488/504] After the Hunt (2025)
+   IMDB: tt32159989
+   ✅ Found TMDB ID: 1265063
+[489/504] Director's Diary (2025)
+   IMDB: tt37660567
+   ✅ Found TMDB ID: 1517089
+[490/504] Fragments for Venus (2025)
+   IMDB: tt37895421
+   ✅ Found TMDB ID: 1523096
+[491/504] Marina (2025)
+   IMDB: tt37672363
+   ✅ Found TMDB ID: 1454508
+[492/504] The Strangers: Chapter 2 (2025)
+   IMDB: tt28671344
+   ✅ Found TMDB ID: 1010756
+[493/504] How to Shoot a Ghost (2025)
+   IMDB: tt37660781
+   ✅ Found TMDB ID: 1517065
+[494/504] Barrio Triste (2025)
+   IMDB: tt37660515
+   ✅ Found TMDB ID: 1310573
+[495/504] Do You Love Me (2025)
+   IMDB: tt12484760
+   ✅ Found TMDB ID: 1518801
+[496/504] Sermon to the Void (2025)
+   IMDB: tt37660548
+   ✅ Found TMDB ID: 1517166
+[497/504] Straight Circle (2025)
+   IMDB: tt29630535
+   ✅ Found TMDB ID: 1433601
+[498/504] Human Resource (2025)
+   IMDB: tt36948837
+   ✅ Found TMDB ID: 1319520
+[499/504] The Ivy (2025)
+   IMDB: tt38045572
+   ✅ Found TMDB ID: 794228
+[500/504] Strange River (2025)
+   IMDB: tt33023305
+   ✅ Found TMDB ID: 1025389
+[501/504] The Kidnapping of Arabella (2025)
+   IMDB: tt33292601
+   ✅ Found TMDB ID: 1339666
+[502/504] The Wizard of the Kremlin (2025)
+   IMDB: tt32386654
+   ✅ Found TMDB ID: 1291659
+[503/504] Family Feast (2025)
+   IMDB: tt37727461
+   ✅ Found TMDB ID: 1517486
+[504/504] Confini, canti (2025)
+   IMDB: tt37729085
+   ✅ Found TMDB ID: 1517490
+
+💾 Saving updated films.json...
+
+============================================================
+📊 SUMMARY
+============================================================
+✅ Fixed: 502 films
+❌ Failed: 2 films
+============================================================
