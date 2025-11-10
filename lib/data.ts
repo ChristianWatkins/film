@@ -302,7 +302,8 @@ export async function getAllFilms(): Promise<Film[]> {
       festivals: updatedFestivals,
       
       // Internal - keep filmKey for backward compatibility (watchlist, sharing, etc.)
-      filmKey: film.filmKey
+      filmKey: film.filmKey,
+      id: id // Unique ID for React keys
     });
   }
   

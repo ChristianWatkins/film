@@ -136,6 +136,7 @@ export interface Film {
   
   // Internal
   filmKey: string;
+  id: string; // Unique short code ID (3 chars) - for React keys
 }
 
 // Filter state

@@ -21,6 +21,29 @@ function normalizePlatformName(platform: string): string {
   return platform;
 }
 
+// Helper function to normalize country names for comparison
+function normalizeCountryName(country: string): string {
+  const lower = country.toLowerCase().trim();
+  
+  // USA variations
+  if (lower === 'united states' || 
+      lower === 'united states of america' || 
+      lower === 'usa' || 
+      lower === 'us') {
+    return 'United States';
+  }
+  
+  // UK variations
+  if (lower === 'united kingdom' || 
+      lower === 'uk' || 
+      lower === 'great britain') {
+    return 'United Kingdom';
+  }
+  
+  // Return original if no normalization needed
+  return country;
+}
+
 // Helper function to convert display names back to filter names
 function displayNameToFilterName(displayName: string): string {
   if (displayName === 'Cineast') {
@@ -53,8 +76,14 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
     }
     
     // Country filter - exclude
-    if (filters.excludedCountries.length > 0) {
-      if (film.country && filters.excludedCountries.includes(film.country)) return false;
+    if (filters.excludedCountries.length > 0 && film.country) {
+      // Normalize country name for comparison (handle USA variations)
+      const normalizedCountry = normalizeCountryName(film.country);
+      const shouldExclude = filters.excludedCountries.some(excluded => {
+        const normalizedExcluded = normalizeCountryName(excluded);
+        return normalizedCountry === normalizedExcluded;
+      });
+      if (shouldExclude) return false;
     }
     
     // Genre filter

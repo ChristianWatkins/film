@@ -746,7 +746,7 @@ export default function FilmGrid({
             <AnimatePresence mode="sync">
               {visibleFilms.map((film, index) => (
                 <motion.div
-                  key={film.filmKey}
+                  key={film.id || film.filmKey}
                   data-film-card
                   layout
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -793,7 +793,7 @@ export default function FilmGrid({
               }}
             >
               {visibleFilms.map(film => (
-                <div key={film.filmKey} data-film-card>
+                <div key={film.id || film.filmKey} data-film-card>
                   <FilmCard 
                     film={film} 
                     isFlipped={flippedCard === film.filmKey || (rowJumpEnabled && allCardsFlipped)}
@@ -813,7 +813,7 @@ export default function FilmGrid({
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {visibleFilms.map(film => (
-              <div key={film.filmKey} data-film-card>
+              <div key={film.id || film.filmKey} data-film-card>
                 <FilmCard 
                   film={film} 
                   isFlipped={flippedCard === film.filmKey || (rowJumpEnabled && allCardsFlipped)}
