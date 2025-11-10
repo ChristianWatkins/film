@@ -1,0 +1,1250 @@
+[dotenv@17.2.3] injecting env (7) from .env.local -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+✨ Enriching Films with TMDB Data
+============================================================
+
+📊 Found 411 films with TMDB ID but missing data
+
+🔍 Fetching enrichment data from TMDB...
+
+[1/411] Late Shift (2025)
+   TMDB ID: 1356670
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[2/411] Parthenope (2024)
+   TMDB ID: 1109255
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[3/411] My Favourite Cake (2024)
+   TMDB ID: 1234591
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[4/411] Fallen Leaves (2023)
+   TMDB ID: 986280
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[5/411] No Bears (2022)
+   TMDB ID: 974521
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[6/411] Alcarràs (2022)
+   TMDB ID: 804251
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[7/411] Another Round (2020)
+   TMDB ID: 580175
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[8/411] There Is No Evil (2020)
+   TMDB ID: 667935
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[9/411] Quo Vadis, Aida? (2021)
+   TMDB ID: 728118
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[10/411] Echo (2017)
+   TMDB ID: 946711
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[11/411] Amazing Grace (2007)
+   TMDB ID: 782966
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[12/411] Forført - af Jan Hellesøe (2020)
+   TMDB ID: 782895
+   ✅ Enriched with: poster, genres, cast, keywords
+[13/411] Burning (2021)
+   TMDB ID: 858058
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[14/411] Hollywood Rebellen (2013)
+   TMDB ID: 1106897
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[15/411] The Tree (2023)
+   TMDB ID: 1127734
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[16/411] Laputa (2015)
+   TMDB ID: 384247
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[17/411] The Beginning of Life 2: Outside (2020)
+   TMDB ID: 765188
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[18/411] Meanwhile on Earth (2020)
+   TMDB ID: 658806
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[19/411] Gunda (2020)
+   TMDB ID: 664601
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[20/411] Stray (2020)
+   TMDB ID: 727330
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[21/411] Sundown (2021)
+   TMDB ID: 854359
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[22/411] Taming the Garden (2021)
+   TMDB ID: 776556
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[23/411] Wè (2021)
+   TMDB ID: 658854
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[24/411] The Divide (2021)
+   TMDB ID: 392269
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[25/411] De Humani Corporis Fabrica (2022)
+   TMDB ID: 721232
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[26/411] Against the Tide (2023)
+   TMDB ID: 1058621
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[27/411] here (2023)
+   TMDB ID: 1463730
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[28/411] FLOW (2024)
+   TMDB ID: 1281775
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[29/411] On April 22, 2023, from 13:05 to 13:11, Nothing Happened in Irpin (2024)
+   TMDB ID: 1288640
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[30/411] Love (2024)
+   TMDB ID: 1228685
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[31/411] How Azure is Dying (2024)
+   TMDB ID: 1304102
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[32/411] L'état et moi (2022)
+   TMDB ID: 927993
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[33/411] Echoes of the Thunder (2023)
+   TMDB ID: 1164755
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[34/411] 真夜中モラトリアム (2023)
+   TMDB ID: 1059941
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[35/411] The Lost Boys of Mercury (2023)
+   TMDB ID: 1108348
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[36/411] Crossing (2024)
+   TMDB ID: 1406713
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[37/411] Scorched Earth: Sun Glitch (2024)
+   TMDB ID: 1369427
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[38/411] Intercepted (2024)
+   TMDB ID: 1229477
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[39/411] On the Battlefield (2024)
+   TMDB ID: 1233346
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[40/411] The Message (2025)
+   TMDB ID: 1429252
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[41/411] The Memory of Butterflies (2025)
+   TMDB ID: 1524906
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[42/411] The Good Sister (2025)
+   TMDB ID: 1492733
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[43/411] Dustin Clark: The Humanity In Who We Are (2020)
+   TMDB ID: 881240
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[44/411] Teddy (2020)
+   TMDB ID: 712123
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[45/411] We Are Not Who They Say We Are (2020)
+   TMDB ID: 733367
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[46/411] Downstream to Kinshasa (2020)
+   TMDB ID: 712144
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[47/411] Maalbeek (2020)
+   TMDB ID: 714032
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[48/411] Invisible Demons (2021)
+   TMDB ID: 842361
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[49/411] Mariner of the Mountains (2021)
+   TMDB ID: 662714
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[50/411] The Bravest Escort Group II: Howling Wind (2021)
+   TMDB ID: 865124
+   ✅ Enriched with: poster, genres, runtime, cast, keywords
+[51/411] Train Again (2021)
+   TMDB ID: 838152
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[52/411] A Short Story (2022)
+   TMDB ID: 1135609
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[53/411] Retorno à Razão (2023)
+   TMDB ID: 1107342
+   ✅ Enriched with: poster, genres, cast, keywords
+[54/411] Trailer of a Film That Will Never Exist: Phony Wars (2023)
+   TMDB ID: 1065727
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[55/411] Resurrection (2025)
+   TMDB ID: 1279580
+   ✅ Enriched with: synopsis, genres, cast, keywords
+[56/411] Trenque Lauquen (2022)
+   TMDB ID: 715742
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[57/411] Trenque Lauquen (2022)
+   TMDB ID: 715742
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[58/411] Charlotte Salomon: Life and the Maiden (2022)
+   TMDB ID: 1050699
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[59/411] I Hit a Man (2023)
+   TMDB ID: 1272851
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[60/411] Laguna (2025)
+   TMDB ID: 1520513
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[61/411] Her at Work (2025)
+   TMDB ID: 1528597
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[62/411] Landmarks (2025)
+   TMDB ID: 661603
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[63/411] A Soil A Culture A River A People (2025)
+   TMDB ID: 1516303
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[64/411] Director's Diary (2025)
+   TMDB ID: 1517089
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[65/411] Fragments for Venus (2025)
+   TMDB ID: 1523096
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[66/411] Do You Love Me (2025)
+   TMDB ID: 1518801
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[67/411] Goffredo felicissimo? (2025)
+   TMDB ID: 1526096
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[68/411] Family Feast (2025)
+   TMDB ID: 1517486
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[69/411] Remains (2025)
+   TMDB ID: 1500208
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[70/411] Confini, canti (2025)
+   TMDB ID: 1517490
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[71/411] SAINTS (2025)
+   TMDB ID: 1027073
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[72/411] LITTLE GIRL (2020)
+   TMDB ID: 656274
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[73/411] APIYEMIYEKÎ? (2020)
+   TMDB ID: 656686
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[74/411] WHAT WILL SUMMER BRING (2021)
+   TMDB ID: 795914
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[75/411] LIMBO (2021)
+   TMDB ID: 818694
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[76/411] ALL OF YOUR STARS ARE BUT DUST ON MY SHOES (2021)
+   TMDB ID: 816350
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[77/411] THE AMERICAN SECTOR (2020)
+   TMDB ID: 665732
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[78/411] GENERATIONS (2020)
+   TMDB ID: 665433
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[79/411] ZERO (2020)
+   TMDB ID: 698717
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[80/411] THE EXIT OF THE TRAINS (2020)
+   TMDB ID: 665440
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[81/411] HOW TO DISAPPEAR (2020)
+   TMDB ID: 1156461
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[82/411] EXPEDITION CONTENT (2020)
+   TMDB ID: 672042
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[83/411] THE TWO SIGHTS (2020)
+   TMDB ID: 592210
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[84/411] GARAGE PEOPLE (2020)
+   TMDB ID: 656297
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[85/411] OECONOMIA (2020)
+   TMDB ID: 665453
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[86/411] SAUDI RUNAWAY (2020)
+   TMDB ID: 653759
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[87/411] INFLORESCENCE (2020)
+   TMDB ID: 671864
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[88/411] HUNTSVILLE STATION (2020)
+   TMDB ID: 663891
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[89/411] DAYS OF CANNIBALISM (2020)
+   TMDB ID: 617004
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[90/411] RUNNING ON EMPTY (2020)
+   TMDB ID: 656283
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[91/411] A I O U (2020)
+   TMDB ID: 741654
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[92/411] UNTITLED SEQUENCE OF GAPS (2020)
+   TMDB ID: 672020
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[93/411] HER NAME WAS EUROPA (2020)
+   TMDB ID: 665517
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[94/411] MAGGIE'S FARM (2020)
+   TMDB ID: 646061
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[95/411] THE HOUSE OF LOVE (2020)
+   TMDB ID: 665449
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[96/411] THE FOUNDATION PIT (2020)
+   TMDB ID: 665742
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[97/411] HILLARY (2020)
+   TMDB ID: 777128
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[98/411] LEAF (2020)
+   TMDB ID: 666087
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[99/411] THE PROMISED (2020)
+   TMDB ID: 671863
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[100/411] AFTER THE CROSSING (2020)
+   TMDB ID: 665474
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[101/411] MEDIUM (2020)
+   TMDB ID: 665407
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[102/411] STRIKE OR DIE (2020)
+   TMDB ID: 665438
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[103/411] THE NOTES OF ANNA AZZORI | A MIRROR THAT TRAVELS THROUGH TIME (2020)
+   TMDB ID: 665435
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[104/411] AT THE ENTRANCE OF THE NIGHT (2020)
+   TMDB ID: 663844
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[105/411] BABYDYKE (2020)
+   TMDB ID: 666097
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[106/411] THE SILENCE OF THE RIVER (2020)
+   TMDB ID: 666082
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[107/411] NARDJES A. (2020)
+   TMDB ID: 665768
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[108/411] THE LITTLE BIRD AND THE BEES (2020)
+   TMDB ID: 666086
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[109/411] A DEMONSTRATION (2020)
+   TMDB ID: 663864
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[110/411] QUANTUM CREOLE (2020)
+   TMDB ID: 663919
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[111/411] ONE OF THESE DAYS (2020)
+   TMDB ID: 700747
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[112/411] LETTER FROM A GUARANI WOMAN IN SEARCH OF THE LAND WITHOUT EVIL (2020)
+   TMDB ID: 675242
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[113/411] MEMORY ALSO DIE (2020)
+   TMDB ID: 741659
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[114/411] SHIPWRECK AT THE THRESHOLD OF EUROPE, LESVOS, AEGEAN SEA: 28 OCTOBER 2015 (2020)
+   TMDB ID: 741661
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[115/411] AUTOMOTIVE (2020)
+   TMDB ID: 663989
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[116/411] MISHOU (2020)
+   TMDB ID: 666091
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[117/411] WHITE WINGED HORSE (2020)
+   TMDB ID: 666113
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[118/411] THE FLAME (2020)
+   TMDB ID: 656481
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[119/411] PANTHERS (2020)
+   TMDB ID: 666110
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[120/411] AKIYA (2020)
+   TMDB ID: 665420
+   ✅ Enriched with: genres, runtime, cast, keywords
+[121/411] BORN OF THE * * *: ON ZARATHUSTRA'S GOING UNDER FROM CAIRO TO ORAN (2020)
+   TMDB ID: 672046
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[122/411] ABSTRACTED / FAMILY (2020)
+   TMDB ID: 671868
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[123/411] WHAT REMAINS RE-VISITED (2020)
+   TMDB ID: 665481
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[124/411] ART COMES FROM THE BEAK THE WAY IT HAS GROWN (2020)
+   TMDB ID: 665445
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[125/411] AS ABOVE SO BELOW (2020)
+   TMDB ID: 665443
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[126/411] BETWEEN DOG AND WOLF (2020)
+   TMDB ID: 665427
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[127/411] TÉLÉ RÉALITÉ (2020)
+   TMDB ID: 671893
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[128/411] GREVILLEA (2020)
+   TMDB ID: 666100
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[129/411] AMAZON MIRROR (2020)
+   TMDB ID: 665773
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[130/411] THE PHANTOM MENACE (2020)
+   TMDB ID: 661852
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[131/411] PERRO (2020)
+   TMDB ID: 656529
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[132/411] MUTTS (2019)
+   TMDB ID: 656477
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[133/411] 2008 (2019)
+   TMDB ID: 605794
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[134/411] THE WHOLE SHEBANG (2019)
+   TMDB ID: 623387
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[135/411] MISSING DAYS (2019)
+   TMDB ID: 663885
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[136/411] EQUINOX (2019)
+   TMDB ID: 658178
+   ✅ Enriched with: poster, genres, cast, keywords
+[137/411] JIÍBIE (2019)
+   TMDB ID: 665510
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[138/411] OUVERTURES (2019)
+   TMDB ID: 627084
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[139/411] LESS LETHAL FETISHES (2019)
+   TMDB ID: 643529
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[140/411] THE LANDING (2019)
+   TMDB ID: 664657
+   ✅ Enriched with: genres, runtime, cast, keywords
+[141/411] ZEUS MACHINE. THE INVINCIBLE (2019)
+   TMDB ID: 650493
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[142/411] HARVEST (2019)
+   TMDB ID: 666096
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[143/411] ALETSCH NEGATIVE (2019)
+   TMDB ID: 663858
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[144/411] HELLO AHMA (2019)
+   TMDB ID: 624836
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[145/411] A FOOL GOD (2019)
+   TMDB ID: 624816
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[146/411] POMPÉI (2019)
+   TMDB ID: 1392444
+   ✅ Enriched with: poster, genres, cast, keywords
+[147/411] CITIZENS OF THE COSMOS (2019)
+   TMDB ID: 588679
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[148/411] OUT OF PLACE (2019)
+   TMDB ID: 594048
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[149/411] RECLAMATION (2018)
+   TMDB ID: 515284
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[150/411] VEITSTANZ/FEIXTANZ (1988)
+   TMDB ID: 671865
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[151/411] MY NEIGHBOURS (1971)
+   TMDB ID: 662750
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[152/411] A BONUS FOR IRENE (1971)
+   TMDB ID: 523175
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[153/411] SOCHAUX: JUNE 11, 1968 (1970)
+   TMDB ID: 522948
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[154/411] END OF THE DIALOGUE (1970)
+   TMDB ID: 440422
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[155/411] CHICAGO 70 (1970)
+   TMDB ID: 308179
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[156/411] MARE'S TAIL (1969)
+   TMDB ID: 389166
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[157/411] MY UNCLE TUDOR (2021)
+   TMDB ID: 795993
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[158/411] CELTS (2021)
+   TMDB ID: 853414
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[159/411] AS I WANT (2021)
+   TMDB ID: 795763
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[160/411] NORTH BY CURRENT (2021)
+   TMDB ID: 737277
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[161/411] WHEN A FARM GOES AFLAME (2021)
+   TMDB ID: 795891
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[162/411] INTERNATIONAL DAWN CHORUS DAY (2021)
+   TMDB ID: 795098
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[163/411] A RIVER RUNS, TURNS, ERASES, REPLACES (2021)
+   TMDB ID: 795397
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[164/411] NIGHT NURSERY (2021)
+   TMDB ID: 795906
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[165/411] VADIM ON A WALK (2021)
+   TMDB ID: 793792
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[166/411] REHEARSAL (2021)
+   TMDB ID: 795990
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[167/411] GLITTERING BARBIEBLOOD (2021)
+   TMDB ID: 795999
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[168/411] BLACK BEAUTY (2021)
+   TMDB ID: 853793
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[169/411] DIRTY FEATHERS (2021)
+   TMDB ID: 795766
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[170/411] INSTRUCTIONS FOR SURVIVAL (2021)
+   TMDB ID: 795878
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[171/411] AHORITA FRAMES (2021)
+   TMDB ID: 795978
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[172/411] AFTER LIFE FOLLOWED BY RED IMPASTO JAR (2021)
+   TMDB ID: 795974
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[173/411] MAY JUNE JULY (2021)
+   TMDB ID: 886807
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[174/411] BLACK BACH ARTSAKH (2021)
+   TMDB ID: 795938
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[175/411] ANAMNESIS (2021)
+   TMDB ID: 795900
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[176/411] ONE THOUSAND AND ONE ATTEMPTS TO BE AN OCEAN (2020)
+   TMDB ID: 795054
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[177/411] FIGHTER (2020)
+   TMDB ID: 768899
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[178/411] A BALANCE (2020)
+   TMDB ID: 750480
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[179/411] ZONDER MEER (2020)
+   TMDB ID: 772887
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[180/411] UPHEAVAL (2020)
+   TMDB ID: 744119
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[181/411] THE COAST (2020)
+   TMDB ID: 763770
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[182/411] AUTOTROFIA (2020)
+   TMDB ID: 795969
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[183/411] BICENTENARIO (2020)
+   TMDB ID: 763817
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[184/411] LOST ON ARRIVAL (2020)
+   TMDB ID: 783465
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[185/411] STRANGE OBJECT (2020)
+   TMDB ID: 750741
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[186/411] "THE RED FILTER IS WITHDRAWN." (2020)
+   TMDB ID: 795971
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[187/411] THE UNITED STATES OF AMERICA (2022)
+   TMDB ID: 916460
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[188/411] MYANMAR DIARIES (2022)
+   TMDB ID: 916429
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[189/411] SUBTOTALS (2022)
+   TMDB ID: 926874
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[190/411] STRIKING LAND (2022)
+   TMDB ID: 928009
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[191/411] HEART OF OAK (2022)
+   TMDB ID: 916387
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[192/411] JET LAG (2022)
+   TMDB ID: 1038516
+   ✅ Enriched with: poster, genres, runtime, cast, keywords
+[193/411] BONEY PILES (2022)
+   TMDB ID: 927046
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[194/411] WATERS OF PASTAZA (2022)
+   TMDB ID: 927037
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[195/411] NOTHING TO SEE HERE (2022)
+   TMDB ID: 916487
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[196/411] A STORY FOR 2 TRUMPETS (2022)
+   TMDB ID: 926997
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[197/411] AGRILOGISTICS (2022)
+   TMDB ID: 926973
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[198/411] KIND HEARTS (2022)
+   TMDB ID: 916422
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[199/411] MEMORIES FROM THE EASTERN FRONT (2022)
+   TMDB ID: 926976
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[200/411] KICKING THE CLOUDS (2022)
+   TMDB ID: 914263
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[201/411] YAROKAMENA (2022)
+   TMDB ID: 926884
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[202/411] SAB CHANGA SI (ALL WAS GOOD) (2022)
+   TMDB ID: 926880
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[203/411] SUN UNDER GROUND (2022)
+   TMDB ID: 926881
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[204/411] AN INVISIBLE APPRENTICE (2022)
+   TMDB ID: 916479
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[205/411] KALLE KOSMONAUT (2022)
+   TMDB ID: 927050
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[206/411] DIVA (2022)
+   TMDB ID: 926863
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[207/411] HEROINES (2022)
+   TMDB ID: 926995
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[208/411] BIRD IN THE PENINSULA (2022)
+   TMDB ID: 926977
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[209/411] NOTHING LASTS FOREVER (2022)
+   TMDB ID: 916392
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[210/411] THE VETERAN (2022)
+   TMDB ID: 928012
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[211/411] AMERICAN JOURNAL (2022)
+   TMDB ID: 928729
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[212/411] EVERYTHING WILL BE OK (2022)
+   TMDB ID: 928715
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[213/411] DREAMS (2022)
+   TMDB ID: 947377
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[214/411] SOL IN THE DARK (2022)
+   TMDB ID: 916473
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[215/411] MY HOME (2022)
+   TMDB ID: 926875
+   ✅ Enriched with: poster, genres, runtime, cast, keywords
+[216/411] DRAGON TOOTH (2022)
+   TMDB ID: 916461
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[217/411] FIRE EMERGENCIES (2022)
+   TMDB ID: 926865
+   ✅ Enriched with: poster, genres, runtime, cast, keywords
+[218/411] WHEELS ON THE BUS (2022)
+   TMDB ID: 927069
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[219/411] THE MOST BORING GRANNY IN THE WHOLE WORLD (2022)
+   TMDB ID: 927059
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[220/411] SUZIE IN THE GARDEN (2022)
+   TMDB ID: 927072
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[221/411] I'M NOT AFRAID! (2022)
+   TMDB ID: 916484
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[222/411] LAY ME BY THE SHORE (2022)
+   TMDB ID: 927088
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[223/411] SORRY COMRADE (2022)
+   TMDB ID: 882655
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[224/411] RETREAT (2022)
+   TMDB ID: 927000
+   ✅ Enriched with: poster, genres, runtime, cast, keywords
+[225/411] HOUSE OF EXISTENCE (2022)
+   TMDB ID: 926999
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[226/411] FOR THE MANY: THE VIENNA CHAMBER OF LABOUR (2022)
+   TMDB ID: 927997
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[227/411] NO U-TURN (2022)
+   TMDB ID: 928365
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[228/411] BLUE NOISE (2022)
+   TMDB ID: 916480
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[229/411] NUCLEAR FAMILY (2021)
+   TMDB ID: 809705
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[230/411] BEBA (2021)
+   TMDB ID: 852246
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[231/411] MEMORYLAND (2021)
+   TMDB ID: 874442
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[232/411] HOME WHEN YOU RETURN (2021)
+   TMDB ID: 862684
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[233/411] SPOTLESS (2021)
+   TMDB ID: 887685
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[234/411] LADIES ONLY (2021)
+   TMDB ID: 877444
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[235/411] FEVER (2021)
+   TMDB ID: 927080
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[236/411] THE LIGHTING (2021)
+   TMDB ID: 926888
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[237/411] ALMA AND PAZ (2021)
+   TMDB ID: 927061
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[238/411] DEER (2021)
+   TMDB ID: 921843
+   ✅ Enriched with: poster, genres, runtime, cast, keywords
+[239/411] ROOSTER (2021)
+   TMDB ID: 900066
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[240/411] FOUR NIGHTS (2021)
+   TMDB ID: 800143
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[241/411] IF FROM EVERY TONGUE IT DRIPS (2021)
+   TMDB ID: 871312
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[242/411] TINASHÈ (2021)
+   TMDB ID: 881626
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[243/411] DIRNDLSCHULD (2021)
+   TMDB ID: 892788
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[244/411] THIS MAKES ME WANT TO PREDICT THE PAST (2019)
+   TMDB ID: 668374
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[245/411] 77SQM_9:26MIN (2017)
+   TMDB ID: 926962
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[246/411] MY TONGUE DOES NOT TURN (2013)
+   TMDB ID: 265306
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[247/411] FREMD. YABAN. (2007)
+   TMDB ID: 406888
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[248/411] THE MAJI-MAJI READINGS (2006)
+   TMDB ID: 926942
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[249/411] DIRT FOR DINNER (2000)
+   TMDB ID: 926960
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[250/411] MERRY CHRISTMAS DEUTSCHLAND (1985)
+   TMDB ID: 449279
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[251/411] THE ECHO (2023)
+   TMDB ID: 1164755
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[252/411] A KIND OF TESTAMENT (2023)
+   TMDB ID: 1080434
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[253/411] THE ARCHITECT (2023)
+   TMDB ID: 1144266
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[254/411] THE CASTLE (2023)
+   TMDB ID: 1077546
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[255/411] AFTER (2023)
+   TMDB ID: 1472772
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[256/411] HUMMINGBIRDS (2023)
+   TMDB ID: 1076164
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[257/411] ALLENSWORTH (2023)
+   TMDB ID: 1017387
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[258/411] WAKING UP IN SILENCE (2023)
+   TMDB ID: 1061668
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[259/411] THE INTRUSION (2023)
+   TMDB ID: 1261952
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[260/411] IT'S A DATE (2023)
+   TMDB ID: 1073574
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[261/411] NOTES FROM EREMOCENE (2023)
+   TMDB ID: 1063597
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[262/411] DREAM'S GATE (2023)
+   TMDB ID: 1061637
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[263/411] SCENES OF EXTRACTION (2023)
+   TMDB ID: 1080153
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[264/411] WE WILL NOT FADE AWAY (2023)
+   TMDB ID: 853084
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[265/411] EASTERN FRONT (2023)
+   TMDB ID: 1077685
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[266/411] TRANSFARIANA (2023)
+   TMDB ID: 1061657
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[267/411] SOMNI (2023)
+   TMDB ID: 1076174
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[268/411] POND (2023)
+   TMDB ID: 1076178
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[269/411] ANQA (2023)
+   TMDB ID: 1074749
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[270/411] ROAR (2023)
+   TMDB ID: 1135202
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[271/411] THE WAITING (2023)
+   TMDB ID: 1080445
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[272/411] THE VEILED CITY (2023)
+   TMDB ID: 1078507
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[273/411] LONG LONG KISS (2023)
+   TMDB ID: 1073458
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[274/411] DEAREST FIONA (2023)
+   TMDB ID: 1063594
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[275/411] DEDE IS DEAD (2023)
+   TMDB ID: 1061665
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[276/411] OF DREAMS IN THE DREAM OF ANOTHER MIRROR (2023)
+   TMDB ID: 1049137
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[277/411] FROM THE CORNER OF MY EYES (2023)
+   TMDB ID: 1076176
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[278/411] WHEN A ROCKET SITS ON THE LAUNCH PAD (2023)
+   TMDB ID: 1076165
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[279/411] HOME INVASION (2023)
+   TMDB ID: 1080141
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[280/411] IN-BETWEEN WORLD (2023)
+   TMDB ID: 1080167
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[281/411] AFRAID DOESN'T EXIST (2023)
+   TMDB ID: 1063619
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[282/411] THE EARLY RAINS WHICH WASH AWAY THE CHAFF BEFORE THE SPRING RAINS (2023)
+   TMDB ID: 1080140
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[283/411] UNDER THE SKY OF DAMASCUS (2023)
+   TMDB ID: 1075823
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[284/411] IN UKRAINE (2023)
+   TMDB ID: 1074766
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[285/411] A GOLDEN LIFE (2023)
+   TMDB ID: 1109634
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[286/411] HAPPY DOOM (2023)
+   TMDB ID: 1080432
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[287/411] TO WRITE FROM MEMORY (2023)
+   TMDB ID: 1061667
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[288/411] AAAAH! (2023)
+   TMDB ID: 1061662
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[289/411] HELLO DANKNESS (2022)
+   TMDB ID: 1037129
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[290/411] BEAR (2022)
+   TMDB ID: 1080292
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[291/411] KASH KASH: WITHOUT FEATHERS WE CAN'T LIVE (2022)
+   TMDB ID: 928641
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[292/411] EXHIBITION (2022)
+   TMDB ID: 1023804
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[293/411] TO BE SISTERS (2022)
+   TMDB ID: 1061666
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[294/411] MIRROR MIRROR (2022)
+   TMDB ID: 1017517
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[295/411] HORSE OPERA (2022)
+   TMDB ID: 1008454
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[296/411] A VERY LONG GIF (2022)
+   TMDB ID: 1063620
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[297/411] BACK (2022)
+   TMDB ID: 1006727
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[298/411] THE TIME THAT SEPARATES US (2022)
+   TMDB ID: 995698
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[299/411] EIN HERBST IM LÄNDCHEN BÄRWALDE (1983)
+   TMDB ID: 1080118
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[300/411] OYOYO (1980)
+   TMDB ID: 781499
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[301/411] AUFENTHALTSERLAUBNIS (1978)
+   TMDB ID: 1080121
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[302/411] DIRECT ACTION (2024)
+   TMDB ID: 1234601
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[303/411] GRANDMAMAUNTSISTERCAT (2024)
+   TMDB ID: 1220117
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[304/411] HENRY FONDA FOR PRESIDENT (2024)
+   TMDB ID: 1405288
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[305/411] MY STOLEN PLANET (2024)
+   TMDB ID: 1232424
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[306/411] LAST SWIM (2024)
+   TMDB ID: 1296183
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[307/411] THE PERIPHERY OF THE BASE (2024)
+   TMDB ID: 1232740
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[308/411] MAYDEGOL (2024)
+   TMDB ID: 883141
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[309/411] THE CATS OF GOKOGU SHRINE (2024)
+   TMDB ID: 1232797
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[310/411] L' HOMME-VERTIGE: TALES OF A CITY (2024)
+   TMDB ID: 1233280
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[311/411] RISING UP AT NIGHT (2024)
+   TMDB ID: 871316
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[312/411] THE EMPTY GRAVE (2024)
+   TMDB ID: 1231481
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[313/411] OASIS (2024)
+   TMDB ID: 1233288
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[314/411] THE MOON ALSO RISES (2024)
+   TMDB ID: 995061
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[315/411] CITY OF POETS (2024)
+   TMDB ID: 1233396
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[316/411] THE FABLE (2024)
+   TMDB ID: 1243865
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[317/411] UNWANTED KINSHIP (2024)
+   TMDB ID: 1233373
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[318/411] O SEEKER (2024)
+   TMDB ID: 1220561
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[319/411] I DON'T WANT TO BE JUST A MEMORY (2024)
+   TMDB ID: 1233336
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[320/411] SHEEP (2024)
+   TMDB ID: 1233352
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[321/411] THE GIRL WHO LIVED IN THE LOO (2024)
+   TMDB ID: 1233350
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[322/411] EXERGUE - ON DOCUMENTA 14 (2024)
+   TMDB ID: 1231485
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[323/411] ELEVEN TOMORROWS: BERLINALE MEETS FOOTBALL (2024)
+   TMDB ID: 1231487
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[324/411] THE INVISIBLE ZOO (2024)
+   TMDB ID: 1233299
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[325/411] TRACES OF MOVEMENT BEFORE THE ICE (2024)
+   TMDB ID: 1233298
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[326/411] REPRODUCTION (2024)
+   TMDB ID: 1501051
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[327/411] WELL ORDERED NATURE (2024)
+   TMDB ID: 1233285
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[328/411] CITY MUSEUM / MY PARADISE (2024)
+   TMDB ID: 1233379
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[329/411] REMAINS OF THE HOT DAY (2024)
+   TMDB ID: 1233388
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[330/411] PACIFIC VEIN (2024)
+   TMDB ID: 1233389
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[331/411] CIRCLE (2024)
+   TMDB ID: 1346457
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[332/411] THE SECRET DRAWER (2024)
+   TMDB ID: 1233250
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[333/411] NANACATEPEC (2024)
+   TMDB ID: 1233339
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[334/411] BARRUNTO (2024)
+   TMDB ID: 1233328
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[335/411] LICK A WOUND (2024)
+   TMDB ID: 1231816
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[336/411] REMOTE OCCLUSIONS (2024)
+   TMDB ID: 1222205
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[337/411] QUEBRANTE (2024)
+   TMDB ID: 1220544
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[338/411] SARCOPHAGUS OF DRUNKEN LOVES (2024)
+   TMDB ID: 1220572
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[339/411] KAWAUSO (2023)
+   TMDB ID: 1233395
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[340/411] SOJOURN TO SHANGRI-LA (2023)
+   TMDB ID: 1233385
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[341/411] REPUBLIC (2023)
+   TMDB ID: 1179045
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[342/411] ROOM 404 (2023)
+   TMDB ID: 1148768
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[343/411] UNSICHTBARE TAGE ODER DIE LEGENDE VON DEN WEISSEN KROKODILEN (1991)
+   TMDB ID: 557260
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[344/411] TECHQUA IKACHI: LAND - MY LIFE (1989)
+   TMDB ID: 1242874
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[345/411] JESUS: THE FILM (1986)
+   TMDB ID: 318039
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[346/411] ART EDUCATION (1976)
+   TMDB ID: 386939
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[347/411] COUPLES (1972)
+   TMDB ID: 553994
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[348/411] SHAPES (1972)
+   TMDB ID: 583483
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[349/411] IRIS (1971)
+   TMDB ID: 553993
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[350/411] SELFPORTRAIT (1971)
+   TMDB ID: 553991
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[351/411] CHAIRS (1971)
+   TMDB ID: 554039
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[352/411] ENCOUNTER (1970)
+   TMDB ID: 554007
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[353/411] TWO IN A MILLION (1961)
+   TMDB ID: 6915
+   ✅ Enriched with: poster, genres, runtime, cast, keywords
+[354/411] AUTOKAR (2025)
+   TMDB ID: 1405315
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[355/411] DAS DEUTSCHE VOLK (2025)
+   TMDB ID: 1421162
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[356/411] LITTLE BOY (2025)
+   TMDB ID: 1418592
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[357/411] EXTRA LIFE (AND DECAY) (2025)
+   TMDB ID: 1414732
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[358/411] THE MOELLN LETTERS (2025)
+   TMDB ID: 1399400
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[359/411] KHARTOUM (2025)
+   TMDB ID: 1400796
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[360/411] EEL (2025)
+   TMDB ID: 1549642
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[361/411] WHEN LIGHTNING FLASHES OVER THE SEA (2025)
+   TMDB ID: 1418957
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[362/411] WISH YOU WERE EAR (2025)
+   TMDB ID: 1415860
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[363/411] CIRCUSBOY (2025)
+   TMDB ID: 1418529
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[364/411] QUEER AS PUNK (2025)
+   TMDB ID: 1418634
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[365/411] PALLIATIVE CARE UNIT (2025)
+   TMDB ID: 1418620
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[366/411] THE THIEF (2025)
+   TMDB ID: 1405327
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[367/411] 2024 (2023) (2024)
+   TMDB ID: 1281103
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[368/411] THE ORCHARDS (2025)
+   TMDB ID: 1414764
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[369/411] IN RETROSPECT (2025)
+   TMDB ID: 1416932
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[370/411] ORDINARY LIFE (2025)
+   TMDB ID: 1416915
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[371/411] SPACE CADET (2025)
+   TMDB ID: 1404169
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[372/411] J-N-N (2025)
+   TMDB ID: 1414776
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[373/411] BENEATH THE PLACID LAKE (2025)
+   TMDB ID: 1414770
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[374/411] WHAT'S NEXT? (2025)
+   TMDB ID: 1418956
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[375/411] TIN CITY (2025)
+   TMDB ID: 1415321
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[376/411] OUR TIME WILL COME (2025)
+   TMDB ID: 1418950
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[377/411] QUAKER (2025)
+   TMDB ID: 1418629
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[378/411] ONLY ON EARTH (2025)
+   TMDB ID: 1394818
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[379/411] ORNMOL (2025)
+   TMDB ID: 1405324
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[380/411] COBALT (2025)
+   TMDB ID: 1414778
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[381/411] MOUNTAIN ROARS (2025)
+   TMDB ID: 1414781
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[382/411] THE LEAP (2025)
+   TMDB ID: 1418561
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[383/411] EVIDENCE (2025)
+   TMDB ID: 1418564
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[384/411] DOWN IN THE DUMPS (2025)
+   TMDB ID: 1418556
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[385/411] CANONE EFFIMERO (2025)
+   TMDB ID: 1418542
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[386/411] TIME TO THE TARGET (2025)
+   TMDB ID: 1418544
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[387/411] SUNSET OVER AMERICA (2025)
+   TMDB ID: 1418538
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[388/411] THE MUD UNDER MY WINDOW (2025)
+   TMDB ID: 1418938
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[389/411] SPECIAL OPERATION (2025)
+   TMDB ID: 1415319
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[390/411] A LETTER TO DAVID (2025)
+   TMDB ID: 1421184
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[391/411] BEDROCK (2025)
+   TMDB ID: 1415597
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[392/411] ONCE AGAIN... (STATUES NEVER DIE) (2025)
+   TMDB ID: 1418612
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[393/411] THEIR EYES (2025)
+   TMDB ID: 1416938
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[394/411] STONE OF DESTINY (2025)
+   TMDB ID: 1416917
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[395/411] CITIZEN-INMATE (2025)
+   TMDB ID: 1439610
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[396/411] CHANG GYEONG (2025)
+   TMDB ID: 1321954
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[397/411] THE LONG ROAD TO THE DIRECTOR'S CHAIR (2025)
+   TMDB ID: 1414743
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[398/411] NUDITY (2025)
+   TMDB ID: 1414748
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[399/411] SCARS OF A PUTSCH (2025)
+   TMDB ID: 1414751
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[400/411] PORTALS (2025)
+   TMDB ID: 1414754
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[401/411] RAPTURE II - PORTAL (2024)
+   TMDB ID: 1389049
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[402/411] PHOTOSYNTHESIZING DEAD IN WAREHOUSE (2024)
+   TMDB ID: 1329873
+   ✅ Enriched with: genres, runtime, cast, keywords
+[403/411] SPRING NIGHT (2024)
+   TMDB ID: 1287011
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+[404/411] BLUSH (2024)
+   TMDB ID: 1562119
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[405/411] MOTHER'S CHILD (2024)
+   TMDB ID: 1384042
+   ✅ Enriched with: synopsis, poster, genres, cast, keywords
+[406/411] THE SENSE OF VIOLENCE (2024)
+   TMDB ID: 1351024
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[407/411] SHAYNE (2019)
+   TMDB ID: 1435171
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[408/411] MUITO ROMÂNTICO (2016)
+   TMDB ID: 386012
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[409/411] VITA LAKAMAYA (2016)
+   TMDB ID: 493163
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[410/411] GENERATIONS (2010)
+   TMDB ID: 438047
+   ✅ Enriched with: synopsis, poster, genres, runtime, cast, keywords
+[411/411] LUNCH BREAK (2008)
+   TMDB ID: 122348
+   ✅ Enriched with: synopsis, genres, runtime, cast, keywords
+
+💾 Saving updated films.json...
+
+============================================================
+📊 SUMMARY
+============================================================
+✅ Enriched: 411 films
+❌ Failed: 0 films
+============================================================
