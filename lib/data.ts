@@ -262,8 +262,8 @@ export async function loadEnhancedData(): Promise<Map<string, MasterFilm>> {
   return new Map();
 }
 
-// Merge all data sources into Film objects
-export async function getAllFilms(): Promise<Film[]> {
+// Merge all data sources into Film objects (used for build-time generation)
+async function mergeAllFilms(): Promise<Film[]> {
   const [masterFilms, festivalAppearances, streamingData, awardMap] = await Promise.all([
     loadMasterFilms(),
     loadFestivalAppearances(),
@@ -337,6 +337,36 @@ export async function getAllFilms(): Promise<Film[]> {
   
   return films;
 }
+
+// Load pre-merged films file (fast path)
+async function loadMergedFilms(): Promise<Film[] | null> {
+  const mergedPath = path.join(DATA_DIR, 'merged-films.json');
+  
+  try {
+    const content = await fs.readFile(mergedPath, 'utf-8');
+    const data = JSON.parse(content);
+    return data.films || null;
+  } catch (error) {
+    // File doesn't exist or is invalid - return null to trigger merge
+    return null;
+  }
+}
+
+// Get all films - tries pre-merged file first, falls back to merging
+export async function getAllFilms(): Promise<Film[]> {
+  // Try loading pre-merged file first (fast path)
+  const preMerged = await loadMergedFilms();
+  if (preMerged) {
+    return preMerged;
+  }
+  
+  // Fallback to merging on the fly (slower, but works if build script hasn't run)
+  console.warn('⚠️  Pre-merged films file not found, merging on the fly. Run "npm run generate-films" to generate it.');
+  return mergeAllFilms();
+}
+
+// Export merge function for build script
+export { mergeAllFilms };
 
 // Get unique years from films
 export function getUniqueYears(films: Film[]): number[] {
