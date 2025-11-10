@@ -1,0 +1,471 @@
+[dotenv@17.2.3] injecting env (7) from .env.local -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+🎬 Venice 2024 Official Website Scraper
+============================================================
+
+📄 Scraping: https://www.labiennale.org/en/cinema/2024/venezia-81-competition
+   Found 38 films
+
+📄 Scraping: https://www.labiennale.org/en/cinema/2024/out-competition
+   Found 50 films
+
+📄 Scraping: https://www.labiennale.org/en/cinema/2024/orizzonti
+   Found 50 films
+
+📊 Total unique films found: 104
+
+📊 Processing 104 films...
+
+[1/104] The room next door (2024)
+   ✅ Matched by title+year to existing ID: aky
+
+[2/104] Campo di battaglia (2024)
+   ✅ Matched by title+year to existing ID: aRO
+
+[3/104] Leurs enfants après eux (2024)
+   ✅ Matched by title+year to existing ID: aRP
+
+[4/104] The brutalist (2024)
+   ✅ Matched by title+year to existing ID: aRQ
+
+[5/104] Jouer avec le feu (2024)
+   ✅ Matched by title+year to existing ID: aRR
+
+[6/104] Vermiglio (2024)
+   ✅ Matched by title+year to existing ID: alE
+
+[7/104] Iddu (Sicilian Letters) (2024)
+   ✅ Matched by title+year to existing ID: aRS
+
+[8/104] Queer (2024)
+   ✅ Matched by title+year to existing ID: aRT
+
+[9/104] Kjærlighet (Love) (2024)
+   ✅ Matched by title+year to existing ID: aRU
+
+[10/104] April (2024)
+   ✅ Matched by title+year to existing ID: aRV
+
+[11/104] The Order (2024)
+   ✅ Matched by title+year to existing ID: aRW
+
+[12/104] Maria (2024)
+   ✅ Matched by title+year to existing ID: aRX
+
+[13/104] Trois amies (2024)
+   ✅ Matched by title+year to existing ID: aRY
+
+[14/104] El Jockey (Kill the Jockey) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Kill the Jockey" (ID: 1104937)
+   ✅ Matched by TMDB ID to existing film: acY
+
+[15/104] Joker: folie à deux (2024)
+   ✅ Matched by title+year to existing ID: aRZ
+
+[16/104] Babygirl (2024)
+   ✅ Matched by title+year to existing ID: aR0
+
+[17/104] Ainda estou aqui (I’m still here) (2024)
+   ✅ Matched by title+year to existing ID: aR1
+
+[18/104] Diva Futura (2024)
+   ✅ Matched by title+year to existing ID: aR2
+
+[19/104] Harvest (2024)
+   ✅ Matched by title+year to existing ID: ad2
+
+[20/104] Qing Chun: Gui (Youth: Homecoming) (2024)
+   ✅ Matched by title+year to existing ID: aR3
+
+[21/104] Stranger eyes (2024)
+   ✅ Matched by title+year to existing ID: aR4
+
+[22/104] Line-up (2024)
+   ✅ Matched by title+year to existing ID: aR5
+
+[23/104] Screening schedule (Public) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[24/104] Screening schedule (Pass holders) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[25/104] Venice Immersive (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[26/104] Introduction by Pietrangelo Buttafuoco (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[27/104] Introduction by Alberto Barbera (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[28/104] Director (2024)
+   ✅ Matched by title+year to existing ID: aR6
+
+[29/104] Regulations (2024)
+   ✅ Matched by title+year to existing ID: aR7
+
+[30/104] Technical specifications (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[31/104] Venice Production Bridge (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[32/104] Classici fuori Mostra (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[33/104] When and where (2024)
+   ✅ Matched by title+year to existing ID: aR8
+
+[34/104] Tickets (2024)
+   ✅ Matched by title+year to existing ID: aR9
+
+[35/104] Accreditation (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[36/104] Services for the public (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[37/104] How to get there (2024)
+   ✅ Matched by title+year to existing ID: aSa
+
+[38/104] What’s On (2024)
+   ✅ Matched by title+year to existing ID: aSc
+
+[39/104] L’orto americano (2024)
+   ✅ Matched by title+year to existing ID: aSf
+
+[40/104] Se posso permettermi Capitolo II (May I say? Chapter two) (2024)
+   ✅ Matched by title+year to existing ID: aSg
+
+[41/104] Beetlejuice Beetlejuice (2024)
+   ✅ Matched by title+year to existing ID: aSh
+
+[42/104] Il tempo che ci vuole (2024)
+   ✅ Matched by title+year to existing ID: aSi
+
+[43/104] Horizon: an American saga - Chapter 1 (2024)
+   ✅ Matched by title+year to existing ID: aSj
+
+[44/104] Horizon: an American saga - Chapter 2 (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Horizon: An American Saga - Chapter 2" (ID: 1120368)
+   ✅ Matched by TMDB ID to existing film: aej
+
+[45/104] Phantosmia (2024)
+   ✅ Matched by title+year to existing ID: aSk
+
+[46/104] Maldoror (2024)
+   ✅ Matched by title+year to existing ID: aSl
+
+[47/104] Broken rage (2024)
+   ✅ Matched by title+year to existing ID: aSm
+
+[48/104] Baby Invasion (2024)
+   ✅ Matched by title+year to existing ID: aSn
+
+[49/104] Cloud (2024)
+   ✅ Matched by title+year to existing ID: aSo
+
+[50/104] Finalement (2024)
+   ✅ Matched by title+year to existing ID: aSp
+
+[51/104] Allégorie citadine (2024)
+   ✅ Matched by title+year to existing ID: aSq
+
+[52/104] Wolfs (2024)
+   ✅ Matched by title+year to existing ID: aSr
+
+[53/104] Apocalypse in the Tropics (2024)
+   ✅ Matched by title+year to existing ID: aSs
+
+[54/104] Bestiari, erbari, lapidari (2024)
+   ✅ Matched by title+year to existing ID: aSt
+
+[55/104] Why War (2024)
+   ✅ Matched by title+year to existing ID: aSu
+
+[56/104] 2073 (2024)
+   ✅ Matched by title+year to existing ID: aSv
+
+[57/104] One to One: John & Yoko (2024)
+   ✅ Matched by title+year to existing ID: aSw
+
+[58/104] Separated (2024)
+   ✅ Matched by title+year to existing ID: aSx
+
+[59/104] Israel Palestina på Svensk TV 1958-1989 (Israel Palestine on Swedish TV 1958-1989) (2024)
+   ✅ Matched by title+year to existing ID: aSy
+
+[60/104] Russians at war (2024)
+   ✅ Matched by title+year to existing ID: aSz
+
+[61/104] Twst - Things we said today (2024)
+   ✅ Matched by title+year to existing ID: aSA
+
+[62/104] Riefenstahl (2024)
+   ✅ Matched by title+year to existing ID: aSB
+
+[63/104] Pisni zemli, shcho povilno horyt’ (Songs of slow burning earth) (2024)
+   ✅ Matched by title+year to existing ID: aSC
+
+[64/104] Disclaimer (Chapters 1-7) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[65/104] Los años nuevos (Ep. 1-10) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[66/104] Familier som vores (Families like ours) (Ep. 1-7) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[67/104] M. Il figlio del secolo (Ep. 1-8) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[68/104] Leopardi il poeta dell’infinito (2024)
+   ✅ Matched by title+year to existing ID: aSD
+
+[69/104] Master and Commander: the far side of the world (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[70/104] Beauty is not a sin (2024)
+   ✅ Matched by title+year to existing ID: aSE
+
+[71/104] Fiction (2024)
+   ✅ Matched by title+year to existing ID: aSF
+
+[72/104] Marco (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Marco" (ID: 1186350)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSH
+
+[73/104] Quiet life (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Quiet Life" (ID: 1262191)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSI
+
+[74/104] Mon inséparable (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "My Everything" (ID: 1032765)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSJ
+
+[75/104] Aïcha (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Aïcha" (ID: 1223836)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSK
+
+[76/104] Happy holidays (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Happy Holidays from Cherry Lane" (ID: 1359233)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSL
+
+[77/104] Familia (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Familia" (ID: 1313006)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSM
+
+[78/104] Hemme’nin öldüğü günlerden biri (One of those days when Hemme dies) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "One of Those Days When Hemme Dies" (ID: 1320279)
+   ✅ Matched by TMDB ID to existing film: ahb
+
+[79/104] Familiar Touch (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Familiar Touch" (ID: 1309297)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSN
+
+[80/104] Carissa (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Carissa" (ID: 1195113)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSO
+
+[81/104] Wishing on a star (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Wishing on a Star" (ID: 1315541)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSP
+
+[82/104] Mistress Dispeller (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mistress Dispeller" (ID: 951055)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSQ
+
+[83/104] Nonostante (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Feeling Better" (ID: 1319473)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSR
+
+[84/104] Anul nou care n-a fost (The new year that never came) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The New Year That Never Came" (ID: 1320276)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSS
+
+[85/104] Pooja, Sir (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Pooja, Sir" (ID: 1025011)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aST
+
+[86/104] Al klavim veanashim (Of dogs and men) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[87/104] Pavements (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Beneath the Pavement, the Beach" (ID: 1233360)
+   ✅ Matched by TMDB ID to existing film: ahs
+
+[88/104] Happyend (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Happyend" (ID: 730251)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSU
+
+[89/104] L’attachement (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Ties That Bind Us" (ID: 1096642)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSV
+
+[90/104] Diciannove (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Nineteen" (ID: 1118770)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSW
+
+[91/104] Neredeyse kesinlikle yanlış (Almost certainly false) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Almost Certainly False" (ID: 1320487)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSX
+
+[92/104] Shadows (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Shadows" (ID: 1375486)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSY
+
+[93/104] Il burattino e la balena (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Puppet and the Whale" (ID: 1118591)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSZ
+
+[94/104] René va alla guerra (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "René Goes to War" (ID: 1320496)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS0
+
+[95/104] Duyao mao (The poison cat) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Poison Cat" (ID: 1320491)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS1
+
+[96/104] Nime baz, nime basteh (Ajar) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Ajar" (ID: 1320493)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS2
+
+[97/104] Three Keenings (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Three Keenings" (ID: 1320494)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS3
+
+[98/104] Minha mãe é uma vaca (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "My Mother is a Cow" (ID: 1320495)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS4
+
+[99/104] James (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "James" (ID: 1356169)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS5
+
+[100/104] Who loves the sun (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Who Loves the Sun" (ID: 1320501)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS6
+
+[101/104] Moon Lake (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Moon Lake" (ID: 1320502)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS7
+
+[102/104] Marion (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Marion" (ID: 1240837)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS8
+
+[103/104] F II - Lo stupore del mondo (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "F II - Lo stupore del mondo" (ID: 1320264)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aS9
+
+[104/104] Orizzonti (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+💾 Updated data/films.json with 29 new films
+
+📁 Updated data/festivals/venice/2024.json with 87 film IDs
+
+============================================================
+📊 SUMMARY: Venice 2024
+============================================================
+✅ Matched to existing films: 58
+➕ New films created: 29
+❌ Failed to process: 17
+============================================================
+
+⚠️  Failed films:
+   Screening schedule (Public) (2024) - Not found on TMDB
+   Screening schedule (Pass holders) (2024) - Not found on TMDB
+   Venice Immersive (2024) - Not found on TMDB
+   Introduction by Pietrangelo Buttafuoco (2024) - Not found on TMDB
+   Introduction by Alberto Barbera (2024) - Not found on TMDB
+   Technical specifications (2024) - Not found on TMDB
+   Venice Production Bridge (2024) - Not found on TMDB
+   Classici fuori Mostra (2024) - Not found on TMDB
+   Accreditation (2024) - Not found on TMDB
+   Services for the public (2024) - Not found on TMDB
+   Disclaimer (Chapters 1-7) (2024) - Not found on TMDB
+   Los años nuevos (Ep. 1-10) (2024) - Not found on TMDB
+   Familier som vores (Families like ours) (Ep. 1-7) (2024) - Not found on TMDB
+   M. Il figlio del secolo (Ep. 1-8) (2024) - Not found on TMDB
+   Master and Commander: the far side of the world (2024) - Not found on TMDB
+   Al klavim veanashim (Of dogs and men) (2024) - Not found on TMDB
+   Orizzonti (2024) - Not found on TMDB

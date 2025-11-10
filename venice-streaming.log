@@ -1,0 +1,3202 @@
+🎬 Updating Streaming Data for Venice Films
+============================================================
+📂 Loading Venice festival films...
+✓ Found 804 Venice film entries
+
+📂 Loading master films data...
+✓ Loaded 2704 master films
+
+🔍 Fetching streaming data from JustWatch...
+
+[1/804] THE HUMAN VOICE (2020)
+  Searching: "THE HUMAN VOICE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[2/804] NOTTURNO (2020)
+  Searching: "NOTTURNO" (2020)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[3/804] IN MY ROOM (2020)
+  Searching: "IN MY ROOM" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[4/804] Nomadland (2020)
+  Searching: "Nomadland" (2020)...
+    ✓ Found - 3 streaming, 9 rent, 14 buy options + poster
+[5/804] Never Gonna Snow Again (2020)
+  Searching: "Never Gonna Snow Again" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[6/804] OMELIA CONTADINA (2020)
+  Searching: "OMELIA CONTADINA" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[7/804] WIFE OF A SPY (2020)
+  Searching: "WIFE OF A SPY" (2020)...
+    ✓ Found - 2 streaming, 2 rent, 2 buy options + poster
+[8/804] Quo Vadis, Aida? (2020)
+  Searching: "Quo Vadis, Aida?" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 6 streaming, 12 rent, 13 buy options + poster
+[9/804] GHOSTS (2020)
+  Searching: "GHOSTS" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 7 streaming, 0 rent, 0 buy options + poster
+[10/804] New Order (2020)
+  Searching: "New Order" (2020)...
+    ✓ Found - 4 streaming, 10 rent, 11 buy options + poster
+[11/804] THE MACALUSO SISTERS (2020)
+  Searching: "THE MACALUSO SISTERS" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[12/804] APPLES (2020)
+  Searching: "APPLES" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[13/804] Yellow Cat (2020)
+  Searching: "Yellow Cat" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[14/804] MANDIBLES (2020)
+  Searching: "MANDIBLES" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 4 streaming, 2 rent, 2 buy options + poster
+[15/804] DEAR COMRADES! (2020)
+  Searching: "DEAR COMRADES!" (2020)...
+    ✓ Found - 2 streaming, 8 rent, 8 buy options + poster
+[16/804] After We Collided (2020)
+  Searching: "After We Collided" (2020)...
+    ✓ Found - 8 streaming, 14 rent, 14 buy options + poster
+[17/804] HONEY CIGAR (2020)
+  Searching: "HONEY CIGAR" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[18/804] FUCKING WITH NOBODY (2020)
+  Searching: "FUCKING WITH NOBODY" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 0 streaming, 17 rent, 17 buy options + poster
+[19/804] Preparations to Be Together for an Unknown Period of Time (2020)
+  Searching: "Preparations to Be Together for an Unknown Period of Time" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[20/804] MAMA (2020)
+  Searching: "MAMA" (2020)...
+    ⚠️  No suitable match found
+  💾 Progress saved (20/804)
+
+[21/804] THE TIES (2020)
+  Searching: "THE TIES" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[22/804] NOWHERE SPECIAL (2020)
+  Searching: "NOWHERE SPECIAL" (2020)...
+    ✓ Found - 2 streaming, 12 rent, 13 buy options + poster
+[23/804] NIGHTWALK (2020)
+  Searching: "NIGHTWALK" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[24/804] NIGHT OF THE KINGS (2020)
+  Searching: "NIGHT OF THE KINGS" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[25/804] GENUS PAN (2020)
+  Searching: "GENUS PAN" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[26/804] CITY HALL (2020)
+  Searching: "CITY HALL" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[27/804] PIECES OF A WOMAN (2020)
+  Searching: "PIECES OF A WOMAN" (2020)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[28/804] SKI (2021)
+  Searching: "SKI" (2021)...
+    ⚠️  No suitable match found
+[29/804] WHERE THE LEAVES FALL (2020)
+  Searching: "WHERE THE LEAVES FALL" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[30/804] SAINT-NARCISSE (2020)
+  Searching: "SAINT-NARCISSE" (2020)...
+    ✓ Found - 0 streaming, 11 rent, 12 buy options + poster
+[31/804] MAINSTREAM (2020)
+  Searching: "MAINSTREAM" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 0 streaming, 14 rent, 14 buy options + poster
+[32/804] Alex Fernández: The Best Comedian in the World (2020)
+  Searching: "Alex Fernández: The Best Comedian in the World" (2020)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[33/804] THE DISCIPLE (2020)
+  Searching: "THE DISCIPLE" (2020)...
+    ⚠️  No suitable match found
+[34/804] OUR FATHER (2020)
+  Searching: "OUR FATHER" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[35/804] THE PREDATORS (2020)
+  Searching: "THE PREDATORS" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[36/804] THE STONEBREAKER (2020)
+  Searching: "THE STONEBREAKER" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[37/804] WAR AND PEACE (2020)
+  Searching: "WAR AND PEACE" (2020)...
+    ⚠️  No suitable match found
+[38/804] MY TENDER MATADOR (2020)
+  Searching: "MY TENDER MATADOR" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[39/804] THOU SHALT NOT HATE (2020)
+  Searching: "THOU SHALT NOT HATE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[40/804] SUN CHILDREN (2020)
+  Searching: "SUN CHILDREN" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 2 streaming, 9 rent, 9 buy options + poster
+  💾 Progress saved (40/804)
+
+[41/804] GAZA MON AMOUR (2020)
+  Searching: "GAZA MON AMOUR" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[42/804] 200 METERS (2020)
+  Searching: "200 METERS" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[43/804] CRAZY, NOT INSANE (2020)
+  Searching: "CRAZY, NOT INSANE" (2020)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[44/804] IN BETWEEN DYING (2020)
+  Searching: "IN BETWEEN DYING" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[45/804] TO THE MOON (2020)
+  Searching: "TO THE MOON" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[46/804] J'ADOR (2020)
+  Searching: "J'ADOR" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[47/804] HOPPER/WELLES (2020)
+  Searching: "HOPPER/WELLES" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[48/804] THE DUKE (2020)
+  Searching: "THE DUKE" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 0 streaming, 10 rent, 10 buy options + poster
+[49/804] I AM GRETA (2020)
+  Searching: "I AM GRETA" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[50/804] NIGHT IN PARADISE (2020)
+  Searching: "NIGHT IN PARADISE" (2020)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[51/804] THE RETURN OF TRAGEDY (2020)
+  Searching: "THE RETURN OF TRAGEDY" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[52/804] CARELESS CRIME (2020)
+  Searching: "CARELESS CRIME" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[53/804] THE WHALER BOY (2020)
+  Searching: "THE WHALER BOY" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[54/804] LISTEN (2020)
+  Searching: "LISTEN" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[55/804] AND TOMORROW THE ENTIRE WORLD (2020)
+  Searching: "AND TOMORROW THE ENTIRE WORLD" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 2 streaming, 4 rent, 4 buy options + poster
+[56/804] CONFERENCE (2020)
+  Searching: "CONFERENCE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[57/804] MISS MARX (2020)
+  Searching: "MISS MARX" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[58/804] BETWEEN YOU AND MILAGROS (2020)
+  Searching: "BETWEEN YOU AND MILAGROS" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[59/804] THE NIGHT TRAIN (2020)
+  Searching: "THE NIGHT TRAIN" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[60/804] OASIS (2020)
+  Searching: "OASIS" (2020)...
+    ⚠️  No suitable match found
+  💾 Progress saved (60/804)
+
+[61/804] RESIDUE (2020)
+  Searching: "RESIDUE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[62/804] FINAL ACCOUNT (2020)
+  Searching: "FINAL ACCOUNT" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 0 streaming, 14 rent, 14 buy options + poster
+[63/804] TRAGIC JUNGLE (2020)
+  Searching: "TRAGIC JUNGLE" (2020)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[64/804] MILESTONE (2020)
+  Searching: "MILESTONE" (2020)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[65/804] LAILA IN HAIFA (2020)
+  Searching: "LAILA IN HAIFA" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[66/804] BAD ROADS (2020)
+  Searching: "BAD ROADS" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[67/804] THE ART OF RETURN (2020)
+  Searching: "THE ART OF RETURN" (2020)...
+    ⚠️  Using close match (year: 2019)
+    ✓ Found - 0 streaming, 16 rent, 16 buy options + poster
+[68/804] PAOLO CONTE, VIA CON ME (2020)
+  Searching: "PAOLO CONTE, VIA CON ME" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[69/804] SPORTIN' LIFE (2020)
+  Searching: "SPORTIN' LIFE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[70/804] PLACES (2020)
+  Searching: "PLACES" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[71/804] DREAMS IN A FIELD (2020)
+  Searching: "DREAMS IN A FIELD" (2020)...
+    ⚠️  No suitable match found
+[72/804] THE SHIFT (2020)
+  Searching: "THE SHIFT" (2020)...
+    ⚠️  No suitable match found
+[73/804] THE WASTELAND (2020)
+  Searching: "THE WASTELAND" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[74/804] GAS STATION (2020)
+  Searching: "GAS STATION" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[75/804] AGALMA (2020)
+  Searching: "AGALMA" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[76/804] THE NEW GOSPEL (2020)
+  Searching: "THE NEW GOSPEL" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[77/804] THE ROSSELLINIS (2020)
+  Searching: "THE ROSSELLINIS" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[78/804] LOVERS (2020)
+  Searching: "LOVERS" (2020)...
+    ⚠️  No suitable match found
+[79/804] TOPSIDE (2020)
+  Searching: "TOPSIDE" (2020)...
+    ⚠️  No suitable match found
+[80/804] QUARANTA CAVALLI (2020)
+  Searching: "QUARANTA CAVALLI" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (80/804)
+
+[81/804] RUN HIDE FIGHT (2020)
+  Searching: "RUN HIDE FIGHT" (2020)...
+    ✓ Found - 4 streaming, 13 rent, 13 buy options + poster
+[82/804] NARCISSUS OFF DUTY (2020)
+  Searching: "NARCISSUS OFF DUTY" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[83/804] THE TRUTH ABOUT LA DOLCE VITA (2020)
+  Searching: "THE TRUTH ABOUT LA DOLCE VITA" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[84/804] MOSQUITO STATE (2020)
+  Searching: "MOSQUITO STATE" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[85/804] ASSANDIRA (2020)
+  Searching: "ASSANDIRA" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[86/804] WHAT PROBABLY WOULD HAVE HAPPENED, IF I HADN'T STAYED AT HOME (2020)
+  Searching: "WHAT PROBABLY WOULD HAVE HAPPENED, IF I HADN'T STAYED AT HOME" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[87/804] THE FURNACE (2020)
+  Searching: "THE FURNACE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[88/804] ZANKA CONTACT (2020)
+  Searching: "ZANKA CONTACT" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[89/804] THE THIRD WAR (2020)
+  Searching: "THE THIRD WAR" (2020)...
+    ✓ Found - 5 streaming, 0 rent, 0 buy options + poster
+[90/804] ZOMBIE (2020)
+  Searching: "ZOMBIE" (2020)...
+    ⚠️  No suitable match found
+[91/804] EST - DITTATURA LAST MINUTE (2020)
+  Searching: "EST - DITTATURA LAST MINUTE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[92/804] ISOLA (2020)
+  Searching: "ISOLA" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[93/804] 50 OR TWO WHALES MEET ON THE BEACH (2020)
+  Searching: "50 OR TWO WHALES MEET ON THE BEACH" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[94/804] THE BOOK OF VISION (2020)
+  Searching: "THE BOOK OF VISION" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 0 streaming, 9 rent, 8 buy options + poster
+[95/804] WORKSHOP (2020)
+  Searching: "WORKSHOP" (2020)...
+    ⚠️  No suitable match found
+[96/804] SALVATORE: SHOEMAKER OF DREAMS (2020)
+  Searching: "SALVATORE: SHOEMAKER OF DREAMS" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 0 streaming, 13 rent, 14 buy options + poster
+[97/804] LISTEN (2020)
+  Searching: "LISTEN" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[98/804] PAPER BIRDS (2020)
+  Searching: "PAPER BIRDS" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[99/804] ONCE UPON A SEA (2020)
+  Searching: "ONCE UPON A SEA" (2020)...
+    ⚠️  Using close match (year: 2019)
+    ✓ Found - 10 streaming, 12 rent, 13 buy options + poster
+[100/804] HERE (2020)
+  Searching: "HERE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (100/804)
+
+[101/804] HUSH (2020)
+  Searching: "HUSH" (2020)...
+    ⚠️  No suitable match found
+[102/804] AFRICAN SPACE MAKERS (2020)
+  Searching: "AFRICAN SPACE MAKERS" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[103/804] BABA YAGA (2020)
+  Searching: "BABA YAGA" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[104/804] FUOCO SACRO (2020)
+  Searching: "FUOCO SACRO" (2020)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 10 streaming, 13 rent, 15 buy options + poster
+[105/804] FIORI, FIORI, FIORI! (2020)
+  Searching: "FIORI, FIORI, FIORI!" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[106/804] PRINCESSE EUROPE (2020)
+  Searching: "PRINCESSE EUROPE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[107/804] YOU CAME BACK (2020)
+  Searching: "YOU CAME BACK" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[108/804] SÌ (2020)
+  Searching: "SÌ" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[109/804] LIVE IN CLOUD CUCKOO LAND (2020)
+  Searching: "LIVE IN CLOUD CUCKOO LAND" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[110/804] BEING MY MOM (2020)
+  Searching: "BEING MY MOM" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[111/804] UNDER HER SKIN (2020)
+  Searching: "UNDER HER SKIN" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[112/804] ANITA (2020)
+  Searching: "ANITA" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[113/804] THE GAME (2020)
+  Searching: "THE GAME" (2020)...
+    ⚠️  No suitable match found
+[114/804] THE FLIES (2020)
+  Searching: "THE FLIES" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[115/804] FINIS TERRAE (2020)
+  Searching: "FINIS TERRAE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[116/804] ADAM (2020)
+  Searching: "ADAM" (2020)...
+    ⚠️  Using close match (year: 2019)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[117/804] ACCAMÒRA (RIGHT NOW) (2020)
+  Searching: "ACCAMÒRA (RIGHT NOW)" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[118/804] THE EAGLES OF CARTHAGE (2020)
+  Searching: "THE EAGLES OF CARTHAGE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[119/804] IN THIS MOMENT (2020)
+  Searching: "IN THIS MOMENT" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[120/804] SOLITAIRE (2020)
+  Searching: "SOLITAIRE" (2020)...
+    ⚠️  No suitable match found
+  💾 Progress saved (120/804)
+
+[121/804] 50 - SANTARCANGELO FESTIVAL (2020)
+  Searching: "50 - SANTARCANGELO FESTIVAL" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[122/804] NILDE IOTTI, IL TEMPO DELLE DONNE (2020)
+  Searching: "NILDE IOTTI, IL TEMPO DELLE DONNE" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[123/804] JAMES (2020)
+  Searching: "JAMES" (2020)...
+    ⚠️  No suitable match found
+[124/804] EXTRALISCIO - PUNK DA BALERA (2020)
+  Searching: "EXTRALISCIO - PUNK DA BALERA" (2020)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[125/804] SAMP (2020)
+  Searching: "SAMP" (2020)...
+    ⚠️  No suitable match found
+[126/804] ROMANTIC GUIDE TO LOST PLACES (2020)
+  Searching: "ROMANTIC GUIDE TO LOST PLACES" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[127/804] ENFORCEMENT (2020)
+  Searching: "ENFORCEMENT" (2020)...
+    ✓ Found - 8 streaming, 9 rent, 10 buy options + poster
+[128/804] THE BEST IS YET TO COME (2020)
+  Searching: "THE BEST IS YET TO COME" (2020)...
+    ⚠️  Using close match (year: 2019)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[129/804] THE FLOOD WON'T COME (2020)
+  Searching: "THE FLOOD WON'T COME" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[130/804] FALLEN DREAM (2019)
+  Searching: "FALLEN DREAM" (2019)...
+    ✓ Found - 10 streaming, 16 rent, 16 buy options + poster
+[131/804] HOME (2019)
+  Searching: "HOME" (2019)...
+    ⚠️  Using close match (year: 2020)
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[132/804] GOODFELLAS (1990)
+  Searching: "GOODFELLAS" (1990)...
+    ✓ Found - 2 streaming, 10 rent, 10 buy options + poster
+[133/804] PINK FLOYD: LIVE IN VENICE (1989)
+  Searching: "PINK FLOYD: LIVE IN VENICE" (1989)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[134/804] SAY AMEN, SOMEBODY (1982)
+  Searching: "SAY AMEN, SOMEBODY" (1982)...
+    ⚠️  Using close match (year: 1983)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[135/804] VENGEANCE IS MINE (1979)
+  Searching: "VENGEANCE IS MINE" (1979)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[136/804] UNFINISHED PIECE FOR MECHANICAL PIANO (1977)
+  Searching: "UNFINISHED PIECE FOR MECHANICAL PIANO" (1977)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[137/804] THE LAST SUPPER (1976)
+  Searching: "THE LAST SUPPER" (1976)...
+    ⚠️  No suitable match found
+[138/804] THE YOUNG GIRL (1975)
+  Searching: "THE YOUNG GIRL" (1975)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[139/804] CLAUDINE (1974)
+  Searching: "CLAUDINE" (1974)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[140/804] SERPICO (1973)
+  Searching: "SERPICO" (1973)...
+    ✓ Found - 0 streaming, 9 rent, 9 buy options + poster
+  💾 Progress saved (140/804)
+
+[141/804] THE RED CIRCLE (1970)
+  Searching: "THE RED CIRCLE" (1970)...
+    ✓ Found - 0 streaming, 9 rent, 9 buy options + poster
+[142/804] SEDUCED AND ABANDONED (1964)
+  Searching: "SEDUCED AND ABANDONED" (1964)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[143/804] STORY OF A LOVE AFFAIR (1950)
+  Searching: "STORY OF A LOVE AFFAIR" (1950)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[144/804] THE LIFE OF MATSU THE UNTAMED (1943)
+  Searching: "THE LIFE OF MATSU THE UNTAMED" (1943)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[145/804] YOU ONLY LIVE ONCE (1937)
+  Searching: "YOU ONLY LIVE ONCE" (1937)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[146/804] THE BONES (2021)
+  Searching: "THE BONES" (2021)...
+    ⚠️  No suitable match found
+[147/804] HAPPENING (2021)
+  Searching: "HAPPENING" (2021)...
+    ✓ Found - 2 streaming, 7 rent, 6 buy options + poster
+[148/804] PARALLEL MOTHERS (2021)
+  Searching: "PARALLEL MOTHERS" (2021)...
+    ✓ Found - 4 streaming, 14 rent, 15 buy options + poster
+[149/804] Sundown (2021)
+  Searching: "Sundown" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[150/804] A Chiara (2021)
+  Searching: "A Chiara" (2021)...
+    ✓ Found - 0 streaming, 6 rent, 6 buy options + poster
+[151/804] ANOTHER WORLD (2021)
+  Searching: "ANOTHER WORLD" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[152/804] DUNE: PART ONE (2021)
+  Searching: "DUNE: PART ONE" (2021)...
+    ✓ Found - 7 streaming, 12 rent, 13 buy options + poster
+[153/804] PLASTIC SEMIOTIC (2021)
+  Searching: "PLASTIC SEMIOTIC" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[154/804] THE LOST DAUGHTER (2021)
+  Searching: "THE LOST DAUGHTER" (2021)...
+    ✓ Found - 10 streaming, 11 rent, 12 buy options + poster
+[155/804] THE NIGHT (2021)
+  Searching: "THE NIGHT" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[156/804] THE BOX (2021)
+  Searching: "THE BOX" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[157/804] ENNIO (2021)
+  Searching: "ENNIO" (2021)...
+    ⚠️  Using close match (year: 2022)
+    ✓ Found - 2 streaming, 3 rent, 2 buy options + poster
+[158/804] THE POWER OF THE DOG (2021)
+  Searching: "THE POWER OF THE DOG" (2021)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[159/804] IL BUCO (2021)
+  Searching: "IL BUCO" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[160/804] THE HAND OF GOD (2021)
+  Searching: "THE HAND OF GOD" (2021)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (160/804)
+
+[161/804] SPENCER (2021)
+  Searching: "SPENCER" (2021)...
+    ✓ Found - 4 streaming, 14 rent, 15 buy options + poster
+[162/804] LOST ILLUSIONS (2021)
+  Searching: "LOST ILLUSIONS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[163/804] I AND THE STUPID BOY (2021)
+  Searching: "I AND THE STUPID BOY" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[164/804] THE HOLE IN THE FENCE (2021)
+  Searching: "THE HOLE IN THE FENCE" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[165/804] WHITE BUILDING (2021)
+  Searching: "WHITE BUILDING" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[166/804] SHANGRI-LA (2021)
+  Searching: "SHANGRI-LA" (2021)...
+    ⚠️  No suitable match found
+[167/804] FULL TIME (2021)
+  Searching: "FULL TIME" (2021)...
+    ⚠️  Using close match (year: 2022)
+    ✓ Found - 4 streaming, 12 rent, 13 buy options + poster
+[168/804] THE CATHEDRAL (2021)
+  Searching: "THE CATHEDRAL" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[169/804] TRUE THINGS (2021)
+  Searching: "TRUE THINGS" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[170/804] SCENES FROM A MARRIAGE (2021)
+  Searching: "SCENES FROM A MARRIAGE" (2021)...
+    ✓ Found - 5 streaming, 0 rent, 0 buy options + poster
+[171/804] THE LAST DUEL (2021)
+  Searching: "THE LAST DUEL" (2021)...
+    ✓ Found - 3 streaming, 10 rent, 14 buy options + poster
+[172/804] Last Night in Soho (2021)
+  Searching: "Last Night in Soho" (2021)...
+    ✓ Found - 0 streaming, 17 rent, 17 buy options + poster
+[173/804] The Card Counter (2021)
+  Searching: "The Card Counter" (2021)...
+    ✓ Found - 10 streaming, 13 rent, 14 buy options + poster
+[174/804] GIULIA (2021)
+  Searching: "GIULIA" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[175/804] OFFICIAL COMPETITION (2021)
+  Searching: "OFFICIAL COMPETITION" (2021)...
+    ✓ Found - 4 streaming, 12 rent, 13 buy options + poster
+[176/804] THE PEACOCK'S PARADISE (2021)
+  Searching: "THE PEACOCK'S PARADISE" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[177/804] Atlantis (2021)
+  Searching: "Atlantis" (2021)...
+    ⚠️  Using close match (year: 2020)
+    ✓ Found - 4 streaming, 11 rent, 13 buy options + poster
+[178/804] MADELEINE COLLINS (2021)
+  Searching: "MADELEINE COLLINS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[179/804] THE PALACE (2021)
+  Searching: "THE PALACE" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[180/804] PRIVATE DESERT (2021)
+  Searching: "PRIVATE DESERT" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (180/804)
+
+[181/804] THE GREAT MOVEMENT (2021)
+  Searching: "THE GREAT MOVEMENT" (2021)...
+    ⚠️  Using close match (year: 2020)
+    ✓ Found - 6 streaming, 0 rent, 2 buy options + poster
+[182/804] PILGRIMS (2021)
+  Searching: "PILGRIMS" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[183/804] CAPTAIN VOLKONOGOV ESCAPED (2021)
+  Searching: "CAPTAIN VOLKONOGOV ESCAPED" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[184/804] THE INNER CAGE (2021)
+  Searching: "THE INNER CAGE" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[185/804] MONA LISA AND THE BLOOD MOON (2021)
+  Searching: "MONA LISA AND THE BLOOD MOON" (2021)...
+    ⚠️  Using close match (year: 2022)
+    ✓ Found - 4 streaming, 12 rent, 13 buy options + poster
+[186/804] DETOURS (2021)
+  Searching: "DETOURS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[187/804] OLD HENRY (2021)
+  Searching: "OLD HENRY" (2021)...
+    ✓ Found - 0 streaming, 10 rent, 10 buy options + poster
+[188/804] 7 PRISONERS (2021)
+  Searching: "7 PRISONERS" (2021)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[189/804] TECHNO, MAMA (2021)
+  Searching: "TECHNO, MAMA" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[190/804] HALLOWEEN KILLS (2021)
+  Searching: "HALLOWEEN KILLS" (2021)...
+    ✓ Found - 0 streaming, 15 rent, 15 buy options + poster
+[191/804] THE KING OF LAUGHTER (2021)
+  Searching: "THE KING OF LAUGHTER" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[192/804] LEAVE NO TRACES (2021)
+  Searching: "LEAVE NO TRACES" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[193/804] REFLECTION (2021)
+  Searching: "REFLECTION" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[194/804] FREAKS OUT (2021)
+  Searching: "FREAKS OUT" (2021)...
+    ✓ Found - 0 streaming, 7 rent, 8 buy options + poster
+[195/804] COSTA BRAVA, LEBANON (2021)
+  Searching: "COSTA BRAVA, LEBANON" (2021)...
+    ⚠️  Using close match (year: 2022)
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[196/804] AMERICA LATINA (2021)
+  Searching: "AMERICA LATINA" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[197/804] THREE MINUTES: A LENGTHENING (2021)
+  Searching: "THREE MINUTES: A LENGTHENING" (2021)...
+    ⚠️  Using close match (year: 2022)
+    ✓ Found - 4 streaming, 11 rent, 11 buy options + poster
+[198/804] IMMACULATE (2021)
+  Searching: "IMMACULATE" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[199/804] THE BLIND MAN WHO DID NOT WANT TO SEE TITANIC (2021)
+  Searching: "THE BLIND MAN WHO DID NOT WANT TO SEE TITANIC" (2021)...
+    ✓ Found - 2 streaming, 2 rent, 2 buy options + poster
+[200/804] MIRACLE (2021)
+  Searching: "MIRACLE" (2021)...
+    ⚠️  No suitable match found
+  💾 Progress saved (200/804)
+
+[201/804] HALLELUJAH: LEONARD COHEN, A JOURNEY, A SONG (2021)
+  Searching: "HALLELUJAH: LEONARD COHEN, A JOURNEY, A SONG" (2021)...
+    ⚠️  Using close match (year: 2022)
+    ✓ Found - 0 streaming, 13 rent, 14 buy options + poster
+[202/804] THE ACCUSATION (2021)
+  Searching: "THE ACCUSATION" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[203/804] LAND OF DREAMS (2021)
+  Searching: "LAND OF DREAMS" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[204/804] THE CATHOLIC SCHOOL (2021)
+  Searching: "THE CATHOLIC SCHOOL" (2021)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[205/804] THE STRANGER (2021)
+  Searching: "THE STRANGER" (2021)...
+    ⚠️  Using close match (year: 2020)
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[206/804] ONCE UPON A TIME IN CALCUTTA (2021)
+  Searching: "ONCE UPON A TIME IN CALCUTTA" (2021)...
+    ⚠️  No suitable match found
+[207/804] 107 MOTHERS (2021)
+  Searching: "107 MOTHERS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[208/804] PROMISES (2021)
+  Searching: "PROMISES" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[209/804] YOU RESEMBLE ME (2021)
+  Searching: "YOU RESEMBLE ME" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[210/804] INCHEI (2021)
+  Searching: "INCHEI" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[211/804] THEY CARRY DEATH (2021)
+  Searching: "THEY CARRY DEATH" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[212/804] HELTZEAR (2021)
+  Searching: "HELTZEAR" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[213/804] RHINO (2021)
+  Searching: "RHINO" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[214/804] ANATOMY OF TIME (2021)
+  Searching: "ANATOMY OF TIME" (2021)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[215/804] GES-2 (2021)
+  Searching: "GES-2" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[216/804] THE WORLD IN SHOTS (2021)
+  Searching: "THE WORLD IN SHOTS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[217/804] HUGO IN ARGENTINA (2021)
+  Searching: "HUGO IN ARGENTINA" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[218/804] MOTHER LODE (2021)
+  Searching: "MOTHER LODE" (2021)...
+    ⚠️  No suitable match found
+[219/804] ERASING FRANK (2021)
+  Searching: "ERASING FRANK" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[220/804] THE ACT (2021)
+  Searching: "THE ACT" (2021)...
+    ⚠️  No suitable match found
+  💾 Progress saved (220/804)
+
+[221/804] THE SHIFT (2021)
+  Searching: "THE SHIFT" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[222/804] SANDSTORM (2021)
+  Searching: "SANDSTORM" (2021)...
+    ⚠️  No suitable match found
+[223/804] TRENCHES (2021)
+  Searching: "TRENCHES" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[224/804] AMIRA (2021)
+  Searching: "AMIRA" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[225/804] THE FALLS (2021)
+  Searching: "THE FALLS" (2021)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[226/804] SONS OF CAIN (2021)
+  Searching: "SONS OF CAIN" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[227/804] CÙNTAMI (2021)
+  Searching: "CÙNTAMI" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[228/804] LOVELY BOY (2021)
+  Searching: "LOVELY BOY" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[229/804] DUSK STONE (2021)
+  Searching: "DUSK STONE" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[230/804] CALIFORNIE (2021)
+  Searching: "CALIFORNIE" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[231/804] ANATOMY (2021)
+  Searching: "ANATOMY" (2021)...
+    ⚠️  No suitable match found
+[232/804] ENCHANTMENT (2021)
+  Searching: "ENCHANTMENT" (2021)...
+    ⚠️  No suitable match found
+[233/804] THE LAST CHAPTER (2021)
+  Searching: "THE LAST CHAPTER" (2021)...
+    ⚠️  No suitable match found
+[234/804] ZALAVA (2021)
+  Searching: "ZALAVA" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[235/804] THE LAST DAY (2021)
+  Searching: "THE LAST DAY" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[236/804] THE BOOB FAIRY (2021)
+  Searching: "THE BOOB FAIRY" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[237/804] NEW ABNORMAL (2021)
+  Searching: "NEW ABNORMAL" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[238/804] HAIR TIE, EGG, HOMEWORK BOOKS (2021)
+  Searching: "HAIR TIE, EGG, HOMEWORK BOOKS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[239/804] BLESSED BOYS (2021)
+  Searching: "BLESSED BOYS" (2021)...
+    ⚠️  No suitable match found
+[240/804] OUR HAPPIEST DAYS (2021)
+  Searching: "OUR HAPPIEST DAYS" (2021)...
+    ⚠️  No suitable match found
+  💾 Progress saved (240/804)
+
+[241/804] THE DEN (2021)
+  Searching: "THE DEN" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[242/804] REPUBLIC OF SILENCE (2021)
+  Searching: "REPUBLIC OF SILENCE" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[243/804] MY NIGHT (2021)
+  Searching: "MY NIGHT" (2021)...
+    ⚠️  Using close match (year: 2022)
+    ✓ Found - 0 streaming, 12 rent, 13 buy options + poster
+[244/804] MAMA, I'M HOME (2021)
+  Searching: "MAMA, I'M HOME" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[245/804] CLOSING TIME (2021)
+  Searching: "CLOSING TIME" (2021)...
+    ⚠️  No suitable match found
+[246/804] IL SILENZIO GRANDE (2021)
+  Searching: "IL SILENZIO GRANDE" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[247/804] THE SALAMANDER (2021)
+  Searching: "THE SALAMANDER" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[248/804] WELCOME VENICE (2021)
+  Searching: "WELCOME VENICE" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[249/804] ON THE JOB: THE MISSING 8 (2021)
+  Searching: "ON THE JOB: THE MISSING 8" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[250/804] VORREI SPARIRE SENZA MORIRE (2021)
+  Searching: "VORREI SPARIRE SENZA MORIRE" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[251/804] CAVES (2021)
+  Searching: "CAVES" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[252/804] MONTEGELATO (2021)
+  Searching: "MONTEGELATO" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[253/804] END OF NIGHT (2021)
+  Searching: "END OF NIGHT" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[254/804] LAVRYNTHOS (2021)
+  Searching: "LAVRYNTHOS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[255/804] PIETRO IL GRANDE (2021)
+  Searching: "PIETRO IL GRANDE" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[256/804] INFERNO ROSSO: JOE D'AMATO ON THE ROAD OF EXCESS (2021)
+  Searching: "INFERNO ROSSO: JOE D'AMATO ON THE ROAD OF EXCESS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[257/804] RICOSTRUIRE INSIEME: BIENNALE ARCHITETTURA 2021 (2021)
+  Searching: "RICOSTRUIRE INSIEME: BIENNALE ARCHITETTURA 2021" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[258/804] TONINO DE BERNARDI - UN TEMPO, UN INCONTRO (2021)
+  Searching: "TONINO DE BERNARDI - UN TEMPO, UN INCONTRO" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[259/804] TRASTWEST (2021)
+  Searching: "TRASTWEST" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[260/804] SPIN TIME (2021)
+  Searching: "SPIN TIME" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (260/804)
+
+[261/804] PRINCESA (2021)
+  Searching: "PRINCESA" (2021)...
+    ⚠️  Using close match (year: 2022)
+    ✓ Found - 0 streaming, 4 rent, 4 buy options + poster
+[262/804] PAROLE (2021)
+  Searching: "PAROLE" (2021)...
+    ⚠️  No suitable match found
+[263/804] ISOLATION (2021)
+  Searching: "ISOLATION" (2021)...
+    ⚠️  No suitable match found
+[264/804] FELLINI AND THE SHADOW (2021)
+  Searching: "FELLINI AND THE SHADOW" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[265/804] FINGERPRINTING (2021)
+  Searching: "FINGERPRINTING" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[266/804] CORIANDOLI (2021)
+  Searching: "CORIANDOLI" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[267/804] CAVEMAN (2021)
+  Searching: "CAVEMAN" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[268/804] SENZA FINE (2021)
+  Searching: "SENZA FINE" (2021)...
+    ⚠️  No suitable match found
+[269/804] THE FORGOTTEN ONES (2021)
+  Searching: "THE FORGOTTEN ONES" (2021)...
+    ⚠️  No suitable match found
+[270/804] OUT OF THIS WORLD (2021)
+  Searching: "OUT OF THIS WORLD" (2021)...
+    ⚠️  No suitable match found
+[271/804] OUT OF SYNC (2021)
+  Searching: "OUT OF SYNC" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[272/804] ROMAN NIGHTS (2021)
+  Searching: "ROMAN NIGHTS" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[273/804] FULL MOON (2021)
+  Searching: "FULL MOON" (2021)...
+    ⚠️  No suitable match found
+[274/804] FREIKÖRPERKULTUR (2021)
+  Searching: "FREIKÖRPERKULTUR" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[275/804] EVA (2021)
+  Searching: "EVA" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[276/804] KARMALINK (2021)
+  Searching: "KARMALINK" (2021)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[277/804] FALL OF THE IBIS KING (2021)
+  Searching: "FALL OF THE IBIS KING" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[278/804] 4 AM (2021)
+  Searching: "4 AM" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[279/804] DON'T GET TOO COMFORTABLE (2021)
+  Searching: "DON'T GET TOO COMFORTABLE" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[280/804] TO ORIENTE (2021)
+  Searching: "TO ORIENTE" (2021)...
+    ⚠️  No suitable match found
+  💾 Progress saved (280/804)
+
+[281/804] LE 7 GIORNATE DI BERGAMO (2021)
+  Searching: "LE 7 GIORNATE DI BERGAMO" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[282/804] LA BIENNALE DI VENEZIA: IL CINEMA AL TEMPO DEL COVID (2021)
+  Searching: "LA BIENNALE DI VENEZIA: IL CINEMA AL TEMPO DEL COVID" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[283/804] SAD FILM (2021)
+  Searching: "SAD FILM" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[284/804] EZIO BOSSO: LE COSE CHE RESTANO (2021)
+  Searching: "EZIO BOSSO: LE COSE CHE RESTANO" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[285/804] DJANGO & DJANGO (2021)
+  Searching: "DJANGO & DJANGO" (2021)...
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[286/804] DEANDRÉ#DEANDRÉ. STORIA DI UN IMPIEGATO (2021)
+  Searching: "DEANDRÉ#DEANDRÉ. STORIA DI UN IMPIEGATO" (2021)...
+    ⚠️  Using close match (year: 2020)
+    ✓ Found - 0 streaming, 12 rent, 12 buy options + poster
+[287/804] VIAGGIO NEL CREPUSCOLO (2021)
+  Searching: "VIAGGIO NEL CREPUSCOLO" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[288/804] THE OTHER TOM (2021)
+  Searching: "THE OTHER TOM" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[289/804] VERA DREAMS OF THE SEA (2021)
+  Searching: "VERA DREAMS OF THE SEA" (2021)...
+    ⚠️  No suitable match found
+[290/804] THE HIDDEN CHILD (2021)
+  Searching: "THE HIDDEN CHILD" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[291/804] I NOSTRI FANTASMI (2021)
+  Searching: "I NOSTRI FANTASMI" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[292/804] WITH OR WITHOUT YOU (2021)
+  Searching: "WITH OR WITHOUT YOU" (2021)...
+    ⚠️  No suitable match found
+[293/804] DOGWORLD (2021)
+  Searching: "DOGWORLD" (2021)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[294/804] IN THE MIST (2020)
+  Searching: "IN THE MIST" (2020)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[295/804] A CHIARA (2019)
+  Searching: "A CHIARA" (2019)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[296/804] IT WAS YESTERDAY (2016)
+  Searching: "IT WAS YESTERDAY" (2016)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[297/804] Copenhagen Cowboy: Nightcall with Nicolas Winding Refn (2023)
+  Searching: "Copenhagen Cowboy: Nightcall with Nicolas Winding Refn" (2023)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[298/804] Saint Omer (2022)
+  Searching: "Saint Omer" (2022)...
+    ✓ Found - 4 streaming, 7 rent, 7 buy options + poster
+[299/804] Blue Jean (2022)
+  Searching: "Blue Jean" (2022)...
+    ⚠️  Using close match (year: 2023)
+    ✓ Found - 4 streaming, 10 rent, 11 buy options + poster
+[300/804] The Banshees of Inisherin (2022)
+  Searching: "The Banshees of Inisherin" (2022)...
+    ✓ Found - 7 streaming, 11 rent, 12 buy options + poster
+  💾 Progress saved (300/804)
+
+[301/804] TÁR (2022)
+  Searching: "TÁR" (2022)...
+    ✓ Found - 3 streaming, 12 rent, 15 buy options + poster
+[302/804] Letter to My Mother for My Son (2022)
+  Searching: "Letter to My Mother for My Son" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[303/804] The Whale (2022)
+  Searching: "The Whale" (2022)...
+    ✓ Found - 2 streaming, 15 rent, 15 buy options + poster
+[304/804] Other People's Children (2022)
+  Searching: "Other People's Children" (2022)...
+    ✓ Found - 2 streaming, 8 rent, 9 buy options + poster
+[305/804] All the Beauty and the Bloodshed (2022)
+  Searching: "All the Beauty and the Bloodshed" (2022)...
+    ✓ Found - 4 streaming, 10 rent, 11 buy options + poster
+[306/804] Pearl (2022)
+  Searching: "Pearl" (2022)...
+    ✓ Found - 3 streaming, 13 rent, 12 buy options + poster
+[307/804] The Fabulous Ones (2022)
+  Searching: "The Fabulous Ones" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[308/804] Bones and All (2022)
+  Searching: "Bones and All" (2022)...
+    ✓ Found - 0 streaming, 9 rent, 13 buy options + poster
+[309/804] House Comes with a Bird (2022)
+  Searching: "House Comes with a Bird" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[310/804] Argentina 1985 (2022)
+  Searching: "Argentina 1985" (2022)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[311/804] No Bears (2022)
+  Searching: "No Bears" (2022)...
+    ✓ Found - 4 streaming, 10 rent, 11 buy options + poster
+[312/804] Vera (2022)
+  Searching: "Vera" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[313/804] MONICA (2022)
+  Searching: "MONICA" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[314/804] BARDO, False Chronicle of a Handful of Truths (2022)
+  Searching: "BARDO, False Chronicle of a Handful of Truths" (2022)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[315/804] The Eternal Daughter (2022)
+  Searching: "The Eternal Daughter" (2022)...
+    ✓ Found - 4 streaming, 8 rent, 9 buy options + poster
+[316/804] Blonde (2022)
+  Searching: "Blonde" (2022)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[317/804] MAID (2022)
+  Searching: "MAID" (2022)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[318/804] White Noise (2022)
+  Searching: "White Noise" (2022)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[319/804] Athena (2022)
+  Searching: "Athena" (2022)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[320/804] Anhell69 (2022)
+  Searching: "Anhell69" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (320/804)
+
+[321/804] Don't Worry Darling (2022)
+  Searching: "Don't Worry Darling" (2022)...
+    ✓ Found - 0 streaming, 13 rent, 14 buy options + poster
+[322/804] Living (2022)
+  Searching: "Living" (2022)...
+    ✓ Found - 0 streaming, 11 rent, 13 buy options + poster
+[323/804] Master Gardener (2022)
+  Searching: "Master Gardener" (2022)...
+    ⚠️  Using close match (year: 2023)
+    ✓ Found - 4 streaming, 12 rent, 15 buy options + poster
+[324/804] Autobiography (2022)
+  Searching: "Autobiography" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[325/804] When the Waves Are Gone (2022)
+  Searching: "When the Waves Are Gone" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[326/804] Love Life (2022)
+  Searching: "Love Life" (2022)...
+    ✓ Found - 2 streaming, 10 rent, 11 buy options + poster
+[327/804] The Last Days of Humanity (2022)
+  Searching: "The Last Days of Humanity" (2022)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[328/804] L'immensità (2022)
+  Searching: "L'immensità" (2022)...
+    ✓ Found - 0 streaming, 3 rent, 3 buy options + poster
+[329/804] Have You Seen This Woman? (2022)
+  Searching: "Have You Seen This Woman?" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[330/804] Luxembourg, Luxembourg (2022)
+  Searching: "Luxembourg, Luxembourg" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[331/804] AMANDA (2022)
+  Searching: "AMANDA" (2022)...
+    ⚠️  No suitable match found
+[332/804] FRAGMENTS OF PARADISE (2022)
+  Searching: "FRAGMENTS OF PARADISE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[333/804] WOLF AND DOG (2022)
+  Searching: "WOLF AND DOG" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[334/804] GODARD CINEMA (2022)
+  Searching: "GODARD CINEMA" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[335/804] WORLD WAR III (2022)
+  Searching: "WORLD WAR III" (2022)...
+    ⚠️  No suitable match found
+[336/804] THE HAPPIEST MAN IN THE WORLD (2022)
+  Searching: "THE HAPPIEST MAN IN THE WORLD" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[337/804] EISMAYER (2022)
+  Searching: "EISMAYER" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[338/804] A MAN (2022)
+  Searching: "A MAN" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[339/804] THE SON (2022)
+  Searching: "THE SON" (2022)...
+    ✓ Found - 8 streaming, 12 rent, 12 buy options + poster
+[340/804] CASA SUSANNA (2022)
+  Searching: "CASA SUSANNA" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (340/804)
+
+[341/804] BOBI WINE: THE PEOPLE'S PRESIDENT (2022)
+  Searching: "BOBI WINE: THE PEOPLE'S PRESIDENT" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[342/804] SKIN DEEP (2022)
+  Searching: "SKIN DEEP" (2022)...
+    ⚠️  No suitable match found
+[343/804] RED SHOES (2022)
+  Searching: "RED SHOES" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[344/804] INNOCENCE (2022)
+  Searching: "INNOCENCE" (2022)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[345/804] MAID (2022)
+  Searching: "MAID" (2022)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[346/804] THE DAMNED DON'T CRY (2022)
+  Searching: "THE DAMNED DON'T CRY" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[347/804] THE KIEV TRIAL (2022)
+  Searching: "THE KIEV TRIAL" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[348/804] A COUPLE (2022)
+  Searching: "A COUPLE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[349/804] TO THE NORTH (2022)
+  Searching: "TO THE NORTH" (2022)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[350/804] PADRE PIO (2022)
+  Searching: "PADRE PIO" (2022)...
+    ⚠️  Using close match (year: 2023)
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[351/804] BLANQUITA (2022)
+  Searching: "BLANQUITA" (2022)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[352/804] LORD OF THE ANTS (2022)
+  Searching: "LORD OF THE ANTS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[353/804] THE CROWN SHYNESS (2022)
+  Searching: "THE CROWN SHYNESS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[354/804] STONEWALLING (2022)
+  Searching: "STONEWALLING" (2022)...
+    ⚠️  No suitable match found
+[355/804] BEYOND THE WALL (2022)
+  Searching: "BEYOND THE WALL" (2022)...
+    ⚠️  No suitable match found
+[356/804] RAGTAG (2022)
+  Searching: "RAGTAG" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[357/804] NUCLEAR NOW (2022)
+  Searching: "NUCLEAR NOW" (2022)...
+    ⚠️  Using close match (year: 2023)
+    ✓ Found - 4 streaming, 4 rent, 5 buy options + poster
+[358/804] IN VIAGGIO (2022)
+  Searching: "IN VIAGGIO" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[359/804] MUSIC FOR BLACK PIGEONS (2022)
+  Searching: "MUSIC FOR BLACK PIGEONS" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[360/804] BREAD AND SALT (2022)
+  Searching: "BREAD AND SALT" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (360/804)
+
+[361/804] ON THE FRINGE (2022)
+  Searching: "ON THE FRINGE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[362/804] THE ORIGIN OF EVIL (2022)
+  Searching: "THE ORIGIN OF EVIL" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[363/804] SICCITÀ (2022)
+  Searching: "SICCITÀ" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[364/804] THE KINGDOM EXODUS (2022)
+  Searching: "THE KINGDOM EXODUS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[365/804] CALL OF GOD (2022)
+  Searching: "CALL OF GOD" (2022)...
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[366/804] THE MARCH ON ROME (2022)
+  Searching: "THE MARCH ON ROME" (2022)...
+    ✓ Found - 2 streaming, 7 rent, 8 buy options + poster
+[367/804] THE LAST QUEEN (2022)
+  Searching: "THE LAST QUEEN" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[368/804] GHOST NIGHT (2022)
+  Searching: "GHOST NIGHT" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[369/804] SERGIO LEONE: THE ITALIAN WHO INVENTED AMERICA (2022)
+  Searching: "SERGIO LEONE: THE ITALIAN WHO INVENTED AMERICA" (2022)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[370/804] LOOK AT ME (2022)
+  Searching: "LOOK AT ME" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[371/804] III (2022)
+  Searching: "III" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[372/804] THE MOISTURE (2022)
+  Searching: "THE MOISTURE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[373/804] THE SITTING DUCK (2022)
+  Searching: "THE SITTING DUCK" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[374/804] MARGINS (2022)
+  Searching: "MARGINS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[375/804] LAS LEONAS (2022)
+  Searching: "LAS LEONAS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[376/804] WE'RE HERE TO TRY (2022)
+  Searching: "WE'RE HERE TO TRY" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[377/804] ALONE (2022)
+  Searching: "ALONE" (2022)...
+    ⚠️  No suitable match found
+[378/804] ORDINARY FAILURES (2022)
+  Searching: "ORDINARY FAILURES" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[379/804] THE GHOST OF RICHARD HARRIS (2022)
+  Searching: "THE GHOST OF RICHARD HARRIS" (2022)...
+    ✓ Found - 4 streaming, 3 rent, 3 buy options + poster
+[380/804] DESPERATE SOULS, DARK CITY AND THE LEGEND OF MIDNIGHT COWBOY (2022)
+  Searching: "DESPERATE SOULS, DARK CITY AND THE LEGEND OF MIDNIGHT COWBOY" (2022)...
+    ⚠️  Using close match (year: 2023)
+    ✓ Found - 4 streaming, 3 rent, 3 buy options + poster
+  💾 Progress saved (380/804)
+
+[381/804] A COMPASSIONATE SPY (2022)
+  Searching: "A COMPASSIONATE SPY" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[382/804] FREEDOM ON FIRE: UKRAINE'S FIGHT FOR FREEDOM (2022)
+  Searching: "FREEDOM ON FIRE: UKRAINE'S FIGHT FOR FREEDOM" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[383/804] QUEENS (2022)
+  Searching: "QUEENS" (2022)...
+    ⚠️  No suitable match found
+[384/804] BEATING SUN (2022)
+  Searching: "BEATING SUN" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[385/804] BANU (2022)
+  Searching: "BANU" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[386/804] EVERYTHING AT ONCE (2022)
+  Searching: "EVERYTHING AT ONCE" (2022)...
+    ✓ Found - 8 streaming, 11 rent, 12 buy options + poster
+[387/804] TRIA - DEL SENTIMENTO DEL TRADIRE (2022)
+  Searching: "TRIA - DEL SENTIMENTO DEL TRADIRE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[388/804] VALERIA IS GETTING MARRIED (2022)
+  Searching: "VALERIA IS GETTING MARRIED" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[389/804] HANGING GARDENS (2022)
+  Searching: "HANGING GARDENS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[390/804] THE BRIDE (2022)
+  Searching: "THE BRIDE" (2022)...
+    ✓ Found - 0 streaming, 11 rent, 11 buy options + poster
+[391/804] FOR MY COUNTRY (2022)
+  Searching: "FOR MY COUNTRY" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[392/804] VICTIM (2022)
+  Searching: "VICTIM" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[393/804] GOLIATH (2022)
+  Searching: "GOLIATH" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[394/804] SAPLING (2022)
+  Searching: "SAPLING" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[395/804] ALBERTINE WHERE ARE YOU? (2022)
+  Searching: "ALBERTINE WHERE ARE YOU?" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[396/804] NEZOUH (2022)
+  Searching: "NEZOUH" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[397/804] PRINCESS (2022)
+  Searching: "PRINCESS" (2022)...
+    ⚠️  No suitable match found
+[398/804] CHIARA (2022)
+  Searching: "CHIARA" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[399/804] DEAD FOR A DOLLAR (2022)
+  Searching: "DEAD FOR A DOLLAR" (2022)...
+    ✓ Found - 0 streaming, 12 rent, 12 buy options + poster
+[400/804] OKAWARI (2022)
+  Searching: "OKAWARI" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (400/804)
+
+[401/804] THE MAN WHO COULDN'T LEAVE (2022)
+  Searching: "THE MAN WHO COULDN'T LEAVE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[402/804] DARKENING (2022)
+  Searching: "DARKENING" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[403/804] LA BAMBOLA DI PEZZA (2022)
+  Searching: "LA BAMBOLA DI PEZZA" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[404/804] LIFE UPSIDE DOWN (2022)
+  Searching: "LIFE UPSIDE DOWN" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[405/804] LA FORNACE (2022)
+  Searching: "LA FORNACE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[406/804] ERA ROMA (2022)
+  Searching: "ERA ROMA" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[407/804] AN INVISIBLE ENEMY (2022)
+  Searching: "AN INVISIBLE ENEMY" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[408/804] THE BONE BREAKERS (2022)
+  Searching: "THE BONE BREAKERS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[409/804] THE DREAM AND THE VIOLENCE (2022)
+  Searching: "THE DREAM AND THE VIOLENCE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[410/804] PABLO FROM NEANDERTHAL (2022)
+  Searching: "PABLO FROM NEANDERTHAL" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[411/804] KRISTOS, THE LAST CHILD (2022)
+  Searching: "KRISTOS, THE LAST CHILD" (2022)...
+    ⚠️  Using close match (year: 2023)
+    ✓ Found - 5 streaming, 0 rent, 2 buy options + poster
+[412/804] LAND OF UPRIGHT PEOPLE (2022)
+  Searching: "LAND OF UPRIGHT PEOPLE" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[413/804] OLIMPIA'S WAY (2022)
+  Searching: "OLIMPIA'S WAY" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[414/804] BENTU (2022)
+  Searching: "BENTU" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[415/804] THE MATCHMAKER (2022)
+  Searching: "THE MATCHMAKER" (2022)...
+    ⚠️  Using close match (year: 2023)
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[416/804] DIRTY, DIFFICULT, DANGEROUS (2022)
+  Searching: "DIRTY, DIFFICULT, DANGEROUS" (2022)...
+    ⚠️  Using close match (year: 2023)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[417/804] BONNIE (2022)
+  Searching: "BONNIE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[418/804] FRANCO ZEFFIRELLI CONFORMISTA RIBELLE (2022)
+  Searching: "FRANCO ZEFFIRELLI CONFORMISTA RIBELLE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[419/804] FROM OUR SIDE (2022)
+  Searching: "FROM OUR SIDE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[420/804] ONCE WAR IS OVER (2022)
+  Searching: "ONCE WAR IS OVER" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (420/804)
+
+[421/804] HAPPY BIRTHDAY (2022)
+  Searching: "HAPPY BIRTHDAY" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[422/804] PINNED INTO A DRESS (2022)
+  Searching: "PINNED INTO A DRESS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[423/804] DOGBORN (2022)
+  Searching: "DOGBORN" (2022)...
+    ⚠️  Using close match (year: 2023)
+    ✓ Found - 4 streaming, 10 rent, 11 buy options + poster
+[424/804] OUR TIES (2022)
+  Searching: "OUR TIES" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[425/804] PALIMPSEST (2022)
+  Searching: "PALIMPSEST" (2022)...
+    ⚠️  No suitable match found
+[426/804] LISA (2022)
+  Searching: "LISA" (2022)...
+    ⚠️  Using close match (year: 2021)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[427/804] MY GIRL FRIEND (2022)
+  Searching: "MY GIRL FRIEND" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[428/804] LOVE FOREVER (2022)
+  Searching: "LOVE FOREVER" (2022)...
+    ⚠️  No suitable match found
+[429/804] THE FRUIT TREE (2022)
+  Searching: "THE FRUIT TREE" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[430/804] THE LINE (2022)
+  Searching: "THE LINE" (2022)...
+    ⚠️  Using close match (year: 2021)
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[431/804] SNOW IN SEPTEMBER (2022)
+  Searching: "SNOW IN SEPTEMBER" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[432/804] NOCOMODO (2022)
+  Searching: "NOCOMODO" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[433/804] CHRISTOPHER AT SEA (2022)
+  Searching: "CHRISTOPHER AT SEA" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[434/804] MOUNTAIN ONION (2022)
+  Searching: "MOUNTAIN ONION" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[435/804] REMAINS (2022)
+  Searching: "REMAINS" (2022)...
+    ⚠️  No suitable match found
+[436/804] LUCID ROOM (2022)
+  Searching: "LUCID ROOM" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[437/804] REGINETTA (2022)
+  Searching: "REGINETTA" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[438/804] LIKE SNAILS (2022)
+  Searching: "LIKE SNAILS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[439/804] NOSTOS (2022)
+  Searching: "NOSTOS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[440/804] BURNING HEARTS (2022)
+  Searching: "BURNING HEARTS" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (440/804)
+
+[441/804] THREE NIGHTS A WEEK (2022)
+  Searching: "THREE NIGHTS A WEEK" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[442/804] WITHOUT HER (2022)
+  Searching: "WITHOUT HER" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[443/804] DREAMIN’ WILD (2022)
+  Searching: "DREAMIN’ WILD" (2022)...
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[444/804] THE LISTENER (2022)
+  Searching: "THE LISTENER" (2022)...
+    ⚠️  No suitable match found
+[445/804] THE HANGING SUN (2022)
+  Searching: "THE HANGING SUN" (2022)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[446/804] FREAKS OUT (2021)
+  Searching: "FREAKS OUT" (2021)...
+    ✓ Found - 0 streaming, 7 rent, 8 buy options + poster
+[447/804] A CONFUCIAN CONFUSION (1994)
+  Searching: "A CONFUCIAN CONFUSION" (1994)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[448/804] BROTHERS (1991)
+  Searching: "BROTHERS" (1991)...
+    ⚠️  No suitable match found
+[449/804] BLOOD (1989)
+  Searching: "BLOOD" (1989)...
+    ⚠️  No suitable match found
+[450/804] THE DRAUGHTSMAN'S CONTRACT (1982)
+  Searching: "THE DRAUGHTSMAN'S CONTRACT" (1982)...
+    ✓ Found - 2 streaming, 10 rent, 9 buy options + poster
+[451/804] THE CHESS PLAYERS (1977)
+  Searching: "THE CHESS PLAYERS" (1977)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[452/804] MY LITTLE LOVES (1974)
+  Searching: "MY LITTLE LOVES" (1974)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[453/804] TERESA THE THIEF (1973)
+  Searching: "TERESA THE THIEF" (1973)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[454/804] THE EAR (1970)
+  Searching: "THE EAR" (1970)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[455/804] TEOREMA (1968)
+  Searching: "TEOREMA" (1968)...
+    ✓ Found - 4 streaming, 5 rent, 5 buy options + poster
+[456/804] PROFOUND DESIRES OF THE GODS (1968)
+  Searching: "PROFOUND DESIRES OF THE GODS" (1968)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[457/804] THERESE AND ISABELLE (1968)
+  Searching: "THERESE AND ISABELLE" (1968)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[458/804] BRANDED TO KILL (1967)
+  Searching: "BRANDED TO KILL" (1967)...
+    ✓ Found - 0 streaming, 2 rent, 2 buy options + poster
+[459/804] THE ELUSIVE CORPORAL (1962)
+  Searching: "THE ELUSIVE CORPORAL" (1962)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[460/804] THE MARCH ON ROME (1962)
+  Searching: "THE MARCH ON ROME" (1962)...
+    ⚠️  No suitable match found
+  💾 Progress saved (460/804)
+
+[461/804] A HEN IN THE WIND (1948)
+  Searching: "A HEN IN THE WIND" (1948)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[462/804] CANYON PASSAGE (1946)
+  Searching: "CANYON PASSAGE" (1946)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[463/804] THE BLACK CAT (1934)
+  Searching: "THE BLACK CAT" (1934)...
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[464/804] CAVALCADE (1933)
+  Searching: "CAVALCADE" (1933)...
+    ✓ Found - 0 streaming, 2 rent, 2 buy options + poster
+[465/804] STELLA DALLAS (1925)
+  Searching: "STELLA DALLAS" (1925)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[466/804] Priscilla (2023)
+  Searching: "Priscilla" (2023)...
+    ✓ Found - 4 streaming, 11 rent, 11 buy options + poster
+[467/804] Gasoline Rainbow (2023)
+  Searching: "Gasoline Rainbow" (2023)...
+    ⚠️  Using close match (year: 2024)
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[468/804] Humanist Vampire Seeking Consenting Suicidal Person (2023)
+  Searching: "Humanist Vampire Seeking Consenting Suicidal Person" (2023)...
+    ⚠️  Using close match (year: 2024)
+    ✓ Found - 2 streaming, 7 rent, 6 buy options + poster
+[469/804] Poor Things (2023)
+  Searching: "Poor Things" (2023)...
+    ✓ Found - 3 streaming, 14 rent, 15 buy options + poster
+[470/804] Transformers: Rise of the Beasts (2023)
+  Searching: "Transformers: Rise of the Beasts" (2023)...
+    ✓ Found - 0 streaming, 13 rent, 15 buy options + poster
+[471/804] Evil Does Not Exist (2023)
+  Searching: "Evil Does Not Exist" (2023)...
+    ✓ Found - 0 streaming, 8 rent, 8 buy options + poster
+[472/804] Memory (2023)
+  Searching: "Memory" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[473/804] Hesitation Wound (2023)
+  Searching: "Hesitation Wound" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[474/804] The Promised Land (2023)
+  Searching: "The Promised Land" (2023)...
+    ✓ Found - 2 streaming, 13 rent, 13 buy options + poster
+[475/804] Eye Two Times Mouth (2023)
+  Searching: "Eye Two Times Mouth" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[476/804] Io Capitano (2023)
+  Searching: "Io Capitano" (2023)...
+    ✓ Found - 4 streaming, 2 rent, 2 buy options + poster
+[477/804] Hoarder on the Border (2023)
+  Searching: "Hoarder on the Border" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[478/804] Dormitory (2023)
+  Searching: "Dormitory" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[479/804] Life Is Not a Competition, But I’m Winning (2023)
+  Searching: "Life Is Not a Competition, But I’m Winning" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[480/804] Oceans Are the Real Continents (2023)
+  Searching: "Oceans Are the Real Continents" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (480/804)
+
+[481/804] The Wonderful Story of Henry Sugar (2023)
+  Searching: "The Wonderful Story of Henry Sugar" (2023)...
+    ✓ Found - 6 streaming, 0 rent, 0 buy options + poster
+[482/804] Out of Season (2023)
+  Searching: "Out of Season" (2023)...
+    ⚠️  No suitable match found
+[483/804] Daaaaaalí! (2023)
+  Searching: "Daaaaaalí!" (2023)...
+    ⚠️  Using close match (year: 2024)
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[484/804] Society of the Snow (2023)
+  Searching: "Society of the Snow" (2023)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[485/804] Ryuichi Sakamoto: Opus (2023)
+  Searching: "Ryuichi Sakamoto: Opus" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[486/804] Bye Bye Tiberias (2023)
+  Searching: "Bye Bye Tiberias" (2023)...
+    ⚠️  Using close match (year: 2024)
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[487/804] The Killer (2023)
+  Searching: "The Killer" (2023)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[488/804] Green Border (2023)
+  Searching: "Green Border" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[489/804] El Conde (2023)
+  Searching: "El Conde" (2023)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[490/804] Maestro (2023)
+  Searching: "Maestro" (2023)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[491/804] Tatami (2023)
+  Searching: "Tatami" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[492/804] Dogman (2023)
+  Searching: "Dogman" (2023)...
+    ✓ Found - 6 streaming, 11 rent, 12 buy options + poster
+[493/804] Menus-Plaisirs, les Troisgros (2023)
+  Searching: "Menus-Plaisirs, les Troisgros" (2023)...
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[494/804] I Hit a Man (2023)
+  Searching: "I Hit a Man" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[495/804] Coup de Chance (2023)
+  Searching: "Coup de Chance" (2023)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[496/804] AGGRO DR1FT (2023)
+  Searching: "AGGRO DR1FT" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[497/804] Ferrari (2023)
+  Searching: "Ferrari" (2023)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[498/804] This Is How a Child Becomes a Poet (2023)
+  Searching: "This Is How a Child Becomes a Poet" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[499/804] Wander to Wonder (2023)
+  Searching: "Wander to Wonder" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[500/804] The Summer with Carmen (2023)
+  Searching: "The Summer with Carmen" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (500/804)
+
+[501/804] HOUSEKEEPING FOR BEGINNERS (2023)
+  Searching: "HOUSEKEEPING FOR BEGINNERS" (2023)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[502/804] Heartless Outlaws (2023)
+  Searching: "Heartless Outlaws" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[503/804] THE VOURDALAK (2023)
+  Searching: "THE VOURDALAK" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[504/804] ORIGIN (2023)
+  Searching: "ORIGIN" (2023)...
+    ✓ Found - 8 streaming, 9 rent, 10 buy options + poster
+[505/804] IL POPOLO DELLE DONNE (2023)
+  Searching: "IL POPOLO DELLE DONNE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[506/804] FRAGMENTS OF A LIFE LOVED (2023)
+  Searching: "FRAGMENTS OF A LIFE LOVED" (2023)...
+    ⚠️  No suitable match found
+[507/804] THE UNIVERSAL THEORY (2023)
+  Searching: "THE UNIVERSAL THEORY" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[508/804] SHADOW OF FIRE (2023)
+  Searching: "SHADOW OF FIRE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[509/804] THE PALACE (2023)
+  Searching: "THE PALACE" (2023)...
+    ✓ Found - 0 streaming, 8 rent, 10 buy options + poster
+[510/804] MALQUERIDAS (2023)
+  Searching: "MALQUERIDAS" (2023)...
+    ⚠️  No suitable match found
+[511/804] PARADISE IS BURNING (2023)
+  Searching: "PARADISE IS BURNING" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[512/804] EXPLANATION FOR EVERYTHING (2023)
+  Searching: "EXPLANATION FOR EVERYTHING" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[513/804] AN ENDLESS SUNDAY (2023)
+  Searching: "AN ENDLESS SUNDAY" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[514/804] MICHEL GONDRY, DO IT YOURSELF (2023)
+  Searching: "MICHEL GONDRY, DO IT YOURSELF" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[515/804] IN THE SHADOW OF CYPRESS (2023)
+  Searching: "IN THE SHADOW OF CYPRESS" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[516/804] WOMAN OF... (2023)
+  Searching: "WOMAN OF..." (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[517/804] INFESTED (2023)
+  Searching: "INFESTED" (2023)...
+    ✓ Found - 4 streaming, 12 rent, 13 buy options + poster
+[518/804] SAINTS (2025)
+  Searching: "SAINTS" (2025)...
+    ⚠️  No suitable match found
+[519/804] THE CAINE MUTINY COURT-MARTIAL (2023)
+  Searching: "THE CAINE MUTINY COURT-MARTIAL" (2023)...
+    ✓ Found - 0 streaming, 14 rent, 14 buy options + poster
+[520/804] CROSS MY HEART AND HOPE TO DIE (2023)
+  Searching: "CROSS MY HEART AND HOPE TO DIE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (520/804)
+
+[521/804] THE MEATSELLER (2023)
+  Searching: "THE MEATSELLER" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[522/804] LE MIE POESIE NON CAMBIERANNO IL MONDO (2023)
+  Searching: "LE MIE POESIE NON CAMBIERANNO IL MONDO" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[523/804] THE DREAMER (2023)
+  Searching: "THE DREAMER" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[524/804] SIDONIE IN JAPAN (2023)
+  Searching: "SIDONIE IN JAPAN" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[525/804] ADAGIO (2023)
+  Searching: "ADAGIO" (2023)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[526/804] SNOW LEOPARD (2023)
+  Searching: "SNOW LEOPARD" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[527/804] ENEA (2023)
+  Searching: "ENEA" (2023)...
+    ✓ Found - 5 streaming, 11 rent, 12 buy options + poster
+[528/804] PET SHOP DAYS (2023)
+  Searching: "PET SHOP DAYS" (2023)...
+    ⚠️  No suitable match found
+[529/804] HOLLY (2023)
+  Searching: "HOLLY" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[530/804] FIREDREAM (2023)
+  Searching: "FIREDREAM" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[531/804] SENTIMENTAL STORIES (2023)
+  Searching: "SENTIMENTAL STORIES" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[532/804] AREA BOY (2023)
+  Searching: "AREA BOY" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[533/804] DIVE (2023)
+  Searching: "DIVE" (2023)...
+    ✓ Found - 2 streaming, 10 rent, 11 buy options + poster
+[534/804] THROUGH THE NIGHT (2023)
+  Searching: "THROUGH THE NIGHT" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[535/804] MILK (2023)
+  Searching: "MILK" (2023)...
+    ⚠️  No suitable match found
+[536/804] FOLLOWING THE SOUND (2023)
+  Searching: "FOLLOWING THE SOUND" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[537/804] HOLLYWOODGATE (2023)
+  Searching: "HOLLYWOODGATE" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[538/804] STOLEN (2023)
+  Searching: "STOLEN" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[539/804] THE RESCUE (2023)
+  Searching: "THE RESCUE" (2023)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[540/804] FOREVER-FOREVER (2023)
+  Searching: "FOREVER-FOREVER" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (540/804)
+
+[541/804] CITY OF WIND (2023)
+  Searching: "CITY OF WIND" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[542/804] NOW.HERE (2023)
+  Searching: "NOW.HERE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[543/804] THE FEATHERWEIGHT (2023)
+  Searching: "THE FEATHERWEIGHT" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[544/804] THE RED SUITCASE (2023)
+  Searching: "THE RED SUITCASE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[545/804] THE LOST BOYS (2023)
+  Searching: "THE LOST BOYS" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[546/804] UPON OPEN SKY (2023)
+  Searching: "UPON OPEN SKY" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[547/804] THE LOST MEMORIES OF TREES (2023)
+  Searching: "THE LOST MEMORIES OF TREES" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[548/804] THE COMMANDER (2023)
+  Searching: "THE COMMANDER" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[549/804] LUBO (2023)
+  Searching: "LUBO" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[550/804] A SHORT TRIP (2023)
+  Searching: "A SHORT TRIP" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[551/804] THE WRITER IN THE TREES (2023)
+  Searching: "THE WRITER IN THE TREES" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[552/804] ACROSS (2023)
+  Searching: "ACROSS" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[553/804] PHOTOPHOBIA (2023)
+  Searching: "PHOTOPHOBIA" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[554/804] THE ZOLA EXPERIENCE (2023)
+  Searching: "THE ZOLA EXPERIENCE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[555/804] FOREMOST BY NIGHT (2023)
+  Searching: "FOREMOST BY NIGHT" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[556/804] Coup de Chance (2023)
+  Searching: "Coup de Chance" (2023)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[557/804] ON THE PULSE (2023)
+  Searching: "ON THE PULSE" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[558/804] ENDER'S LINE (2023)
+  Searching: "ENDER'S LINE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[559/804] GOD IS A WOMAN (2023)
+  Searching: "GOD IS A WOMAN" (2023)...
+    ✓ Found - 0 streaming, 10 rent, 13 buy options + poster
+[560/804] LOVE IS A GUN (2023)
+  Searching: "LOVE IS A GUN" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (560/804)
+
+[561/804] ABOUT LAST YEAR (2023)
+  Searching: "ABOUT LAST YEAR" (2023)...
+    ⚠️  No suitable match found
+[562/804] DAY OF THE FIGHT (2023)
+  Searching: "DAY OF THE FIGHT" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[563/804] PHANTOM YOUTH (2023)
+  Searching: "PHANTOM YOUTH" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[564/804] FINALLY DAWN (2023)
+  Searching: "FINALLY DAWN" (2023)...
+    ⚠️  Using close match (year: 2024)
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[565/804] SNOW IN MIDSUMMER (2023)
+  Searching: "SNOW IN MIDSUMMER" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[566/804] THANK YOU VERY MUCH (2023)
+  Searching: "THANK YOU VERY MUCH" (2023)...
+    ⚠️  No suitable match found
+[567/804] COMFORTLESS (2023)
+  Searching: "COMFORTLESS" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[568/804] ÁRNI (2023)
+  Searching: "ÁRNI" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[569/804] THE YEAR OF THE EGG (2023)
+  Searching: "THE YEAR OF THE EGG" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[570/804] LA PARTE DEL LEONE: UNA STORIA DELLA MOSTRA (2023)
+  Searching: "LA PARTE DEL LEONE: UNA STORIA DELLA MOSTRA" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[571/804] FRANK CAPRA: MR AMERICA (2023)
+  Searching: "FRANK CAPRA: MR AMERICA" (2023)...
+    ✓ Found - 0 streaming, 9 rent, 11 buy options + poster
+[572/804] DARIO ARGENTO PANICO (2023)
+  Searching: "DARIO ARGENTO PANICO" (2023)...
+    ⚠️  Using close match (year: 2024)
+    ✓ Found - 2 streaming, 2 rent, 2 buy options + poster
+[573/804] KEN JACOBS: FROM ORCHARD STREET TO THE MUSEUM OF MODERN ART (2023)
+  Searching: "KEN JACOBS: FROM ORCHARD STREET TO THE MUSEUM OF MODERN ART" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[574/804] UN'ALTRA ITALIA ERA POSSIBILE. IL CINEMA DI GIUSEPPE DE SANTIS (2023)
+  Searching: "UN'ALTRA ITALIA ERA POSSIBILE. IL CINEMA DI GIUSEPPE DE SANTIS" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[575/804] HITCHCOCK'S PRO-NAZI FILM (2023)
+  Searching: "HITCHCOCK'S PRO-NAZI FILM" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[576/804] BILL DOUGLAS - MY BEST FRIEND (2023)
+  Searching: "BILL DOUGLAS - MY BEST FRIEND" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[577/804] ENZO JANNACCI VENGO ANCH'IO (2023)
+  Searching: "ENZO JANNACCI VENGO ANCH'IO" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[578/804] AMOR (2023)
+  Searching: "AMOR" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[579/804] SHORT STORY (2023)
+  Searching: "SHORT STORY" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[580/804] BOGOTÁ STORY (2023)
+  Searching: "BOGOTÁ STORY" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (580/804)
+
+[581/804] IF THE SUN DROWNED INTO AN OCEAN OF CLOUDS (2023)
+  Searching: "IF THE SUN DROWNED INTO AN OCEAN OF CLOUDS" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[582/804] SEA SALT (2023)
+  Searching: "SEA SALT" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[583/804] AITANA (2023)
+  Searching: "AITANA" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[584/804] PAROLA AI GIOVANI (2023)
+  Searching: "PAROLA AI GIOVANI" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[585/804] NINA OF THE WOLVES (2023)
+  Searching: "NINA OF THE WOLVES" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[586/804] FLESH AND BRONZE (2023)
+  Searching: "FLESH AND BRONZE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[587/804] THE INVENTION OF SNOW (2023)
+  Searching: "THE INVENTION OF SNOW" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[588/804] WITH THE GRACE OF A GOD (2023)
+  Searching: "WITH THE GRACE OF A GOD" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[589/804] CASABLANCA (2023)
+  Searching: "CASABLANCA" (2023)...
+    ⚠️  No suitable match found
+[590/804] ANNA (2023)
+  Searching: "ANNA" (2023)...
+    ⚠️  No suitable match found
+[591/804] THE OUTPOST (2023)
+  Searching: "THE OUTPOST" (2023)...
+    ⚠️  No suitable match found
+[592/804] THE SUN WILL RISE (2023)
+  Searching: "THE SUN WILL RISE" (2023)...
+    ⚠️  No suitable match found
+[593/804] 21 DAYS UNTIL THE END OF THE WORLD (2023)
+  Searching: "21 DAYS UNTIL THE END OF THE WORLD" (2023)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[594/804] BACKSTAGE (2023)
+  Searching: "BACKSTAGE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[595/804] WELCOME TO PARADISE (2023)
+  Searching: "WELCOME TO PARADISE" (2023)...
+    ⚠️  No suitable match found
+[596/804] IN FRONT OF GUERNICA (DIRECTOR'S CUT) (2023)
+  Searching: "IN FRONT OF GUERNICA (DIRECTOR'S CUT)" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[597/804] MAKING OF (2023)
+  Searching: "MAKING OF" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[598/804] FOR NIGHT WILL COME (2023)
+  Searching: "FOR NIGHT WILL COME" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[599/804] GRASSHOPPERS (2023)
+  Searching: "GRASSHOPPERS" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[600/804] WE SHOULD ALL BE FUTURISTS (2023)
+  Searching: "WE SHOULD ALL BE FUTURISTS" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (600/804)
+
+[601/804] PINOQUO (2023)
+  Searching: "PINOQUO" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[602/804] IT ISN'T SO (2023)
+  Searching: "IT ISN'T SO" (2023)...
+    ⚠️  No suitable match found
+[603/804] GROUP PICTURE (2023)
+  Searching: "GROUP PICTURE" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[604/804] PASSIONE CRITICA (2023)
+  Searching: "PASSIONE CRITICA" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[605/804] FELICITÀ (2023)
+  Searching: "FELICITÀ" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[606/804] LOST LOVE (2023)
+  Searching: "LOST LOVE" (2023)...
+    ⚠️  Using close match (year: 2022)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[607/804] THE PENITENT - A RATIONAL MAN (2023)
+  Searching: "THE PENITENT - A RATIONAL MAN" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[608/804] BEHIND THE MOUNTAINS (2023)
+  Searching: "BEHIND THE MOUNTAINS" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[609/804] SKY PEALS (2023)
+  Searching: "SKY PEALS" (2023)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[610/804] THE ORDER OF TIME (2023)
+  Searching: "THE ORDER OF TIME" (2023)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[611/804] C.R.A.Z.Y. (2005)
+  Searching: "C.R.A.Z.Y." (2005)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[612/804] DEEP CRIMSON (1996)
+  Searching: "DEEP CRIMSON" (1996)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[613/804] BUGIS STREET (1995)
+  Searching: "BUGIS STREET" (1995)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[614/804] MOVING (1993)
+  Searching: "MOVING" (1993)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[615/804] DAYS OF HEAVEN (1978)
+  Searching: "DAYS OF HEAVEN" (1978)...
+    ✓ Found - 0 streaming, 6 rent, 5 buy options + poster
+[616/804] JUNGLE HOLOCAUST (1977)
+  Searching: "JUNGLE HOLOCAUST" (1977)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[617/804] HARMONICA (1974)
+  Searching: "HARMONICA" (1974)...
+    ⚠️  No suitable match found
+[618/804] THE WORKING GIRLS (1974)
+  Searching: "THE WORKING GIRLS" (1974)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[619/804] THE EXORCIST (1973)
+  Searching: "THE EXORCIST" (1973)...
+    ✓ Found - 0 streaming, 11 rent, 11 buy options + poster
+[620/804] LIFE OF A SHOCK FORCE WORKER (1972)
+  Searching: "LIFE OF A SHOCK FORCE WORKER" (1972)...
+    ⚠️  No suitable match found
+  💾 Progress saved (620/804)
+
+[621/804] ANDREI RUBLEV (1966)
+  Searching: "ANDREI RUBLEV" (1966)...
+    ✓ Found - 4 streaming, 2 rent, 2 buy options + poster
+[622/804] THE CREATURES (1966)
+  Searching: "THE CREATURES" (1966)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[623/804] THE HUNT (1966)
+  Searching: "THE HUNT" (1966)...
+    ⚠️  No suitable match found
+[624/804] SHADOWS OF FORGOTTEN ANCESTORS (1965)
+  Searching: "SHADOWS OF FORGOTTEN ANCESTORS" (1965)...
+    ✓ Found - 0 streaming, 0 rent, 2 buy options + poster
+[625/804] KING & COUNTRY (1964)
+  Searching: "KING & COUNTRY" (1964)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[626/804] PORTRAIT OF GINA (1958)
+  Searching: "PORTRAIT OF GINA" (1958)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[627/804] THE WAYWARD WIFE (1953)
+  Searching: "THE WAYWARD WIFE" (1953)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[628/804] BELLISSIMA (1951)
+  Searching: "BELLISSIMA" (1951)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[629/804] THERE WAS A FATHER (1942)
+  Searching: "THERE WAS A FATHER" (1942)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[630/804] REBECCA OF SUNNYBROOK FARM (1938)
+  Searching: "REBECCA OF SUNNYBROOK FARM" (1938)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[631/804] Bugonia (2025)
+  Searching: "Bugonia" (2025)...
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[632/804] Frankenstein (2025)
+  Searching: "Frankenstein" (2025)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[633/804] No Other Choice (2025)
+  Searching: "No Other Choice" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[634/804] The Voice of Hind Rajab (2025)
+  Searching: "The Voice of Hind Rajab" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[635/804] Father Mother Sister Brother (2025)
+  Searching: "Father Mother Sister Brother" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[636/804] La Grazia (2025)
+  Searching: "La Grazia" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[637/804] After the Hunt (2025)
+  Searching: "After the Hunt" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[638/804] A House of Dynamite (2025)
+  Searching: "A House of Dynamite" (2025)...
+    ✓ Found - 3 streaming, 0 rent, 0 buy options + poster
+[639/804] Silent Friend (2025)
+  Searching: "Silent Friend" (2025)...
+    ⚠️  Using close match (year: 2026)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[640/804] The Smashing Machine (2025)
+  Searching: "The Smashing Machine" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (640/804)
+
+[641/804] Landmarks (2025)
+  Searching: "Landmarks" (2025)...
+    ⚠️  Using close match (year: 2026)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[642/804] Laguna (2025)
+  Searching: "Laguna" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[643/804] Bravo Bene! (2025)
+  Searching: "Bravo Bene!" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[644/804] The Holy Boy (2025)
+  Searching: "The Holy Boy" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[645/804] Her at Work (2025)
+  Searching: "Her at Work" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[646/804] The Ivy (2025)
+  Searching: "The Ivy" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[647/804] Strange River (2025)
+  Searching: "Strange River" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[648/804] ROSE OF NEVADA (2025)
+  Searching: "ROSE OF NEVADA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[649/804] A Soil A Culture A River A People (2025)
+  Searching: "A Soil A Culture A River A People" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[650/804] REMAKE (2025)
+  Searching: "REMAKE" (2025)...
+    ⚠️  No suitable match found
+[651/804] Director's Diary (2025)
+  Searching: "Director's Diary" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[652/804] Fragments for Venus (2025)
+  Searching: "Fragments for Venus" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[653/804] Marina (2025)
+  Searching: "Marina" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[654/804] THE STRANGER (2025)
+  Searching: "THE STRANGER" (2025)...
+    ⚠️  No suitable match found
+[655/804] How to Shoot a Ghost (2025)
+  Searching: "How to Shoot a Ghost" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[656/804] Barrio Triste (2025)
+  Searching: "Barrio Triste" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[657/804] Do You Love Me (2025)
+  Searching: "Do You Love Me" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[658/804] Father (2025)
+  Searching: "Father" (2025)...
+    ⚠️  No suitable match found
+[659/804] Sermon to the Void (2025)
+  Searching: "Sermon to the Void" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[660/804] 100 NIGHTS OF HERO (2025)
+  Searching: "100 NIGHTS OF HERO" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (660/804)
+
+[661/804] Straight Circle (2025)
+  Searching: "Straight Circle" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[662/804] Human Resource (2025)
+  Searching: "Human Resource" (2025)...
+    ⚠️  Using close match (year: 2026)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[663/804] BELOW THE CLOUDS (2025)
+  Searching: "BELOW THE CLOUDS" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[664/804] THE LAST VIKING (2025)
+  Searching: "THE LAST VIKING" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[665/804] The Kidnapping of Arabella (2025)
+  Searching: "The Kidnapping of Arabella" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[666/804] The Wizard of the Kremlin (2025)
+  Searching: "The Wizard of the Kremlin" (2025)...
+    ⚠️  Using close match (year: 2026)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[667/804] Goffredo felicissimo? (2025)
+  Searching: "Goffredo felicissimo?" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[668/804] Family Feast (2025)
+  Searching: "Family Feast" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[669/804] Remains (2025)
+  Searching: "Remains" (2025)...
+    ⚠️  No suitable match found
+[670/804] Confini, canti (2025)
+  Searching: "Confini, canti" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[671/804] SAINTS (2025)
+  Searching: "SAINTS" (2025)...
+    ⚠️  No suitable match found
+[672/804] THE PØRNØGRAPHƏR (2025)
+  Searching: "THE PØRNØGRAPHƏR" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[673/804] SECRET OF A MOUNTAIN SERPENT (2025)
+  Searching: "SECRET OF A MOUNTAIN SERPENT" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[674/804] ONE WOMAN ONE BRA (2025)
+  Searching: "ONE WOMAN ONE BRA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[675/804] SANGRE DEL TORO (2025)
+  Searching: "SANGRE DEL TORO" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[676/804] HOLOFICTION (2025)
+  Searching: "HOLOFICTION" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[677/804] BOORMAN AND THE DEVIL (2025)
+  Searching: "BOORMAN AND THE DEVIL" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[678/804] LOUIS MALLE, LE RÉVOLTÉ (2025)
+  Searching: "LOUIS MALLE, LE RÉVOLTÉ" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[679/804] SOCKS (2025)
+  Searching: "SOCKS" (2025)...
+    ⚠️  No suitable match found
+[680/804] THE GIRL NEXT DOOR (2025)
+  Searching: "THE GIRL NEXT DOOR" (2025)...
+    ⚠️  No suitable match found
+  💾 Progress saved (680/804)
+
+[681/804] GIRL TIME (2025)
+  Searching: "GIRL TIME" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[682/804] UNAVAILABLE (2025)
+  Searching: "UNAVAILABLE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[683/804] COYOTES (2025)
+  Searching: "COYOTES" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[684/804] LION ROCK (2025)
+  Searching: "LION ROCK" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[685/804] THE CURFEW (2025)
+  Searching: "THE CURFEW" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[686/804] I HEAR IT STILL (2025)
+  Searching: "I HEAR IT STILL" (2025)...
+    ⚠️  No suitable match found
+[687/804] MERRIMUNDI (2025)
+  Searching: "MERRIMUNDI" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[688/804] NORHEIMSUND (2025)
+  Searching: "NORHEIMSUND" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[689/804] BECOMING HUMAN (2025)
+  Searching: "BECOMING HUMAN" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[690/804] RUKELI (2025)
+  Searching: "RUKELI" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[691/804] ORIGIN (2025)
+  Searching: "ORIGIN" (2025)...
+    ⚠️  No suitable match found
+[692/804] NEWPORT & THE GREAT FOLK DREAM (2025)
+  Searching: "NEWPORT & THE GREAT FOLK DREAM" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[693/804] NINO. 18 GIORNI (2025)
+  Searching: "NINO. 18 GIORNI" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[694/804] NOTES OF A TRUE CRIMINAL (2025)
+  Searching: "NOTES OF A TRUE CRIMINAL" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[695/804] KIM NOVAK'S VERTIGO (2025)
+  Searching: "KIM NOVAK'S VERTIGO" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[696/804] MY FATHER AND QADDAFI (2025)
+  Searching: "MY FATHER AND QADDAFI" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[697/804] MATA HARI (2025)
+  Searching: "MATA HARI" (2025)...
+    ⚠️  No suitable match found
+[698/804] WITHOUT KELLY (2025)
+  Searching: "WITHOUT KELLY" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[699/804] KUSHTA MAYN, LA MIA COSTANTINOPOLI (2025)
+  Searching: "KUSHTA MAYN, LA MIA COSTANTINOPOLI" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[700/804] EL ORIGEN DEL MUNDO (2025)
+  Searching: "EL ORIGEN DEL MUNDO" (2025)...
+    ✓ Found - 0 streaming, 8 rent, 12 buy options + poster
+  💾 Progress saved (700/804)
+
+[701/804] LA LIGNE DE VIE (2025)
+  Searching: "LA LIGNE DE VIE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[702/804] A LOOSE END (2025)
+  Searching: "A LOOSE END" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[703/804] BROKEN ENGLISH (2025)
+  Searching: "BROKEN ENGLISH" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[704/804] THE BRIGHTNESS (2025)
+  Searching: "THE BRIGHTNESS" (2025)...
+    ⚠️  Using close match (year: 2024)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[705/804] A VERY GOOD BOY (2025)
+  Searching: "A VERY GOOD BOY" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[706/804] THE MOTORCYCLE (2025)
+  Searching: "THE MOTORCYCLE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[707/804] PRAYING MANTIS (2025)
+  Searching: "PRAYING MANTIS" (2025)...
+    ✓ Found - 2 streaming, 0 rent, 0 buy options + poster
+[708/804] BACK HOME (2025)
+  Searching: "BACK HOME" (2025)...
+    ⚠️  No suitable match found
+[709/804] A DANCE IN VAIN (2025)
+  Searching: "A DANCE IN VAIN" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[710/804] PIERO PELÙ - RUMORE DENTRO (2025)
+  Searching: "PIERO PELÙ - RUMORE DENTRO" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[711/804] WRITING LIFE: ANNIE ERNAUX THROUGH THE EYES OF HIGH SCHOOL STUDENTS (2025)
+  Searching: "WRITING LIFE: ANNIE ERNAUX THROUGH THE EYES OF HIGH SCHOOL STUDENTS" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[712/804] MARC BY SOFIA (2025)
+  Searching: "MARC BY SOFIA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[713/804] FRANCESCO DE GREGORI NEVERGREEN (2025)
+  Searching: "FRANCESCO DE GREGORI NEVERGREEN" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[714/804] A NEAR THING (2025)
+  Searching: "A NEAR THING" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[715/804] FULL SPEED BACKWARD! (2025)
+  Searching: "FULL SPEED BACKWARD!" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[716/804] A STATE FILM (2025)
+  Searching: "A STATE FILM" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[717/804] LIFE BEYOND THE PINE CURTAIN: AMERICA THE INVISIBLE (2025)
+  Searching: "LIFE BEYOND THE PINE CURTAIN: AMERICA THE INVISIBLE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[718/804] HOME (2025)
+  Searching: "HOME" (2025)...
+    ✓ Found - 0 streaming, 7 rent, 11 buy options + poster
+[719/804] AMATA (2025)
+  Searching: "AMATA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[720/804] WHO IS STILL ALIVE (2025)
+  Searching: "WHO IS STILL ALIVE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (720/804)
+
+[721/804] 6:06 (2025)
+  Searching: "6:06" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[722/804] I WANT HER DEAD (2025)
+  Searching: "I WANT HER DEAD" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[723/804] DAMNED IF YOU DO, DAMNED IF YOU DON’T (2025)
+  Searching: "DAMNED IF YOU DO, DAMNED IF YOU DON’T" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[724/804] TONI, MY FATHER (2025)
+  Searching: "TONI, MY FATHER" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[725/804] SHORT SUMMER (2025)
+  Searching: "SHORT SUMMER" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[726/804] MEMORY OF PRINCESS MUMBI (2025)
+  Searching: "MEMORY OF PRINCESS MUMBI" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[727/804] VAINILLA (2025)
+  Searching: "VAINILLA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[728/804] PAST FUTURE CONTINUOUS (2025)
+  Searching: "PAST FUTURE CONTINUOUS" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[729/804] MEMORY (2025)
+  Searching: "MEMORY" (2025)...
+    ⚠️  No suitable match found
+[730/804] LA GIOIA (2025)
+  Searching: "LA GIOIA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[731/804] BEARCAVE (2025)
+  Searching: "BEARCAVE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[732/804] A SAD AND BEAUTIFUL WORLD (2025)
+  Searching: "A SAD AND BEAUTIFUL WORLD" (2025)...
+    ⚠️  Using close match (year: 2026)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[733/804] LAST NIGHT I CONQUERED THE CITY OF THEBES (2025)
+  Searching: "LAST NIGHT I CONQUERED THE CITY OF THEBES" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[734/804] INSIDE AMIR (2025)
+  Searching: "INSIDE AMIR" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[735/804] SILENT REBELLION (2025)
+  Searching: "SILENT REBELLION" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[736/804] MOTOR CITY (2025)
+  Searching: "MOTOR CITY" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[737/804] IT WOULD BE NIGHT IN CARACAS (2025)
+  Searching: "IT WOULD BE NIGHT IN CARACAS" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[738/804] SONGS OF FORGOTTEN TREES (2025)
+  Searching: "SONGS OF FORGOTTEN TREES" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[739/804] HIJRA (2025)
+  Searching: "HIJRA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[740/804] FUNERAL CASINO BLUES (2025)
+  Searching: "FUNERAL CASINO BLUES" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (740/804)
+
+[741/804] ON THE ROAD (2025)
+  Searching: "ON THE ROAD" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[742/804] MILK TEETH (2025)
+  Searching: "MILK TEETH" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[743/804] LOST LAND (2025)
+  Searching: "LOST LAND" (2025)...
+    ⚠️  Using close match (year: 2026)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[744/804] THE SITE (2025)
+  Searching: "THE SITE" (2025)...
+    ⚠️  Using close match (year: 2026)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[745/804] BOOMERANG ATOMIC (2025)
+  Searching: "BOOMERANG ATOMIC" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[746/804] KABUL, BETWEEN PRAYERS (2025)
+  Searching: "KABUL, BETWEEN PRAYERS" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[747/804] FERDINANDO SCIANNA: IL FOTOGRAFO DELL'OMBRA (2025)
+  Searching: "FERDINANDO SCIANNA: IL FOTOGRAFO DELL'OMBRA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[748/804] THE TALE OF SYLIAN (2025)
+  Searching: "THE TALE OF SYLIAN" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[749/804] COVER-UP (2025)
+  Searching: "COVER-UP" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[750/804] I DIARI DI ANGELA - NOI DUE CINEASTI. CAPITOLO TERZO (2025)
+  Searching: "I DIARI DI ANGELA - NOI DUE CINEASTI. CAPITOLO TERZO" (2025)...
+    ⚠️  No suitable match found
+[751/804] DIVINE COMEDY (2025)
+  Searching: "DIVINE COMEDY" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[752/804] THE TESTAMENT OF ANN LEE (2025)
+  Searching: "THE TESTAMENT OF ANN LEE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[753/804] SAINT SIMÉON (2025)
+  Searching: "SAINT SIMÉON" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[754/804] ENDGAME (2025)
+  Searching: "ENDGAME" (2025)...
+    ⚠️  No suitable match found
+[755/804] ORFEO (2025)
+  Searching: "ORFEO" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[756/804] ELISA (2025)
+  Searching: "ELISA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[757/804] THE SUN RISES ON US ALL (2025)
+  Searching: "THE SUN RISES ON US ALL" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[758/804] STEREO GIRLS (2025)
+  Searching: "STEREO GIRLS" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[759/804] WAKING HOURS (2025)
+  Searching: "WAKING HOURS" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[760/804] ROQIA (2025)
+  Searching: "ROQIA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (760/804)
+
+[761/804] COTTON QUEEN (2025)
+  Searching: "COTTON QUEEN" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[762/804] DEAD MAN'S WIRE (2025)
+  Searching: "DEAD MAN'S WIRE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[763/804] AGON (2025)
+  Searching: "AGON" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[764/804] MEGADOC (2025)
+  Searching: "MEGADOC" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[765/804] GHOST ELEPHANTS (2025)
+  Searching: "GHOST ELEPHANTS" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[766/804] SCARLET (2025)
+  Searching: "SCARLET" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[767/804] ISH (2025)
+  Searching: "ISH" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[768/804] MADE IN EU (2025)
+  Searching: "MADE IN EU" (2025)...
+    ⚠️  No suitable match found
+[769/804] THE SOUFFLEUR (2025)
+  Searching: "THE SOUFFLEUR" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[770/804] AMMAZZARE STANCA (2025)
+  Searching: "AMMAZZARE STANCA" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[771/804] GORGONÀ (2025)
+  Searching: "GORGONÀ" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[772/804] CALLE MALAGA (2025)
+  Searching: "CALLE MALAGA" (2025)...
+    ⚠️  Using close match (year: 2026)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[773/804] MY TENNIS MAESTRO (2025)
+  Searching: "MY TENNIS MAESTRO" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[774/804] DOG 51 (2025)
+  Searching: "DOG 51" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[775/804] CONFITEOR (2025)
+  Searching: "CONFITEOR" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[776/804] MOTHER (2025)
+  Searching: "MOTHER" (2025)...
+    ⚠️  No suitable match found
+[777/804] GIRL (2025)
+  Searching: "GIRL" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[778/804] ORPHAN (2025)
+  Searching: "ORPHAN" (2025)...
+    ✓ Found - 5 streaming, 0 rent, 0 buy options + poster
+[779/804] LATE FAME (2025)
+  Searching: "LATE FAME" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[780/804] A YEAR OF SCHOOL (2025)
+  Searching: "A YEAR OF SCHOOL" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (780/804)
+
+[781/804] DUSE (2025)
+  Searching: "DUSE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[782/804] IN THE HAND OF DANTE (2025)
+  Searching: "IN THE HAND OF DANTE" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options
+[783/804] JAY KELLY (2025)
+  Searching: "JAY KELLY" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[784/804] THE OZU DIARIES (2025)
+  Searching: "THE OZU DIARIES" (2025)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[785/804] ARCA (2024)
+  Searching: "ARCA" (2024)...
+    ✓ Found - 6 streaming, 13 rent, 14 buy options + poster
+[786/804] VIVE L'AMOUR (1994)
+  Searching: "VIVE L'AMOUR" (1994)...
+    ⚠️  Using close match (year: 1995)
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[787/804] BASHU, THE LITTLE STRANGER (1989)
+  Searching: "BASHU, THE LITTLE STRANGER" (1989)...
+    ⚠️  No suitable match found
+[788/804] BLIND CHANCE (1987)
+  Searching: "BLIND CHANCE" (1987)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[789/804] MATADOR (1986)
+  Searching: "MATADOR" (1986)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[790/804] TI HO SPOSATO PER ALLEGRIA (1967)
+  Searching: "TI HO SPOSATO PER ALLEGRIA" (1967)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[791/804] KWAIDAN (1964)
+  Searching: "KWAIDAN" (1964)...
+    ⚠️  Using close match (year: 1965)
+    ✓ Found - 4 streaming, 5 rent, 4 buy options + poster
+[792/804] THE MAGNIFICENT CUCKOLD (1964)
+  Searching: "THE MAGNIFICENT CUCKOLD" (1964)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[793/804] THE GHOST (1963)
+  Searching: "THE GHOST" (1963)...
+    ⚠️  No suitable match found
+[794/804] LOLITA (1962)
+  Searching: "LOLITA" (1962)...
+    ✓ Found - 0 streaming, 9 rent, 10 buy options + poster
+[795/804] ODD OBSESSION (1959)
+  Searching: "ODD OBSESSION" (1959)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[796/804] 3:10 TO YUMA (1957)
+  Searching: "3:10 TO YUMA" (1957)...
+    ✓ Found - 0 streaming, 4 rent, 4 buy options + poster
+[797/804] THE DELICATE DELINQUENT (1957)
+  Searching: "THE DELICATE DELINQUENT" (1957)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[798/804] TWO ACRES OF LAND (1953)
+  Searching: "TWO ACRES OF LAND" (1953)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[799/804] ROME 11:00 (1952)
+  Searching: "ROME 11:00" (1952)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[800/804] THE MARK OF THE RENEGADE (1951)
+  Searching: "THE MARK OF THE RENEGADE" (1951)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+  💾 Progress saved (800/804)
+
+[801/804] HOUSE OF STRANGERS (1949)
+  Searching: "HOUSE OF STRANGERS" (1949)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[802/804] ANIKI-BÓBÓ (1942)
+  Searching: "ANIKI-BÓBÓ" (1942)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[803/804] PORT OF SHADOWS (1938)
+  Searching: "PORT OF SHADOWS" (1938)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+[804/804] QUEEN KELLY (1932)
+  Searching: "QUEEN KELLY" (1932)...
+No proxies defined, fetching directly
+    ✓ Found - 0 streaming, 0 rent, 0 buy options + poster
+
+============================================================
+📊 Summary:
+============================================================
+Total Venice films: 804
+Processed: 804
+Skipped (not in master): 0
+✅ Found on JustWatch: 715
+❌ Not found: 89
+💾 Updated streaming data file: data/streaming/availability.json
+============================================================

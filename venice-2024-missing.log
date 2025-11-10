@@ -1,0 +1,542 @@
+[dotenv@17.2.3] injecting env (7) from .env.local -- tip: ⚙️  enable debug logging with { debug: true }
+🎬 Adding Missing Venice 2024 Films from MUBI
+============================================================
+📄 Scraping pages 2-5...
+   Found 5 total pages
+
+📄 Scraping page 2/5...
+   Found 35 films from 2024
+📄 Scraping page 3/5...
+   Found 36 films from 2024
+📄 Scraping page 4/5...
+   Found 36 films from 2024
+📄 Scraping page 5/5...
+   Found 17 films from 2024
+
+📊 Found 124 unique films from MUBI pages 2-5
+
+
+📊 Processing 124 films...
+   88 new films to add (36 already in database)
+
+
+[1/88] SEPTEMBER 5 (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "September 5" (ID: 1211472)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTa
+
+[2/88] THE NEW YEARS (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "2024 The Most Beautiful Night New Year's Eve Party with BiliBili" (ID: 1410659)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTb
+
+[3/88] THE TIES THAT BIND US (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Ties That Bind Us" (ID: 1096642)
+   ✅ Matched by TMDB ID to existing film: aSV
+
+[4/88] YOUTH (HOMECOMING) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Youth (Homecoming)" (ID: 1319196)
+   ✅ Matched by TMDB ID to existing film: aR3
+
+[5/88] BESTIARIES, HERBARIA, LAPIDARIES (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Bestiaries, Herbaria, Lapidaries" (ID: 1306503)
+   ✅ Matched by TMDB ID to existing film: aSt
+
+[6/88] THREE FRIENDS (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Three Friends" (ID: 1137245)
+   ✅ Matched by TMDB ID to existing film: aRY
+
+[7/88] THE WITNESS (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Witness" (ID: 1192514)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTc
+
+[8/88] MIYAZAKI, SPIRIT OF NATURE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Miyazaki, Spirit of Nature" (ID: 1320480)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTd
+
+[9/88] SANATORIUM UNDER THE SIGN OF THE HOURGLASS (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sanatorium Under the Sign of the Hourglass" (ID: 423881)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTe
+
+[10/88] SUDAN, REMEMBER US (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sudan, Remember Us" (ID: 1318742)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTf
+
+[11/88] FEELING BETTER (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "14 Days to Feel Better" (ID: 1118841)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTg
+
+[12/88] OF DOGS AND MEN (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Of Dogs and Men" (ID: 1299351)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTh
+
+[13/88] THE TIME IT TAKES (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Time It Takes" (ID: 1103750)
+   ✅ Matched by TMDB ID to existing film: aSi
+
+[14/88] EDGE OF NIGHT (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Edge of the Night" (ID: 1301493)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTi
+
+[15/88] SEEKING HAVEN FOR MR. RAMBO (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Seeking Haven for Mr. Rambo" (ID: 1170841)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTj
+
+[16/88] RENÉ GOES TO WAR (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "René Goes to War" (ID: 1320496)
+   ✅ Matched by TMDB ID to existing film: aS0
+
+[17/88] MY MOTHER IS A COW (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "My Mother is a Cow" (ID: 1320495)
+   ✅ Matched by TMDB ID to existing film: aS4
+
+[18/88] SONGS OF SLOW BURNING EARTH (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Songs of Slow Burning Earth" (ID: 1052599)
+   ✅ Matched by TMDB ID to existing film: aSC
+
+[19/88] PLAYING GOD (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Playing God" (ID: 1283110)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTk
+
+[20/88] NO SLEEP TILL (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "No Sleep Till" (ID: 1284530)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTl
+
+[21/88] ANYWHERE ANYTIME (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Anywhere Anytime" (ID: 1319870)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTm
+
+[22/88] A MAN FELL (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "A Man Fell" (ID: 1319430)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTn
+
+[23/88] AND THEIR CHILDREN AFTER THEM (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "And Their Children After Them" (ID: 1103678)
+   ✅ Matched by TMDB ID to existing film: aRP
+
+[24/88] MUSSOLINI: SON OF THE CENTURY (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[25/88] FAMILIES LIKE OURS (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[26/88] POSSIBILITY OF PARADISE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Possibility of Paradise" (ID: 1320282)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTo
+
+[27/88] MAROUN RETURNS TO BEIRUT (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Maroun Returns to Beirut" (ID: 1320485)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTp
+
+[28/88] LE CINÉMA DE JEAN-PIERRE LÉAUD (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Jean-Pierre Léaud: The Child of Cinema" (ID: 1320481)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTq
+
+[29/88] O (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "O" (ID: 1320499)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTr
+
+[30/88] ALMOST CERTAINLY FALSE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Almost Certainly False" (ID: 1320487)
+   ✅ Matched by TMDB ID to existing film: aSX
+
+[31/88] THE AMERICAN BACKYARD (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The American Backyard" (ID: 1191815)
+   ✅ Matched by TMDB ID to existing film: aSf
+
+[32/88] THE QUIET SON (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Quiet Son" (ID: 1118848)
+   ✅ Matched by TMDB ID to existing film: aRR
+
+[33/88] TENGA DURO SIGNORINA! ISABELLA DUCROT UNLIMITED (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Hold On Tight, Miss! Isabella Ducrot Unlimited" (ID: 1320293)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTs
+
+[34/88] THE EYE OF THE HEN (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Eye of the Hen" (ID: 1320289)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTt
+
+[35/88] DESERT SUITE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Desert Suite" (ID: 1320288)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTu
+
+[36/88] SOUL OF THE DESERT (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Soul of the Desert" (ID: 1320275)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTv
+
+[37/88] HONEYMOON (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Honeymoon" (ID: 1104071)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTw
+
+[38/88] LITTLE JAFFNA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Little Jaffna" (ID: 1193692)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTx
+
+[39/88] PAUL AND PAULETTE TAKE A BATH (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Paul & Paulette Take a Bath" (ID: 1225467)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTy
+
+[40/88] DON'T CRY, BUTTERFLY (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Don’t Cry, Butterfly" (ID: 1234782)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTz
+
+[41/88] THE ANTIQUE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Antique" (ID: 610326)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTA
+
+[42/88] PEACHES GOES BANANAS (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Peaches Goes Bananas" (ID: 1268422)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTB
+
+[43/88] BATTLEFIELD (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Battlefield" (ID: 1174246)
+   ✅ Matched by TMDB ID to existing film: aRO
+
+[44/88] SOMEWHERE UNKNOWN IN INDOCHINA VR (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[45/88] BASILEIA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Basileia" (ID: 1044244)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTC
+
+[46/88] EARTHS TO COME (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[47/88] JANUARY 2 (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "January 24th" (ID: 1364456)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTD
+
+[48/88] THE FISHERMAN (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Fisherman" (ID: 1287774)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTE
+
+[49/88] MY BIRTHDAY (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "My Birthday" (ID: 1566862)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTF
+
+[50/88] CONSTEL·LACIÓ PORTABELLA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Constel·lació Portabella" (ID: 1320323)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTG
+
+[51/88] VOLONTÉ: L'UOMO DAI MILLE VOLTI (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Volonté: The Man of a Thousand Faces" (ID: 1320250)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTH
+
+[52/88] CHAIN REACTIONS (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Chain Reactions" (ID: 1318933)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTI
+
+[53/88] CARLO MAZZACURATI – UNA CERTA IDEA DI CINEMA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Carlo Mazzacurati - A Certain Idea of Cinema" (ID: 1320484)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTJ
+
+[54/88] FROM DARKNESS TO LIGHT (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "From Darkness to Light" (ID: 1320482)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTK
+
+[55/88] 'I WILL REVENGE THIS WORLD WITH LOVE' S. PARADJANOV (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: ""I Will Revenge This World With Love" - S. Paradjanov" (ID: 1314057)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTL
+
+[56/88] AFTER PARTY (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "After Party" (ID: 1320345)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTM
+
+[57/88] THE STORY OF FRANK AND NINA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Story of Frank and Nina" (ID: 1320254)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTN
+
+[58/88] THE MOHICAN (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Last of the Mohicans" (ID: 9361)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTO
+
+[59/88] VITTORIA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Vittoria" (ID: 1295517)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTP
+
+[60/88] AJAR (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Ajar" (ID: 1320493)
+   ✅ Matched by TMDB ID to existing film: aS2
+
+[61/88] THE POISON CAT (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Poison Cat" (ID: 1320491)
+   ✅ Matched by TMDB ID to existing film: aS1
+
+[62/88] KING IVORY (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "King Ivory" (ID: 1155324)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTQ
+
+[63/88] SE POSSO PERMETTERMI: CAPITOLO II (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "If I May - Chapter II" (ID: 1320300)
+   ✅ Matched by TMDB ID to existing film: aSg
+
+[64/88] VAKHIM (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Vakhim" (ID: 1320294)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTR
+
+[65/88] SEMPRE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Always" (ID: 1320291)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTS
+
+[66/88] BOSCO GRANDE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Big Forest" (ID: 1320287)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTT
+
+[67/88] KORA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Kora" (ID: 1320277)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTU
+
+[68/88] LA SCOMMESSA - UNA NOTTE IN CORSIA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "High Stakes - A Night In The Ward" (ID: 1116144)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTV
+
+[69/88] LABYRINTHS (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Labyrinth of Loss" (ID: 1280385)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTW
+
+[70/88] DARK GLOBE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Dark Globe" (ID: 1320470)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTX
+
+[71/88] THINGS THAT MY BEST FRIEND LOST (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Things That My Best Friend Lost" (ID: 1320468)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTY
+
+[72/88] SANS DIEU (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sans Dieu" (ID: 1104125)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aTZ
+
+[73/88] PHANTOM (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Phantom" (ID: 1320466)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT0
+
+[74/88] BLACK SILVER (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Black Silver" (ID: 1320299)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT1
+
+[75/88] COWBOY BILLI (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Cowboy Billi" (ID: 1320298)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT2
+
+[76/88] AT LEAST I WILL BE 8 294 400 PIXEL (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "At Least I Will Be 8 294 400 Pixel" (ID: 1320296)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT3
+
+[77/88] PERFUMED WITH MINT (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Perfumed with Mint" (ID: 1210711)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT4
+
+[78/88] HOMEGROWN (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Homegrown" (ID: 1321365)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT5
+
+[79/88] SUGAR ISLAND (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sugar Island" (ID: 1318711)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT6
+
+[80/88] THE OPEN COUPLE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Open Couple" (ID: 1313083)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT7
+
+[81/88] TO KILL A MONGOLIAN HORSE (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "To Kill a Mongolian Horse" (ID: 1255537)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT8
+
+[82/88] ALPHA. (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Alpha" (ID: 1193198)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aT9
+
+[83/88] THE BOOK OF JOY (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Book of Joy" (ID: 1318710)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aUa
+
+[84/88] BOOMERANG (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Boomerang" (ID: 1134701)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aUb
+
+[85/88] MY EVERYTHING (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "My Everything" (ID: 1336253)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aUc
+
+[86/88] SICILIAN LETTERS (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sicilian Letters" (ID: 1148663)
+   ✅ Matched by TMDB ID to existing film: aRS
+
+[87/88] PLANET B (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Planet B" (ID: 1064758)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aUd
+
+[88/88] QUASI A CASA (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Quasi a casa" (ID: 1276262)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aUe
+
+💾 Updated data/films.json
+
+📁 Updated data/festivals/venice/2024.json with 154 film IDs
+
+============================================================
+📊 SUMMARY: Venice 2024 (MUBI pages 2-5)
+============================================================
+✅ Matched to existing films: 17
+➕ New films created: 67
+❌ Failed to process: 4
+============================================================
+
+⚠️  Failed films:
+   MUSSOLINI: SON OF THE CENTURY (2024) - Not found on TMDB
+   FAMILIES LIKE OURS (2024) - Not found on TMDB
+   SOMEWHERE UNKNOWN IN INDOCHINA VR (2024) - Not found on TMDB
+   EARTHS TO COME (2024) - Not found on TMDB

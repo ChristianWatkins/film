@@ -1,0 +1,2185 @@
+🎬 Venice Festival Data Population
+============================================================
+
+🎬 Fetching Venice 2020 from MUBI...
+   URL: https://mubi.com/en/awards-and-festivals/venice?year=2020
+   📊 Found 5 page(s) to scrape
+   📄 Scraping page 1/5...
+      Found 36 films
+   📄 Scraping page 2/5...
+      Found 36 films
+   📄 Scraping page 3/5...
+      Found 36 films
+   📄 Scraping page 4/5...
+      Found 36 films
+   📄 Scraping page 5/5...
+      Found 13 films
+   ✅ Total found: 157 films across 5 page(s)
+
+📊 Processing 157 films for Venice 2020...
+
+[1/157] THE HUMAN VOICE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Human Voice" (ID: 671577)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGR
+
+[2/157] NOTTURNO (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Notturno" (ID: 539529)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGS
+
+[3/157] IN MY ROOM (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "In My Room" (ID: 727959)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGT
+
+[4/157] NOMADLAND (2020)
+   ✅ Matched by title+year to existing ID: agZ
+
+[5/157] NEVER GONNA SNOW AGAIN (2020)
+   ✅ Matched by title+year to existing ID: agN
+
+[6/157] OMELIA CONTADINA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Omelia Contadina" (ID: 728131)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGU
+
+[7/157] WIFE OF A SPY (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Wife of a Spy" (ID: 688301)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGV
+
+[8/157] QUO VADIS, AIDA? (2020)
+   ✅ Matched by title+year to existing ID: ahQ
+
+[9/157] GHOSTS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Ghosts" (ID: 668754)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGW
+
+[10/157] NEW ORDER (2020)
+   ✅ Matched by title+year to existing ID: agP
+
+[11/157] THE MACALUSO SISTERS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Macaluso Sisters" (ID: 606865)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGX
+
+[12/157] APPLES (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "He Used To Bring Me Apples" (ID: 1317851)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGY
+
+[13/157] YELLOW CAT (2020)
+   ✅ Matched by title+year to existing ID: alY
+
+[14/157] MANDIBLES (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mandibles" (ID: 638965)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aGZ
+
+[15/157] DEAR COMRADES! (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Dear Comrades!" (ID: 587609)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG0
+
+[16/157] LOVE AFTER LOVE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "After We Collided" (ID: 613504)
+   ✅ Matched by TMDB ID to existing film: aaE
+
+[17/157] HONEY CIGAR (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Honey Cigar" (ID: 661932)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG1
+
+[18/157] FUCKING WITH NOBODY (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fucking with Nobody" (ID: 713671)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG2
+
+[19/157] PREPARATIONS TO BE TOGETHER FOR AN UNKNOWN PERIOD OF TIME (2020)
+   ✅ Matched by title+year to existing ID: ahK
+
+[20/157] MAMA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mama" (ID: 833684)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG3
+
+[21/157] THE TIES (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Ties" (ID: 659290)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG4
+
+[22/157] NOWHERE SPECIAL (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Nowhere Special" (ID: 728142)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG5
+
+[23/157] NIGHTWALK (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Nightwalk" (ID: 674869)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG6
+
+[24/157] NIGHT OF THE KINGS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Night of the Kings" (ID: 660958)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG7
+
+[25/157] GENUS PAN (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Genus Pan" (ID: 728148)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG8
+
+[26/157] CITY HALL (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "City Hall" (ID: 726041)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aG9
+
+[27/157] PIECES OF A WOMAN (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Pieces of a Woman" (ID: 641662)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHa
+
+[28/157] THE MAN WHO SOLD HIS SKIN (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Man Who Sold His Skin" (ID: 669363)
+   ✅ Matched by TMDB ID to existing film: amO
+
+[29/157] WHERE THE LEAVES FALL (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Where the Leaves Fall" (ID: 726452)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHb
+
+[30/157] SAINT-NARCISSE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Saint-Narcisse" (ID: 608499)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHc
+
+[31/157] MAINSTREAM (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mainstream" (ID: 557950)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHd
+
+[32/157] THE WORLD TO COME (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Alex Fernández: The Best Comedian in the World" (ID: 667040)
+   ✅ Matched by TMDB ID to existing film: ak2
+
+[33/157] THE DISCIPLE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Disciple" (ID: 728116)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHe
+
+[34/157] OUR FATHER (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Our Father" (ID: 669665)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHf
+
+[35/157] THE PREDATORS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Predators" (ID: 624484)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHg
+
+[36/157] THE STONEBREAKER (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Stonebreaker" (ID: 727001)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHh
+
+[37/157] WAR AND PEACE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "War and Peace" (ID: 728141)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHi
+
+[38/157] MY TENDER MATADOR (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "My Tender Matador" (ID: 651170)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHj
+
+[39/157] THOU SHALT NOT HATE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Thou Shalt Not Hate" (ID: 665139)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHk
+
+[40/157] SUN CHILDREN (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sun Children" (ID: 670343)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHl
+
+[41/157] GAZA MON AMOUR (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Gaza Mon Amour" (ID: 725561)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHm
+
+[42/157] 200 METERS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "200 Meters" (ID: 727012)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHn
+
+[43/157] CRAZY, NOT INSANE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Crazy, Not Insane" (ID: 682589)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHo
+
+[44/157] IN BETWEEN DYING (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "In Between Dying" (ID: 728106)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHp
+
+[45/157] TO THE MOON (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "To the Moon" (ID: 727976)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHq
+
+[46/157] J'ADOR (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "J'ador" (ID: 680196)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHr
+
+[47/157] HOPPER/WELLES (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Hopper/Welles" (ID: 728129)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHs
+
+[48/157] THE DUKE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fergie & Andrew: The Duke & Duchess of Disaster" (ID: 921315)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHt
+
+[49/157] I AM GRETA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "I Am Greta" (ID: 728123)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHu
+
+[50/157] NIGHT IN PARADISE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Night in Paradise" (ID: 606523)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHv
+
+[51/157] THE RETURN OF TRAGEDY (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Return of Tragedy" (ID: 697326)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHw
+
+[52/157] CARELESS CRIME (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Careless Crime" (ID: 644171)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHx
+
+[53/157] THE WHALER BOY (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Whaler Boy" (ID: 598268)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHy
+
+[54/157] LISTEN (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Listen" (ID: 728143)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHz
+
+[55/157] AND TOMORROW THE ENTIRE WORLD (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "And Tomorrow the Entire World" (ID: 728113)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHA
+
+[56/157] CONFERENCE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Conference" (ID: 603258)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHB
+
+[57/157] MISS MARX (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Miss Marx" (ID: 714099)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHC
+
+[58/157] 30 COINS (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[59/157] BETWEEN YOU AND MILAGROS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Between You and Milagros" (ID: 728195)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHD
+
+[60/157] THE NIGHT TRAIN (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Night Train" (ID: 728186)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHE
+
+[61/157] OASIS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Oasis" (ID: 733912)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHF
+
+[62/157] RESIDUE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Residue" (ID: 666271)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHG
+
+[63/157] FINAL ACCOUNT (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Final Account" (ID: 728125)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHH
+
+[64/157] TRAGIC JUNGLE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Tragic Jungle" (ID: 618746)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHI
+
+[65/157] MILESTONE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Milestone" (ID: 728133)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHJ
+
+[66/157] LAILA IN HAIFA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Laila in Haifa" (ID: 728107)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHK
+
+[67/157] BAD ROADS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Bad Roads" (ID: 677054)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHL
+
+[68/157] 4 FEET HIGH (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[69/157] THE ART OF RETURN (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Art of Return" (ID: 728206)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHM
+
+[70/157] PAOLO CONTE, VIA CON ME (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Paolo Conte, Come Away with Me" (ID: 728128)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHN
+
+[71/157] SPORTIN' LIFE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sportin' Life" (ID: 728103)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHO
+
+[72/157] PLACES (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Places" (ID: 728198)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHP
+
+[73/157] DREAMS IN A FIELD (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Dreams in the Field" (ID: 728191)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHQ
+
+[74/157] THE SHIFT (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Shift" (ID: 728183)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHR
+
+[75/157] THE WASTELAND (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Wasteland" (ID: 718913)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHS
+
+[76/157] GAS STATION (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Tyler Works at the Gas Station" (ID: 808079)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHT
+
+[77/157] AGALMA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Agalma" (ID: 727972)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHU
+
+[78/157] THE NEW GOSPEL (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The New Gospel" (ID: 727032)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHV
+
+[79/157] THE ROSSELLINIS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Rossellinis" (ID: 726407)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHW
+
+[80/157] LOVERS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Lovers on the Street" (ID: 946942)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHX
+
+[81/157] TOPSIDE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Topside" (ID: 665899)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHY
+
+[82/157] QUARANTA CAVALLI (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Quaranta cavalli" (ID: 781174)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aHZ
+
+[83/157] OM DEVI: SHEROES REVOLUTION (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[84/157] RUN HIDE FIGHT (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Run Hide Fight" (ID: 629017)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH0
+
+[85/157] NARCISSUS OFF DUTY (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Narcissus Off Duty" (ID: 728127)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH1
+
+[86/157] VENETIAN MOLECULES (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[87/157] THE TRUTH ABOUT LA DOLCE VITA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Truth About La Dolce Vita" (ID: 728126)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH2
+
+[88/157] MOSQUITO STATE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mosquito State" (ID: 728122)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH3
+
+[89/157] ASSANDIRA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Assandira" (ID: 726892)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH4
+
+[90/157] WHAT PROBABLY WOULD HAVE HAPPENED, IF I HADN'T STAYED AT HOME (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "What Probably Would Have Happened, If I Hadn't Stayed at Home" (ID: 728192)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH5
+
+[91/157] THE FURNACE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Furnace" (ID: 728136)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH6
+
+[92/157] ZANKA CONTACT (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Burning Casablanca" (ID: 728135)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH7
+
+[93/157] THE THIRD WAR (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Third War" (ID: 728132)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH8
+
+[94/157] ZOMBIE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Zombie" (ID: 726420)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aH9
+
+[95/157] EST - DITTATURA LAST MINUTE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Adventures Italian Style" (ID: 642124)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIa
+
+[96/157] ISOLA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "iSola" (ID: 727961)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIb
+
+[97/157] 50 OR TWO WHALES MEET ON THE BEACH (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "50 or Two Whales Meet at the Beach" (ID: 726411)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIc
+
+[98/157] THE BOOK OF VISION (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Book of Vision" (ID: 498587)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aId
+
+[99/157] WORKSHOP (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Workshop" (ID: 650842)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIe
+
+[100/157] SALVATORE: SHOEMAKER OF DREAMS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Salvatore: Shoemaker of Dreams" (ID: 573793)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIf
+
+[101/157] LISTEN (2020)
+   ✅ Matched by title+year to existing ID: aHz
+
+[102/157] IL VESPISTA (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[103/157] PAPER BIRDS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Chasing Paper Birds" (ID: 433984)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIg
+
+[104/157] ONCE UPON A SEA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Once Upon a Sea" (ID: 743158)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIh
+
+[105/157] HERE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Here" (ID: 743160)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIi
+
+[106/157] HUSH (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Hush" (ID: 743157)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIj
+
+[107/157] AFRICAN SPACE MAKERS (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "African Space Makers" (ID: 743171)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIk
+
+[108/157] BABA YAGA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Baba Yaga: Terror of the Dark Forest" (ID: 575088)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIl
+
+[109/157] ALIEN RESCUE (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[110/157] KILLING A SUPERSTAR (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[111/157] FINDING PANDORA X (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[112/157] THE HANGMAN AT HOME (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[113/157] FUOCO SACRO (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fuoco Sacro - A Search for the Sacred Fire of Song" (ID: 739363)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIm
+
+[114/157] OCCIDENT EXPRESS (2020)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[115/157] FIORI, FIORI, FIORI! (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fiori, Fiori, Fiori!" (ID: 732029)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIn
+
+[116/157] PRINCESSE EUROPE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Princesse Europe" (ID: 728130)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIo
+
+[117/157] YOU CAME BACK (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "You Came Back" (ID: 654902)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIp
+
+[118/157] SÌ (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sì" (ID: 728173)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIq
+
+[119/157] LIVE IN CLOUD CUCKOO LAND (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Live in Cloud Cuckoo Land" (ID: 728194)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIr
+
+[120/157] BEING MY MOM (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Being My Mom" (ID: 728176)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIs
+
+[121/157] UNDER HER SKIN (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Under Her Skin" (ID: 705816)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIt
+
+[122/157] ANITA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Anita" (ID: 728196)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIu
+
+[123/157] THE GAME (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Game" (ID: 701202)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIv
+
+[124/157] THE FLIES (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Flies" (ID: 726451)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIw
+
+[125/157] FINIS TERRAE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Finis terrae" (ID: 726444)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIx
+
+[126/157] ADAM (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Adam" (ID: 726443)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIy
+
+[127/157] ACCAMÒRA (RIGHT NOW) (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Accamòra (Right Now)" (ID: 726442)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIz
+
+[128/157] THE EAGLES OF CARTHAGE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Eagles of Carthage" (ID: 726423)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIA
+
+[129/157] IN THIS MOMENT (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "In This Moment" (ID: 727991)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIB
+
+[130/157] SOLITAIRE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Solitaire" (ID: 727987)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIC
+
+[131/157] 50 - SANTARCANGELO FESTIVAL (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "50 - Santarcangelo Festival" (ID: 739571)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aID
+
+[132/157] NILDE IOTTI, IL TEMPO DELLE DONNE (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Nilde Iotti, il tempo delle donne" (ID: 727965)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIE
+
+[133/157] JAMES (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "James" (ID: 727985)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIF
+
+[134/157] EXTRALISCIO - PUNK DA BALERA (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Extraliscio - Punk da balera" (ID: 727990)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIG
+
+[135/157] SAMP (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Onbathu Kuzhi Sampath" (ID: 864210)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIH
+
+[136/157] ROMANTIC GUIDE TO LOST PLACES (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Romantic Guide to Lost Places" (ID: 727024)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aII
+
+[137/157] ENFORCEMENT (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Enforcement" (ID: 711017)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIJ
+
+[138/157] THE BEST IS YET TO COME (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Best is Yet to Come" (ID: 664412)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIK
+
+[139/157] THE FLOOD WON'T COME (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Flood Won’t Come" (ID: 726418)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIL
+
+[140/157] FALLEN DREAM (2019)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fallen Angel İn My Dream" (ID: 689811)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIM
+
+[141/157] HOME (2019)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Home" (ID: 612020)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIN
+
+[142/157] THE LONG VOYAGE (1997)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[143/157] GOODFELLAS (1990)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "GoodFellas" (ID: 769)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIO
+
+[144/157] PINK FLOYD: LIVE IN VENICE (1989)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Pink Floyd: Live in Venice" (ID: 67188)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIP
+
+[145/157] SAY AMEN, SOMEBODY (1982)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Say Amen, Somebody" (ID: 123020)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIQ
+
+[146/157] VENGEANCE IS MINE (1979)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Vengeance Is Mine" (ID: 42170)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIR
+
+[147/157] UNFINISHED PIECE FOR MECHANICAL PIANO (1977)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "An Unfinished Piece for Player Piano" (ID: 38837)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIS
+
+[148/157] THE LAST SUPPER (1976)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Last Supper" (ID: 47113)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIT
+
+[149/157] THE YOUNG GIRL (1975)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Young Girl" (ID: 270083)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIU
+
+[150/157] CLAUDINE (1974)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Claudine" (ID: 55909)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIV
+
+[151/157] SERPICO (1973)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Serpico" (ID: 9040)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIW
+
+[152/157] THE RED CIRCLE (1970)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Le Cercle Rouge" (ID: 11657)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIX
+
+[153/157] LATE SEASON (1966)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[154/157] SEDUCED AND ABANDONED (1964)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Seduced and Abandoned" (ID: 42790)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIY
+
+[155/157] STORY OF A LOVE AFFAIR (1950)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Story of a Love Affair" (ID: 49781)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aIZ
+
+[156/157] THE LIFE OF MATSU THE UNTAMED (1943)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Life of Matsu the Untamed" (ID: 125261)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI0
+
+[157/157] YOU ONLY LIVE ONCE (1937)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "You Only Live Once" (ID: 52758)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI1
+
+💾 Updated data/films.json with 135 new films
+
+📁 Updated data/festivals/venice/2020.json with 145 film IDs
+
+============================================================
+📊 SUMMARY: Venice 2020
+============================================================
+✅ Matched to existing films: 10
+➕ New films created: 135
+❌ Failed to process: 12
+============================================================
+
+🆕 New films created:
+   aGR - THE HUMAN VOICE (TMDB: 671577)
+   aGS - NOTTURNO (TMDB: 539529)
+   aGT - IN MY ROOM (TMDB: 727959)
+   aGU - OMELIA CONTADINA (TMDB: 728131)
+   aGV - WIFE OF A SPY (TMDB: 688301)
+   aGW - GHOSTS (TMDB: 668754)
+   aGX - THE MACALUSO SISTERS (TMDB: 606865)
+   aGY - APPLES (TMDB: 1317851)
+   aGZ - MANDIBLES (TMDB: 638965)
+   aG0 - DEAR COMRADES! (TMDB: 587609)
+   aG1 - HONEY CIGAR (TMDB: 661932)
+   aG2 - FUCKING WITH NOBODY (TMDB: 713671)
+   aG3 - MAMA (TMDB: 833684)
+   aG4 - THE TIES (TMDB: 659290)
+   aG5 - NOWHERE SPECIAL (TMDB: 728142)
+   aG6 - NIGHTWALK (TMDB: 674869)
+   aG7 - NIGHT OF THE KINGS (TMDB: 660958)
+   aG8 - GENUS PAN (TMDB: 728148)
+   aG9 - CITY HALL (TMDB: 726041)
+   aHa - PIECES OF A WOMAN (TMDB: 641662)
+   aHb - WHERE THE LEAVES FALL (TMDB: 726452)
+   aHc - SAINT-NARCISSE (TMDB: 608499)
+   aHd - MAINSTREAM (TMDB: 557950)
+   aHe - THE DISCIPLE (TMDB: 728116)
+   aHf - OUR FATHER (TMDB: 669665)
+   aHg - THE PREDATORS (TMDB: 624484)
+   aHh - THE STONEBREAKER (TMDB: 727001)
+   aHi - WAR AND PEACE (TMDB: 728141)
+   aHj - MY TENDER MATADOR (TMDB: 651170)
+   aHk - THOU SHALT NOT HATE (TMDB: 665139)
+   aHl - SUN CHILDREN (TMDB: 670343)
+   aHm - GAZA MON AMOUR (TMDB: 725561)
+   aHn - 200 METERS (TMDB: 727012)
+   aHo - CRAZY, NOT INSANE (TMDB: 682589)
+   aHp - IN BETWEEN DYING (TMDB: 728106)
+   aHq - TO THE MOON (TMDB: 727976)
+   aHr - J'ADOR (TMDB: 680196)
+   aHs - HOPPER/WELLES (TMDB: 728129)
+   aHt - THE DUKE (TMDB: 921315)
+   aHu - I AM GRETA (TMDB: 728123)
+   aHv - NIGHT IN PARADISE (TMDB: 606523)
+   aHw - THE RETURN OF TRAGEDY (TMDB: 697326)
+   aHx - CARELESS CRIME (TMDB: 644171)
+   aHy - THE WHALER BOY (TMDB: 598268)
+   aHz - LISTEN (TMDB: 728143)
+   aHA - AND TOMORROW THE ENTIRE WORLD (TMDB: 728113)
+   aHB - CONFERENCE (TMDB: 603258)
+   aHC - MISS MARX (TMDB: 714099)
+   aHD - BETWEEN YOU AND MILAGROS (TMDB: 728195)
+   aHE - THE NIGHT TRAIN (TMDB: 728186)
+   aHF - OASIS (TMDB: 733912)
+   aHG - RESIDUE (TMDB: 666271)
+   aHH - FINAL ACCOUNT (TMDB: 728125)
+   aHI - TRAGIC JUNGLE (TMDB: 618746)
+   aHJ - MILESTONE (TMDB: 728133)
+   aHK - LAILA IN HAIFA (TMDB: 728107)
+   aHL - BAD ROADS (TMDB: 677054)
+   aHM - THE ART OF RETURN (TMDB: 728206)
+   aHN - PAOLO CONTE, VIA CON ME (TMDB: 728128)
+   aHO - SPORTIN' LIFE (TMDB: 728103)
+   aHP - PLACES (TMDB: 728198)
+   aHQ - DREAMS IN A FIELD (TMDB: 728191)
+   aHR - THE SHIFT (TMDB: 728183)
+   aHS - THE WASTELAND (TMDB: 718913)
+   aHT - GAS STATION (TMDB: 808079)
+   aHU - AGALMA (TMDB: 727972)
+   aHV - THE NEW GOSPEL (TMDB: 727032)
+   aHW - THE ROSSELLINIS (TMDB: 726407)
+   aHX - LOVERS (TMDB: 946942)
+   aHY - TOPSIDE (TMDB: 665899)
+   aHZ - QUARANTA CAVALLI (TMDB: 781174)
+   aH0 - RUN HIDE FIGHT (TMDB: 629017)
+   aH1 - NARCISSUS OFF DUTY (TMDB: 728127)
+   aH2 - THE TRUTH ABOUT LA DOLCE VITA (TMDB: 728126)
+   aH3 - MOSQUITO STATE (TMDB: 728122)
+   aH4 - ASSANDIRA (TMDB: 726892)
+   aH5 - WHAT PROBABLY WOULD HAVE HAPPENED, IF I HADN'T STAYED AT HOME (TMDB: 728192)
+   aH6 - THE FURNACE (TMDB: 728136)
+   aH7 - ZANKA CONTACT (TMDB: 728135)
+   aH8 - THE THIRD WAR (TMDB: 728132)
+   aH9 - ZOMBIE (TMDB: 726420)
+   aIa - EST - DITTATURA LAST MINUTE (TMDB: 642124)
+   aIb - ISOLA (TMDB: 727961)
+   aIc - 50 OR TWO WHALES MEET ON THE BEACH (TMDB: 726411)
+   aId - THE BOOK OF VISION (TMDB: 498587)
+   aIe - WORKSHOP (TMDB: 650842)
+   aIf - SALVATORE: SHOEMAKER OF DREAMS (TMDB: 573793)
+   aIg - PAPER BIRDS (TMDB: 433984)
+   aIh - ONCE UPON A SEA (TMDB: 743158)
+   aIi - HERE (TMDB: 743160)
+   aIj - HUSH (TMDB: 743157)
+   aIk - AFRICAN SPACE MAKERS (TMDB: 743171)
+   aIl - BABA YAGA (TMDB: 575088)
+   aIm - FUOCO SACRO (TMDB: 739363)
+   aIn - FIORI, FIORI, FIORI! (TMDB: 732029)
+   aIo - PRINCESSE EUROPE (TMDB: 728130)
+   aIp - YOU CAME BACK (TMDB: 654902)
+   aIq - SÌ (TMDB: 728173)
+   aIr - LIVE IN CLOUD CUCKOO LAND (TMDB: 728194)
+   aIs - BEING MY MOM (TMDB: 728176)
+   aIt - UNDER HER SKIN (TMDB: 705816)
+   aIu - ANITA (TMDB: 728196)
+   aIv - THE GAME (TMDB: 701202)
+   aIw - THE FLIES (TMDB: 726451)
+   aIx - FINIS TERRAE (TMDB: 726444)
+   aIy - ADAM (TMDB: 726443)
+   aIz - ACCAMÒRA (RIGHT NOW) (TMDB: 726442)
+   aIA - THE EAGLES OF CARTHAGE (TMDB: 726423)
+   aIB - IN THIS MOMENT (TMDB: 727991)
+   aIC - SOLITAIRE (TMDB: 727987)
+   aID - 50 - SANTARCANGELO FESTIVAL (TMDB: 739571)
+   aIE - NILDE IOTTI, IL TEMPO DELLE DONNE (TMDB: 727965)
+   aIF - JAMES (TMDB: 727985)
+   aIG - EXTRALISCIO - PUNK DA BALERA (TMDB: 727990)
+   aIH - SAMP (TMDB: 864210)
+   aII - ROMANTIC GUIDE TO LOST PLACES (TMDB: 727024)
+   aIJ - ENFORCEMENT (TMDB: 711017)
+   aIK - THE BEST IS YET TO COME (TMDB: 664412)
+   aIL - THE FLOOD WON'T COME (TMDB: 726418)
+   aIM - FALLEN DREAM (TMDB: 689811)
+   aIN - HOME (TMDB: 612020)
+   aIO - GOODFELLAS (TMDB: 769)
+   aIP - PINK FLOYD: LIVE IN VENICE (TMDB: 67188)
+   aIQ - SAY AMEN, SOMEBODY (TMDB: 123020)
+   aIR - VENGEANCE IS MINE (TMDB: 42170)
+   aIS - UNFINISHED PIECE FOR MECHANICAL PIANO (TMDB: 38837)
+   aIT - THE LAST SUPPER (TMDB: 47113)
+   aIU - THE YOUNG GIRL (TMDB: 270083)
+   aIV - CLAUDINE (TMDB: 55909)
+   aIW - SERPICO (TMDB: 9040)
+   aIX - THE RED CIRCLE (TMDB: 11657)
+   aIY - SEDUCED AND ABANDONED (TMDB: 42790)
+   aIZ - STORY OF A LOVE AFFAIR (TMDB: 49781)
+   aI0 - THE LIFE OF MATSU THE UNTAMED (TMDB: 125261)
+   aI1 - YOU ONLY LIVE ONCE (TMDB: 52758)
+
+⚠️  Failed films (need manual review):
+   30 COINS (2020) - Not found on TMDB
+   4 FEET HIGH (2020) - Not found on TMDB
+   OM DEVI: SHEROES REVOLUTION (2020) - Not found on TMDB
+   VENETIAN MOLECULES (2020) - Not found on TMDB
+   IL VESPISTA (2020) - Not found on TMDB
+   ALIEN RESCUE (2020) - Not found on TMDB
+   KILLING A SUPERSTAR (2020) - Not found on TMDB
+   FINDING PANDORA X (2020) - Not found on TMDB
+   THE HANGMAN AT HOME (2020) - Not found on TMDB
+   OCCIDENT EXPRESS (2020) - Not found on TMDB
+   THE LONG VOYAGE (1997) - Not found on TMDB
+   LATE SEASON (1966) - Not found on TMDB
+
+⏳ Waiting before processing next year...
+
+🎬 Fetching Venice 2021 from MUBI...
+   URL: https://mubi.com/en/awards-and-festivals/venice?year=2021
+   📊 Found 5 page(s) to scrape
+   📄 Scraping page 1/5...
+      Found 36 films
+   📄 Scraping page 2/5...
+      Found 36 films
+   📄 Scraping page 3/5...
+      Found 36 films
+   📄 Scraping page 4/5...
+      Found 36 films
+   📄 Scraping page 5/5...
+      Found 11 films
+   ✅ Total found: 155 films across 5 page(s)
+
+📊 Processing 155 films for Venice 2021...
+
+[1/155] THE BONES (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Domino: Battle of the Bones" (ID: 839017)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI2
+
+[2/155] HAPPENING (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Happening" (ID: 793998)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI3
+
+[3/155] PARALLEL MOTHERS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Parallel Mothers" (ID: 766798)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI4
+
+[4/155] SUNDOWN (2021)
+   ✅ Matched by title+year to existing ID: ajf
+
+[5/155] A CHIARA (2021)
+   ✅ Matched by title+year to existing ID: aak
+
+[6/155] ANOTHER WORLD (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fragments from Another World" (ID: 825872)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI5
+
+[7/155] DUNE: PART ONE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Dune" (ID: 438631)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI6
+
+[8/155] PLASTIC SEMIOTIC (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Semiotic Plastic" (ID: 854527)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI7
+
+[9/155] THE LOST DAUGHTER (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Lost Daughter" (ID: 554230)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI8
+
+[10/155] THE NIGHT (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Set the Night on Fire: The Story of Ewan MacColl" (ID: 908160)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aI9
+
+[11/155] THE BOX (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Box" (ID: 617246)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJa
+
+[12/155] ENNIO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Il Volo: Tribute to Ennio Morricone 2021" (ID: 1203712)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJb
+
+[13/155] THE POWER OF THE DOG (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Power of the Dog" (ID: 600583)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJc
+
+[14/155] IL BUCO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Il Buco" (ID: 660708)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJd
+
+[15/155] THE HAND OF GOD (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Hand of God" (ID: 722778)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJe
+
+[16/155] SPENCER (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Spencer" (ID: 716612)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJf
+
+[17/155] LOST ILLUSIONS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Lost Illusions" (ID: 660000)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJg
+
+[18/155] I AND THE STUPID BOY (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "I And the Stupid Boy" (ID: 856400)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJh
+
+[19/155] THE HOLE IN THE FENCE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Hole in the Fence" (ID: 854554)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJi
+
+[20/155] WHITE BUILDING (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "White Building" (ID: 796157)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJj
+
+[21/155] SHANGRI-LA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Shangri-La" (ID: 799632)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJk
+
+[22/155] FULL TIME (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Full-Time Wife Escapist: New Year's Special" (ID: 960478)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJl
+
+[23/155] THE CATHEDRAL (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Madman and The Cathedral" (ID: 824447)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJm
+
+[24/155] TRUE THINGS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "True Things" (ID: 682533)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJn
+
+[25/155] SCENES FROM A MARRIAGE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Scenes from a Marriage" (ID: 133919)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJo
+
+[26/155] THE LAST DUEL (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Last Duel" (ID: 617653)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJp
+
+[27/155] LAST NIGHT IN SOHO (2021)
+   ✅ Matched by title+year to existing ID: afl
+
+[28/155] THE CARD COUNTER (2021)
+   ✅ Matched by title+year to existing ID: ajE
+
+[29/155] GIULIA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Giulia" (ID: 856389)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJq
+
+[30/155] OFFICIAL COMPETITION (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Official Competition" (ID: 668640)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJr
+
+[31/155] THE PEACOCK'S PARADISE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Peacock’s Paradise" (ID: 832284)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJs
+
+[32/155] ATLANTIS (2021)
+   ✅ Matched by title+year to existing ID: abi
+
+[33/155] MADELEINE COLLINS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Madeleine Collins" (ID: 659988)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJt
+
+[34/155] THE PALACE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Palace" (ID: 926497)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJu
+
+[35/155] PRIVATE DESERT (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Private Desert" (ID: 856321)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJv
+
+[36/155] THE GREAT MOVEMENT (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Great Movement" (ID: 854572)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJw
+
+[37/155] PILGRIMS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Makoto Kitano: Don't You Guys Go - Mysterious Road Pilgrimage SP" (ID: 1266379)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJx
+
+[38/155] CAPTAIN VOLKONOGOV ESCAPED (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Captain Volkonogov Escaped" (ID: 818621)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJy
+
+[39/155] THE INNER CAGE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Inner Cage" (ID: 768331)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJz
+
+[40/155] MONA LISA AND THE BLOOD MOON (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mona Lisa and the Blood Moon" (ID: 522526)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJA
+
+[41/155] DETOURS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Detours" (ID: 822175)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJB
+
+[42/155] LIFE OF CRIME 1984-2020 (1984)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[43/155] OLD HENRY (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Old Henry" (ID: 785663)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJC
+
+[44/155] 7 PRISONERS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "7 Prisoners" (ID: 785538)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJD
+
+[45/155] TECHNO, MAMA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Techno, Mama" (ID: 854586)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJE
+
+[46/155] HALLOWEEN KILLS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Halloween Kills" (ID: 610253)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJF
+
+[47/155] THE KING OF LAUGHTER (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The King of Laughter" (ID: 668408)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJG
+
+[48/155] LEAVE NO TRACES (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Leave No Traces" (ID: 788931)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJH
+
+[49/155] REFLECTION (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Reflection" (ID: 938363)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJI
+
+[50/155] FREAKS OUT (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "FREAKS OUT": fetch failed
+   ❌ Not found on TMDB
+
+[51/155] COSTA BRAVA, LEBANON (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "COSTA BRAVA, LEBANON": fetch failed
+   ❌ Not found on TMDB
+
+[52/155] AMERICA LATINA (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "AMERICA LATINA": fetch failed
+   ❌ Not found on TMDB
+
+[53/155] THREE MINUTES: A LENGTHENING (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "THREE MINUTES: A LENGTHENING": fetch failed
+   ❌ Not found on TMDB
+
+[54/155] IMMACULATE (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "IMMACULATE": fetch failed
+   ❌ Not found on TMDB
+
+[55/155] THE BLIND MAN WHO DID NOT WANT TO SEE TITANIC (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "THE BLIND MAN WHO DID NOT WANT TO SEE TITANIC": fetch failed
+   ❌ Not found on TMDB
+
+[56/155] MIRACLE (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "MIRACLE": fetch failed
+   ❌ Not found on TMDB
+
+[57/155] HALLELUJAH: LEONARD COHEN, A JOURNEY, A SONG (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Hallelujah: Leonard Cohen, a Journey, a Song" (ID: 854513)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJJ
+
+[58/155] THE ACCUSATION (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Accusation" (ID: 756603)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJK
+
+[59/155] LAND OF DREAMS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Land of Dreams" (ID: 854576)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJL
+
+[60/155] THE CATHOLIC SCHOOL (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Catholic School" (ID: 747687)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJM
+
+[61/155] THE STRANGER (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Stranger" (ID: 855546)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJN
+
+[62/155] ONCE UPON A TIME IN CALCUTTA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Once Upon a Time in Calcutta" (ID: 720035)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJO
+
+[63/155] 107 MOTHERS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "107 Mothers" (ID: 854567)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJP
+
+[64/155] PROMISES (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Promises" (ID: 821683)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJQ
+
+[65/155] YOU RESEMBLE ME (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "You Resemble Me" (ID: 855166)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJR
+
+[66/155] INCHEI (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Inchei" (ID: 854686)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJS
+
+[67/155] THEY CARRY DEATH (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "They Carry Death" (ID: 853125)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJT
+
+[68/155] HELTZEAR (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Heltzear" (ID: 854668)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJU
+
+[69/155] RHINO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Rhino" (ID: 807888)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJV
+
+[70/155] ANATOMY OF TIME (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Denard: Anatomy of an Antihero" (ID: 836196)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJW
+
+[71/155] GES-2 (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "GES-2" (ID: 862796)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJX
+
+[72/155] THE WORLD IN SHOTS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The World in Shots" (ID: 856402)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJY
+
+[73/155] HUGO IN ARGENTINA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Hugo in Argentina" (ID: 856392)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJZ
+
+[74/155] MOTHER LODE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mother Lode" (ID: 854202)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ0
+
+[75/155] ERASING FRANK (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Erasing Frank" (ID: 846996)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ1
+
+[76/155] THE ACT (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Act" (ID: 783632)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ2
+
+[77/155] THE SHIFT (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Shift" (ID: 854673)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ3
+
+[78/155] SANDSTORM (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sandstorm" (ID: 854667)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ4
+
+[79/155] TRENCHES (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Trenches" (ID: 854346)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ5
+
+[80/155] AMIRA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Amira" (ID: 796162)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ6
+
+[81/155] THE FALLS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Falls" (ID: 852355)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ7
+
+[82/155] SONS OF CAIN (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sons of Cain" (ID: 856405)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ8
+
+[83/155] CÙNTAMI (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Cùntami" (ID: 856379)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aJ9
+
+[84/155] LOVELY BOY (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Lovely Boy" (ID: 817959)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKa
+
+[85/155] DUSK STONE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Dusk Stone" (ID: 744391)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKb
+
+[86/155] CALIFORNIE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Kygo - Live at Bank of California Stadium" (ID: 967415)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKc
+
+[87/155] ANATOMY (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Anatomy" (ID: 855551)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKd
+
+[88/155] ENCHANTMENT (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Enchantment" (ID: 854683)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKe
+
+[89/155] THE LAST CHAPTER (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Last Chapter" (ID: 854486)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKf
+
+[90/155] ZALAVA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Zalava" (ID: 854196)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKg
+
+[91/155] THE LAST DAY (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Last Day" (ID: 854680)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKh
+
+[92/155] THE BOOB FAIRY (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Boob Fairy" (ID: 854679)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKi
+
+[93/155] NEW ABNORMAL (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "NEW ABNORMAL": fetch failed
+   ❌ Not found on TMDB
+
+[94/155] HAIR TIE, EGG, HOMEWORK BOOKS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Hair Tie, Egg, Homework Books" (ID: 854671)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKj
+
+[95/155] BLESSED BOYS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Blessed Boys" (ID: 854544)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKk
+
+[96/155] OUR HAPPIEST DAYS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Our Happiest Days" (ID: 854543)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKl
+
+[97/155] THE DEN (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Man in the Field: The Life and Art of Jim Denevan" (ID: 830711)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKm
+
+[98/155] REPUBLIC OF SILENCE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Republic of Silence" (ID: 854511)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKn
+
+[99/155] MY NIGHT (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Entanglement" (ID: 842202)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKo
+
+[100/155] MAMA, I'M HOME (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mama, I'm Home" (ID: 766428)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKp
+
+[101/155] CLOSING TIME (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Closing Time" (ID: 854693)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKq
+
+[102/155] IL SILENZIO GRANDE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Great Silence" (ID: 784376)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKr
+
+[103/155] THE GIRL FLEW (2021)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[104/155] THE SALAMANDER (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Salamander" (ID: 669362)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKs
+
+[105/155] WELCOME VENICE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Welcome Venice" (ID: 856403)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKt
+
+[106/155] ON THE JOB: THE MISSING 8 (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "On the Job: The Missing 8" (ID: 800368)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKu
+
+[107/155] VORREI SPARIRE SENZA MORIRE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Vorrei sparire senza morire" (ID: 865121)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKv
+
+[108/155] CAVES (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Caves" (ID: 1292311)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKw
+
+[109/155] MONTEGELATO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Montegelato" (ID: 866559)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKx
+
+[110/155] END OF NIGHT (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "End of Night" (ID: 872571)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKy
+
+[111/155] LAVRYNTHOS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Lavrynthos" (ID: 854549)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKz
+
+[112/155] PIETRO IL GRANDE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Pietro il grande" (ID: 862876)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKA
+
+[113/155] INFERNO ROSSO: JOE D'AMATO ON THE ROAD OF EXCESS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Inferno Rosso: Joe D'Amato on the Road of Excess" (ID: 862868)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKB
+
+[114/155] RICOSTRUIRE INSIEME: BIENNALE ARCHITETTURA 2021 (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Ricostruire insieme – Biennale Architettura 2021" (ID: 862873)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKC
+
+[115/155] TONINO DE BERNARDI - UN TEMPO, UN INCONTRO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Tonino De Bernardi: One Time, One Encounter" (ID: 856413)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKD
+
+[116/155] TRASTWEST (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Trastwest" (ID: 856416)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKE
+
+[117/155] SPIN TIME (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Spin Time, che fatica la democrazia!" (ID: 856412)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKF
+
+[118/155] PRINCESA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Princesa" (ID: 856410)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKG
+
+[119/155] PAROLE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Parole. Operetta per voce e piano" (ID: 856408)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKH
+
+[120/155] ISOLATION (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Isolation" (ID: 854436)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKI
+
+[121/155] FELLINI AND THE SHADOW (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fellini and the Shadow" (ID: 856386)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKJ
+
+[122/155] FINGERPRINTING (2021)
+   🔍 Searching TMDB...
+   ⚠️  TMDB search error for "FINGERPRINTING": fetch failed
+   ❌ Not found on TMDB
+
+[123/155] CORIANDOLI (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Coriandoli" (ID: 856378)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKK
+
+[124/155] CAVEMAN (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Caveman: The Hidden Giant" (ID: 856373)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKL
+
+[125/155] SENZA FINE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Senza fine" (ID: 856367)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKM
+
+[126/155] THE FORGOTTEN ONES (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Forgotten Ones" (ID: 856363)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKN
+
+[127/155] OUT OF THIS WORLD (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Out of This World" (ID: 856355)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKO
+
+[128/155] OUT OF SYNC (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Out of Sync" (ID: 856434)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKP
+
+[129/155] ROMAN NIGHTS (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Roman Nights" (ID: 854690)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKQ
+
+[130/155] FULL MOON (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Full Moon" (ID: 854688)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKR
+
+[131/155] FREIKÖRPERKULTUR (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Freikörperkultur" (ID: 854682)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKS
+
+[132/155] EVA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Eva" (ID: 854490)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKT
+
+[133/155] KARMALINK (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Karmalink" (ID: 833057)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKU
+
+[134/155] EVENING PRAYER (DIARY OF A PROMENADE) (2021)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[135/155] FALL OF THE IBIS KING (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fall of the Ibis King" (ID: 854674)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKV
+
+[136/155] 4 AM (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "4 AM" (ID: 854665)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKW
+
+[137/155] DON'T GET TOO COMFORTABLE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Don't Get Too Comfortable" (ID: 854583)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKX
+
+[138/155] TO ORIENTE (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Oriental Illusionist" (ID: 884892)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKY
+
+[139/155] LE 7 GIORNATE DI BERGAMO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The 7 Days of Bergamo" (ID: 854351)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aKZ
+
+[140/155] LA BIENNALE DI VENEZIA: IL CINEMA AL TEMPO DEL COVID (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "La Biennale di Venezia: Il cinema al tempo del COVID" (ID: 854540)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK0
+
+[141/155] SAD FILM (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sad Film" (ID: 854533)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK1
+
+[142/155] EZIO BOSSO: LE COSE CHE RESTANO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Ezio Bosso - Le cose che restano" (ID: 854524)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK2
+
+[143/155] DJANGO & DJANGO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Django & Django: Sergio Corbucci Unchained" (ID: 854521)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK3
+
+[144/155] DEANDRÉ#DEANDRÉ. STORIA DI UN IMPIEGATO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "DeAndré#DeAndré - Storia di un impiegato" (ID: 854518)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK4
+
+[145/155] VIAGGIO NEL CREPUSCOLO (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Journey into the Twilight" (ID: 854497)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK5
+
+[146/155] THE IMAGE MACHINE OF ALFREDO C. (2021)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[147/155] THE OTHER TOM (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Other Tom" (ID: 772437)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK6
+
+[148/155] VERA DREAMS OF THE SEA (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Vera Dreams of the Sea" (ID: 854569)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK7
+
+[149/155] THE HIDDEN CHILD (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Hidden Child" (ID: 743873)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK8
+
+[150/155] I NOSTRI FANTASMI (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Our Ghost" (ID: 856396)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aK9
+
+[151/155] WITH OR WITHOUT YOU (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "With or Without You" (ID: 794246)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aLa
+
+[152/155] DOGWORLD (2021)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Mondocane" (ID: 744278)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aLb
+
+[153/155] IN THE MIST (2020)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "In the Mist" (ID: 777256)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aLc
+
+[154/155] A CHIARA (2019)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Chiara Ferragni: Unposted" (ID: 618253)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aLd
+
+[155/155] IT WAS YESTERDAY (2016)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "It Was Yesterday" (ID: 426316)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aLe
+
+💾 Updated data/films.json with 137 new films
+
+📁 Updated data/festivals/venice/2021.json with 142 film IDs
+
+============================================================
+📊 SUMMARY: Venice 2021
+============================================================
+✅ Matched to existing films: 5
+➕ New films created: 137
+❌ Failed to process: 13
+============================================================
+
+🆕 New films created:
+   aI2 - THE BONES (TMDB: 839017)
+   aI3 - HAPPENING (TMDB: 793998)
+   aI4 - PARALLEL MOTHERS (TMDB: 766798)
+   aI5 - ANOTHER WORLD (TMDB: 825872)
+   aI6 - DUNE: PART ONE (TMDB: 438631)
+   aI7 - PLASTIC SEMIOTIC (TMDB: 854527)
+   aI8 - THE LOST DAUGHTER (TMDB: 554230)
+   aI9 - THE NIGHT (TMDB: 908160)
+   aJa - THE BOX (TMDB: 617246)
+   aJb - ENNIO (TMDB: 1203712)
+   aJc - THE POWER OF THE DOG (TMDB: 600583)
+   aJd - IL BUCO (TMDB: 660708)
+   aJe - THE HAND OF GOD (TMDB: 722778)
+   aJf - SPENCER (TMDB: 716612)
+   aJg - LOST ILLUSIONS (TMDB: 660000)
+   aJh - I AND THE STUPID BOY (TMDB: 856400)
+   aJi - THE HOLE IN THE FENCE (TMDB: 854554)
+   aJj - WHITE BUILDING (TMDB: 796157)
+   aJk - SHANGRI-LA (TMDB: 799632)
+   aJl - FULL TIME (TMDB: 960478)
+   aJm - THE CATHEDRAL (TMDB: 824447)
+   aJn - TRUE THINGS (TMDB: 682533)
+   aJo - SCENES FROM A MARRIAGE (TMDB: 133919)
+   aJp - THE LAST DUEL (TMDB: 617653)
+   aJq - GIULIA (TMDB: 856389)
+   aJr - OFFICIAL COMPETITION (TMDB: 668640)
+   aJs - THE PEACOCK'S PARADISE (TMDB: 832284)
+   aJt - MADELEINE COLLINS (TMDB: 659988)
+   aJu - THE PALACE (TMDB: 926497)
+   aJv - PRIVATE DESERT (TMDB: 856321)
+   aJw - THE GREAT MOVEMENT (TMDB: 854572)
+   aJx - PILGRIMS (TMDB: 1266379)
+   aJy - CAPTAIN VOLKONOGOV ESCAPED (TMDB: 818621)
+   aJz - THE INNER CAGE (TMDB: 768331)
+   aJA - MONA LISA AND THE BLOOD MOON (TMDB: 522526)
+   aJB - DETOURS (TMDB: 822175)
+   aJC - OLD HENRY (TMDB: 785663)
+   aJD - 7 PRISONERS (TMDB: 785538)
+   aJE - TECHNO, MAMA (TMDB: 854586)
+   aJF - HALLOWEEN KILLS (TMDB: 610253)
+   aJG - THE KING OF LAUGHTER (TMDB: 668408)
+   aJH - LEAVE NO TRACES (TMDB: 788931)
+   aJI - REFLECTION (TMDB: 938363)
+   aJJ - HALLELUJAH: LEONARD COHEN, A JOURNEY, A SONG (TMDB: 854513)
+   aJK - THE ACCUSATION (TMDB: 756603)
+   aJL - LAND OF DREAMS (TMDB: 854576)
+   aJM - THE CATHOLIC SCHOOL (TMDB: 747687)
+   aJN - THE STRANGER (TMDB: 855546)
+   aJO - ONCE UPON A TIME IN CALCUTTA (TMDB: 720035)
+   aJP - 107 MOTHERS (TMDB: 854567)
+   aJQ - PROMISES (TMDB: 821683)
+   aJR - YOU RESEMBLE ME (TMDB: 855166)
+   aJS - INCHEI (TMDB: 854686)
+   aJT - THEY CARRY DEATH (TMDB: 853125)
+   aJU - HELTZEAR (TMDB: 854668)
+   aJV - RHINO (TMDB: 807888)
+   aJW - ANATOMY OF TIME (TMDB: 836196)
+   aJX - GES-2 (TMDB: 862796)
+   aJY - THE WORLD IN SHOTS (TMDB: 856402)
+   aJZ - HUGO IN ARGENTINA (TMDB: 856392)
+   aJ0 - MOTHER LODE (TMDB: 854202)
+   aJ1 - ERASING FRANK (TMDB: 846996)
+   aJ2 - THE ACT (TMDB: 783632)
+   aJ3 - THE SHIFT (TMDB: 854673)
+   aJ4 - SANDSTORM (TMDB: 854667)
+   aJ5 - TRENCHES (TMDB: 854346)
+   aJ6 - AMIRA (TMDB: 796162)
+   aJ7 - THE FALLS (TMDB: 852355)
+   aJ8 - SONS OF CAIN (TMDB: 856405)
+   aJ9 - CÙNTAMI (TMDB: 856379)
+   aKa - LOVELY BOY (TMDB: 817959)
+   aKb - DUSK STONE (TMDB: 744391)
+   aKc - CALIFORNIE (TMDB: 967415)
+   aKd - ANATOMY (TMDB: 855551)
+   aKe - ENCHANTMENT (TMDB: 854683)
+   aKf - THE LAST CHAPTER (TMDB: 854486)
+   aKg - ZALAVA (TMDB: 854196)
+   aKh - THE LAST DAY (TMDB: 854680)
+   aKi - THE BOOB FAIRY (TMDB: 854679)
+   aKj - HAIR TIE, EGG, HOMEWORK BOOKS (TMDB: 854671)
+   aKk - BLESSED BOYS (TMDB: 854544)
+   aKl - OUR HAPPIEST DAYS (TMDB: 854543)
+   aKm - THE DEN (TMDB: 830711)
+   aKn - REPUBLIC OF SILENCE (TMDB: 854511)
+   aKo - MY NIGHT (TMDB: 842202)
+   aKp - MAMA, I'M HOME (TMDB: 766428)
+   aKq - CLOSING TIME (TMDB: 854693)
+   aKr - IL SILENZIO GRANDE (TMDB: 784376)
+   aKs - THE SALAMANDER (TMDB: 669362)
+   aKt - WELCOME VENICE (TMDB: 856403)
+   aKu - ON THE JOB: THE MISSING 8 (TMDB: 800368)
+   aKv - VORREI SPARIRE SENZA MORIRE (TMDB: 865121)
+   aKw - CAVES (TMDB: 1292311)
+   aKx - MONTEGELATO (TMDB: 866559)
+   aKy - END OF NIGHT (TMDB: 872571)
+   aKz - LAVRYNTHOS (TMDB: 854549)
+   aKA - PIETRO IL GRANDE (TMDB: 862876)
+   aKB - INFERNO ROSSO: JOE D'AMATO ON THE ROAD OF EXCESS (TMDB: 862868)
+   aKC - RICOSTRUIRE INSIEME: BIENNALE ARCHITETTURA 2021 (TMDB: 862873)
+   aKD - TONINO DE BERNARDI - UN TEMPO, UN INCONTRO (TMDB: 856413)
+   aKE - TRASTWEST (TMDB: 856416)
+   aKF - SPIN TIME (TMDB: 856412)
+   aKG - PRINCESA (TMDB: 856410)
+   aKH - PAROLE (TMDB: 856408)
+   aKI - ISOLATION (TMDB: 854436)
+   aKJ - FELLINI AND THE SHADOW (TMDB: 856386)
+   aKK - CORIANDOLI (TMDB: 856378)
+   aKL - CAVEMAN (TMDB: 856373)
+   aKM - SENZA FINE (TMDB: 856367)
+   aKN - THE FORGOTTEN ONES (TMDB: 856363)
+   aKO - OUT OF THIS WORLD (TMDB: 856355)
+   aKP - OUT OF SYNC (TMDB: 856434)
+   aKQ - ROMAN NIGHTS (TMDB: 854690)
+   aKR - FULL MOON (TMDB: 854688)
+   aKS - FREIKÖRPERKULTUR (TMDB: 854682)
+   aKT - EVA (TMDB: 854490)
+   aKU - KARMALINK (TMDB: 833057)
+   aKV - FALL OF THE IBIS KING (TMDB: 854674)
+   aKW - 4 AM (TMDB: 854665)
+   aKX - DON'T GET TOO COMFORTABLE (TMDB: 854583)
+   aKY - TO ORIENTE (TMDB: 884892)
+   aKZ - LE 7 GIORNATE DI BERGAMO (TMDB: 854351)
+   aK0 - LA BIENNALE DI VENEZIA: IL CINEMA AL TEMPO DEL COVID (TMDB: 854540)
+   aK1 - SAD FILM (TMDB: 854533)
+   aK2 - EZIO BOSSO: LE COSE CHE RESTANO (TMDB: 854524)
+   aK3 - DJANGO & DJANGO (TMDB: 854521)
+   aK4 - DEANDRÉ#DEANDRÉ. STORIA DI UN IMPIEGATO (TMDB: 854518)
+   aK5 - VIAGGIO NEL CREPUSCOLO (TMDB: 854497)
+   aK6 - THE OTHER TOM (TMDB: 772437)
+   aK7 - VERA DREAMS OF THE SEA (TMDB: 854569)
+   aK8 - THE HIDDEN CHILD (TMDB: 743873)
+   aK9 - I NOSTRI FANTASMI (TMDB: 856396)
+   aLa - WITH OR WITHOUT YOU (TMDB: 794246)
+   aLb - DOGWORLD (TMDB: 744278)
+   aLc - IN THE MIST (TMDB: 777256)
+   aLd - A CHIARA (TMDB: 618253)
+   aLe - IT WAS YESTERDAY (TMDB: 426316)
+
+⚠️  Failed films (need manual review):
+   LIFE OF CRIME 1984-2020 (1984) - Not found on TMDB
+   FREAKS OUT (2021) - Not found on TMDB
+   COSTA BRAVA, LEBANON (2021) - Not found on TMDB
+   AMERICA LATINA (2021) - Not found on TMDB
+   THREE MINUTES: A LENGTHENING (2021) - Not found on TMDB
+   IMMACULATE (2021) - Not found on TMDB
+   THE BLIND MAN WHO DID NOT WANT TO SEE TITANIC (2021) - Not found on TMDB
+   MIRACLE (2021) - Not found on TMDB
+   NEW ABNORMAL (2021) - Not found on TMDB
+   THE GIRL FLEW (2021) - Not found on TMDB
+   FINGERPRINTING (2021) - Not found on TMDB
+   EVENING PRAYER (DIARY OF A PROMENADE) (2021) - Not found on TMDB
+   THE IMAGE MACHINE OF ALFREDO C. (2021) - Not found on TMDB
+
+⏳ Waiting before processing next year...
+
+🎬 Fetching Venice 2022 from MUBI...
+   URL: https://mubi.com/en/awards-and-festivals/venice?year=2022
+   ❌ Error scraping 2022: Attempted to use detached Frame '16227FA46748C4540C9EA2E584765D60'.
+⚠️  No films found for 2022, skipping...
+
+🎬 Fetching Venice 2023 from MUBI...
+   URL: https://mubi.com/en/awards-and-festivals/venice?year=2023
+   ❌ Error scraping 2023: Attempted to use detached Frame '16227FA46748C4540C9EA2E584765D60'.
+⚠️  No films found for 2023, skipping...
+
+🎬 Fetching Venice 2024 from MUBI...
+   URL: https://mubi.com/en/awards-and-festivals/venice?year=2024
+   ❌ Error scraping 2024: Attempted to use detached Frame '16227FA46748C4540C9EA2E584765D60'.
+⚠️  No films found for 2024, skipping...
+
+🎬 Fetching Venice 2025 from MUBI...
+   URL: https://mubi.com/en/awards-and-festivals/venice?year=2025
+   ❌ Error scraping 2025: Attempted to use detached Frame '16227FA46748C4540C9EA2E584765D60'.
+⚠️  No films found for 2025, skipping...
+
+============================================================
+✅ All years processed successfully!
+============================================================

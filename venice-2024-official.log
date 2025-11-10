@@ -1,0 +1,491 @@
+[dotenv@17.2.3] injecting env (7) from .env.local -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+🎬 Venice 2024 Official Website Scraper
+============================================================
+
+📄 Scraping: https://www.labiennale.org/en/cinema/2024/venezia-81-competition
+   Found 47 films
+
+📄 Scraping: https://www.labiennale.org/en/cinema/2024/out-competition
+   Found 61 films
+
+📊 Total unique films found: 83
+
+📊 Processing 83 films...
+
+[1/83] The room next door (2024)
+   ✅ Matched by title+year to existing ID: aky
+
+[2/83] Campo di battaglia (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Battlefield" (ID: 1174246)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRO
+
+[3/83] Leurs enfants après eux (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "And Their Children After Them" (ID: 1103678)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRP
+
+[4/83] The brutalist (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Brutalist" (ID: 549509)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRQ
+
+[5/83] Jouer avec le feu (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Quiet Son" (ID: 1118848)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRR
+
+[6/83] Vermiglio (2024)
+   ✅ Matched by title+year to existing ID: alE
+
+[7/83] Iddu (Sicilian Letters) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Sicilian Letters" (ID: 1148663)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRS
+
+[8/83] Queer (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Queer" (ID: 1059128)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRT
+
+[9/83] Kjærlighet (Love) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Art of Love" (ID: 1248795)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRU
+
+[10/83] April (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "April, Come She Will" (ID: 1120846)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRV
+
+[11/83] The Order (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Order" (ID: 1082195)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRW
+
+[12/83] Maria (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Maria" (ID: 1038263)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRX
+
+[13/83] Trois amies (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Three Friends" (ID: 1137245)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRY
+
+[14/83] El Jockey (Kill the Jockey) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Kill the Jockey" (ID: 1104937)
+   ✅ Matched by TMDB ID to existing film: acY
+
+[15/83] Joker: folie à deux (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Joker: Folie à Deux" (ID: 889737)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aRZ
+
+[16/83] Babygirl (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Babygirl" (ID: 1097549)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR0
+
+[17/83] Ainda estou aqui (I’m still here) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "I'm Still Here" (ID: 1000837)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR1
+
+[18/83] Diva Futura (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Diva Futura" (ID: 1141163)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR2
+
+[19/83] Harvest (2024)
+   ✅ Matched by title+year to existing ID: ad2
+
+[20/83] Qing Chun: Gui (Youth: Homecoming) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Youth (Homecoming)" (ID: 1319196)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR3
+
+[21/83] Stranger eyes (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Stranger Eyes" (ID: 948184)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR4
+
+[22/83] Line-up (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Upon Entry" (ID: 1051547)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR5
+
+[23/83] Screening schedule (Public) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[24/83] Screening schedule (Pass holders) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[25/83] Venice Immersive (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[26/83] Introduction by Pietrangelo Buttafuoco (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[27/83] Introduction by Alberto Barbera (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[28/83] Director (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Director" (ID: 1264140)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR6
+
+[29/83] Regulations (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Regular People" (ID: 1390200)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR7
+
+[30/83] Technical specifications (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[31/83] Venice Production Bridge (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[32/83] Classici fuori Mostra (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[33/83] When and where (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Where Do Birds Go When It Rains" (ID: 1471202)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR8
+
+[34/83] Tickets (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Return Ticket" (ID: 1219902)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aR9
+
+[35/83] Accreditation (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[36/83] Services for the public (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[37/83] How to get there (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "How did I get here?" (ID: 1363950)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSa
+
+[38/83] Your are here (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "You're Here Anyway" (ID: 1240927)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSb
+
+[39/83] Venezia 81 (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[40/83] What’s On (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Tell Me What You Want" (ID: 1252309)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSc
+
+[41/83] Departments (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Jelmoli – Biography of a Department Store" (ID: 1391805)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSd
+
+[42/83] La Biennale di Venezia (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[43/83] Information (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[44/83] Contact us (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[45/83] Press (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Pressure Cooker" (ID: 1354481)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSe
+
+[46/83] Newsletter (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[47/83] Follow us on (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[48/83] L’orto americano (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The American Backyard" (ID: 1191815)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSf
+
+[49/83] Se posso permettermi Capitolo II (May I say? Chapter two) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "If I May - Chapter II" (ID: 1320300)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSg
+
+[50/83] Beetlejuice Beetlejuice (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Beetlejuice Beetlejuice" (ID: 917496)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSh
+
+[51/83] Il tempo che ci vuole (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "The Time It Takes" (ID: 1103750)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSi
+
+[52/83] Horizon: an American saga - Chapter 1 (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Horizon: An American Saga - Chapter 1" (ID: 932086)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSj
+
+[53/83] Horizon: an American saga - Chapter 2 (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Horizon: An American Saga - Chapter 2" (ID: 1120368)
+   ✅ Matched by TMDB ID to existing film: aej
+
+[54/83] Phantosmia (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Phantosmia" (ID: 1320295)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSk
+
+[55/83] Maldoror (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Maldoror" (ID: 959596)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSl
+
+[56/83] Broken rage (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Broken Rage" (ID: 1121914)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSm
+
+[57/83] Baby Invasion (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Baby Invasion" (ID: 1262740)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSn
+
+[58/83] Cloud (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Cloud" (ID: 1244244)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSo
+
+[59/83] Finalement (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "At the End of the Day" (ID: 1132634)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSp
+
+[60/83] Allégorie citadine (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "An Urban Allegory" (ID: 1231206)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSq
+
+[61/83] Wolfs (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Wolfs" (ID: 877817)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSr
+
+[62/83] Apocalypse in the Tropics (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Apocalypse in the Tropics" (ID: 1320400)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSs
+
+[63/83] Bestiari, erbari, lapidari (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Bestiaries, Herbaria, Lapidaries" (ID: 1306503)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSt
+
+[64/83] Why War (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Why War" (ID: 1320396)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSu
+
+[65/83] 2073 (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "2073" (ID: 1023915)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSv
+
+[66/83] One to One: John & Yoko (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "One to One: John & Yoko" (ID: 1320392)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSw
+
+[67/83] Separated (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Separated" (ID: 1320389)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSx
+
+[68/83] Israel Palestina på Svensk TV 1958-1989 (Israel Palestine on Swedish TV 1958-1989) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Israel Palestine on Swedish TV 1958-1989" (ID: 1320386)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSy
+
+[69/83] Russians at war (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Russians at War" (ID: 1320382)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSz
+
+[70/83] Twst - Things we said today (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "TWST / Things We Said Today" (ID: 1320381)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSA
+
+[71/83] Riefenstahl (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Riefenstahl" (ID: 1081077)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSB
+
+[72/83] Pisni zemli, shcho povilno horyt’ (Songs of slow burning earth) (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Songs of Slow Burning Earth" (ID: 1052599)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSC
+
+[73/83] Disclaimer (Chapters 1-7) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[74/83] Los años nuevos (Ep. 1-10) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[75/83] Familier som vores (Families like ours) (Ep. 1-7) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[76/83] M. Il figlio del secolo (Ep. 1-8) (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[77/83] Leopardi il poeta dell’infinito (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Leopardi. The Infinity Poet" (ID: 1320515)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSD
+
+[78/83] Master and Commander: the far side of the world (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[79/83] Beauty is not a sin (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Beauty Is Not a Sin" (ID: 1320297)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSE
+
+[80/83] Fiction (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Fiction" (ID: 1255724)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSF
+
+[81/83] Non Fiction (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+[82/83] Series (2024)
+   🔍 Searching TMDB...
+   📍 Found on TMDB: "Love Live! Series Presents Unit Koushien 2024" (ID: 1318198)
+   ➕ Creating new film entry...
+   ✅ Created new film with ID: aSG
+
+[83/83] Special Screenings (2024)
+   🔍 Searching TMDB...
+   ❌ Not found on TMDB
+
+💾 Updated data/films.json with 55 new films
+
+📁 Updated data/festivals/venice/2024.json with 60 film IDs
+
+============================================================
+📊 SUMMARY: Venice 2024
+============================================================
+✅ Matched to existing films: 5
+➕ New films created: 55
+❌ Failed to process: 23
+============================================================
+
+⚠️  Failed films:
+   Screening schedule (Public) (2024) - Not found on TMDB
+   Screening schedule (Pass holders) (2024) - Not found on TMDB
+   Venice Immersive (2024) - Not found on TMDB
+   Introduction by Pietrangelo Buttafuoco (2024) - Not found on TMDB
+   Introduction by Alberto Barbera (2024) - Not found on TMDB
+   Technical specifications (2024) - Not found on TMDB
+   Venice Production Bridge (2024) - Not found on TMDB
+   Classici fuori Mostra (2024) - Not found on TMDB
+   Accreditation (2024) - Not found on TMDB
+   Services for the public (2024) - Not found on TMDB
+   Venezia 81 (2024) - Not found on TMDB
+   La Biennale di Venezia (2024) - Not found on TMDB
+   Information (2024) - Not found on TMDB
+   Contact us (2024) - Not found on TMDB
+   Newsletter (2024) - Not found on TMDB
+   Follow us on (2024) - Not found on TMDB
+   Disclaimer (Chapters 1-7) (2024) - Not found on TMDB
+   Los años nuevos (Ep. 1-10) (2024) - Not found on TMDB
+   Familier som vores (Families like ours) (Ep. 1-7) (2024) - Not found on TMDB
+   M. Il figlio del secolo (Ep. 1-8) (2024) - Not found on TMDB
+   Master and Commander: the far side of the world (2024) - Not found on TMDB
+   Non Fiction (2024) - Not found on TMDB
+   Special Screenings (2024) - Not found on TMDB
