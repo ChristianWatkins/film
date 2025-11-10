@@ -51,6 +51,7 @@ export default function AdminFilmsPage() {
   const [availableFestivals, setAvailableFestivals] = useState<{ name: string; years: string[] }[]>([]);
   const [deletingFilmId, setDeletingFilmId] = useState<string | null>(null);
   const [refreshingJustWatch, setRefreshingJustWatch] = useState<string | null>(null);
+  const [refreshingTMDB, setRefreshingTMDB] = useState(false);
   const [filterMode, setFilterMode] = useState<'all' | 'needs-review' | 'has-tmdb'>('all');
 
   // Check if we're in development
@@ -260,6 +261,48 @@ export default function AdminFilmsPage() {
       ...editingFilm,
       [field]: processedValue
     });
+  };
+
+  const handleRefreshTMDB = async () => {
+    if (!editingFilm || !editingFilm.tmdb_id) {
+      setMessage({ text: 'Please enter a TMDB ID first', type: 'error' });
+      return;
+    }
+
+    setRefreshingTMDB(true);
+    setMessage(null);
+
+    try {
+      const response = await fetch(`/api/tmdb-details?tmdbId=${editingFilm.tmdb_id}`);
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to fetch TMDB data');
+      }
+
+      const tmdbData = await response.json();
+
+      // Map TMDB data to film fields
+      setEditingFilm({
+        ...editingFilm,
+        tmdb_id: tmdbData.tmdbId || editingFilm.tmdb_id,
+        imdb_id: tmdbData.imdbId || editingFilm.imdb_id || null,
+        original_title: tmdbData.originalTitle || editingFilm.original_title || null,
+        synopsis: tmdbData.synopsis || editingFilm.synopsis || null,
+        runtime: tmdbData.runtime || editingFilm.runtime || null,
+        genres: tmdbData.genres?.map((g: { name: string }) => g.name) || editingFilm.genres || null,
+        poster_url_tmdb: tmdbData.posterPath || editingFilm.poster_url_tmdb || null,
+        // Update director if available (use first director)
+        director: tmdbData.directors?.[0] || editingFilm.director || null,
+      });
+
+      setMessage({ text: 'TMDB data refreshed successfully!', type: 'success' });
+    } catch (error: any) {
+      console.error('Error refreshing TMDB data:', error);
+      setMessage({ text: error.message || 'Failed to refresh TMDB data', type: 'error' });
+    } finally {
+      setRefreshingTMDB(false);
+    }
   };
 
   // Filter films by search term and review status
@@ -496,13 +539,23 @@ export default function AdminFilmsPage() {
                             </div>
                             <div>
                               <label className="block text-sm font-medium text-gray-700 mb-1">TMDB ID</label>
-                              <input
-                                type="number"
-                                value={editingFilm.tmdb_id || ''}
-                                onChange={(e) => handleFieldChange('tmdb_id', e.target.value)}
-                                className="w-full px-3 py-2 border border-gray-300 rounded text-gray-900 placeholder-gray-500"
-                                placeholder="e.g., 123456"
-                              />
+                              <div className="flex gap-2">
+                                <input
+                                  type="number"
+                                  value={editingFilm.tmdb_id || ''}
+                                  onChange={(e) => handleFieldChange('tmdb_id', e.target.value)}
+                                  className="flex-1 px-3 py-2 border border-gray-300 rounded text-gray-900 placeholder-gray-500"
+                                  placeholder="e.g., 123456"
+                                />
+                                <button
+                                  onClick={handleRefreshTMDB}
+                                  disabled={!editingFilm.tmdb_id || refreshingTMDB}
+                                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap"
+                                  title="Refresh TMDB data for this ID"
+                                >
+                                  {refreshingTMDB ? 'Loading...' : 'Refresh'}
+                                </button>
+                              </div>
                               <p className="text-xs text-gray-500 mt-1">
                                 Find on <a href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">themoviedb.org</a> - ID is in the URL
                               </p>

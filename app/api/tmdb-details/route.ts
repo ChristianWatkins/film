@@ -37,10 +37,11 @@ interface TMDBCredits {
 
 async function fetchMovieByTmdbId(tmdbId: string) {
   try {
-    // Fetch movie details and credits in parallel
-    const [movieResponse, creditsResponse] = await Promise.all([
+    // Fetch movie details, credits, and external IDs in parallel
+    const [movieResponse, creditsResponse, externalIdsResponse] = await Promise.all([
       fetch(`${TMDB_BASE_URL}/movie/${tmdbId}?api_key=${TMDB_API_KEY}&language=en-US`),
-      fetch(`${TMDB_BASE_URL}/movie/${tmdbId}/credits?api_key=${TMDB_API_KEY}`)
+      fetch(`${TMDB_BASE_URL}/movie/${tmdbId}/credits?api_key=${TMDB_API_KEY}`),
+      fetch(`${TMDB_BASE_URL}/movie/${tmdbId}/external_ids?api_key=${TMDB_API_KEY}`)
     ]);
 
     if (!movieResponse.ok) {
@@ -55,8 +56,9 @@ async function fetchMovieByTmdbId(tmdbId: string) {
 
     const movieData: TMDBMovieDetails = await movieResponse.json();
     const creditsData: TMDBCredits = creditsResponse.ok ? await creditsResponse.json() : { cast: [], crew: [] };
+    const externalIdsData = externalIdsResponse.ok ? await externalIdsResponse.json() : { imdb_id: null };
 
-    return NextResponse.json(formatMovieData(movieData, creditsData));
+    return NextResponse.json(formatMovieData(movieData, creditsData, externalIdsData));
   } catch (error) {
     console.error('Error fetching TMDB details by ID:', error);
     return NextResponse.json(
@@ -92,9 +94,10 @@ async function searchAndFetchMovie(title: string, year?: string | null) {
     const movieResult = searchData.results[0];
     
     // Now fetch full details for this movie
-    const [movieResponse, creditsResponse] = await Promise.all([
+    const [movieResponse, creditsResponse, externalIdsResponse] = await Promise.all([
       fetch(`${TMDB_BASE_URL}/movie/${movieResult.id}?api_key=${TMDB_API_KEY}&language=en-US`),
-      fetch(`${TMDB_BASE_URL}/movie/${movieResult.id}/credits?api_key=${TMDB_API_KEY}`)
+      fetch(`${TMDB_BASE_URL}/movie/${movieResult.id}/credits?api_key=${TMDB_API_KEY}`),
+      fetch(`${TMDB_BASE_URL}/movie/${movieResult.id}/external_ids?api_key=${TMDB_API_KEY}`)
     ]);
 
     if (!movieResponse.ok) {
@@ -103,8 +106,9 @@ async function searchAndFetchMovie(title: string, year?: string | null) {
 
     const movieData: TMDBMovieDetails = await movieResponse.json();
     const creditsData: TMDBCredits = creditsResponse.ok ? await creditsResponse.json() : { cast: [], crew: [] };
+    const externalIdsData = externalIdsResponse.ok ? await externalIdsResponse.json() : { imdb_id: null };
 
-    return NextResponse.json(formatMovieData(movieData, creditsData));
+    return NextResponse.json(formatMovieData(movieData, creditsData, externalIdsData));
   } catch (error) {
     console.error('Error searching and fetching TMDB movie:', error);
     return NextResponse.json(
@@ -114,7 +118,7 @@ async function searchAndFetchMovie(title: string, year?: string | null) {
   }
 }
 
-function formatMovieData(movieData: TMDBMovieDetails, creditsData: TMDBCredits) {
+function formatMovieData(movieData: TMDBMovieDetails, creditsData: TMDBCredits, externalIdsData?: { imdb_id?: string | null }) {
   // Extract directors from crew
   const directors = creditsData.crew
     .filter(person => person.job === 'Director')
@@ -139,7 +143,7 @@ function formatMovieData(movieData: TMDBMovieDetails, creditsData: TMDBCredits) 
     genres: movieData.genres,
     posterPath: movieData.poster_path ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}` : null,
     backdropPath: movieData.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movieData.backdrop_path}` : null,
-    imdbId: movieData.imdb_id,
+    imdbId: externalIdsData?.imdb_id || movieData.imdb_id || null,
     directors,
     cast,
     productionCountries: movieData.production_countries,
