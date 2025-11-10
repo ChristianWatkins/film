@@ -360,20 +360,6 @@ export default function FilmGrid({
     }
   }, [rowJumpEnabled, films.length, JSON.stringify(filters), currentRowIndex]);
 
-  if (films.length === 0) {
-    return (
-      <div className="flex flex-col items-center justify-center py-20 text-center">
-        <div className="text-6xl mb-4">🎬</div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">
-          No films found
-        </h3>
-        <p className="text-gray-700">
-          Try adjusting your filters to see more results
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div data-film-grid className={rowJumpEnabled ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
       {/* Row indicator when in presentation mode */}
@@ -735,7 +721,17 @@ export default function FilmGrid({
         className={rowJumpEnabled ? 'flex-1 flex items-center justify-center px-32 py-8 overflow-hidden outline-none' : ''}
         tabIndex={rowJumpEnabled ? 0 : undefined}
       >
-        {enableAnimations && !rowJumpEnabled ? (
+        {films.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-20 text-center w-full">
+            <div className="text-6xl mb-4">🎬</div>
+            <h3 className={`text-xl font-semibold mb-2 ${rowJumpEnabled ? 'text-white' : 'text-gray-900'}`}>
+              No films found
+            </h3>
+            <p className={rowJumpEnabled ? 'text-gray-300' : 'text-gray-700'}>
+              Try adjusting your filters to see more results
+            </p>
+          </div>
+        ) : enableAnimations && !rowJumpEnabled ? (
           <motion.div 
             className={rowJumpEnabled 
               ? 'grid grid-cols-2 md:grid-cols-4 gap-8 w-full [&>*]:max-w-none'

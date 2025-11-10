@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { RotateCw, Save } from 'lucide-react';
 import type { FilterState } from '@/lib/types';
 
@@ -32,6 +32,7 @@ export default function PresentationFilters({
   filmCount = 0
 }: PresentationFiltersProps) {
   const [searchQuery, setSearchQuery] = useState(filters.searchQuery);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Map internal festival names to display names
   const festivalDisplayNames: Record<string, string> = {
@@ -191,6 +192,16 @@ export default function PresentationFilters({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
+  // Auto-focus search input when component mounts
+  useEffect(() => {
+    if (searchInputRef.current) {
+      // Small delay to ensure the input is rendered
+      setTimeout(() => {
+        searchInputRef.current?.focus();
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="fixed inset-0 bg-[#1A1A2E] z-50 flex flex-col">
       {/* Header */}
@@ -221,6 +232,7 @@ export default function PresentationFilters({
             {/* Search Input */}
             <div className="flex-1">
               <input
+                ref={searchInputRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
