@@ -143,6 +143,19 @@ export default function FilmGrid({
     }
   };
 
+  // Calculate which films to show in current row
+  const visibleFilms = useMemo(() => {
+    if (!rowJumpEnabled) return films;
+    
+    // Must match the grid-cols CSS classes and wheel handler
+    const cardsPerRow = getCardsPerRow();
+    
+    const startIndex = currentRowIndex * cardsPerRow;
+    const endIndex = startIndex + cardsPerRow;
+    return films.slice(startIndex, endIndex);
+  }, [rowJumpEnabled, currentRowIndex, films]);
+  const totalRows = rowJumpEnabled ? Math.ceil(films.length / getCardsPerRow()) : 0;
+
   // Row jump functionality - full screen presentation mode
   useEffect(() => {
     if (!rowJumpEnabled) return;
@@ -323,7 +336,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length]);
+  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms]);
 
   // Clear key press count when exiting presentation mode
   useEffect(() => {
@@ -360,19 +373,6 @@ export default function FilmGrid({
       </div>
     );
   }
-  
-  // Calculate which films to show in current row
-  const visibleFilms = useMemo(() => {
-    if (!rowJumpEnabled) return films;
-    
-    // Must match the grid-cols CSS classes and wheel handler
-    const cardsPerRow = getCardsPerRow();
-    
-    const startIndex = currentRowIndex * cardsPerRow;
-    const endIndex = startIndex + cardsPerRow;
-    return films.slice(startIndex, endIndex);
-  }, [rowJumpEnabled, currentRowIndex, films]);
-  const totalRows = rowJumpEnabled ? Math.ceil(films.length / getCardsPerRow()) : 0;
 
   return (
     <div data-film-grid className={rowJumpEnabled ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
