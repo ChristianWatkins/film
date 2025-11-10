@@ -15,6 +15,7 @@ interface PresentationFiltersProps {
   onClose: () => void;
   onSaveDefaults?: () => void;
   onResetDefaults?: () => void;
+  filmCount?: number; // Add film count prop
 }
 
 export default function PresentationFilters({
@@ -27,7 +28,8 @@ export default function PresentationFilters({
   availableGenres,
   onClose,
   onSaveDefaults,
-  onResetDefaults
+  onResetDefaults,
+  filmCount = 0
 }: PresentationFiltersProps) {
   const [searchQuery, setSearchQuery] = useState(filters.searchQuery);
 
@@ -205,6 +207,10 @@ export default function PresentationFilters({
           </button>
           <h2 className="text-xl font-semibold">Filters</h2>
         </div>
+        {/* Film Count */}
+        <div className="text-lg font-medium">
+          Showing {filmCount} film{filmCount !== 1 ? 's' : ''}
+        </div>
       </div>
 
       {/* Filter Container */}
@@ -218,8 +224,14 @@ export default function PresentationFilters({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    onClose();
+                  }
+                }}
                 placeholder="Search films, directors, cast, genres..."
-                className="w-full py-4 px-6 text-lg border-2 border-[#FFB800] rounded-2xl bg-white outline-none focus:border-[#FFC533] focus:shadow-[0_0_0_3px_rgba(255,184,0,0.2)] transition-all"
+                className="w-full py-4 px-6 text-lg border-2 border-[#FFB800] rounded-2xl bg-white text-gray-900 placeholder:text-gray-400 outline-none focus:border-[#FFC533] focus:shadow-[0_0_0_3px_rgba(255,184,0,0.2)] transition-all"
               />
             </div>
             
@@ -378,7 +390,7 @@ export default function PresentationFilters({
               {(() => {
                 const priorityCountries = [
                   'Norway', 'Sweden', 'Denmark', 'Finland', 'Iceland',
-                  'United Kingdom', 'United States', 'France', 'Spain', 'Italy', 'South Korea'
+                  'United Kingdom', 'United States', 'France', 'Germany', 'Spain', 'Italy', 'South Korea'
                 ];
                 
                 const availablePriorityCountries = priorityCountries.filter(country => 

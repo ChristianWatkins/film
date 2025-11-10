@@ -854,6 +854,7 @@ export default function FilmGrid({
           onClose={() => setShowFilters(false)}
           onSaveDefaults={onSaveDefaults}
           onResetDefaults={onResetDefaults}
+          filmCount={films.length}
         />
       )}
 
