@@ -8,7 +8,7 @@ import { EyeIcon, EyeSlashIcon, MagnifyingGlassIcon } from '@heroicons/react/24/
 import { FaTrophy } from 'react-icons/fa';
 import Link from 'next/link';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
-import { getLastUsedMode, saveLastUsedMode } from '@/lib/preferences';
+// Presentation mode is always enabled, no need to import preferences
 import type { Film, FilterState } from '@/lib/types';
 import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
@@ -69,8 +69,7 @@ export default function FilmGrid({
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const flippedCardRef = useRef<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
-  // Start with false to match SSR, then update from localStorage after hydration
-  const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
+  // Presentation mode is always enabled
   const [isHydrated, setIsHydrated] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [showHelpOverlay, setShowHelpOverlay] = useState(false);
@@ -82,24 +81,14 @@ export default function FilmGrid({
   const [localSearchQuery, setLocalSearchQuery] = useState('');
   const keyPressRef = useRef<{[key: string]: {count: number, lastTime: number}}>({});
   const gridRef = useRef<HTMLDivElement>(null);
+  const filterButtonRef = useRef<HTMLButtonElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
+  const rowJumpEnabled = true; // Always enabled - presentation mode is the only mode
 
-  // Initialize presentation mode from localStorage after hydration to prevent hydration mismatch
+  // Initialize hydration state
   useEffect(() => {
-    const lastMode = getLastUsedMode();
-    if (lastMode === 'presentation') {
-      setRowJumpEnabled(true);
-    }
     setIsHydrated(true);
   }, []);
-
-  // Save presentation mode to localStorage when it changes
-  useEffect(() => {
-    if (isHydrated) {
-      const mode = rowJumpEnabled ? 'presentation' : 'normal';
-      saveLastUsedMode(mode);
-    }
-  }, [rowJumpEnabled, isHydrated]);
 
   // Helper function to safely get cards per row
   const getCardsPerRow = () => {
@@ -150,21 +139,17 @@ export default function FilmGrid({
 
   // Calculate which films to show in current row
   const visibleFilms = useMemo(() => {
-    if (!rowJumpEnabled) return films;
-    
     // Must match the grid-cols CSS classes and wheel handler
     const cardsPerRow = getCardsPerRow();
     
     const startIndex = currentRowIndex * cardsPerRow;
     const endIndex = startIndex + cardsPerRow;
     return films.slice(startIndex, endIndex);
-  }, [rowJumpEnabled, currentRowIndex, films]);
-  const totalRows = rowJumpEnabled ? Math.ceil(films.length / getCardsPerRow()) : 0;
+  }, [currentRowIndex, films]);
+  const totalRows = Math.ceil(films.length / getCardsPerRow());
 
   // Row jump functionality - full screen presentation mode
   useEffect(() => {
-    if (!rowJumpEnabled) return;
-
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       e.stopPropagation();
@@ -207,38 +192,47 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [rowJumpEnabled, currentRowIndex, films.length]);
+  }, [currentRowIndex, films.length]);
 
-  // Unified keyboard shortcuts - P to toggle, ESC to exit, L for filters, arrows for navigation
+  // Unified keyboard shortcuts - H for help, Tab for filters, arrows for navigation
   useEffect(() => {
     // Don't attach keyboard handlers until after hydration
     if (!isHydrated) return;
     
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't trigger if typing in an input
-      if ((e.target as HTMLElement).matches('input, textarea')) return;
-      
-      // P key toggles presentation mode
-      if (e.key === 'p' || e.key === 'P') {
+      // Tab key always toggles filters (even when in input fields)
+      if (e.key === 'Tab') {
         e.preventDefault();
-        setRowJumpEnabled(prev => !prev);
+        const wasOpen = showFilters;
+        setShowFilters(prev => !prev);
+        // If closing filters, return focus to the filter button
+        if (wasOpen) {
+          // Use setTimeout to ensure state update completes before focusing
+          setTimeout(() => {
+            filterButtonRef.current?.focus();
+          }, 0);
+        }
+        return; // Don't process other handlers when Tab is pressed
       }
       
-      // H key toggles help overlay (only in presentation mode)
-      if ((e.key === 'h' || e.key === 'H') && rowJumpEnabled) {
+      // Don't trigger other shortcuts if typing in an input (except Tab which is handled above)
+      if ((e.target as HTMLElement).matches('input, textarea')) return;
+      
+      // H key toggles help overlay
+      if (e.key === 'h' || e.key === 'H') {
         e.preventDefault();
         setShowHelpOverlay(prev => !prev);
       }
       
-      // Spacebar toggles all visible cards flip (only in presentation mode)
-      if (e.key === ' ' && rowJumpEnabled && !showFilters && !showHelpOverlay) {
+      // Spacebar toggles all visible cards flip
+      if (e.key === ' ' && !showFilters && !showHelpOverlay) {
         e.preventDefault();
         setAllCardsFlipped(prev => !prev);
       }
       
-      // Number keys (1, 2, 3, 4) flip individual cards (only in presentation mode)
+      // Number keys (1, 2, 3, 4) flip individual cards
       // Double-click same number key to play trailer
-      if (['1', '2', '3', '4'].includes(e.key) && rowJumpEnabled && !showFilters && !showHelpOverlay) {
+      if (['1', '2', '3', '4'].includes(e.key) && !showFilters && !showHelpOverlay) {
         e.preventDefault();
         const cardIndex = parseInt(e.key) - 1; // Convert to 0-based index
         if (cardIndex < visibleFilms.length) {
@@ -270,20 +264,14 @@ export default function FilmGrid({
         }
       }
       
-      // Tab key toggles filters (only in presentation mode)
-      if (e.key === 'Tab' && rowJumpEnabled) {
-        e.preventDefault();
-        setShowFilters(prev => !prev);
-      }
-      
-      // S key toggles search (only in presentation mode)
-      if ((e.key === 's' || e.key === 'S') && rowJumpEnabled) {
+      // S key toggles search
+      if (e.key === 's' || e.key === 'S') {
         e.preventDefault();
         setShowLocalSearch(prev => !prev);
       }
       
-      // Arrow key navigation (only in presentation mode)
-      if (rowJumpEnabled && !showFilters) {
+      // Arrow key navigation
+      if (!showFilters) {
         const cardsPerRow = getCardsPerRow();
         const totalRows = Math.ceil(films.length / cardsPerRow);
         
@@ -326,15 +314,17 @@ export default function FilmGrid({
         }
       }
       
-      // ESC key exits presentation mode or closes overlays
+      // ESC key closes overlays
       if (e.key === 'Escape') {
         e.preventDefault();
         if (showHelpOverlay) {
           setShowHelpOverlay(false);
         } else if (showFilters) {
           setShowFilters(false);
-        } else if (rowJumpEnabled) {
-          setRowJumpEnabled(false);
+          // Return focus to filter button when closing with ESC
+          setTimeout(() => {
+            filterButtonRef.current?.focus();
+          }, 0);
         }
       }
     };
@@ -343,51 +333,31 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms, isHydrated]);
+  }, [showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms, isHydrated]);
 
-  // Clear key press count when exiting presentation mode
+  // Reset row index when films change or filters change
   useEffect(() => {
-    if (!rowJumpEnabled) {
-      keyPressRef.current = {};
+    // Check if current row index is beyond available rows after filtering
+    const cardsPerRow = getCardsPerRow();
+    const totalRows = Math.ceil(films.length / cardsPerRow);
+    if (currentRowIndex >= totalRows && totalRows > 0) {
+      setCurrentRowIndex(0); // Reset to first row
     }
-  }, [rowJumpEnabled]);
-
-  // Reset row index and card flips when row jump is disabled, films change, or filters change
-  useEffect(() => {
-    if (!rowJumpEnabled) {
-      setCurrentRowIndex(0);
-      setAllCardsFlipped(false);
-    } else {
-      // Check if current row index is beyond available rows after filtering
-      const cardsPerRow = getCardsPerRow();
-      const totalRows = Math.ceil(films.length / cardsPerRow);
-      if (currentRowIndex >= totalRows && totalRows > 0) {
-        setCurrentRowIndex(0); // Reset to first row
-      }
-    }
-  }, [rowJumpEnabled, films.length, JSON.stringify(filters), currentRowIndex]);
+  }, [films.length, JSON.stringify(filters), currentRowIndex]);
 
   return (
-    <div data-film-grid className={rowJumpEnabled && isHydrated ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
-      {/* Row indicator when in presentation mode */}
-      {rowJumpEnabled && isHydrated && (
+    <div data-film-grid className={isHydrated ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
+      {/* Presentation mode header */}
+      {isHydrated && (
         <>
         <div className="bg-[#1A1A2E] text-white py-4 relative shadow-lg">
-          <button
-            onClick={() => setRowJumpEnabled(false)}
-            className="absolute left-8 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
-            title="Exit presentation mode (or press ESC)"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
 
           {/* Inner container matching card grid padding */}
           <div className="px-32 flex items-center justify-between">
             <div className="flex items-center gap-6">
               {filters && onFiltersChange && (
                 <button
+                  ref={filterButtonRef}
                   onClick={() => setShowFilters(!showFilters)}
                   className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
                     showFilters
@@ -502,158 +472,9 @@ export default function FilmGrid({
 
         </>
       )}
-
-      {!rowJumpEnabled && (
-        <>
-          <div className="mb-4 flex items-center justify-between">
-            <div className="text-sm text-gray-900">
-              Showing <span className="font-semibold">{films.length}</span> film{films.length !== 1 ? 's' : ''}
-            </div>
-            
-            <div className="flex items-center gap-3">
-            {/* Search Button - Link to global search */}
-            <Link
-              href="/search"
-              className="p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform bg-gray-100 hover:bg-gray-200 text-gray-400"
-              title="Search for movies"
-            >
-              <svg 
-                className="w-5 h-5" 
-                fill="none"
-                stroke="currentColor" 
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
-                />
-              </svg>
-            </Link>
-
-            {/* Row Jump Button */}
-            <button
-              onClick={() => setRowJumpEnabled(!rowJumpEnabled)}
-              className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
-                rowJumpEnabled 
-                  ? 'bg-purple-100 hover:bg-purple-200 text-purple-600' 
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
-              }`}
-              title={rowJumpEnabled ? "Exit presentation mode" : "Enter presentation mode (or press P)"}
-            >
-              <svg 
-                className="w-5 h-5" 
-                fill="none"
-                stroke="currentColor" 
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  d="M3 7V5a2 2 0 012-2h2M21 7V5a2 2 0 00-2-2h-2M3 17v2a2 2 0 002 2h2M21 17v2a2 2 0 01-2 2h-2" 
-                />
-              </svg>
-            </button>
-
-            {/* Awards Button */}
-            {onAwardedToggle && (
-              <button
-                onClick={onAwardedToggle}
-              className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
-                awardedOnly 
-                  ? 'bg-yellow-100 hover:bg-yellow-200 text-yellow-600' 
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
-              }`}
-              title={awardedOnly ? "Show all films" : "Show awarded films only (or press A)"}
-            >
-                <FaTrophy 
-                  className={`w-5 h-5 transition-colors ${
-                    awardedOnly 
-                      ? 'text-current' 
-                      : 'text-current'
-                  }`} 
-                />
-              </button>
-            )}
-
-            {/* Watched Movies Button - only show when in favorites view */}
-            {onWatchedToggle && isInFavoritesView && (
-              <button
-                onClick={onWatchedToggle}
-                className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
-                  watchedOnly 
-                    ? 'bg-blue-100 hover:bg-blue-200 text-blue-600' 
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
-                }`}
-                title={watchedOnly ? "Show favourites" : "Show watched movies"}
-              >
-                {watchedOnly ? (
-                  <EyeSlashIcon className="w-5 h-5" />
-                ) : (
-                  <EyeIcon className="w-5 h-5" />
-                )}
-              </button>
-            )}
-
-            {/* Favourites Button */}
-            {onWatchlistToggle && (
-              <button
-                onClick={onWatchlistToggle}
-              className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
-                watchlistOnly 
-                  ? 'bg-red-100 hover:bg-red-200 text-red-600' 
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
-              }`}
-              title={watchlistOnly ? "Show all films" : "Show favourites only (or press F)"}
-            >
-                <svg 
-                  className="w-5 h-5" 
-                  fill={watchlistOnly ? 'currentColor' : 'none'}
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </button>
-            )}
-            
-            {/* Export/Import Button */}
-            {onWatchlistToggle && watchlistOnly && (
-              <button
-                onClick={() => setShowExportImportModal(true)}
-                className="p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform bg-gray-100 hover:bg-gray-200 text-gray-400"
-                title="Share your favorites"
-              >
-                <svg 
-                  className="w-5 h-5" 
-                  fill="none"
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                  />
-                </svg>
-              </button>
-            )}
-          </div>
-        </div>
-
-        </>
-      )}
       
-      {/* Row Navigation Indicator - Presentation Mode */}
-      {rowJumpEnabled && isHydrated && (
+      {/* Row Navigation Indicator */}
+      {isHydrated && (
         <div className="fixed top-1/2 right-6 transform -translate-y-1/2 z-40">
           <div className="flex flex-col items-center text-gray-400 drop-shadow-lg px-4">
             {/* Up caret */}
@@ -725,64 +546,20 @@ export default function FilmGrid({
       
       <div 
         ref={gridRef}
-        className={rowJumpEnabled ? 'flex-1 flex items-center justify-center px-32 py-8 overflow-hidden outline-none' : ''}
-        tabIndex={rowJumpEnabled ? 0 : undefined}
+        className="flex-1 flex items-center justify-center px-32 py-8 overflow-hidden outline-none"
+        tabIndex={0}
       >
         {films.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center w-full">
             <div className="text-6xl mb-4">🎬</div>
-            <h3 className={`text-xl font-semibold mb-2 ${rowJumpEnabled ? 'text-white' : 'text-gray-900'}`}>
+            <h3 className="text-xl font-semibold mb-2 text-white">
               No films found
             </h3>
-            <p className={rowJumpEnabled ? 'text-gray-300' : 'text-gray-700'}>
+            <p className="text-gray-300">
               Try adjusting your filters to see more results
             </p>
           </div>
-        ) : enableAnimations && !rowJumpEnabled ? (
-          <motion.div 
-            className={rowJumpEnabled 
-              ? 'grid grid-cols-2 md:grid-cols-4 gap-8 w-full [&>*]:max-w-none'
-              : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
-            }
-            layout
-          >
-            <AnimatePresence mode="sync">
-              {visibleFilms.map((film, index) => (
-                <motion.div
-                  key={film.id || film.filmKey}
-                  data-film-card
-                  layout
-                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                  transition={{ 
-                    duration: 0.3,
-                    delay: Math.min(index * 0.02, 0.15),
-                    ease: [0.22, 1, 0.36, 1],
-                    layout: { 
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 30
-                    }
-                  }}
-                >
-                  <FilmCard 
-                    film={film} 
-                    isFlipped={flippedCard === film.filmKey || (rowJumpEnabled && allCardsFlipped)}
-                    onFlip={() => handleCardFlip(film.filmKey)}
-                    onGenreClick={onGenreClick}
-                    onWatchlistChange={onWatchlistChange}
-                    onDirectorClick={onDirectorClick}
-                    showWatchedToggle={isInFavoritesView}
-                    isWatched={watchedMovies.has(film.filmKey)}
-                    onWatchedToggle={onWatchedChange}
-                    isPresentationMode={rowJumpEnabled}
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        ) : rowJumpEnabled ? (
+        ) : (
           <AnimatePresence mode="wait">
             <motion.div 
               className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full [&>*]:max-w-none"
@@ -799,7 +576,7 @@ export default function FilmGrid({
                 <div key={film.id || film.filmKey} data-film-card>
                   <FilmCard 
                     film={film} 
-                    isFlipped={flippedCard === film.filmKey || (rowJumpEnabled && allCardsFlipped)}
+                    isFlipped={flippedCard === film.filmKey || allCardsFlipped}
                     onFlip={() => handleCardFlip(film.filmKey)}
                     onGenreClick={onGenreClick}
                     onWatchlistChange={onWatchlistChange}
@@ -807,31 +584,12 @@ export default function FilmGrid({
                     showWatchedToggle={isInFavoritesView}
                     isWatched={watchedMovies.has(film.filmKey)}
                     onWatchedToggle={onWatchedChange}
-                    isPresentationMode={rowJumpEnabled}
+                    isPresentationMode={true}
                   />
                 </div>
               ))}
             </motion.div>
           </AnimatePresence>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {visibleFilms.map(film => (
-              <div key={film.id || film.filmKey} data-film-card>
-                <FilmCard 
-                  film={film} 
-                  isFlipped={flippedCard === film.filmKey || (rowJumpEnabled && allCardsFlipped)}
-                  onFlip={() => handleCardFlip(film.filmKey)}
-                  onGenreClick={onGenreClick}
-                  onWatchlistChange={onWatchlistChange}
-                  onDirectorClick={onDirectorClick}
-                  showWatchedToggle={isInFavoritesView}
-                  isWatched={watchedMovies.has(film.filmKey)}
-                  onWatchedToggle={onWatchedChange}
-                  isPresentationMode={rowJumpEnabled}
-                />
-              </div>
-            ))}
-          </div>
         )}
       </div>
 
@@ -845,7 +603,7 @@ export default function FilmGrid({
       )}
 
       {/* Presentation Filters */}
-      {showFilters && rowJumpEnabled && isHydrated && filters && onFiltersChange && (
+      {showFilters && isHydrated && filters && onFiltersChange && (
         <PresentationFilters
           filters={filters}
           onFiltersChange={onFiltersChange}
@@ -862,7 +620,7 @@ export default function FilmGrid({
       )}
 
       {/* Help Overlay */}
-      {showHelpOverlay && rowJumpEnabled && isHydrated && (
+      {showHelpOverlay && isHydrated && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-2xl max-w-lg w-full p-6">
             <div className="flex items-center justify-between mb-6">
@@ -880,11 +638,6 @@ export default function FilmGrid({
             
             <div className="space-y-4">
               <div className="grid gap-3">
-                <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Toggle presentation mode</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">P</kbd>
-                </div>
-                
                 <div className="flex items-center justify-between w-full">
                   <span className="text-gray-700 flex-1">Navigate up/down</span>
                   <div className="flex gap-1 flex-shrink-0">
@@ -929,7 +682,7 @@ export default function FilmGrid({
                 </div>
                 
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Exit/close</span>
+                  <span className="text-gray-700 flex-1">Close overlays</span>
                   <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">Esc</kbd>
                 </div>
               </div>

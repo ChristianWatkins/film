@@ -1,44 +1,24 @@
 /**
  * User preferences stored in localStorage
+ * Presentation mode is now the only available mode
  */
 
-type ViewMode = 'presentation' | 'normal';
-
-const STORAGE_KEY = 'lastUsedMode';
+type ViewMode = 'presentation';
 
 /**
- * Get the last used view mode from localStorage.
- * Defaults to 'presentation' for new users.
+ * Get the last used view mode.
+ * Always returns 'presentation' since it's the only available mode.
  */
 export function getLastUsedMode(): ViewMode {
-  if (typeof window === 'undefined') {
-    return 'presentation'; // Server-side default
-  }
-
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === 'presentation' || saved === 'normal') {
-      return saved;
-    }
-  } catch (error) {
-    console.warn('Failed to read lastUsedMode from localStorage:', error);
-  }
-
-  return 'presentation'; // Default for new users
+  return 'presentation';
 }
 
 /**
  * Save the current view mode to localStorage.
+ * Always saves 'presentation' since it's the only available mode.
  */
 export function saveLastUsedMode(mode: ViewMode): void {
-  if (typeof window === 'undefined') {
-    return; // Skip on server-side
-  }
-
-  try {
-    localStorage.setItem(STORAGE_KEY, mode);
-  } catch (error) {
-    console.warn('Failed to save lastUsedMode to localStorage:', error);
-  }
+  // No-op: mode is always 'presentation' now
+  // Keeping function for API compatibility but it doesn't need to do anything
 }
 
