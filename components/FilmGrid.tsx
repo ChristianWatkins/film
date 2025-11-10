@@ -69,7 +69,14 @@ export default function FilmGrid({
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const flippedCardRef = useRef<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
-  const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
+  // Initialize presentation mode from localStorage synchronously to prevent flash
+  const [rowJumpEnabled, setRowJumpEnabled] = useState(() => {
+    // This function runs only during initial render, synchronously reading from localStorage
+    if (typeof window !== 'undefined') {
+      return getLastUsedMode() === 'presentation';
+    }
+    return false; // SSR default
+  });
   const [showFilters, setShowFilters] = useState(false);
   const [showHelpOverlay, setShowHelpOverlay] = useState(false);
   const [allCardsFlipped, setAllCardsFlipped] = useState(false);
@@ -81,14 +88,6 @@ export default function FilmGrid({
   const keyPressRef = useRef<{[key: string]: {count: number, lastTime: number}}>({});
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
-
-  // Initialize presentation mode from localStorage on mount
-  useEffect(() => {
-    const lastMode = getLastUsedMode();
-    if (lastMode === 'presentation') {
-      setRowJumpEnabled(true);
-    }
-  }, []);
 
   // Save presentation mode to localStorage when it changes
   useEffect(() => {
