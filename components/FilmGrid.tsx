@@ -69,14 +69,9 @@ export default function FilmGrid({
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
   const flippedCardRef = useRef<string | null>(null);
   const [showExportImportModal, setShowExportImportModal] = useState(false);
-  // Initialize presentation mode from localStorage synchronously to prevent flash
-  const [rowJumpEnabled, setRowJumpEnabled] = useState(() => {
-    // This function runs only during initial render, synchronously reading from localStorage
-    if (typeof window !== 'undefined') {
-      return getLastUsedMode() === 'presentation';
-    }
-    return false; // SSR default
-  });
+  // Start with false to match SSR, then update from localStorage after hydration
+  const [rowJumpEnabled, setRowJumpEnabled] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [showHelpOverlay, setShowHelpOverlay] = useState(false);
   const [allCardsFlipped, setAllCardsFlipped] = useState(false);
@@ -89,11 +84,22 @@ export default function FilmGrid({
   const gridRef = useRef<HTMLDivElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
 
+  // Initialize presentation mode from localStorage after hydration to prevent hydration mismatch
+  useEffect(() => {
+    const lastMode = getLastUsedMode();
+    if (lastMode === 'presentation') {
+      setRowJumpEnabled(true);
+    }
+    setIsHydrated(true);
+  }, []);
+
   // Save presentation mode to localStorage when it changes
   useEffect(() => {
-    const mode = rowJumpEnabled ? 'presentation' : 'normal';
-    saveLastUsedMode(mode);
-  }, [rowJumpEnabled]);
+    if (isHydrated) {
+      const mode = rowJumpEnabled ? 'presentation' : 'normal';
+      saveLastUsedMode(mode);
+    }
+  }, [rowJumpEnabled, isHydrated]);
 
   // Helper function to safely get cards per row
   const getCardsPerRow = () => {
@@ -205,6 +211,9 @@ export default function FilmGrid({
 
   // Unified keyboard shortcuts - P to toggle, ESC to exit, L for filters, arrows for navigation
   useEffect(() => {
+    // Don't attach keyboard handlers until after hydration
+    if (!isHydrated) return;
+    
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't trigger if typing in an input
       if ((e.target as HTMLElement).matches('input, textarea')) return;
@@ -331,11 +340,10 @@ export default function FilmGrid({
     };
 
     window.addEventListener('keydown', handleKeyDown);
-
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms]);
+  }, [rowJumpEnabled, showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms, isHydrated]);
 
   // Clear key press count when exiting presentation mode
   useEffect(() => {
@@ -360,9 +368,9 @@ export default function FilmGrid({
   }, [rowJumpEnabled, films.length, JSON.stringify(filters), currentRowIndex]);
 
   return (
-    <div data-film-grid className={rowJumpEnabled ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
+    <div data-film-grid className={rowJumpEnabled && isHydrated ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
       {/* Row indicator when in presentation mode */}
-      {rowJumpEnabled && (
+      {rowJumpEnabled && isHydrated && (
         <>
         <div className="bg-[#1A1A2E] text-white py-4 relative shadow-lg">
           <button
@@ -645,7 +653,7 @@ export default function FilmGrid({
       )}
       
       {/* Row Navigation Indicator - Presentation Mode */}
-      {rowJumpEnabled && (
+      {rowJumpEnabled && isHydrated && (
         <div className="fixed top-1/2 right-6 transform -translate-y-1/2 z-40">
           <div className="flex flex-col items-center text-gray-400 drop-shadow-lg px-4">
             {/* Up caret */}
@@ -837,7 +845,7 @@ export default function FilmGrid({
       )}
 
       {/* Presentation Filters */}
-      {showFilters && rowJumpEnabled && filters && onFiltersChange && (
+      {showFilters && rowJumpEnabled && isHydrated && filters && onFiltersChange && (
         <PresentationFilters
           filters={filters}
           onFiltersChange={onFiltersChange}
@@ -854,7 +862,7 @@ export default function FilmGrid({
       )}
 
       {/* Help Overlay */}
-      {showHelpOverlay && rowJumpEnabled && (
+      {showHelpOverlay && rowJumpEnabled && isHydrated && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-2xl max-w-lg w-full p-6">
             <div className="flex items-center justify-between mb-6">

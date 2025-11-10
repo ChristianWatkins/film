@@ -150,6 +150,47 @@ export default function PresentationFilters({
     handleFilterChange('searchQuery', query);
   };
 
+  // Handle year range toggles (2010-2019, 2000-2009, Pre-2000)
+  const handleYearRangeToggle = (range: '2010-2019' | '2000-2009' | 'pre-2000') => {
+    let yearsInRange: number[] = [];
+    
+    if (range === 'pre-2000') {
+      yearsInRange = availableYears.filter(y => y <= 1999);
+    } else if (range === '2000-2009') {
+      yearsInRange = availableYears.filter(y => y >= 2000 && y <= 2009);
+    } else if (range === '2010-2019') {
+      yearsInRange = availableYears.filter(y => y >= 2010 && y <= 2019);
+    }
+    
+    // Check if all years in range are already selected
+    const allSelected = yearsInRange.length > 0 && yearsInRange.every(y => filters.years.includes(y));
+    
+    if (allSelected) {
+      // Remove all years in range
+      const newYears = filters.years.filter(y => !yearsInRange.includes(y));
+      handleFilterChange('years', newYears);
+    } else {
+      // Add all years in range (avoid duplicates)
+      const newYears = [...new Set([...filters.years, ...yearsInRange])];
+      handleFilterChange('years', newYears);
+    }
+  };
+
+  // Check if a year range is selected (all years in range are selected)
+  const isYearRangeSelected = (range: '2010-2019' | '2000-2009' | 'pre-2000'): boolean => {
+    let yearsInRange: number[] = [];
+    
+    if (range === 'pre-2000') {
+      yearsInRange = availableYears.filter(y => y <= 1999);
+    } else if (range === '2000-2009') {
+      yearsInRange = availableYears.filter(y => y >= 2000 && y <= 2009);
+    } else if (range === '2010-2019') {
+      yearsInRange = availableYears.filter(y => y >= 2010 && y <= 2019);
+    }
+    
+    return yearsInRange.length > 0 && yearsInRange.every(y => filters.years.includes(y));
+  };
+
   // 3-state country toggle: Normal → Include → Exclude → Normal
   const handleCountryToggle = (country: string) => {
     const isIncluded = filters.countries.includes(country);
@@ -362,16 +403,25 @@ export default function PresentationFilters({
                   {year}
                 </button>
               ))}
-              {/* Year ranges as text for display */}
-              <button className="px-4 py-2 rounded-full text-sm bg-white/10 text-white border border-white/20 hover:bg-white/15 hover:border-white/40 cursor-pointer">
-                2010-2019
-              </button>
-              <button className="px-4 py-2 rounded-full text-sm bg-white/10 text-white border border-white/20 hover:bg-white/15 hover:border-white/40 cursor-pointer">
-                2000-2009
-              </button>
-              <button className="px-4 py-2 rounded-full text-sm bg-white/10 text-white border border-white/20 hover:bg-white/15 hover:border-white/40 cursor-pointer">
-                Pre-2000
-              </button>
+              {/* Year ranges */}
+              {(['2010-2019', '2000-2009', 'pre-2000'] as const).map((range) => {
+                const isSelected = isYearRangeSelected(range);
+                const displayText = range === 'pre-2000' ? 'Pre-2000' : range;
+                
+                return (
+                  <button
+                    key={range}
+                    onClick={() => handleYearRangeToggle(range)}
+                    className={`px-4 py-2 rounded-full text-sm transition-all duration-200 border cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#FFB800] text-[#1A1A2E] border-[#FFB800] font-semibold'
+                        : 'bg-white/10 text-white border-white/20 hover:bg-white/15 hover:border-white/40'
+                    }`}
+                  >
+                    {displayText}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
