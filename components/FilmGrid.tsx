@@ -418,27 +418,69 @@ export default function FilmGrid({
               {/* Watchlist Toggle Button */}
               <button
                 onClick={onWatchlistToggle}
-                className={`p-2 rounded-full transition-all cursor-pointer ${
+                className={`p-3.5 rounded-full transition-all duration-200 cursor-pointer ${
                   watchlistOnly
-                    ? 'bg-white hover:bg-white/90 text-red-600'
-                    : 'bg-white/10 hover:bg-white/20 text-white'
+                    ? 'bg-red-500/20 text-red-400'
+                    : 'bg-gray-700/80 hover:bg-gray-600 text-white'
                 }`}
                 title={watchlistOnly ? "Show all films" : "Show only watchlist"}
               >
-                <HeartIconSolid className={`w-5 h-5 ${watchlistOnly ? 'text-red-600' : 'text-white'}`} />
+                <HeartIconSolid className="w-6 h-6" />
               </button>
+
+              {/* Watched Movies Toggle Button - only show when in favorites view */}
+              {onWatchedToggle && isInFavoritesView && (
+                <button
+                  onClick={onWatchedToggle}
+                  className={`p-3.5 rounded-full transition-all duration-200 cursor-pointer ${
+                    watchedOnly
+                      ? 'bg-gray-600 text-white'
+                      : 'bg-gray-700/80 hover:bg-gray-600 text-white'
+                  }`}
+                  title={watchedOnly ? "Show favourites" : "Show watched movies"}
+                >
+                  {watchedOnly ? (
+                    <EyeSlashIcon className="w-6 h-6" />
+                  ) : (
+                    <EyeIcon className="w-6 h-6" />
+                  )}
+                </button>
+              )}
+
+              {/* Share Button - only show when in watchlist mode */}
+              {onWatchlistToggle && watchlistOnly && (
+                <button
+                  onClick={() => setShowExportImportModal(true)}
+                  className="p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
+                  title="Share your favorites"
+                >
+                  <svg 
+                    className="w-6 h-6" 
+                    fill="none"
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                    />
+                  </svg>
+                </button>
+              )}
 
               {/* Search Toggle Button */}
               <button
                 onClick={() => setShowLocalSearch(!showLocalSearch)}
-                className={`p-2 rounded-full transition-all cursor-pointer ${
+                className={`p-3.5 rounded-full transition-all duration-200 cursor-pointer ${
                   showLocalSearch
-                    ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E]'
-                    : 'bg-white/10 hover:bg-white/20 text-white'
+                    ? 'bg-purple-500/20 text-purple-400'
+                    : 'bg-gray-700/80 hover:bg-gray-600 text-white'
                 }`}
                 title={showLocalSearch ? "Hide search" : "Show search (or press S)"}
               >
-                <MagnifyingGlassIcon className={`w-5 h-5 ${showLocalSearch ? 'text-[#1A1A2E]' : 'text-white'}`} />
+                <MagnifyingGlassIcon className="w-6 h-6" />
               </button>
             </div>
           </div>
@@ -760,36 +802,6 @@ export default function FilmGrid({
             >
               ^
             </button>
-          </div>
-        </div>
-      )}
-
-      {/* Floating Action Buttons - Presentation Mode */}
-      {rowJumpEnabled && (
-        <div className="fixed top-0 z-40 py-4" style={{ right: '128px' }}>
-          <div className="flex items-center gap-4 justify-end">
-            {/* Export/Import Button */}
-            {onWatchlistToggle && watchlistOnly && (
-              <button
-                onClick={() => setShowExportImportModal(true)}
-                className="p-2 rounded-full transition-colors cursor-pointer bg-white/90 hover:bg-white text-gray-700"
-                title="Share your favorites"
-              >
-                <svg 
-                  className="w-5 h-5" 
-                  fill="none"
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                  />
-                </svg>
-              </button>
-            )}
           </div>
         </div>
       )}
