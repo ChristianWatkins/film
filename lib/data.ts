@@ -155,6 +155,9 @@ export async function loadFestivalAppearances(): Promise<Map<string, FestivalApp
   try {
     const festivals = await fs.readdir(festivalsDir);
     
+    // Collect all file paths first
+    const filePaths: Array<{ path: string; festivalName: string; year: string }> = [];
+    
     for (const festivalName of festivals) {
       const festivalPath = path.join(festivalsDir, festivalName);
       const stat = await fs.stat(festivalPath);
@@ -170,38 +173,59 @@ export async function loadFestivalAppearances(): Promise<Map<string, FestivalApp
         // Normalize year names for display (remove suffixes like -fixed, +)
         const normalizedYear = year.replace(/[-+].*$/, '');
         const filePath = path.join(festivalPath, yearFile);
-        const content = await fs.readFile(filePath, 'utf-8');
-        const rawData = JSON.parse(content);
         
-        // Expect all festival data to be in array format with id references
-        if (!Array.isArray(rawData)) {
-          console.warn(`Expected array format in ${filePath}, skipping...`);
-          continue;
+        filePaths.push({ path: filePath, festivalName, year: normalizedYear });
+      }
+    }
+    
+    // Read all files in parallel
+    const fileContents = await Promise.all(
+      filePaths.map(async ({ path: filePath, festivalName, year }) => {
+        try {
+          const content = await fs.readFile(filePath, 'utf-8');
+          const rawData = JSON.parse(content);
+          return { festivalName, year, data: rawData };
+        } catch (error) {
+          console.warn(`Error reading ${filePath}:`, error);
+          return null;
+        }
+      })
+    );
+    
+    // Process all file contents
+    for (const fileData of fileContents) {
+      if (!fileData) continue;
+      
+      const { festivalName, year, data: rawData } = fileData;
+      
+      // Expect all festival data to be in array format with id references
+      if (!Array.isArray(rawData)) {
+        console.warn(`Expected array format, skipping...`);
+        continue;
+      }
+      
+      const filmList: { id: string }[] = rawData;
+      
+      for (const { id } of filmList) {
+        if (!id) continue;
+        
+        // Get or create appearances array for this film
+        if (!appearancesMap.has(id)) {
+          appearancesMap.set(id, []);
         }
         
-        const filmList: { id: string }[] = rawData;
+        const appearances = appearancesMap.get(id)!;
         
-        filmList.forEach(({ id }) => {
-          if (!id) return;
-          
-          // Get or create appearances array for this film
-          if (!appearancesMap.has(id)) {
-            appearancesMap.set(id, []);
-          }
-          
-          const appearances = appearancesMap.get(id)!;
-          
-          // Check if this festival appearance already exists
-          const existingFestival = appearances.find(f => f.name === festivalName);
-          
-          if (!existingFestival) {
-            appearances.push({
-              name: festivalName,
-              year: normalizedYear,
-              awarded: false // We'll get award info from CSV instead
-            });
-          }
-        });
+        // Check if this festival appearance already exists
+        const existingFestival = appearances.find(f => f.name === festivalName);
+        
+        if (!existingFestival) {
+          appearances.push({
+            name: festivalName,
+            year: year,
+            awarded: false // We'll get award info from CSV instead
+          });
+        }
       }
     }
     
@@ -248,21 +272,25 @@ export async function getAllFilms(): Promise<Film[]> {
   ]);
   
   const films: Film[] = [];
+  const streamingFilms = streamingData.films || {};
+  const hasAwardInfo = awardMap.size > 0;
   
   for (const [id, film] of masterFilms) {
     const appearances = festivalAppearances.get(id) || [];
-    const streamingInfo = streamingData.films[id];
+    const streamingInfo = streamingFilms[id];
     
-    // Look up award information using normalized title
-    const normalizedTitle = normalizeTitle(film.title);
-    const awardKey = `${normalizedTitle}-${film.year}`;
-    const awardInfo = awardMap.get(awardKey);
+    // Look up award information using normalized title (only if we have award data)
+    let awardInfo = null;
+    if (hasAwardInfo) {
+      const normalizedTitle = normalizeTitle(film.title);
+      const awardKey = `${normalizedTitle}-${film.year}`;
+      awardInfo = awardMap.get(awardKey);
+    }
     
-    // Update festival appearances with award status
-    const updatedFestivals = appearances.map(fest => ({
-      ...fest,
-      awarded: awardInfo?.awarded || false
-    }));
+    // Update festival appearances with award status (only if we have award data)
+    const updatedFestivals = hasAwardInfo && awardInfo?.awarded
+      ? appearances.map(fest => ({ ...fest, awarded: true }))
+      : appearances;
     
     films.push({
       // Core metadata (now all in one file!)
