@@ -470,18 +470,14 @@ export default function FilmGrid({
                 </button>
               )}
 
-              {/* Search Toggle Button */}
-              <button
-                onClick={() => setShowLocalSearch(!showLocalSearch)}
-                className={`p-3.5 rounded-full transition-all duration-200 cursor-pointer ${
-                  showLocalSearch
-                    ? 'bg-purple-500/20 text-purple-400'
-                    : 'bg-gray-700/80 hover:bg-gray-600 text-white'
-                }`}
-                title={showLocalSearch ? "Hide search" : "Show search (or press S)"}
+              {/* Search Button - Link to global search */}
+              <Link
+                href="/search"
+                className="p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
+                title="Search for movies"
               >
                 <MagnifyingGlassIcon className="w-6 h-6" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -511,39 +507,6 @@ export default function FilmGrid({
 
         </div>
 
-        {/* Presentation Mode Search Input */}
-        {showLocalSearch && filters && onFiltersChange && (
-          <div className="bg-[#1A1A2E] px-8 pb-4">
-            <div className="relative max-w-2xl">
-              <input
-                type="text"
-                placeholder="Search films, directors, genres, cast..."
-                value={filters.searchQuery}
-                onChange={(e) => onFiltersChange({ ...filters, searchQuery: e.target.value })}
-                className="w-full px-4 py-3 pl-10 pr-10 text-sm text-gray-900 border-2 border-[#FFB800] rounded-lg focus:ring-2 focus:ring-[#FFB800] focus:border-[#FFB800] transition-all placeholder:text-gray-400"
-                autoFocus
-              />
-              <svg 
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              {filters.searchQuery && (
-                <button
-                  onClick={() => onFiltersChange({ ...filters, searchQuery: '' })}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              )}
-            </div>
-          </div>
-        )}
         </>
       )}
 
@@ -555,32 +518,26 @@ export default function FilmGrid({
             </div>
             
             <div className="flex items-center gap-3">
-            {/* Search Button */}
-            {filters && onFiltersChange && (
-              <button
-                onClick={() => setShowLocalSearch(!showLocalSearch)}
-                className={`p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${
-                  showLocalSearch || (filters.searchQuery && filters.searchQuery.length > 0)
-                    ? 'bg-blue-100 hover:bg-blue-200 text-blue-600' 
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-400'
-                }`}
-                title="Search films"
+            {/* Search Button - Link to global search */}
+            <Link
+              href="/search"
+              className="p-2 rounded-full transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform bg-gray-100 hover:bg-gray-200 text-gray-400"
+              title="Search for movies"
+            >
+              <svg 
+                className="w-5 h-5" 
+                fill="none"
+                stroke="currentColor" 
+                strokeWidth="2"
+                viewBox="0 0 24 24"
               >
-                <svg 
-                  className="w-5 h-5" 
-                  fill="none"
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
-                  />
-                </svg>
-              </button>
-            )}
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+                />
+              </svg>
+            </Link>
 
             {/* Row Jump Button */}
             <button
@@ -699,39 +656,6 @@ export default function FilmGrid({
           </div>
         </div>
 
-        {/* Local Search Input */}
-        {showLocalSearch && filters && onFiltersChange && (
-          <div className="mb-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search films, directors, genres, cast..."
-                value={filters.searchQuery}
-                onChange={(e) => onFiltersChange({ ...filters, searchQuery: e.target.value })}
-                className="w-full px-4 py-3 pl-10 pr-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-gray-400"
-                autoFocus
-              />
-              <svg 
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              {filters.searchQuery && (
-                <button
-                  onClick={() => onFiltersChange({ ...filters, searchQuery: '' })}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              )}
-            </div>
-          </div>
-        )}
         </>
       )}
       
