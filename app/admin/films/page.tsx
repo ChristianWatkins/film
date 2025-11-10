@@ -24,6 +24,7 @@ interface MasterFilm {
   country: string | null;
   mubiLink: string | null;
   tmdb_id: number | null;
+  imdb_id?: string | null;
   poster_url_tmdb?: string | null;
   // TMDB enrichment fields (now in same file)
   original_title?: string | null; // Original language title from TMDB
