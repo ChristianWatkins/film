@@ -86,9 +86,18 @@ export default function FilmGrid({
   const enableAnimations = shouldEnableCardAnimations();
   const rowJumpEnabled = true; // Always enabled - presentation mode is the only mode
 
-  // Initialize hydration state
+  // Initialize hydration state and hide FilmBrowser content
   useEffect(() => {
     setIsHydrated(true);
+    // Add class to body to hide FilmBrowser content
+    document.body.classList.add('film-grid-active');
+    document.body.style.overflow = 'hidden';
+    
+    return () => {
+      // Restore on unmount
+      document.body.classList.remove('film-grid-active');
+      document.body.style.overflow = '';
+    };
   }, []);
 
   // Helper function to safely get cards per row

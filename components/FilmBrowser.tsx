@@ -9,7 +9,6 @@ import { RotateCw, Check } from 'lucide-react';
 import type { Film, FilterState } from '@/lib/types';
 import { applyFilters, sortFilms, type SortOption } from '@/lib/filters';
 import { getWatchedMovies, toggleWatched } from '@/lib/watchlist';
-import Filters from './Filters';
 import FilmGrid from './FilmGrid';
 
 interface FilmBrowserProps {
@@ -306,7 +305,7 @@ export default function FilmBrowser({
     .replace(/, ([^,]*)$/, ' & $1'); // Replace last comma with &
   
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
       {/* Toast Notifications */}
       {showSaveToast && (
         <div 
@@ -336,77 +335,8 @@ export default function FilmBrowser({
         </div>
       )}
       
-      {/* Header */}
-      <header className="bg-[#1A1A2E] shadow-lg border-b-4 border-[#FFB800]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-4xl font-bold text-[#FFB800] mb-2 flex items-center gap-3">
-                <span className="text-5xl">🎬</span>
-                <span>Film Festival Browser</span>
-              </h1>
-              {/* Mobile version - shorter text */}
-              <div className="md:hidden text-white/90 text-lg font-medium">
-                <p>{films.length} festival films</p>
-                <p>{streamingCount} available for streaming</p>
-              </div>
-              {/* Desktop version - full text */}
-              <div className="hidden md:block text-white/90 text-lg font-medium">
-                <p>{films.length} films from {festivalNamesText}</p>
-                <p>{streamingCount} available for streaming in Norway</p>
-              </div>
-            </div>
-            {process.env.NODE_ENV === 'development' && !pathname?.startsWith('/admin') && (
-              <div>
-                <Link
-                  href="/admin/films"
-                  className="inline-flex items-center gap-2 px-4 py-2 border border-[#FFB800] text-[#FFB800] rounded-lg hover:bg-[#FFB800] hover:text-[#1A1A2E] transition-colors font-medium"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                  </svg>
-                  Admin
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
-      </header>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Search and Sort Bar */}
-        {/* <div className="mb-6 flex gap-4 items-center">
-          <div className="flex-1">
-            <input
-              type="search"
-              placeholder="Search by title or director..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
-            />
-          </div>
-        </div> */}
-        
-        {/* Main Content: Filters + Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Filters Sidebar */}
-          <div className="lg:col-span-1">
-            <Filters
-              filters={filters}
-              onChange={setFilters}
-              availableYears={availableYears}
-              availableFestivals={availableFestivals}
-              availablePlatforms={availablePlatforms}
-              availableCountries={availableCountries}
-              availableGenres={availableGenres}
-              onSaveDefaults={saveCurrentFilters}
-              onResetDefaults={resetToDefaults}
-            />
-          </div>
-          
-          {/* Film Grid */}
-          <div className="lg:col-span-3">
-            <FilmGrid 
+      {/* Film Grid - Presentation mode always active */}
+      <FilmGrid 
               films={filteredAndSortedFilms} 
               onGenreClick={handleGenreClick}
               onDirectorClick={handleDirectorClick}
@@ -453,9 +383,6 @@ export default function FilmBrowser({
               onSaveDefaults={saveCurrentFilters}
               onResetDefaults={resetToDefaults}
             />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
