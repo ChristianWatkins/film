@@ -244,6 +244,69 @@ export default function AdminFilmsPage() {
     }
   };
 
+  const handleRemoveJustWatch = async (film: MasterFilm) => {
+    if (!confirm(`Are you sure you want to remove the JustWatch link for "${film.title}" (${film.year})?`)) {
+      return;
+    }
+
+    setRefreshingJustWatch(film.id);
+    setMessage(null);
+
+    try {
+      const response = await fetch('/api/admin/remove-justwatch', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: film.id }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Update local state to remove JustWatch data
+        setFilms(prevFilms =>
+          prevFilms.map(f =>
+            f.id === film.id
+              ? {
+                  ...f,
+                  justwatch_url: null,
+                  justwatch_found: false,
+                  streaming: [],
+                  rent: [],
+                  buy: []
+                }
+              : f
+          )
+        );
+
+        // Update editing film if it's the same one
+        if (editingFilm?.id === film.id) {
+          setEditingFilm({
+            ...editingFilm,
+            justwatch_url: null,
+            justwatch_found: false,
+            streaming: [],
+            rent: [],
+            buy: []
+          });
+        }
+
+        setMessage({
+          text: (result.message || 'JustWatch link removed successfully!') + ' Please refresh the main page (Cmd+Shift+R or Ctrl+Shift+R) to see the change.',
+          type: 'success'
+        });
+      } else {
+        setMessage({ text: result.error || 'Failed to remove JustWatch link', type: 'error' });
+      }
+    } catch (error) {
+      console.error('Error removing JustWatch data:', error);
+      setMessage({ text: 'Failed to remove JustWatch link', type: 'error' });
+    } finally {
+      setRefreshingJustWatch(null);
+    }
+  };
+
   const handleFieldChange = (field: keyof MasterFilm, value: string) => {
     if (!editingFilm) return;
     
@@ -700,13 +763,24 @@ export default function AdminFilmsPage() {
                                 ) : (
                                   <p className="text-sm text-gray-500 italic">Not found on JustWatch</p>
                                 )}
-                                <button
-                                  onClick={() => handleRefreshJustWatch(editingFilm)}
-                                  disabled={refreshingJustWatch === editingFilm.id}
-                                  className="mt-3 px-4 py-2 bg-orange-600 text-white text-sm rounded hover:bg-orange-700 cursor-pointer disabled:bg-gray-400"
-                                >
-                                  {refreshingJustWatch === editingFilm.id ? 'Refreshing...' : 'Refresh JustWatch Data'}
-                                </button>
+                                <div className="mt-3 flex gap-2">
+                                  <button
+                                    onClick={() => handleRefreshJustWatch(editingFilm)}
+                                    disabled={refreshingJustWatch === editingFilm.id}
+                                    className="px-4 py-2 bg-orange-600 text-white text-sm rounded hover:bg-orange-700 cursor-pointer disabled:bg-gray-400"
+                                  >
+                                    {refreshingJustWatch === editingFilm.id ? 'Refreshing...' : 'Refresh JustWatch Data'}
+                                  </button>
+                                  {(editingFilm.justwatch_found || editingFilm.justwatch_url) && (
+                                    <button
+                                      onClick={() => handleRemoveJustWatch(editingFilm)}
+                                      disabled={refreshingJustWatch === editingFilm.id}
+                                      className="px-4 py-2 bg-red-600 text-white text-sm rounded hover:bg-red-700 cursor-pointer disabled:bg-gray-400"
+                                    >
+                                      Remove JustWatch Link
+                                    </button>
+                                  )}
+                                </div>
                               </div>
                             </div>
                             <div className="col-span-2">

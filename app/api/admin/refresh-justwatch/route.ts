@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import JustWatchAPI from 'justwatch-api-client';
+import { mergeAllFilms } from '@/lib/data';
 
 // POST endpoint to refresh JustWatch data for a film
 export async function POST(request: Request) {
@@ -141,6 +142,23 @@ export async function POST(request: Request) {
     
     console.log(`  ✓ Updated streaming data for ${id}`);
     console.log(`  ✓ Streaming: ${streaming.length}, Rent: ${rent.length}, Buy: ${buy.length}`);
+    
+    // Regenerate merged films file to reflect the change
+    try {
+      console.log('  Regenerating merged films file...');
+      const films = await mergeAllFilms();
+      const mergedPath = path.join(process.cwd(), 'data', 'merged-films.json');
+      const output = {
+        generated_at: new Date().toISOString(),
+        total_films: films.length,
+        films: films
+      };
+      fs.writeFileSync(mergedPath, JSON.stringify(output, null, 2), 'utf-8');
+      console.log(`  ✓ Regenerated merged films file`);
+    } catch (regenerateError) {
+      console.warn('  ⚠️  Failed to regenerate merged films file:', regenerateError);
+      // Don't fail the request if regeneration fails - the data is still updated
+    }
     
     return NextResponse.json(updatedData);
   } catch (error) {
