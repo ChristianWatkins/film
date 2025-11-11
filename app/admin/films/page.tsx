@@ -52,7 +52,9 @@ export default function AdminFilmsPage() {
   const [deletingFilmId, setDeletingFilmId] = useState<string | null>(null);
   const [refreshingJustWatch, setRefreshingJustWatch] = useState<string | null>(null);
   const [refreshingTMDB, setRefreshingTMDB] = useState(false);
-  const [filterMode, setFilterMode] = useState<'all' | 'needs-review' | 'has-tmdb' | 'no-poster'>('all');
+  const [filterMode, setFilterMode] = useState<'all' | 'needs-review' | 'has-tmdb' | 'no-poster' | 'duplicates'>('all');
+  const [sortColumn, setSortColumn] = useState<'title' | 'year' | 'director' | 'country' | null>(null);
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
   // Check if we're in development
   const isDevelopment = process.env.NODE_ENV === 'development';
@@ -368,7 +370,151 @@ export default function AdminFilmsPage() {
     }
   };
 
+  // Normalize title: lowercase, remove punctuation/special chars, trim whitespace
+  const normalizeTitle = (title: string): string => {
+    return title.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+  };
+
+  // Normalize director: lowercase, trim whitespace
+  const normalizeDirector = (director: string | null): string => {
+    return director ? director.toLowerCase().trim() : '';
+  };
+
+  // Find films with duplicates based on various criteria
+  const findDuplicateFilms = (): Set<string> => {
+    const duplicateIds = new Set<string>();
+    const normalizedTitles = new Map<string, MasterFilm[]>();
+    const tmdbIdMap = new Map<number, MasterFilm[]>();
+    const posterUrlMap = new Map<string, MasterFilm[]>();
+
+    // Group films by normalized title
+    films.forEach(film => {
+      const normalizedTitle = normalizeTitle(film.title);
+      if (!normalizedTitles.has(normalizedTitle)) {
+        normalizedTitles.set(normalizedTitle, []);
+      }
+      normalizedTitles.get(normalizedTitle)!.push(film);
+    });
+
+    // Group films by TMDB ID
+    films.forEach(film => {
+      if (film.tmdb_id) {
+        if (!tmdbIdMap.has(film.tmdb_id)) {
+          tmdbIdMap.set(film.tmdb_id, []);
+        }
+        tmdbIdMap.get(film.tmdb_id)!.push(film);
+      }
+    });
+
+    // Group films by poster URL
+    films.forEach(film => {
+      if (film.poster_url_tmdb) {
+        if (!posterUrlMap.has(film.poster_url_tmdb)) {
+          posterUrlMap.set(film.poster_url_tmdb, []);
+        }
+        posterUrlMap.get(film.poster_url_tmdb)!.push(film);
+      }
+    });
+
+    // Check for duplicates based on criteria
+
+    // 1. Same TMDB ID
+    tmdbIdMap.forEach((filmList, tmdbId) => {
+      if (filmList.length > 1) {
+        filmList.forEach(f => duplicateIds.add(f.id));
+      }
+    });
+
+    // 2. Same normalized title + same year
+    normalizedTitles.forEach((filmList, normalizedTitle) => {
+      const byYear = new Map<number, MasterFilm[]>();
+      filmList.forEach(film => {
+        if (!byYear.has(film.year)) {
+          byYear.set(film.year, []);
+        }
+        byYear.get(film.year)!.push(film);
+      });
+      byYear.forEach((yearFilms, year) => {
+        if (yearFilms.length > 1) {
+          yearFilms.forEach(f => duplicateIds.add(f.id));
+        }
+      });
+    });
+
+    // 3. Same poster URL
+    posterUrlMap.forEach((filmList, posterUrl) => {
+      if (filmList.length > 1) {
+        filmList.forEach(f => duplicateIds.add(f.id));
+      }
+    });
+
+    // 4. Same normalized title + year within ±1
+    normalizedTitles.forEach((filmList, normalizedTitle) => {
+      if (filmList.length > 1) {
+        filmList.forEach(film1 => {
+          filmList.forEach(film2 => {
+            if (film1.id !== film2.id && Math.abs(film1.year - film2.year) <= 1) {
+              duplicateIds.add(film1.id);
+              duplicateIds.add(film2.id);
+            }
+          });
+        });
+      }
+    });
+
+    // 5. Same normalized title + same director
+    normalizedTitles.forEach((filmList, normalizedTitle) => {
+      if (filmList.length > 1) {
+        const byDirector = new Map<string, MasterFilm[]>();
+        filmList.forEach(film => {
+          const normalizedDir = normalizeDirector(film.director);
+          if (!byDirector.has(normalizedDir)) {
+            byDirector.set(normalizedDir, []);
+          }
+          byDirector.get(normalizedDir)!.push(film);
+        });
+        byDirector.forEach((dirFilms, dir) => {
+          if (dirFilms.length > 1 && dir !== '') {
+            dirFilms.forEach(f => duplicateIds.add(f.id));
+          }
+        });
+      }
+    });
+
+    // 6. Same normalized title + year within ±1 + same director
+    normalizedTitles.forEach((filmList, normalizedTitle) => {
+      if (filmList.length > 1) {
+        filmList.forEach(film1 => {
+          filmList.forEach(film2 => {
+            if (film1.id !== film2.id && 
+                Math.abs(film1.year - film2.year) <= 1 &&
+                normalizeDirector(film1.director) === normalizeDirector(film2.director) &&
+                normalizeDirector(film1.director) !== '') {
+              duplicateIds.add(film1.id);
+              duplicateIds.add(film2.id);
+            }
+          });
+        });
+      }
+    });
+
+    return duplicateIds;
+  };
+
+  // Handle column sorting
+  const handleSort = (column: 'title' | 'year' | 'director' | 'country') => {
+    if (sortColumn === column) {
+      // Toggle direction if clicking same column
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      // Set new column and default to ascending
+      setSortColumn(column);
+      setSortDirection('asc');
+    }
+  };
+
   // Filter films by search term and review status
+  const duplicateFilmIds = findDuplicateFilms();
   const filteredFilms = films.filter(film => {
     // Apply search filter
     const searchLower = searchTerm.toLowerCase();
@@ -388,15 +534,53 @@ export default function AdminFilmsPage() {
       return !!film.tmdb_id;
     } else if (filterMode === 'no-poster') {
       return !film.poster_url_tmdb; // Only films without poster
+    } else if (filterMode === 'duplicates') {
+      return duplicateFilmIds.has(film.id); // Only films with duplicates
     }
     
     return true; // 'all' mode
+  });
+
+  // Sort filtered films
+  const sortedFilms = [...filteredFilms].sort((a, b) => {
+    if (!sortColumn) return 0;
+    
+    let aValue: string | number | null;
+    let bValue: string | number | null;
+    
+    switch (sortColumn) {
+      case 'title':
+        aValue = a.title.toLowerCase();
+        bValue = b.title.toLowerCase();
+        break;
+      case 'year':
+        aValue = a.year;
+        bValue = b.year;
+        break;
+      case 'director':
+        aValue = (a.director || '').toLowerCase();
+        bValue = (b.director || '').toLowerCase();
+        break;
+      case 'country':
+        aValue = (a.country || '').toLowerCase();
+        bValue = (b.country || '').toLowerCase();
+        break;
+      default:
+        return 0;
+    }
+    
+    if (aValue === bValue) return 0;
+    
+    const comparison = aValue < bValue ? -1 : 1;
+    return sortDirection === 'asc' ? comparison : -comparison;
   });
   
   // Count films needing review (only those without TMDB ID)
   const needsReviewCount = films.filter(f => !f.tmdb_id).length;
   // Count films without posters
   const noPosterCount = films.filter(f => !f.poster_url_tmdb).length;
+  // Count films with duplicates
+  const duplicatesCount = duplicateFilmIds.size;
 
   if (!isDevelopment) {
     return (
@@ -492,6 +676,16 @@ export default function AdminFilmsPage() {
             >
               🖼️ No Poster ({noPosterCount})
             </button>
+            <button
+              onClick={() => setFilterMode('duplicates')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer ${
+                filterMode === 'duplicates'
+                  ? 'bg-red-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              🔍 Duplicates ({duplicatesCount})
+            </button>
           </div>
           
           <div className="text-sm text-gray-900 mb-2">
@@ -507,16 +701,64 @@ export default function AdminFilmsPage() {
             <table className="w-full">
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Title</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Year</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Director</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Country</th>
+                  <th 
+                    className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none"
+                    onClick={() => handleSort('title')}
+                  >
+                    <div className="flex items-center gap-2">
+                      Title
+                      {sortColumn === 'title' && (
+                        <span className="text-gray-500">
+                          {sortDirection === 'asc' ? '↑' : '↓'}
+                        </span>
+                      )}
+                    </div>
+                  </th>
+                  <th 
+                    className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none"
+                    onClick={() => handleSort('year')}
+                  >
+                    <div className="flex items-center gap-2">
+                      Year
+                      {sortColumn === 'year' && (
+                        <span className="text-gray-500">
+                          {sortDirection === 'asc' ? '↑' : '↓'}
+                        </span>
+                      )}
+                    </div>
+                  </th>
+                  <th 
+                    className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none"
+                    onClick={() => handleSort('director')}
+                  >
+                    <div className="flex items-center gap-2">
+                      Director
+                      {sortColumn === 'director' && (
+                        <span className="text-gray-500">
+                          {sortDirection === 'asc' ? '↑' : '↓'}
+                        </span>
+                      )}
+                    </div>
+                  </th>
+                  <th 
+                    className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none"
+                    onClick={() => handleSort('country')}
+                  >
+                    <div className="flex items-center gap-2">
+                      Country
+                      {sortColumn === 'country' && (
+                        <span className="text-gray-500">
+                          {sortDirection === 'asc' ? '↑' : '↓'}
+                        </span>
+                      )}
+                    </div>
+                  </th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Synopsis</th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {filteredFilms.map((film) => (
+                {sortedFilms.map((film) => (
                   <Fragment key={film.id}>
                     <tr className="hover:bg-gray-50">
                       <td className="px-4 py-3 text-sm font-semibold text-gray-900">
