@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
 // Presentation mode is always enabled, no need to import preferences
 import type { Film, FilterState } from '@/lib/types';
+import { toggleWatchlist } from '@/lib/watchlist';
 import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
 import PresentationFilters from './PresentationFilters';
@@ -293,6 +294,21 @@ export default function FilmGrid({
         }
       }
       
+      // A key toggles watchlist when exactly one card is flipped
+      if ((e.key === 'a' || e.key === 'A') && !showFilters && !showHelpOverlay) {
+        e.preventDefault();
+        // Check that exactly one card is flipped (not all cards, and not zero cards)
+        if (flippedCard !== null && !allCardsFlipped) {
+          // Find the film matching the flipped card
+          const flippedFilm = visibleFilms.find(film => film.filmKey === flippedCard);
+          if (flippedFilm) {
+            toggleWatchlist(flippedFilm.filmKey, flippedFilm.title);
+            // Notify parent component of watchlist change
+            onWatchlistChange?.();
+          }
+        }
+      }
+      
       // Arrow key navigation
       if (!showFilters) {
         const cardsPerRow = getCardsPerRow();
@@ -356,7 +372,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms, isHydrated, flippedCard, allCardsFlipped]);
+  }, [showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms, isHydrated, flippedCard, allCardsFlipped, onWatchlistChange]);
 
   // Reset row index when films change or filters change
   useEffect(() => {
@@ -712,6 +728,11 @@ export default function FilmGrid({
                 <div className="flex items-center justify-between w-full">
                   <span className="text-gray-700 dark:text-gray-300 flex-1">Play trailer (when one card flipped)</span>
                   <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono flex-shrink-0 text-gray-800 dark:text-gray-200">T</kbd>
+                </div>
+                
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Add to watchlist toggle (when one card flipped)</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono flex-shrink-0 text-gray-800 dark:text-gray-200">A</kbd>
                 </div>
                 
                 <div className="flex items-center justify-between w-full">

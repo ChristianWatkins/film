@@ -62,6 +62,9 @@ export function addToWatchlist(filmKey: string, title: string): void {
     });
     
     localStorage.setItem(WATCHLIST_KEY, JSON.stringify(items));
+    
+    // Dispatch custom event to notify components
+    window.dispatchEvent(new Event('watchlist-changed'));
   } catch (e) {
     console.error('Error adding to watchlist:', e);
   }
@@ -75,6 +78,9 @@ export function removeFromWatchlist(filmKey: string): void {
     const items = getWatchlistItems();
     const filtered = items.filter(item => item.filmKey !== filmKey);
     localStorage.setItem(WATCHLIST_KEY, JSON.stringify(filtered));
+    
+    // Dispatch custom event to notify components
+    window.dispatchEvent(new Event('watchlist-changed'));
   } catch (e) {
     console.error('Error removing from watchlist:', e);
   }

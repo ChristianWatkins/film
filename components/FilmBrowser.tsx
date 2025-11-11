@@ -190,24 +190,6 @@ export default function FilmBrowser({
     };
   }, [filters.watchlistOnly]);
   
-  // Global keyboard shortcut - A to toggle awards
-  useEffect(() => {
-    const handleGlobalKeyDown = (e: KeyboardEvent) => {
-      // Only trigger if not typing in an input
-      if ((e.key === 'a' || e.key === 'A') && 
-          !(e.target as HTMLElement).matches('input, textarea')) {
-        e.preventDefault();
-        setFilters(prev => ({ ...prev, awardedOnly: !prev.awardedOnly }));
-      }
-    };
-
-    window.addEventListener('keydown', handleGlobalKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleGlobalKeyDown);
-    };
-  }, [filters.awardedOnly]);
-  
   // Helper function to normalize text for searching (removes accents/diacritics)
   const normalizeForSearch = (text: string): string => {
     return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');

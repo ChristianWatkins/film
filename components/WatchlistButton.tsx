@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { toggleWatchlist, getWatchlist } from '@/lib/watchlist';
 
 interface WatchlistButtonProps {
@@ -12,11 +12,49 @@ interface WatchlistButtonProps {
 export default function WatchlistButton({ filmKey, title, onChange }: WatchlistButtonProps) {
   const [isInWatchlist, setIsInWatchlist] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const prevStateRef = useRef<boolean>(false);
   
-  // Check if in watchlist on mount
+  // Check if in watchlist on mount and when storage changes
   useEffect(() => {
+    const updateWatchlistState = () => {
+      const watchlist = getWatchlist();
+      const nowInWatchlist = watchlist.has(filmKey);
+      
+      // Only update if state actually changed
+      if (prevStateRef.current !== nowInWatchlist) {
+        prevStateRef.current = nowInWatchlist;
+        setIsInWatchlist(nowInWatchlist);
+        // Animate when state changes
+        setIsAnimating(true);
+        setTimeout(() => setIsAnimating(false), 300);
+      }
+    };
+    
+    // Initial check
     const watchlist = getWatchlist();
-    setIsInWatchlist(watchlist.has(filmKey));
+    const initialState = watchlist.has(filmKey);
+    prevStateRef.current = initialState;
+    setIsInWatchlist(initialState);
+    
+    // Listen for storage events (when watchlist changes in other tabs/components)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'film-festival-watchlist') {
+        updateWatchlistState();
+      }
+    };
+    
+    // Listen for custom storage event (for same-tab updates)
+    const handleCustomStorageChange = () => {
+      updateWatchlistState();
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('watchlist-changed', handleCustomStorageChange);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('watchlist-changed', handleCustomStorageChange);
+    };
   }, [filmKey]);
   
   const handleClick = (e: React.MouseEvent) => {
@@ -24,6 +62,7 @@ export default function WatchlistButton({ filmKey, title, onChange }: WatchlistB
     e.stopPropagation();
     
     const newState = toggleWatchlist(filmKey, title);
+    prevStateRef.current = newState;
     setIsInWatchlist(newState);
     
     // Notify parent component of watchlist change
