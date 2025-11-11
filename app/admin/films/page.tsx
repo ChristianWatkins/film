@@ -52,7 +52,7 @@ export default function AdminFilmsPage() {
   const [deletingFilmId, setDeletingFilmId] = useState<string | null>(null);
   const [refreshingJustWatch, setRefreshingJustWatch] = useState<string | null>(null);
   const [refreshingTMDB, setRefreshingTMDB] = useState(false);
-  const [filterMode, setFilterMode] = useState<'all' | 'needs-review' | 'has-tmdb'>('all');
+  const [filterMode, setFilterMode] = useState<'all' | 'needs-review' | 'has-tmdb' | 'no-poster'>('all');
 
   // Check if we're in development
   const isDevelopment = process.env.NODE_ENV === 'development';
@@ -386,6 +386,8 @@ export default function AdminFilmsPage() {
       return !film.tmdb_id; // Only films without TMDB ID (truly failed to find)
     } else if (filterMode === 'has-tmdb') {
       return !!film.tmdb_id;
+    } else if (filterMode === 'no-poster') {
+      return !film.poster_url_tmdb; // Only films without poster
     }
     
     return true; // 'all' mode
@@ -393,6 +395,8 @@ export default function AdminFilmsPage() {
   
   // Count films needing review (only those without TMDB ID)
   const needsReviewCount = films.filter(f => !f.tmdb_id).length;
+  // Count films without posters
+  const noPosterCount = films.filter(f => !f.poster_url_tmdb).length;
 
   if (!isDevelopment) {
     return (
@@ -450,7 +454,7 @@ export default function AdminFilmsPage() {
           <div className="mb-4 flex gap-2">
             <button
               onClick={() => setFilterMode('all')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer ${
                 filterMode === 'all'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -460,7 +464,7 @@ export default function AdminFilmsPage() {
             </button>
             <button
               onClick={() => setFilterMode('needs-review')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer ${
                 filterMode === 'needs-review'
                   ? 'bg-orange-600 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -470,13 +474,23 @@ export default function AdminFilmsPage() {
             </button>
             <button
               onClick={() => setFilterMode('has-tmdb')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer ${
                 filterMode === 'has-tmdb'
                   ? 'bg-green-600 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
               ✓ Has TMDB ({films.length - needsReviewCount})
+            </button>
+            <button
+              onClick={() => setFilterMode('no-poster')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer ${
+                filterMode === 'no-poster'
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              🖼️ No Poster ({noPosterCount})
             </button>
           </div>
           
