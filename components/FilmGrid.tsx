@@ -145,6 +145,41 @@ export default function FilmGrid({
       // Try to maximize the window
       trailerWindow.moveTo(0, 0);
       trailerWindow.resizeTo(screenWidth, screenHeight);
+      
+      // Attempt to enter fullscreen after window loads
+      // Note: This may not work due to browser security restrictions on cross-origin windows
+      // and the requirement that fullscreen must be triggered by user interaction
+      setTimeout(() => {
+        try {
+          // Try to access the window's document (will fail if cross-origin)
+          if (trailerWindow.document) {
+            // If we can access the document, try to find and fullscreen a video element
+            const video = trailerWindow.document.querySelector('video');
+            if (video) {
+              if (video.requestFullscreen) {
+                video.requestFullscreen().catch(() => {
+                  // Fullscreen request failed (user may need to interact first)
+                });
+              } else if ((video as any).webkitRequestFullscreen) {
+                (video as any).webkitRequestFullscreen();
+              } else if ((video as any).mozRequestFullScreen) {
+                (video as any).mozRequestFullScreen();
+              } else if ((video as any).msRequestFullscreen) {
+                (video as any).msRequestFullscreen();
+              }
+              
+              // Try to autoplay the video
+              video.muted = true; // Mute for autoplay
+              video.play().catch(() => {
+                // Autoplay failed (browser policy)
+              });
+            }
+          }
+        } catch (e) {
+          // Cross-origin restriction - cannot access MUBI's document
+          // This is expected and normal for security reasons
+        }
+      }, 1000); // Wait 1 second for page to load
     }
   };
 
