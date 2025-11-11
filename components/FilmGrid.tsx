@@ -280,6 +280,19 @@ export default function FilmGrid({
         setShowLocalSearch(prev => !prev);
       }
       
+      // T key plays trailer when exactly one card is flipped
+      if ((e.key === 't' || e.key === 'T') && !showFilters && !showHelpOverlay) {
+        e.preventDefault();
+        // Check that exactly one card is flipped (not all cards, and not zero cards)
+        if (flippedCard !== null && !allCardsFlipped) {
+          // Find the film matching the flipped card
+          const flippedFilm = visibleFilms.find(film => film.filmKey === flippedCard);
+          if (flippedFilm && flippedFilm.mubiLink) {
+            playTrailer(flippedFilm);
+          }
+        }
+      }
+      
       // Arrow key navigation
       if (!showFilters) {
         const cardsPerRow = getCardsPerRow();
@@ -343,7 +356,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms, isHydrated]);
+  }, [showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms, isHydrated, flippedCard, allCardsFlipped]);
 
   // Reset row index when films change or filters change
   useEffect(() => {
@@ -694,6 +707,11 @@ export default function FilmGrid({
                     <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">3 3</kbd>
                     <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">4 4</kbd>
                   </div>
+                </div>
+                
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Play trailer (when one card flipped)</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono flex-shrink-0 text-gray-800 dark:text-gray-200">T</kbd>
                 </div>
                 
                 <div className="flex items-center justify-between w-full">

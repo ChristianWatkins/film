@@ -257,7 +257,6 @@ export default function PresentationFilters({
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <h2 className="text-xl font-semibold">Filters</h2>
         </div>
         {/* Film Count - aligned with filter cards */}
         <div className="absolute left-0 right-0 top-0 bottom-0 flex items-center pointer-events-none">
@@ -272,7 +271,7 @@ export default function PresentationFilters({
       </div>
 
       {/* Filter Container */}
-      <div className="flex-1 bg-[#1A1A2E] py-6 px-16 overflow-y-auto">
+      <div className="flex-1 bg-[#1A1A2E] py-6 px-16 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {/* Search Section with Save/Reset Buttons */}
         <div className="max-w-6xl mx-auto mb-6">
           <div className="flex items-center gap-4">
