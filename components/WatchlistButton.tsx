@@ -20,13 +20,18 @@ export default function WatchlistButton({ filmKey, title, onChange }: WatchlistB
       const watchlist = getWatchlist();
       const nowInWatchlist = watchlist.has(filmKey);
       
+      console.log(`[WatchlistButton] updateWatchlistState called - filmKey: ${filmKey}, nowInWatchlist: ${nowInWatchlist}, prevState: ${prevStateRef.current}`);
+      
       // Only update if state actually changed
       if (prevStateRef.current !== nowInWatchlist) {
+        console.log(`[WatchlistButton] State changed! Updating from ${prevStateRef.current} to ${nowInWatchlist}`);
         prevStateRef.current = nowInWatchlist;
         setIsInWatchlist(nowInWatchlist);
         // Animate when state changes
         setIsAnimating(true);
         setTimeout(() => setIsAnimating(false), 300);
+      } else {
+        console.log(`[WatchlistButton] No state change needed (already ${nowInWatchlist})`);
       }
     };
     
@@ -45,11 +50,13 @@ export default function WatchlistButton({ filmKey, title, onChange }: WatchlistB
     
     // Listen for custom storage event (for same-tab updates)
     const handleCustomStorageChange = () => {
+      console.log(`[WatchlistButton] 'watchlist-changed' event received for filmKey: ${filmKey}`);
       updateWatchlistState();
     };
     
     window.addEventListener('storage', handleStorageChange);
     window.addEventListener('watchlist-changed', handleCustomStorageChange);
+    console.log(`[WatchlistButton] Event listeners attached for filmKey: ${filmKey}`);
     
     return () => {
       window.removeEventListener('storage', handleStorageChange);

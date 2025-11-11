@@ -246,6 +246,11 @@ export default function FilmGrid({
     if (!isHydrated) return;
     
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Debug: Log all key presses with Shift
+      if (e.shiftKey && ['Digit1', 'Digit2', 'Digit3', 'Digit4'].includes(e.code)) {
+        console.log(`[FilmGrid] DEBUG - Shift+${e.code} detected - shiftKey: ${e.shiftKey}, key: ${e.key}, code: ${e.code}, showFilters: ${showFilters}, showHelpOverlay: ${showHelpOverlay}`);
+      }
+      
       // Tab key always toggles filters (even when in input fields)
       if (e.key === 'Tab') {
         e.preventDefault();
@@ -262,7 +267,12 @@ export default function FilmGrid({
       }
       
       // Don't trigger other shortcuts if typing in an input (except Tab which is handled above)
-      if ((e.target as HTMLElement).matches('input, textarea')) return;
+      if ((e.target as HTMLElement).matches('input, textarea')) {
+        if (e.shiftKey && ['Digit1', 'Digit2', 'Digit3', 'Digit4'].includes(e.code)) {
+          console.log(`[FilmGrid] DEBUG - Shift+${e.code} blocked because typing in input/textarea`);
+        }
+        return;
+      }
       
       // H key toggles help overlay
       if (e.key === 'h' || e.key === 'H') {
@@ -276,9 +286,29 @@ export default function FilmGrid({
         setAllCardsFlipped(prev => !prev);
       }
       
+      // Shift+Number keys (Shift+1, Shift+2, Shift+3, Shift+4) add to watchlist
+      if (e.shiftKey && ['Digit1', 'Digit2', 'Digit3', 'Digit4'].includes(e.code) && !showFilters && !showHelpOverlay) {
+        e.preventDefault();
+        // Extract the digit from the code (e.g., 'Digit1' -> 1)
+        const digit = parseInt(e.code.replace('Digit', ''));
+        const cardIndex = digit - 1; // Convert to 0-based index
+        if (cardIndex < visibleFilms.length) {
+          const targetFilm = visibleFilms[cardIndex];
+          console.log(`[FilmGrid] Shift+${digit} pressed - toggling watchlist for:`, targetFilm.title, `(filmKey: ${targetFilm.filmKey})`);
+          const wasInWatchlist = toggleWatchlist(targetFilm.filmKey, targetFilm.title);
+          const nowInWatchlist = !wasInWatchlist;
+          console.log(`[FilmGrid] Watchlist toggled - ${nowInWatchlist ? 'ADDED' : 'REMOVED'} to watchlist`);
+          // Notify parent component of watchlist change
+          onWatchlistChange?.();
+          console.log(`[FilmGrid] onWatchlistChange callback called`);
+        } else {
+          console.log(`[FilmGrid] Shift+${digit} pressed but card index ${cardIndex} is out of range (visibleFilms.length: ${visibleFilms.length})`);
+        }
+      }
+      
       // Number keys (1, 2, 3, 4) flip individual cards
       // Double-click same number key to play trailer
-      if (['1', '2', '3', '4'].includes(e.key) && !showFilters && !showHelpOverlay) {
+      if (!e.shiftKey && ['1', '2', '3', '4'].includes(e.key) && !showFilters && !showHelpOverlay) {
         e.preventDefault();
         const cardIndex = parseInt(e.key) - 1; // Convert to 0-based index
         if (cardIndex < visibleFilms.length) {
@@ -743,6 +773,18 @@ export default function FilmGrid({
                 <div className="flex items-center justify-between w-full">
                   <span className="text-gray-700 dark:text-gray-300 flex-1">Flip individual cards</span>
                   <div className="flex gap-1 flex-shrink-0">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">1</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">2</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">3</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">4</kbd>
+                  </div>
+                </div>
+                
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Add to watchlist</span>
+                  <div className="flex gap-1 flex-shrink-0">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">Shift</kbd>
+                    <span className="text-gray-500">+</span>
                     <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">1</kbd>
                     <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">2</kbd>
                     <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">3</kbd>

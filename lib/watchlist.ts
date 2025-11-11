@@ -91,11 +91,15 @@ export function toggleWatchlist(filmKey: string, title: string): boolean {
   const watchlist = getWatchlist();
   const isInWatchlist = watchlist.has(filmKey);
   
+  console.log(`[watchlist] toggleWatchlist called - filmKey: ${filmKey}, title: ${title}, currently in watchlist: ${isInWatchlist}`);
+  
   if (isInWatchlist) {
     removeFromWatchlist(filmKey);
+    console.log(`[watchlist] Removed from watchlist, returning false`);
     return false;
   } else {
     addToWatchlist(filmKey, title);
+    console.log(`[watchlist] Added to watchlist, returning true`);
     return true;
   }
 }
