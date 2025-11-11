@@ -276,7 +276,7 @@ export default function PresentationFilters({
         <div className="max-w-6xl mx-auto mb-6">
           <div className="flex items-center gap-4">
             {/* Search Input */}
-            <div className="flex-1">
+            <div className="flex-1 relative">
               <input
                 ref={searchInputRef}
                 type="text"
@@ -289,8 +289,20 @@ export default function PresentationFilters({
                   }
                 }}
                 placeholder="Search films, directors, cast, genres..."
-                className="w-full py-4 px-6 text-lg border-2 border-[#FFB800] rounded-2xl bg-white text-gray-900 placeholder:text-gray-400 outline-none focus:border-[#FFC533] focus:shadow-[0_0_0_3px_rgba(255,184,0,0.2)] transition-all"
+                className="w-full py-4 px-6 text-lg border-2 border-[#FFB800] rounded-2xl bg-white text-gray-900 placeholder:text-gray-400 outline-none focus:border-[#FFC533] focus:shadow-[0_0_0_3px_rgba(255,184,0,0.2)] transition-all pr-12"
               />
+              {searchQuery && (
+                <button
+                  onClick={() => handleSearchChange('')}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+                  title="Clear search"
+                  aria-label="Clear search"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
             </div>
             
             {/* Save/Reset Buttons */}
