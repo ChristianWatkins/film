@@ -14,7 +14,7 @@ const STORAGE_KEY = 'film-app-dark-mode';
 export function DarkModeProvider({ children }: { children: ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
-  const toggleRef = useRef<() => void>();
+  const toggleRef = useRef<(() => void) | undefined>(undefined);
 
   // Load dark mode preference from localStorage on mount
   useEffect(() => {
