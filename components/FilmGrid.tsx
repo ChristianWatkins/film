@@ -346,7 +346,7 @@ export default function FilmGrid({
   }, [films.length, JSON.stringify(filters), currentRowIndex]);
 
   return (
-    <div data-film-grid className={isHydrated ? 'fixed inset-0 bg-gray-50 z-50 flex flex-col' : ''}>
+    <div data-film-grid className={isHydrated ? 'fixed inset-0 bg-gray-50 dark:bg-[var(--background)] z-50 flex flex-col transition-colors' : ''}>
       {/* Presentation mode header */}
       {isHydrated && (
         <>
@@ -498,7 +498,7 @@ export default function FilmGrid({
                 }
               }}
               disabled={currentRowIndex === 0}
-              className={`text-lg font-medium cursor-pointer hover:text-gray-600 transition-colors ${
+              className={`text-lg font-medium cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 transition-colors ${
                 currentRowIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               style={{ transform: 'scaleX(2)' }}
@@ -532,7 +532,7 @@ export default function FilmGrid({
                 }
               }}
               disabled={currentRowIndex >= Math.ceil(films.length / getCardsPerRow()) - 1}
-              className={`text-lg font-medium cursor-pointer hover:text-gray-600 transition-colors ${
+              className={`text-lg font-medium cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 transition-colors ${
                 currentRowIndex >= Math.ceil(films.length / getCardsPerRow()) - 1 ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               style={{ transform: 'rotate(180deg) scaleX(2)' }}
@@ -552,10 +552,10 @@ export default function FilmGrid({
         {films.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center w-full">
             <div className="text-6xl mb-4">🎬</div>
-            <h3 className="text-xl font-semibold mb-2 text-white">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
               No films found
             </h3>
-            <p className="text-gray-300">
+            <p className="text-gray-600 dark:text-gray-300">
               Try adjusting your filters to see more results
             </p>
           </div>
@@ -622,12 +622,12 @@ export default function FilmGrid({
       {/* Help Overlay */}
       {showHelpOverlay && isHydrated && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-2xl max-w-lg w-full p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-lg w-full p-6 transition-colors">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-gray-900">Keyboard Shortcuts</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Keyboard Shortcuts</h3>
               <button
                 onClick={() => setShowHelpOverlay(false)}
-                className="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-gray-700 transition-colors"
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
                 title="Close help"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -639,51 +639,56 @@ export default function FilmGrid({
             <div className="space-y-4">
               <div className="grid gap-3">
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Navigate up/down</span>
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Toggle dark mode</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono flex-shrink-0 text-gray-800 dark:text-gray-200">D</kbd>
+                </div>
+                
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Navigate up/down</span>
                   <div className="flex gap-1 flex-shrink-0">
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">↑</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">↓</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">↑</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">↓</kbd>
                   </div>
                 </div>
                 
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Toggle filters</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">Tab</kbd>
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Toggle filters</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono flex-shrink-0 text-gray-800 dark:text-gray-200">Tab</kbd>
                 </div>
                 
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Show/hide help</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">H</kbd>
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Show/hide help</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono flex-shrink-0 text-gray-800 dark:text-gray-200">H</kbd>
                 </div>
                 
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Toggle all card flips</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">Space</kbd>
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Toggle all card flips</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono flex-shrink-0 text-gray-800 dark:text-gray-200">Space</kbd>
                 </div>
                 
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Flip individual cards</span>
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Flip individual cards</span>
                   <div className="flex gap-1 flex-shrink-0">
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">1</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">2</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">3</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">4</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">1</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">2</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">3</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">4</kbd>
                   </div>
                 </div>
                 
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Play trailer (double-click)</span>
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Play trailer (double-click)</span>
                   <div className="flex gap-1 flex-shrink-0">
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">1 1</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">2 2</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">3 3</kbd>
-                    <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono text-gray-800">4 4</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">1 1</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">2 2</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">3 3</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">4 4</kbd>
                   </div>
                 </div>
                 
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-gray-700 flex-1">Close overlays</span>
-                  <kbd className="px-2 py-1 text-sm bg-gray-100 rounded border font-mono flex-shrink-0 text-gray-800">Esc</kbd>
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Close overlays</span>
+                  <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono flex-shrink-0 text-gray-800 dark:text-gray-200">Esc</kbd>
                 </div>
               </div>
             </div>
