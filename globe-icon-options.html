@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globe Icon Options</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a1a2e;
+            color: #ededed;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #FFB800;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        h2 {
+            color: #FFB800;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #FFB800;
+            padding-bottom: 0.5rem;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .icon-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .icon-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #FFB800;
+            transform: translateY(-2px);
+        }
+        .icon-card.selected {
+            border-color: #FFB800;
+            background: rgba(255, 184, 0, 0.1);
+        }
+        .icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        .icon-wrapper svg {
+            width: 48px;
+            height: 48px;
+            color: #ededed;
+        }
+        .icon-name {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .icon-code {
+            font-size: 0.75rem;
+            color: #888;
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        .library-info {
+            background: rgba(255, 184, 0, 0.1);
+            border-left: 4px solid #FFB800;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        .copy-btn {
+            background: #FFB800;
+            color: #1a1a2e;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover {
+            background: #E6A600;
+        }
+        .selected-info {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1a1a2e;
+            border: 2px solid #FFB800;
+            padding: 1.5rem;
+            border-radius: 8px;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .selected-info h3 {
+            color: #FFB800;
+            margin-bottom: 1rem;
+        }
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 Globe Icon Options</h1>
+        
+        <div class="library-info">
+            <strong>Instructions:</strong> Click on any icon to see the import code. The selected icon will be shown in the bottom right corner.
+        </div>
+
+        <!-- Heroicons -->
+        <h2>Heroicons (Outline)</h2>
+        <div class="icon-grid" id="heroicons-outline">
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="GlobeAltIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                </div>
+                <div class="icon-name">GlobeAltIcon</div>
+                <div class="icon-code">@heroicons/react/24/outline</div>
+            </div>
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="GlobeAmericasIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="icon-name">GlobeAmericasIcon</div>
+                <div class="icon-code">@heroicons/react/24/outline</div>
+            </div>
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="GlobeEuropeAfricaIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="icon-name">GlobeEuropeAfricaIcon</div>
+                <div class="icon-code">@heroicons/react/24/outline</div>
+            </div>
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="GlobeAsiaAustraliaIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="icon-name">GlobeAsiaAustraliaIcon</div>
+                <div class="icon-code">@heroicons/react/24/outline</div>
+            </div>
+        </div>
+
+        <!-- Heroicons Solid -->
+        <h2>Heroicons (Solid)</h2>
+        <div class="icon-grid" id="heroicons-solid">
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="GlobeAltIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM8.547 4.505a8.25 8.25 0 1011.672 8.33l-.135.135a.75.75 0 01-.106-.106 8.25 8.25 0 00-11.38-11.38l-.135.135a.75.75 0 01-.106-.106zM15.75 12a.75.75 0 01-.75.75H9a.75.75 0 010-1.5h6a.75.75 0 01.75.75z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="icon-name">GlobeAltIcon</div>
+                <div class="icon-code">@heroicons/react/24/solid</div>
+            </div>
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="GlobeAmericasIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM8.547 4.505a8.25 8.25 0 1011.672 8.33l-.135.135a.75.75 0 01-.106-.106 8.25 8.25 0 00-11.38-11.38l-.135.135a.75.75 0 01-.106-.106zM15.75 12a.75.75 0 01-.75.75H9a.75.75 0 010-1.5h6a.75.75 0 01.75.75z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="icon-name">GlobeAmericasIcon</div>
+                <div class="icon-code">@heroicons/react/24/solid</div>
+            </div>
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="GlobeEuropeAfricaIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M15.75 8.25a.75.75 0 01.75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 11-.992-1.124A2.243 2.243 0 0015 9a.75.75 0 01.75-.75z" />
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM8.547 4.505a8.25 8.25 0 1011.672 8.33l-.135.135a.75.75 0 01-.106-.106 8.25 8.25 0 00-11.38-11.38l-.135.135a.75.75 0 01-.106-.106zM15.75 12a.75.75 0 01-.75.75H9a.75.75 0 010-1.5h6a.75.75 0 01.75.75z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="icon-name">GlobeEuropeAfricaIcon</div>
+                <div class="icon-code">@heroicons/react/24/solid</div>
+            </div>
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="GlobeAsiaAustraliaIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M15.75 8.25a.75.75 0 01.75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 11-.992-1.124A2.243 2.243 0 0015 9a.75.75 0 01.75-.75z" />
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM8.547 4.505a8.25 8.25 0 1011.672 8.33l-.135.135a.75.75 0 01-.106-.106 8.25 8.25 0 00-11.38-11.38l-.135.135a.75.75 0 01-.106-.106zM15.75 12a.75.75 0 01-.75.75H9a.75.75 0 010-1.5h6a.75.75 0 01.75.75z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="icon-name">GlobeAsiaAustraliaIcon</div>
+                <div class="icon-code">@heroicons/react/24/solid</div>
+            </div>
+        </div>
+
+        <!-- Lucide Icons -->
+        <h2>Lucide Icons</h2>
+        <div class="library-info">
+            <strong>Note:</strong> You're already using lucide-react in your project. Install with: <code>npm install lucide-react</code>
+        </div>
+        <div class="icon-grid" id="lucide">
+            <div class="icon-card" data-library="lucide" data-name="Globe">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Globe</div>
+                <div class="icon-code">lucide-react</div>
+            </div>
+            <div class="icon-card" data-library="lucide" data-name="Globe2">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        <path d="M2 12h20"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Globe2</div>
+                <div class="icon-code">lucide-react</div>
+            </div>
+            <div class="icon-card" data-library="lucide" data-name="Earth">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.54 15.185a9.5 9.5 0 0 1-2.54.315c-5.523 0-10-4.477-10-10 0-1.04.158-2.042.45-2.985A9.5 9.5 0 0 0 2.46 8.815a9.5 9.5 0 0 0 0 6.37 9.5 9.5 0 0 0 5.197 3.972 9.5 9.5 0 0 0 6.37 0 9.5 9.5 0 0 0 5.197-3.972 9.5 9.5 0 0 0 2.54-3.315z"></path>
+                        <path d="M12 2v20"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Earth</div>
+                <div class="icon-code">lucide-react</div>
+            </div>
+        </div>
+
+        <!-- React Icons - FontAwesome -->
+        <h2>React Icons - FontAwesome</h2>
+        <div class="library-info">
+            <strong>Note:</strong> You're already using react-icons. Install with: <code>npm install react-icons</code>
+        </div>
+        <div class="icon-grid" id="react-icons-fa">
+            <div class="icon-card" data-library="react-icons" data-family="fa" data-name="FaGlobe">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 576 512">
+                        <path d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l24.6 146.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-131.7-68.7L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l24.6-146.6L33.58 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-54.9c7.1-3.7 15.6-3.7 22.6 0l105.2 54.9L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21L477.9 217.9 360.6 200.5c-7.8-1.1-14.6-6.1-18.1-13.3L287.9 79z"/>
+                    </svg>
+                </div>
+                <div class="icon-name">FaGlobe</div>
+                <div class="icon-code">react-icons/fa</div>
+            </div>
+            <div class="icon-card" data-library="react-icons" data-family="fa" data-name="FaGlobeAmericas">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 640 512">
+                        <path d="M0 336c0 79.5 64.5 144 144 144H512c70.7 0 128-57.3 128-128c0-61.9-44-113.6-102.4-125.4c4.1-10.7 6.4-22.4 6.4-34.6c0-53-43-96-96-96c-19.7 0-38.1 6-53.3 16.2C367 64.2 315 32 256 32C167.6 32 96 103.6 96 192c0 2.7 .1 5.4 .2 8.1C40.2 219.8 0 273.2 0 336zm256-80a80 80 0 1 1 0 160 80 80 0 1 1 0-160zM144 480c-44.2 0-80-35.8-80-80V416H144V480zM592 480c-8.8 0-16-7.2-16-16V384H624v80c0 8.8-7.2 16-16 16z"/>
+                    </svg>
+                </div>
+                <div class="icon-name">FaGlobeAmericas</div>
+                <div class="icon-code">react-icons/fa</div>
+            </div>
+            <div class="icon-card" data-library="react-icons" data-family="fa" data-name="FaGlobeEurope">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 640 512">
+                        <path d="M319.9 32c-70.7 0-128 57.3-128 128c0 70.6 57.3 128 128 128s128-57.4 128-128c0-70.7-57.3-128-128-128zM0 336c0 79.5 64.5 144 144 144H272v-64H144c-8.8 0-16-7.2-16-16s7.2-16 16-16H512c70.7 0 128-57.3 128-128c0-61.9-44-113.6-102.4-125.4c4.1-10.7 6.4-22.4 6.4-34.6c0-53-43-96-96-96c-19.7 0-38.1 6-53.3 16.2C367 64.2 315 32 256 32C167.6 32 96 103.6 96 192c0 2.7 .1 5.4 .2 8.1C40.2 219.8 0 273.2 0 336zm176 80H144c-8.8 0-16-7.2-16-16V384h48v32zm0-64H128V320h48v32zm240 64H272V384H416v32zm0-64H272V320H416v32zm80 64H496V384h48v32zm0-64H496V320h48v32z"/>
+                    </svg>
+                </div>
+                <div class="icon-name">FaGlobeEurope</div>
+                <div class="icon-code">react-icons/fa</div>
+            </div>
+        </div>
+
+        <!-- React Icons - Material Design -->
+        <h2>React Icons - Material Design</h2>
+        <div class="icon-grid" id="react-icons-md">
+            <div class="icon-card" data-library="react-icons" data-family="md" data-name="MdPublic">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                </div>
+                <div class="icon-name">MdPublic</div>
+                <div class="icon-code">react-icons/md</div>
+            </div>
+            <div class="icon-card" data-library="react-icons" data-family="md" data-name="MdLanguage">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H4.26c.96-1.66 2.49-2.93 4.33-3.56C8.03 5.55 7.58 6.75 7.26 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.34.16-2h4.68c.09.66.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zm3.26-4.56c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+                    </svg>
+                </div>
+                <div class="icon-name">MdLanguage</div>
+                <div class="icon-code">react-icons/md</div>
+            </div>
+        </div>
+
+        <!-- React Icons - Feather -->
+        <h2>React Icons - Feather</h2>
+        <div class="icon-grid" id="react-icons-fi">
+            <div class="icon-card" data-library="react-icons" data-family="fi" data-name="FiGlobe">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">FiGlobe</div>
+                <div class="icon-code">react-icons/fi</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="selected-info" id="selectedInfo" style="display: none;">
+        <h3>Selected Icon</h3>
+        <div id="selectedIconName"></div>
+        <div class="code-block" id="selectedCode"></div>
+        <button class="copy-btn" onclick="copyCode()">Copy Import Code</button>
+    </div>
+
+    <script>
+        const iconCards = document.querySelectorAll('.icon-card');
+        let selectedCard = null;
+
+        iconCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove previous selection
+                if (selectedCard) {
+                    selectedCard.classList.remove('selected');
+                }
+                
+                // Add selection to clicked card
+                card.classList.add('selected');
+                selectedCard = card;
+
+                // Show selected info
+                const infoDiv = document.getElementById('selectedInfo');
+                const nameDiv = document.getElementById('selectedIconName');
+                const codeDiv = document.getElementById('selectedCode');
+
+                const library = card.dataset.library;
+                const name = card.dataset.name;
+                const variant = card.dataset.variant;
+                const family = card.dataset.family;
+
+                nameDiv.textContent = name;
+
+                let importCode = '';
+                let usageCode = '';
+
+                if (library === 'heroicons') {
+                    const variantPath = variant === 'solid' ? '24/solid' : '24/outline';
+                    importCode = `import { ${name} } from '@heroicons/react/${variantPath}';`;
+                    usageCode = `<${name} className="w-6 h-6" />`;
+                } else if (library === 'lucide') {
+                    importCode = `import { ${name} } from 'lucide-react';`;
+                    usageCode = `<${name} className="w-6 h-6" />`;
+                } else if (library === 'react-icons') {
+                    const familyMap = {
+                        'fa': 'react-icons/fa',
+                        'md': 'react-icons/md',
+                        'fi': 'react-icons/fi'
+                    };
+                    importCode = `import { ${name} } from '${familyMap[family]}';`;
+                    usageCode = `<${name} className="w-6 h-6" />`;
+                }
+
+                codeDiv.innerHTML = `<div style="margin-bottom: 0.5rem;"><strong>Import:</strong></div><div>${importCode}</div><div style="margin-top: 1rem; margin-bottom: 0.5rem;"><strong>Usage:</strong></div><div>${usageCode}</div>`;
+                
+                infoDiv.style.display = 'block';
+                window.selectedCode = importCode + '\n' + usageCode;
+            });
+        });
+
+        function copyCode() {
+            if (window.selectedCode) {
+                navigator.clipboard.writeText(window.selectedCode).then(() => {
+                    const btn = event.target;
+                    const originalText = btn.textContent;
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                    }, 2000);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
+

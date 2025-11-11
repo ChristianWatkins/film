@@ -4,7 +4,8 @@ import { useState, useRef, useEffect, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
-import { EyeIcon, EyeSlashIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { Globe } from 'lucide-react';
 import { FaTrophy } from 'react-icons/fa';
 import Link from 'next/link';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
@@ -437,9 +438,9 @@ export default function FilmGrid({
               <Link
                 href="/search"
                 className="p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
-                title="Search for movies"
+                title="Global search"
               >
-                <MagnifyingGlassIcon className="w-6 h-6" />
+                <Globe className="w-6 h-6" strokeWidth={1.5} />
               </Link>
             </div>
           </div>
