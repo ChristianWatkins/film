@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { parseSharedFavorites, addToWatchlist, getWatchlist, generateShareableUrlFromFilmKeys, togglePriority, toggleWatchlist } from '@/lib/watchlist';
 import type { Film } from '@/lib/types';
@@ -153,6 +153,68 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Helper function to get cards per row based on viewport width
+  const getCardsPerRow = (): number => {
+    if (typeof window === 'undefined') return 4;
+    const width = window.innerWidth;
+    if (width >= 1024) return 4; // lg: 4 cards
+    if (width >= 768) return 2;  // md: 2 cards
+    return 1; // sm: 1 card
+  };
+
+  // Calculate visible films for current row
+  const visibleFilms = useMemo(() => {
+    const cardsPerRow = getCardsPerRow();
+    const startIndex = currentRowIndex * cardsPerRow;
+    const endIndex = startIndex + cardsPerRow;
+    return sharedFilms.slice(startIndex, endIndex);
+  }, [currentRowIndex, sharedFilms]);
+
+  // Row jump functionality - show one row at a time with wheel navigation
+  useEffect(() => {
+    if (loading || sharedFilms.length === 0) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Determine scroll direction (use a threshold to avoid micro-scrolls)
+      if (Math.abs(e.deltaY) < 5) return;
+      const scrollingDown = e.deltaY > 0;
+      
+      const cardsPerRow = getCardsPerRow();
+      const totalRows = Math.ceil(sharedFilms.length / cardsPerRow);
+      
+      let newRowIndex = currentRowIndex;
+      if (scrollingDown && currentRowIndex < totalRows - 1) {
+        newRowIndex = currentRowIndex + 1;
+      } else if (!scrollingDown && currentRowIndex > 0) {
+        newRowIndex = currentRowIndex - 1;
+      }
+      
+      if (newRowIndex !== currentRowIndex) {
+        setCurrentRowIndex(newRowIndex);
+        
+        // Reset card flip states when moving to new row
+        setFlippedCard(null);
+        setAllCardsFlipped(false);
+        
+        // Scroll to the new row
+        const startIndex = newRowIndex * cardsPerRow;
+        const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+        if (targetCard) {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, [currentRowIndex, sharedFilms.length, loading]);
+
   // Keyboard shortcuts
   useEffect(() => {
     if (loading || sharedFilms.length === 0) return;
@@ -175,8 +237,8 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         e.preventDefault();
         const digit = parseInt(e.code.replace('Digit', ''));
         const cardIndex = digit - 1;
-        if (cardIndex < sharedFilms.length) {
-          const targetFilm = sharedFilms[cardIndex];
+        if (cardIndex < visibleFilms.length) {
+          const targetFilm = visibleFilms[cardIndex];
           toggleWatchlist(targetFilm.filmKey, targetFilm.title);
           setUserWatchlist(getWatchlist());
         }
@@ -187,8 +249,8 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
       if (!e.shiftKey && ['1', '2', '3', '4'].includes(e.key) && !showShareModal) {
         e.preventDefault();
         const cardIndex = parseInt(e.key) - 1;
-        if (cardIndex < sharedFilms.length) {
-          const targetFilm = sharedFilms[cardIndex];
+        if (cardIndex < visibleFilms.length) {
+          const targetFilm = visibleFilms[cardIndex];
           const now = Date.now();
           const keyState = keyPressRef.current[e.key] || { count: 0, lastTime: 0 };
           
@@ -219,7 +281,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
       if ((e.key === 't' || e.key === 'T') && !showShareModal) {
         e.preventDefault();
         if (flippedCard !== null && !allCardsFlipped) {
-          const flippedFilm = sharedFilms.find(film => film.filmKey === flippedCard);
+          const flippedFilm = visibleFilms.find(film => film.filmKey === flippedCard);
           if (flippedFilm && flippedFilm.mubiLink) {
             playTrailer(flippedFilm);
           }
@@ -230,7 +292,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
       if ((e.key === 'a' || e.key === 'A') && !showShareModal) {
         e.preventDefault();
         if (flippedCard !== null && !allCardsFlipped) {
-          const flippedFilm = sharedFilms.find(film => film.filmKey === flippedCard);
+          const flippedFilm = visibleFilms.find(film => film.filmKey === flippedCard);
           if (flippedFilm) {
             toggleWatchlist(flippedFilm.filmKey, flippedFilm.title);
             setUserWatchlist(getWatchlist());
@@ -324,7 +386,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [loading, sharedFilms, flippedCard, allCardsFlipped, showShareModal, currentRowIndex]);
+  }, [loading, sharedFilms, visibleFilms, flippedCard, allCardsFlipped, showShareModal, currentRowIndex]);
 
   // Reset row index when films change
   useEffect(() => {
@@ -341,16 +403,6 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Helper function to get cards per row based on viewport width
-  const getCardsPerRow = (): number => {
-    if (typeof window === 'undefined') return 4;
-    const width = window.innerWidth;
-    if (width >= 1280) return 4; // xl
-    if (width >= 1024) return 3; // lg
-    if (width >= 768) return 2;  // md
-    return 1; // sm
   };
 
   // Play trailer function
@@ -450,9 +502,9 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 dark:bg-[var(--background)] transition-colors">
         <div className="flex items-center justify-center min-h-screen">
-          <div className="text-gray-600 text-lg">Loading shared favorites...</div>
+          <div className="text-gray-600 dark:text-gray-300 text-lg">Loading shared favorites...</div>
         </div>
       </div>
     );
@@ -460,12 +512,12 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <div className="max-w-2xl mx-auto px-4 py-16">
-          <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-[var(--background)] transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center transition-colors">
             <div className="text-6xl mb-4">⚠️</div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Error Loading Favorites</h1>
-            <p className="text-gray-600 mb-6">{error}</p>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Error Loading Favorites</h1>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">{error}</p>
             <a
               href="/"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors cursor-pointer"
@@ -480,12 +532,12 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   
   if (sharedFilms.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <div className="max-w-2xl mx-auto px-4 py-16">
-          <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-[var(--background)] transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center transition-colors">
             <div className="text-6xl mb-4">🎬</div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">No Favorites Found</h1>
-            <p className="text-gray-600 mb-6">This shared link doesn't contain any favorites.</p>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">No Favorites Found</h1>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">This shared link doesn't contain any favorites.</p>
             <a
               href="/"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors cursor-pointer"
@@ -499,82 +551,63 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   }
   
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-[#1A1A2E] shadow-lg border-b-4 border-[#FFB800]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-white mb-2">
-                {listName || 'Shared Favorites'}
-              </h1>
-              <p className="text-gray-300">
-                {listName 
-                  ? 'Someone shared this list with you!' 
-                  : 'Someone shared their favorite films with you!'}
-              </p>
+    <div className="min-h-screen bg-gray-50 dark:bg-[var(--background)] transition-colors">
+      {/* Combined Header - Single line layout matching main page */}
+      <header className="bg-[#1A1A2E] shadow-lg py-4">
+        <div className="px-4 sm:px-4 md:px-32 flex items-center justify-between gap-4 md:gap-0">
+          {/* Left side: Title and film count */}
+          <div className="flex items-center gap-2 md:gap-6 flex-shrink min-w-0">
+            {listName && (
+              <div className="text-xs md:text-base font-medium text-white/70 whitespace-nowrap truncate">
+                {listName}
+              </div>
+            )}
+            <div className="hidden sm:block text-sm md:text-lg font-medium text-white whitespace-nowrap">
+              {sharedFilms.length} film{sharedFilms.length !== 1 ? 's' : ''}
             </div>
+          </div>
+          
+          {/* Right side: Action buttons */}
+          <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
+            <button
+              onClick={() => setShowShareModal(!showShareModal)}
+              className="p-1.5 md:p-3.5 rounded-full bg-gray-700/80 hover:bg-gray-600 text-white transition-all duration-200 cursor-pointer"
+              title="Share Edited List"
+            >
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+              </svg>
+            </button>
+            <button
+              onClick={handleAddAllToFavorites}
+              className="p-1.5 md:p-3.5 rounded-full bg-gray-700/80 hover:bg-gray-600 text-white transition-all duration-200 cursor-pointer"
+              title="Add All to My Favorites"
+            >
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+              </svg>
+            </button>
             <a
               href="/"
-              className="bg-white hover:bg-gray-100 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors cursor-pointer"
+              className="p-1.5 md:p-3.5 rounded-full bg-gray-700/80 hover:bg-gray-600 text-white transition-all duration-200 cursor-pointer"
+              title="Browse All Films"
             >
-              Browse All Films
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+              </svg>
             </a>
           </div>
         </div>
       </header>
       
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Info Banner */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-          <div className="flex items-start gap-3">
-            <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <div className="flex-1">
-              <p className="text-blue-900 font-medium">You're viewing shared favorites</p>
-              <p className="text-blue-700 text-sm mt-1">
-                These films won't be added to your favorites automatically. Hearts show which films are already in your collection.
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        {/* Action Bar */}
-        <div className="bg-white rounded-lg shadow p-4 mb-6">
-          <div className="flex items-center justify-between flex-wrap gap-3">
-            <div className="text-gray-900">
-              Showing <span className="font-semibold">{sharedFilms.length}</span> shared film{sharedFilms.length !== 1 ? 's' : ''}
-            </div>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setShowShareModal(!showShareModal)}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                </svg>
-                Share Edited List
-              </button>
-              <button
-                onClick={handleAddAllToFavorites}
-                className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
-              >
-                <svg className="w-5 h-5" fill="currentColor" stroke="currentColor" strokeWidth="0" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-                Add All to My Favorites
-              </button>
-            </div>
-          </div>
-        </div>
+      <div className="pb-8">
 
         {/* Share Modal */}
         {showShareModal && (
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-6 border border-gray-200">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6 border border-gray-200 dark:border-gray-700 transition-colors">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Share Edited List</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Share Edited List</h3>
               <button
                 onClick={() => {
                   setShowShareModal(false);
@@ -582,7 +615,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
                   setShareListName('');
                   setShareError('');
                 }}
-                className="text-gray-400 hover:text-gray-900 transition-colors cursor-pointer"
+                className="text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -592,24 +625,24 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
             </div>
             
             <div className="space-y-4">
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Generate a new share link for this edited list ({sharedFilms.length} film{sharedFilms.length !== 1 ? 's' : ''}).
               </p>
 
               {/* List Name Input */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   List Name (optional)
                 </label>
                 <input
                   type="text"
                   value={shareListName}
                   onChange={(e) => setShareListName(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-text text-gray-900 placeholder:text-gray-500"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-text text-gray-900 dark:text-white dark:bg-gray-700 placeholder:text-gray-500 dark:placeholder:text-gray-400 transition-colors"
                   placeholder="e.g., My Favorite Films"
                   maxLength={50}
                 />
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   This name will appear in the URL and on the shared page
                 </p>
               </div>
@@ -625,8 +658,8 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
 
               {shareUrl && (
                 <>
-                  <div className="bg-gray-50 border border-gray-300 rounded-lg p-4">
-                    <div className="font-mono text-xs text-gray-800 break-all max-h-40 overflow-y-auto">
+                  <div className="bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg p-4 transition-colors">
+                    <div className="font-mono text-xs text-gray-800 dark:text-gray-200 break-all max-h-40 overflow-y-auto">
                       {shareUrl}
                     </div>
                   </div>
@@ -652,7 +685,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
                     )}
                   </button>
 
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
+                  <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-sm text-blue-800 dark:text-blue-200 transition-colors">
                     <p className="font-medium mb-1">💡 Tip</p>
                     <p>Send this link to friends so they can view your edited list. The link works on any device and browser!</p>
                   </div>
@@ -661,8 +694,8 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
 
               {/* Error Message */}
               {shareError && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                  <div className="flex items-center gap-2 text-red-800">
+                <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg p-4 transition-colors">
+                  <div className="flex items-center gap-2 text-red-800 dark:text-red-200">
                     <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -676,8 +709,8 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         
         {/* Success Message */}
         {importSuccess && (
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-            <div className="flex items-center gap-2 text-green-800">
+          <div className="bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg p-4 mb-6 transition-colors">
+            <div className="flex items-center gap-2 text-green-800 dark:text-green-200">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
@@ -686,26 +719,90 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
           </div>
         )}
         
-        {/* Film Grid */}
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sharedFilms.map(film => {
-            const isPriorityFilm = priorityFilms.has(film.filmKey);
-            if (isPriorityFilm) {
-              console.log('[SharedFavorites] Rendering priority film:', film.filmKey, film.title);
-            }
-            return (
-              <FilmCard
-                key={film.filmKey}
-                film={film}
-                isFlipped={flippedCard === film.filmKey || allCardsFlipped}
-                onFlip={() => handleCardFlip(film.filmKey)}
-                onWatchlistChange={() => setUserWatchlist(getWatchlist())}
-                showRemoveButton={true}
-                onRemove={handleRemoveFilm}
-                isPriority={isPriorityFilm}
-              />
-            );
-          })}
+        {/* Row Navigation Indicator - Fixed on right side like main site */}
+        <div className="fixed top-1/2 right-6 transform -translate-y-1/2 z-40">
+          <div className="flex flex-col items-center text-gray-400 dark:text-gray-500 drop-shadow-lg px-4">
+            {/* Up caret */}
+            <button 
+              onClick={() => {
+                if (currentRowIndex > 0) {
+                  const newRowIndex = currentRowIndex - 1;
+                  setCurrentRowIndex(newRowIndex);
+                  setFlippedCard(null);
+                  setAllCardsFlipped(false);
+                  const cardsPerRow = getCardsPerRow();
+                  const startIndex = newRowIndex * cardsPerRow;
+                  const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+                  if (targetCard) {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }
+              }}
+              disabled={currentRowIndex === 0}
+              className={`text-lg font-medium cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 transition-colors ${
+                currentRowIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              style={{ transform: 'scaleX(2)' }}
+              title="Previous row (or press ↑)"
+            >
+              ^
+            </button>
+            {/* Row indicator */}
+            <div className="text-sm font-mono tabular-nums font-bold tracking-wider">
+              {currentRowIndex + 1}/{Math.ceil(sharedFilms.length / getCardsPerRow())}
+            </div>
+            {/* Down caret */}
+            <button 
+              onClick={() => {
+                const cardsPerRow = getCardsPerRow();
+                const totalRows = Math.ceil(sharedFilms.length / cardsPerRow);
+                if (currentRowIndex < totalRows - 1) {
+                  const newRowIndex = currentRowIndex + 1;
+                  setCurrentRowIndex(newRowIndex);
+                  setFlippedCard(null);
+                  setAllCardsFlipped(false);
+                  const startIndex = newRowIndex * cardsPerRow;
+                  const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+                  if (targetCard) {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }
+              }}
+              disabled={currentRowIndex >= Math.ceil(sharedFilms.length / getCardsPerRow()) - 1}
+              className={`text-lg font-medium cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 transition-colors ${
+                currentRowIndex >= Math.ceil(sharedFilms.length / getCardsPerRow()) - 1 ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              style={{ transform: 'rotate(180deg) scaleX(2)' }}
+              title="Next row (or press ↓)"
+            >
+              ^
+            </button>
+          </div>
+        </div>
+
+        {/* Film Grid - One row at a time */}
+        <div className="relative flex items-start md:items-center justify-center px-4 md:px-32 pt-8 md:pt-16">
+          {/* Film Grid - Only show current row */}
+          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full place-items-center md:place-items-stretch">
+            {visibleFilms.map(film => {
+              const isPriorityFilm = priorityFilms.has(film.filmKey);
+              if (isPriorityFilm) {
+                console.log('[SharedFavorites] Rendering priority film:', film.filmKey, film.title);
+              }
+              return (
+                <FilmCard
+                  key={film.filmKey}
+                  film={film}
+                  isFlipped={flippedCard === film.filmKey || allCardsFlipped}
+                  onFlip={() => handleCardFlip(film.filmKey)}
+                  onWatchlistChange={() => setUserWatchlist(getWatchlist())}
+                  showRemoveButton={true}
+                  onRemove={handleRemoveFilm}
+                  isPriority={isPriorityFilm}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
       
