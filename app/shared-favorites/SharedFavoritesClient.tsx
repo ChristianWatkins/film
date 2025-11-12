@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { parseSharedFavorites, addToWatchlist, getWatchlist, generateShareableUrlFromFilmKeys, togglePriority } from '@/lib/watchlist';
+import { parseSharedFavorites, addToWatchlist, getWatchlist, generateShareableUrlFromFilmKeys, togglePriority, toggleWatchlist } from '@/lib/watchlist';
 import type { Film } from '@/lib/types';
 import FilmCard from '@/components/FilmCard';
 
@@ -19,6 +19,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   const [userWatchlist, setUserWatchlist] = useState<Set<string>>(new Set());
   const [importSuccess, setImportSuccess] = useState(false);
   const [flippedCard, setFlippedCard] = useState<string | null>(null);
+  const [allCardsFlipped, setAllCardsFlipped] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [removedFilms, setRemovedFilms] = useState<Set<string>>(new Set());
   const [showShareModal, setShowShareModal] = useState(false);
@@ -26,6 +27,9 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   const [shareUrl, setShareUrl] = useState('');
   const [shareCopied, setShareCopied] = useState(false);
   const [shareError, setShareError] = useState('');
+  const [currentRowIndex, setCurrentRowIndex] = useState(0);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const keyPressRef = useRef<Record<string, { count: number; lastTime: number }>>({});
   
   useEffect(() => {
     const loadSharedFavorites = async () => {
@@ -118,6 +122,188 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    if (loading || sharedFilms.length === 0) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't trigger shortcuts if typing in an input or textarea
+      if ((e.target as HTMLElement).matches('input, textarea')) {
+        return;
+      }
+
+      // Spacebar toggles all visible cards flip
+      if (e.key === ' ' && !showShareModal) {
+        e.preventDefault();
+        setAllCardsFlipped(prev => !prev);
+        setFlippedCard(null);
+      }
+
+      // Shift+Number keys (Shift+1, Shift+2, Shift+3, Shift+4) add to watchlist
+      if (e.shiftKey && ['Digit1', 'Digit2', 'Digit3', 'Digit4'].includes(e.code) && !showShareModal) {
+        e.preventDefault();
+        const digit = parseInt(e.code.replace('Digit', ''));
+        const cardIndex = digit - 1;
+        if (cardIndex < sharedFilms.length) {
+          const targetFilm = sharedFilms[cardIndex];
+          toggleWatchlist(targetFilm.filmKey, targetFilm.title);
+          setUserWatchlist(getWatchlist());
+        }
+      }
+
+      // Number keys (1, 2, 3, 4) flip individual cards
+      // Double-click same number key to play trailer
+      if (!e.shiftKey && ['1', '2', '3', '4'].includes(e.key) && !showShareModal) {
+        e.preventDefault();
+        const cardIndex = parseInt(e.key) - 1;
+        if (cardIndex < sharedFilms.length) {
+          const targetFilm = sharedFilms[cardIndex];
+          const now = Date.now();
+          const keyState = keyPressRef.current[e.key] || { count: 0, lastTime: 0 };
+          
+          // Check if this is a quick second press (within 300ms)
+          if (keyState.count === 1 && now - keyState.lastTime < 300) {
+            // Double-click detected - play trailer
+            playTrailer(targetFilm);
+            keyPressRef.current[e.key] = { count: 0, lastTime: now };
+          } else {
+            // First press or too slow (treat as new single press)
+            keyPressRef.current[e.key] = { count: 1, lastTime: now };
+            
+            // Delay card flip to allow for double-click
+            setTimeout(() => {
+              const currentState = keyPressRef.current[e.key] || { count: 0, lastTime: 0 };
+              // Only flip if still at count 1 (no double-click happened)
+              if (currentState.count === 1 && currentState.lastTime === now) {
+                handleCardFlip(targetFilm.filmKey);
+              }
+              // Always reset the count after the timeout
+              keyPressRef.current[e.key] = { count: 0, lastTime: now };
+            }, 300);
+          }
+        }
+      }
+
+      // T key plays trailer when exactly one card is flipped
+      if ((e.key === 't' || e.key === 'T') && !showShareModal) {
+        e.preventDefault();
+        if (flippedCard !== null && !allCardsFlipped) {
+          const flippedFilm = sharedFilms.find(film => film.filmKey === flippedCard);
+          if (flippedFilm && flippedFilm.mubiLink) {
+            playTrailer(flippedFilm);
+          }
+        }
+      }
+
+      // A key toggles watchlist when exactly one card is flipped
+      if ((e.key === 'a' || e.key === 'A') && !showShareModal) {
+        e.preventDefault();
+        if (flippedCard !== null && !allCardsFlipped) {
+          const flippedFilm = sharedFilms.find(film => film.filmKey === flippedCard);
+          if (flippedFilm) {
+            toggleWatchlist(flippedFilm.filmKey, flippedFilm.title);
+            setUserWatchlist(getWatchlist());
+          }
+        }
+      }
+
+      // Arrow key navigation
+      if (!showShareModal) {
+        const cardsPerRow = getCardsPerRow();
+        const totalRows = Math.ceil(sharedFilms.length / cardsPerRow);
+        
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          
+          let newRowIndex: number;
+          
+          // Shift + Arrow Down: Jump to last row
+          if (e.shiftKey) {
+            newRowIndex = totalRows - 1;
+          } 
+          // Regular Arrow Down: Move one row down
+          else if (currentRowIndex < totalRows - 1) {
+            newRowIndex = currentRowIndex + 1;
+          } else {
+            return; // Already at last row
+          }
+          
+          if (newRowIndex !== currentRowIndex) {
+            setCurrentRowIndex(newRowIndex);
+            
+            // Reset card flip states when moving to new row
+            setFlippedCard(null);
+            setAllCardsFlipped(false);
+            
+            // Scroll to the new row
+            const startIndex = newRowIndex * cardsPerRow;
+            const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+            if (targetCard) {
+              targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+        }
+        
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          
+          let newRowIndex: number;
+          
+          // Shift + Arrow Up: Jump to first row
+          if (e.shiftKey) {
+            newRowIndex = 0;
+          }
+          // Regular Arrow Up: Move one row up
+          else if (currentRowIndex > 0) {
+            newRowIndex = currentRowIndex - 1;
+          } else {
+            return; // Already at first row
+          }
+          
+          if (newRowIndex !== currentRowIndex) {
+            setCurrentRowIndex(newRowIndex);
+            
+            // Reset card flip states when moving to new row
+            setFlippedCard(null);
+            setAllCardsFlipped(false);
+            
+            // Scroll to the new row
+            const startIndex = newRowIndex * cardsPerRow;
+            const targetCard = gridRef.current?.children[startIndex] as HTMLElement;
+            if (targetCard) {
+              targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+        }
+      }
+
+      // ESC key closes share modal
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        if (showShareModal) {
+          setShowShareModal(false);
+          setShareUrl('');
+          setShareListName('');
+          setShareError('');
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [loading, sharedFilms, flippedCard, allCardsFlipped, showShareModal, currentRowIndex]);
+
+  // Reset row index when films change
+  useEffect(() => {
+    const cardsPerRow = getCardsPerRow();
+    const totalRows = Math.ceil(sharedFilms.length / cardsPerRow);
+    if (currentRowIndex >= totalRows && totalRows > 0) {
+      setCurrentRowIndex(totalRows - 1);
+    }
+  }, [sharedFilms.length, currentRowIndex]);
   
   const handleCardFlip = (filmKey: string) => {
     setFlippedCard(flippedCard === filmKey ? null : filmKey);
@@ -125,6 +311,23 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Helper function to get cards per row based on viewport width
+  const getCardsPerRow = (): number => {
+    if (typeof window === 'undefined') return 4;
+    const width = window.innerWidth;
+    if (width >= 1280) return 4; // xl
+    if (width >= 1024) return 3; // lg
+    if (width >= 768) return 2;  // md
+    return 1; // sm
+  };
+
+  // Play trailer function
+  const playTrailer = (film: Film) => {
+    if (film.mubiLink) {
+      window.open(film.mubiLink, '_blank');
+    }
   };
   
   const handleAddAllToFavorites = () => {
@@ -447,12 +650,12 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         )}
         
         {/* Film Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {sharedFilms.map(film => (
             <FilmCard
               key={film.filmKey}
               film={film}
-              isFlipped={flippedCard === film.filmKey}
+              isFlipped={flippedCard === film.filmKey || allCardsFlipped}
               onFlip={() => handleCardFlip(film.filmKey)}
               onWatchlistChange={() => setUserWatchlist(getWatchlist())}
               showRemoveButton={true}

@@ -175,8 +175,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   }, [isFlipped, film.posterUrl]);
 
   const handleCardClick = (e: React.MouseEvent) => {
-    // Don't flip if clicking on buttons, links, clickable director name, or watched toggle
-    if ((e.target as HTMLElement).closest('button, a, .clickable-director, .watched-toggle')) {
+    // Don't flip if clicking on buttons, links, clickable director name, watched toggle, or remove button
+    if ((e.target as HTMLElement).closest('button, a, .clickable-director, .watched-toggle, .remove-button')) {
       return;
     }
     onFlip();
@@ -433,19 +433,6 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             </svg>
           </div>
 
-          {/* Remove button - top right, next to flip indicator */}
-          {showRemoveButton && (
-            <div 
-              className="remove-button absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
-              onClick={handleRemoveClick}
-              title="Remove from list"
-            >
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </div>
-          )}
-
           {/* Poster Image - click to flip card */}
           <div className="block relative w-full aspect-[2/3] overflow-hidden group">
             {film.posterUrl ? (
@@ -476,10 +463,21 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   </div>
                 )}
                 
+                {/* Remove button - top left, in left icon group */}
+                {showRemoveButton && (
+                  <div 
+                    className={`remove-button absolute top-3 ${showWatchedToggle ? 'left-[84px]' : 'left-12'} z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform`}
+                    onClick={handleRemoveClick}
+                    title="Remove from list"
+                  >
+                    <XMarkIcon className="w-5 h-5 text-white" />
+                  </div>
+                )}
+                
                 {/* Priority button - top left, third icon in group (only in favorites view when not priority) */}
                 {isInFavoritesView && onPriorityToggle && !isPriority && (
                   <div 
-                    className="absolute top-3 left-21 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+                    className={`absolute top-3 ${showRemoveButton ? 'left-[120px]' : (showWatchedToggle ? 'left-[84px]' : 'left-12')} z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform`}
                     onClick={handlePriorityClick}
                     title="Mark as priority"
                   >
@@ -520,10 +518,21 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   </div>
                 )}
                 
+                {/* Remove button - top left, in left icon group */}
+                {showRemoveButton && (
+                  <div 
+                    className={`remove-button absolute top-3 ${showWatchedToggle ? 'left-[84px]' : 'left-12'} z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform`}
+                    onClick={handleRemoveClick}
+                    title="Remove from list"
+                  >
+                    <XMarkIcon className="w-5 h-5 text-white" />
+                  </div>
+                )}
+                
                 {/* Priority button - top left, third icon in group (only in favorites view when not priority) */}
                 {isInFavoritesView && onPriorityToggle && !isPriority && (
                   <div 
-                    className="absolute top-3 left-21 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+                    className={`absolute top-3 ${showRemoveButton ? 'left-[120px]' : (showWatchedToggle ? 'left-[84px]' : 'left-12')} z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform`}
                     onClick={handlePriorityClick}
                     title="Mark as priority"
                   >
@@ -710,10 +719,21 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             </div>
           )}
           
-          {/* Priority button - top left, third icon in group (only in favorites view when not priority) */}
+          {/* Remove button - top left, in left icon group */}
+          {showRemoveButton && (
+            <div 
+              className={`remove-button absolute top-3 ${showWatchedToggle ? 'left-[84px]' : 'left-12'} z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform`}
+              onClick={handleRemoveClick}
+              title="Remove from list"
+            >
+              <XMarkIcon className="w-5 h-5 text-white" />
+            </div>
+          )}
+          
+          {/* Priority button - top left, third/fourth icon in group (only in favorites view when not priority) */}
           {isInFavoritesView && onPriorityToggle && !isPriority && (
             <div 
-              className="absolute top-3 left-21 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+              className={`absolute top-3 ${showRemoveButton ? 'left-[120px]' : (showWatchedToggle ? 'left-[84px]' : 'left-12')} z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform`}
               onClick={handlePriorityClick}
               title="Mark as priority"
             >
@@ -727,19 +747,6 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </div>
-
-          {/* Remove button - top right, next to back indicator */}
-          {showRemoveButton && (
-            <div 
-              className="remove-button absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
-              onClick={handleRemoveClick}
-              title="Remove from list"
-            >
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </div>
-          )}
 
           {/* Back content */}
           <motion.div 
