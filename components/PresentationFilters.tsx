@@ -243,10 +243,46 @@ export default function PresentationFilters({
     }
   }, []);
 
+  const headerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const modalContainerRef = useRef<HTMLDivElement>(null);
+
+  // Calculate available height for scroll container
+  useEffect(() => {
+    const updateHeight = () => {
+      if (scrollContainerRef.current && headerRef.current) {
+        const headerHeight = headerRef.current.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        scrollContainerRef.current.style.maxHeight = `${viewportHeight - headerHeight}px`;
+      }
+    };
+
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
+
+  // Prevent FilmGrid's global wheel handler from intercepting wheel events in the filter modal
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      // Stop propagation to prevent FilmGrid's wheel handler from preventing default
+      e.stopPropagation();
+    };
+
+    const modal = modalContainerRef.current;
+    if (modal) {
+      // Use capture phase to intercept before FilmGrid's handler
+      modal.addEventListener('wheel', handleWheel, { passive: false, capture: true });
+      return () => {
+        modal.removeEventListener('wheel', handleWheel, { capture: true } as EventListenerOptions);
+      };
+    }
+  }, []);
+
   return (
-    <div className="fixed inset-0 bg-[#1A1A2E] z-50 flex flex-col">
+    <div ref={modalContainerRef} className="fixed inset-0 bg-[#1A1A2E] z-50 flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="bg-[#1A1A2E] text-white py-4 shadow-lg border-b border-gray-700 relative">
+      <div ref={headerRef} className="bg-[#1A1A2E] text-white py-4 shadow-lg border-b border-gray-700 relative flex-shrink-0">
         {/* Close button - absolutely positioned in left margin, centered horizontally */}
         <div className="absolute left-0 top-0 bottom-0 w-16 flex items-center justify-center">
           <button
@@ -271,7 +307,15 @@ export default function PresentationFilters({
       </div>
 
       {/* Filter Container */}
-      <div className="flex-1 bg-[#1A1A2E] py-6 px-4 md:px-16 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div 
+        ref={scrollContainerRef}
+        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-[#1A1A2E] py-6 px-4 md:px-16 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        style={{ 
+          touchAction: 'pan-y', 
+          WebkitOverflowScrolling: 'touch',
+          overscrollBehavior: 'contain'
+        }}
+      >
         {/* Search Section with Save/Reset Buttons */}
         <div className="max-w-6xl mx-auto mb-6">
           <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4">
@@ -553,7 +597,7 @@ export default function PresentationFilters({
         </div>
 
         {/* Show Films Button */}
-        <div className="text-center mt-6">
+        <div className="text-center mt-6 pb-8">
           <button
             onClick={onClose}
             className="px-8 py-3 bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] font-bold rounded-full text-lg transition-all duration-200 cursor-pointer shadow-lg hover:shadow-xl transform hover:-translate-y-1"
