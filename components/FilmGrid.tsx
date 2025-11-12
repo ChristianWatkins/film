@@ -104,7 +104,9 @@ export default function FilmGrid({
   // Helper function to safely get cards per row
   const getCardsPerRow = () => {
     if (typeof window === 'undefined') return 4; // Default for SSR
-    return window.innerWidth >= 768 ? 4 : 2;
+    if (window.innerWidth >= 1024) return 4; // Large screens: 4 cards
+    if (window.innerWidth >= 768) return 2; // Medium screens: 2 cards
+    return 1; // Mobile: 1 card
   };
 
   const handleCardFlip = (filmKey: string) => {
@@ -185,7 +187,7 @@ export default function FilmGrid({
 
   // Calculate which films to show in current row
   const visibleFilms = useMemo(() => {
-    // Must match the grid-cols CSS classes and wheel handler
+    // Must match the grid-cols CSS classes (1 col mobile, 2 cols medium, 4 cols large) and wheel handler
     const cardsPerRow = getCardsPerRow();
     
     const startIndex = currentRowIndex * cardsPerRow;
@@ -205,7 +207,7 @@ export default function FilmGrid({
       const scrollingDown = e.deltaY > 0;
       
       // Calculate how many cards per row based on viewport
-      // Must match the grid-cols CSS classes below
+      // Must match the grid-cols CSS classes (1 col mobile, 2 cols medium, 4 cols large)
       const cardsPerRow = getCardsPerRow();
       
       const totalRows = Math.ceil(films.length / cardsPerRow);
@@ -457,49 +459,49 @@ export default function FilmGrid({
         <div className="bg-[#1A1A2E] text-white py-4 relative shadow-lg">
 
           {/* Inner container matching card grid padding */}
-          <div className="px-32 flex items-center justify-between">
-            <div className="flex items-center gap-6">
+          <div className="px-4 sm:px-4 md:px-32 flex items-center justify-between gap-4 md:gap-0">
+            <div className="flex items-center gap-2 md:gap-6 flex-shrink min-w-0">
               {filters && onFiltersChange && (
                 <button
                   ref={filterButtonRef}
                   onClick={() => setShowFilters(!showFilters)}
-                  className={`px-4 py-2 rounded-full transition-all cursor-pointer border ${
+                  className={`px-2.5 md:px-4 py-1.5 md:py-2 rounded-full transition-all cursor-pointer border whitespace-nowrap text-xs md:text-base ${
                     showFilters
                       ? 'bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] border-[#FFB800]'
                       : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40'
                   }`}
                   title="Toggle filters (or press Tab)"
                 >
-                  <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 md:w-4 md:h-4 inline mr-1 md:mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
                   </svg>
-                  Filters
+                  <span className="hidden sm:inline">Filters</span>
                 </button>
               )}
-              <div className="text-lg font-medium">
+              <div className="hidden sm:block text-sm md:text-lg font-medium whitespace-nowrap">
                 Showing {films.length} film{films.length !== 1 ? 's' : ''}
               </div>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
               {/* Watchlist Toggle Button */}
               <button
                 onClick={onWatchlistToggle}
-                className={`p-3.5 rounded-full transition-all duration-200 cursor-pointer ${
+                className={`p-1.5 md:p-3.5 rounded-full transition-all duration-200 cursor-pointer ${
                   watchlistOnly
                     ? 'bg-red-500/20 text-red-400'
                     : 'bg-gray-700/80 hover:bg-gray-600 text-white'
                 }`}
                 title={watchlistOnly ? "Show all films" : "Show only watchlist"}
               >
-                <HeartIconSolid className="w-6 h-6" />
+                <HeartIconSolid className="w-5 h-5 md:w-6 md:h-6" />
               </button>
 
               {/* Watched Movies Toggle Button - only show when in favorites view */}
               {onWatchedToggle && isInFavoritesView && (
                 <button
                   onClick={onWatchedToggle}
-                  className={`p-3.5 rounded-full transition-all duration-200 cursor-pointer ${
+                  className={`p-1.5 md:p-3.5 rounded-full transition-all duration-200 cursor-pointer ${
                     watchedOnly
                       ? 'bg-gray-600 text-white'
                       : 'bg-gray-700/80 hover:bg-gray-600 text-white'
@@ -507,9 +509,9 @@ export default function FilmGrid({
                   title={watchedOnly ? "Show favourites" : "Show watched movies"}
                 >
                   {watchedOnly ? (
-                    <EyeSlashIcon className="w-6 h-6" />
+                    <EyeSlashIcon className="w-5 h-5 md:w-6 md:h-6" />
                   ) : (
-                    <EyeIcon className="w-6 h-6" />
+                    <EyeIcon className="w-5 h-5 md:w-6 md:h-6" />
                   )}
                 </button>
               )}
@@ -518,11 +520,11 @@ export default function FilmGrid({
               {onWatchlistToggle && watchlistOnly && (
                 <button
                   onClick={() => setShowExportImportModal(true)}
-                  className="p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
+                  className="p-1.5 md:p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
                   title="Share your favorites"
                 >
                   <svg 
-                    className="w-6 h-6" 
+                    className="w-5 h-5 md:w-6 md:h-6" 
                     fill="none"
                     stroke="currentColor" 
                     strokeWidth="2" 
@@ -540,10 +542,10 @@ export default function FilmGrid({
               {/* Search Button - Link to global search */}
               <Link
                 href="/search"
-                className="p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
+                className="p-1.5 md:p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
                 title="Global search"
               >
-                <Globe className="w-6 h-6" strokeWidth={1.5} />
+                <Globe className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
               </Link>
             </div>
           </div>
@@ -552,7 +554,7 @@ export default function FilmGrid({
           {process.env.NODE_ENV === 'development' && !pathname?.startsWith('/admin') && (
             <Link
               href="/admin/films"
-              className="absolute right-16 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
+              className="hidden md:block absolute right-16 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
               title="Edit Films (Dev only)"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -564,7 +566,7 @@ export default function FilmGrid({
           {/* Help Button - absolute positioned to far right */}
           <button
             onClick={() => setShowHelpOverlay(true)}
-            className="absolute right-8 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
+            className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
             title="Show keyboard shortcuts (or press H)"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -650,7 +652,7 @@ export default function FilmGrid({
       
       <div 
         ref={gridRef}
-        className="flex-1 flex items-center justify-center px-32 py-8 overflow-hidden outline-none"
+        className="flex-1 flex items-start md:items-center justify-center px-4 md:px-32 pt-4 md:pt-8 pb-8 overflow-y-auto md:overflow-hidden overflow-x-hidden outline-none"
         tabIndex={0}
       >
         {films.length === 0 ? (
@@ -666,7 +668,7 @@ export default function FilmGrid({
         ) : (
           <AnimatePresence mode="wait">
             <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full [&>*]:max-w-none"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full place-items-center md:place-items-stretch"
               key={currentRowIndex}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -677,7 +679,7 @@ export default function FilmGrid({
               }}
             >
               {visibleFilms.map(film => (
-                <div key={film.id || film.filmKey} data-film-card>
+                <div key={film.id || film.filmKey} data-film-card className="w-full max-w-xs md:max-w-none">
                   <FilmCard 
                     film={film} 
                     isFlipped={flippedCard === film.filmKey || allCardsFlipped}

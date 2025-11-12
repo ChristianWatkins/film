@@ -271,10 +271,10 @@ export default function PresentationFilters({
       </div>
 
       {/* Filter Container */}
-      <div className="flex-1 bg-[#1A1A2E] py-6 px-16 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div className="flex-1 bg-[#1A1A2E] py-6 px-4 md:px-16 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {/* Search Section with Save/Reset Buttons */}
         <div className="max-w-6xl mx-auto mb-6">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4">
             {/* Search Input */}
             <div className="flex-1 relative">
               <input
@@ -305,9 +305,9 @@ export default function PresentationFilters({
               )}
             </div>
             
-            {/* Save/Reset Buttons */}
+            {/* Save/Reset Buttons - below search on mobile, beside on desktop */}
             {(onSaveDefaults || onResetDefaults) && (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 w-full md:w-auto justify-start">
                 {onResetDefaults && (
                   <button
                     onClick={onResetDefaults}
@@ -333,8 +333,8 @@ export default function PresentationFilters({
           </div>
         </div>
 
-        {/* Filter Grid */}
-        <div className="grid grid-cols-2 gap-6 max-w-6xl mx-auto">
+        {/* Filter Grid - 1 column on mobile, 2 on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {/* General */}
           <div className="bg-white/8 border border-white/15 rounded-2xl p-6 transition-all duration-200 hover:bg-white/12 hover:border-[#FFB800]/30 hover:-translate-y-1">
             <div className="text-[#FFB800] font-semibold mb-4 text-base">General</div>
