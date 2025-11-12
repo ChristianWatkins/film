@@ -410,21 +410,52 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           }`}
         >
           {/* Large Paperclip for Priority Cards */}
-          {isPriority && (
-            <div 
-              className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
-              style={{
-                filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))'
-              }}
-              onClick={handlePriorityClick}
-              title="Remove priority"
-            >
-              <PaperClipIcon 
-                className="w-[60px] h-[60px] text-[#FFB800]"
-                style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
-              />
-            </div>
-          )}
+          <AnimatePresence>
+            {isPriority && (
+              <motion.div 
+                key={`pin-${film.filmKey}`}
+                className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
+                style={{
+                  filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))'
+                }}
+                onClick={handlePriorityClick}
+                title="Remove priority"
+                initial={{ 
+                  y: -80, 
+                  x: 20,
+                  rotate: -60,
+                  scale: 0.3,
+                  opacity: 0
+                }}
+                animate={{ 
+                  y: 0,
+                  x: 0,
+                  rotate: 0,
+                  scale: 1,
+                  opacity: 1
+                }}
+                exit={{
+                  y: -80,
+                  rotate: -60,
+                  scale: 0.3,
+                  opacity: 0,
+                  transition: { duration: 0.3 }
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 150,
+                  damping: 12,
+                  delay: 0.4,
+                  mass: 0.8
+                }}
+              >
+                <PaperClipIcon 
+                  className="w-[60px] h-[60px] text-[#FFB800]"
+                  style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Flip indicator - top right corner */}
           <div className="absolute top-3 right-3 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform">
@@ -683,21 +714,52 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
           
           {/* Large Paperclip for Priority Cards */}
-          {isPriority && (
-            <div 
-              className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
-              style={{
-                filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))'
-              }}
-              onClick={handlePriorityClick}
-              title="Remove priority"
-            >
-              <PaperClipIcon 
-                className="w-[60px] h-[60px] text-[#FFB800]"
-                style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
-              />
-            </div>
-          )}
+          <AnimatePresence>
+            {isPriority && (
+              <motion.div 
+                key={`pin-back-${film.filmKey}`}
+                className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
+                style={{
+                  filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))'
+                }}
+                onClick={handlePriorityClick}
+                title="Remove priority"
+                initial={{ 
+                  y: -80, 
+                  x: 20,
+                  rotate: -60,
+                  scale: 0.3,
+                  opacity: 0
+                }}
+                animate={{ 
+                  y: 0,
+                  x: 0,
+                  rotate: 0,
+                  scale: 1,
+                  opacity: 1
+                }}
+                exit={{
+                  y: -80,
+                  rotate: -60,
+                  scale: 0.3,
+                  opacity: 0,
+                  transition: { duration: 0.3 }
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 150,
+                  damping: 12,
+                  delay: 0.4,
+                  mass: 0.8
+                }}
+              >
+                <PaperClipIcon 
+                  className="w-[60px] h-[60px] text-[#FFB800]"
+                  style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
           
           {/* Watchlist button - top left corner */}
           <div className="absolute top-3 left-3 z-20">
