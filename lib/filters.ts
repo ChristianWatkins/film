@@ -174,21 +174,46 @@ export function applyFilters(films: Film[], filters: FilterState): Film[] {
 // Sort films
 export type SortOption = 'year-desc' | 'year-asc' | 'title-asc' | 'title-desc';
 
-export function sortFilms(films: Film[], sortBy: SortOption): Film[] {
+export function sortFilms(films: Film[], sortBy: SortOption, priorityFilms?: Set<string>): Film[] {
   const sorted = [...films];
   
+  // Apply regular sorting first
+  let result: Film[];
   switch (sortBy) {
     case 'year-desc':
-      return sorted.sort((a, b) => b.year - a.year);
+      result = sorted.sort((a, b) => b.year - a.year);
+      break;
     case 'year-asc':
-      return sorted.sort((a, b) => a.year - b.year);
+      result = sorted.sort((a, b) => a.year - b.year);
+      break;
     case 'title-asc':
-      return sorted.sort((a, b) => a.title.localeCompare(b.title));
+      result = sorted.sort((a, b) => a.title.localeCompare(b.title));
+      break;
     case 'title-desc':
-      return sorted.sort((a, b) => b.title.localeCompare(a.title));
+      result = sorted.sort((a, b) => b.title.localeCompare(a.title));
+      break;
     default:
-      return sorted;
+      result = sorted;
   }
+  
+  // If priority films are provided, sort them first
+  if (priorityFilms && priorityFilms.size > 0) {
+    const priority: Film[] = [];
+    const nonPriority: Film[] = [];
+    
+    result.forEach(film => {
+      if (priorityFilms.has(film.filmKey)) {
+        priority.push(film);
+      } else {
+        nonPriority.push(film);
+      }
+    });
+    
+    // Return priority films first, then non-priority (maintaining their sorted order)
+    return [...priority, ...nonPriority];
+  }
+  
+  return result;
 }
 
 // Search films by title or director

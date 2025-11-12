@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { parseSharedFavorites, addToWatchlist, getWatchlist, generateShareableUrlFromFilmKeys } from '@/lib/watchlist';
+import { parseSharedFavorites, addToWatchlist, getWatchlist, generateShareableUrlFromFilmKeys, togglePriority } from '@/lib/watchlist';
 import type { Film } from '@/lib/types';
 import FilmCard from '@/components/FilmCard';
 
@@ -66,6 +66,34 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
           result.filmKeys?.includes(film.filmKey) && !removed.has(film.filmKey)
         );
         setSharedFilms(shared);
+        
+        // Apply priority from shared favorites if available
+        if (result.priorities) {
+          const { getWatchlistItems } = await import('@/lib/watchlist');
+          for (const [filmKey, isPriority] of result.priorities.entries()) {
+            if (isPriority && result.filmKeys?.includes(filmKey)) {
+              // Film is in shared favorites and marked as priority
+              // Add to watchlist first if not already there, then set priority
+              const watchlist = getWatchlist();
+              if (!watchlist.has(filmKey)) {
+                const film = films.find(f => f.filmKey === filmKey);
+                if (film) {
+                  addToWatchlist(filmKey, film.title);
+                }
+              }
+              // Set priority (will toggle if already set, so check first)
+              const currentWatchlist = getWatchlist();
+              if (currentWatchlist.has(filmKey)) {
+                // Only set if not already priority
+                const items = getWatchlistItems();
+                const item = items.find(i => i.filmKey === filmKey);
+                if (!item?.priority) {
+                  togglePriority(filmKey);
+                }
+              }
+            }
+          }
+        }
         
         // Load user's current watchlist
         setUserWatchlist(getWatchlist());

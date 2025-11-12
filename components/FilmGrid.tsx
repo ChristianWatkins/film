@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
 // Presentation mode is always enabled, no need to import preferences
 import type { Film, FilterState } from '@/lib/types';
-import { toggleWatchlist } from '@/lib/watchlist';
+import { toggleWatchlist, getPriorityFilms, togglePriority } from '@/lib/watchlist';
 import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
 import PresentationFilters from './PresentationFilters';
@@ -81,6 +81,7 @@ export default function FilmGrid({
   const [trailerLaunching, setTrailerLaunching] = useState<string | null>(null);
   const [showLocalSearch, setShowLocalSearch] = useState(false);
   const [localSearchQuery, setLocalSearchQuery] = useState('');
+  const [priorityFilms, setPriorityFilms] = useState<Set<string>>(new Set());
   const keyPressRef = useRef<{[key: string]: {count: number, lastTime: number}}>({});
   const gridRef = useRef<HTMLDivElement>(null);
   const filterButtonRef = useRef<HTMLButtonElement>(null);
@@ -99,6 +100,24 @@ export default function FilmGrid({
       document.body.classList.remove('film-grid-active');
       document.body.style.overflow = '';
     };
+  }, []);
+
+  // Load priority films from watchlist
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setPriorityFilms(getPriorityFilms());
+      
+      // Listen for watchlist changes
+      const handleWatchlistChange = () => {
+        setPriorityFilms(getPriorityFilms());
+      };
+      
+      window.addEventListener('watchlist-changed', handleWatchlistChange);
+      
+      return () => {
+        window.removeEventListener('watchlist-changed', handleWatchlistChange);
+      };
+    }
   }, []);
 
   // Helper function to safely get cards per row
@@ -185,6 +204,29 @@ export default function FilmGrid({
     }
   };
 
+  // Handle priority toggle
+  const handlePriorityToggle = (filmKey: string) => {
+    togglePriority(filmKey);
+    // State will update via watchlist-changed event listener
+  };
+
+  // Sort films to put priority first, then apply other sorting
+  const sortedFilms = useMemo(() => {
+    const priority: Film[] = [];
+    const nonPriority: Film[] = [];
+    
+    films.forEach(film => {
+      if (priorityFilms.has(film.filmKey)) {
+        priority.push(film);
+      } else {
+        nonPriority.push(film);
+      }
+    });
+    
+    // Return priority films first, then non-priority
+    return [...priority, ...nonPriority];
+  }, [films, priorityFilms]);
+
   // Calculate which films to show in current row
   const visibleFilms = useMemo(() => {
     // Must match the grid-cols CSS classes (1 col mobile, 2 cols medium, 4 cols large) and wheel handler
@@ -192,9 +234,9 @@ export default function FilmGrid({
     
     const startIndex = currentRowIndex * cardsPerRow;
     const endIndex = startIndex + cardsPerRow;
-    return films.slice(startIndex, endIndex);
-  }, [currentRowIndex, films]);
-  const totalRows = Math.ceil(films.length / getCardsPerRow());
+    return sortedFilms.slice(startIndex, endIndex);
+  }, [currentRowIndex, sortedFilms]);
+  const totalRows = Math.ceil(sortedFilms.length / getCardsPerRow());
 
   // Row jump functionality - full screen presentation mode
   useEffect(() => {
@@ -210,7 +252,7 @@ export default function FilmGrid({
       // Must match the grid-cols CSS classes (1 col mobile, 2 cols medium, 4 cols large)
       const cardsPerRow = getCardsPerRow();
       
-      const totalRows = Math.ceil(films.length / cardsPerRow);
+      const totalRows = Math.ceil(sortedFilms.length / cardsPerRow);
       
       let newRowIndex = currentRowIndex;
       if (scrollingDown && currentRowIndex < totalRows - 1) {
@@ -240,7 +282,7 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [currentRowIndex, films.length]);
+  }, [currentRowIndex, sortedFilms.length]);
 
   // Unified keyboard shortcuts - H for help, Tab for filters, arrows for navigation
   useEffect(() => {
@@ -379,7 +421,7 @@ export default function FilmGrid({
       // Arrow key navigation
       if (!showFilters) {
         const cardsPerRow = getCardsPerRow();
-        const totalRows = Math.ceil(films.length / cardsPerRow);
+        const totalRows = Math.ceil(sortedFilms.length / cardsPerRow);
         
         if (e.key === 'ArrowDown') {
           e.preventDefault();
@@ -439,17 +481,17 @@ export default function FilmGrid({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [showFilters, showHelpOverlay, currentRowIndex, films.length, visibleFilms, isHydrated, flippedCard, allCardsFlipped, onWatchlistChange]);
+  }, [showFilters, showHelpOverlay, currentRowIndex, sortedFilms.length, visibleFilms, isHydrated, flippedCard, allCardsFlipped, onWatchlistChange]);
 
   // Reset row index when films change or filters change
   useEffect(() => {
     // Check if current row index is beyond available rows after filtering
     const cardsPerRow = getCardsPerRow();
-    const totalRows = Math.ceil(films.length / cardsPerRow);
+    const totalRows = Math.ceil(sortedFilms.length / cardsPerRow);
     if (currentRowIndex >= totalRows && totalRows > 0) {
       setCurrentRowIndex(0); // Reset to first row
     }
-  }, [films.length, JSON.stringify(filters), currentRowIndex]);
+  }, [sortedFilms.length, JSON.stringify(filters), currentRowIndex]);
 
   return (
     <div data-film-grid className={isHydrated ? 'fixed inset-0 bg-gray-50 dark:bg-[var(--background)] z-50 flex flex-col transition-colors' : ''}>
@@ -479,7 +521,7 @@ export default function FilmGrid({
                 </button>
               )}
               <div className="hidden sm:block text-sm md:text-lg font-medium whitespace-nowrap">
-                Showing {films.length} film{films.length !== 1 ? 's' : ''}
+                Showing {sortedFilms.length} film{sortedFilms.length !== 1 ? 's' : ''}
               </div>
             </div>
             
@@ -614,13 +656,13 @@ export default function FilmGrid({
             </button>
             {/* Row indicator */}
             <div className="text-sm font-mono tabular-nums font-bold tracking-wider">
-              {currentRowIndex + 1}/{Math.ceil(films.length / getCardsPerRow())}
+              {currentRowIndex + 1}/{Math.ceil(sortedFilms.length / getCardsPerRow())}
             </div>
             {/* Down caret */}
             <button 
               onClick={() => {
                 const cardsPerRow = getCardsPerRow();
-                const totalRows = Math.ceil(films.length / cardsPerRow);
+                const totalRows = Math.ceil(sortedFilms.length / cardsPerRow);
                 if (currentRowIndex < totalRows - 1) {
                   const newRowIndex = currentRowIndex + 1;
                   setCurrentRowIndex(newRowIndex);
@@ -637,9 +679,9 @@ export default function FilmGrid({
                   }
                 }
               }}
-              disabled={currentRowIndex >= Math.ceil(films.length / getCardsPerRow()) - 1}
+              disabled={currentRowIndex >= Math.ceil(sortedFilms.length / getCardsPerRow()) - 1}
               className={`text-lg font-medium cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 transition-colors ${
-                currentRowIndex >= Math.ceil(films.length / getCardsPerRow()) - 1 ? 'opacity-50 cursor-not-allowed' : ''
+                currentRowIndex >= Math.ceil(sortedFilms.length / getCardsPerRow()) - 1 ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               style={{ transform: 'rotate(180deg) scaleX(2)' }}
               title="Next row (or press ↓)"
@@ -655,7 +697,7 @@ export default function FilmGrid({
         className="flex-1 flex items-start md:items-center justify-center px-4 md:px-32 pt-4 md:pt-8 pb-8 overflow-y-auto md:overflow-hidden overflow-x-hidden outline-none"
         tabIndex={0}
       >
-        {films.length === 0 ? (
+        {sortedFilms.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center w-full">
             <div className="text-6xl mb-4">🎬</div>
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
@@ -691,6 +733,9 @@ export default function FilmGrid({
                     isWatched={watchedMovies.has(film.filmKey)}
                     onWatchedToggle={onWatchedChange}
                     isPresentationMode={true}
+                    isInFavoritesView={isInFavoritesView}
+                    isPriority={priorityFilms.has(film.filmKey)}
+                    onPriorityToggle={handlePriorityToggle}
                   />
                 </div>
               ))}
@@ -721,7 +766,7 @@ export default function FilmGrid({
           onClose={() => setShowFilters(false)}
           onSaveDefaults={onSaveDefaults}
           onResetDefaults={onResetDefaults}
-          filmCount={films.length}
+          filmCount={sortedFilms.length}
         />
       )}
 

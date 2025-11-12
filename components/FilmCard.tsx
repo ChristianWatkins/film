@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { EyeIcon, EyeSlashIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { EyeIcon, EyeSlashIcon, XMarkIcon, PaperClipIcon } from '@heroicons/react/24/outline';
 import type { Film } from '@/lib/types';
 import AwardBadge from './AwardBadge';
 import StreamingBadge from './StreamingBadge';
@@ -22,9 +22,12 @@ interface FilmCardProps {
   showRemoveButton?: boolean;
   onRemove?: (filmKey: string) => void;
   isPresentationMode?: boolean;
+  isInFavoritesView?: boolean;
+  isPriority?: boolean;
+  onPriorityToggle?: (filmKey: string) => void;
 }
 
-export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle, showRemoveButton, onRemove, isPresentationMode = false }: FilmCardProps) {
+export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle, showRemoveButton, onRemove, isPresentationMode = false, isInFavoritesView = false, isPriority = false, onPriorityToggle }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
@@ -195,6 +198,13 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
     e.stopPropagation();
     if (onRemove) {
       onRemove(film.filmKey);
+    }
+  };
+
+  const handlePriorityClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onPriorityToggle) {
+      onPriorityToggle(film.filmKey);
     }
   };
 
@@ -404,7 +414,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             </svg>
           </div>
 
-          {/* Watched toggle OR Remove button - top right, next to flip indicator */}
+          {/* Remove button - top right, next to flip indicator */}
           {showRemoveButton && (
             <div 
               className="remove-button absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
@@ -414,19 +424,6 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </div>
-          )}
-          {!showRemoveButton && showWatchedToggle && (
-            <div 
-              className="watched-toggle absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
-              onClick={handleWatchedClick}
-              title={isWatched ? "Mark as not watched" : "Mark as watched"}
-            >
-              {isWatched ? (
-                <EyeSlashIcon className="w-5 h-5 text-white" />
-              ) : (
-                <EyeIcon className="w-5 h-5 text-white" />
-              )}
             </div>
           )}
 
@@ -445,6 +442,32 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
                 </div>
                 
+                {/* Priority button - top left, next to watchlist button (only in favorites view) */}
+                {isInFavoritesView && onPriorityToggle && (
+                  <div 
+                    className={`absolute top-3 left-12 z-10 bg-black/60 rounded-full p-1.5 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${isPriority ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
+                    onClick={handlePriorityClick}
+                    title={isPriority ? "Remove priority" : "Mark as priority"}
+                  >
+                    <PaperClipIcon className={`w-5 h-5 ${isPriority ? 'text-[#FFB800]' : 'text-white'}`} />
+                  </div>
+                )}
+                
+                {/* Watched toggle - top left, third icon in group */}
+                {showWatchedToggle && (
+                  <div 
+                    className="watched-toggle absolute top-3 left-21 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+                    onClick={handleWatchedClick}
+                    title={isWatched ? "Mark as not watched" : "Mark as watched"}
+                  >
+                    {isWatched ? (
+                      <EyeSlashIcon className="w-5 h-5 text-white" />
+                    ) : (
+                      <EyeIcon className="w-5 h-5 text-white" />
+                    )}
+                  </div>
+                )}
+                
                 {/* Award badges overlay on poster */}
                 {film.awarded && film.awards.length > 0 && (
                   <div className="absolute bottom-2 left-2 right-12">
@@ -462,6 +485,32 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 <div className="absolute top-3 left-3 z-10">
                   <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
                 </div>
+                
+                {/* Priority button - top left, next to watchlist button (only in favorites view) */}
+                {isInFavoritesView && onPriorityToggle && (
+                  <div 
+                    className={`absolute top-3 left-12 z-10 bg-black/60 rounded-full p-1.5 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${isPriority ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
+                    onClick={handlePriorityClick}
+                    title={isPriority ? "Remove priority" : "Mark as priority"}
+                  >
+                    <PaperClipIcon className={`w-5 h-5 ${isPriority ? 'text-[#FFB800]' : 'text-white'}`} />
+                  </div>
+                )}
+                
+                {/* Watched toggle - top left, third icon in group */}
+                {showWatchedToggle && (
+                  <div 
+                    className="watched-toggle absolute top-3 left-21 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+                    onClick={handleWatchedClick}
+                    title={isWatched ? "Mark as not watched" : "Mark as watched"}
+                  >
+                    {isWatched ? (
+                      <EyeSlashIcon className="w-5 h-5 text-white" />
+                    ) : (
+                      <EyeIcon className="w-5 h-5 text-white" />
+                    )}
+                  </div>
+                )}
                 
                 {/* Award badges overlay on placeholder */}
                 {film.awarded && film.awards.length > 0 && (
@@ -608,6 +657,32 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
           </div>
           
+          {/* Priority button - top left, next to watchlist button (only in favorites view) */}
+          {isInFavoritesView && onPriorityToggle && (
+            <div 
+              className={`absolute top-3 left-12 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${isPriority ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
+              onClick={handlePriorityClick}
+              title={isPriority ? "Remove priority" : "Mark as priority"}
+            >
+              <PaperClipIcon className={`w-5 h-5 ${isPriority ? 'text-[#FFB800]' : 'text-white'}`} />
+            </div>
+          )}
+          
+          {/* Watched toggle - top left, third icon in group */}
+          {showWatchedToggle && (
+            <div 
+              className="watched-toggle absolute top-3 left-21 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+              onClick={handleWatchedClick}
+              title={isWatched ? "Mark as not watched" : "Mark as watched"}
+            >
+              {isWatched ? (
+                <EyeSlashIcon className="w-5 h-5 text-white" />
+              ) : (
+                <EyeIcon className="w-5 h-5 text-white" />
+              )}
+            </div>
+          )}
+          
           {/* Back indicator - top right corner */}
           <div className="absolute top-3 right-3 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -615,7 +690,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             </svg>
           </div>
 
-          {/* Watched toggle OR Remove button - top right, next to back indicator */}
+          {/* Remove button - top right, next to back indicator */}
           {showRemoveButton && (
             <div 
               className="remove-button absolute top-3 right-12 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
@@ -625,19 +700,6 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </div>
-          )}
-          {!showRemoveButton && showWatchedToggle && (
-            <div 
-              className="watched-toggle absolute top-3 right-12 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
-              onClick={handleWatchedClick}
-              title={isWatched ? "Mark as not watched" : "Mark as watched"}
-            >
-              {isWatched ? (
-                <EyeSlashIcon className="w-5 h-5 text-white" />
-              ) : (
-                <EyeIcon className="w-5 h-5 text-white" />
-              )}
             </div>
           )}
 

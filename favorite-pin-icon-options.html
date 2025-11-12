@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritt Pin Ikoner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a1a2e;
+            color: #ededed;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #FFB800;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        h2 {
+            color: #FFB800;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #FFB800;
+            padding-bottom: 0.5rem;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .icon-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .icon-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #FFB800;
+            transform: translateY(-2px);
+        }
+        .icon-card.selected {
+            border-color: #FFB800;
+            background: rgba(255, 184, 0, 0.1);
+        }
+        .icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        .icon-wrapper svg {
+            width: 48px;
+            height: 48px;
+            color: #ededed;
+        }
+        .icon-name {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .icon-code {
+            font-size: 0.75rem;
+            color: #888;
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        .library-info {
+            background: rgba(255, 184, 0, 0.1);
+            border-left: 4px solid #FFB800;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        .selected-info {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1a1a2e;
+            border: 2px solid #FFB800;
+            padding: 1.5rem;
+            border-radius: 8px;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .selected-info h3 {
+            color: #FFB800;
+            margin-bottom: 1rem;
+        }
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin-top: 0.5rem;
+            white-space: pre-wrap;
+        }
+        .copy-btn {
+            background: #FFB800;
+            color: #1a1a2e;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: background 0.2s;
+            width: 100%;
+        }
+        .copy-btn:hover {
+            background: #E6A600;
+        }
+        .library-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        .badge-heroicons {
+            background: rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+        }
+        .badge-lucide {
+            background: rgba(34, 197, 94, 0.3);
+            color: #86efac;
+        }
+        .badge-react-icons {
+            background: rgba(236, 72, 153, 0.3);
+            color: #f9a8d4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📌 Favoritt Pin Ikoner</h1>
+        
+        <div class="library-info">
+            <strong>Instruksjoner:</strong> Klikk på et ikon for å se import-koden. Det valgte ikonet vises nederst til høyre.
+        </div>
+
+        <!-- Pushpin / Tegnestift Icons -->
+        <h2>📌 Tegnestift / Pushpin</h2>
+        <div class="icon-grid">
+            <!-- Heroicons -->
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="MapPinIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </div>
+                <div class="icon-name">MapPinIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="MapPinIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="icon-name">MapPinIcon (Solid)</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <!-- Lucide -->
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Pin">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <line x1="12" y1="17" x2="12" y2="22"></line>
+                        <path d="M5 17h14l-1-7H6l-1 7z"></path>
+                        <line x1="12" y1="22" x2="12" y2="22"></line>
+                        <path d="M9 9V5a3 3 0 0 1 6 0v4"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Pin</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="MapPin">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="icon-name">MapPin</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <!-- React Icons -->
+            <div class="icon-card" data-library="react-icons" data-variant="outline" data-name="MdPushPin" data-family="md">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h12v-2l-2-2zm-4-2V4h2v6h-2z"/>
+                    </svg>
+                </div>
+                <div class="icon-name">MdPushPin</div>
+                <span class="library-badge badge-react-icons">React Icons</span>
+            </div>
+
+            <div class="icon-card" data-library="react-icons" data-variant="outline" data-name="AiFillPushpin" data-family="ai">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 1024 1024">
+                        <path d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3-15.4 12.3-16.6 35.4-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 0 0 0 22.4l293.2 293.2c3.1 3.1 7.2 4.7 11.2 4.7s8.1-1.6 11.2-4.7l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-10.8 13.6-13.6 10.8-36.5-2.7-49.4-48.2-60.1-72.3-133.3-72.3-206.5 0-12.3.6-24.6 2-36.8l161.2-161.2c12.9-12.8 12.9-33.8 0-46.8z"/>
+                    </svg>
+                </div>
+                <div class="icon-name">AiFillPushpin</div>
+                <span class="library-badge badge-react-icons">React Icons</span>
+            </div>
+        </div>
+
+        <!-- Star Icons -->
+        <h2>⭐ Stjerne</h2>
+        <div class="icon-grid">
+            <!-- Heroicons -->
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="StarIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                </div>
+                <div class="icon-name">StarIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="StarIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="icon-name">StarIcon (Solid)</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <!-- Lucide -->
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Star">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <div class="icon-name">Star</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Sparkles">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                        <path d="M5 3v4"></path>
+                        <path d="M19 17v4"></path>
+                        <path d="M3 5h4"></path>
+                        <path d="M17 19h4"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Sparkles</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+        </div>
+
+        <!-- Bookmark Icons -->
+        <h2>🔖 Bokmerke</h2>
+        <div class="icon-grid">
+            <!-- Heroicons -->
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="BookmarkIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                    </svg>
+                </div>
+                <div class="icon-name">BookmarkIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="BookmarkIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="icon-name">BookmarkIcon (Solid)</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <!-- Lucide -->
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Bookmark">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Bookmark</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="BookmarkCheck">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                        <path d="m9 10 2 2 4-4"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">BookmarkCheck</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+        </div>
+
+        <!-- Heart Icons -->
+        <h2>❤️ Hjerte</h2>
+        <div class="icon-grid">
+            <!-- Heroicons -->
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="HeartIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                    </svg>
+                </div>
+                <div class="icon-name">HeartIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="HeartIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                    </svg>
+                </div>
+                <div class="icon-name">HeartIcon (Solid)</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <!-- Lucide -->
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Heart">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Heart</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+        </div>
+
+        <!-- Other Favorite Icons -->
+        <h2>✨ Andre Favoritt Ikoner</h2>
+        <div class="icon-grid">
+            <!-- Heroicons -->
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="TagIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                    </svg>
+                </div>
+                <div class="icon-name">TagIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="PaperClipIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                    </svg>
+                </div>
+                <div class="icon-name">PaperClipIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <!-- Lucide -->
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Tag">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.586 8.586a2 2 0 0 0 2.828 0l7.172-7.172a2 2 0 0 0 0-2.828Z"></path>
+                        <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    </svg>
+                </div>
+                <div class="icon-name">Tag</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Flag">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                        <line x1="4" y1="22" x2="4" y2="15"></line>
+                    </svg>
+                </div>
+                <div class="icon-name">Flag</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Badge">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Badge</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="BookmarkPlus">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                        <line x1="12" y1="11" x2="12" y2="17"></line>
+                        <line x1="9" y1="14" x2="15" y2="14"></line>
+                    </svg>
+                </div>
+                <div class="icon-name">BookmarkPlus</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="BookmarkMinus">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                        <line x1="15" y1="10" x2="9" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="icon-name">BookmarkMinus</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+        </div>
+
+        <!-- Arrow & Action Icons -->
+        <h2>↩️ Pil & Handlinger</h2>
+        <div class="icon-grid">
+            <!-- Heroicons -->
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="ArrowUturnLeftIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUturnLeftIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="ArrowUturnRightIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUturnRightIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="ArrowPathIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowPathIcon (Refresh)</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="ArrowUpIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUpIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="ArrowDownIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowDownIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <!-- Lucide -->
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="ArrowUturnUp">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m21 21-6-6m6 6v-4.8m0 4.8h-4.8"></path>
+                        <path d="M3 16.2V21m0 0h4.8M3 21l6-6"></path>
+                        <path d="M21 7.8V3m0 0h-4.8M21 3l-6 6"></path>
+                        <path d="M3 7.8V3m0 0h4.8M3 3l6 6"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUturnUp</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="ArrowUturnDownIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUturnDownIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="ArrowUturnLeft">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 7v6h6"></path>
+                        <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUturnLeft</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="ArrowUturnRight">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 7v6h-6"></path>
+                        <path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUturnRight</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="RotateCw">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path>
+                        <path d="M21 3v5h-5"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">RotateCw</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="RotateCcw">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                        <path d="M3 3v5h5"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">RotateCcw</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="ArrowUp">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m5 12 7-7 7 7"></path>
+                        <path d="M12 19V5"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUp</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="ArrowDown">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m19 12-7 7-7-7"></path>
+                        <path d="M12 5v14"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowDown</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="ArrowUpCircle">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m16 12-4-4-4 4"></path>
+                        <path d="M12 16V8"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowUpCircle</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="ArrowDownCircle">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m12 8-4 4 4 4"></path>
+                        <path d="M8 12h8"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">ArrowDownCircle</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Undo2">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 14 4 9l5-5"></path>
+                        <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Undo2</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Redo2">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M15 14 20 9l-5-5"></path>
+                        <path d="M20 9h-10.5a5.5 5.5 0 0 0-5.5 5.5v0a5.5 5.5 0 0 0 5.5 5.5H13"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Redo2</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+        </div>
+
+        <!-- Check & Lock Icons -->
+        <h2>✓ Sjekk & Lås</h2>
+        <div class="icon-grid">
+            <!-- Heroicons -->
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="CheckIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <div class="icon-name">CheckIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="solid" data-name="CheckCircleIcon">
+                <div class="icon-wrapper">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="icon-name">CheckCircleIcon (Solid)</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <div class="icon-card" data-library="heroicons" data-variant="outline" data-name="LockClosedIcon">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
+                </div>
+                <div class="icon-name">LockClosedIcon</div>
+                <span class="library-badge badge-heroicons">Heroicons</span>
+            </div>
+
+            <!-- Lucide -->
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Check">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 6 9 17l-5-5"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Check</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="CheckCircle">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <div class="icon-name">CheckCircle</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="CheckCircle2">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">CheckCircle2</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="Lock">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">Lock</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="LockKeyhole">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="16" r="1"></circle>
+                        <rect width="18" height="12" x="3" y="10" rx="2"></rect>
+                        <path d="M7 10V7a5 5 0 0 1 10 0v3"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">LockKeyhole</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+
+            <div class="icon-card" data-library="lucide" data-variant="outline" data-name="CircleCheck">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                </div>
+                <div class="icon-name">CircleCheck</div>
+                <span class="library-badge badge-lucide">Lucide</span>
+            </div>
+        </div>
+
+        <!-- Selected Icon Info -->
+        <div class="selected-info" id="selectedInfo" style="display: none;">
+            <h3>Valgt Ikon</h3>
+            <div id="selectedIconName" style="color: #ededed; margin-bottom: 0.5rem;"></div>
+            <div class="code-block" id="selectedCode"></div>
+            <button class="copy-btn" onclick="copyCode()">Kopier Kode</button>
+        </div>
+    </div>
+
+    <script>
+        const iconCards = document.querySelectorAll('.icon-card');
+        let selectedCard = null;
+
+        iconCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove previous selection
+                if (selectedCard) {
+                    selectedCard.classList.remove('selected');
+                }
+                
+                // Add selection to clicked card
+                card.classList.add('selected');
+                selectedCard = card;
+
+                // Show selected info
+                const infoDiv = document.getElementById('selectedInfo');
+                const nameDiv = document.getElementById('selectedIconName');
+                const codeDiv = document.getElementById('selectedCode');
+
+                const library = card.dataset.library;
+                const name = card.dataset.name;
+                const variant = card.dataset.variant;
+                const family = card.dataset.family;
+
+                nameDiv.textContent = name;
+
+                let importCode = '';
+                let usageCode = '';
+
+                if (library === 'heroicons') {
+                    const variantPath = variant === 'solid' ? '24/solid' : '24/outline';
+                    importCode = `import { ${name} } from '@heroicons/react/${variantPath}';`;
+                    usageCode = `<${name} className="w-6 h-6" />`;
+                } else if (library === 'lucide') {
+                    importCode = `import { ${name} } from 'lucide-react';`;
+                    usageCode = `<${name} className="w-6 h-6" />`;
+                } else if (library === 'react-icons') {
+                    const familyMap = {
+                        'md': 'md',
+                        'ai': 'ai',
+                        'fa': 'fa',
+                        'fi': 'fi',
+                        'hi': 'hi',
+                        'io': 'io5',
+                        'bs': 'bs',
+                        'bi': 'bi'
+                    };
+                    const iconFamily = familyMap[family] || family || 'md';
+                    importCode = `import { ${name} } from 'react-icons/${iconFamily}';`;
+                    usageCode = `<${name} className="w-6 h-6" />`;
+                }
+
+                codeDiv.textContent = `${importCode}\n\n${usageCode}`;
+                infoDiv.style.display = 'block';
+            });
+        });
+
+        function copyCode() {
+            const codeDiv = document.getElementById('selectedCode');
+            const text = codeDiv.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = 'Kopiert!';
+                btn.style.background = '#22c55e';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#FFB800';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+

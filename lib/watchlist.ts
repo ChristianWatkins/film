@@ -1,7 +1,7 @@
 'use client';
 
 import LZString from 'lz-string';
-import { encodeFilmKeys, decodeFilmKeys } from './film-mapping';
+import { encodeFilmKeys, decodeFilmKeys, loadMappings } from './film-mapping';
 
 const WATCHLIST_KEY = 'film-festival-watchlist';
 const WATCHED_KEY = 'film-festival-watched';
@@ -10,6 +10,7 @@ export interface WatchlistItem {
   filmKey: string;
   title: string;
   addedAt: string;
+  priority?: boolean;
 }
 
 // Get all watchlist items
@@ -52,8 +53,12 @@ export function addToWatchlist(filmKey: string, title: string): void {
   try {
     const items = getWatchlistItems();
     
-    // Don't add duplicates
-    if (items.some(item => item.filmKey === filmKey)) return;
+    // Check if already exists - preserve priority if it does
+    const existingItem = items.find(item => item.filmKey === filmKey);
+    if (existingItem) {
+      // Preserve existing priority when re-adding
+      return;
+    }
     
     items.push({
       filmKey,
@@ -76,6 +81,7 @@ export function removeFromWatchlist(filmKey: string): void {
   
   try {
     const items = getWatchlistItems();
+    // Remove item (priority is automatically removed since item is deleted)
     const filtered = items.filter(item => item.filmKey !== filmKey);
     localStorage.setItem(WATCHLIST_KEY, JSON.stringify(filtered));
     
@@ -128,36 +134,70 @@ export function importWatchlist(jsonString: string): boolean {
 export async function exportWatchlistAsBase64(): Promise<string> {
   const items = getWatchlistItems();
   
-  // Only store filmKeys - titles can be looked up from films data
+  // Store filmKeys and priorities
   const filmKeys = items.map(item => item.filmKey);
+  const priorities: Record<string, boolean> = {};
+  items.forEach(item => {
+    if (item.priority === true) {
+      priorities[item.filmKey] = true;
+    }
+  });
   
   // Convert film keys to short codes (e.g., "no-other-land-2024" -> "a4g")
   const shortCodesString = await encodeFilmKeys(filmKeys);
   
+  // Create data object with codes and priorities
+  // Map priorities from filmKeys to short codes
+  const mappings = await loadMappings();
+  const priorityCodes: Record<string, boolean> = {};
+  Object.keys(priorities).forEach(filmKey => {
+    const code = mappings.filmKeyToCode[filmKey];
+    if (code) {
+      priorityCodes[code] = true;
+    }
+  });
+  
+  const exportData = {
+    codes: shortCodesString,
+    priorities: priorityCodes
+  };
+  
   // Compress and encode using URL-safe compression (produces shorter strings)
   if (typeof window !== 'undefined') {
-    return LZString.compressToEncodedURIComponent(shortCodesString);
+    return LZString.compressToEncodedURIComponent(JSON.stringify(exportData));
   }
   return '';
 }
 
 // Validate watchlist item structure
 function isValidWatchlistItem(item: any): item is WatchlistItem {
-  return (
+  const hasRequiredFields = (
     typeof item === 'object' &&
     item !== null &&
     typeof item.filmKey === 'string' &&
     typeof item.title === 'string' &&
-    typeof item.addedAt === 'string' &&
-    // Only allow these three properties
-    Object.keys(item).length === 3 &&
-    // Validate filmKey format (alphanumeric, dash, underscore only)
-    /^[a-zA-Z0-9_-]+$/.test(item.filmKey) &&
-    // Validate title length
-    item.title.length > 0 && item.title.length < 500 &&
-    // Validate date format
-    !isNaN(Date.parse(item.addedAt))
+    typeof item.addedAt === 'string'
   );
+  
+  if (!hasRequiredFields) return false;
+  
+  // Check for valid property count (3 required + 1 optional priority)
+  const keys = Object.keys(item);
+  if (keys.length < 3 || keys.length > 4) return false;
+  
+  // Validate filmKey format (alphanumeric, dash, underscore only)
+  if (!/^[a-zA-Z0-9_-]+$/.test(item.filmKey)) return false;
+  
+  // Validate title length
+  if (item.title.length === 0 || item.title.length >= 500) return false;
+  
+  // Validate date format
+  if (isNaN(Date.parse(item.addedAt))) return false;
+  
+  // Validate priority if present
+  if ('priority' in item && typeof item.priority !== 'boolean') return false;
+  
+  return true;
 }
 
 // Import watchlist from compressed base64-encoded string with strict validation
@@ -174,16 +214,26 @@ export async function importWatchlistFromBase64(base64String: string): Promise<{
       return { success: false, error: result.error || 'Validation failed' };
     }
     
+    // Get priority information if available
+    const priorityMap = result.priorities || new Map<string, boolean>();
+    
     // Create watchlist items from validated film keys
     const validItems: WatchlistItem[] = [];
     const now = new Date().toISOString();
     
     for (const filmKey of result.filmKeys) {
-      validItems.push({
+      const item: WatchlistItem = {
         filmKey,
         title: '', // Empty title - will be populated from film data when needed
         addedAt: now
-      });
+      };
+      
+      // Add priority if it was set
+      if (priorityMap.has(filmKey) && priorityMap.get(filmKey) === true) {
+        item.priority = true;
+      }
+      
+      validItems.push(item);
     }
     
     // All validation passed, save to localStorage
@@ -205,6 +255,59 @@ export async function importWatchlistFromBase64(base64String: string): Promise<{
 export function clearWatchlist(): void {
   if (typeof window === 'undefined') return;
   localStorage.removeItem(WATCHLIST_KEY);
+}
+
+// ===== PRIORITY FUNCTIONS =====
+
+// Toggle priority for a film
+export function togglePriority(filmKey: string): boolean {
+  if (typeof window === 'undefined') return false;
+  
+  try {
+    const items = getWatchlistItems();
+    const item = items.find(item => item.filmKey === filmKey);
+    
+    if (!item) {
+      // Film not in watchlist, can't set priority
+      return false;
+    }
+    
+    // Toggle priority
+    const newPriority = !item.priority;
+    item.priority = newPriority;
+    
+    // If priority is false, remove the property to keep data clean
+    if (!newPriority) {
+      delete item.priority;
+    }
+    
+    localStorage.setItem(WATCHLIST_KEY, JSON.stringify(items));
+    
+    // Dispatch custom event to notify components
+    window.dispatchEvent(new Event('watchlist-changed'));
+    
+    return newPriority;
+  } catch (e) {
+    console.error('Error toggling priority:', e);
+    return false;
+  }
+}
+
+// Get all priority films
+export function getPriorityFilms(): Set<string> {
+  if (typeof window === 'undefined') return new Set();
+  
+  try {
+    const items = getWatchlistItems();
+    return new Set(
+      items
+        .filter(item => item.priority === true)
+        .map(item => item.filmKey)
+    );
+  } catch (e) {
+    console.error('Error reading priority films:', e);
+    return new Set();
+  }
 }
 
 // ===== WATCHED MOVIES FUNCTIONS =====
@@ -331,11 +434,36 @@ export async function generateShareableUrlFromFilmKeys(filmKeys: string[], listN
     return '';
   }
   
+  // Get priority information for these film keys
+  const items = getWatchlistItems();
+  const priorities: Record<string, boolean> = {};
+  items.forEach(item => {
+    if (item.priority === true && filmKeys.includes(item.filmKey)) {
+      priorities[item.filmKey] = true;
+    }
+  });
+  
   // Convert film keys to short codes (e.g., "no-other-land-2024" -> "a4g")
   const shortCodesString = await encodeFilmKeys(filmKeys);
   
+  // Map priorities from filmKeys to short codes
+  const mappings = await loadMappings();
+  const priorityCodes: Record<string, boolean> = {};
+  Object.keys(priorities).forEach(filmKey => {
+    const code = mappings.filmKeyToCode[filmKey];
+    if (code) {
+      priorityCodes[code] = true;
+    }
+  });
+  
+  // Create data object with codes and priorities
+  const exportData = {
+    codes: shortCodesString,
+    priorities: priorityCodes
+  };
+  
   // Compress and encode using URL-safe compression (produces shorter strings)
-  const encodedString = LZString.compressToEncodedURIComponent(shortCodesString);
+  const encodedString = LZString.compressToEncodedURIComponent(JSON.stringify(exportData));
   
   // Build URL with optional name parameter
   let shareUrl = `${window.location.origin}/shared-favorites?favs=${encodedString}`;
@@ -349,7 +477,7 @@ export async function generateShareableUrlFromFilmKeys(filmKeys: string[], listN
 }
 
 // Parse shared favorites from URL parameter
-export async function parseSharedFavorites(urlParam: string): Promise<{ success: boolean; error?: string; filmKeys?: string[] }> {
+export async function parseSharedFavorites(urlParam: string): Promise<{ success: boolean; error?: string; filmKeys?: string[]; priorities?: Map<string, boolean> }> {
   if (!urlParam) {
     return { success: false, error: 'No data provided' };
   }
@@ -362,7 +490,11 @@ export async function parseSharedFavorites(urlParam: string): Promise<{ success:
     const result = await validateBase64FavoritesString(decodedString);
     
     if (result.success && result.filmKeys) {
-      return { success: true, filmKeys: result.filmKeys };
+      return { 
+        success: true, 
+        filmKeys: result.filmKeys,
+        priorities: result.priorities
+      };
     }
     
     return { success: false, error: result.error || 'Invalid data' };
@@ -373,7 +505,7 @@ export async function parseSharedFavorites(urlParam: string): Promise<{ success:
 }
 
 // Validate base64 string and return film keys (used by both import and share)
-async function validateBase64FavoritesString(base64String: string): Promise<{ success: boolean; error?: string; filmKeys?: string[] }> {
+async function validateBase64FavoritesString(base64String: string): Promise<{ success: boolean; error?: string; filmKeys?: string[]; priorities?: Map<string, boolean> }> {
   try {
     // Input type validation
     if (typeof base64String !== 'string') {
@@ -403,24 +535,45 @@ async function validateBase64FavoritesString(base64String: string): Promise<{ su
     }
     
     // Decompress from URL-safe encoding
-    let shortCodesString: string | null;
+    let decompressedData: string | null;
     try {
-      shortCodesString = LZString.decompressFromEncodedURIComponent(trimmedString);
-      if (!shortCodesString) {
+      decompressedData = LZString.decompressFromEncodedURIComponent(trimmedString);
+      if (!decompressedData) {
         return { success: false, error: 'Failed to decompress data' };
       }
       
       // Additional validation after decompression
-      if (typeof shortCodesString !== 'string') {
+      if (typeof decompressedData !== 'string') {
         return { success: false, error: 'Invalid decompressed data' };
       }
       
       // Check decompressed string length
-      if (shortCodesString.length > 500000) { // Max 500KB uncompressed
+      if (decompressedData.length > 500000) { // Max 500KB uncompressed
         return { success: false, error: 'Decompressed data too large' };
       }
     } catch (e) {
       return { success: false, error: 'Failed to decode string' };
+    }
+    
+    // Try to parse as JSON (new format with priorities) or as string (old format)
+    let shortCodesString: string;
+    let priorityCodes: Record<string, boolean> | undefined;
+    
+    try {
+      const parsed = JSON.parse(decompressedData);
+      // New format: { codes: "...", priorities: {...} }
+      if (parsed && typeof parsed === 'object' && typeof parsed.codes === 'string') {
+        shortCodesString = parsed.codes;
+        if (parsed.priorities && typeof parsed.priorities === 'object') {
+          priorityCodes = parsed.priorities;
+        }
+      } else {
+        // Fallback to old format (just a string)
+        shortCodesString = decompressedData;
+      }
+    } catch (e) {
+      // Old format: just a string of codes
+      shortCodesString = decompressedData;
     }
     
     // Decode short codes back to film keys
@@ -475,7 +628,19 @@ async function validateBase64FavoritesString(base64String: string): Promise<{ su
       return { success: false, error: 'No valid favorites found' };
     }
     
-    return { success: true, filmKeys: validKeys };
+    // Map priority codes back to film keys if priorities were provided
+    const priorityMap = new Map<string, boolean>();
+    if (priorityCodes) {
+      const mappings = await loadMappings();
+      Object.keys(priorityCodes).forEach(code => {
+        const filmKey = mappings.codeToFilmKey[code];
+        if (filmKey && validKeys.includes(filmKey) && priorityCodes[code] === true) {
+          priorityMap.set(filmKey, true);
+        }
+      });
+    }
+    
+    return { success: true, filmKeys: validKeys, priorities: priorityMap };
   } catch (e) {
     console.error('Error validating favorites string:', e);
     return { success: false, error: 'Unexpected error during validation' };

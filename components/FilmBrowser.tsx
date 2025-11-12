@@ -8,7 +8,7 @@ import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { RotateCw, Check } from 'lucide-react';
 import type { Film, FilterState } from '@/lib/types';
 import { applyFilters, sortFilms, type SortOption } from '@/lib/filters';
-import { getWatchedMovies, toggleWatched } from '@/lib/watchlist';
+import { getWatchedMovies, toggleWatched, getPriorityFilms } from '@/lib/watchlist';
 import FilmGrid from './FilmGrid';
 
 interface FilmBrowserProps {
@@ -246,8 +246,11 @@ export default function FilmBrowser({
         });
     }
     
-    // Apply regular sorting
-    const sorted = sortFilms(result, sortBy);
+    // Get priority films for sorting
+    const priorityFilms = getPriorityFilms();
+    
+    // Apply regular sorting with priority
+    const sorted = sortFilms(result, sortBy, priorityFilms);
     
     // If there's a search query, re-sort by relevance first, then by the regular sort
     if (hasSearchQuery) {
