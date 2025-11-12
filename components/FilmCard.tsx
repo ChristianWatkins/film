@@ -405,8 +405,27 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             }
           }}
           ref={frontRef}
-          className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative min-h-[500px]"
+          className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative min-h-[500px] ${
+            isPriority ? 'ring-2 ring-[#FFB800]' : ''
+          }`}
         >
+          {/* Large Paperclip for Priority Cards */}
+          {isPriority && (
+            <div 
+              className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
+              style={{
+                filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))'
+              }}
+              onClick={handlePriorityClick}
+              title="Remove priority"
+            >
+              <PaperClipIcon 
+                className="w-[60px] h-[60px] text-[#FFB800]"
+                style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
+              />
+            </div>
+          )}
+
           {/* Flip indicator - top right corner */}
           <div className="absolute top-3 right-3 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -442,21 +461,10 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
                 </div>
                 
-                {/* Priority button - top left, next to watchlist button (only in favorites view) */}
-                {isInFavoritesView && onPriorityToggle && (
-                  <div 
-                    className={`absolute top-3 left-12 z-10 bg-black/60 rounded-full p-1.5 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${isPriority ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
-                    onClick={handlePriorityClick}
-                    title={isPriority ? "Remove priority" : "Mark as priority"}
-                  >
-                    <PaperClipIcon className={`w-5 h-5 ${isPriority ? 'text-[#FFB800]' : 'text-white'}`} />
-                  </div>
-                )}
-                
-                {/* Watched toggle - top left, third icon in group */}
+                {/* Watched toggle - top left, second icon in group */}
                 {showWatchedToggle && (
                   <div 
-                    className="watched-toggle absolute top-3 left-21 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+                    className="watched-toggle absolute top-3 left-12 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
                     onClick={handleWatchedClick}
                     title={isWatched ? "Mark as not watched" : "Mark as watched"}
                   >
@@ -465,6 +473,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                     ) : (
                       <EyeIcon className="w-5 h-5 text-white" />
                     )}
+                  </div>
+                )}
+                
+                {/* Priority button - top left, third icon in group (only in favorites view when not priority) */}
+                {isInFavoritesView && onPriorityToggle && !isPriority && (
+                  <div 
+                    className="absolute top-3 left-21 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+                    onClick={handlePriorityClick}
+                    title="Mark as priority"
+                  >
+                    <PaperClipIcon className="w-5 h-5 text-white" />
                   </div>
                 )}
                 
@@ -486,21 +505,10 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
                 </div>
                 
-                {/* Priority button - top left, next to watchlist button (only in favorites view) */}
-                {isInFavoritesView && onPriorityToggle && (
-                  <div 
-                    className={`absolute top-3 left-12 z-10 bg-black/60 rounded-full p-1.5 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${isPriority ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
-                    onClick={handlePriorityClick}
-                    title={isPriority ? "Remove priority" : "Mark as priority"}
-                  >
-                    <PaperClipIcon className={`w-5 h-5 ${isPriority ? 'text-[#FFB800]' : 'text-white'}`} />
-                  </div>
-                )}
-                
-                {/* Watched toggle - top left, third icon in group */}
+                {/* Watched toggle - top left, second icon in group */}
                 {showWatchedToggle && (
                   <div 
-                    className="watched-toggle absolute top-3 left-21 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+                    className="watched-toggle absolute top-3 left-12 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
                     onClick={handleWatchedClick}
                     title={isWatched ? "Mark as not watched" : "Mark as watched"}
                   >
@@ -509,6 +517,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                     ) : (
                       <EyeIcon className="w-5 h-5 text-white" />
                     )}
+                  </div>
+                )}
+                
+                {/* Priority button - top left, third icon in group (only in favorites view when not priority) */}
+                {isInFavoritesView && onPriorityToggle && !isPriority && (
+                  <div 
+                    className="absolute top-3 left-21 z-10 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+                    onClick={handlePriorityClick}
+                    title="Mark as priority"
+                  >
+                    <PaperClipIcon className="w-5 h-5 text-white" />
                   </div>
                 )}
                 
@@ -646,32 +665,40 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               damping: 30
             }
           }}
-          className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 relative"
+          className={`bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border relative ${
+            isPriority ? 'border-[#FFB800] border-2' : 'border-gray-200'
+          }`}
           style={{ minHeight: `${frontHeight}px` }}
         >
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
+          
+          {/* Large Paperclip for Priority Cards */}
+          {isPriority && (
+            <div 
+              className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
+              style={{
+                filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))'
+              }}
+              onClick={handlePriorityClick}
+              title="Remove priority"
+            >
+              <PaperClipIcon 
+                className="w-[60px] h-[60px] text-[#FFB800]"
+                style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
+              />
+            </div>
+          )}
           
           {/* Watchlist button - top left corner */}
           <div className="absolute top-3 left-3 z-20">
             <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
           </div>
           
-          {/* Priority button - top left, next to watchlist button (only in favorites view) */}
-          {isInFavoritesView && onPriorityToggle && (
-            <div 
-              className={`absolute top-3 left-12 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform ${isPriority ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
-              onClick={handlePriorityClick}
-              title={isPriority ? "Remove priority" : "Mark as priority"}
-            >
-              <PaperClipIcon className={`w-5 h-5 ${isPriority ? 'text-[#FFB800]' : 'text-white'}`} />
-            </div>
-          )}
-          
-          {/* Watched toggle - top left, third icon in group */}
+          {/* Watched toggle - top left, second icon in group */}
           {showWatchedToggle && (
             <div 
-              className="watched-toggle absolute top-3 left-21 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+              className="watched-toggle absolute top-3 left-12 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
               onClick={handleWatchedClick}
               title={isWatched ? "Mark as not watched" : "Mark as watched"}
             >
@@ -680,6 +707,17 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               ) : (
                 <EyeIcon className="w-5 h-5 text-white" />
               )}
+            </div>
+          )}
+          
+          {/* Priority button - top left, third icon in group (only in favorites view when not priority) */}
+          {isInFavoritesView && onPriorityToggle && !isPriority && (
+            <div 
+              className="absolute top-3 left-21 z-20 bg-white/10 backdrop-blur-sm rounded-full p-1.5 border border-white/20 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform"
+              onClick={handlePriorityClick}
+              title="Mark as priority"
+            >
+              <PaperClipIcon className="w-5 h-5 text-white" />
             </div>
           )}
           

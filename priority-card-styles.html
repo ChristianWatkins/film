@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Card Style Options</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a1a2e;
+            color: #ededed;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #FFB800;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #bbb;
+            margin-bottom: 3rem;
+        }
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .option-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .option-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .option-title {
+            color: #FFB800;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .option-description {
+            color: #bbb;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-preview {
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            height: 350px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem;
+            color: white;
+            font-weight: 600;
+        }
+        .card-content {
+            padding: 1rem;
+            color: #333;
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        .card-text {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Style 1: Basic Paperclip */
+        .style1 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        .style1 .paperclip svg {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 2: Paperclip + Subtle Glow */
+        .style2 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 8px rgba(255, 184, 0, 0.4));
+        }
+        .style2 .paperclip svg {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 3: Paperclip + Strong Glow */
+        .style3 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 15px rgba(255, 184, 0, 0.7));
+        }
+        .style3 .paperclip svg {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 4: Paperclip + Pulsing */
+        .style4 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            animation: pulse-clip 2.5s ease-in-out infinite;
+        }
+        .style4 .paperclip svg {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-25deg);
+        }
+        @keyframes pulse-clip {
+            0%, 100% { filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 8px rgba(255, 184, 0, 0.4)); }
+            50% { filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 184, 0, 0.8)); }
+        }
+
+        /* Style 5: Paperclip + Card Glow */
+        .style5 {
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .style5 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 10px rgba(255, 184, 0, 0.5));
+        }
+        .style5 .paperclip svg {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 6: Paperclip + Card Border */
+        .style6 {
+            border: 2px solid #FFB800;
+        }
+        .style6 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+        .style6 .paperclip svg {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 7: Paperclip + Shadow (Most Realistic) */
+        .style7 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(2px 8px 16px rgba(0, 0, 0, 0.3));
+        }
+        .style7 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 8: Paperclip + All Effects */
+        .style8 {
+            border: 2px solid #FFB800;
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .style8 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 15px rgba(255, 184, 0, 0.7));
+        }
+        .style8 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 9: Soft Shadow */
+        .style9 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2)) drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+        }
+        .style9 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 10: Hard Shadow */
+        .style10 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+        }
+        .style10 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 11: 3D Shadow */
+        .style11 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3)) 
+                    drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)) 
+                    drop-shadow(0 8px 8px rgba(0, 0, 0, 0.2)) 
+                    drop-shadow(0 16px 16px rgba(0, 0, 0, 0.15));
+        }
+        .style11 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 12: Shadow + Border */
+        .style12 {
+            border: 2px solid #FFB800;
+        }
+        .style12 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(2px 8px 16px rgba(0, 0, 0, 0.3));
+        }
+        .style12 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 13: Soft Shadow + Border */
+        .style13 {
+            border: 2px solid #FFB800;
+        }
+        .style13 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2)) drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+        }
+        .style13 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 14: 3D Shadow + Thick Border */
+        .style14 {
+            border: 3px solid #FFB800;
+        }
+        .style14 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35)) 
+                    drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3)) 
+                    drop-shadow(0 8px 8px rgba(0, 0, 0, 0.25)) 
+                    drop-shadow(0 16px 16px rgba(0, 0, 0, 0.2));
+        }
+        .style14 .paperclip svg {
+            width: 70px;
+            height: 70px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 15: Shadow + Border + Glow */
+        .style15 {
+            border: 2px solid #FFB800;
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.5);
+        }
+        .style15 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) 
+                    drop-shadow(2px 8px 16px rgba(0, 0, 0, 0.3))
+                    drop-shadow(0 0 12px rgba(255, 184, 0, 0.6));
+        }
+        .style15 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 16: Offset Shadow + Border */
+        .style16 {
+            border: 2px solid #FFB800;
+        }
+        .style16 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(4px 8px 12px rgba(0, 0, 0, 0.5)) drop-shadow(6px 12px 20px rgba(0, 0, 0, 0.3));
+        }
+        .style16 .paperclip svg {
+            width: 65px;
+            height: 65px;
+            transform: rotate(-25deg);
+        }
+
+        /* Style 17: Subtle Glow + Border */
+        .style17 {
+            border: 2px solid #FFB800;
+        }
+        .style17 .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            z-index: 20;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 8px rgba(255, 184, 0, 0.4));
+        }
+        .style17 .paperclip svg {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-25deg);
+        }
+
+        .icon-group {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            gap: 8px;
+            z-index: 15;
+        }
+        .icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon svg {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📎 Paperclip Priority Variations</h1>
+        <p class="subtitle">Ulike effekter og stiler for paperclip-merket på prioriterte filmkort</p>
+
+        <div class="options-grid">
+            <!-- Option 1: Basic Paperclip -->
+            <div class="option-card">
+                <div class="option-title">1. Basic Paperclip</div>
+                <div class="option-description">Enkel binders uten ekstra effekter</div>
+                <div class="card-preview style1">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 2: Paperclip + Subtle Glow -->
+            <div class="option-card">
+                <div class="option-title">2. Paperclip + Subtle Glow</div>
+                <div class="option-description">Binders med myk glød-effekt</div>
+                <div class="card-preview style2">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 3: Paperclip + Strong Glow -->
+            <div class="option-card">
+                <div class="option-title">3. Paperclip + Strong Glow</div>
+                <div class="option-description">Binders med kraftig glød</div>
+                <div class="card-preview style3">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 4: Paperclip + Pulsing -->
+            <div class="option-card">
+                <div class="option-title">4. Paperclip + Pulsing</div>
+                <div class="option-description">Binders med pulserende glød-animasjon</div>
+                <div class="card-preview style4">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 5: Paperclip + Card Glow -->
+            <div class="option-card">
+                <div class="option-title">5. Paperclip + Card Glow</div>
+                <div class="option-description">Binders + hele kortet har glød</div>
+                <div class="card-preview style5">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 6: Paperclip + Card Border -->
+            <div class="option-card">
+                <div class="option-title">6. Paperclip + Card Border</div>
+                <div class="option-description">Binders + gullramme rundt kortet</div>
+                <div class="card-preview style6">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 7: Paperclip + Shadow -->
+            <div class="option-card">
+                <div class="option-title">7. Paperclip + Shadow ⭐</div>
+                <div class="option-description">Binders med realistisk skygge (mest realistisk)</div>
+                <div class="card-preview style7">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 8: Paperclip + All Effects -->
+            <div class="option-card">
+                <div class="option-title">8. Paperclip + All Effects</div>
+                <div class="option-description">Maksimal synlighet: glød, ramme og skygge</div>
+                <div class="card-preview style8">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 9: Soft Shadow -->
+            <div class="option-card">
+                <div class="option-title">9. Paperclip + Soft Shadow</div>
+                <div class="option-description">Myk, diffus skygge</div>
+                <div class="card-preview style9">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 10: Hard Shadow -->
+            <div class="option-card">
+                <div class="option-title">10. Paperclip + Hard Shadow</div>
+                <div class="option-description">Skarp, definert skygge</div>
+                <div class="card-preview style10">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 11: 3D Shadow -->
+            <div class="option-card">
+                <div class="option-title">11. Paperclip + 3D Shadow</div>
+                <div class="option-description">Lagdelt skygge for 3D-effekt</div>
+                <div class="card-preview style11">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 12: Shadow + Border -->
+            <div class="option-card">
+                <div class="option-title">12. Shadow + Border ⭐</div>
+                <div class="option-description">Realistisk skygge + gullramme</div>
+                <div class="card-preview style12">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 13: Soft Shadow + Border -->
+            <div class="option-card">
+                <div class="option-title">13. Soft Shadow + Border</div>
+                <div class="option-description">Myk skygge + gullramme</div>
+                <div class="card-preview style13">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 14: 3D Shadow + Thick Border -->
+            <div class="option-card">
+                <div class="option-title">14. 3D Shadow + Thick Border</div>
+                <div class="option-description">Kraftig 3D-effekt + tykk gullramme</div>
+                <div class="card-preview style14">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 15: Shadow + Border + Glow -->
+            <div class="option-card">
+                <div class="option-title">15. Shadow + Border + Glow</div>
+                <div class="option-description">Komplett effekt: skygge, ramme og glød</div>
+                <div class="card-preview style15">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 16: Offset Shadow + Border -->
+            <div class="option-card">
+                <div class="option-title">16. Offset Shadow + Border</div>
+                <div class="option-description">Forskjøvet skygge + gullramme (dramatisk)</div>
+                <div class="card-preview style16">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 17: Subtle Glow + Border -->
+            <div class="option-card">
+                <div class="option-title">17. Subtle Glow + Border ⭐</div>
+                <div class="option-description">Myk glød på paperclip + gullramme (balansert & elegant)</div>
+                <div class="card-preview style17">
+                    <div class="paperclip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                        </svg>
+                    </div>
+                    <div class="icon-group">
+                        <div class="icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" style="color: #ef4444;">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-header">Film Title</div>
+                    <div class="card-content">
+                        <div class="card-title">The Grand Adventure</div>
+                        <div class="card-text">En episk reise gjennom ukjent territorium hvor helten må finne seg selv...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255, 184, 0, 0.1); border-radius: 12px; border: 1px solid rgba(255, 184, 0, 0.3);">
+            <h3 style="color: #FFB800; margin-bottom: 1rem;">Mine anbefalinger:</h3>
+            <p style="color: #bbb; margin-bottom: 0.5rem;">
+                <strong style="color: #FFB800;">Enkel & elegant:</strong> Option 2 (Subtle Glow) eller 9 (Soft Shadow)
+            </p>
+            <p style="color: #bbb; margin-bottom: 0.5rem;">
+                <strong style="color: #FFB800;">Best balanse:</strong> Option 17 (Subtle Glow + Border) ⭐⭐ - perfekt kombinasjon!
+            </p>
+            <p style="color: #bbb; margin-bottom: 0.5rem;">
+                <strong style="color: #FFB800;">Med sterk skygge:</strong> Option 12 (Shadow + Border) eller 13 (Soft Shadow + Border)
+            </p>
+            <p style="color: #bbb; margin-bottom: 0.5rem;">
+                <strong style="color: #FFB800;">Mest dramatisk:</strong> Option 11 (3D Shadow) eller 16 (Offset Shadow + Border)
+            </p>
+            <p style="color: #bbb;">
+                <strong style="color: #FFB800;">Maksimal synlighet:</strong> Option 15 (Shadow + Border + Glow)
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
