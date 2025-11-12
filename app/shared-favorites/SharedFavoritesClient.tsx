@@ -28,6 +28,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
   const [shareCopied, setShareCopied] = useState(false);
   const [shareError, setShareError] = useState('');
   const [currentRowIndex, setCurrentRowIndex] = useState(0);
+  const [priorityFilms, setPriorityFilms] = useState<Set<string>>(new Set());
   const gridRef = useRef<HTMLDivElement>(null);
   const keyPressRef = useRef<Record<string, { count: number; lastTime: number }>>({});
   
@@ -60,6 +61,9 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         const result = await parseSharedFavorites(favsParam);
         
         if (!result.success || !result.filmKeys) {
+          console.error('Failed to parse shared favorites:', result.error);
+          console.error('URL param length:', favsParam?.length);
+          console.error('URL param preview:', favsParam?.substring(0, 100));
           setError(result.error || 'Failed to load shared favorites');
           setLoading(false);
           return;
@@ -69,9 +73,35 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         const shared = films.filter(film => 
           result.filmKeys?.includes(film.filmKey) && !removed.has(film.filmKey)
         );
-        setSharedFilms(shared);
         
-        // Apply priority from shared favorites if available
+        // Track priority films from shared favorites for display
+        const sharedPriorities = new Set<string>();
+        if (result.priorities) {
+          console.log('[SharedFavorites] Parsed priorities:', result.priorities);
+          console.log('[SharedFavorites] Priority entries:', Array.from(result.priorities.entries()));
+          for (const [filmKey, isPriority] of result.priorities.entries()) {
+            if (isPriority && result.filmKeys?.includes(filmKey) && !removed.has(filmKey)) {
+              sharedPriorities.add(filmKey);
+              console.log('[SharedFavorites] Added priority film:', filmKey);
+            }
+          }
+        } else {
+          console.log('[SharedFavorites] No priorities found in result');
+        }
+        console.log('[SharedFavorites] Final priorityFilms set:', Array.from(sharedPriorities));
+        setPriorityFilms(sharedPriorities);
+        
+        // Sort shared films to put priority films first
+        const sortedShared = [...shared].sort((a, b) => {
+          const aIsPriority = sharedPriorities.has(a.filmKey);
+          const bIsPriority = sharedPriorities.has(b.filmKey);
+          if (aIsPriority && !bIsPriority) return -1;
+          if (!aIsPriority && bIsPriority) return 1;
+          return 0; // Keep original order for films with same priority status
+        });
+        setSharedFilms(sortedShared);
+        
+        // Apply priority from shared favorites to user's watchlist if available
         if (result.priorities) {
           const { getWatchlistItems } = await import('@/lib/watchlist');
           for (const [filmKey, isPriority] of result.priorities.entries()) {
@@ -359,6 +389,13 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
     
     // Remove from displayed films
     setSharedFilms(sharedFilms.filter(film => film.filmKey !== filmKey));
+    
+    // Remove from priority films if it was prioritized
+    setPriorityFilms(prev => {
+      const updated = new Set(prev);
+      updated.delete(filmKey);
+      return updated;
+    });
     
     // Update URL with removed films
     const currentParams = new URLSearchParams(searchParams.toString());
@@ -651,17 +688,24 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         
         {/* Film Grid */}
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sharedFilms.map(film => (
-            <FilmCard
-              key={film.filmKey}
-              film={film}
-              isFlipped={flippedCard === film.filmKey || allCardsFlipped}
-              onFlip={() => handleCardFlip(film.filmKey)}
-              onWatchlistChange={() => setUserWatchlist(getWatchlist())}
-              showRemoveButton={true}
-              onRemove={handleRemoveFilm}
-            />
-          ))}
+          {sharedFilms.map(film => {
+            const isPriorityFilm = priorityFilms.has(film.filmKey);
+            if (isPriorityFilm) {
+              console.log('[SharedFavorites] Rendering priority film:', film.filmKey, film.title);
+            }
+            return (
+              <FilmCard
+                key={film.filmKey}
+                film={film}
+                isFlipped={flippedCard === film.filmKey || allCardsFlipped}
+                onFlip={() => handleCardFlip(film.filmKey)}
+                onWatchlistChange={() => setUserWatchlist(getWatchlist())}
+                showRemoveButton={true}
+                onRemove={handleRemoveFilm}
+                isPriority={isPriorityFilm}
+              />
+            );
+          })}
         </div>
       </div>
       

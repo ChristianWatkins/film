@@ -150,17 +150,26 @@ export async function exportWatchlistAsBase64(): Promise<string> {
   // Map priorities from filmKeys to short codes
   const mappings = await loadMappings();
   const priorityCodes: Record<string, boolean> = {};
+  const priorityFilmKeys: Record<string, boolean> = {}; // Fallback for films without mappings
   Object.keys(priorities).forEach(filmKey => {
     const code = mappings.filmKeyToCode[filmKey];
     if (code) {
       priorityCodes[code] = true;
+    } else {
+      // Fallback: store by filmKey if no mapping exists
+      priorityFilmKeys[filmKey] = true;
     }
   });
   
-  const exportData = {
+  const exportData: any = {
     codes: shortCodesString,
     priorities: priorityCodes
   };
+  
+  // Add filmKey-based priorities if any exist (for films without mappings)
+  if (Object.keys(priorityFilmKeys).length > 0) {
+    exportData.priorityFilmKeys = priorityFilmKeys;
+  }
   
   // Compress and encode using URL-safe compression (produces shorter strings)
   if (typeof window !== 'undefined') {
@@ -413,7 +422,8 @@ export async function generateShareableUrl(listName?: string): Promise<string> {
   if (!base64String) return '';
   
   // String is already URL-safe from compressToEncodedURIComponent
-  const encodedString = base64String;
+  // But encode it again for query parameters to handle edge cases
+  const encodedString = encodeURIComponent(base64String);
   
   // Build URL with optional name parameter
   let shareUrl = `${window.location.origin}/shared-favorites?favs=${encodedString}`;
@@ -443,34 +453,55 @@ export async function generateShareableUrlFromFilmKeys(filmKeys: string[], listN
     }
   });
   
+  console.log('[generateShareableUrlFromFilmKeys] Film keys with priorities:', Object.keys(priorities));
+  
   // Convert film keys to short codes (e.g., "no-other-land-2024" -> "a4g")
   const shortCodesString = await encodeFilmKeys(filmKeys);
   
   // Map priorities from filmKeys to short codes
   const mappings = await loadMappings();
   const priorityCodes: Record<string, boolean> = {};
+  const priorityFilmKeys: Record<string, boolean> = {}; // Fallback for films without mappings
   Object.keys(priorities).forEach(filmKey => {
     const code = mappings.filmKeyToCode[filmKey];
     if (code) {
       priorityCodes[code] = true;
+      console.log(`[generateShareableUrlFromFilmKeys] Mapped priority: ${filmKey} -> ${code}`);
+    } else {
+      // Fallback: store by filmKey if no mapping exists
+      priorityFilmKeys[filmKey] = true;
+      console.warn(`[generateShareableUrlFromFilmKeys] No code found for priority film key: ${filmKey}, storing as filmKey`);
     }
   });
   
+  console.log('[generateShareableUrlFromFilmKeys] Priority codes:', Object.keys(priorityCodes));
+  console.log('[generateShareableUrlFromFilmKeys] Priority filmKeys (fallback):', Object.keys(priorityFilmKeys));
+  
   // Create data object with codes and priorities
-  const exportData = {
+  const exportData: any = {
     codes: shortCodesString,
     priorities: priorityCodes
   };
   
+  // Add filmKey-based priorities if any exist (for films without mappings)
+  if (Object.keys(priorityFilmKeys).length > 0) {
+    exportData.priorityFilmKeys = priorityFilmKeys;
+  }
+  
   // Compress and encode using URL-safe compression (produces shorter strings)
   const encodedString = LZString.compressToEncodedURIComponent(JSON.stringify(exportData));
   
+  // Ensure the encoded string is properly URL-encoded for query parameters
+  // compressToEncodedURIComponent already produces URL-safe strings, but we should
+  // encode it again to handle edge cases when the URL is copied/shared
+  const urlEncodedString = encodeURIComponent(encodedString);
+  
   // Build URL with optional name parameter
-  let shareUrl = `${window.location.origin}/shared-favorites?favs=${encodedString}`;
+  let shareUrl = `${window.location.origin}/shared-favorites?favs=${urlEncodedString}`;
   
   if (listName && listName.trim()) {
     const encodedName = encodeURIComponent(listName.trim());
-    shareUrl = `${window.location.origin}/shared-favorites?name=${encodedName}&favs=${encodedString}`;
+    shareUrl = `${window.location.origin}/shared-favorites?name=${encodedName}&favs=${urlEncodedString}`;
   }
   
   return shareUrl;
@@ -513,10 +544,24 @@ async function validateBase64FavoritesString(base64String: string): Promise<{ su
     }
     
     // Trim whitespace
-    const trimmedString = base64String.trim();
+    let trimmedString = base64String.trim();
+    
+    // Try URL decoding if the string contains percent-encoded characters
+    if (trimmedString.includes('%')) {
+      try {
+        trimmedString = decodeURIComponent(trimmedString);
+      } catch (e) {
+        // If decoding fails, continue with original string
+        console.warn('Failed to URL decode string, using original:', e);
+      }
+    }
     
     // Validate format for URL-safe compressed string (alphanumeric and URL-safe characters)
-    if (!/^[A-Za-z0-9+/=\-_*!~'()]+$/.test(trimmedString)) {
+    // compressToEncodedURIComponent produces strings with: A-Za-z0-9+-*!~'()
+    // Be more lenient - only reject obviously invalid characters
+    const invalidChars = /[<>"\\]/.test(trimmedString);
+    if (invalidChars) {
+      console.error('Invalid format detected. String length:', trimmedString.length, 'First 50 chars:', trimmedString.substring(0, 50));
       return { success: false, error: 'Invalid format' };
     }
     
@@ -558,14 +603,19 @@ async function validateBase64FavoritesString(base64String: string): Promise<{ su
     // Try to parse as JSON (new format with priorities) or as string (old format)
     let shortCodesString: string;
     let priorityCodes: Record<string, boolean> | undefined;
+    let priorityFilmKeys: Record<string, boolean> | undefined;
     
     try {
       const parsed = JSON.parse(decompressedData);
-      // New format: { codes: "...", priorities: {...} }
+      // New format: { codes: "...", priorities: {...}, priorityFilmKeys: {...} }
       if (parsed && typeof parsed === 'object' && typeof parsed.codes === 'string') {
         shortCodesString = parsed.codes;
         if (parsed.priorities && typeof parsed.priorities === 'object') {
           priorityCodes = parsed.priorities;
+        }
+        // Check for fallback priorityFilmKeys (for films without mappings)
+        if (parsed.priorityFilmKeys && typeof parsed.priorityFilmKeys === 'object') {
+          priorityFilmKeys = parsed.priorityFilmKeys;
         }
       } else {
         // Fallback to old format (just a string)
@@ -632,13 +682,34 @@ async function validateBase64FavoritesString(base64String: string): Promise<{ su
     const priorityMap = new Map<string, boolean>();
     if (priorityCodes) {
       const mappings = await loadMappings();
+      console.log('[validateBase64FavoritesString] Priority codes to map:', Object.keys(priorityCodes));
+      console.log('[validateBase64FavoritesString] Valid keys count:', validKeys.length);
       Object.keys(priorityCodes).forEach(code => {
         const filmKey = mappings.codeToFilmKey[code];
-        if (filmKey && validKeys.includes(filmKey) && priorityCodes[code] === true) {
+        if (!filmKey) {
+          console.warn(`[validateBase64FavoritesString] No film key found for priority code: ${code}`);
+        } else if (!validKeys.includes(filmKey)) {
+          console.warn(`[validateBase64FavoritesString] Priority film key not in validKeys: ${filmKey} (code: ${code})`);
+        } else if (priorityCodes[code] === true) {
           priorityMap.set(filmKey, true);
+          console.log(`[validateBase64FavoritesString] Mapped priority: ${code} -> ${filmKey}`);
         }
       });
     }
+    
+    // Handle fallback priorityFilmKeys (for films without mappings)
+    if (priorityFilmKeys) {
+      console.log('[validateBase64FavoritesString] Priority filmKeys (fallback) to map:', Object.keys(priorityFilmKeys));
+      Object.keys(priorityFilmKeys).forEach(filmKey => {
+        if (validKeys.includes(filmKey) && priorityFilmKeys![filmKey] === true) {
+          priorityMap.set(filmKey, true);
+          console.log(`[validateBase64FavoritesString] Mapped priority (fallback): ${filmKey}`);
+        }
+      });
+    }
+    
+    console.log('[validateBase64FavoritesString] Final priority map size:', priorityMap.size);
+    console.log('[validateBase64FavoritesString] Priority map entries:', Array.from(priorityMap.entries()));
     
     return { success: true, filmKeys: validKeys, priorities: priorityMap };
   } catch (e) {
