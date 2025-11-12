@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { generateShareableUrl } from '@/lib/watchlist';
+import { generateShareableUrl, generateShareableUrlFromFilmKeys, getWatchlistItems } from '@/lib/watchlist';
 
 interface WatchlistExportImportProps {
   onClose?: () => void;
@@ -12,11 +12,31 @@ export default function WatchlistExportImport({ onClose }: WatchlistExportImport
   const [shareUrl, setShareUrl] = useState('');
   const [shareCopied, setShareCopied] = useState(false);
   const [error, setError] = useState('');
+  const [onlyPinned, setOnlyPinned] = useState(false);
 
   // Generate share URL
   const handleGenerateShareUrl = async () => {
     try {
-      const url = await generateShareableUrl(listName);
+      let url: string;
+      
+      if (onlyPinned) {
+        // Get only pinned/prioritized items
+        const items = getWatchlistItems();
+        const pinnedFilmKeys = items
+          .filter(item => item.priority === true)
+          .map(item => item.filmKey);
+        
+        if (pinnedFilmKeys.length === 0) {
+          setError('No pinned favorites to share');
+          return;
+        }
+        
+        url = await generateShareableUrlFromFilmKeys(pinnedFilmKeys, listName);
+      } else {
+        // Share all favorites
+        url = await generateShareableUrl(listName);
+      }
+      
       if (!url) {
         setError('No favorites to share');
         return;
@@ -70,6 +90,26 @@ export default function WatchlistExportImport({ onClose }: WatchlistExportImport
             Share your favorites with friends. They can view your list without affecting their own favorites.
           </p>
 
+          {/* Only Pinned Checkbox */}
+          <div className="flex items-start space-x-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+            <input
+              type="checkbox"
+              id="onlyPinned"
+              checked={onlyPinned}
+              onChange={(e) => {
+                setOnlyPinned(e.target.checked);
+                setShareUrl(''); // Reset share URL when option changes
+              }}
+              className="mt-1 w-4 h-4 text-amber-600 bg-white border-amber-300 rounded focus:ring-amber-500 focus:ring-2 cursor-pointer"
+            />
+            <label htmlFor="onlyPinned" className="text-sm text-gray-700 cursor-pointer">
+              <span className="font-medium">Only share pinned favorites</span>
+              <p className="text-xs text-gray-600 mt-0.5">
+                Share only the films you've marked with a ⭐ pin
+              </p>
+            </label>
+          </div>
+
           {/* List Name Input */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -78,7 +118,10 @@ export default function WatchlistExportImport({ onClose }: WatchlistExportImport
             <input
               type="text"
               value={listName}
-              onChange={(e) => setListName(e.target.value)}
+              onChange={(e) => {
+                setListName(e.target.value);
+                setShareUrl(''); // Reset share URL when list name changes
+              }}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-text text-gray-900 placeholder:text-gray-500"
               placeholder="e.g., My Favorite Films"
               maxLength={50}
