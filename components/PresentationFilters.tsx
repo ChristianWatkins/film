@@ -406,8 +406,8 @@ export default function PresentationFilters({
           <div className="bg-white/8 border border-white/15 rounded-2xl p-6 transition-all duration-200 hover:bg-white/12 hover:border-[#FFB800]/30 hover:-translate-y-1">
             <div className="text-[#FFB800] font-semibold mb-4 text-base">Years</div>
             <div className="flex flex-wrap gap-2" style={{ rowGap: '0.75rem' }}>
-              {/* Show recent years and ranges */}
-              {[2024, 2023, 2022, 2021, 2020].map((year) => (
+              {/* Show recent years dynamically from availableYears */}
+              {availableYears.filter(y => y >= 2020).slice(0, 8).map((year) => (
                 <button
                   key={year}
                   onClick={() => handleArrayToggle('years', year)}
