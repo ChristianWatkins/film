@@ -247,7 +247,8 @@ export default function PresentationFilters({
     <div className="fixed inset-0 bg-[#1A1A2E] z-50 flex flex-col">
       {/* Header */}
       <div className="bg-[#1A1A2E] text-white py-4 shadow-lg border-b border-gray-700 relative">
-        <div className="flex items-center gap-4 px-8">
+        {/* Close button - absolutely positioned in left margin, centered horizontally */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 flex items-center justify-center">
           <button
             onClick={onClose}
             className="p-2 rounded-full bg-[#FFB800] hover:bg-[#E6A600] text-[#1A1A2E] transition-colors cursor-pointer"
@@ -258,13 +259,12 @@ export default function PresentationFilters({
             </svg>
           </button>
         </div>
+        
         {/* Film Count - aligned with filter cards */}
-        <div className="absolute left-0 right-0 top-0 bottom-0 flex items-center pointer-events-none">
-          <div className="px-16 w-full">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-lg font-medium">
-                Showing {filmCount} film{filmCount !== 1 ? 's' : ''}
-              </div>
+        <div className="px-16 w-full flex items-center justify-center min-h-[48px]">
+          <div className="max-w-6xl mx-auto w-full">
+            <div className="text-lg font-medium">
+              Showing {filmCount} film{filmCount !== 1 ? 's' : ''}
             </div>
           </div>
         </div>
