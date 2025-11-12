@@ -16,6 +16,10 @@
             color: #ededed;
             padding: 2rem;
             line-height: 1.6;
+            outline: none;
+        }
+        body:focus {
+            outline: none;
         }
         .container {
             max-width: 1400px;
@@ -393,7 +397,7 @@
         }
     </style>
 </head>
-<body>
+<body tabindex="0">
     <div class="container">
         <h1>📎 Paperclip Priority Variations</h1>
         <p class="subtitle">Ulike effekter og stiler for paperclip-merket på prioriterte filmkort</p>
@@ -844,6 +848,125 @@
             </p>
         </div>
     </div>
+
+    <script>
+        (function() {
+            // Ensure functions are defined before use
+            function goToFirstRow() {
+                const grid = document.querySelector('.options-grid');
+                const cards = Array.from(grid.querySelectorAll('.option-card'));
+                
+                if (cards.length === 0) return;
+                
+                // Get the first card
+                const firstCard = cards[0];
+                
+                // Scroll to first card with smooth behavior
+                firstCard.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+                
+                // Add a brief highlight effect
+                highlightCard(firstCard);
+            }
+
+            function goToLastRow() {
+                const grid = document.querySelector('.options-grid');
+                const cards = Array.from(grid.querySelectorAll('.option-card'));
+                
+                if (cards.length === 0) return;
+                
+                // Group cards by their row position using offsetTop (document-relative)
+                const rows = new Map();
+                cards.forEach((card, index) => {
+                    const top = Math.round(card.offsetTop);
+                    
+                    if (!rows.has(top)) {
+                        rows.set(top, []);
+                    }
+                    rows.get(top).push({ card, index });
+                });
+                
+                // Get all row positions sorted by Y coordinate
+                const rowPositions = Array.from(rows.keys()).sort((a, b) => a - b);
+                
+                // Get the last row (highest Y position)
+                const lastRowTop = rowPositions[rowPositions.length - 1];
+                const lastRowCards = rows.get(lastRowTop);
+                
+                // Get the first card in the last row
+                const firstCardInLastRow = lastRowCards[0].card;
+                
+                // Scroll to first card in last row with smooth behavior
+                firstCardInLastRow.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+                
+                // Add a brief highlight effect
+                highlightCard(firstCardInLastRow);
+            }
+
+            function highlightCard(card) {
+                // Add a temporary highlight class
+                card.style.transition = 'box-shadow 0.3s ease';
+                card.style.boxShadow = '0 0 20px rgba(255, 184, 0, 0.8)';
+                
+                // Remove highlight after animation
+                setTimeout(() => {
+                    card.style.boxShadow = '';
+                }, 500);
+            }
+
+            // Handle keyboard shortcuts - try multiple approaches
+            function handleKeyDown(e) {
+                console.log('Key pressed:', e.key, 'Shift:', e.shiftKey, 'KeyCode:', e.keyCode);
+                
+                // Don't trigger shortcuts if typing in an input field
+                const target = e.target;
+                if (target && (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target.isContentEditable)) {
+                    return;
+                }
+                
+                // Check for Shift + Arrow Up (go to first row)
+                if (e.shiftKey && (e.key === 'ArrowUp' || e.keyCode === 38)) {
+                    console.log('Going to first row');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    goToFirstRow();
+                    return false;
+                }
+                // Check for Shift + Arrow Down (go to last row)
+                else if (e.shiftKey && (e.key === 'ArrowDown' || e.keyCode === 40)) {
+                    console.log('Going to last row');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    goToLastRow();
+                    return false;
+                }
+            }
+
+            // Add listeners when DOM is ready
+            // Use capture phase (true) to intercept events before they bubble
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.addEventListener('keydown', handleKeyDown, true);
+                    document.body.addEventListener('keydown', handleKeyDown, true);
+                    window.addEventListener('keydown', handleKeyDown, true);
+                });
+            } else {
+                document.addEventListener('keydown', handleKeyDown, true);
+                document.body.addEventListener('keydown', handleKeyDown, true);
+                window.addEventListener('keydown', handleKeyDown, true);
+            }
+
+            // Also focus the body to ensure it can receive keyboard events
+            document.body.focus();
+        })();
+    </script>
 </body>
 </html>
 

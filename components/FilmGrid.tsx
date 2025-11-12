@@ -425,8 +425,21 @@ export default function FilmGrid({
         
         if (e.key === 'ArrowDown') {
           e.preventDefault();
-          if (currentRowIndex < totalRows - 1) {
-            const newRowIndex = currentRowIndex + 1;
+          
+          let newRowIndex: number;
+          
+          // Shift + Arrow Down: Jump to last row
+          if (e.shiftKey) {
+            newRowIndex = totalRows - 1;
+          } 
+          // Regular Arrow Down: Move one row down
+          else if (currentRowIndex < totalRows - 1) {
+            newRowIndex = currentRowIndex + 1;
+          } else {
+            return; // Already at last row
+          }
+          
+          if (newRowIndex !== currentRowIndex) {
             setCurrentRowIndex(newRowIndex);
             
             // Reset card flip states when moving to new row
@@ -444,8 +457,21 @@ export default function FilmGrid({
         
         if (e.key === 'ArrowUp') {
           e.preventDefault();
-          if (currentRowIndex > 0) {
-            const newRowIndex = currentRowIndex - 1;
+          
+          let newRowIndex: number;
+          
+          // Shift + Arrow Up: Jump to first row
+          if (e.shiftKey) {
+            newRowIndex = 0;
+          }
+          // Regular Arrow Up: Move one row up
+          else if (currentRowIndex > 0) {
+            newRowIndex = currentRowIndex - 1;
+          } else {
+            return; // Already at first row
+          }
+          
+          if (newRowIndex !== currentRowIndex) {
             setCurrentRowIndex(newRowIndex);
             
             // Reset card flip states when moving to new row
@@ -797,6 +823,16 @@ export default function FilmGrid({
                 <div className="flex items-center justify-between w-full">
                   <span className="text-gray-700 dark:text-gray-300 flex-1">Navigate up/down</span>
                   <div className="flex gap-1 flex-shrink-0">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">↑</kbd>
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">↓</kbd>
+                  </div>
+                </div>
+                
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-gray-700 dark:text-gray-300 flex-1">Jump to first/last row</span>
+                  <div className="flex gap-1 flex-shrink-0">
+                    <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">Shift</kbd>
+                    <span className="text-gray-500">+</span>
                     <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">↑</kbd>
                     <kbd className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600 font-mono text-gray-800 dark:text-gray-200">↓</kbd>
                   </div>
