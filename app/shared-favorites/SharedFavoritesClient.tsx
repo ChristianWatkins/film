@@ -563,7 +563,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
               </div>
             )}
             <div className="hidden sm:block text-sm md:text-lg font-medium text-white whitespace-nowrap">
-              {sharedFilms.length} film{sharedFilms.length !== 1 ? 's' : ''}
+              {sharedFilms.length} favourite film{sharedFilms.length !== 1 ? 's' : ''}
             </div>
           </div>
           
