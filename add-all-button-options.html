@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add All to Favorites - Button Options</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #1A1A2E;
+      color: white;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .option-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .option-card:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+    
+    .option-title {
+      font-size: 14px;
+      color: #FFB800;
+      margin-bottom: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .button-demo {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60px;
+    }
+    
+    button, a {
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      font-family: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Option 1: Text + Icon */
+    .btn-text-icon {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .btn-text-icon:hover {
+      background: rgb(75, 85, 99);
+    }
+    
+    /* Option 2: Icon with Plus Badge */
+    .btn-heart-plus {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      padding: 14px;
+      border-radius: 9999px;
+      position: relative;
+    }
+    
+    .btn-heart-plus:hover {
+      background: rgb(75, 85, 99);
+    }
+    
+    .plus-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #10B981;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border: 2px solid #1A1A2E;
+    }
+    
+    /* Option 3: Multiple hearts icon */
+    .btn-multi-hearts {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      padding: 14px;
+      border-radius: 9999px;
+    }
+    
+    .btn-multi-hearts:hover {
+      background: rgb(75, 85, 99);
+    }
+    
+    /* Option 4: Heart with "ALL" text overlay */
+    .btn-heart-all {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      padding: 14px;
+      border-radius: 9999px;
+      position: relative;
+    }
+    
+    .btn-heart-all:hover {
+      background: rgb(75, 85, 99);
+    }
+    
+    .all-badge {
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #EF4444;
+      color: white;
+      font-size: 9px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 2px solid #1A1A2E;
+    }
+    
+    /* Option 5: Collection/Stack icon */
+    .btn-collection {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      padding: 14px;
+      border-radius: 9999px;
+    }
+    
+    .btn-collection:hover {
+      background: rgb(75, 85, 99);
+    }
+    
+    /* Option 6: Download to heart */
+    .btn-download-heart {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      padding: 14px;
+      border-radius: 9999px;
+    }
+    
+    .btn-download-heart:hover {
+      background: rgb(75, 85, 99);
+    }
+    
+    /* Option 7: Larger text button */
+    .btn-large-text {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      gap: 8px;
+    }
+    
+    .btn-large-text:hover {
+      background: rgb(75, 85, 99);
+    }
+    
+    /* Option 8: Heart in circle with arrow */
+    .btn-heart-arrow {
+      background: rgba(107, 114, 128, 0.8);
+      color: white;
+      padding: 14px;
+      border-radius: 9999px;
+      position: relative;
+    }
+    
+    .btn-heart-arrow:hover {
+      background: rgb(75, 85, 99);
+    }
+    
+    .arrow-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .description {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5;
+    }
+    
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .recommendation {
+      background: rgba(34, 197, 94, 0.1);
+      border: 2px solid rgba(34, 197, 94, 0.3);
+    }
+    
+    .recommendation .option-title {
+      color: #22C55E;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎬 Add All to Favorites - Button Options</h1>
+    
+    <div class="grid">
+      
+      <!-- Option 1 -->
+      <div class="option-card recommendation">
+        <div class="option-title">⭐ Option 1: Text + Small Icon</div>
+        <div class="button-demo">
+          <button class="btn-text-icon">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+            </svg>
+            <span>Add All</span>
+          </button>
+        </div>
+        <p class="description">Clear and explicit. Shows exactly what it does. Recommended for clarity.</p>
+      </div>
+      
+      <!-- Option 2 -->
+      <div class="option-card">
+        <div class="option-title">Option 2: Heart + Green Plus Badge</div>
+        <div class="button-demo">
+          <button class="btn-heart-plus">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+            </svg>
+            <span class="plus-badge">+</span>
+          </button>
+        </div>
+        <p class="description">Icon-only with notification-style badge. Compact but may be less clear.</p>
+      </div>
+      
+      <!-- Option 3 -->
+      <div class="option-card">
+        <div class="option-title">Option 3: Multiple Hearts Stack</div>
+        <div class="button-demo">
+          <button class="btn-multi-hearts">
+            <svg fill="currentColor" viewBox="0 0 24 24" style="position: relative;">
+              <!-- Heart 1 (back) -->
+              <path opacity="0.4" transform="translate(-2, 2)" d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+              <!-- Heart 2 (middle) -->
+              <path opacity="0.6" transform="translate(0, 1)" d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+              <!-- Heart 3 (front) -->
+              <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+            </svg>
+          </button>
+        </div>
+        <p class="description">Layered hearts suggest "multiple items". Visual but abstract.</p>
+      </div>
+      
+      <!-- Option 4 -->
+      <div class="option-card">
+        <div class="option-title">Option 4: Heart with "ALL" Badge</div>
+        <div class="button-demo">
+          <button class="btn-heart-all">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+            </svg>
+            <span class="all-badge">ALL</span>
+          </button>
+        </div>
+        <p class="description">Text badge makes "all" explicit. Compact but clear.</p>
+      </div>
+      
+      <!-- Option 5 -->
+      <div class="option-card recommendation">
+        <div class="option-title">⭐ Option 5: Collection/Layers Icon</div>
+        <div class="button-demo">
+          <button class="btn-collection">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="8" y="8" width="13" height="13" rx="2" />
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+            </svg>
+          </button>
+        </div>
+        <p class="description">Squares/layers icon suggests "collection" or "multiple items". Universal symbol.</p>
+      </div>
+      
+      <!-- Option 6 -->
+      <div class="option-card">
+        <div class="option-title">Option 6: Bookmark Plus</div>
+        <div class="button-demo">
+          <button class="btn-collection">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+              <line x1="9" y1="9" x2="15" y2="9"/>
+              <line x1="12" y1="6" x2="12" y2="12"/>
+            </svg>
+          </button>
+        </div>
+        <p class="description">Bookmark with plus. Different from heart metaphor, but clear "add" action.</p>
+      </div>
+      
+      <!-- Option 7 -->
+      <div class="option-card recommendation">
+        <div class="option-title">⭐ Option 7: Larger Pill Button</div>
+        <div class="button-demo">
+          <button class="btn-large-text">
+            <svg fill="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+              <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+            </svg>
+            Add All
+          </button>
+        </div>
+        <p class="description">More prominent call-to-action. Rectangular shape, larger text. Most explicit.</p>
+      </div>
+      
+      <!-- Option 8 -->
+      <div class="option-card">
+        <div class="option-title">Option 8: Heart + Arrow Down</div>
+        <div class="button-demo">
+          <button class="btn-download-heart">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+              <polyline points="12 16 12 8"/>
+              <polyline points="15 13 12 16 9 13"/>
+            </svg>
+          </button>
+        </div>
+        <p class="description">Heart outline with download arrow. Suggests "add to collection" action.</p>
+      </div>
+      
+    </div>
+    
+    <div style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; margin-top: 20px;">
+      <p style="font-size: 14px; color: rgba(255, 255, 255, 0.7);">
+        <strong>Recommendation:</strong> Options 1, 5, or 7 are clearest for new users.<br>
+        Option 1 or 7 if clarity is priority. Option 5 if you prefer icon-only consistency.
+      </p>
+    </div>
+    
+  </div>
+</body>
+</html>
+

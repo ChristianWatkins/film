@@ -570,21 +570,22 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
           {/* Right side: Action buttons */}
           <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
             <button
+              onClick={handleAddAllToFavorites}
+              className="px-3 py-1.5 md:px-5 md:py-3.5 rounded-full bg-gray-700/80 hover:bg-gray-600 text-white transition-all duration-200 cursor-pointer flex items-center gap-1.5 md:gap-2"
+              title="Add All to My Favorites"
+            >
+              <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+              </svg>
+              <span className="text-xs md:text-sm font-medium">Add All</span>
+            </button>
+            <button
               onClick={() => setShowShareModal(!showShareModal)}
               className="p-1.5 md:p-3.5 rounded-full bg-gray-700/80 hover:bg-gray-600 text-white transition-all duration-200 cursor-pointer"
               title="Share Edited List"
             >
               <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-              </svg>
-            </button>
-            <button
-              onClick={handleAddAllToFavorites}
-              className="p-1.5 md:p-3.5 rounded-full bg-gray-700/80 hover:bg-gray-600 text-white transition-all duration-200 cursor-pointer"
-              title="Add All to My Favorites"
-            >
-              <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
               </svg>
             </button>
             <a
