@@ -1042,6 +1042,28 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               transition={{ delay: isFlipped ? 0.35 : 0, duration: 0.3 }}
               className="pt-3 border-t border-white/10 mt-auto"
             >
+              {/* Streaming info - same as front card */}
+              <div className="space-y-1 mb-3">
+                <StreamingBadge providers={film.streaming} type="streaming" />
+                
+                {/* Only show rent/buy if no streaming OR if config allows */}
+                {shouldShowRentBuy(film.hasStreaming) && (
+                  <>
+                    <StreamingBadge providers={film.rent} type="rent" />
+                    {/* Only show buy if no rent OR if config allows */}
+                    {shouldShowBuy(film.hasRent) && (
+                      <StreamingBadge providers={film.buy} type="buy" />
+                    )}
+                  </>
+                )}
+                
+                {!film.hasStreaming && !film.hasRent && !film.hasBuy && (
+                  <p className="text-xs text-gray-400 italic">
+                    Not available in Norway
+                  </p>
+                )}
+              </div>
+              
               {/* Action buttons - same as front card */}
               <div className="flex gap-1">
                 {film.mubiLink && (
