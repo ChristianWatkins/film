@@ -33,6 +33,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   const [isDiscovering, setIsDiscovering] = useState(false);
   const [expandedHeight, setExpandedHeight] = useState<number | 'auto'>(195);
   const [frontHeight, setFrontHeight] = useState<number>(500);
+  const [isHeartGlowing, setIsHeartGlowing] = useState(false);
+  const glowTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const frontRef = useRef<HTMLDivElement>(null);
@@ -214,6 +216,38 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
       onDirectorClick(film.director);
     }
   };
+
+  const handleWatchlistChangeWithAnimation = () => {
+    // Clear any existing timeout and reset glow state
+    if (glowTimeoutRef.current) {
+      clearTimeout(glowTimeoutRef.current);
+      glowTimeoutRef.current = null;
+    }
+    
+    // Always reset glow state first
+    setIsHeartGlowing(false);
+    
+    // Trigger the glow animation after a tiny delay to ensure state reset
+    setTimeout(() => {
+      setIsHeartGlowing(true);
+      glowTimeoutRef.current = setTimeout(() => {
+        setIsHeartGlowing(false);
+        glowTimeoutRef.current = null;
+      }, 1200);
+    }, 10);
+    
+    // Call the original callback
+    onWatchlistChange?.();
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (glowTimeoutRef.current) {
+        clearTimeout(glowTimeoutRef.current);
+      }
+    };
+  }, []);
 
     const handleTrailerClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -405,9 +439,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             }
           }}
           ref={frontRef}
-          className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative min-h-[500px] ${
+          className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full relative min-h-[500px] ${
             isPriority ? 'ring-2 ring-[#FFB800]' : ''
-          }`}
+          } ${isHeartGlowing ? 'heart-glow' : ''}`}
         >
           {/* Large Paperclip for Priority Cards */}
           <AnimatePresence>
@@ -476,7 +510,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 />
                 {/* Watchlist button - top left to avoid flip indicator */}
                 <div className="absolute top-3 left-3 z-10">
-                  <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
+                  <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={handleWatchlistChangeWithAnimation} />
                 </div>
                 
                 {/* Watched toggle - top left, second icon in group */}
@@ -531,7 +565,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 </div>
                 {/* Watchlist button - top left to avoid flip indicator */}
                 <div className="absolute top-3 left-3 z-10">
-                  <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
+                  <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={handleWatchlistChangeWithAnimation} />
                 </div>
                 
                 {/* Watched toggle - top left, second icon in group */}
@@ -707,7 +741,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           }}
           className={`bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border relative ${
             isPriority ? 'border-[#FFB800] border-2' : 'border-gray-200'
-          }`}
+          } ${isHeartGlowing ? 'heart-glow' : ''}`}
           style={{ minHeight: `${frontHeight}px` }}
         >
           {/* Subtle pattern overlay */}
@@ -763,7 +797,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           
           {/* Watchlist button - top left corner */}
           <div className="absolute top-3 left-3 z-20">
-            <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={onWatchlistChange} />
+            <WatchlistButton filmKey={film.filmKey} title={film.title} onChange={handleWatchlistChangeWithAnimation} />
           </div>
           
           {/* Watched toggle - top left, second icon in group */}

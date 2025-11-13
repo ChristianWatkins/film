@@ -48,3 +48,25 @@ body {
     transform: translateY(0);
   }
 }
+@keyframes magicalWave {
+  0%, 100% {
+    box-shadow:
+      0 0 0px 0px rgba(255, 50, 50, 0),
+      0 0 0px 0px rgba(255, 30, 30, 0),
+      0 0 0px 0px rgba(255, 0, 0, 0);
+  }
+  50% {
+    box-shadow:
+      0 0 10px 2px rgba(255, 50, 50, 0.9),
+      0 0 20px 8px rgba(255, 30, 30, 0.5),
+      0 0 30px 15px rgba(255, 30, 30, 0.1),
+      0 0 40px 30px rgba(255, 0, 0, 0.05);
+  }
+}
+
+
+.heart-glow {
+  /* animation: magicalWave 1.2s ease-in-out; */
+  animation: magicalWave 1.2s cubic-bezier(0.1, 0, 0.2, 1) infinite;
+
+}
