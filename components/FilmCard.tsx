@@ -438,26 +438,14 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             }}
             onClick={handlePriorityClick}
             title="Remove priority"
-            initial={{ 
-              y: -120, 
-              x: 8,
-              rotate: -45,
-              rotateY: isFlipped ? 180 : 0,
-              scale: 0.7,
-              opacity: 0.5
-            }}
+            initial={false}
             animate={{ 
-              y: 0,
-              x: 0,
-              rotate: 0,
               rotateY: 0,
-              scale: 1,
               opacity: isFlipping ? 0 : 1
             }}
             transition={{
               rotateY: { duration: 0.4, ease: "easeInOut" },
-              opacity: { duration: 0.2, ease: "easeInOut" },
-              default: { duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.1 }
+              opacity: { duration: 0.2, ease: "easeInOut" }
             }}
           >
             <PaperClipIcon 
