@@ -690,9 +690,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   onClick={handleDiscoverMovies}
                   disabled={isDiscovering}
                   className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                  title="Søk etter globale streaming-alternativer"
+                  title="Search for global streaming options"
                 >
-                  {isDiscovering ? 'Søker...' : 'Søk Globalt'}
+                  {isDiscovering ? 'Searching...' : 'Search Globally'}
                 </button>
               )}
             </div>
@@ -1087,9 +1087,9 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                     onClick={handleDiscoverMovies}
                     disabled={isDiscovering}
                     className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                    title="Søk etter globale streaming-alternativer"
+                    title="Search for global streaming options"
                   >
-                    {isDiscovering ? 'Søker...' : 'Søk Globalt'}
+                    {isDiscovering ? 'Searching...' : 'Search Globally'}
                   </button>
                 )}
               </div>
