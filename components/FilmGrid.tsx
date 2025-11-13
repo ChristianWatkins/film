@@ -761,7 +761,7 @@ export default function FilmGrid({
                 ease: "easeOut"
               }}
             >
-              {visibleFilms.map(film => (
+              {visibleFilms.map((film, index) => (
                 <div key={film.id || film.filmKey} data-film-card className="w-full max-w-xs md:max-w-none">
                   <FilmCard 
                     film={film} 
@@ -777,6 +777,7 @@ export default function FilmGrid({
                     isInFavoritesView={isInFavoritesView}
                     isPriority={priorityFilms.has(film.filmKey)}
                     onPriorityToggle={handlePriorityToggle}
+                    index={index}
                   />
                 </div>
               ))}

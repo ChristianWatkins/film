@@ -25,20 +25,23 @@ interface FilmCardProps {
   isInFavoritesView?: boolean;
   isPriority?: boolean;
   onPriorityToggle?: (filmKey: string) => void;
+  index?: number;
 }
 
-export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle, showRemoveButton, onRemove, isPresentationMode = false, isInFavoritesView = false, isPriority = false, onPriorityToggle }: FilmCardProps) {
+export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatchlistChange, onDirectorClick, showWatchedToggle, isWatched, onWatchedToggle, showRemoveButton, onRemove, isPresentationMode = false, isInFavoritesView = false, isPriority = false, onPriorityToggle, index = 0 }: FilmCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextTruncated, setIsTextTruncated] = useState(false);
   const [isDiscovering, setIsDiscovering] = useState(false);
   const [expandedHeight, setExpandedHeight] = useState<number | 'auto'>(195);
   const [frontHeight, setFrontHeight] = useState<number>(500);
   const [isHeartGlowing, setIsHeartGlowing] = useState(false);
+  const [isFlipping, setIsFlipping] = useState(false);
   const glowTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const frontRef = useRef<HTMLDivElement>(null);
   const prevExpandedRef = useRef(false);
+  const prevIsFlippedRef = useRef(isFlipped);
   
   const shouldShowSynopsisToggleFallback = (film.synopsis?.length || 0) > 550;
   const canToggleSynopsis = !isPresentationMode && (isTextTruncated || shouldShowSynopsisToggleFallback);
@@ -175,6 +178,18 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
       };
     }
   }, [isFlipped, film.posterUrl]);
+
+  // Track card flip transitions to hide paper clip during rotation
+  useEffect(() => {
+    if (prevIsFlippedRef.current !== isFlipped) {
+      setIsFlipping(true);
+      prevIsFlippedRef.current = isFlipped;
+      const timer = setTimeout(() => {
+        setIsFlipping(false);
+      }, 700); // Slightly longer than card flip duration (0.4s) to ensure flip is complete
+      return () => clearTimeout(timer);
+    }
+  }, [isFlipped]);
 
   const handleCardClick = (e: React.MouseEvent) => {
     // Don't flip if clicking on buttons, links, clickable director name, watched toggle, or remove button
@@ -411,6 +426,47 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
       className="w-full h-full relative" 
       style={{ perspective: '1000px' }}
     >
+      {/* Large Paperclip for Priority Cards - rotates with card */}
+      <AnimatePresence>
+        {isPriority && (
+          <motion.div 
+            key={`pin-${film.filmKey}`}
+            className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
+            style={{
+              filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))',
+              transformStyle: 'preserve-3d'
+            }}
+            onClick={handlePriorityClick}
+            title="Remove priority"
+            initial={{ 
+              y: -120, 
+              x: 8,
+              rotate: -45,
+              rotateY: isFlipped ? 180 : 0,
+              scale: 0.7,
+              opacity: 0.5
+            }}
+            animate={{ 
+              y: 0,
+              x: 0,
+              rotate: 0,
+              rotateY: 0,
+              scale: 1,
+              opacity: isFlipping ? 0 : 1
+            }}
+            transition={{
+              rotateY: { duration: 0.4, ease: "easeInOut" },
+              opacity: { duration: 0.2, ease: "easeInOut" },
+              default: { duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.1 }
+            }}
+          >
+            <PaperClipIcon 
+              className="w-[60px] h-[60px] text-[#FFB800]"
+              style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <AnimatePresence mode="wait" initial={false}>
         {!isFlipped ? (
           <motion.div
@@ -429,53 +485,6 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               backfaceVisibility: 'hidden'
             }}
           >
-          {/* Large Paperclip for Priority Cards - outside overflow-hidden container */}
-          <AnimatePresence>
-            {isPriority && (
-              <motion.div 
-                key={`pin-${film.filmKey}`}
-                className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
-                style={{
-                  filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))'
-                }}
-                onClick={handlePriorityClick}
-                title="Remove priority"
-                initial={{ 
-                  y: -80, 
-                  x: 20,
-                  rotate: -60,
-                  scale: 0.3,
-                  opacity: 0
-                }}
-                animate={{ 
-                  y: 0,
-                  x: 0,
-                  rotate: 0,
-                  scale: 1,
-                  opacity: 1
-                }}
-                exit={{
-                  y: -80,
-                  rotate: -60,
-                  scale: 0.3,
-                  opacity: 0,
-                  transition: { duration: 0.3 }
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 150,
-                  damping: 12,
-                  delay: 0.4,
-                  mass: 0.8
-                }}
-              >
-                <PaperClipIcon 
-                  className="w-[60px] h-[60px] text-[#FFB800]"
-                  style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
         <motion.div 
           layout
           transition={{
@@ -730,53 +739,6 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               backfaceVisibility: 'hidden'
             }}
           >
-          {/* Large Paperclip for Priority Cards - outside overflow-hidden container */}
-          <AnimatePresence>
-            {isPriority && (
-              <motion.div 
-                key={`pin-back-${film.filmKey}`}
-                className="absolute -top-4 right-12 z-30 cursor-pointer hover:scale-105 transition-transform duration-200"
-                style={{
-                  filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(3px 8px 16px rgba(0, 0, 0, 0.3))'
-                }}
-                onClick={handlePriorityClick}
-                title="Remove priority"
-                initial={{ 
-                  y: -80, 
-                  x: 20,
-                  rotate: -60,
-                  scale: 0.3,
-                  opacity: 0
-                }}
-                animate={{ 
-                  y: 0,
-                  x: 0,
-                  rotate: 0,
-                  scale: 1,
-                  opacity: 1
-                }}
-                exit={{
-                  y: -80,
-                  rotate: -60,
-                  scale: 0.3,
-                  opacity: 0,
-                  transition: { duration: 0.3 }
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 150,
-                  damping: 12,
-                  delay: 0.4,
-                  mass: 0.8
-                }}
-              >
-                <PaperClipIcon 
-                  className="w-[60px] h-[60px] text-[#FFB800]"
-                  style={{ transform: 'rotate(-25deg)', strokeWidth: '1' }}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
         <motion.div 
           layout
           transition={{

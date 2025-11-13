@@ -785,7 +785,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         <div className="relative flex items-start md:items-center justify-center px-4 md:px-32 pt-8 md:pt-16">
           {/* Film Grid - Only show current row */}
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full place-items-center md:place-items-stretch">
-            {visibleFilms.map(film => {
+            {visibleFilms.map((film, index) => {
               const isPriorityFilm = priorityFilms.has(film.filmKey);
               if (isPriorityFilm) {
                 console.log('[SharedFavorites] Rendering priority film:', film.filmKey, film.title);
@@ -800,6 +800,7 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
                   showRemoveButton={true}
                   onRemove={handleRemoveFilm}
                   isPriority={isPriorityFilm}
+                  index={index}
                 />
               );
             })}
