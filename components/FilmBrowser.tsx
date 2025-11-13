@@ -246,10 +246,10 @@ export default function FilmBrowser({
         });
     }
     
-    // Get priority films for sorting
-    const priorityFilms = getPriorityFilms();
+    // Get priority films for sorting - only use priority sorting in favorites view
+    const priorityFilms = filters.watchlistOnly ? getPriorityFilms() : undefined;
     
-    // Apply regular sorting with priority
+    // Apply regular sorting with priority (only in favorites view)
     const sorted = sortFilms(result, sortBy, priorityFilms);
     
     // If there's a search query, re-sort by relevance first, then by the regular sort

@@ -87,6 +87,16 @@ export default function FilmGrid({
   const filterButtonRef = useRef<HTMLButtonElement>(null);
   const enableAnimations = shouldEnableCardAnimations();
   const rowJumpEnabled = true; // Always enabled - presentation mode is the only mode
+  const prevWatchlistOnlyRef = useRef(watchlistOnly);
+
+  // Reset to first row when favorites view is activated
+  useEffect(() => {
+    // If watchlistOnly changed from false to true, reset to first row
+    if (watchlistOnly && !prevWatchlistOnlyRef.current) {
+      setCurrentRowIndex(0);
+    }
+    prevWatchlistOnlyRef.current = watchlistOnly;
+  }, [watchlistOnly]);
 
   // Initialize hydration state and hide FilmBrowser content
   useEffect(() => {
@@ -210,8 +220,13 @@ export default function FilmGrid({
     // State will update via watchlist-changed event listener
   };
 
-  // Sort films to put priority first, then apply other sorting
+  // Sort films to put priority first - only in favorites view
   const sortedFilms = useMemo(() => {
+    // Only sort priority first in favorites view
+    if (!isInFavoritesView) {
+      return films;
+    }
+    
     const priority: Film[] = [];
     const nonPriority: Film[] = [];
     
@@ -225,7 +240,7 @@ export default function FilmGrid({
     
     // Return priority films first, then non-priority
     return [...priority, ...nonPriority];
-  }, [films, priorityFilms]);
+  }, [films, priorityFilms, isInFavoritesView]);
 
   // Calculate which films to show in current row
   const visibleFilms = useMemo(() => {
