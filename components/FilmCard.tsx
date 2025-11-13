@@ -422,28 +422,14 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               duration: 0.4, 
               ease: "easeInOut"
             }}
-            className="w-full h-full cursor-pointer"
+            className="w-full h-full cursor-pointer relative"
             onClick={handleCardClick}
             style={{ 
               transformStyle: 'preserve-3d',
               backfaceVisibility: 'hidden'
             }}
           >
-        <motion.div 
-          layout
-          transition={{
-            layout: { 
-              type: "spring",
-              stiffness: 300,
-              damping: 30
-            }
-          }}
-          ref={frontRef}
-          className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full relative min-h-[500px] ${
-            isPriority ? 'ring-2 ring-[#FFB800]' : ''
-          } ${isHeartGlowing ? 'heart-glow' : ''}`}
-        >
-          {/* Large Paperclip for Priority Cards */}
+          {/* Large Paperclip for Priority Cards - outside overflow-hidden container */}
           <AnimatePresence>
             {isPriority && (
               <motion.div 
@@ -490,6 +476,20 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               </motion.div>
             )}
           </AnimatePresence>
+        <motion.div 
+          layout
+          transition={{
+            layout: { 
+              type: "spring",
+              stiffness: 300,
+              damping: 30
+            }
+          }}
+          ref={frontRef}
+          className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full relative min-h-[500px] ${
+            isPriority ? 'ring-2 ring-[#FFB800]' : ''
+          } ${isHeartGlowing ? 'heart-glow' : ''}`}
+        >
 
           {/* Flip indicator - top right corner */}
           <div className="absolute top-3 right-3 z-20 bg-black/60 rounded-full p-1.5 opacity-70 hover:opacity-100 transition-all duration-200 cursor-pointer hover:scale-110 hover:shadow-md transform">
@@ -723,31 +723,14 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               duration: 0.4,
               ease: "easeInOut"
             }}
-            className="w-full h-full cursor-pointer"
+            className="w-full h-full cursor-pointer relative"
             onClick={handleCardClick}
             style={{ 
               transformStyle: 'preserve-3d',
               backfaceVisibility: 'hidden'
             }}
           >
-        <motion.div 
-          layout
-          transition={{
-            layout: { 
-              type: "spring",
-              stiffness: 300,
-              damping: 30
-            }
-          }}
-          className={`bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border relative ${
-            isPriority ? 'border-[#FFB800] border-2' : 'border-gray-200'
-          } ${isHeartGlowing ? 'heart-glow' : ''}`}
-          style={{ minHeight: `${frontHeight}px` }}
-        >
-          {/* Subtle pattern overlay */}
-          <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
-          
-          {/* Large Paperclip for Priority Cards */}
+          {/* Large Paperclip for Priority Cards - outside overflow-hidden container */}
           <AnimatePresence>
             {isPriority && (
               <motion.div 
@@ -794,6 +777,22 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               </motion.div>
             )}
           </AnimatePresence>
+        <motion.div 
+          layout
+          transition={{
+            layout: { 
+              type: "spring",
+              stiffness: 300,
+              damping: 30
+            }
+          }}
+          className={`bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full border relative ${
+            isPriority ? 'border-[#FFB800] border-2' : 'border-gray-200'
+          } ${isHeartGlowing ? 'heart-glow' : ''}`}
+          style={{ minHeight: `${frontHeight}px` }}
+        >
+          {/* Subtle pattern overlay */}
+          <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-500/10 to-transparent pointer-events-none"></div>
           
           {/* Watchlist button - top left corner */}
           <div className="absolute top-3 left-3 z-20">
