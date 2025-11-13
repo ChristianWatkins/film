@@ -659,29 +659,19 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             
             {/* Action buttons - anchored at bottom */}
             <div className="flex gap-1 mt-auto">
-              {film.mubiLink && (
-                <a
-                  href={film.mubiLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center transform"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  MUBI
-                </a>
-              )}
-              
               <button
                 onClick={handleTrailerClick}
-                className="px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform flex-shrink-0"
+                className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
                 title="Watch trailer fullscreen"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
+                <span>Trailer</span>
               </button>
               
-              {film.justwatchLink && (
+              {/* Show JustWatch if link exists AND has Norway availability */}
+              {film.justwatchLink && (film.hasStreaming || film.hasRent || film.hasBuy) && (
                 <a
                   href={film.justwatchLink}
                   target="_blank"
@@ -694,8 +684,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 </a>
               )}
               
-              {/* Show Discover Movies button when film has no JustWatch link */}
-              {!film.justwatchLink && (
+              {/* Show Discover Movies button when no JustWatch link OR no Norway availability */}
+              {(!film.justwatchLink || (!film.hasStreaming && !film.hasRent && !film.hasBuy)) && (
                 <button
                   onClick={handleDiscoverMovies}
                   disabled={isDiscovering}
@@ -1066,29 +1056,19 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               
               {/* Action buttons - same as front card */}
               <div className="flex gap-1">
-                {film.mubiLink && (
-                  <a
-                    href={film.mubiLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center transform"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    MUBI
-                  </a>
-                )}
-                
                 <button
                   onClick={handleTrailerClick}
-                  className="px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform flex-shrink-0"
+                  className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
                   title="Watch trailer fullscreen"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
+                  <span>Trailer</span>
                 </button>
                 
-                {film.justwatchLink && (
+                {/* Show JustWatch if link exists AND has Norway availability */}
+                {film.justwatchLink && (film.hasStreaming || film.hasRent || film.hasBuy) && (
                   <a
                     href={film.justwatchLink}
                     target="_blank"
@@ -1101,8 +1081,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   </a>
                 )}
                 
-                {/* Show Discover Movies button when film has no streaming availability in Norway */}
-                {(!film.hasStreaming && !film.hasRent && !film.hasBuy) && (
+                {/* Show Discover Movies button when no JustWatch link OR no Norway availability */}
+                {(!film.justwatchLink || (!film.hasStreaming && !film.hasRent && !film.hasBuy)) && (
                   <button
                     onClick={handleDiscoverMovies}
                     disabled={isDiscovering}
