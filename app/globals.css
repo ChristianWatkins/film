@@ -8,7 +8,7 @@
 }
 
 .dark {
-  --background: #12141a;
+  --background: rgb(16 1 24);
   --foreground: #ededed;
   color-scheme: dark;
 }
