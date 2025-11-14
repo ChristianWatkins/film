@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Available Button Design Options - Button Within Button</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: rgb(16, 1, 24);
+            color: #ededed;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #FFB800;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .option-title {
+            color: #FFB800;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .preview {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            color: #a0a0a0;
+        }
+        
+        /* Option 1: Dark container with accent bar and nested button */
+        .option1-container {
+            display: flex;
+            align-items: stretch;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 8px;
+            padding: 10px 0 10px 12px;
+            gap: 12px;
+            border: 1px solid rgba(255, 184, 0, 0.1);
+        }
+        
+        .option1-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .option1-accent {
+            width: 3px;
+            height: 20px;
+            background: #FFB800;
+            border-radius: 2px;
+        }
+        
+        .option1-text {
+            color: #9ca3af;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+        
+        .option1-button {
+            padding: 8px 16px;
+            background: #1A1A2E;
+            color: #FFB800;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 0 8px 8px 0;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option1-button:hover {
+            background: #0F0F1E;
+            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.3);
+            color: #FFC533;
+        }
+        
+        /* Option 2: Lighter container with more contrast */
+        .option2-container {
+            display: flex;
+            align-items: stretch;
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 8px;
+            padding: 10px 0 10px 12px;
+            gap: 12px;
+            border: 1px solid rgba(255, 184, 0, 0.2);
+        }
+        
+        .option2-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .option2-accent {
+            width: 3px;
+            height: 20px;
+            background: linear-gradient(180deg, #FFB800 0%, #FFC533 100%);
+            border-radius: 2px;
+        }
+        
+        .option2-text {
+            color: #9ca3af;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+        
+        .option2-button {
+            padding: 8px 16px;
+            background: #FFB800;
+            color: #1A1A2E;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 0 8px 8px 0;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option2-button:hover {
+            background: #FFC533;
+            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.5);
+        }
+        
+        /* Option 3: Subtle background with darker nested button */
+        .option3-container {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px 12px;
+            gap: 12px;
+            border: 1px solid rgba(255, 184, 0, 0.15);
+        }
+        
+        .option3-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .option3-accent {
+            width: 3px;
+            height: 20px;
+            background: #FFB800;
+            border-radius: 2px;
+        }
+        
+        .option3-text {
+            color: #9ca3af;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+        
+        .option3-button {
+            padding: 8px 16px;
+            background: #1A1A2E;
+            color: #FFB800;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 184, 0, 0.3);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        
+        .option3-button:hover {
+            background: #0F0F1E;
+            border-color: #FFB800;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.3);
+            color: #FFC533;
+        }
+        
+        /* Option 4: More padding, larger feel */
+        .option4-container {
+            display: flex;
+            align-items: center;
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 10px;
+            padding: 12px 16px;
+            gap: 14px;
+            border: 1px solid rgba(255, 184, 0, 0.15);
+        }
+        
+        .option4-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+        
+        .option4-accent {
+            width: 4px;
+            height: 24px;
+            background: #FFB800;
+            border-radius: 2px;
+        }
+        
+        .option4-text {
+            color: #9ca3af;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        
+        .option4-button {
+            padding: 10px 18px;
+            background: #1A1A2E;
+            color: #FFB800;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        
+        .option4-button:hover {
+            background: #0F0F1E;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.3);
+            color: #FFC533;
+        }
+        
+        /* Option 5: Split design with divider */
+        .option5-container {
+            display: flex;
+            align-items: center;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 8px;
+            padding: 10px 0;
+            gap: 0;
+            border: 1px solid rgba(255, 184, 0, 0.1);
+        }
+        
+        .option5-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            padding: 0 12px;
+        }
+        
+        .option5-accent {
+            width: 3px;
+            height: 20px;
+            background: #FFB800;
+            border-radius: 2px;
+        }
+        
+        .option5-text {
+            color: #9ca3af;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+        
+        .option5-divider {
+            width: 1px;
+            height: 24px;
+            background: rgba(255, 184, 0, 0.2);
+        }
+        
+        .option5-button {
+            padding: 8px 16px;
+            background: #1A1A2E;
+            color: #FFB800;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 0 8px 8px 0;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        
+        .option5-button:hover {
+            background: #0F0F1E;
+            color: #FFC533;
+        }
+        
+        /* Option 6: Compact with tighter spacing */
+        .option6-container {
+            display: flex;
+            align-items: center;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 6px;
+            padding: 8px 10px;
+            gap: 10px;
+            border: 1px solid rgba(255, 184, 0, 0.1);
+        }
+        
+        .option6-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+        
+        .option6-accent {
+            width: 2px;
+            height: 16px;
+            background: #FFB800;
+            border-radius: 1px;
+        }
+        
+        .option6-text {
+            color: #9ca3af;
+            font-size: 0.7rem;
+            font-style: italic;
+        }
+        
+        .option6-button {
+            padding: 6px 14px;
+            background: #1A1A2E;
+            color: #FFB800;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        
+        .option6-button:hover {
+            background: #0F0F1E;
+            transform: scale(1.02);
+            box-shadow: 0 2px 6px rgba(255, 184, 0, 0.3);
+            color: #FFC533;
+        }
+        
+        /* Option 7: With shadow and depth */
+        .option7-container {
+            display: flex;
+            align-items: center;
+            background: rgba(26, 26, 46, 0.9);
+            border-radius: 8px;
+            padding: 10px 12px;
+            gap: 12px;
+            border: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .option7-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .option7-accent {
+            width: 3px;
+            height: 20px;
+            background: #FFB800;
+            border-radius: 2px;
+        }
+        
+        .option7-text {
+            color: #9ca3af;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+        
+        .option7-button {
+            padding: 8px 16px;
+            background: #1A1A2E;
+            color: #FFB800;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .option7-button:hover {
+            background: #0F0F1E;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.3);
+            color: #FFC533;
+        }
+        
+        /* Option 8: Minimal border, clean look */
+        .option8-container {
+            display: flex;
+            align-items: center;
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 8px;
+            padding: 10px 12px;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .option8-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .option8-accent {
+            width: 3px;
+            height: 20px;
+            background: #FFB800;
+            border-radius: 2px;
+        }
+        
+        .option8-text {
+            color: #9ca3af;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+        
+        .option8-button {
+            padding: 8px 16px;
+            background: #1A1A2E;
+            color: #FFB800;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        
+        .option8-button:hover {
+            background: #0F0F1E;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.3);
+            color: #FFC533;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Button Within Button Design Options</h1>
+        
+        <!-- Option 1 -->
+        <div class="option">
+            <div class="option-title">Option 1: Dark Container with Accent Bar</div>
+            <div class="preview">
+                <div class="option1-container">
+                    <div class="option1-left">
+                        <div class="option1-accent"></div>
+                        <span class="option1-text">Not available in Norway</span>
+                    </div>
+                    <button class="option1-button">Search Globally</button>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex items-center bg-[#1A1A2E]/80 rounded-lg px-3 py-2.5 gap-3 border border-[#FFB800]/10"&gt;<br>
+&nbsp;&nbsp;&lt;div className="flex items-center gap-2.5 flex-1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="w-0.5 h-5 bg-[#FFB800] rounded"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-xs text-gray-400 italic"&gt;Not available in Norway&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;button className="px-4 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200"&gt;Search Globally&lt;/button&gt;<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 2 -->
+        <div class="option">
+            <div class="option-title">Option 2: Yellow Nested Button</div>
+            <div class="preview">
+                <div class="option2-container">
+                    <div class="option2-left">
+                        <div class="option2-accent"></div>
+                        <span class="option2-text">Not available in Norway</span>
+                    </div>
+                    <button class="option2-button">Search Globally</button>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex items-center bg-[#1A1A2E]/60 rounded-lg px-3 py-2.5 gap-3 border border-[#FFB800]/20"&gt;<br>
+&nbsp;&nbsp;&lt;div className="flex items-center gap-2.5 flex-1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="w-0.5 h-5 bg-gradient-to-b from-[#FFB800] to-[#FFC533] rounded"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-xs text-gray-400 italic"&gt;Not available in Norway&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;button className="px-4 py-2 bg-[#FFB800] text-[#1A1A2E] text-xs font-semibold rounded hover:bg-[#FFC533] hover:scale-105 hover:shadow-lg transition-all duration-200"&gt;Search Globally&lt;/button&gt;<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 3 -->
+        <div class="option">
+            <div class="option-title">Option 3: Subtle Background with Bordered Button</div>
+            <div class="preview">
+                <div class="option3-container">
+                    <div class="option3-left">
+                        <div class="option3-accent"></div>
+                        <span class="option3-text">Not available in Norway</span>
+                    </div>
+                    <button class="option3-button">Search Globally</button>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex items-center bg-black/30 rounded-lg px-3 py-2.5 gap-3 border border-[#FFB800]/15"&gt;<br>
+&nbsp;&nbsp;&lt;div className="flex items-center gap-2.5 flex-1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="w-0.5 h-5 bg-[#FFB800] rounded"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-xs text-gray-400 italic"&gt;Not available in Norway&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;button className="px-4 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded border border-[#FFB800]/30 hover:bg-[#0F0F1E] hover:border-[#FFB800] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200"&gt;Search Globally&lt;/button&gt;<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 4 -->
+        <div class="option">
+            <div class="option-title">Option 4: Larger Padding</div>
+            <div class="preview">
+                <div class="option4-container">
+                    <div class="option4-left">
+                        <div class="option4-accent"></div>
+                        <span class="option4-text">Not available in Norway</span>
+                    </div>
+                    <button class="option4-button">Search Globally</button>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex items-center bg-[#1A1A2E]/70 rounded-[10px] px-4 py-3 gap-3.5 border border-[#FFB800]/15"&gt;<br>
+&nbsp;&nbsp;&lt;div className="flex items-center gap-3 flex-1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="w-1 h-6 bg-[#FFB800] rounded"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-sm text-gray-400 italic"&gt;Not available in Norway&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;button className="px-4 py-2.5 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200"&gt;Search Globally&lt;/button&gt;<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 5 -->
+        <div class="option">
+            <div class="option-title">Option 5: Split Design with Divider</div>
+            <div class="preview">
+                <div class="option5-container">
+                    <div class="option5-left">
+                        <div class="option5-accent"></div>
+                        <span class="option5-text">Not available in Norway</span>
+                    </div>
+                    <div class="option5-divider"></div>
+                    <button class="option5-button">Search Globally</button>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex items-center bg-[#1A1A2E]/80 rounded-lg py-2.5 gap-0 border border-[#FFB800]/10"&gt;<br>
+&nbsp;&nbsp;&lt;div className="flex items-center gap-2.5 flex-1 px-3"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="w-0.5 h-5 bg-[#FFB800] rounded"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-xs text-gray-400 italic"&gt;Not available in Norway&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div className="w-px h-6 bg-[#FFB800]/20"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;button className="px-4 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded-r-lg hover:bg-[#0F0F1E] hover:text-[#FFC533] transition-all duration-200"&gt;Search Globally&lt;/button&gt;<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 6 -->
+        <div class="option">
+            <div class="option-title">Option 6: Compact Version</div>
+            <div class="preview">
+                <div class="option6-container">
+                    <div class="option6-left">
+                        <div class="option6-accent"></div>
+                        <span class="option6-text">Not available in Norway</span>
+                    </div>
+                    <button class="option6-button">Search Globally</button>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex items-center bg-[#1A1A2E]/80 rounded-md px-2.5 py-2 gap-2.5 border border-[#FFB800]/10"&gt;<br>
+&nbsp;&nbsp;&lt;div className="flex items-center gap-2 flex-1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="w-0.5 h-4 bg-[#FFB800] rounded"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-xs text-gray-400 italic"&gt;Not available in Norway&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;button className="px-3.5 py-1.5 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-md hover:text-[#FFC533] transition-all duration-200"&gt;Search Globally&lt;/button&gt;<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 7 -->
+        <div class="option">
+            <div class="option-title">Option 7: With Shadow and Depth</div>
+            <div class="preview">
+                <div class="option7-container">
+                    <div class="option7-left">
+                        <div class="option7-accent"></div>
+                        <span class="option7-text">Not available in Norway</span>
+                    </div>
+                    <button class="option7-button">Search Globally</button>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex items-center bg-[#1A1A2E]/90 rounded-lg px-3 py-2.5 gap-3 border border-[#FFB800]/20 shadow-lg"&gt;<br>
+&nbsp;&nbsp;&lt;div className="flex items-center gap-2.5 flex-1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="w-0.5 h-5 bg-[#FFB800] rounded"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-xs text-gray-400 italic"&gt;Not available in Norway&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;button className="px-4 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 shadow-inner"&gt;Search Globally&lt;/button&gt;<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 8 -->
+        <div class="option">
+            <div class="option-title">Option 8: Minimal Border</div>
+            <div class="preview">
+                <div class="option8-container">
+                    <div class="option8-left">
+                        <div class="option8-accent"></div>
+                        <span class="option8-text">Not available in Norway</span>
+                    </div>
+                    <button class="option8-button">Search Globally</button>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex items-center bg-[#1A1A2E]/60 rounded-lg px-3 py-2.5 gap-3 border border-white/5"&gt;<br>
+&nbsp;&nbsp;&lt;div className="flex items-center gap-2.5 flex-1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="w-0.5 h-5 bg-[#FFB800] rounded"&gt;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-xs text-gray-400 italic"&gt;Not available in Norway&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;button className="px-4 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200"&gt;Search Globally&lt;/button&gt;<br>
+&lt;/div&gt;
+            </div>
+        </div>
+    </div>
+</body>
+</html>

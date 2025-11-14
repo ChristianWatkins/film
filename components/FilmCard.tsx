@@ -681,55 +681,62 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             {/* Spacer to push content down */}
             <div className="flex-1"></div>
             
-            {/* Streaming info - just above buttons */}
-            <div className="space-y-1 mb-3">
-              <StreamingBadge providers={film.streaming} type="streaming" />
-              
-              {/* Only show rent/buy if no streaming OR if config allows */}
-              {shouldShowRentBuy(film.hasStreaming) && (
+            {/* Bottom section - streaming info and action buttons aligned */}
+            <div className="space-y-1">
+              {/* Streaming badges */}
+              {(film.hasStreaming || film.hasRent || film.hasBuy) && (
                 <>
-                  <StreamingBadge providers={film.rent} type="rent" />
-                  {/* Only show buy if no rent OR if config allows */}
-                  {shouldShowBuy(film.hasRent) && (
-                    <StreamingBadge providers={film.buy} type="buy" />
+                  <StreamingBadge providers={film.streaming} type="streaming" />
+                  
+                  {/* Only show rent/buy if no streaming OR if config allows */}
+                  {shouldShowRentBuy(film.hasStreaming) && (
+                    <>
+                      <StreamingBadge providers={film.rent} type="rent" />
+                      {/* Only show buy if no rent OR if config allows */}
+                      {shouldShowBuy(film.hasRent) && (
+                        <StreamingBadge providers={film.buy} type="buy" />
+                      )}
+                    </>
                   )}
                 </>
               )}
               
-              {!film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                <p className="text-xs text-gray-400 italic">
-                  Not available in Norway
-                </p>
-              )}
-            </div>
-            
-            {/* Action buttons - anchored at bottom */}
-            <div className="flex gap-1 mt-auto">
-              {/* Show JustWatch button only when NO availability (no streaming/rent/buy) */}
-              {film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                <a
-                  href={film.justwatchLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform"
-                  title="View streaming options on JustWatch"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  JustWatch
-                </a>
-              )}
-              
-              {/* Show Search Globally button only when NO availability AND no JustWatch link */}
-              {!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                <button
-                  onClick={handleDiscoverMovies}
-                  disabled={isDiscovering}
-                  className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                  title="Search for global streaming options"
-                >
-                  {isDiscovering ? 'Searching...' : 'Search Globally'}
-                </button>
-              )}
+                {/* Combined "Not available" message with action button */}
+                {!film.hasStreaming && !film.hasRent && !film.hasBuy && (
+                  <div className="flex items-stretch bg-white/5 rounded-lg overflow-hidden shadow-md border border-[#FFB800]/30">
+                    <div className="flex items-center flex-1 px-4 py-2.5 border-r border-[#FFB800]/40 gap-2">
+                      <span className="text-xs text-gray-500">Unavailable</span>
+                      <svg width="20" height="20" viewBox="0 0 20 20" className="flex-shrink-0">
+                        <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                        <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                        <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                        <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                        <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                      </svg>
+                    </div>
+                    {film.justwatchLink ? (
+                      <a
+                        href={film.justwatchLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2.5 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold hover:bg-[#0F0F1E] hover:text-[#FFC533] transition-all duration-200 flex items-center cursor-pointer"
+                        title="View streaming options on JustWatch"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        JustWatch
+                      </a>
+                    ) : (
+                      <button
+                        onClick={handleDiscoverMovies}
+                        disabled={isDiscovering}
+                        className="px-4 py-2.5 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold hover:bg-[#0F0F1E] hover:text-[#FFC533] transition-all duration-200 flex items-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                        title="Search for global streaming options"
+                      >
+                        {isDiscovering ? 'Searching...' : 'Search Globally'}
+                      </button>
+                    )}
+                  </div>
+                )}
             </div>
           </div>
         </motion.div>
@@ -1067,55 +1074,62 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               transition={{ delay: isFlipped ? 0.35 : 0, duration: 0.3 }}
               className="pt-3 border-t border-white/10 mt-auto"
             >
-              {/* Streaming info - same as front card */}
-              <div className="space-y-1 mb-3">
-                <StreamingBadge providers={film.streaming} type="streaming" />
-                
-                {/* Only show rent/buy if no streaming OR if config allows */}
-                {shouldShowRentBuy(film.hasStreaming) && (
+              {/* Bottom section - streaming info and action buttons aligned */}
+              <div className="space-y-1">
+                {/* Streaming badges */}
+                {(film.hasStreaming || film.hasRent || film.hasBuy) && (
                   <>
-                    <StreamingBadge providers={film.rent} type="rent" />
-                    {/* Only show buy if no rent OR if config allows */}
-                    {shouldShowBuy(film.hasRent) && (
-                      <StreamingBadge providers={film.buy} type="buy" />
+                    <StreamingBadge providers={film.streaming} type="streaming" />
+                    
+                    {/* Only show rent/buy if no streaming OR if config allows */}
+                    {shouldShowRentBuy(film.hasStreaming) && (
+                      <>
+                        <StreamingBadge providers={film.rent} type="rent" />
+                        {/* Only show buy if no rent OR if config allows */}
+                        {shouldShowBuy(film.hasRent) && (
+                          <StreamingBadge providers={film.buy} type="buy" />
+                        )}
+                      </>
                     )}
                   </>
-                )}
-                
-                {!film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                  <p className="text-xs text-gray-400 italic">
-                    Not available in Norway
-                  </p>
-                )}
-              </div>
-              
-              {/* Action buttons - same as front card */}
-              <div className="flex gap-1">
-                {/* Show JustWatch button only when NO availability (no streaming/rent/buy) */}
-                {film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                  <a
-                    href={film.justwatchLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform"
-                    title="View streaming options on JustWatch"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    JustWatch
-                  </a>
-                )}
-                
-                {/* Show Search Globally button only when NO availability AND no JustWatch link */}
-                {!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                  <button
-                    onClick={handleDiscoverMovies}
-                    disabled={isDiscovering}
-                    className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                    title="Search for global streaming options"
-                  >
-                    {isDiscovering ? 'Searching...' : 'Search Globally'}
-                  </button>
-                )}
+                  )}
+                  
+                  {/* Combined "Not available" message with action button */}
+                  {!film.hasStreaming && !film.hasRent && !film.hasBuy && (
+                    <div className="flex items-stretch bg-white/5 rounded-lg overflow-hidden shadow-md border border-[#FFB800]/30">
+                      <div className="flex items-center flex-1 px-4 py-2.5 border-r border-[#FFB800]/40 gap-2">
+                        <span className="text-xs text-gray-500">Unavailable</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" className="flex-shrink-0">
+                          <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                          <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                          <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                          <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                          <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                        </svg>
+                      </div>
+                      {film.justwatchLink ? (
+                        <a
+                          href={film.justwatchLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2.5 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold hover:bg-[#0F0F1E] hover:text-[#FFC533] transition-all duration-200 flex items-center cursor-pointer"
+                          title="View streaming options on JustWatch"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          JustWatch
+                        </a>
+                      ) : (
+                        <button
+                          onClick={handleDiscoverMovies}
+                          disabled={isDiscovering}
+                          className="px-4 py-2.5 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold hover:bg-[#0F0F1E] hover:text-[#FFC533] transition-all duration-200 flex items-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                          title="Search for global streaming options"
+                        >
+                          {isDiscovering ? 'Searching...' : 'Search Globally'}
+                        </button>
+                      )}
+                    </div>
+                  )}
               </div>
             </motion.div>
             </motion.div>
