@@ -678,44 +678,54 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             
             {/* Action buttons - anchored at bottom */}
             <div className="flex gap-1 mt-auto">
-              <button
-                onClick={handleTrailerClick}
-                className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
-                title="Watch trailer fullscreen"
-              >
-                <div className="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center">
-                  <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-                <span>Trailer</span>
-              </button>
-              
-              {/* Show JustWatch button only when NO availability (no streaming/rent/buy) */}
-              {film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                <a
-                  href={film.justwatchLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform"
-                  title="View streaming options on JustWatch"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  JustWatch
-                </a>
-              )}
-              
-              {/* Show Search Globally button only when NO availability AND no JustWatch link */}
-              {!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                <button
-                  onClick={handleDiscoverMovies}
-                  disabled={isDiscovering}
-                  className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                  title="Search for global streaming options"
-                >
-                  {isDiscovering ? 'Searching...' : 'Search Globally'}
-                </button>
-              )}
+              {(() => {
+                const hasOtherButtons = (film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy) || 
+                                       (!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy);
+                const isTrailerOnly = !hasOtherButtons;
+                
+                return (
+                  <>
+                    <button
+                      onClick={handleTrailerClick}
+                      className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
+                      title="Watch trailer fullscreen"
+                    >
+                      <div className="w-5 h-5 rounded-full bg-white/10 border border-white/30 flex items-center justify-center">
+                        <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                      <span>{isTrailerOnly ? 'View Trailer' : 'Trailer'}</span>
+                    </button>
+                    
+                    {/* Show JustWatch button only when NO availability (no streaming/rent/buy) */}
+                    {film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
+                      <a
+                        href={film.justwatchLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform"
+                        title="View streaming options on JustWatch"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        JustWatch
+                      </a>
+                    )}
+                    
+                    {/* Show Search Globally button only when NO availability AND no JustWatch link */}
+                    {!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
+                      <button
+                        onClick={handleDiscoverMovies}
+                        disabled={isDiscovering}
+                        className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                        title="Search for global streaming options"
+                      >
+                        {isDiscovering ? 'Searching...' : 'Search Globally'}
+                      </button>
+                    )}
+                  </>
+                );
+              })()}
             </div>
           </div>
         </motion.div>
@@ -1077,44 +1087,54 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               
               {/* Action buttons - same as front card */}
               <div className="flex gap-1">
-                <button
-                  onClick={handleTrailerClick}
-                  className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
-                  title="Watch trailer fullscreen"
-                >
-                  <div className="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center">
-                    <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <span>Trailer</span>
-                </button>
-                
-                {/* Show JustWatch button only when NO availability (no streaming/rent/buy) */}
-                {film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                  <a
-                    href={film.justwatchLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform"
-                    title="View streaming options on JustWatch"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    JustWatch
-                  </a>
-                )}
-                
-                {/* Show Search Globally button only when NO availability AND no JustWatch link */}
-                {!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                  <button
-                    onClick={handleDiscoverMovies}
-                    disabled={isDiscovering}
-                    className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                    title="Search for global streaming options"
-                  >
-                    {isDiscovering ? 'Searching...' : 'Search Globally'}
-                  </button>
-                )}
+                {(() => {
+                  const hasOtherButtons = (film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy) || 
+                                         (!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy);
+                  const isTrailerOnly = !hasOtherButtons;
+                  
+                  return (
+                    <>
+                      <button
+                        onClick={handleTrailerClick}
+                        className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
+                        title="Watch trailer fullscreen"
+                      >
+                        <div className="w-5 h-5 rounded-full bg-white/10 border border-white/30 flex items-center justify-center">
+                          <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                        </div>
+                        <span>{isTrailerOnly ? 'View Trailer' : 'Trailer'}</span>
+                      </button>
+                      
+                      {/* Show JustWatch button only when NO availability (no streaming/rent/buy) */}
+                      {film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
+                        <a
+                          href={film.justwatchLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform"
+                          title="View streaming options on JustWatch"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          JustWatch
+                        </a>
+                      )}
+                      
+                      {/* Show Search Globally button only when NO availability AND no JustWatch link */}
+                      {!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
+                        <button
+                          onClick={handleDiscoverMovies}
+                          disabled={isDiscovering}
+                          className="flex-1 px-2 py-2 bg-[#1A1A2E] text-[#FFB800] text-xs font-semibold rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg hover:text-[#FFC533] transition-all duration-200 whitespace-nowrap flex items-center justify-center transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                          title="Search for global streaming options"
+                        >
+                          {isDiscovering ? 'Searching...' : 'Search Globally'}
+                        </button>
+                      )}
+                    </>
+                  );
+                })()}
               </div>
             </motion.div>
             </motion.div>

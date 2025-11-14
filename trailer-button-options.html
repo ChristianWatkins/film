@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer Button Design Options</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-gray-800">Trailer Button Design Options</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Option 1: Current Design (Circle with border) -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 1: Circle with Border (Current)</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center">
+                        <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 2: Filled Circle -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 2: Filled Circle</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                        <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 3: Larger Circle with Thicker Border -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 3: Larger Circle, Thicker Border</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-6 h-6 rounded-full border-[3px] border-white flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 4: Circle with Shadow/Glow -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 4: Circle with Shadow/Glow</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+                        <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 5: Square with Rounded Corners -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 5: Square with Rounded Corners</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 rounded-md border-2 border-white flex items-center justify-center">
+                        <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 6: Circle with Gradient Border -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 6: Circle with Gradient Border</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 rounded-full border-2 border-transparent bg-gradient-to-r from-white to-white flex items-center justify-center" style="background: linear-gradient(#1A1A2E, #1A1A2E) padding-box, linear-gradient(to right, white, rgba(255,255,255,0.5)) border-box; border: 2px solid transparent;">
+                        <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 7: Double Circle (Outer + Inner) -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 7: Double Circle</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center">
+                        <div class="w-4 h-4 rounded-full border border-white flex items-center justify-center">
+                            <svg class="w-2 h-2 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 8: Circle with Pulse Animation -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 8: Circle with Pulse Animation</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center pulse-animation">
+                        <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 9: Minimal Circle (Thin Border) -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 9: Minimal Circle (Thin Border)</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 rounded-full border border-white flex items-center justify-center">
+                        <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 10: Circle with Background Color -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 10: Circle with Background</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 rounded-full bg-white/10 border border-white/30 flex items-center justify-center">
+                        <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 11: Hexagon Shape -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 11: Hexagon Shape</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <div class="w-5 h-5 flex items-center justify-center" style="clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%); border: 2px solid white;">
+                        <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span>Trailer</span>
+                </button>
+            </div>
+
+            <!-- Option 12: No Circle, Just Icon -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Option 12: No Circle (Original)</h2>
+                <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <span>Trailer</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Dark Mode Preview</h2>
+            <div class="bg-gray-900 p-6 rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Option 1 in dark -->
+                    <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                        <div class="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center">
+                            <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span>Trailer</span>
+                    </button>
+
+                    <!-- Option 2 in dark -->
+                    <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                        <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span>Trailer</span>
+                    </button>
+
+                    <!-- Option 3 in dark -->
+                    <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform">
+                        <div class="w-6 h-6 rounded-full border-[3px] border-white flex items-center justify-center">
+                            <svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span>Trailer</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
