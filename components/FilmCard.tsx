@@ -689,8 +689,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 <span>Trailer</span>
               </button>
               
-              {/* Show JustWatch if link exists AND has Norway availability */}
-              {film.justwatchLink && (film.hasStreaming || film.hasRent || film.hasBuy) && (
+              {/* Show JustWatch button only when NO availability (no streaming/rent/buy) */}
+              {film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
                 <a
                   href={film.justwatchLink}
                   target="_blank"
@@ -703,8 +703,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                 </a>
               )}
               
-              {/* Show Discover Movies button when no JustWatch link OR no Norway availability */}
-              {(!film.justwatchLink || (!film.hasStreaming && !film.hasRent && !film.hasBuy)) && (
+              {/* Show Search Globally button only when NO availability AND no JustWatch link */}
+              {!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
                 <button
                   onClick={handleDiscoverMovies}
                   disabled={isDiscovering}
@@ -1086,8 +1086,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <span>Trailer</span>
                 </button>
                 
-                {/* Show JustWatch if link exists AND has Norway availability */}
-                {film.justwatchLink && (film.hasStreaming || film.hasRent || film.hasBuy) && (
+                {/* Show JustWatch button only when NO availability (no streaming/rent/buy) */}
+                {film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
                   <a
                     href={film.justwatchLink}
                     target="_blank"
@@ -1100,8 +1100,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   </a>
                 )}
                 
-                {/* Show Discover Movies button when no JustWatch link OR no Norway availability */}
-                {(!film.justwatchLink || (!film.hasStreaming && !film.hasRent && !film.hasBuy)) && (
+                {/* Show Search Globally button only when NO availability AND no JustWatch link */}
+                {!film.justwatchLink && !film.hasStreaming && !film.hasRent && !film.hasBuy && (
                   <button
                     onClick={handleDiscoverMovies}
                     disabled={isDiscovering}
