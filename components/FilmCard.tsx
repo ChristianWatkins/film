@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EyeIcon, EyeSlashIcon, XMarkIcon, PaperClipIcon } from '@heroicons/react/24/outline';
+import { PlayIcon } from '@heroicons/react/24/solid';
 import type { Film } from '@/lib/types';
 import AwardBadge from './AwardBadge';
 import StreamingBadge from './StreamingBadge';
@@ -687,14 +688,11 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   <>
                     <button
                       onClick={handleTrailerClick}
-                      className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
+                      className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
+                      style={{ fontSize: '0.9rem', fontWeight: 600 }}
                       title="Watch trailer fullscreen"
                     >
-                      <div className="w-5 h-5 rounded-full bg-white/10 border border-white/30 flex items-center justify-center">
-                        <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
+                      <PlayIcon className="w-5 h-5" />
                       <span>{isTrailerOnly ? 'View Trailer' : 'Trailer'}</span>
                     </button>
                     
@@ -1096,14 +1094,11 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                     <>
                       <button
                         onClick={handleTrailerClick}
-                        className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white text-xs font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
+                        className="flex-1 px-2 py-2 bg-[#1A1A2E] text-white font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform"
+                        style={{ fontSize: '0.9rem', fontWeight: 600 }}
                         title="Watch trailer fullscreen"
                       >
-                        <div className="w-5 h-5 rounded-full bg-white/10 border border-white/30 flex items-center justify-center">
-                          <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                          </svg>
-                        </div>
+                        <PlayIcon className="w-5 h-5" />
                         <span>{isTrailerOnly ? 'View Trailer' : 'Trailer'}</span>
                       </button>
                       

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Icon Options - Different Libraries</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@heroicons/react@2.0.18/24/outline/index.js" type="module"></script>
+    <script src="https://unpkg.com/@heroicons/react@2.0.18/24/solid/index.js" type="module"></script>
+    <style>
+        .icon-preview {
+            transition: all 0.2s;
+        }
+        .icon-preview:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-gray-800">Play Icon Options - Different Libraries</h1>
+        
+        <div class="mb-6 p-4 bg-blue-50 rounded-lg">
+            <p class="text-sm text-gray-700"><strong>Note:</strong> All icons are shown at w-5 h-5 (20px) to match the button size. Click to see import code.</p>
+        </div>
+
+        <!-- Heroicons -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Heroicons</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Heroicons Outline - PlayCircleIcon -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">PlayCircleIcon (Outline)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { PlayCircleIcon } from '@heroicons/react/24/outline';</code>
+                </div>
+
+                <!-- Heroicons Solid - PlayCircleIcon -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">PlayCircleIcon (Solid) - Current</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { PlayCircleIcon } from '@heroicons/react/24/solid';</code>
+                </div>
+
+                <!-- Heroicons Outline - PlayIcon -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">PlayIcon (Outline)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { PlayIcon } from '@heroicons/react/24/outline';</code>
+                </div>
+
+                <!-- Heroicons Solid - PlayIcon -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">PlayIcon (Solid)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { PlayIcon } from '@heroicons/react/24/solid';</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Previous Custom Icon with Circle -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Previous Custom Icon (With Circle Container)</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Original Custom SVG -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">Custom SVG with Circle (Original)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <div class="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center">
+                            <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">&lt;div className="w-5 h-5 rounded-full border-2 border-white..."&gt;<br/>&nbsp;&nbsp;&lt;svg className="w-3 h-3 ml-0.5" fill="currentColor"&gt;...&lt;/svg&gt;<br/>&lt;/div&gt;</code>
+                </div>
+
+                <!-- Custom SVG with Semi-transparent Circle -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">Custom SVG with Semi-transparent Circle (Option 10)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <div class="w-5 h-5 rounded-full bg-white/10 border border-white/30 flex items-center justify-center">
+                            <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">&lt;div className="w-5 h-5 rounded-full bg-white/10 border border-white/30..."&gt;<br/>&nbsp;&nbsp;&lt;svg className="w-3 h-3 ml-0.5" fill="currentColor"&gt;...&lt;/svg&gt;<br/>&lt;/div&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lucide Icons -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Lucide Icons</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Lucide PlayCircle -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">PlayCircle</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { PlayCircle } from 'lucide-react';</code>
+                </div>
+
+                <!-- Lucide Play -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">Play</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { Play } from 'lucide-react';</code>
+                </div>
+
+                <!-- Lucide CirclePlay -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">CirclePlay</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { CirclePlay } from 'lucide-react';</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- React Icons -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">React Icons</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- React Icons FaPlayCircle -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">FaPlayCircle (Font Awesome)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 512 512">
+                            <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l128-128c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                            <path d="M175 175c9.4-9.4 24.6-9.4 33.9 0L337 337c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L175 209c-9.4-9.4-9.4-24.6 0-33.9z"/>
+                            <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/>
+                            <path d="M188.3 147.1c7.6 4.2 12.3 12.2 12.3 20.9v176c0 8.7-4.7 16.7-12.3 20.9s-16.8 4.4-24.3-.5l-144-88C8.1 252.2 0 240 0 226.6s8.1-25.6 20.1-30.1l144-88c7.4-4.5 16.7-4.7 24.2-.5z"/>
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { FaPlayCircle } from 'react-icons/fa';</code>
+                </div>
+
+                <!-- React Icons FaPlay -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">FaPlay (Font Awesome)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 448 512">
+                            <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464.1c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.7z"/>
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { FaPlay } from 'react-icons/fa';</code>
+                </div>
+
+                <!-- React Icons HiPlayCircle -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">HiPlayCircle (Heroicons via React Icons)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { HiPlayCircle } from 'react-icons/hi2';</code>
+                </div>
+
+                <!-- React Icons MdPlayCircle -->
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">MdPlayCircle (Material Design)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                    <code class="text-xs bg-gray-100 p-2 rounded block">import { MdPlayCircle } from 'react-icons/md';</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Size Variations -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Size Variations (Heroicons Solid PlayCircleIcon)</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">w-4 h-4 (16px)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                </div>
+
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">w-5 h-5 (20px) - Current</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                </div>
+
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">w-6 h-6 (24px)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                </div>
+
+                <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
+                    <h3 class="font-semibold mb-3">w-7 h-7 (28px)</h3>
+                    <div class="bg-[#1A1A2E] p-4 rounded flex items-center justify-center gap-2 mb-3">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-white" style="font-size: 0.9rem; font-weight: 600;">View Trailer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dark Mode Preview -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Dark Mode Preview</h2>
+            <div class="bg-gray-900 p-6 rounded-lg space-y-4">
+                <div class="flex gap-1">
+                    <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform" style="font-size: 0.9rem; font-weight: 600;">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                        </svg>
+                        <span>View Trailer</span>
+                    </button>
+                </div>
+                <div class="flex gap-1">
+                    <button class="flex-1 px-2 py-2 bg-[#1A1A2E] text-white font-medium rounded hover:bg-[#0F0F1E] hover:scale-105 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer transform" style="font-size: 0.9rem; font-weight: 600;">
+                        <div class="w-5 h-5 rounded-full bg-white/10 border border-white/30 flex items-center justify-center">
+                            <svg class="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span>View Trailer</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
