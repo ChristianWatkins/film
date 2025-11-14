@@ -232,7 +232,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
     }
   };
 
-  const handleWatchlistChangeWithAnimation = () => {
+  const triggerGlowAnimation = () => {
     // Clear any existing timeout and reset glow state
     if (glowTimeoutRef.current) {
       clearTimeout(glowTimeoutRef.current);
@@ -250,10 +250,29 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
         glowTimeoutRef.current = null;
       }, 1200);
     }, 10);
-    
+  };
+
+  const handleWatchlistChangeWithAnimation = () => {
+    triggerGlowAnimation();
     // Call the original callback
     onWatchlistChange?.();
   };
+
+  // Listen for custom events when watchlist is toggled via shortcuts
+  useEffect(() => {
+    const handleWatchlistToggleEvent = (e: CustomEvent) => {
+      // Check if this event is for this card's film
+      if (e.detail?.filmKey === film.filmKey) {
+        triggerGlowAnimation();
+      }
+    };
+
+    window.addEventListener('watchlist-toggle-glow' as any, handleWatchlistToggleEvent as EventListener);
+    
+    return () => {
+      window.removeEventListener('watchlist-toggle-glow' as any, handleWatchlistToggleEvent as EventListener);
+    };
+  }, [film.filmKey]);
 
   // Cleanup timeout on unmount
   useEffect(() => {

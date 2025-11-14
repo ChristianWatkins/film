@@ -357,6 +357,8 @@ export default function FilmGrid({
           const wasInWatchlist = toggleWatchlist(targetFilm.filmKey, targetFilm.title);
           const nowInWatchlist = !wasInWatchlist;
           console.log(`[FilmGrid] Watchlist toggled - ${nowInWatchlist ? 'ADDED' : 'REMOVED'} to watchlist`);
+          // Dispatch custom event to trigger glow animation on the card
+          window.dispatchEvent(new CustomEvent('watchlist-toggle-glow', { detail: { filmKey: targetFilm.filmKey } }));
           // Notify parent component of watchlist change
           onWatchlistChange?.();
           console.log(`[FilmGrid] onWatchlistChange callback called`);
@@ -427,6 +429,8 @@ export default function FilmGrid({
           const flippedFilm = visibleFilms.find(film => film.filmKey === flippedCard);
           if (flippedFilm) {
             toggleWatchlist(flippedFilm.filmKey, flippedFilm.title);
+            // Dispatch custom event to trigger glow animation on the card
+            window.dispatchEvent(new CustomEvent('watchlist-toggle-glow', { detail: { filmKey: flippedFilm.filmKey } }));
             // Notify parent component of watchlist change
             onWatchlistChange?.();
           }

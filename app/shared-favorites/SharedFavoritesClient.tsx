@@ -240,6 +240,8 @@ export default function SharedFavoritesClient({ films }: SharedFavoritesClientPr
         if (cardIndex < visibleFilms.length) {
           const targetFilm = visibleFilms[cardIndex];
           toggleWatchlist(targetFilm.filmKey, targetFilm.title);
+          // Dispatch custom event to trigger glow animation on the card
+          window.dispatchEvent(new CustomEvent('watchlist-toggle-glow', { detail: { filmKey: targetFilm.filmKey } }));
           setUserWatchlist(getWatchlist());
         }
       }
