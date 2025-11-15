@@ -504,7 +504,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
             }
           }}
           ref={frontRef}
-          className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full relative min-h-[500px] ${
+          className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.005] transition-all duration-300 flex flex-col h-full relative min-h-[500px] ${
             isPriority ? 'ring-2 ring-[#FFB800]' : ''
           } ${isHeartGlowing ? 'heart-glow' : ''}`}
           onMouseEnter={() => setIsCardHovered(true)}
