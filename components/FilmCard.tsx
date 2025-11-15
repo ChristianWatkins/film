@@ -660,23 +660,49 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           
           {/* Film info - flex-1 to push buttons to bottom */}
           <div className="p-4 flex flex-col flex-1">
-            <h3 className="font-bold text-lg mb-1 line-clamp-2 text-gray-900">{film.title}</h3>
+            <h3 className="font-bold text-lg mb-1.5 line-clamp-2 text-gray-900">{film.title}</h3>
             
-            {film.director && (
-              <p 
-                className="clickable-director text-sm text-gray-700 mb-1 cursor-pointer hover:text-[#FFB800] hover:underline transition-colors" 
-                onClick={handleDirectorClick}
-                title={`Show all films by ${film.director}`}
-              >
-                {film.director}
-              </p>
-            )}
-            
-            <p className="text-sm text-gray-600 mb-3">
+            {/* Inline director, country, and year */}
+            <p className="text-xs text-gray-600 mb-2">
+              {film.director && (
+                <span
+                  className="cursor-pointer hover:text-[#FFB800] hover:underline transition-colors"
+                  onClick={handleDirectorClick}
+                  title={`Show all films by ${film.director}`}
+                >
+                  {film.director}
+                </span>
+              )}
+              {film.director && film.country && <span> • </span>}
               {film.country && <span>{film.country}</span>}
               {film.country && film.year && <span> • </span>}
               {film.year && <span>{film.year}</span>}
             </p>
+            
+            {/* Genres section - minimal with slash separators */}
+            {film.genres && film.genres.length > 0 && (
+              <div className="mb-3">
+                <div className="text-xs text-gray-600">
+                  {film.genres.slice(0, 3).map((genre, idx, arr) => (
+                    <span key={idx}>
+                      <span
+                        className="cursor-pointer hover:text-gray-700 transition-colors"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onGenreClick?.(genre);
+                        }}
+                        title={`Filter by ${genre}`}
+                      >
+                        {genre}
+                      </span>
+                      {idx < arr.length - 1 && (
+                        <span className="text-gray-300 mx-1">/</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
             
             {/* Spacer to push content down */}
             <div className="flex-1"></div>

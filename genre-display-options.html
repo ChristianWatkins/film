@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genre Display Options</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: rgb(16, 1, 24);
+            color: #ededed;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #FFB800;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .option-title {
+            color: #FFB800;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .preview {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+        
+        .preview-image {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .preview-content {
+            padding: 16px;
+        }
+        
+        .preview h3 {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        
+        .preview p {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 4px;
+        }
+        
+        .preview .country-year {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+        
+        .preview .not-available-button {
+            margin-top: 12px;
+            display: flex;
+            align-items: stretch;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 184, 0, 0.3);
+        }
+        
+        .preview .not-available-left {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            padding: 10px 16px;
+            border-right: 1px solid rgba(255, 184, 0, 0.4);
+        }
+        
+        .preview .not-available-text {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-right: 8px;
+        }
+        
+        .preview .not-available-flag {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+        
+        .preview .not-available-button-right {
+            padding: 10px 16px;
+            background: #1A1A2E;
+            color: #FFB800;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .preview .not-available-button-right:hover {
+            background: #0F0F1E;
+            color: #FFC533;
+        }
+        
+        .code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            color: #a0a0a0;
+        }
+        
+        /* Option 1: Subtle outlined badges */
+        .option1-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .option1-genre {
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            color: #6b7280;
+            background: transparent;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option1-genre:hover {
+            border-color: #9ca3af;
+            color: #4b5563;
+        }
+        
+        /* Option 2: Minimal text with separators */
+        .option2-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        
+        .option2-genre {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option2-genre:hover {
+            color: #4b5563;
+        }
+        
+        .option2-separator {
+            color: #d1d5db;
+        }
+        
+        /* Option 3: Colored text, no buttons */
+        .option3-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.75rem;
+        }
+        
+        .option3-genre {
+            color: #FFB800;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option3-genre:hover {
+            color: #FFC533;
+        }
+        
+        .option3-separator {
+            color: #9ca3af;
+        }
+        
+        /* Option 4: Small gray pills */
+        .option4-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .option4-genre {
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            color: #6b7280;
+            background: #f3f4f6;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option4-genre:hover {
+            background: #e5e7eb;
+            color: #4b5563;
+        }
+        
+        /* Option 5: Underlined links */
+        .option5-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.75rem;
+        }
+        
+        .option5-genre {
+            color: #6b7280;
+            text-decoration: underline;
+            text-decoration-color: #d1d5db;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option5-genre:hover {
+            color: #4b5563;
+            text-decoration-color: #9ca3af;
+        }
+        
+        /* Option 6: Colored pills (subtle) */
+        .option6-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .option6-genre {
+            padding: 3px 10px;
+            font-size: 0.7rem;
+            color: #FFB800;
+            background: rgba(255, 184, 0, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option6-genre:hover {
+            background: rgba(255, 184, 0, 0.15);
+        }
+        
+        /* Option 7: Dashed border badges */
+        .option7-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .option7-genre {
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            color: #6b7280;
+            background: transparent;
+            border: 1px dashed #d1d5db;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option7-genre:hover {
+            border-color: #9ca3af;
+            color: #4b5563;
+        }
+        
+        /* Option 8: Small colored dots */
+        .option8-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+        
+        .option8-genre {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #6b7280;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option8-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #FFB800;
+        }
+        
+        .option8-genre:hover {
+            color: #4b5563;
+        }
+        
+        /* Option 9: Minimal with commas */
+        .option9-genres {
+            font-size: 0.75rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        .option9-genre {
+            color: #6b7280;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option9-genre:hover {
+            color: #4b5563;
+        }
+        
+        /* Option 10: Colored background, white text */
+        .option10-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .option10-genre {
+            padding: 3px 10px;
+            font-size: 0.7rem;
+            color: white;
+            background: #6b7280;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option10-genre:hover {
+            background: #4b5563;
+        }
+        
+        /* Option 11: Gradient text */
+        .option11-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.75rem;
+        }
+        
+        .option11-genre {
+            background: linear-gradient(135deg, #FFB800 0%, #FFC533 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .option11-genre:hover {
+            opacity: 0.8;
+        }
+        
+        /* Option 12: Small uppercase tags */
+        .option12-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .option12-genre {
+            padding: 2px 8px;
+            font-size: 0.65rem;
+            color: #6b7280;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option12-genre:hover {
+            background: #f3f4f6;
+            border-color: #d1d5db;
+        }
+        
+        /* Option 13: Colored border only */
+        .option13-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .option13-genre {
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            color: #6b7280;
+            background: transparent;
+            border: 1px solid #FFB800;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option13-genre:hover {
+            background: rgba(255, 184, 0, 0.05);
+            color: #4b5563;
+        }
+        
+        /* Option 14: Small icons with text */
+        .option14-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.75rem;
+        }
+        
+        .option14-genre {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #6b7280;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option14-icon {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #FFB800;
+        }
+        
+        .option14-genre:hover {
+            color: #4b5563;
+        }
+        
+        /* Option 15: Minimal italic */
+        .option15-genres {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .option15-genre {
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option15-genre:hover {
+            color: #6b7280;
+        }
+        
+        /* Option 16: Colored pills (darker) */
+        .option16-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .option16-genre {
+            padding: 3px 10px;
+            font-size: 0.7rem;
+            color: #1a1a2e;
+            background: #FFB800;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option16-genre:hover {
+            background: #FFC533;
+        }
+        
+        /* Option 17: Subtle background tint */
+        .option17-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .option17-genre {
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            color: #6b7280;
+            background: rgba(107, 114, 128, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option17-genre:hover {
+            background: rgba(107, 114, 128, 0.15);
+            color: #4b5563;
+        }
+        
+        /* Option 18: Colored text with bullet */
+        .option18-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.75rem;
+        }
+        
+        .option18-genre {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #FFB800;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option18-bullet {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: #FFB800;
+        }
+        
+        .option18-genre:hover {
+            color: #FFC533;
+        }
+        
+        /* Option 19: Minimal with slash separators */
+        .option19-genres {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        
+        .option19-genre {
+            color: #6b7280;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option19-genre:hover {
+            color: #4b5563;
+        }
+        
+        .option19-separator {
+            color: #d1d5db;
+            margin: 0 4px;
+        }
+        
+        /* Option 20: Very subtle gray pills */
+        .option20-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .option20-genre {
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            color: #9ca3af;
+            background: rgba(156, 163, 175, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option20-genre:hover {
+            background: rgba(156, 163, 175, 0.2);
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Genre Display Options</h1>
+        
+        <!-- Option 1 -->
+        <div class="option">
+            <div class="option-title">Option 1: Subtle Outlined Badges</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                    <div class="option1-genres">
+                        <span class="option1-genre">Family</span>
+                        <span class="option1-genre">Adventure</span>
+                        <span class="option1-genre">Drama</span>
+                    </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1.5"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;button className="px-2 py-0.5 text-xs text-gray-600 bg-transparent border border-gray-300 rounded hover:border-gray-400 hover:text-gray-700 transition-colors cursor-pointer"&gt;{genre}&lt;/button&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 2 -->
+        <div class="option">
+            <div class="option-title">Option 2: Minimal Text with Separators</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                    <div class="option2-genres">
+                    <span class="option2-genre">Family</span>
+                    <span class="option2-separator">•</span>
+                    <span class="option2-genre">Adventure</span>
+                    <span class="option2-separator">•</span>
+                    <span class="option2-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-2 text-xs text-gray-600"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="cursor-pointer hover:text-gray-700"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{idx &lt; genres.length - 1 && &lt;span className="text-gray-300"&gt;•&lt;/span&gt;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 3 -->
+        <div class="option">
+            <div class="option-title">Option 3: Colored Text, No Buttons</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option3-genres">
+                    <span class="option3-genre">Family</span>
+                    <span class="option3-separator">•</span>
+                    <span class="option3-genre">Adventure</span>
+                    <span class="option3-separator">•</span>
+                    <span class="option3-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-2 text-xs"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-[#FFB800] cursor-pointer hover:text-[#FFC533]"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{idx &lt; genres.length - 1 && &lt;span className="text-gray-400"&gt;•&lt;/span&gt;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 4 -->
+        <div class="option">
+            <div class="option-title">Option 4: Small Gray Pills</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option4-genres">
+                    <span class="option4-genre">Family</span>
+                    <span class="option4-genre">Adventure</span>
+                    <span class="option4-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-gray-600 bg-gray-100 rounded-full cursor-pointer hover:bg-gray-200"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 5 -->
+        <div class="option">
+            <div class="option-title">Option 5: Underlined Links</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option5-genres">
+                    <span class="option5-genre">Family</span>
+                    <span class="option5-genre">Adventure</span>
+                    <span class="option5-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-2 text-xs"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="text-gray-600 underline decoration-gray-300 cursor-pointer hover:text-gray-700 hover:decoration-gray-400"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 6 -->
+        <div class="option">
+            <div class="option-title">Option 6: Colored Pills (Subtle)</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option6-genres">
+                    <span class="option6-genre">Family</span>
+                    <span class="option6-genre">Adventure</span>
+                    <span class="option6-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1.5"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-[#FFB800] bg-[#FFB800]/10 rounded-full cursor-pointer hover:bg-[#FFB800]/15"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 7 -->
+        <div class="option">
+            <div class="option-title">Option 7: Dashed Border Badges</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option7-genres">
+                    <span class="option7-genre">Family</span>
+                    <span class="option7-genre">Adventure</span>
+                    <span class="option7-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1.5"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-gray-600 bg-transparent border border-dashed border-gray-300 rounded cursor-pointer hover:border-gray-400"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 8 -->
+        <div class="option">
+            <div class="option-title">Option 8: Small Colored Dots</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option8-genres">
+                    <span class="option8-genre"><span class="option8-dot"></span>Family</span>
+                    <span class="option8-genre"><span class="option8-dot"></span>Adventure</span>
+                    <span class="option8-genre"><span class="option8-dot"></span>Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-2 text-xs"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="flex items-center gap-1 text-gray-600 cursor-pointer"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="w-1 h-1 rounded-full bg-[#FFB800]"&gt;&lt;/span&gt;{genre}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 9 -->
+        <div class="option">
+            <div class="option-title">Option 9: Minimal with Commas</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option9-genres">
+                    <span class="option9-genre">Family</span>, <span class="option9-genre">Adventure</span>, <span class="option9-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="text-xs text-gray-600"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="cursor-pointer hover:text-gray-700"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{idx &lt; genres.length - 1 && ', '}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 10 -->
+        <div class="option">
+            <div class="option-title">Option 10: Colored Background, White Text</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option10-genres">
+                    <span class="option10-genre">Family</span>
+                    <span class="option10-genre">Adventure</span>
+                    <span class="option10-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1.5"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-white bg-gray-500 rounded-full cursor-pointer hover:bg-gray-600"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 11 -->
+        <div class="option">
+            <div class="option-title">Option 11: Gradient Text</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option11-genres">
+                    <span class="option11-genre">Family</span>
+                    <span class="option11-separator">•</span>
+                    <span class="option11-genre">Adventure</span>
+                    <span class="option11-separator">•</span>
+                    <span class="option11-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-2 text-xs"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="bg-gradient-to-r from-[#FFB800] to-[#FFC533] bg-clip-text text-transparent cursor-pointer"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{idx &lt; genres.length - 1 && &lt;span className="text-gray-400"&gt;•&lt;/span&gt;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 12 -->
+        <div class="option">
+            <div class="option-title">Option 12: Small Uppercase Tags</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option12-genres">
+                    <span class="option12-genre">Family</span>
+                    <span class="option12-genre">Adventure</span>
+                    <span class="option12-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1.5"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-gray-600 bg-gray-50 border border-gray-200 rounded uppercase tracking-wide cursor-pointer hover:bg-gray-100"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 13 -->
+        <div class="option">
+            <div class="option-title">Option 13: Colored Border Only</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option13-genres">
+                    <span class="option13-genre">Family</span>
+                    <span class="option13-genre">Adventure</span>
+                    <span class="option13-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1.5"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-gray-600 bg-transparent border border-[#FFB800] rounded cursor-pointer hover:bg-[#FFB800]/5"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 14 -->
+        <div class="option">
+            <div class="option-title">Option 14: Small Icons with Text</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option14-genres">
+                    <span class="option14-genre"><span class="option14-icon"></span>Family</span>
+                    <span class="option14-genre"><span class="option14-icon"></span>Adventure</span>
+                    <span class="option14-genre"><span class="option14-icon"></span>Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-2 text-xs"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="flex items-center gap-1 text-gray-600 cursor-pointer"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="w-2 h-2 rounded-full bg-[#FFB800]"&gt;&lt;/span&gt;{genre}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 15 -->
+        <div class="option">
+            <div class="option-title">Option 15: Minimal Italic</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option15-genres">
+                    <span class="option15-genre">Family</span>, <span class="option15-genre">Adventure</span>, <span class="option15-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="text-xs text-gray-400 italic"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="cursor-pointer hover:text-gray-500"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{idx &lt; genres.length - 1 && ', '}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 16 -->
+        <div class="option">
+            <div class="option-title">Option 16: Colored Pills (Darker)</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option16-genres">
+                    <span class="option16-genre">Family</span>
+                    <span class="option16-genre">Adventure</span>
+                    <span class="option16-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1.5"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-[#1A1A2E] bg-[#FFB800] rounded-full cursor-pointer hover:bg-[#FFC533]"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 17 -->
+        <div class="option">
+            <div class="option-title">Option 17: Subtle Background Tint</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option17-genres">
+                    <span class="option17-genre">Family</span>
+                    <span class="option17-genre">Adventure</span>
+                    <span class="option17-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1.5"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-gray-600 bg-gray-500/10 rounded cursor-pointer hover:bg-gray-500/15"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 18 -->
+        <div class="option">
+            <div class="option-title">Option 18: Colored Text with Bullet</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option18-genres">
+                    <span class="option18-genre"><span class="option18-bullet"></span>Family</span>
+                    <span class="option18-genre"><span class="option18-bullet"></span>Adventure</span>
+                    <span class="option18-genre"><span class="option18-bullet"></span>Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-2 text-xs"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="flex items-center gap-1 text-[#FFB800] cursor-pointer hover:text-[#FFC533]"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="w-0.5 h-0.5 rounded-full bg-[#FFB800]"&gt;&lt;/span&gt;{genre}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 19 -->
+        <div class="option">
+            <div class="option-title">Option 19: Minimal with Slash Separators</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option19-genres">
+                    <span class="option19-genre">Family</span><span class="option19-separator">/</span><span class="option19-genre">Adventure</span><span class="option19-separator">/</span><span class="option19-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="text-xs text-gray-600"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="cursor-pointer hover:text-gray-700"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{idx &lt; genres.length - 1 && &lt;span className="text-gray-300 mx-1"&gt;/&lt;/span&gt;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <!-- Option 20 -->
+        <div class="option">
+            <div class="option-title">Option 20: Very Subtle Gray Pills</div>
+            <div class="preview">
+                <div class="preview-image">🎬</div>
+                <div class="preview-content">
+                    <h3>Film Title</h3>
+                    <p>Director Name</p>
+                    <p class="country-year">Germany • 2021</p>
+                <div class="option20-genres">
+                    <span class="option20-genre">Family</span>
+                    <span class="option20-genre">Adventure</span>
+                    <span class="option20-genre">Drama</span>
+                </div>
+                    <div class="not-available-button">
+                        <div class="not-available-left">
+                            <span class="not-available-text">Unavailable</span>
+                            <svg class="not-available-flag" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10" fill="#BA0C2F"/>
+                                <rect x="7" y="0" width="2" height="20" fill="#fff"/>
+                                <rect x="0" y="9" width="20" height="2" fill="#fff"/>
+                                <rect x="7.5" y="0" width="1" height="20" fill="#00205B"/>
+                                <rect x="0" y="9.5" width="20" height="1" fill="#00205B"/>
+                            </svg>
+                        </div>
+                        <div class="not-available-button-right">Search Globally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+&lt;div className="flex flex-wrap gap-1"&gt;<br>
+&nbsp;&nbsp;{genres.map((genre, idx) => (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span className="px-2 py-0.5 text-xs text-gray-400 bg-gray-400/10 rounded-full cursor-pointer hover:bg-gray-400/20 hover:text-gray-500"&gt;{genre}&lt;/span&gt;<br>
+&nbsp;&nbsp;))}<br>
+&lt;/div&gt;
+            </div>
+        </div>
+    </div>
+</body>
+</html>
