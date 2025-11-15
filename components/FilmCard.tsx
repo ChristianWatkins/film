@@ -37,6 +37,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
   const [frontHeight, setFrontHeight] = useState<number>(500);
   const [isHeartGlowing, setIsHeartGlowing] = useState(false);
   const [isFlipping, setIsFlipping] = useState(false);
+  const [isCardHovered, setIsCardHovered] = useState(false);
   const glowTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const synopsisRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -506,6 +507,8 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full relative min-h-[500px] ${
             isPriority ? 'ring-2 ring-[#FFB800]' : ''
           } ${isHeartGlowing ? 'heart-glow' : ''}`}
+          onMouseEnter={() => setIsCardHovered(true)}
+          onMouseLeave={() => setIsCardHovered(false)}
         >
 
           {/* Flip indicator - top right corner */}
@@ -574,11 +577,11 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   </div>
                 )}
                 
-                {/* Play icon overlay - centered on poster */}
+                {/* Play icon overlay - centered on poster - only show on card hover */}
                 {film.mubiLink && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                  <div className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-300 ${isCardHovered ? 'opacity-100' : 'opacity-0'}`}>
                     <div 
-                      className="bg-black/50 rounded-full p-3 hover:bg-black/70 transition-all duration-200 cursor-pointer pointer-events-auto"
+                      className={`bg-black/50 rounded-full p-3 hover:bg-black/70 transition-all duration-200 cursor-pointer ${isCardHovered ? 'pointer-events-auto' : 'pointer-events-none'}`}
                       onClick={handleTrailerClick}
                       title="Watch trailer fullscreen"
                     >
@@ -642,11 +645,11 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   </div>
                 )}
                 
-                {/* Play icon overlay - centered on placeholder */}
+                {/* Play icon overlay - centered on placeholder - only show on card hover */}
                 {film.mubiLink && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                  <div className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-300 ${isCardHovered ? 'opacity-100' : 'opacity-0'}`}>
                     <div 
-                      className="bg-black/50 rounded-full p-3 hover:bg-black/70 transition-all duration-200 cursor-pointer pointer-events-auto"
+                      className={`bg-black/50 rounded-full p-3 hover:bg-black/70 transition-all duration-200 cursor-pointer ${isCardHovered ? 'pointer-events-auto' : 'pointer-events-none'}`}
                       onClick={handleTrailerClick}
                       title="Watch trailer fullscreen"
                     >
