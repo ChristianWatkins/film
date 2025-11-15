@@ -659,7 +659,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
           </div>
           
           {/* Film info - flex-1 to push buttons to bottom */}
-          <div className="p-4 flex flex-col flex-1">
+          <div className="p-4 flex flex-col flex-1 cursor-default" onClick={(e) => e.stopPropagation()}>
             <h3 className="font-bold text-lg mb-1.5 line-clamp-2 text-gray-900">{film.title}</h3>
             
             {/* Inline director, country, and year */}
@@ -729,7 +729,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
               
                 {/* Combined "Not available" message with action button */}
                 {!film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                  <div className="flex items-stretch bg-white/5 rounded-lg overflow-hidden shadow-md border border-[#FFB800]/30">
+                  <div className="flex items-stretch bg-white/5 rounded-lg overflow-hidden shadow-md border border-[#FFB800]/30 hover:border-[#FFB800]/50 hover:shadow-lg hover:scale-[1.02] transition-all duration-200 cursor-pointer" onClick={(e) => e.stopPropagation()}>
                     <div className="flex items-center flex-1 px-4 py-2.5 border-r border-[#FFB800]/40 gap-2">
                       <span className="text-xs text-gray-500">Unavailable</span>
                       <svg width="20" height="20" viewBox="0 0 20 20" className="flex-shrink-0">
@@ -1122,7 +1122,7 @@ export default function FilmCard({ film, isFlipped, onFlip, onGenreClick, onWatc
                   
                   {/* Combined "Not available" message with action button */}
                   {!film.hasStreaming && !film.hasRent && !film.hasBuy && (
-                    <div className="flex items-stretch bg-white/5 rounded-lg overflow-hidden shadow-md border border-[#FFB800]/30">
+                    <div className="flex items-stretch bg-white/5 rounded-lg overflow-hidden shadow-md border border-[#FFB800]/30 hover:border-[#FFB800]/50 hover:shadow-lg hover:scale-[1.02] transition-all duration-200 cursor-pointer" onClick={(e) => e.stopPropagation()}>
                       <div className="flex items-center flex-1 px-4 py-2.5 border-r border-[#FFB800]/40 gap-2">
                         <span className="text-xs text-gray-500">Unavailable</span>
                         <svg width="20" height="20" viewBox="0 0 20 20" className="flex-shrink-0">
