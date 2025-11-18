@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Globe } from 'lucide-react';
 import SyncPanel from './SyncPanel';
+import { getSyncId } from '@/lib/watchlist';
 
 interface HamburgerMenuProps {
   onHelpClick: () => void;
@@ -13,8 +14,32 @@ interface HamburgerMenuProps {
 export default function HamburgerMenu({ onHelpClick }: HamburgerMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showSyncPanel, setShowSyncPanel] = useState(false);
+  const [syncId, setSyncId] = useState<string | null>(null);
+  const [isOnline, setIsOnline] = useState(true);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  // Check sync status
+  useEffect(() => {
+    const checkSyncStatus = () => {
+      const currentSyncId = getSyncId();
+      setSyncId(currentSyncId);
+      setIsOnline(navigator.onLine);
+    };
+
+    checkSyncStatus();
+
+    // Listen for sync status changes
+    window.addEventListener('sync-status-changed', checkSyncStatus);
+    window.addEventListener('online', checkSyncStatus);
+    window.addEventListener('offline', checkSyncStatus);
+
+    return () => {
+      window.removeEventListener('sync-status-changed', checkSyncStatus);
+      window.removeEventListener('online', checkSyncStatus);
+      window.removeEventListener('offline', checkSyncStatus);
+    };
+  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -54,8 +79,8 @@ export default function HamburgerMenu({ onHelpClick }: HamburgerMenuProps) {
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-1.5 md:p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
-        title="Menu"
+        className="p-1.5 md:p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white relative"
+        title={syncId ? (isOnline ? 'Menu - Synced' : 'Menu - Offline') : 'Menu'}
         aria-label="Menu"
       >
         <svg
@@ -81,6 +106,15 @@ export default function HamburgerMenu({ onHelpClick }: HamburgerMenuProps) {
             />
           )}
         </svg>
+        {/* Sync indicator dot */}
+        {syncId && (
+          <div
+            className={`absolute top-1 right-1 w-2 h-2 rounded-full ${
+              isOnline ? 'bg-green-400' : 'bg-red-400'
+            } ring-2 ring-gray-700/80`}
+            title={isOnline ? 'Synced and online' : 'Offline'}
+          />
+        )}
       </button>
 
       {/* Menu Dropdown */}
@@ -103,7 +137,7 @@ export default function HamburgerMenu({ onHelpClick }: HamburgerMenuProps) {
                 handleMenuItemClick();
                 setShowSyncPanel(true);
               }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer text-left"
+              className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer text-left relative"
             >
               <svg
                 className="w-5 h-5"
@@ -119,6 +153,19 @@ export default function HamburgerMenu({ onHelpClick }: HamburgerMenuProps) {
                 />
               </svg>
               <span className="text-sm font-medium">Sync</span>
+              {syncId && (
+                <div className="ml-auto flex items-center gap-2">
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      isOnline ? 'bg-green-500' : 'bg-red-500'
+                    }`}
+                    title={isOnline ? 'Synced and online' : 'Offline'}
+                  />
+                  <span className="text-xs text-gray-500 dark:text-gray-400 font-mono">
+                    {syncId.length > 12 ? `${syncId.substring(0, 8)}...` : syncId}
+                  </span>
+                </div>
+              )}
             </button>
 
             {/* Help */}
