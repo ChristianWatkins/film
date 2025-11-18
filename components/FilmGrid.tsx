@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
-import { Globe } from 'lucide-react';
 import { FaTrophy } from 'react-icons/fa';
 import Link from 'next/link';
 import { shouldEnableCardAnimations } from '@/lib/streaming-config';
@@ -17,7 +16,7 @@ import { useConvexSync } from '@/lib/use-convex-sync';
 import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
 import PresentationFilters from './PresentationFilters';
-import SyncIcon from './SyncIcon';
+import HamburgerMenu from './HamburgerMenu';
 
 interface FilmGridProps {
   films: Film[];
@@ -632,9 +631,6 @@ export default function FilmGrid({
                 </button>
               )}
 
-              {/* Sync Icon - always visible */}
-              <SyncIcon />
-
               {/* Share Button - only show when in watchlist mode */}
               {onWatchlistToggle && watchlistOnly && (
                 <button
@@ -658,40 +654,11 @@ export default function FilmGrid({
                 </button>
               )}
 
-              {/* Search Button - Link to global search */}
-              <Link
-                href="/search"
-                className="p-1.5 md:p-3.5 rounded-full transition-all duration-200 cursor-pointer bg-gray-700/80 hover:bg-gray-600 text-white"
-                title="Global search"
-              >
-                <Globe className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
-              </Link>
+              {/* Hamburger Menu */}
+              <HamburgerMenu onHelpClick={() => setShowHelpOverlay(true)} />
             </div>
           </div>
 
-          {/* Edit Films Link - only visible in development and not on admin pages */}
-          {process.env.NODE_ENV === 'development' && !pathname?.startsWith('/admin') && (
-            <Link
-              href="/admin/films"
-              className="hidden md:block absolute right-16 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
-              title="Edit Films (Dev only)"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-              </svg>
-            </Link>
-          )}
-
-          {/* Help Button - absolute positioned to far right */}
-          <button
-            onClick={() => setShowHelpOverlay(true)}
-            className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
-            title="Show keyboard shortcuts (or press H)"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </button>
 
         </div>
 
