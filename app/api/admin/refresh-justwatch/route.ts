@@ -146,10 +146,10 @@ export async function POST(request: Request) {
           if (details) {
             // Create a match-like object from the details
             const bestMatch = {
-              id: details.id || details.ID,
-              title: details.title || title,
-              originalReleaseYear: details.originalReleaseYear || year,
-              posterUrl: details.posterUrl || details.poster,
+              id: (details as any).id || (details as any).ID || null,
+              title: (details as any).title || title,
+              originalReleaseYear: (details as any).originalReleaseYear || year,
+              posterUrl: (details as any).posterUrl || (details as any).poster || null,
               fullPath: fullPath
             };
             console.log(`  ✓ Found film: ${bestMatch.title} (${bestMatch.originalReleaseYear})`);
