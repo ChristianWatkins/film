@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-18T17:18:24.148Z",
+  "last_updated": "2025-11-18T17:41:56.236Z",
   "total_films": 3689,
   "note": "Films are now keyed by short code ID. Edit title/year freely - it won't break joins!",
   "films": {
@@ -360594,7 +360594,7 @@
       "year": 2023,
       "director": "Nils Gaup",
       "country": "Norway",
-      "mubiLink": null,
+      "mubiLink": "https://mubi.com/en/no/films/sulis-1907",
       "tmdb_id": 964258,
       "imdb_id": "tt14509240",
       "poster_url_tmdb": "https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500/rLbFl9JdtAuaC66hljn2GYh71Kj.jpg",
