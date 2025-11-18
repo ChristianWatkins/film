@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-11-18T17:41:56.297Z",
+  "last_updated": "2025-11-18T21:11:03.868Z",
   "country": "NO",
-  "total_films": 3688,
+  "total_films": 3689,
   "films": {
     "aa6": {
       "found": true,
@@ -127063,6 +127063,42 @@
           "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.bb90cc16-2978-40c8-b3b8-c2530d5419be"
         }
       ]
+    },
+    "a7I": {
+      "found": true,
+      "title": "The Idiots",
+      "year": 1998,
+      "justwatch_id": "tm65771",
+      "justwatch_url": "https://www.justwatch.com/no/movie/the-idiots-1998",
+      "poster_url": null,
+      "streaming": [
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": null,
+          "url": "https://play.tv2.no/film/idiotene-1934419.html"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": null,
+          "url": "https://play.tv2.no/film/idiotene-1934419.html"
+        },
+        {
+          "provider": "Strim",
+          "quality": "SD",
+          "price": null,
+          "url": "https://www.strim.no/film/5012566:vod/idiotene"
+        },
+        {
+          "provider": "Strim",
+          "quality": "HD",
+          "price": null,
+          "url": "https://www.strim.no/film/5012566:vod/idiotene"
+        }
+      ],
+      "rent": [],
+      "buy": []
     }
   }
 }

@@ -55,6 +55,7 @@ export default function AdminFilmsPage() {
   const [filterMode, setFilterMode] = useState<'all' | 'needs-review' | 'has-tmdb' | 'no-poster' | 'duplicates'>('all');
   const [sortColumn, setSortColumn] = useState<'title' | 'year' | 'director' | 'country' | null>(null);
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+  const [hasAutoOpenedFilm, setHasAutoOpenedFilm] = useState(false);
 
   // Check if we're in development
   const isDevelopment = process.env.NODE_ENV === 'development';
@@ -71,12 +72,42 @@ export default function AdminFilmsPage() {
         setFilms(filmsData.films || []);
         setAvailableFestivals(festivalsData.festivals || []);
         setLoading(false);
+        
+        // Check if we should auto-open a film for editing (from URL query param)
+        // Only do this once per page load
+        if (typeof window !== 'undefined' && !hasAutoOpenedFilm) {
+          const urlParams = new URLSearchParams(window.location.search);
+          const editFilmId = urlParams.get('edit');
+          if (editFilmId) {
+            const filmToEdit = filmsData.films?.find((f: MasterFilm) => f.id === editFilmId);
+            if (filmToEdit) {
+              setHasAutoOpenedFilm(true);
+              setEditingFilm({ ...filmToEdit });
+              // Set search term to help find the film
+              setSearchTerm(filmToEdit.title);
+              // Show success message
+              setMessage({ 
+                text: `Film "${filmToEdit.title}" er klar for redigering. Du kan nå legge til MUBI-lenke og andre detaljer.`, 
+                type: 'success' 
+              });
+              // Clear URL parameter
+              window.history.replaceState({}, '', '/admin/films');
+              // Scroll to the film row after a short delay
+              setTimeout(() => {
+                const filmRow = document.querySelector(`[data-film-id="${editFilmId}"]`);
+                if (filmRow) {
+                  filmRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+              }, 100);
+            }
+          }
+        }
       })
       .catch(error => {
         console.error('Error loading data:', error);
         setLoading(false);
       });
-  }, [isDevelopment]);
+  }, [isDevelopment, hasAutoOpenedFilm]);
 
   const handleEdit = (film: MasterFilm) => {
     setEditingFilm({ ...film });
@@ -761,7 +792,7 @@ export default function AdminFilmsPage() {
               <tbody className="bg-white divide-y divide-gray-200">
                 {sortedFilms.map((film) => (
                   <Fragment key={film.id}>
-                    <tr className="hover:bg-gray-50">
+                    <tr className="hover:bg-gray-50" data-film-id={film.id}>
                       <td className="px-4 py-3 text-sm font-semibold text-gray-900">
                         {film.title}
                         <span className="ml-2 text-xs text-gray-500">({film.id})</span>

@@ -162,10 +162,13 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
           console.log(`   Merged file regenerated: ${data.details.mergedFileRegenerated ? '✓ Yes' : '✗ No'}`);
         }
         
-        // Clear success message after 8 seconds (longer to read details)
+        // Redirect to admin films page to edit the film after a short delay
+        // This allows user to add MUBI link and other details
         setTimeout(() => {
-          setAddSuccess(false);
-        }, 8000);
+          if (data.filmId) {
+            window.location.href = `/admin/films?edit=${data.filmId}`;
+          }
+        }, 2000); // 2 second delay to show success message
       }
     } catch (error) {
       console.error('Error adding film:', error);

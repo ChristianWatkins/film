@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-11-18T17:41:56.236Z",
-  "total_films": 3689,
+  "last_updated": "2025-11-18T21:11:03.808Z",
+  "total_films": 3690,
   "note": "Films are now keyed by short code ID. Edit title/year freely - it won't break joins!",
   "films": {
     "aaX": {
@@ -360827,6 +360827,54 @@
           "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.bb90cc16-2978-40c8-b3b8-c2530d5419be"
         }
       ]
+    },
+    "a7I": {
+      "id": "a7I",
+      "filmKey": "the-idiots-1998",
+      "title": "The Idiots",
+      "year": 1998,
+      "director": "Lars von Trier",
+      "country": "Denmark",
+      "mubiLink": "https://mubi.com/en/no/films/the-idiots",
+      "tmdb_id": 452,
+      "imdb_id": "tt0154421",
+      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500/dZUgHe2XH8egBFerMC6yLoqUqii.jpg",
+      "original_title": "Idioterne",
+      "synopsis": "A group of people gather at a Copenhagen suburban home to break all the limitations and to bring out the 'inner idiot' in themselves.",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "runtime": 114,
+      "justwatch_found": true,
+      "streaming": [
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": null,
+          "url": "https://play.tv2.no/film/idiotene-1934419.html"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": null,
+          "url": "https://play.tv2.no/film/idiotene-1934419.html"
+        },
+        {
+          "provider": "Strim",
+          "quality": "SD",
+          "price": null,
+          "url": "https://www.strim.no/film/5012566:vod/idiotene"
+        },
+        {
+          "provider": "Strim",
+          "quality": "HD",
+          "price": null,
+          "url": "https://www.strim.no/film/5012566:vod/idiotene"
+        }
+      ],
+      "rent": [],
+      "buy": []
     }
   }
 }

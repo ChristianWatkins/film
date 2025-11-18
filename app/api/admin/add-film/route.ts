@@ -54,6 +54,7 @@ interface AddFilmRequest {
     found: boolean;
     details?: JustWatchMovieDetails;
   }>;
+  mubiLink?: string | null;
   checkOnly?: boolean;
 }
 
@@ -112,7 +113,8 @@ function checkFilmExists(
 function mapToMasterFilm(
   movie: JustWatchMovieDetails,
   tmdbDetails: TMDBDetails | undefined,
-  newId: string
+  newId: string,
+  mubiLink?: string | null
 ): MasterFilm {
   const year = movie.originalReleaseYear || new Date().getFullYear();
   const filmKey = createFilmKey(movie.title, year);
@@ -131,6 +133,18 @@ function mapToMasterFilm(
   const genres = tmdbDetails?.genres?.map(g => g.name) || movie.genres?.map(g => g.name) || undefined;
   const runtime = tmdbDetails?.runtime || movie.runtime || undefined;
 
+  // Validate MUBI link format if provided
+  let validMubiLink: string | null = null;
+  if (mubiLink && typeof mubiLink === 'string' && mubiLink.trim()) {
+    const trimmedLink = mubiLink.trim();
+    // Basic validation: should be a MUBI URL
+    if (trimmedLink.includes('mubi.com') && trimmedLink.includes('/films/')) {
+      validMubiLink = trimmedLink;
+    } else {
+      console.warn(`Invalid MUBI link format: ${trimmedLink}`);
+    }
+  }
+
   return {
     id: newId,
     filmKey,
@@ -138,7 +152,7 @@ function mapToMasterFilm(
     year,
     director,
     country,
-    mubiLink: null,
+    mubiLink: validMubiLink,
     tmdb_id,
     imdb_id,
     poster_url_tmdb,
@@ -158,7 +172,7 @@ export async function POST(request: Request) {
 
   try {
     const body: AddFilmRequest = await request.json();
-    const { movie, tmdbDetails, checkOnly } = body;
+    const { movie, tmdbDetails, mubiLink, checkOnly } = body;
 
     // Validate required fields
     if (!movie || !movie.title) {
@@ -204,7 +218,7 @@ export async function POST(request: Request) {
     } while (existingIds.has(newId));
 
     // Map data to MasterFilm structure
-    const newFilm = mapToMasterFilm(movie, tmdbDetails, newId);
+    const newFilm = mapToMasterFilm(movie, tmdbDetails, newId, mubiLink);
 
     // Add film to data
     data.films[newId] = newFilm;
@@ -246,6 +260,11 @@ export async function POST(request: Request) {
     console.log(`   Film ID: ${newId}`);
     console.log(`   Title: ${newFilm.title} (${newFilm.year})`);
     console.log(`   Festival: personal/${year}`);
+    if (newFilm.mubiLink) {
+      console.log(`   ✓ MUBI Link: ${newFilm.mubiLink}`);
+    } else {
+      console.log(`   ⚠️  MUBI Link: Not provided (can be added later via admin interface)`);
+    }
 
     // Save streaming data if available (from JustWatch search results - Norway only)
     if (body.allCountryData && body.allCountryData.length > 0) {
