@@ -9,7 +9,7 @@ interface SyncPanelProps {
   onClose?: () => void;
 }
 
-type SyncStatus = 'not_synced' | 'synced' | 'offline' | 'connecting';
+type SyncStatus = 'not_synced' | 'synced' | 'offline' | 'connecting' | 'unavailable';
 
 export default function SyncPanel({ onClose }: SyncPanelProps) {
   const [syncIdInput, setSyncIdInput] = useState('');
@@ -20,16 +20,20 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
   const [pendingSyncId, setPendingSyncId] = useState<string | null>(null);
   const [localFavoritesCount, setLocalFavoritesCount] = useState(0);
 
+  // Check if Convex is available
+  const convexUrl = typeof window !== 'undefined' ? process.env.NEXT_PUBLIC_CONVEX_URL : null;
+  const isConvexAvailable = convexUrl && !convexUrl.includes('placeholder');
+
   // Check if syncId exists and has favorites
   const syncIdCheck = useQuery(
     api.favorites.checkSyncIdExists,
-    pendingSyncId ? { syncId: pendingSyncId } : 'skip'
+    (pendingSyncId && isConvexAvailable) ? { syncId: pendingSyncId } : 'skip'
   );
 
   // Get favorites from Convex when synced
   const convexFavorites = useQuery(
     api.favorites.getFavorites,
-    currentSyncId ? { syncId: currentSyncId } : 'skip'
+    (currentSyncId && isConvexAvailable) ? { syncId: currentSyncId } : 'skip'
   );
 
   // Mutations
@@ -37,6 +41,11 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
 
   // Load current syncId on mount
   useEffect(() => {
+    if (!isConvexAvailable) {
+      setStatus('unavailable');
+      return;
+    }
+    
     const storedSyncId = getSyncId();
     if (storedSyncId) {
       setCurrentSyncId(storedSyncId);
@@ -49,7 +58,7 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
     // Get local favorites count
     const localItems = getWatchlistItems();
     setLocalFavoritesCount(localItems.length);
-  }, []);
+  }, [isConvexAvailable]);
 
   // Handle Convex favorites updates - load from Convex when connecting
   useEffect(() => {
@@ -173,6 +182,11 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
       return;
     }
 
+    if (!isConvexAvailable) {
+      setError('Sync is not available. Convex backend is not configured.');
+      return;
+    }
+
     try {
       setStatus('connecting');
       setError('');
@@ -267,9 +281,18 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
 
         <div className="p-6">
           <div className="space-y-4">
-            <p className="text-gray-600">
-              Sync your favorites across browsers and devices. Enter a sync ID to connect, or generate a new one.
-            </p>
+            {!isConvexAvailable ? (
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <p className="text-yellow-800 text-sm">
+                  <strong>Sync is not available.</strong> The Convex backend is not configured. 
+                  Please set the <code className="bg-yellow-100 px-1 rounded">NEXT_PUBLIC_CONVEX_URL</code> environment variable in your hosting platform.
+                </p>
+              </div>
+            ) : (
+              <p className="text-gray-600">
+                Sync your favorites across browsers and devices. Enter a sync ID to connect, or generate a new one.
+              </p>
+            )}
 
             {/* Status Indicator */}
             <div className="flex items-center gap-2 p-3 bg-gray-50 border border-gray-200 rounded-lg">
@@ -312,21 +335,25 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
             </div>
 
             {/* Action Buttons */}
-            {!currentSyncId ? (
-              <button
-                onClick={handleConnectClick}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={status === 'connecting' || !syncIdInput.trim()}
-              >
-                Connect
-              </button>
-            ) : (
-              <button
-                onClick={handleDisconnect}
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-lg transition-colors cursor-pointer"
-              >
-                Disconnect
-              </button>
+            {isConvexAvailable && (
+              <>
+                {!currentSyncId ? (
+                  <button
+                    onClick={handleConnectClick}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={status === 'connecting' || !syncIdInput.trim()}
+                  >
+                    Connect
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleDisconnect}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-lg transition-colors cursor-pointer"
+                  >
+                    Disconnect
+                  </button>
+                )}
+              </>
             )}
 
             {/* Info */}

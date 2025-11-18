@@ -10,10 +10,14 @@ import { getSyncId, replaceWatchlistItems, getWatchlistItems } from './watchlist
 export function useConvexSync() {
   const syncId = getSyncId();
   
-  // Subscribe to Convex favorites for this syncId
+  // Check if Convex is available (env var is set)
+  const convexUrl = typeof window !== 'undefined' ? process.env.NEXT_PUBLIC_CONVEX_URL : null;
+  const isConvexAvailable = convexUrl && !convexUrl.includes('placeholder');
+  
+  // Subscribe to Convex favorites for this syncId (only if Convex is available)
   const convexFavorites = useQuery(
     api.favorites.getFavorites,
-    syncId ? { syncId } : 'skip'
+    (syncId && isConvexAvailable) ? { syncId } : 'skip'
   );
   
   const lastSyncedRef = useRef<string>('');
@@ -22,7 +26,7 @@ export function useConvexSync() {
 
   // Update local storage when Convex data changes
   useEffect(() => {
-    if (!syncId || convexFavorites === undefined) {
+    if (!syncId || !isConvexAvailable || convexFavorites === undefined) {
       hasInitializedRef.current = false;
       return;
     }

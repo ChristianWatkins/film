@@ -8,6 +8,12 @@ import { getSyncId, getWatchlistItems } from './watchlist';
 // Hook to automatically sync watchlist changes to Convex
 export function useWatchlistSync() {
   const [syncId, setSyncIdState] = useState<string | null>(null);
+  
+  // Check if Convex is available (env var is set)
+  const convexUrl = typeof window !== 'undefined' ? process.env.NEXT_PUBLIC_CONVEX_URL : null;
+  const isConvexAvailable = convexUrl && !convexUrl.includes('placeholder');
+  
+  // Only create mutations if Convex is available
   const addFavoriteMutation = useMutation(api.favorites.addFavorite);
   const removeFavoriteMutation = useMutation(api.favorites.removeFavorite);
   const togglePriorityMutation = useMutation(api.favorites.togglePriority);
@@ -34,7 +40,7 @@ export function useWatchlistSync() {
 
   // Sync all favorites when syncId changes or watchlist changes
   useEffect(() => {
-    if (!syncId) return;
+    if (!syncId || !isConvexAvailable) return;
 
     const syncToConvex = async () => {
       try {

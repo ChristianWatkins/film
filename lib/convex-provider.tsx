@@ -6,10 +6,11 @@ import { ReactNode, useMemo } from 'react';
 export function ConvexProvider({ children }: { children: ReactNode }) {
   const client = useMemo(() => {
     const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL;
-    if (!convexUrl) {
-      console.warn('NEXT_PUBLIC_CONVEX_URL not set. Convex sync will not work.');
-      // Return a dummy client that won't work but won't crash
-      return new ConvexReactClient('https://placeholder.convex.cloud');
+    if (!convexUrl || convexUrl.includes('placeholder')) {
+      // Create a dummy client that won't cause errors but won't work
+      // This allows hooks to be called without errors, but they'll be skipped
+      // Use a valid-looking URL format to avoid parsing errors
+      return new ConvexReactClient('https://disabled.convex.cloud');
     }
     return new ConvexReactClient(convexUrl);
   }, []);
