@@ -35,6 +35,11 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
   const [showOnlyWithAvailability, setShowOnlyWithAvailability] = useState(true);
   const [tmdbDetails, setTmdbDetails] = useState<TMDBDetails | null>(null);
   const [tmdbLoading, setTmdbLoading] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
+  const [addError, setAddError] = useState<string | null>(null);
+  const [addSuccess, setAddSuccess] = useState(false);
+  const [existingFilmId, setExistingFilmId] = useState<string | null>(null);
+  const [isChecking, setIsChecking] = useState(false);
 
   // Fetch TMDB details if we have a TMDB ID or can search by title
   useEffect(() => {
@@ -76,6 +81,99 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
       }
     }
   }, [movie.tmdbId, movie.title, movie.originalReleaseYear, tmdbDetails, tmdbLoading]);
+
+  // Check if film already exists in database (dev mode only)
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'development') return;
+    // Don't check if we've already successfully added the film
+    if (addSuccess && existingFilmId) return;
+
+    const checkFilmExists = async () => {
+      setIsChecking(true);
+      try {
+        const response = await fetch('/api/admin/add-film', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            movie,
+            tmdbDetails: tmdbDetails || undefined,
+            allCountryData: allCountryData,
+            checkOnly: true,
+          }),
+        });
+
+        const data = await response.json();
+        if (data.exists && data.filmId) {
+          setExistingFilmId(data.filmId);
+        }
+      } catch (error) {
+        console.error('Error checking if film exists:', error);
+      } finally {
+        setIsChecking(false);
+      }
+    };
+
+    // Check after TMDB details are loaded (or if we have enough info)
+    if (tmdbDetails || (!tmdbLoading && (movie.tmdbId || (movie.title && movie.originalReleaseYear)))) {
+      checkFilmExists();
+    }
+  }, [movie, tmdbDetails, tmdbLoading, addSuccess, existingFilmId]);
+
+  // Handle adding film to database
+  const handleAddToDatabase = async () => {
+    setIsAdding(true);
+    setAddError(null);
+    setAddSuccess(false);
+
+    try {
+      const response = await fetch('/api/admin/add-film', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          movie,
+          tmdbDetails: tmdbDetails || undefined,
+          allCountryData: allCountryData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to add film');
+      }
+
+      if (data.exists) {
+        setExistingFilmId(data.filmId);
+        setAddError(`Film already exists with ID: ${data.filmId}`);
+      } else if (data.success) {
+        setAddSuccess(true);
+        setExistingFilmId(data.filmId);
+        
+        // Log success details to console
+        if (data.details) {
+          console.log('✅ Film added successfully!');
+          console.log(`   Film ID: ${data.details.filmId}`);
+          console.log(`   English Title: ${data.details.filmTitle} (${data.details.filmYear})`);
+          if (data.details.originalTitle && data.details.originalTitle !== data.details.filmTitle) {
+            console.log(`   Original Title: ${data.details.originalTitle}`);
+          }
+          console.log(`   Festival: ${data.details.festival}`);
+          console.log(`   Streaming data saved: ${data.details.streamingDataSaved ? '✓ Yes' : '✗ No'}`);
+          console.log(`   Merged file regenerated: ${data.details.mergedFileRegenerated ? '✓ Yes' : '✗ No'}`);
+        }
+        
+        // Clear success message after 8 seconds (longer to read details)
+        setTimeout(() => {
+          setAddSuccess(false);
+        }, 8000);
+      }
+    } catch (error) {
+      console.error('Error adding film:', error);
+      setAddError(error instanceof Error ? error.message : 'Failed to add film');
+    } finally {
+      setIsAdding(false);
+    }
+  };
   
   // Create a comprehensive list of countries showing this specific movie's availability
   // We need to match countries that have this specific movie vs countries where it wasn't found
@@ -296,7 +394,49 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
                 Global streaming availability across {availabilityStats.total} countries
               </p>
             </div>
-            <div>
+            <div className="flex items-center gap-3">
+              {process.env.NODE_ENV === 'development' && (
+                <div className="flex flex-col items-end gap-2">
+                  {isChecking ? (
+                    <div className="text-sm text-white/70">Checking...</div>
+                  ) : addSuccess && existingFilmId ? (
+                    <div className="text-sm text-green-400 font-medium space-y-1">
+                      <div>✓ Added! ID: <span className="font-mono">{existingFilmId}</span></div>
+                      <div className="text-xs text-green-300">
+                        Saved as: {tmdbDetails?.title || movie.title}
+                        {tmdbDetails?.originalTitle && tmdbDetails.originalTitle !== (tmdbDetails.title || movie.title) && (
+                          <span className="text-green-200"> ({tmdbDetails.originalTitle})</span>
+                        )}
+                      </div>
+                      <div className="text-xs text-green-300/70">
+                        Check console for full details
+                      </div>
+                    </div>
+                  ) : existingFilmId ? (
+                    <div className="text-sm text-white/70">
+                      Already in database: <span className="font-mono">{existingFilmId}</span>
+                    </div>
+                  ) : addError ? (
+                    <div className="text-sm text-red-400">{addError}</div>
+                  ) : null}
+                  <button
+                    onClick={handleAddToDatabase}
+                    disabled={isAdding || !!existingFilmId}
+                    className="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-[#1A1A2E] transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isAdding ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-500 mr-2"></div>
+                        Adding...
+                      </>
+                    ) : existingFilmId ? (
+                      'Already Added'
+                    ) : (
+                      'Add to Database'
+                    )}
+                  </button>
+                </div>
+              )}
               <button
                 onClick={onBack}
                 className="inline-flex items-center px-4 py-2 border border-[#FFB800] text-[#FFB800] rounded-lg hover:bg-[#FFB800] hover:text-[#1A1A2E] transition-colors font-medium"

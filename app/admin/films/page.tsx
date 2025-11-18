@@ -194,7 +194,8 @@ export default function AdminFilmsPage() {
         body: JSON.stringify({
           id: film.id,
           title: film.title,
-          year: film.year
+          year: film.year,
+          justwatch_url: film.justwatch_url
         }),
       });
 
@@ -972,22 +973,29 @@ export default function AdminFilmsPage() {
                             </div>
                             <div className="col-span-2">
                               <label className="block text-sm font-medium text-gray-700 mb-2">JustWatch Data</label>
-                              <div className="bg-gray-50 border border-gray-300 rounded p-4">
+                              <div className="bg-gray-50 border border-gray-300 rounded p-4 space-y-4">
+                                <div>
+                                  <label className="block text-sm font-medium text-gray-700 mb-1">JustWatch URL</label>
+                                  <input
+                                    type="text"
+                                    value={editingFilm.justwatch_url || ''}
+                                    onChange={(e) => handleFieldChange('justwatch_url', e.target.value)}
+                                    className="w-full px-3 py-2 border border-gray-300 rounded text-gray-900 placeholder-gray-500"
+                                    placeholder="https://www.justwatch.com/no/movie/..."
+                                  />
+                                  {editingFilm.justwatch_url && (
+                                    <a
+                                      href={editingFilm.justwatch_url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-xs text-blue-600 hover:text-blue-800 underline mt-1 inline-block"
+                                    >
+                                      Open in new tab →
+                                    </a>
+                                  )}
+                                </div>
                                 {editingFilm.justwatch_found ? (
                                   <div className="space-y-3">
-                                    {editingFilm.justwatch_url && (
-                                      <div>
-                                        <span className="text-sm font-medium text-gray-700">URL: </span>
-                                        <a
-                                          href={editingFilm.justwatch_url}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          className="text-sm text-blue-600 hover:text-blue-800 underline"
-                                        >
-                                          {editingFilm.justwatch_url}
-                                        </a>
-                                      </div>
-                                    )}
                                     {editingFilm.streaming && editingFilm.streaming.length > 0 && (
                                       <div>
                                         <span className="text-sm font-medium text-gray-700">Streaming: </span>

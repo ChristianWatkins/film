@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-11T10:55:34.882Z",
+  "last_updated": "2025-11-18T17:18:24.214Z",
   "country": "NO",
   "total_films": 3688,
   "films": {
@@ -126833,6 +126833,236 @@
         }
       ],
       "last_updated": "2025-11-10T19:33:22.807Z"
+    },
+    "a7H": {
+      "found": true,
+      "title": "The Riot",
+      "year": 2023,
+      "justwatch_id": "tm1303110",
+      "justwatch_url": "https://www.justwatch.com/no/movie/sulis-1907",
+      "poster_url": null,
+      "streaming": [
+        {
+          "provider": "Viaplay",
+          "quality": "HD",
+          "price": null,
+          "url": "https://viaplay.no/filmer/sulis-1907-2023"
+        },
+        {
+          "provider": "Viaplay",
+          "quality": "SD",
+          "price": null,
+          "url": "https://viaplay.no/filmer/sulis-1907-2023"
+        },
+        {
+          "provider": "SkyShowtime",
+          "quality": "SD",
+          "price": null,
+          "url": "https://www.skyshowtime.com/no/stream/movies/the-riot/b7c38d8d-83c6-3fa6-82a2-73843498eeda"
+        },
+        {
+          "provider": "SkyShowtime",
+          "quality": "HD",
+          "price": null,
+          "url": "https://www.skyshowtime.com/no/stream/movies/the-riot/b7c38d8d-83c6-3fa6-82a2-73843498eeda"
+        },
+        {
+          "provider": "Filmoteket",
+          "quality": "HD",
+          "price": null,
+          "url": "https://filmoteket.no/film/195625"
+        },
+        {
+          "provider": "Filmoteket",
+          "quality": "SD",
+          "price": null,
+          "url": "https://filmoteket.no/film/195625"
+        },
+        {
+          "provider": "Strim",
+          "quality": "HD",
+          "price": null,
+          "url": "https://www.strim.no/film/4930775:vod/the-riot"
+        },
+        {
+          "provider": "Strim",
+          "quality": "SD",
+          "price": null,
+          "url": "https://www.strim.no/film/4930775:vod/the-riot"
+        }
+      ],
+      "rent": [
+        {
+          "provider": "Google Play Movies",
+          "quality": "SD",
+          "price": "NOK 29",
+          "url": "https://play.google.com/store/movies/details/Sulis_1907?gl=NO&hl=en&id=oShOJcH8R40.P"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "SD",
+          "price": "NOK 39",
+          "url": "https://tv.apple.com/no/movie/the-riot/umc.cmc.7k6vgisr2xzk1hy6qqrhset45?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1715554975"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "HD",
+          "price": "NOK 39",
+          "url": "https://tv.apple.com/no/movie/the-riot/umc.cmc.7k6vgisr2xzk1hy6qqrhset45?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1715554975"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "_4K",
+          "price": "NOK 39",
+          "url": "https://tv.apple.com/no/movie/the-riot/umc.cmc.7k6vgisr2xzk1hy6qqrhset45?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1715554975"
+        },
+        {
+          "provider": "Google Play Movies",
+          "quality": "HD",
+          "price": "NOK 39",
+          "url": "https://play.google.com/store/movies/details/Sulis_1907?gl=NO&hl=en&id=oShOJcH8R40.P"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://www.rakuten.tv/no/movies/sulis-1907"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "_4K",
+          "price": "NOK 49",
+          "url": "https://www.rakuten.tv/no/movies/sulis-1907"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://www.sfanytime.com/no/movie/sulis-1907"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://www.sfanytime.com/no/movie/sulis-1907"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://play.tv2.no/film/sulis-1907-1916164.html"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://play.tv2.no/film/sulis-1907-1916164.html"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "_4K",
+          "price": "NOK 49",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.bb90cc16-2978-40c8-b3b8-c2530d5419be"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.bb90cc16-2978-40c8-b3b8-c2530d5419be"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.bb90cc16-2978-40c8-b3b8-c2530d5419be"
+        }
+      ],
+      "buy": [
+        {
+          "provider": "Apple TV",
+          "quality": "_4K",
+          "price": "NOK 49",
+          "url": "https://tv.apple.com/no/movie/the-riot/umc.cmc.7k6vgisr2xzk1hy6qqrhset45?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1715554975"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://tv.apple.com/no/movie/the-riot/umc.cmc.7k6vgisr2xzk1hy6qqrhset45?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1715554975"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://tv.apple.com/no/movie/the-riot/umc.cmc.7k6vgisr2xzk1hy6qqrhset45?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1715554975"
+        },
+        {
+          "provider": "Google Play Movies",
+          "quality": "HD",
+          "price": "NOK 89",
+          "url": "https://play.google.com/store/movies/details/Sulis_1907?gl=NO&hl=en&id=oShOJcH8R40.P"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "_4K",
+          "price": "NOK 89",
+          "url": "https://www.rakuten.tv/no/movies/sulis-1907"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "SD",
+          "price": "NOK 89",
+          "url": "https://www.rakuten.tv/no/movies/sulis-1907"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "HD",
+          "price": "NOK 89",
+          "url": "https://www.rakuten.tv/no/movies/sulis-1907"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://www.sfanytime.com/no/movie/sulis-1907"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://www.sfanytime.com/no/movie/sulis-1907"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://play.tv2.no/film/sulis-1907-1916164.html"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://play.tv2.no/film/sulis-1907-1916164.html"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.bb90cc16-2978-40c8-b3b8-c2530d5419be"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "_4K",
+          "price": "NOK 99",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.bb90cc16-2978-40c8-b3b8-c2530d5419be"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.bb90cc16-2978-40c8-b3b8-c2530d5419be"
+        }
+      ]
     }
   }
 }

@@ -23,6 +23,8 @@ interface MasterFilm {
   synopsis?: string;
   genres?: string[];
   runtime?: number;
+  // JustWatch data (stored in streaming file, but editable here)
+  justwatch_url?: string | null;
   // Festival appearances (not stored in film data)
   festivals?: FestivalAppearance[];
 }
@@ -58,10 +60,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Film not found' }, { status: 404 });
     }
     
-    // Extract festivals before saving (they're stored separately)
+    // Extract festivals and JustWatch URL before saving (they're stored separately)
     const festivals = updatedFilm.festivals || [];
+    const justwatchUrl = updatedFilm.justwatch_url;
     const filmToSave = { ...updatedFilm };
     delete filmToSave.festivals;
+    delete filmToSave.justwatch_url; // Remove from films.json (stored in streaming file)
     
     // Update the film (keyed by ID)
     data.films[updatedFilm.id] = filmToSave;
@@ -69,6 +73,44 @@ export async function POST(request: Request) {
     
     // Write back to file with pretty formatting
     fs.writeFileSync(filmsPath, JSON.stringify(data, null, 2), 'utf-8');
+    
+    // Update JustWatch URL in streaming data file if provided
+    if (justwatchUrl !== undefined) {
+      try {
+        const streamingPath = path.join(process.cwd(), 'data', 'streaming', 'availability.json');
+        if (fs.existsSync(streamingPath)) {
+          const streamingContent = fs.readFileSync(streamingPath, 'utf-8');
+          const streamingData = JSON.parse(streamingContent);
+          
+          if (streamingData.films && streamingData.films[updatedFilm.id]) {
+            // Update existing streaming entry
+            streamingData.films[updatedFilm.id].justwatch_url = justwatchUrl || null;
+            streamingData.last_updated = new Date().toISOString();
+            fs.writeFileSync(streamingPath, JSON.stringify(streamingData, null, 2), 'utf-8');
+            console.log(`✓ Updated JustWatch URL in streaming data`);
+          } else if (justwatchUrl) {
+            // Create new streaming entry if URL is provided but no entry exists
+            streamingData.films[updatedFilm.id] = {
+              found: true,
+              title: updatedFilm.title,
+              year: updatedFilm.year,
+              director: updatedFilm.director,
+              justwatch_url: justwatchUrl,
+              tmdb_id: updatedFilm.tmdb_id || null,
+              imdb_id: updatedFilm.imdb_id || null,
+              last_updated: new Date().toISOString()
+            };
+            streamingData.last_updated = new Date().toISOString();
+            streamingData.total_films = Object.keys(streamingData.films).length;
+            fs.writeFileSync(streamingPath, JSON.stringify(streamingData, null, 2), 'utf-8');
+            console.log(`✓ Created streaming entry with JustWatch URL`);
+          }
+        }
+      } catch (error) {
+        console.error('⚠️  Warning: Failed to update streaming data:', error);
+        // Don't fail the request if streaming update fails
+      }
+    }
     
     // Update festival files
     const festivalsDir = path.join(process.cwd(), 'data', 'festivals');
