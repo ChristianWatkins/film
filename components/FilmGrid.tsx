@@ -88,6 +88,7 @@ export default function FilmGrid({
   const enableAnimations = shouldEnableCardAnimations();
   const rowJumpEnabled = true; // Always enabled - presentation mode is the only mode
   const prevWatchlistOnlyRef = useRef(watchlistOnly);
+  const prevShowFiltersRef = useRef(false);
 
   // Reset to first row when favorites view is activated
   useEffect(() => {
@@ -537,6 +538,25 @@ export default function FilmGrid({
       setCurrentRowIndex(0); // Reset to first row
     }
   }, [sortedFilms.length, JSON.stringify(filters), currentRowIndex]);
+
+  // Scroll to row 1 when filters are closed
+  useEffect(() => {
+    // Only trigger when filters change from open (true) to closed (false)
+    if (prevShowFiltersRef.current && !showFilters && isHydrated && sortedFilms.length > 0) {
+      // Reset to first row and scroll to it
+      setCurrentRowIndex(0);
+      
+      // Scroll to the first card after a brief delay to ensure DOM is updated
+      setTimeout(() => {
+        const firstCard = gridRef.current?.children[0] as HTMLElement;
+        if (firstCard) {
+          firstCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+    // Update the ref to track previous state
+    prevShowFiltersRef.current = showFilters;
+  }, [showFilters, isHydrated, sortedFilms.length]);
 
   return (
     <div data-film-grid className={isHydrated ? 'fixed inset-0 bg-gray-50 dark:bg-[var(--background)] z-50 flex flex-col transition-colors' : ''}>
