@@ -138,15 +138,54 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
   }, [syncIdCheck, pendingSyncId]);
 
   const generateNewId = () => {
-    // Generate a random ID (similar to UUID but shorter)
-    const newId = Math.random().toString(36).substring(2, 15) + 
-                  Math.random().toString(36).substring(2, 15);
+    // Generate a cryptographically secure random ID
+    // Use crypto.randomUUID() if available (browser), otherwise fallback to crypto.getRandomValues()
+    let newId: string;
+    
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+      // Use UUID v4 (most secure, standard format)
+      newId = crypto.randomUUID();
+    } else if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+      // Fallback: Generate 32 bytes of random data and convert to base64url
+      const array = new Uint8Array(24); // 24 bytes = 32 base64url characters
+      crypto.getRandomValues(array);
+      // Convert to base64url (URL-safe, no padding)
+      newId = btoa(String.fromCharCode(...array))
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+    } else {
+      // Last resort fallback (shouldn't happen in modern browsers)
+      // Still better than Math.random() - uses Date + performance timing
+      const timestamp = Date.now().toString(36);
+      const randomPart = performance.now().toString(36).replace('.', '');
+      newId = `${timestamp}-${randomPart}-${Math.random().toString(36).substring(2, 15)}`;
+    }
+    
     setSyncIdInput(newId);
   };
 
   const handleConnectDirectly = async (syncId: string) => {
-    if (!syncId.trim()) {
+    const trimmedSyncId = syncId.trim();
+    
+    if (!trimmedSyncId) {
       setError('Please enter a sync ID');
+      return;
+    }
+    
+    // Validate syncId format (client-side check before sending to server)
+    if (trimmedSyncId.length < 20) {
+      setError('Sync ID must be at least 20 characters long');
+      return;
+    }
+    
+    if (trimmedSyncId.length > 200) {
+      setError('Sync ID must be at most 200 characters long');
+      return;
+    }
+    
+    if (!/^[a-zA-Z0-9_-]+$/.test(trimmedSyncId)) {
+      setError('Sync ID contains invalid characters. Only letters, numbers, hyphens, and underscores are allowed.');
       return;
     }
 
@@ -159,11 +198,11 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
 
       // Upload local favorites to Convex (for new syncId)
       await setFavoritesMutation({
-        syncId: syncId.trim(),
+        syncId: trimmedSyncId,
         favorites: localItems,
       });
       
-      setSyncId(syncId.trim());
+      setSyncId(trimmedSyncId);
       setCurrentSyncId(syncId.trim());
       setStatus('synced');
 
@@ -177,8 +216,26 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
   };
 
   const handleConnect = async (syncId: string) => {
-    if (!syncId.trim()) {
+    const trimmedSyncId = syncId.trim();
+    
+    if (!trimmedSyncId) {
       setError('Please enter a sync ID');
+      return;
+    }
+    
+    // Validate syncId format (client-side check before sending to server)
+    if (trimmedSyncId.length < 20) {
+      setError('Sync ID must be at least 20 characters long');
+      return;
+    }
+    
+    if (trimmedSyncId.length > 200) {
+      setError('Sync ID must be at most 200 characters long');
+      return;
+    }
+    
+    if (!/^[a-zA-Z0-9_-]+$/.test(trimmedSyncId)) {
+      setError('Sync ID contains invalid characters. Only letters, numbers, hyphens, and underscores are allowed.');
       return;
     }
 
@@ -194,8 +251,8 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
       // Set currentSyncId first to trigger the useQuery to load from Convex
       // Don't set syncId in localStorage yet - wait for data to load
       // This prevents useWatchlistSync from syncing local favorites first
-      setCurrentSyncId(syncId.trim());
-      setPendingSyncId(syncId.trim()); // Mark that we're loading from this syncId
+      setCurrentSyncId(trimmedSyncId);
+      setPendingSyncId(trimmedSyncId); // Mark that we're loading from this syncId
       
       // The useEffect will handle loading when convexFavorites updates
       // and will set the syncId in localStorage after loading
