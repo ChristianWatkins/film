@@ -5,6 +5,7 @@ import { encodeFilmKeys, decodeFilmKeys, loadMappings } from './film-mapping';
 
 const WATCHLIST_KEY = 'film-festival-watchlist';
 const WATCHED_KEY = 'film-festival-watched';
+const SYNC_ID_KEY = 'film-festival-sync-id';
 
 export interface WatchlistItem {
   filmKey: string;
@@ -715,6 +716,65 @@ async function validateBase64FavoritesString(base64String: string): Promise<{ su
   } catch (e) {
     console.error('Error validating favorites string:', e);
     return { success: false, error: 'Unexpected error during validation' };
+  }
+}
+
+// ===== CONVEX SYNC FUNCTIONS =====
+
+// Get current sync ID from localStorage
+export function getSyncId(): string | null {
+  if (typeof window === 'undefined') return null;
+  
+  try {
+    return localStorage.getItem(SYNC_ID_KEY);
+  } catch (e) {
+    console.error('Error reading sync ID:', e);
+    return null;
+  }
+}
+
+// Set sync ID in localStorage
+export function setSyncId(syncId: string): void {
+  if (typeof window === 'undefined') return;
+  
+  try {
+    localStorage.setItem(SYNC_ID_KEY, syncId);
+    // Dispatch event to notify components
+    window.dispatchEvent(new Event('sync-status-changed'));
+  } catch (e) {
+    console.error('Error setting sync ID:', e);
+  }
+}
+
+// Clear sync ID from localStorage
+export function clearSyncId(): void {
+  if (typeof window === 'undefined') return;
+  
+  try {
+    localStorage.removeItem(SYNC_ID_KEY);
+    // Dispatch event to notify components
+    window.dispatchEvent(new Event('sync-status-changed'));
+  } catch (e) {
+    console.error('Error clearing sync ID:', e);
+  }
+}
+
+// Replace watchlist items (used when loading from Convex)
+export function replaceWatchlistItems(items: WatchlistItem[]): void {
+  if (typeof window === 'undefined') return;
+  
+  try {
+    // Validate items before replacing
+    const validItems = items.filter(item => isValidWatchlistItem(item));
+    localStorage.setItem(WATCHLIST_KEY, JSON.stringify(validItems));
+    
+    // Dispatch custom event to notify components
+    // Use a custom event that indicates this is a load from Convex (not a local change)
+    window.dispatchEvent(new CustomEvent('watchlist-changed', { 
+      detail: { source: 'convex-load' } 
+    }));
+  } catch (e) {
+    console.error('Error replacing watchlist items:', e);
   }
 }
 

@@ -12,9 +12,12 @@ import { shouldEnableCardAnimations } from '@/lib/streaming-config';
 // Presentation mode is always enabled, no need to import preferences
 import type { Film, FilterState } from '@/lib/types';
 import { toggleWatchlist, getPriorityFilms, togglePriority } from '@/lib/watchlist';
+import { useWatchlistSync } from '@/lib/use-sync';
+import { useConvexSync } from '@/lib/use-convex-sync';
 import FilmCard from './FilmCard';
 import WatchlistExportImport from './WatchlistExportImport';
 import PresentationFilters from './PresentationFilters';
+import SyncIcon from './SyncIcon';
 
 interface FilmGridProps {
   films: Film[];
@@ -89,6 +92,12 @@ export default function FilmGrid({
   const rowJumpEnabled = true; // Always enabled - presentation mode is the only mode
   const prevWatchlistOnlyRef = useRef(watchlistOnly);
   const prevShowFiltersRef = useRef(false);
+
+  // Sync watchlist to Convex when syncId is active (local → Convex)
+  useWatchlistSync();
+  
+  // Listen for Convex changes and update local storage (Convex → local)
+  useConvexSync();
 
   // Reset to first row when favorites view is activated
   useEffect(() => {
@@ -622,6 +631,9 @@ export default function FilmGrid({
                   )}
                 </button>
               )}
+
+              {/* Sync Icon - always visible */}
+              <SyncIcon />
 
               {/* Share Button - only show when in watchlist mode */}
               {onWatchlistToggle && watchlistOnly && (
