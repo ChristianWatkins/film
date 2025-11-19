@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { mergeAllFilms } from '@/lib/data';
 
 interface FestivalAppearance {
   name: string;
@@ -150,6 +151,24 @@ export async function POST(request: Request) {
     
     console.log(`✓ Updated film: ${updatedFilm.title} (${updatedFilm.year}) [${updatedFilm.id}]`);
     console.log(`✓ Updated festival appearances: ${festivals.length} festivals`);
+    
+    // Regenerate merged films file so changes appear immediately
+    try {
+      console.log('   🔄 Regenerating merged films file...');
+      const mergedFilms = await mergeAllFilms();
+      const mergedPath = path.join(process.cwd(), 'data', 'merged-films.json');
+      const output = {
+        generated_at: new Date().toISOString(),
+        total_films: mergedFilms.length,
+        films: mergedFilms
+      };
+      fs.writeFileSync(mergedPath, JSON.stringify(output, null, 2), 'utf-8');
+      console.log(`   ✓ Merged file regenerated: ${mergedFilms.length} films`);
+      console.log('   → Changes will appear on site after page refresh\n');
+    } catch (error) {
+      console.error('   ⚠️  Warning: Failed to regenerate merged films file:', error);
+      // Don't fail the request if regeneration fails - film is still saved
+    }
     
     return NextResponse.json({ 
       success: true,

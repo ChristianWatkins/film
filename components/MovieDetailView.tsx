@@ -425,7 +425,7 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
                   <button
                     onClick={handleAddToDatabase}
                     disabled={isAdding || !!existingFilmId}
-                    className="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-[#1A1A2E] transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-[#1A1A2E] transition-colors font-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isAdding ? (
                       <>
