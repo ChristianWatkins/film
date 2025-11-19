@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-11-19T14:37:44.229Z",
+  "last_updated": "2025-11-19T20:39:03.955Z",
   "country": "NO",
-  "total_films": 3691,
+  "total_films": 3692,
   "films": {
     "aa6": {
       "found": true,
@@ -127121,6 +127121,248 @@
       "streaming": [],
       "rent": [],
       "buy": []
+    },
+    "a7L": {
+      "found": true,
+      "title": "A Man Called Ove",
+      "year": 2015,
+      "justwatch_id": "tm215493",
+      "justwatch_url": "https://www.justwatch.com/no/movie/a-man-called-ove",
+      "poster_url": null,
+      "streaming": [
+        {
+          "provider": "Netflix",
+          "quality": "SD",
+          "price": null,
+          "url": "https://www.netflix.com/title/80102116"
+        },
+        {
+          "provider": "Netflix",
+          "quality": "HD",
+          "price": null,
+          "url": "https://www.netflix.com/title/80102116"
+        },
+        {
+          "provider": "Amazon Prime Video",
+          "quality": "SD",
+          "price": null,
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.cf09d9af-a3ff-430c-a95c-d1c567f9d812"
+        },
+        {
+          "provider": "Amazon Prime Video",
+          "quality": "HD",
+          "price": null,
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.cf09d9af-a3ff-430c-a95c-d1c567f9d812"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": null,
+          "url": "https://play.tv2.no/c-more/c-more-filmer/en-mann-ved-navn-ove-1818315.html"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": null,
+          "url": "https://play.tv2.no/c-more/c-more-filmer/en-mann-ved-navn-ove-1818315.html"
+        },
+        {
+          "provider": "Filmoteket",
+          "quality": "HD",
+          "price": null,
+          "url": "https://filmoteket.no/film/195445"
+        },
+        {
+          "provider": "Filmoteket",
+          "quality": "SD",
+          "price": null,
+          "url": "https://filmoteket.no/film/195445"
+        },
+        {
+          "provider": "Strim",
+          "quality": "HD",
+          "price": null,
+          "url": "https://www.strim.no/film/1007884:vod/en-mann-ved-navn-ove"
+        },
+        {
+          "provider": "Strim",
+          "quality": "SD",
+          "price": null,
+          "url": "https://www.strim.no/film/1007884:vod/en-mann-ved-navn-ove"
+        },
+        {
+          "provider": "HBO Max",
+          "quality": "HD",
+          "price": null,
+          "url": "https://play.hbomax.com/show/8c4deb16-4998-4a43-9028-bd77ad48ee15?utm_source=universal_search"
+        },
+        {
+          "provider": "HBO Max",
+          "quality": "SD",
+          "price": null,
+          "url": "https://play.hbomax.com/show/8c4deb16-4998-4a43-9028-bd77ad48ee15?utm_source=universal_search"
+        }
+      ],
+      "rent": [
+        {
+          "provider": "Google Play Movies",
+          "quality": "SD",
+          "price": "NOK 29",
+          "url": "https://play.google.com/store/movies/details/En_mann_ved_navn_Ove?gl=NO&hl=en&id=lr-md2kIsdw.P"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "SD",
+          "price": "NOK 39",
+          "url": "https://tv.apple.com/no/movie/en-mann-ved-navn-ove/umc.cmc.49gyieh5cnm0gfey72rgrnon9?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1654963933"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "HD",
+          "price": "NOK 39",
+          "url": "https://tv.apple.com/no/movie/en-mann-ved-navn-ove/umc.cmc.49gyieh5cnm0gfey72rgrnon9?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1654963933"
+        },
+        {
+          "provider": "Google Play Movies",
+          "quality": "HD",
+          "price": "NOK 39",
+          "url": "https://play.google.com/store/movies/details/En_mann_ved_navn_Ove?gl=NO&hl=en&id=lr-md2kIsdw.P"
+        },
+        {
+          "provider": "Blockbuster",
+          "quality": "SD",
+          "price": "NOK 39",
+          "url": "https://blockbuster.no/movie/en-mann-ved-navn-ove"
+        },
+        {
+          "provider": "Blockbuster",
+          "quality": "HD",
+          "price": "NOK 39",
+          "url": "https://blockbuster.no/movie/en-mann-ved-navn-ove"
+        },
+        {
+          "provider": "Viaplay",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://viaplay.no/store/en-mann-ved-navn-ove-2015"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://www.rakuten.tv/no/movies/en-mann-ved-navn-ove-sf-studios-version"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://www.sfanytime.com/no/movie/en-man-som-heter-ove"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://www.sfanytime.com/no/movie/en-man-som-heter-ove"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.cf09d9af-a3ff-430c-a95c-d1c567f9d812"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.cf09d9af-a3ff-430c-a95c-d1c567f9d812"
+        }
+      ],
+      "buy": [
+        {
+          "provider": "Blockbuster",
+          "quality": "SD",
+          "price": "NOK 79",
+          "url": "https://blockbuster.no/movie/en-mann-ved-navn-ove"
+        },
+        {
+          "provider": "Blockbuster",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://blockbuster.no/movie/en-mann-ved-navn-ove"
+        },
+        {
+          "provider": "Google Play Movies",
+          "quality": "HD",
+          "price": "NOK 89",
+          "url": "https://play.google.com/store/movies/details/En_mann_ved_navn_Ove?gl=NO&hl=en&id=lr-md2kIsdw.P"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "SD",
+          "price": "NOK 89",
+          "url": "https://www.rakuten.tv/no/movies/en-mann-ved-navn-ove-sf-studios-version"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "HD",
+          "price": "NOK 89",
+          "url": "https://www.rakuten.tv/no/movies/en-mann-ved-navn-ove-sf-studios-version"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://tv.apple.com/no/movie/en-mann-ved-navn-ove/umc.cmc.49gyieh5cnm0gfey72rgrnon9?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1654963933"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://tv.apple.com/no/movie/en-mann-ved-navn-ove/umc.cmc.49gyieh5cnm0gfey72rgrnon9?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1654963933"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://www.sfanytime.com/no/movie/en-man-som-heter-ove"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://www.sfanytime.com/no/movie/en-man-som-heter-ove"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://play.tv2.no/film/en-mann-ved-navn-ove-1816486.html"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://play.tv2.no/film/en-mann-ved-navn-ove-1816486.html"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.cf09d9af-a3ff-430c-a95c-d1c567f9d812"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.cf09d9af-a3ff-430c-a95c-d1c567f9d812"
+        },
+        {
+          "provider": "Viaplay",
+          "quality": "HD",
+          "price": "NOK 109",
+          "url": "https://viaplay.no/store/en-mann-ved-navn-ove-2015"
+        }
+      ]
     }
   }
 }
