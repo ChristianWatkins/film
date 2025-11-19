@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-11-18T21:20:49.613Z",
-  "total_films": 3690,
+  "last_updated": "2025-11-19T14:37:44.177Z",
+  "total_films": 3692,
   "note": "Films are now keyed by short code ID. Edit title/year freely - it won't break joins!",
   "films": {
     "aaX": {
@@ -360873,6 +360873,52 @@
           "url": "https://www.strim.no/film/5012566:vod/idiotene"
         }
       ],
+      "rent": [],
+      "buy": []
+    },
+    "a7J": {
+      "id": "a7J",
+      "filmKey": "life-of-brian-1979",
+      "title": "Life of Brian",
+      "year": 1979,
+      "director": "Terry Jones",
+      "country": "United Kingdom",
+      "mubiLink": "https://mubi.com/en/no/films/monty-pythons-life-of-brian",
+      "tmdb_id": 583,
+      "imdb_id": "tt0079470",
+      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500/lSSA64WF0M0BXnjwr2quMh6shCl.jpg",
+      "original_title": "Life of Brian",
+      "synopsis": "Brian Cohen is an average young Jewish man, but through a series of ridiculous events, he gains a reputation as the Messiah. When he's not dodging his followers or being scolded by his shrill mother, the hapless Brian has to contend with the pompous Pontius Pilate and acronym-obsessed members of a separatist movement. Rife with Monty Python's signature absurdity, the tale finds Brian's life paralleling Biblical lore, albeit with many more laughs.",
+      "genres": [
+        "Comedy"
+      ],
+      "runtime": 94,
+      "justwatch_found": true,
+      "streaming": [],
+      "rent": [],
+      "buy": []
+    },
+    "a7K": {
+      "id": "a7K",
+      "filmKey": "monty-python-and-the-holy-grail-1975",
+      "title": "Monty Python and the Holy Grail",
+      "year": 1975,
+      "director": "Terry Jones",
+      "country": "United Kingdom",
+      "mubiLink": "https://mubi.com/en/no/films/monty-python-and-the-holy-grail",
+      "tmdb_id": 762,
+      "imdb_id": "tt0071853",
+      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500/7nTkHjETdGMYK1phHwDbPsrzbYl.jpg",
+      "original_title": "Monty Python and the Holy Grail",
+      "synopsis": "King Arthur, accompanied by his squire, recruits his Knights of the Round Table, including Sir Bedevere the Wise, Sir Lancelot the Brave, Sir Robin the Not-Quite-So-Brave-As-Sir-Lancelot and Sir Galahad the Pure. On the way, Arthur battles the Black Knight who, despite having had all his limbs chopped off, insists he can still fight. They reach Camelot, but Arthur decides not  to enter, as \"it is a silly place\".",
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Fantasy"
+      ],
+      "runtime": 91,
+      "justwatch_found": true,
+      "streaming": [],
       "rent": [],
       "buy": []
     }

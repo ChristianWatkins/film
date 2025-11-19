@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-11-18T21:20:49.682Z",
+  "last_updated": "2025-11-19T14:37:44.229Z",
   "country": "NO",
-  "total_films": 3689,
+  "total_films": 3691,
   "films": {
     "aa6": {
       "found": true,
@@ -127097,6 +127097,28 @@
           "url": "https://www.strim.no/film/5012566:vod/idiotene"
         }
       ],
+      "rent": [],
+      "buy": []
+    },
+    "a7J": {
+      "found": true,
+      "title": "Life of Brian",
+      "year": 1979,
+      "justwatch_id": "tm70993",
+      "justwatch_url": "https://www.justwatch.com/no/movie/life-of-brian",
+      "poster_url": null,
+      "streaming": [],
+      "rent": [],
+      "buy": []
+    },
+    "a7K": {
+      "found": true,
+      "title": "Monty Python and the Holy Grail",
+      "year": 1975,
+      "justwatch_id": "tm127384",
+      "justwatch_url": "https://www.justwatch.com/no/movie/monty-python-and-the-holy-grail",
+      "poster_url": null,
+      "streaming": [],
       "rent": [],
       "buy": []
     }
