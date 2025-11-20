@@ -174,8 +174,8 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
     }
     
     // Validate syncId format (client-side check before sending to server)
-    if (trimmedSyncId.length < 20) {
-      setError('Sync ID must be at least 20 characters long');
+    if (trimmedSyncId.length < 3) {
+      setError('Sync ID must be at least 3 characters long');
       return;
     }
     
@@ -224,8 +224,8 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
     }
     
     // Validate syncId format (client-side check before sending to server)
-    if (trimmedSyncId.length < 20) {
-      setError('Sync ID must be at least 20 characters long');
+    if (trimmedSyncId.length < 3) {
+      setError('Sync ID must be at least 3 characters long');
       return;
     }
     
@@ -272,6 +272,25 @@ export default function SyncPanel({ onClose }: SyncPanelProps) {
       setError('Please enter a sync ID');
       return;
     }
+
+    // Validate syncId format before checking if it exists
+    if (syncId.length < 3) {
+      setError('Sync ID must be at least 3 characters long');
+      return;
+    }
+    
+    if (syncId.length > 200) {
+      setError('Sync ID must be at most 200 characters long');
+      return;
+    }
+    
+    if (!/^[a-zA-Z0-9_-]+$/.test(syncId)) {
+      setError('Sync ID contains invalid characters. Only letters, numbers, hyphens, and underscores are allowed.');
+      return;
+    }
+
+    // Clear any previous errors
+    setError('');
 
     // Check if syncId exists first
     setPendingSyncId(syncId);

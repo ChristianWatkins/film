@@ -10,7 +10,7 @@ export interface WatchlistItem {
 
 // Security constants
 const MAX_FAVORITES = 10000; // Maximum number of favorites per syncId
-const MIN_SYNC_ID_LENGTH = 20; // Minimum syncId length
+const MIN_SYNC_ID_LENGTH = 3; // Minimum syncId length
 const MAX_SYNC_ID_LENGTH = 200; // Maximum syncId length
 const SYNC_ID_REGEX = /^[a-zA-Z0-9_-]+$/; // Allowed characters for syncId
 
