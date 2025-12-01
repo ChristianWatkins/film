@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-11-19T20:39:03.955Z",
+  "last_updated": "2025-12-01T21:26:17.530Z",
   "country": "NO",
-  "total_films": 3692,
+  "total_films": 3693,
   "films": {
     "aa6": {
       "found": true,
@@ -127361,6 +127361,67 @@
           "quality": "HD",
           "price": "NOK 109",
           "url": "https://viaplay.no/store/en-mann-ved-navn-ove-2015"
+        }
+      ]
+    },
+    "a7M": {
+      "found": true,
+      "title": "Kitchen Stories",
+      "year": 2003,
+      "justwatch_id": "tm145431",
+      "justwatch_url": "https://www.justwatch.com/no/movie/kitchen-stories",
+      "poster_url": null,
+      "streaming": [],
+      "rent": [
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 39",
+          "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 39",
+          "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://www.sfanytime.com/no/movie/psalmer-fran-koket"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://www.sfanytime.com/no/movie/psalmer-fran-koket"
+        }
+      ],
+      "buy": [
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 79",
+          "url": "https://www.sfanytime.com/no/movie/psalmer-fran-koket"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://www.sfanytime.com/no/movie/psalmer-fran-koket"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 79",
+          "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
         }
       ]
     }

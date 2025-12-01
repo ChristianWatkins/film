@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-11-19T20:39:03.875Z",
-  "total_films": 3693,
+  "last_updated": "2025-12-01T21:26:17.465Z",
+  "total_films": 3694,
   "note": "Films are now keyed by short code ID. Edit title/year freely - it won't break joins!",
   "films": {
     "aaX": {
@@ -361173,6 +361173,79 @@
           "quality": "HD",
           "price": "NOK 109",
           "url": "https://viaplay.no/store/en-mann-ved-navn-ove-2015"
+        }
+      ]
+    },
+    "a7M": {
+      "id": "a7M",
+      "filmKey": "kitchen-stories-2003",
+      "title": "Kitchen Stories",
+      "year": 2003,
+      "director": "Bent Hamer",
+      "country": "Norway",
+      "mubiLink": "https://mubi.com/en/no/films/kitchen-stories",
+      "tmdb_id": 11083,
+      "imdb_id": "tt0323872",
+      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500/srIgymX8L1uYlNkRUVbOEYfcGex.jpg",
+      "original_title": "Salmer fra kjøkkenet",
+      "synopsis": "Swedish efficiency researchers come to Norway for a study of Norwegian men, to optimize their use of their kitchen. Folke Nilsson (Tomas Norström) is assigned to study the habits of Isak Bjørvik (Joachim Calmeyer). By the rules of the research institute, Folke has to sit on an umpire's chair in Isak's kitchen and observe him from there, but never talk to him. Isak stops using his kitchen and observes Folke through a hole in the ceiling instead. However, the two lonely men slowly overcome the initial post-war Norwegian-Swede distrust and become friends.",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "runtime": 95,
+      "justwatch_found": true,
+      "streaming": [],
+      "rent": [
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 39",
+          "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 39",
+          "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://www.sfanytime.com/no/movie/psalmer-fran-koket"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://www.sfanytime.com/no/movie/psalmer-fran-koket"
+        }
+      ],
+      "buy": [
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 79",
+          "url": "https://www.sfanytime.com/no/movie/psalmer-fran-koket"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://www.sfanytime.com/no/movie/psalmer-fran-koket"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 79",
+          "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
         }
       ]
     }
