@@ -370,7 +370,13 @@ export default function AdminFilmsPage() {
     setMessage(null);
 
     try {
-      const response = await fetch(`/api/tmdb-details?tmdbId=${editingFilm.tmdb_id}`);
+      // Try movie first, then TV if movie fails
+      let response = await fetch(`/api/tmdb-details?tmdbId=${editingFilm.tmdb_id}&type=movie`);
+
+      if (!response.ok) {
+        // Try TV if movie fails
+        response = await fetch(`/api/tmdb-details?tmdbId=${editingFilm.tmdb_id}&type=tv`);
+      }
       
       if (!response.ok) {
         const errorData = await response.json();
@@ -906,6 +912,76 @@ export default function AdminFilmsPage() {
                                 >
                                   {refreshingTMDB ? 'Loading...' : 'Refresh'}
                                 </button>
+                              </div>
+                              <div className="mt-2">
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Or paste TMDB link</label>
+                                <div className="flex gap-2">
+                                  <input
+                                    type="text"
+                                    id="tmdb-link-input"
+                                    placeholder="https://www.themoviedb.org/movie/676727 or /tv/255451"
+                                    className="flex-1 px-3 py-2 border border-gray-300 rounded text-gray-900 placeholder-gray-500 text-sm"
+                                    onKeyDown={(e) => {
+                                      if (e.key === 'Enter') {
+                                        e.preventDefault();
+                                        const input = e.currentTarget;
+                                        if (input.value.trim()) {
+                                          handleTMDBLink(input.value.trim());
+                                          input.value = '';
+                                        }
+                                      }
+                                    }}
+                                  />
+                                  <button
+                                    onClick={() => {
+                                      const input = document.getElementById('tmdb-link-input') as HTMLInputElement;
+                                      if (input?.value.trim()) {
+                                        handleTMDBLink(input.value.trim());
+                                        input.value = '';
+                                      }
+                                    }}
+                                    disabled={refreshingTMDB}
+                                    className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap text-sm"
+                                    title="Load TMDB ID from link"
+                                  >
+                                    {refreshingTMDB ? 'Loading...' : 'Load from Link'}
+                                  </button>
+                                </div>
+                              </div>
+                              <div className="mt-2">
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Or paste TMDB link</label>
+                                <div className="flex gap-2">
+                                  <input
+                                    type="text"
+                                    id="tmdb-link-input"
+                                    placeholder="https://www.themoviedb.org/movie/676727 or /tv/255451"
+                                    className="flex-1 px-3 py-2 border border-gray-300 rounded text-gray-900 placeholder-gray-500 text-sm"
+                                    onKeyDown={(e) => {
+                                      if (e.key === 'Enter') {
+                                        e.preventDefault();
+                                        const input = e.currentTarget;
+                                        if (input.value.trim()) {
+                                          handleTMDBLink(input.value.trim());
+                                          input.value = '';
+                                        }
+                                      }
+                                    }}
+                                  />
+                                  <button
+                                    onClick={() => {
+                                      const input = document.getElementById('tmdb-link-input') as HTMLInputElement;
+                                      if (input?.value.trim()) {
+                                        handleTMDBLink(input.value.trim());
+                                        input.value = '';
+                                      }
+                                    }}
+                                    disabled={refreshingTMDB}
+                                    className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap text-sm"
+                                    title="Load TMDB ID from link"
+                                  >
+                                    {refreshingTMDB ? 'Loading...' : 'Load from Link'}
+                                  </button>
+                                </div>
                               </div>
                               <p className="text-xs text-gray-500 mt-1">
                                 Find on <a href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">themoviedb.org</a> - ID is in the URL

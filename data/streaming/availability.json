@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-12-01T21:26:17.530Z",
+  "last_updated": "2025-12-11T11:53:37.209Z",
   "country": "NO",
-  "total_films": 3693,
+  "total_films": 3694,
   "films": {
     "aa6": {
       "found": true,
@@ -127422,6 +127422,121 @@
           "quality": "HD",
           "price": "NOK 79",
           "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
+        }
+      ]
+    },
+    "a7N": {
+      "found": true,
+      "title": "The Inventor",
+      "year": 2023,
+      "justwatch_id": "tm1315314",
+      "justwatch_url": "https://www.justwatch.com/no/movie/the-inventor-2024",
+      "poster_url": null,
+      "streaming": [],
+      "rent": [
+        {
+          "provider": "Amazon Video",
+          "quality": "SD",
+          "price": "NOK 9",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.34f17019-ce42-4f1d-b650-b2271213e49d"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "HD",
+          "price": "NOK 9",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.34f17019-ce42-4f1d-b650-b2271213e49d"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://play.tv2.no/film/the-inventor-original-tale-6bc917nd"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://play.tv2.no/film/the-inventor-original-tale-6bc917nd"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 59",
+          "url": "https://www.sfanytime.com/no/movie/the-inventor"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 59",
+          "url": "https://www.sfanytime.com/no/movie/the-inventor"
+        }
+      ],
+      "buy": [
+        {
+          "provider": "Apple TV",
+          "quality": "SD",
+          "price": "NOK 59",
+          "url": "https://tv.apple.com/no/movie/oppfinneren/umc.cmc.3f3wse4r76br1wnqwn3b1u7pg?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1725590513"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "HD",
+          "price": "NOK 59",
+          "url": "https://tv.apple.com/no/movie/oppfinneren/umc.cmc.3f3wse4r76br1wnqwn3b1u7pg?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1725590513"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 59",
+          "url": "https://play.tv2.no/film/the-inventor-original-tale-6bc917nd"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 59",
+          "url": "https://play.tv2.no/film/the-inventor-original-tale-6bc917nd"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "SD",
+          "price": "NOK 59",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.34f17019-ce42-4f1d-b650-b2271213e49d"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "HD",
+          "price": "NOK 59",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.34f17019-ce42-4f1d-b650-b2271213e49d"
+        },
+        {
+          "provider": "Google Play Movies",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://play.google.com/store/movies/details/The_Inventor?gl=NO&hl=en&id=bCjoix9YVdQ.P"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://www.rakuten.tv/no/movies/the-inventor"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "SD",
+          "price": "NOK 79",
+          "url": "https://www.rakuten.tv/no/movies/the-inventor"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://www.sfanytime.com/no/movie/the-inventor"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://www.sfanytime.com/no/movie/the-inventor"
         }
       ]
     }

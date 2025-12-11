@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-12-01T21:26:17.465Z",
-  "total_films": 3694,
+  "last_updated": "2025-12-11T12:22:08.390Z",
+  "total_films": 3696,
   "note": "Films are now keyed by short code ID. Edit title/year freely - it won't break joins!",
   "films": {
     "aaX": {
@@ -361248,6 +361248,156 @@
           "url": "https://play.tv2.no/film/salmer-fra-kjoekkenet-m2dnfsws"
         }
       ]
+    },
+    "a7N": {
+      "id": "a7N",
+      "filmKey": "the-inventor-2023",
+      "title": "The Inventor",
+      "year": 2023,
+      "director": "Pierre-Luc Granjon",
+      "country": "France",
+      "mubiLink": "https://mubi.com/en/no/films/the-inventor-2023",
+      "tmdb_id": 676727,
+      "imdb_id": "tt5822848",
+      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500/489kEvaylSuutUJ0GVVs6gUmirB.jpg",
+      "original_title": "The Inventor",
+      "synopsis": "The insatiably curious and headstrong inventor Leonardo da Vinci leaves Italy to join the French court, where he can experiment freely, inventing flying contraptions, incredible machines, and study the human body. There, joined in his adventure by the audacious princess Marguerite, Leonardo will uncover the answer to the ultimate question – \"What is the meaning of it all?\"",
+      "genres": [
+        "Animation",
+        "Drama",
+        "Family",
+        "History"
+      ],
+      "runtime": 92,
+      "justwatch_found": true,
+      "streaming": [],
+      "rent": [
+        {
+          "provider": "Amazon Video",
+          "quality": "SD",
+          "price": "NOK 9",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.34f17019-ce42-4f1d-b650-b2271213e49d"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "HD",
+          "price": "NOK 9",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.34f17019-ce42-4f1d-b650-b2271213e49d"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 49",
+          "url": "https://play.tv2.no/film/the-inventor-original-tale-6bc917nd"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 49",
+          "url": "https://play.tv2.no/film/the-inventor-original-tale-6bc917nd"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 59",
+          "url": "https://www.sfanytime.com/no/movie/the-inventor"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 59",
+          "url": "https://www.sfanytime.com/no/movie/the-inventor"
+        }
+      ],
+      "buy": [
+        {
+          "provider": "Apple TV",
+          "quality": "SD",
+          "price": "NOK 59",
+          "url": "https://tv.apple.com/no/movie/oppfinneren/umc.cmc.3f3wse4r76br1wnqwn3b1u7pg?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1725590513"
+        },
+        {
+          "provider": "Apple TV",
+          "quality": "HD",
+          "price": "NOK 59",
+          "url": "https://tv.apple.com/no/movie/oppfinneren/umc.cmc.3f3wse4r76br1wnqwn3b1u7pg?at=1000l3V2&ct=app_tv&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.9001%3A1725590513"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "HD",
+          "price": "NOK 59",
+          "url": "https://play.tv2.no/film/the-inventor-original-tale-6bc917nd"
+        },
+        {
+          "provider": "TV 2 Play",
+          "quality": "SD",
+          "price": "NOK 59",
+          "url": "https://play.tv2.no/film/the-inventor-original-tale-6bc917nd"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "SD",
+          "price": "NOK 59",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.34f17019-ce42-4f1d-b650-b2271213e49d"
+        },
+        {
+          "provider": "Amazon Video",
+          "quality": "HD",
+          "price": "NOK 59",
+          "url": "https://app.primevideo.com/detail?gti=amzn1.dv.gti.34f17019-ce42-4f1d-b650-b2271213e49d"
+        },
+        {
+          "provider": "Google Play Movies",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://play.google.com/store/movies/details/The_Inventor?gl=NO&hl=en&id=bCjoix9YVdQ.P"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "HD",
+          "price": "NOK 79",
+          "url": "https://www.rakuten.tv/no/movies/the-inventor"
+        },
+        {
+          "provider": "Rakuten TV",
+          "quality": "SD",
+          "price": "NOK 79",
+          "url": "https://www.rakuten.tv/no/movies/the-inventor"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "SD",
+          "price": "NOK 99",
+          "url": "https://www.sfanytime.com/no/movie/the-inventor"
+        },
+        {
+          "provider": "SF Anytime",
+          "quality": "HD",
+          "price": "NOK 99",
+          "url": "https://www.sfanytime.com/no/movie/the-inventor"
+        }
+      ]
+    },
+    "a7O": {
+      "id": "a7O",
+      "filmKey": "leonardo-da-vinci-2024",
+      "title": "Leonardo da Vinci",
+      "year": 2024,
+      "director": "David McMahon",
+      "country": "United States of America",
+      "mubiLink": "https://mubi.com/en/no/films/leonardo-da-vinci",
+      "tmdb_id": 255451,
+      "imdb_id": "tt31259169",
+      "poster_url_tmdb": "https://image.tmdb.org/t/p/w500https://image.tmdb.org/t/p/w500/omr3gOumHqrIILUcDoEzl8H2VsU.jpg",
+      "original_title": "Leonardo da Vinci",
+      "synopsis": "This two-part, four-hour documentary delves into the world of a 15th-century art titan and unravels his journey while shedding light on his lasting impact on future generations.",
+      "genres": [
+        "Documentary"
+      ],
+      "justwatch_found": false,
+      "streaming": [],
+      "rent": [],
+      "buy": []
     }
   }
 }

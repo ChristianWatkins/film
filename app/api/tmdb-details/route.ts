@@ -68,6 +68,65 @@ async function fetchMovieByTmdbId(tmdbId: string) {
   }
 }
 
+async function fetchTVByTmdbId(tmdbId: string) {
+  try {
+    const [tvResponse, creditsResponse, externalIdsResponse] = await Promise.all([
+      fetch(`${TMDB_BASE_URL}/tv/${tmdbId}?api_key=${TMDB_API_KEY}&language=en-US`),
+      fetch(`${TMDB_BASE_URL}/tv/${tmdbId}/credits?api_key=${TMDB_API_KEY}`),
+      fetch(`${TMDB_BASE_URL}/tv/${tmdbId}/external_ids?api_key=${TMDB_API_KEY}`)
+    ]);
+
+    if (!tvResponse.ok) {
+      if (tvResponse.status === 404) {
+        return NextResponse.json(
+          { error: 'TV show not found on TMDB' },
+          { status: 404 }
+        );
+      }
+      throw new Error(`TMDB TV API error: ${tvResponse.statusText}`);
+    }
+
+    const tvData = await tvResponse.json();
+    const creditsData: TMDBCredits = creditsResponse.ok ? await creditsResponse.json() : { cast: [], crew: [] };
+    const externalIdsData = externalIdsResponse.ok ? await externalIdsResponse.json() : { imdb_id: null };
+
+    // Format TV data similar to movie data
+    const directors = creditsData.crew
+      .filter(person => person.job === 'Director' || person.job === 'Executive Producer')
+      .map(person => person.name);
+
+    const cast = creditsData.cast
+      .sort((a, b) => a.order - b.order)
+      .slice(0, 10)
+      .map(person => person.name);
+
+    return NextResponse.json({
+      tmdbId: tvData.id,
+      title: tvData.name,
+      originalTitle: tvData.original_name,
+      synopsis: tvData.overview,
+      releaseDate: tvData.first_air_date,
+      runtime: tvData.episode_run_time?.[0] || null,
+      rating: tvData.vote_average,
+      voteCount: tvData.vote_count,
+      genres: tvData.genres,
+      posterPath: tvData.poster_path ? `https://image.tmdb.org/t/p/w500${tvData.poster_path}` : null,
+      backdropPath: tvData.backdrop_path ? `https://image.tmdb.org/t/p/w1280${tvData.backdrop_path}` : null,
+      imdbId: externalIdsData?.imdb_id || null,
+      directors,
+      cast,
+      productionCountries: tvData.production_countries,
+      productionCompanies: tvData.production_companies
+    });
+  } catch (error) {
+    console.error('Error fetching TV details:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch TV show details from TMDB' },
+      { status: 500 }
+    );
+  }
+}
+
 async function searchAndFetchMovie(title: string, year?: string | null) {
   try {
     // First, search for the movie
@@ -161,11 +220,15 @@ export async function GET(request: NextRequest) {
 
   const { searchParams } = new URL(request.url);
   const tmdbId = searchParams.get('tmdbId');
+  const tmdbType = searchParams.get('type'); // 'movie' or 'tv'
   const title = searchParams.get('title');
   const year = searchParams.get('year');
 
   // If we have a TMDB ID, use it directly
   if (tmdbId) {
+    if (tmdbType === 'tv') {
+      return fetchTVByTmdbId(tmdbId);
+    }
     return fetchMovieByTmdbId(tmdbId);
   }
 

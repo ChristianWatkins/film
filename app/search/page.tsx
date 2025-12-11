@@ -25,6 +25,7 @@ export default function JustWatchSearchPage() {
     movie: JustWatchMovieDetails;
     countries: CountryMovieData[];
     isExpandedSearch?: boolean;
+    tmdbType?: 'movie' | 'tv';
   } | null>(null);
 
   // Handle automatic search from URL parameters
@@ -213,6 +214,83 @@ export default function JustWatchSearchPage() {
     setSelectedMovie(null);
   };
 
+  const handleTMDBLink = async (tmdbUrl: string) => {
+    setIsLoading(true);
+    setError(null);
+    setSearchResults(null);
+    setSelectedMovie(null);
+
+    try {
+      // Parse TMDB URL to extract ID and type
+      // Examples:
+      // https://www.themoviedb.org/movie/676727-the-inventor
+      // https://www.themoviedb.org/tv/255451-leonardo-da-vinci
+      // https://www.themoviedb.org/movie/676727
+      // https://www.themoviedb.org/tv/255451
+      const movieMatch = tmdbUrl.match(/themoviedb\.org\/movie\/(\d+)/);
+      const tvMatch = tmdbUrl.match(/themoviedb\.org\/tv\/(\d+)/);
+      
+      let tmdbId: string | null = null;
+      let type: 'movie' | 'tv' | null = null;
+
+      if (movieMatch) {
+        tmdbId = movieMatch[1];
+        type = 'movie';
+      } else if (tvMatch) {
+        tmdbId = tvMatch[1];
+        type = 'tv';
+      } else {
+        throw new Error('Invalid TMDB URL. Please use a URL like https://www.themoviedb.org/movie/676727 or https://www.themoviedb.org/tv/255451');
+      }
+
+      // Fetch TMDB details
+      const response = await fetch(`/api/tmdb-details?tmdbId=${tmdbId}&type=${type}`);
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to fetch TMDB details');
+      }
+
+      const tmdbData = await response.json();
+
+      // Convert TMDB data to JustWatchMovieDetails format
+      const releaseYear = tmdbData.releaseDate ? parseInt(tmdbData.releaseDate.substring(0, 4)) : new Date().getFullYear();
+      
+      const movie: JustWatchMovieDetails = {
+        id: `tmdb-${tmdbId}`,
+        title: tmdbData.title,
+        originalTitle: tmdbData.originalTitle,
+        originalReleaseYear: releaseYear,
+        posterUrl: tmdbData.posterPath,
+        imdbId: tmdbData.imdbId,
+        tmdbId: tmdbData.tmdbId,
+        runtime: tmdbData.runtime,
+        genres: tmdbData.genres?.map((g: { name: string }) => ({ name: g.name })),
+        synopsis: tmdbData.synopsis,
+        streamingProviders: [],
+        rentProviders: [],
+        buyProviders: [],
+        country: 'US', // Default country
+      };
+
+      // Create empty country data array
+      const allCountryData: CountryMovieData[] = [];
+
+      // Store type in a way that MovieDetailView can access it
+      // We'll pass it through the movie object or use a separate state
+      setSelectedMovie({
+        movie,
+        countries: allCountryData,
+        isExpandedSearch: false,
+        tmdbType: type // Store the type so MovieDetailView can use it
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load TMDB data');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   // If a movie is selected, show the detailed view
   if (selectedMovie) {
     return (
@@ -221,6 +299,7 @@ export default function JustWatchSearchPage() {
         allCountryData={selectedMovie.countries}
         onBack={handleBackToSearch}
         isExpandedSearch={selectedMovie.isExpandedSearch}
+        initialTmdbType={selectedMovie.tmdbType}
       />
     );
   }
@@ -255,6 +334,39 @@ export default function JustWatchSearchPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Search Form */}
         <JustWatchSearchForm onSearch={handleSearch} isLoading={isLoading} />
+
+        {/* TMDB Link Input */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">
+            Or add from TMDB link
+          </h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const form = e.currentTarget;
+              const input = form.querySelector('input') as HTMLInputElement;
+              if (input?.value.trim()) {
+                handleTMDBLink(input.value.trim());
+                input.value = '';
+              }
+            }}
+            className="flex gap-2"
+          >
+            <input
+              type="text"
+              placeholder="Paste TMDB link (e.g., https://www.themoviedb.org/movie/676727 or https://www.themoviedb.org/tv/255451)"
+              className="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              disabled={isLoading}
+            />
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            >
+              {isLoading ? 'Loading...' : 'Load from TMDB'}
+            </button>
+          </form>
+        </div>
 
         {/* Error Message */}
         {error && (

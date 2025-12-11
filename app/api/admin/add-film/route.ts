@@ -56,6 +56,8 @@ interface AddFilmRequest {
   }>;
   mubiLink?: string | null;
   checkOnly?: boolean;
+  forceAdd?: boolean;
+  tmdbType?: 'movie' | 'tv'; // Track if TMDB entry is a movie or TV show
 }
 
 // Generate short code ID (base-62, 3 characters)
@@ -88,21 +90,21 @@ function checkFilmExists(
   tmdbId: number | null | undefined,
   title: string,
   year: number
-): string | null {
-  // Check by TMDB ID first
+): { id: string; title: string; year: number; matchType: 'tmdb' | 'title' } | null {
+  // Check by TMDB ID first - if TMDB IDs match, it's the same film/TV show
   if (tmdbId) {
     for (const [id, film] of Object.entries(data.films)) {
       if (film.tmdb_id === tmdbId) {
-        return id;
+        return { id, title: film.title, year: film.year, matchType: 'tmdb' };
       }
     }
   }
 
-  // Check by normalized title + year
+  // Check by normalized title + year (for cases without TMDB ID)
   const normalizedTitle = normalizeTitle(title);
   for (const [id, film] of Object.entries(data.films)) {
     if (film.year === year && normalizeTitle(film.title) === normalizedTitle) {
-      return id;
+      return { id, title: film.title, year: film.year, matchType: 'title' };
     }
   }
 
@@ -180,26 +182,56 @@ export async function POST(request: Request) {
     }
 
     const year = movie.originalReleaseYear || new Date().getFullYear();
+    const forceAdd = body.forceAdd || false;
+    const tmdbType = body.tmdbType;
+
+    // If we have a TMDB ID but don't know the type, try to detect it
+    // by attempting to fetch as both movie and TV
+    let detectedType = tmdbType;
+    if (!detectedType && (tmdbDetails?.tmdbId || movie.tmdbId)) {
+      const tmdbId = tmdbDetails?.tmdbId || movie.tmdbId;
+      // Try movie first
+      try {
+        const movieResponse = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${process.env.TMDB_API_KEY}`);
+        if (movieResponse.ok) {
+          detectedType = 'movie';
+        } else {
+          // Try TV
+          const tvResponse = await fetch(`https://api.themoviedb.org/3/tv/${tmdbId}?api_key=${process.env.TMDB_API_KEY}`);
+          if (tvResponse.ok) {
+            detectedType = 'tv';
+          }
+        }
+      } catch (error) {
+        console.error('Error detecting TMDB type:', error);
+      }
+    }
 
     // Load current films data
     const filmsPath = path.join(process.cwd(), 'data', 'films.json');
     const content = fs.readFileSync(filmsPath, 'utf-8');
     const data: MasterFilmsData = JSON.parse(content);
 
-    // Check if film already exists
-    const existingId = checkFilmExists(
-      data,
-      tmdbDetails?.tmdbId || movie.tmdbId,
-      movie.title,
-      year
-    );
+    // Check if film already exists (unless forceAdd is true)
+    // Only check by TMDB ID if we're sure it's the same type (movie vs TV)
+    if (!forceAdd) {
+      const existingMatch = checkFilmExists(
+        data,
+        tmdbDetails?.tmdbId || movie.tmdbId,
+        movie.title,
+        year
+      );
 
-    if (existingId) {
-      return NextResponse.json({
-        exists: true,
-        filmId: existingId,
-        message: `Film already exists with ID: ${existingId}`
-      });
+      if (existingMatch) {
+        return NextResponse.json({
+          exists: true,
+          filmId: existingMatch.id,
+          existingTitle: existingMatch.title,
+          existingYear: existingMatch.year,
+          matchType: existingMatch.matchType,
+          message: `Film already exists with ID: ${existingMatch.id}`
+        });
+      }
     }
 
     // If checkOnly, return early (film doesn't exist)

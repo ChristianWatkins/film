@@ -29,31 +29,45 @@ interface MovieDetailViewProps {
   allCountryData: CountryMovieData[];
   onBack: () => void;
   isExpandedSearch?: boolean;
+  initialTmdbType?: 'movie' | 'tv'; // Optional initial type if known from URL
 }
 
-export default function MovieDetailView({ movie, allCountryData, onBack, isExpandedSearch }: MovieDetailViewProps) {
+export default function MovieDetailView({ movie, allCountryData, onBack, isExpandedSearch, initialTmdbType }: MovieDetailViewProps) {
   const [showOnlyWithAvailability, setShowOnlyWithAvailability] = useState(true);
   const [tmdbDetails, setTmdbDetails] = useState<TMDBDetails | null>(null);
   const [tmdbLoading, setTmdbLoading] = useState(false);
+  const [tmdbType, setTmdbType] = useState<'movie' | 'tv' | null>(initialTmdbType || null); // Track if TMDB entry is movie or TV
   const [isAdding, setIsAdding] = useState(false);
   const [addError, setAddError] = useState<string | null>(null);
   const [addSuccess, setAddSuccess] = useState(false);
   const [existingFilmId, setExistingFilmId] = useState<string | null>(null);
+  const [existingFilmTitle, setExistingFilmTitle] = useState<string | null>(null);
+  const [existingFilmYear, setExistingFilmYear] = useState<number | null>(null);
   const [isChecking, setIsChecking] = useState(false);
 
   // Fetch TMDB details if we have a TMDB ID or can search by title
   useEffect(() => {
     if (!tmdbDetails && !tmdbLoading) {
       let apiUrl = '';
+      let detectedType: 'movie' | 'tv' | null = null;
       
       if (movie.tmdbId) {
-        // Use TMDB ID if available
-        apiUrl = `/api/tmdb-details?tmdbId=${movie.tmdbId}`;
-        console.log('Fetching TMDB details for ID:', movie.tmdbId);
+        // Use initial type if provided, otherwise try movie first, then TV if movie fails
+        if (initialTmdbType) {
+          apiUrl = `/api/tmdb-details?tmdbId=${movie.tmdbId}&type=${initialTmdbType}`;
+          detectedType = initialTmdbType;
+          console.log('Fetching TMDB details for ID:', movie.tmdbId, 'type:', initialTmdbType);
+        } else {
+          // Try movie first, then TV if movie fails
+          // This handles the case where we have a TMDB ID but don't know if it's movie or TV
+          apiUrl = `/api/tmdb-details?tmdbId=${movie.tmdbId}&type=movie`;
+          console.log('Fetching TMDB details for ID:', movie.tmdbId, 'trying movie first');
+        }
       } else if (movie.title && movie.originalReleaseYear) {
-        // Fallback to search by title and year
+        // Fallback to search by title and year (only searches movies)
         apiUrl = `/api/tmdb-details?title=${encodeURIComponent(movie.title)}&year=${movie.originalReleaseYear}`;
         console.log('Searching TMDB for:', movie.title, movie.originalReleaseYear);
+        detectedType = 'movie'; // Search only returns movies
       }
       
       if (apiUrl) {
@@ -64,11 +78,25 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
             if (response.ok) {
               return response.json();
             }
+            // If movie fetch failed and we have a TMDB ID, try TV
+            if (!response.ok && movie.tmdbId && !detectedType) {
+              console.log('Movie fetch failed, trying TV...');
+              return fetch(`/api/tmdb-details?tmdbId=${movie.tmdbId}&type=tv`)
+                .then(tvResponse => {
+                  if (tvResponse.ok) {
+                    detectedType = 'tv';
+                    return tvResponse.json();
+                  }
+                  throw new Error(`Failed to fetch TMDB details: ${response.status}`);
+                });
+            }
             throw new Error(`Failed to fetch TMDB details: ${response.status}`);
           })
           .then((data: TMDBDetails) => {
             console.log('TMDB data received:', data);
             setTmdbDetails(data);
+            // Set type based on which API call succeeded
+            setTmdbType(detectedType || 'movie');
           })
           .catch(error => {
             console.error('Error fetching TMDB details:', error);
@@ -88,6 +116,11 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
     // Don't check if we've already successfully added the film
     if (addSuccess && existingFilmId) return;
 
+    // Reset existing film info when movie changes
+    setExistingFilmId(null);
+    setExistingFilmTitle(null);
+    setExistingFilmYear(null);
+
     const checkFilmExists = async () => {
       setIsChecking(true);
       try {
@@ -105,6 +138,8 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
         const data = await response.json();
         if (data.exists && data.filmId) {
           setExistingFilmId(data.filmId);
+          setExistingFilmTitle(data.existingTitle || null);
+          setExistingFilmYear(data.existingYear || null);
         }
       } catch (error) {
         console.error('Error checking if film exists:', error);
@@ -117,7 +152,7 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
     if (tmdbDetails || (!tmdbLoading && (movie.tmdbId || (movie.title && movie.originalReleaseYear)))) {
       checkFilmExists();
     }
-  }, [movie, tmdbDetails, tmdbLoading, addSuccess, existingFilmId]);
+  }, [movie, tmdbDetails, tmdbLoading, addSuccess]);
 
   // Handle adding film to database
   const handleAddToDatabase = async () => {
@@ -133,6 +168,8 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
           movie,
           tmdbDetails: tmdbDetails || undefined,
           allCountryData: allCountryData,
+          forceAdd: !!existingFilmId, // Force add if there's an existing match
+          tmdbType: tmdbType || undefined, // Send type so API knows if it's movie or TV
         }),
       });
 
@@ -144,6 +181,8 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
 
       if (data.exists) {
         setExistingFilmId(data.filmId);
+        setExistingFilmTitle(data.existingTitle || null);
+        setExistingFilmYear(data.existingYear || null);
         setAddError(`Film already exists with ID: ${data.filmId}`);
       } else if (data.success) {
         setAddSuccess(true);
@@ -418,26 +457,36 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
                   ) : existingFilmId ? (
                     <div className="text-sm text-white/70">
                       Already in database: <span className="font-mono">{existingFilmId}</span>
+                      {existingFilmTitle && (
+                        <div className="text-xs text-white/50 mt-1">
+                          Matched: &quot;{existingFilmTitle}&quot; ({existingFilmYear})
+                        </div>
+                      )}
+                      <div className="text-xs text-yellow-400 mt-2">
+                        Titles are different - you can add both if needed
+                      </div>
                     </div>
                   ) : addError ? (
                     <div className="text-sm text-red-400">{addError}</div>
                   ) : null}
-                  <button
-                    onClick={handleAddToDatabase}
-                    disabled={isAdding || !!existingFilmId}
-                    className="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-[#1A1A2E] transition-colors font-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isAdding ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-500 mr-2"></div>
-                        Adding...
-                      </>
-                    ) : existingFilmId ? (
-                      'Already Added'
-                    ) : (
-                      'Add to Database'
-                    )}
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleAddToDatabase}
+                      disabled={isAdding}
+                      className="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-[#1A1A2E] transition-colors font-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isAdding ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-500 mr-2"></div>
+                          Adding...
+                        </>
+                      ) : existingFilmId ? (
+                        'Force Add Anyway'
+                      ) : (
+                        'Add to Database'
+                      )}
+                    </button>
+                  </div>
                 </div>
               )}
               <button
@@ -590,7 +639,7 @@ export default function MovieDetailView({ movie, allCountryData, onBack, isExpan
                       <span className="font-medium text-gray-600">TMDB:</span>
                       <div>
                         <a 
-                          href={`https://www.themoviedb.org/movie/${tmdbDetails?.tmdbId || movie.tmdbId}`}
+                          href={`https://www.themoviedb.org/${tmdbType === 'tv' ? 'tv' : 'movie'}/${tmdbDetails?.tmdbId || movie.tmdbId}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:text-blue-800 text-sm"
