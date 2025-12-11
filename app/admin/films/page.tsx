@@ -408,6 +408,62 @@ export default function AdminFilmsPage() {
     }
   };
 
+  const handleTMDBLink = async (tmdbUrl: string) => {
+    if (!editingFilm) return;
+
+    setRefreshingTMDB(true);
+    setMessage(null);
+
+    try {
+      // Parse TMDB URL to extract ID and type
+      const movieMatch = tmdbUrl.match(/themoviedb\.org\/movie\/(\d+)/);
+      const tvMatch = tmdbUrl.match(/themoviedb\.org\/tv\/(\d+)/);
+      
+      let tmdbId: string | null = null;
+      let type: 'movie' | 'tv' | null = null;
+
+      if (movieMatch) {
+        tmdbId = movieMatch[1];
+        type = 'movie';
+      } else if (tvMatch) {
+        tmdbId = tvMatch[1];
+        type = 'tv';
+      } else {
+        throw new Error('Invalid TMDB URL. Please use a URL like https://www.themoviedb.org/movie/676727 or https://www.themoviedb.org/tv/255451');
+      }
+
+      // Fetch TMDB details
+      const response = await fetch(`/api/tmdb-details?tmdbId=${tmdbId}&type=${type}`);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to fetch TMDB data');
+      }
+
+      const tmdbData = await response.json();
+
+      // Update editing film with TMDB data
+      setEditingFilm({
+        ...editingFilm,
+        tmdb_id: tmdbData.tmdbId || parseInt(tmdbId),
+        imdb_id: tmdbData.imdbId || editingFilm.imdb_id || null,
+        original_title: tmdbData.originalTitle || editingFilm.original_title || null,
+        synopsis: tmdbData.synopsis || editingFilm.synopsis || null,
+        runtime: tmdbData.runtime || editingFilm.runtime || null,
+        genres: tmdbData.genres?.map((g: { name: string }) => g.name) || editingFilm.genres || null,
+        poster_url_tmdb: tmdbData.posterPath || editingFilm.poster_url_tmdb || null,
+        director: tmdbData.directors?.[0] || editingFilm.director || null,
+      });
+
+      setMessage({ text: `TMDB data loaded from link! ID: ${tmdbId} (${type})`, type: 'success' });
+    } catch (error: any) {
+      console.error('Error loading TMDB from link:', error);
+      setMessage({ text: error.message || 'Failed to load TMDB data from link', type: 'error' });
+    } finally {
+      setRefreshingTMDB(false);
+    }
+  };
+
   // Normalize title: lowercase, remove punctuation/special chars, trim whitespace
   const normalizeTitle = (title: string): string => {
     return title.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
